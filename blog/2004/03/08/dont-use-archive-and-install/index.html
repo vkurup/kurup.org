@@ -1,0 +1,93 @@
+<!DOCTYPE HTML> 
+<html>
+   <head>
+   <meta charset=utf-8> 
+   <title>Don't use "Archive and Install" &larr; </title>
+   <meta name="author" content="Vinod Kurup" />
+
+   <link rel='openid.server' href='http://www.myopenid.com/server' />
+   <link rel='openid.delegate' href='http://www.kurup.org' />
+
+   <link rel="start" href="/" />
+
+	
+	
+	
+  	<link rel="alternate" type="application/atom+xml" href="atom.xml" title="RSS feed" />
+	
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/files/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/files/css/screen.css" type="text/css" />
+
+</head>
+<body id="">
+<div id="site">
+
+  <div id="header">
+	<h1>
+	<a href="/" title="My Personal Site">Vinod Kurup</a>
+</h1>
+<ul class="nav">
+  <li><a class="home" href="/">Home</a></li>
+  <li><a class="medicine" href="/medicine">Medicine</a></li>
+  <li><a class="feed" href="/blog/atom.xml">Feed</a></li>
+</ul>
+
+  </div>
+
+  <div id="page">
+	
+<h1 class="emphnext">Don't use "Archive and Install"</h1>
+
+
+<p> Thanks to the fine folks at <a href="http://badgertronics.com/blog">badgertronics</a>, I was able to upgrade my Powerbook to Panther free-of-charge. I initially did an "Archive and Install" upgrade, as recommended by the upgrade guide at <a href="http://www.tidbits.com/takecontrol/#upgrading">TidBITS</a> (easily worth the measly $5, IMHO). But soon after the install, I noticed that my system seemed a lot slower. I couldn't pinpoint a specific problem, but things just seemed sluggish. I definitely noticed that DNS seemed to be broken. I was moved to act when I noticed that my IMAP client (<a href="http://gopher.quux.org:70/devel/offlineimap">offlineimap</a>) took 15 minutes to sync 48 IMAP Maildirs between my Mac and my server. According to the offlineimap docs, syncing 50 Maildir folders should take around 3 seconds. Hmmm.... that seems a little wrong.  </p>  <p> I searched the Internet but was unable to find a specific fix for this problem. A few posters intimated that doing a fresh "Erase and Install" of Mac OS X 10.3 was better than using the "Archive and Install" option. So, this weekend, I backed up my HD using <a href="http://www.bombich.com/software/ccc.html">Carbon Copy Cloner</a>, erased my HD, and did a fresh install of Mac OS X Panther. </p>  <p> As expected, everything is quick and zippy again. A sync of my IMAP folders takes 15 seconds now, as opposed to 15 *minutes*. While I'm happy with the result, I wish I could figure out why the "Archive and Install" option resulted in such a poor outcome. </p>
+
+
+<address class="signature">
+  <span class="author">&nbsp;</span>
+  <span class="date">08 March 2004</span>
+  <span class="tags"><a href="http://www.google.com/search?q=mac+site:www.kurup.org" rel="tag">mac</a>  | <a href="http://www.google.com/search?q=installation+site:www.kurup.org" rel="tag">installation</a>  </span>
+</address>
+
+  </div>
+  
+  <div id="footer">
+	<address>
+		<span class="copyright">
+			Design by 
+			<a href="http://mark.reid.name">Mark Reid</a>
+			<br/>
+			(<a rel="licence" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Some rights reserved</a>)			
+		</span>
+		<span class="engine">
+			Powered by 
+			<a href="http://github.com/mojombo/jekyll/" title="A static, minimalist CMS">Jekyll</a>
+		</span>
+	</address>
+  </div>
+</div>
+
+<!-- Google Analytics script goes here -->
+<!--<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-1051817-4");
+pageTracker._trackPageview();
+</script>
+-->
+<!--[if IE 6]>
+<script type="text/javascript"> 
+	/*Load jQuery if not already loaded*/ if(typeof jQuery == 'undefined'){ document.write("<script type=\"text/javascript\"   src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\"></"+"script>"); var __noconflict = true; } 
+	var IE6UPDATE_OPTIONS = {
+		icons_path: "http://static.ie6update.com/hosted/ie6update/images/"
+	}
+</script>
+<script type="text/javascript" src="http://static.ie6update.com/hosted/ie6update/ie6update.js"></script>
+<![endif]-->
+</body>
+</html>
