@@ -4,13 +4,27 @@
  <title>Vinod Kurup's Blog</title>
  <link href="http://www.kurup.org/blog/atom.xml" rel="self"/>
  <link href="http://www.kurup.org/blog/"/>
- <updated>2009-09-19T14:42:23-04:00</updated>
+ <updated>2009-09-19T15:07:34-04:00</updated>
  <id>http://www.kurup.org/blog/</id>
  <author>
    <name>Vinod Kurup</name>
    <email>vinod@kurup.com</email>
  </author>
  
+ 
+ <entry>
+   <title>Blog Update</title>
+   <link href="http://www.kurup.org/blog/2009/09/19/blog-update/"/>
+   <updated>2009-09-19T00:00:00-04:00</updated>
+   <id>id:/blog/2009/09/19/blog-update</id>
+   <content type="html">&lt;p&gt;This site has undergone another transformation. I&amp;#8217;ve ditched &lt;a href='http://wordpress.org'&gt;Wordpress&lt;/a&gt; and am now using a tool called &lt;a href='http://github.com/mojombo/jekyll'&gt;Jekyll&lt;/a&gt;. It&amp;#8217;s a program that runs on my laptop and generates static files from a bunch of templates. I then upload the static files to my server. Wordpress, like any dynamic software, has security risks. Especially since it&amp;#8217;s such a popular blog app, it&amp;#8217;s always under attack. I don&amp;#8217;t have the time or interest to keep up with updates, especially since my blogging is so low-profile. It&amp;#8217;s just something I do for fun.&lt;/p&gt;
+
+&lt;p&gt;Static files have none of those security risks. There are a lot of static file generators out there, but I chose Jekyll because it seemed intuitive and it&amp;#8217;s run by the &lt;a href='http://github.com'&gt;GitHub&lt;/a&gt; folks. I&amp;#8217;ve started using git and GitHub and am impressed by their power so far.&lt;/p&gt;
+
+&lt;p&gt;This takes me full circle to my post-geocities days when I was generating static pages using &lt;a href='http://frontier.userland.com/'&gt;Userland Frontier&lt;/a&gt;. This still doesn&amp;#8217;t feel as satisfying as that did, but maybe that&amp;#8217;s only because it was such a new thing back then. I must admit that writing posts in emacs sure does feel nice.&lt;/p&gt;
+
+&lt;p&gt;Anyway, the design is completely ripped off from &lt;a href='http://mark.reid.name'&gt;Mark Reid&lt;/a&gt;. My design skills suck, and his rock. Of course, I am a tweaker, so I&amp;#8217;ll probably end up ruining his beauty at some point.&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Running is good for your knees</title>
@@ -241,24 +255,6 @@ sudo checkinstall&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Pregnancy has been uneventful, unless you count those recurrent waves of nausea and vomiting that Mala&amp;#8217;s been experiencing. Hopefully that will get better as we move into the second trimester.&lt;/p&gt;
 &lt;a href='/files/photos/blueberry-12wks-best.jpg'&gt;&lt;img title='blueberry-12wks-best' src='/files/photos/blueberry-12wks-best-300x202.jpg' height='202' alt='blueberry' width='300' /&gt;&lt;/a&gt;</content>
- </entry>
- 
- <entry>
-   <title>Starting again</title>
-   <link href="http://www.kurup.org/blog/2008/12/13/starting-again/"/>
-   <updated>2008-12-13T00:00:00-05:00</updated>
-   <id>id:/blog/2008/12/13/starting-again</id>
-   <content type="html">&lt;p&gt;For the remaining 2 readers of kurup.org (one of them being me), let me apologize for the lack of posts here over the past couple years. I have always meant to write more, but most of my writing seems to consist of apologies for not writing, short bursts of writing, and then long stretches of inactivity. We are nearing the end of a long stretch of inactivity now, so it&amp;#8217;s time for the apologies.&lt;/p&gt;
-
-&lt;p&gt;A part of my apprehension has always been that someone will read my writing and laugh at how ridiculous I am. How could I possibly take myself seriously? Yes, I am quite self conscious. But, I figure that now that I&amp;#8217;ve posted just about nothing for the past year, anyone left here is going to be pretty forgiving of what I write.&lt;/p&gt;
-
-&lt;p&gt;So, I hereby announce my plan to start writing blog posts again. I don&amp;#8217;t know what exactly I&amp;#8217;ll write about, but I don&amp;#8217;t think there will be much focus. Whatever I&amp;#8217;m happening to think about will become the new focus of kurup.org.&lt;/p&gt;
-
-&lt;p&gt;Kavi is now 18 months old. He loves to sing, dance and make art. He has about 25 words that he says, although you have to be his father or mother to understand most of them. To my delight, he loves to sit in my lap just before bedtime and listen to me read stories. His favorite at the moment is a book called &amp;#8220;We&amp;#8217;re Going on a Bear Hunt.&amp;#8221; It&amp;#8217;s a silly book that has a repeating theme with the words &amp;#8220;Uh oh&amp;#8221; and &amp;#8220;Oh no!&amp;#8221; at regular, predictable places in the story. And whenever I get to those words, Kavi sings them back to me as only a toddler can. &amp;#8220;Uh ooooooooh!&amp;#8221; and &amp;#8220;Nu nooooo!&amp;#8221;. I&amp;#8217;m actually going to miss these days once he&amp;#8217;s speaking coherently someday&amp;#8230;&lt;/p&gt;
-
-&lt;p&gt;Work has been getting better. I&amp;#8217;ve been at DRH for over a year now and I&amp;#8217;m starting to feel more comfortable as a hospitalist. I have much more confidence in my gut feelings than I did a year ago. Medicine, however, is always humbling, so whenever you start feeling comfortable, you can almost guarantee that something is going to blindside you and make you re-evaluate your thought processes and assumptions. I had a case like that the other day, which I&amp;#8217;m not going to go into at the moment, since it&amp;#8217;s too fresh and I haven&amp;#8217;t had time to figure out what lessons I need to learn from it yet. On the whole, though, I am feeling better about work. I&amp;#8217;ve even volunteered to lead a project to institute online progress notes (Electronic Medical Records) at the hospital. This, to me, is scary. There are so many things that can go wrong with any computerization project in healthcare and this is one that I badly want to go right. If there are any people who have been through this process before, I would love to hear from you.&lt;/p&gt;
-
-&lt;p&gt;PS. Thanks &lt;a href='http://mark.aufflick.com'&gt;Mark&lt;/a&gt;&lt;/p&gt;</content>
  </entry>
  
  
