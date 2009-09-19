@@ -42,14 +42,37 @@
 	
 <h1 class="emphnext">AOLserver CGI errors</h1>
 
+<p>Scenario: You&#8217;re trying to run a CGI program under AOLserver and you see this in your error log:</p>
 
-<p> Scenario: You're trying to run a CGI program under AOLserver and you see this in your error log: </p>  <p> <code> 19/Jul/2003:00:00:23     Error: exec /home/vinod/cgi-bin/mt: execve() failed: Permission denied<br />  19/Jul/2003:00:00:23     Error: waitpid(-3) failed: No child processes<br />  19/Jul/2003:00:00:23     Error: nscgi: wait for /home/vinod/cgi-bin/mt failed: No child processes<br /> </code> </p>  <p> I'm trying to run <code>/home/vinod/cgi-bin/mt/mt.cgi</code>. Why isn't this working? Because I need to tell AOLserver about each and every directory which might contain CGI programs. </p>  <p> So I need to change my <code>nsd.tcl</code> from: </p>  <pre> ns_section "ns/server/${server}/module/nscgi" ns_param   map "GET  /cgi-bin /home/${user_account}/cgi-bin/" ns_param   map "POST /cgi-bin /home/${user_account}/cgi-bin/" ns_param   Interps CGIinterps </pre>  <p> to </p>  <pre> ns_section "ns/server/${server}/module/nscgi" ns_param   map "GET  /cgi-bin /home/${user_account}/cgi-bin/" ns_param   map "POST /cgi-bin /home/${user_account}/cgi-bin/" ns_param   map "GET  /cgi-bin/mt /home/${user_account}/cgi-bin/mt" ns_param   map "POST /cgi-bin/mt /home/${user_account}/cgi-bin/mt" ns_param   Interps CGIinterps </pre>  <p> Problem solved. Further reading: <a href="http://jongriffin.com/static/consultant/nscgi">http://jongriffin.com/static/consultant/nscgi</a> -  sure wish I had read that before I started messing with ns_cgi. </p>
+<pre><code>19/Jul/2003:00:00:23     Error: exec /home/vinod/cgi-bin/mt: execve() failed: Permission denied
+19/Jul/2003:00:00:23     Error: waitpid(-3) failed: No child processes
+19/Jul/2003:00:00:23     Error: nscgi: wait for /home/vinod/cgi-bin/mt failed: No child processes</code></pre>
+
+<p>I&#8217;m trying to run <code>/home/vinod/cgi-bin/mt/mt.cgi</code>. Why isn&#8217;t this working? Because I need to tell AOLserver about each and every directory which might contain CGI programs.</p>
+
+<p>So I need to change my <code>nsd.tcl</code> from:</p>
+
+<pre><code>ns_section &quot;ns/server/${server}/module/nscgi&quot;
+ns_param   map &quot;GET  /cgi-bin /home/${user_account}/cgi-bin/&quot; 
+ns_param   map &quot;POST /cgi-bin /home/${user_account}/cgi-bin/&quot; 
+ns_param   Interps CGIinterps</code></pre>
+
+<p>to</p>
+
+<pre><code>ns_section &quot;ns/server/${server}/module/nscgi&quot;
+ns_param   map &quot;GET  /cgi-bin /home/${user_account}/cgi-bin/&quot;
+ns_param   map &quot;POST /cgi-bin /home/${user_account}/cgi-bin/&quot;
+ns_param   map &quot;GET  /cgi-bin/mt /home/${user_account}/cgi-bin/mt&quot; 
+ns_param   map &quot;POST /cgi-bin/mt /home/${user_account}/cgi-bin/mt&quot; 
+ns_param   Interps CGIinterps</code></pre>
+
+<p>Problem solved. Further reading: <a href='http://jongriffin.com/static/consultant/nscgi'>http://jongriffin.com/static/consultant/nscgi</a> - sure wish I had read that before I started messing with ns_cgi.</p>
 
 
 <address class="signature">
   <span class="author">&nbsp;</span>
   <span class="date">20 July 2003</span>
-  <span class="tags"><a href="http://www.google.com/search?q=uncategorized+site:www.kurup.org" rel="tag">uncategorized</a>  </span>
+  <span class="tags"><a href="http://www.google.com/search?q=aolserver+site:www.kurup.org" rel="tag">aolserver</a>  | <a href="http://www.google.com/search?q=web+site:www.kurup.org" rel="tag">web</a>  | <a href="http://www.google.com/search?q=programming+site:www.kurup.org" rel="tag">programming</a>  </span>
 </address>
 
   </div>

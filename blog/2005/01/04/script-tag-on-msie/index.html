@@ -42,8 +42,15 @@
 	
 <h1 class="emphnext">SCRIPT Tag on MSIE</h1>
 
+<p>Word to the wise. MSIE5 (Mac) doesn&#8217;t like:</p>
 
-<p> Word to the wise. MSIE5 (Mac) doesn't like: </p>  <pre> &lt;script type="blah" src="blah" /&gt; </pre>  <p> It only likes: </p> <pre> &lt;script type="blah" src="blah&gt;&lt;/script&gt; </pre>  <p> It's quite stubborn. If you try the first example, it will refuse to show any of your page. </p>
+<pre><code> &amp;lt;script type=&quot;blah&quot; src=&quot;blah&quot; /&amp;gt; </code></pre>
+
+<p>It only likes:</p>
+
+<pre><code> &amp;lt;script type=&quot;blah&quot; src=&quot;blah&amp;gt;&amp;lt;/script&amp;gt;</code></pre>
+
+<p>It&#8217;s quite stubborn. If you try the first example, it will refuse to show any of your page.</p>
 
 
 <address class="signature">

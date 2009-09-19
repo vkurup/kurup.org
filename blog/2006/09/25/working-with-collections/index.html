@@ -42,8 +42,37 @@
 	
 <h1 class="emphnext">Working with collections</h1>
 
+<p>Steve Yegge wrote about the <a href='http://steve.yegge.googlepages.com/ruby-tour'>expressiveness of Ruby</a> as compared to Java. He used this simple problem as an example:</p>
 
-<p> Steve Yegge wrote about the <a href="http://steve.yegge.googlepages.com/ruby-tour">expressiveness of Ruby</a> as compared to Java. He used this simple problem as an example: </p>  <blockquote><p> How about if we write a program that will print out all the words in the dictionary starting with the letter 'Q' (case-insensitive), grouped by increasing length, and sorted alphabetically within each group. </p></blockquote>  <p> The Ruby version was about 12 lines of code and Java version about 43. Of course, the point of the exercise wasn't simply the difference in LOCs, but in the overall simplicity of dealing with collections of data. Still, I wanted to see how Tcl would deal with the same problem. Here's the simplest version I could come up with: </p>  <pre> set f [open /usr/share/dict/words r] set words [read -nonewline $f] close $f  set qwords [lsearch -all -inline [split $words \n] {[Qq]*}]  proc compare_length {a b} {     if { [string length $a] <= [string length $b] } {         return -1     } else {         return 1     } }  set sorted_qwords [lsort -command compare_length [lsort $qwords]]  set max -1 foreach qword $sorted_qwords {     if { [string length $qword] > $max } {         set max [string length $qword]         puts "Words of length $max:"     }     puts "  $qword" } </pre>  <p> About 19 lines and pretty simple to write and read. Can this be improved? </p>
+<blockquote>
+<p>How about if we write a program that will print out all the words in the dictionary starting with the letter &#8216;Q&#8217; (case-insensitive), grouped by increasing length, and sorted alphabetically within each group.</p>
+</blockquote>
+
+<p>The Ruby version was about 12 lines of code and Java version about 43. Of course, the point of the exercise wasn&#8217;t simply the difference in LOCs, but in the overall simplicity of dealing with collections of data. Still, I wanted to see how Tcl would deal with the same problem. Here&#8217;s the simplest version I could come up with:</p>
+<div class='highlight'><pre><span class='k'>set</span> f <span class='k'>[</span><span class='nb'>open</span> <span class='o'>/</span>usr<span class='o'>/</span>share<span class='o'>/</span>dict<span class='o'>/</span>words r<span class='k'>]</span>
+<span class='k'>set</span> words <span class='k'>[</span><span class='nb'>read</span> <span class='o'>-</span>nonewline <span class='nv'>$f</span><span class='k'>]</span>
+<span class='nb'>close</span> <span class='nv'>$f</span>
+<span class='k'>set</span> qwords <span class='k'>[</span><span class='nb'>lsearch</span> <span class='o'>-</span>all <span class='o'>-</span>inline <span class='k'>[</span><span class='nb'>split</span> <span class='nv'>$words</span> <span class='err'>\</span>n<span class='k'>]</span> <span class='k'>{[</span><span class='nv'>Qq</span><span class='k'>]</span><span class='o'>*</span><span class='k'>}]</span>
+
+<span class='k'>proc</span> compare_length <span class='k'>{</span><span class='nv'>a</span> b<span class='k'>}</span> <span class='k'>{</span>
+    <span class='k'>if</span> <span class='k'>{</span> <span class='k'>[</span><span class='nb'>string</span> length <span class='nv'>$a</span><span class='k'>]</span> <span class='o'>&lt;=</span> <span class='k'>[</span><span class='nb'>string</span> length <span class='nv'>$b</span><span class='k'>]</span> <span class='k'>}</span> <span class='k'>{</span>
+        <span class='k'>return</span> <span class='o'>-</span><span class='mi'>1</span>
+    <span class='k'>}</span> <span class='k'>else</span> <span class='k'>{</span>
+        <span class='k'>return</span> <span class='mi'>1</span> 
+    <span class='k'>}</span> 
+<span class='k'>}</span>
+
+<span class='k'>set</span> sorted_qwords <span class='k'>[</span><span class='nb'>lsort</span> <span class='o'>-</span>command compare_length <span class='k'>[</span><span class='nb'>lsort</span> <span class='nv'>$qwords</span><span class='k'>]]</span>
+<span class='k'>set</span> max <span class='o'>-</span><span class='mi'>1</span> foreach qword <span class='nv'>$sorted_qwords</span> <span class='k'>{</span>
+    <span class='k'>if</span> <span class='k'>{</span> <span class='k'>[</span><span class='nb'>string</span> length <span class='nv'>$qword</span><span class='k'>]</span> <span class='o'>&gt;</span> <span class='nv'>$max</span> <span class='k'>}</span> <span class='k'>{</span>
+        <span class='k'>set</span> max <span class='k'>[</span><span class='nb'>string</span> length <span class='nv'>$qword</span><span class='k'>]</span>
+        <span class='nb'>puts</span> <span class='s2'>&quot;Words of length $max:&quot;</span>
+    <span class='k'>}</span>
+    <span class='nb'>puts</span> <span class='s2'>&quot;  $qword&quot;</span>
+<span class='k'>}</span>
+</pre>
+</div>
+<p>About 19 lines and pretty simple to write and read. Can this be improved?</p>
 
 
 <address class="signature">

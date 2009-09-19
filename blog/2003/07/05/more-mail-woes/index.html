@@ -42,14 +42,26 @@
 	
 <h1 class="emphnext">More Mail Woes</h1>
 
+<p>I spent most of this afternoon struggling with a mail issue and I didn&#8217;t find it documented well anywhere else, so I&#8217;m going to write about it here in the hopes that it might help someone else.</p>
 
-<p> I spent most of this afternoon struggling with a mail issue and I didn't find it documented well anywhere else, so I'm going to write about it here in the hopes that it might help someone else. </p>  <p> <strong>What I was trying to do:</strong> Setup qmail + vpopmail + courier imap for imap and pop3d </p>  <p> <strong>Problem I was having:</strong> For some users, checking POP3 mail would work for a while (about 5 minutes), but then would fail: </p>  <pre> Jul  5 00:30:34 vkurup pop3d: LOGIN FAILED, ip=[::ffff:68.173.27.35] Jul  5 00:30:34 vkurup pop3d: Disconnected, ip=[::ffff:68.173.27.35] </pre>  <p> The failure would only happen for users who had vpopmail accounts <strong>and</strong> shell accounts. Users who have only vpopmail accounts were fine. </p>  <p> Eventually, after much searching, I found this <a href="http://bluedot.net/mail/archive/read.php?f=2&amp;i=10881&amp;t=10880">message</a> which advised to configure courier-imap with --without-authdaemon. This solved my problem. </p>  <p> According to the author of courier-imap, <a href="http://sourceforge.net/mailarchive/forum.php?thread_id=2388144&amp;forum_id=33081">this problem is solved in newer versions of vpopmail</a>, but he mentions version 5.3.38 and I could only find version 5.3.20, so I didn't try that fix. </p>
+<p><strong>What I was trying to do:</strong> Setup qmail + vpopmail + courier imap for imap and pop3d</p>
+
+<p><strong>Problem I was having:</strong> For some users, checking POP3 mail would work for a while (about 5 minutes), but then would fail:</p>
+
+<pre><code>      Jul  5 00:30:34 vkurup pop3d: LOGIN FAILED, ip=[::ffff:68.173.27.35]
+      Jul  5 00:30:34 vkurup pop3d: Disconnected, ip=[::ffff:68.173.27.35]</code></pre>
+
+<p>The failure would only happen for users who had vpopmail accounts <strong>and</strong> shell accounts. Users who have only vpopmail accounts were fine.</p>
+
+<p>Eventually, after much searching, I found this <a href='http://bluedot.net/mail/archive/read.php?f=2&amp;amp;i=10881&amp;amp;t=10880'>message</a> which advised to configure courier-imap with <code>--without-authdaemon</code>. This solved my problem.</p>
+
+<p>According to the author of courier-imap, <a href='http://sourceforge.net/mailarchive/forum.php?thread_id=2388144&amp;amp;forum_id=33081'>this problem is solved in newer versions of vpopmail</a>, but he mentions version 5.3.38 and I could only find version 5.3.20, so I didn&#8217;t try that fix.</p>
 
 
 <address class="signature">
   <span class="author">&nbsp;</span>
   <span class="date">05 July 2003</span>
-  <span class="tags"><a href="http://www.google.com/search?q=uncategorized+site:www.kurup.org" rel="tag">uncategorized</a>  </span>
+  <span class="tags"><a href="http://www.google.com/search?q=sysadmin+site:www.kurup.org" rel="tag">sysadmin</a>  | <a href="http://www.google.com/search?q=mail+site:www.kurup.org" rel="tag">mail</a>  </span>
 </address>
 
   </div>

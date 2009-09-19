@@ -42,14 +42,87 @@
 	
 <h1 class="emphnext">Updating from CVS</h1>
 
+<p>Here&#8217;s the steps I take in order to update my site from the latest OpenACS CVS. All of this info comes from <a href='http://piskorski.com/docs/cvs-conventions.html'>Andrew Piskorski&#8217;s great CVS page</a> or from pages listed in his document.</p>
 
-<p> Here's the steps I take in order to update my site from the latest OpenACS CVS. All of this info comes from <a href="http://piskorski.com/docs/cvs-conventions.html">Andrew Piskorski's great CVS page</a> or from pages listed in his document. </p>  <ol> <li>Make sure that I've committed all the local changes that I've made. <pre> vinod:~$ cd web/kurup vinod:~/web/kurup$ cvs commit -m "Fixed foo, bar and blah" </pre> </li>  <li>Go into the directory containing my OpenACS CVS checkout and grab the latest sources. I'm using the <code>oacs-4-6</code> branch. <pre> vinod:~/web/kurup$ cd ~/web/openacs-4 vinod:~/web/openacs-4$ cvs update -r oacs-4-6 </pre> </li>  <li>Import the code into a vendor branch. My repository name is <code>kurup</code>. <code>OpenACS</code> is the vendor tag. <pre> vinod:~/web/openacs-4$ cvs -d /var/lib/cvs \      import -m "importing latest OpenACS 4.6 branch" \      kurup OpenACS openacs-4-6-3-20030719 </pre> </li>  <li>This produces the usual CVS scroll and then a message like this: <pre> 7 conflicts created by this import. Use the following command to help the merge:      cvs -d /var/lib/cvs checkout -j&lt;prev_rel_tag&gt; \         -jopenacs-4-6-3-20030719 kurup </pre> </li>  <li>Follow the instructions just given above. This will checkout a full set of code into the <code>kurup</code> directory, while simultaneously merging the new imported code in. <pre> vinod@vkurup:~/web/openacs-4$ cd vinod@vkurup:~$ mkdir tmp vinod@vkurup:~$ cd tmp vinod@vkurup:~/tmp$ cvs -d /var/lib/cvs checkout \      -jOpenACS:yesterday \      -jopenacs-4-6-3-20030719 kurup </pre> </li>  <li>Go through and fix all the conflicts. This is the part that I sometimes find confusing. How to find the files that have conflicts? The command in instruction #3 above will list conflict files with a C in front of the filename. Check each file that has a C in front of it. This is why I like to do this process inside an emacs shell, so that I can look over the output as needed. For example, one piece of my listing looked like this: <pre> U kurup/packages/lars-blogger/www/blog-oracle.xql U kurup/packages/lars-blogger/www/blog.adp C kurup/packages/lars-blogger/www/blog.tcl U kurup/packages/lars-blogger/www/calendar-oracle.xql </pre> So, I need to check ~/tmp/kurup/packages/lars-blogger/www/blog.tcl, look for conflict markers and resolve any conflicts. Do this for every file marked 'C' in your listing. </li>  <li>Commit my work. <pre> vinod:~/tmp$ cd kurup vinod:~/tmp/kurup$ cvs commit \ -m "merged with openacs-4-6-3-20030719, conflicts resolved" </pre> </li>  <li>Blow away that tmp checkout <pre> vinod:~/tmp/kurup$ cd vinod:~$ rm -r tmp </pre> </li>  <li>Update my local checkout <pre> vinod:~$ cd web/kurup vinod:~/web/kurup$ cvs update </pre> </li>  <li>Restart my server. <pre> vinod:~$ svc -t /service/master </pre> </li>  <li>Once the server is back up, I visit http://kurup.org/acs-admin/apm with my broswer and click on 'Install Packages'. I look for any packages that are listed as 'Upgrade'. Click on these packages and follow the instructions to perform any needed upgrades. This is always a touchy process because if the upgrade script errors out, your server may be left in an in-between state. Hope and pray liberally. </li>  <li>Repeat as needed, maybe monthly, or whenever there's a new feature/bugfix available that you need.</li> </ol>   <p> &nbsp; </p>
+<ol>
+<li>
+<p>Make sure that I&#8217;ve committed all the local changes that I&#8217;ve made.</p>
+
+<p>vinod:~$ cd web/kurup vinod:~/web/kurup$ cvs commit -m &#8220;Fixed foo, bar and blah&#8221;</p>
+</li>
+
+<li>
+<p>Go into the directory containing my OpenACS CVS checkout and grab the latest sources. I&#8217;m using the <code>oacs-4-6</code> branch.</p>
+
+<p>vinod:~/web/kurup$ cd ~/web/openacs-4 vinod:~/web/openacs-4$ cvs update -r oacs-4-6</p>
+</li>
+
+<li>
+<p>Import the code into a vendor branch. My repository name is <code>kurup</code>. <code>OpenACS</code> is the vendor tag.</p>
+
+<p>vinod:~/web/openacs-4$ cvs -d /var/lib/cvs \ import -m &#8220;importing latest OpenACS 4.6 branch&#8221; \ kurup OpenACS openacs-4-6-3-20030719</p>
+</li>
+
+<li>
+<p>This produces the usual CVS scroll and then a message like this:</p>
+
+<p>7 conflicts created by this import. Use the following command to help the merge: cvs -d /var/lib/cvs checkout -j&#60;prev_rel_tag&#62; \ jopenacs-4-6-3-20030719 kurup</p>
+</li>
+
+<li>
+<p>Follow the instructions just given above. This will checkout a full set of code into the <code>kurup</code> directory, while simultaneously merging the new imported code in.</p>
+
+<p>vinod@vkurup:~/web/openacs-4$ cd vinod@vkurup:~$ mkdir tmp vinod@vkurup:~$ cd tmp vinod@vkurup:~/tmp$ cvs -d /var/lib/cvs checkout \ -jOpenACS:yesterday \ jopenacs-4-6-3-20030719 kurup</p>
+</li>
+
+<li>
+<p>Go through and fix all the conflicts. This is the part that I sometimes find confusing. How to find the files that have conflicts? The command in instruction #3 above will list conflict files with a C in front of the filename. Check each file that has a C in front of it. This is why I like to do this process inside an emacs shell, so that I can look over the output as needed. For example, one piece of my listing looked like this:</p>
+
+<p>U kurup/packages/lars-blogger/www/blog-oracle.xql U kurup/packages/lars-blogger/www/blog.adp C kurup/packages/lars-blogger/www/blog.tcl U kurup/packages/lars-blogger/www/calendar-oracle.xql</p>
+</li>
+</ol>
+
+<p>So, I need to check ~/tmp/kurup/packages/lars-blogger/www/blog.tcl, look for conflict markers and resolve any conflicts. Do this for every file marked &#8216;C&#8217; in your listing.</p>
+
+<ol>
+<li>
+<p>Commit my work.</p>
+
+<p>vinod:~/tmp$ cd kurup vinod:~/tmp/kurup$ cvs commit \ -m &#8220;merged with openacs-4-6-3-20030719, conflicts resolved&#8221;</p>
+</li>
+
+<li>
+<p>Blow away that tmp checkout</p>
+
+<p>vinod:~/tmp/kurup$ cd vinod:~$ rm -r tmp</p>
+</li>
+
+<li>
+<p>Update my local checkout</p>
+
+<p>vinod:~$ cd web/kurup vinod:~/web/kurup$ cvs update</p>
+</li>
+
+<li>
+<p>Restart my server.</p>
+
+<p>vinod:~$ svc -t /service/master</p>
+</li>
+
+<li>
+<p>Once the server is back up, I visit <code>http://kurup.org/acs-admin/apm</code> with my broswer and click on &#8216;Install Packages&#8217;. I look for any packages that are listed as &#8216;Upgrade&#8217;. Click on these packages and follow the instructions to perform any needed upgrades. This is always a touchy process because if the upgrade script errors out, your server may be left in an in-between state. Hope and pray liberally.</p>
+</li>
+
+<li>
+<p>Repeat as needed, maybe monthly, or whenever there&#8217;s a new feature/bugfix available that you need.</p>
+</li>
+</ol>
 
 
 <address class="signature">
   <span class="author">&nbsp;</span>
   <span class="date">20 July 2003</span>
-  <span class="tags"><a href="http://www.google.com/search?q=openacs+site:www.kurup.org" rel="tag">openacs</a>  | <a href="http://www.google.com/search?q=cvs+site:www.kurup.org" rel="tag">cvs</a>  | <a href="http://www.google.com/search?q=updating+site:www.kurup.org" rel="tag">updating</a>  </span>
+  <span class="tags"><a href="http://www.google.com/search?q=openacs+site:www.kurup.org" rel="tag">openacs</a>  | <a href="http://www.google.com/search?q=cvs+site:www.kurup.org" rel="tag">cvs</a>  | <a href="http://www.google.com/search?q=updating+site:www.kurup.org" rel="tag">updating</a>  | <a href="http://www.google.com/search?q=programming+site:www.kurup.org" rel="tag">programming</a>  </span>
 </address>
 
   </div>

@@ -289,6 +289,18 @@ body#Kith #header a.kith
 	font-weight: bold;
 	font-variant: small-caps;
 }
+.section h5 {
+	font-family: Palatino, georgia, serif;
+	font-size: 100%;
+	line-height: 1.43em;
+	position: absolute;
+	width: 6em;
+	max-width: 6em;
+	margin-left: -7.5em;
+	font-weight: normal;
+	font-variant: small-caps;
+}
+
 .section p { margin-bottom: 1.43em; }
 
 /* @end */
@@ -337,6 +349,13 @@ p.excerpt { margin: 0; }
 	right: 0;
 	top: 1.5em;
 }
+/* tags for index page */
+p.tags {
+	font-size: 87.5%;
+    text-align: right;
+	line-height: 0em;
+}
+
 /* @end */
 
 /* @group Code */
