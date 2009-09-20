@@ -5,10 +5,11 @@
    <title>Investment Performance 1996-2006 &larr; </title>
    <meta name="author" content="Vinod Kurup" />
 
-   <link rel='openid.server' href='http://www.myopenid.com/server' />
-   <link rel='openid.delegate' href='http://www.kurup.org' />
-
-   <link rel="start" href="/" />
+  <link rel="openid.server" href="http://www.myopenid.com/server" />
+  <link rel="openid.delegate" href="http://vkurup.myopenid.com/" />
+  <link rel="openid2.local_id" href="http://vkurup.myopenid.com" />
+  <link rel="openid2.provider" href="http://www.myopenid.com/server" />
+  <meta http-equiv="X-XRDS-Location" content="http://www.myopenid.com/xrds?username=vkurup.myopenid.com" />
 
 	
 	
@@ -46,12 +47,42 @@
 <table class='spreadsheet'> <thead> <tr> <th>Date</th>  <th>Me</th> <th>VFINX</th> </tr> </thead> <tfoot> <tr> <td>1996-2006</td> <td>  7.6%</td> <td>  8.6%</td> </tr> </tfoot> <tbody> <tr class='odd'> <td>1996</td> <td> 22.7%</td> <td> 35.7%</td> </tr> <tr class='even'> <td>1997</td> <td> 15.3%</td> <td> 28.6%</td> </tr> <tr class='odd'> <td>1998</td> <td> 15.1%</td> <td> 24.9%</td> </tr> <tr class='even'> <td>1999</td> <td> 66.0%</td> <td> 26.1%</td> </tr> <tr class='odd'> <td>2000</td> <td>-25.8%</td> <td> -7.4%</td> </tr> <tr class='even'> <td>2001</td> <td>-33.1%</td> <td>-12.3%</td> </tr> <tr class='odd'> <td>2002</td> <td>-21.1%</td> <td>-22.1%</td> </tr> <tr class='even'> <td>2003</td> <td> 31.7%</td> <td> 30.1%</td> </tr> <tr class='odd'> <td>[2004](http://kurup.org/blog/one-entry?entry%5fid=17065)</td> <td> 13.5%</td> <td> 11.7%</td> </tr> <tr class='even'> <td>[2005](http://kurup.org/blog/2006/01/04/investment-performance-1996-2005)</td> <td> 13.2%</td> <td>  4.7%</td> </tr> <tr class='odd'> <td>2006</td> <td> 12.8%</td> <td> 16.0%</td> </tr> </tbody> </table>
 <p>Notes: These are calculated using the XIRR function in <a href='http://www.openoffice.org/'>OpenOffice</a>. The <a href='http://www.gummy-stuff.org/misc-stuff.htm#XIRR'>XIRR function</a> takes a series of cash flows in or out of an account and returns the internal rate of return for that account. It&#8217;s the best way to compare portfolio returns when investments or withdrawals are made on an irregular basis. The VFINX column shows how I would have done if I had simply invested all my money into <a href='http://finance.yahoo.com/q?s=vfinx'>VFINX</a>, a low-cost mutual fund which tracks the S&#38;P 500. This number will not match numbers you see posted for VFINX for a given year because it depends on the timing of <strong>my</strong> investments. Note that I include the cost of commissions in my performance, but not in VFINX&#8217;s.</p>
 
-
 <address class="signature">
   <span class="author">&nbsp;</span>
   <span class="date">07 January 2007</span>
   <span class="tags"><a href="http://www.google.com/search?q=investing+site:www.kurup.org" rel="tag">investing</a>  | <a href="http://www.google.com/search?q=performance+site:www.kurup.org" rel="tag">performance</a>  | <a href="http://www.google.com/search?q=annual+site:www.kurup.org" rel="tag">annual</a>  </span>
 </address>
+
+<!-- Discus Comments -->
+<div id="disqus_thread"></div>
+
+<!-- Enable Disqus comments -->
+<script type="text/javascript">
+    var disqus_developer = "0";
+    var disqus_iframe_css = "http://www.kurup.org/blog/files/css/screen.css";
+    var disqus_title = "Investment Performance 1996-2006";
+</script>
+<script type="text/javascript" src="http://disqus.com/forums/vkurup/embed.js"></script>
+
+<noscript>
+		<a href="http://vkurup.disqus.com/?url=ref">View the discussion thread.</a>
+</noscript>
+
+<!-- DISQUS CODE -->
+<script type="text/javascript">
+//<![CDATA[
+(function() {
+	var links = document.getElementsByTagName('a');
+	var query = '?';
+	for(var i = 0; i < links.length; i++) {
+	if(links[i].href.indexOf('#disqus_thread') >= 0) {
+		query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+	}
+	}
+	document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/vkurup/get_num_replies.js' + query + '"></' + 'script>');
+})();
+//]]>
+</script>
 
   </div>
   
@@ -72,24 +103,16 @@
   </div>
 </div>
 
-<!-- Google Analytics script goes here -->
-<!--<script type="text/javascript">
+<!-- Google Analytics -->
+<script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 </script>
 <script type="text/javascript">
-var pageTracker = _gat._getTracker("UA-1051817-4");
+try{
+var pageTracker = _gat._getTracker("UA-79447-1");
 pageTracker._trackPageview();
+} catch(err) {}
 </script>
--->
-<!--[if IE 6]>
-<script type="text/javascript"> 
-	/*Load jQuery if not already loaded*/ if(typeof jQuery == 'undefined'){ document.write("<script type=\"text/javascript\"   src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\"></"+"script>"); var __noconflict = true; } 
-	var IE6UPDATE_OPTIONS = {
-		icons_path: "http://static.ie6update.com/hosted/ie6update/images/"
-	}
-</script>
-<script type="text/javascript" src="http://static.ie6update.com/hosted/ie6update/ie6update.js"></script>
-<![endif]-->
 </body>
 </html>

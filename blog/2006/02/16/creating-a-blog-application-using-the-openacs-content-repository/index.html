@@ -5,10 +5,11 @@
    <title>Creating a Blog Application using the OpenACS Content Repository &larr; </title>
    <meta name="author" content="Vinod Kurup" />
 
-   <link rel='openid.server' href='http://www.myopenid.com/server' />
-   <link rel='openid.delegate' href='http://www.kurup.org' />
-
-   <link rel="start" href="/" />
+  <link rel="openid.server" href="http://www.myopenid.com/server" />
+  <link rel="openid.delegate" href="http://vkurup.myopenid.com/" />
+  <link rel="openid2.local_id" href="http://vkurup.myopenid.com" />
+  <link rel="openid2.provider" href="http://www.myopenid.com/server" />
+  <meta http-equiv="X-XRDS-Location" content="http://www.myopenid.com/xrds?username=vkurup.myopenid.com" />
 
 	
 	
@@ -315,12 +316,42 @@ ad_proc <span class='o'>-</span>private blog::apm::before_uninstall <span class=
 
 <p>Like I said, this is very simplistic. You can create, read, update and delete posts, but that&#8217;s about it. No commenting. No tags or categories. No RSS feeds. No search. But, since we&#8217;ve used the CR as our base, I think it would be very easy to extend the app to do all those things. I&#8217;m going to work on that, just for fun, of course. Thanks to <a href='http://www.thedesignexperience.org'>Dave Bauer</a> for writing the TCL interface to the CR and for writing the wiki package which made me see the light about the benefits of using the CR.</p>
 
-
 <address class="signature">
   <span class="author">&nbsp;</span>
   <span class="date">16 February 2006</span>
   <span class="tags"><a href="http://www.google.com/search?q=blog+site:www.kurup.org" rel="tag">blog</a>  | <a href="http://www.google.com/search?q=cr+site:www.kurup.org" rel="tag">cr</a>  | <a href="http://www.google.com/search?q=openacs+site:www.kurup.org" rel="tag">openacs</a>  | <a href="http://www.google.com/search?q=programming+site:www.kurup.org" rel="tag">programming</a>  | <a href="http://www.google.com/search?q=web+site:www.kurup.org" rel="tag">web</a>  </span>
 </address>
+
+<!-- Discus Comments -->
+<div id="disqus_thread"></div>
+
+<!-- Enable Disqus comments -->
+<script type="text/javascript">
+    var disqus_developer = "0";
+    var disqus_iframe_css = "http://www.kurup.org/blog/files/css/screen.css";
+    var disqus_title = "Creating a Blog Application using the OpenACS Content Repository";
+</script>
+<script type="text/javascript" src="http://disqus.com/forums/vkurup/embed.js"></script>
+
+<noscript>
+		<a href="http://vkurup.disqus.com/?url=ref">View the discussion thread.</a>
+</noscript>
+
+<!-- DISQUS CODE -->
+<script type="text/javascript">
+//<![CDATA[
+(function() {
+	var links = document.getElementsByTagName('a');
+	var query = '?';
+	for(var i = 0; i < links.length; i++) {
+	if(links[i].href.indexOf('#disqus_thread') >= 0) {
+		query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+	}
+	}
+	document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/vkurup/get_num_replies.js' + query + '"></' + 'script>');
+})();
+//]]>
+</script>
 
   </div>
   
@@ -341,24 +372,16 @@ ad_proc <span class='o'>-</span>private blog::apm::before_uninstall <span class=
   </div>
 </div>
 
-<!-- Google Analytics script goes here -->
-<!--<script type="text/javascript">
+<!-- Google Analytics -->
+<script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 </script>
 <script type="text/javascript">
-var pageTracker = _gat._getTracker("UA-1051817-4");
+try{
+var pageTracker = _gat._getTracker("UA-79447-1");
 pageTracker._trackPageview();
+} catch(err) {}
 </script>
--->
-<!--[if IE 6]>
-<script type="text/javascript"> 
-	/*Load jQuery if not already loaded*/ if(typeof jQuery == 'undefined'){ document.write("<script type=\"text/javascript\"   src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\"></"+"script>"); var __noconflict = true; } 
-	var IE6UPDATE_OPTIONS = {
-		icons_path: "http://static.ie6update.com/hosted/ie6update/images/"
-	}
-</script>
-<script type="text/javascript" src="http://static.ie6update.com/hosted/ie6update/ie6update.js"></script>
-<![endif]-->
 </body>
 </html>

@@ -5,10 +5,11 @@
    <title>MTA sucks &larr; </title>
    <meta name="author" content="Vinod Kurup" />
 
-   <link rel='openid.server' href='http://www.myopenid.com/server' />
-   <link rel='openid.delegate' href='http://www.kurup.org' />
-
-   <link rel="start" href="/" />
+  <link rel="openid.server" href="http://www.myopenid.com/server" />
+  <link rel="openid.delegate" href="http://vkurup.myopenid.com/" />
+  <link rel="openid2.local_id" href="http://vkurup.myopenid.com" />
+  <link rel="openid2.provider" href="http://www.myopenid.com/server" />
+  <meta http-equiv="X-XRDS-Location" content="http://www.myopenid.com/xrds?username=vkurup.myopenid.com" />
 
 	
 	
@@ -44,12 +45,42 @@
 
 <p>I had the commute from hell this morning. The 4 train went &#8220;Out of service&#8221; at 149th street, so we all got off and crowded onto the other nearly-full 4 train going downtown. They closed the doors for a minute, then opened the doors and said &#8216;This 4 is out of service&#8217;. So now there are 2 train-fulls of people trying to get to the 5 train downstairs. It was chaos. I was able to squeeze onto the second 5 train that came by and then we waited there for like 10 minutes. We went 1 stop to 138th street and waited for another 10-20 minutes. We finally got to 125th street. I usually switch to the 6 train at 125th because it goes local to 96th street. The 4 and 5 trains go express to 86th. So, anyway, we get to 125th and I see the 6 train waiting there, so I cross over. Big mistake. The 6 train waited for 5 minutes and then said they would be delayed. They recommended that everyone go outside and get the M101 bus! I waited for a while, just cuz I was too lazy to go up. Thirty seconds after the announcement, they closed the doors and said that the train would be going express to 86th street. I&#8217;m glad I didn&#8217;t leave to get the bus. So, I finally get to my destination, an hour later than usual, 10 blocks further downtown from where I wanted to be. I usually don&#8217;t complain about the subway, but this has happened a lot. Their service in the Bronx is much worse than in it was in Manhattan.</p>
 
-
 <address class="signature">
   <span class="author">&nbsp;</span>
   <span class="date">29 November 2005</span>
   <span class="tags"><a href="http://www.google.com/search?q=bronx+site:www.kurup.org" rel="tag">bronx</a>  | <a href="http://www.google.com/search?q=bad+site:www.kurup.org" rel="tag">bad</a>  | <a href="http://www.google.com/search?q=mta+site:www.kurup.org" rel="tag">mta</a>  | <a href="http://www.google.com/search?q=service+site:www.kurup.org" rel="tag">service</a>  </span>
 </address>
+
+<!-- Discus Comments -->
+<div id="disqus_thread"></div>
+
+<!-- Enable Disqus comments -->
+<script type="text/javascript">
+    var disqus_developer = "0";
+    var disqus_iframe_css = "http://www.kurup.org/blog/files/css/screen.css";
+    var disqus_title = "MTA sucks";
+</script>
+<script type="text/javascript" src="http://disqus.com/forums/vkurup/embed.js"></script>
+
+<noscript>
+		<a href="http://vkurup.disqus.com/?url=ref">View the discussion thread.</a>
+</noscript>
+
+<!-- DISQUS CODE -->
+<script type="text/javascript">
+//<![CDATA[
+(function() {
+	var links = document.getElementsByTagName('a');
+	var query = '?';
+	for(var i = 0; i < links.length; i++) {
+	if(links[i].href.indexOf('#disqus_thread') >= 0) {
+		query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+	}
+	}
+	document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/vkurup/get_num_replies.js' + query + '"></' + 'script>');
+})();
+//]]>
+</script>
 
   </div>
   
@@ -70,24 +101,16 @@
   </div>
 </div>
 
-<!-- Google Analytics script goes here -->
-<!--<script type="text/javascript">
+<!-- Google Analytics -->
+<script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 </script>
 <script type="text/javascript">
-var pageTracker = _gat._getTracker("UA-1051817-4");
+try{
+var pageTracker = _gat._getTracker("UA-79447-1");
 pageTracker._trackPageview();
+} catch(err) {}
 </script>
--->
-<!--[if IE 6]>
-<script type="text/javascript"> 
-	/*Load jQuery if not already loaded*/ if(typeof jQuery == 'undefined'){ document.write("<script type=\"text/javascript\"   src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\"></"+"script>"); var __noconflict = true; } 
-	var IE6UPDATE_OPTIONS = {
-		icons_path: "http://static.ie6update.com/hosted/ie6update/images/"
-	}
-</script>
-<script type="text/javascript" src="http://static.ie6update.com/hosted/ie6update/ie6update.js"></script>
-<![endif]-->
 </body>
 </html>
