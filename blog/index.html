@@ -43,6 +43,23 @@
 
   <div id="page">
 	<div class='section list'>
+  <h1>21 Sep 2009</h1>
+  <p class='line'>
+  <a href='/blog/2009/09/21/speed-up-firefox-on-eeepc/' class='title'>Speed up Firefox on eeepc</a>
+  <a href='/blog/2009/09/21/speed-up-firefox-on-eeepc/#disqus_thread' class='comments'>View Comments</a>
+  </p>
+<p>I&#8217;m too weak to lug around my monstrous 7 pound laptop, so I bought a <a href='http://eeepc.asus.com/global/product1000.html'>netbook</a>. It&#8217;s an eeepc 1000 and I love it. I use it for everything, except for processing the kids&#8217; videos and photos. I still use the desktop for that.</p>
+
+<p>The major issue that I&#8217;ve had with it is that firefox seemed so slow. I tried other browsers, some which seemed faster, but I missed my firefox extensions. I googled and found that <a href='http://wiki.debian.org/DebianEeePC/TipsAndTricks#SpeedupsluggishIceweasel.2BAC8-Firefox3'>others had the same issue</a>. There are 2 flash hard drives in the eeepc. The first is 8GB and contains the root filesystem. The second is 32GB and contains the <code>/home</code> partition. Apparently the 8GB drive is <strong>significantly</strong> faster than the 32GB one. So the OS performs excellently since it&#8217;s on the 8GB drive, anything that requires a lot of disk access from the 32GB drive slows down. Firefox&#8217;s <code>.mozilla</code> configuration folder is mounted there by default.</p>
+
+<p>Moving the <code>.mozilla</code> folder to the 8GB drive has made web browsing speedy again. Here&#8217;s how I did it. I&#8217;m the only user on my system, so if you have multiple users, this will only fix the issue for one user.</p>
+
+<pre><code>sudo mkdir /usr/local/share/vinod-mozilla
+sudo chown vinod /usr/local/share/vinod-mozilla
+mv /home/vinod/.mozilla /usr/local/share/vinod-mozilla/
+ln -s /usr/local/share/vinod-mozilla/.mozilla /home/vinod/.mozilla</code></pre>
+<p class='tags'><a href='http://www.google.com/search?q=linux+site:www.kurup.org' rel='tag'>linux</a>  </p>
+</div><div class='section list'>
   <h1>19 Sep 2009</h1>
   <p class='line'>
   <a href='/blog/2009/09/19/blog-update/' class='title'>Blog Update</a>
@@ -208,15 +225,13 @@ sudo checkinstall</code></pre>
 
 <pre><code>vinod@ike:~/Music $ clamz &quot;Desktop/The 99 Most Essential Mozart Masterpieces.amz&quot;</code></pre>
 <p class='tags'><a href='http://www.google.com/search?q=gpl+site:www.kurup.org' rel='tag'>gpl</a>  | <a href='http://www.google.com/search?q=linux+site:www.kurup.org' rel='tag'>linux</a>  | <a href='http://www.google.com/search?q=music+site:www.kurup.org' rel='tag'>music</a>  </p>
-</div><div class='section list'>
-  <h1>30 Jun 2009</h1>
-  <p class='line'>
-  <a href='/blog/2009/06/30/ooohh-gross/' class='title'>Ooohh... gross!</a>
-  <a href='/blog/2009/06/30/ooohh-gross/#disqus_thread' class='comments'>View Comments</a>
-  </p>
-<p>In order to lose any remaining readers, I am very proud to announce that Kavi made a poopy in his potty. First time! It may well have been a lucky accident, but I&#8217;m happy about it. In other news, Anika is 1 week old and doing great.</p>
-<p class='tags'><a href='http://www.google.com/search?q=kavi+site:www.kurup.org' rel='tag'>kavi</a>  | <a href='http://www.google.com/search?q=anika+site:www.kurup.org' rel='tag'>anika</a>  </p>
 </div><h1>Older Posts</h1><div class='section list'>
+  <h5>21 Sep 2009</h5>
+  <p class='line'>
+  <a href='/blog/2009/09/21/speed-up-firefox-on-eeepc/' class='title'>Speed up Firefox on eeepc</a>
+  <a href='/blog/2009/09/21/speed-up-firefox-on-eeepc/#disqus_thread' class='comments'>View Comments</a>
+  </p>
+</div><div class='section list'>
   <h5>19 Sep 2009</h5>
   <p class='line'>
   <a href='/blog/2009/09/19/blog-update/' class='title'>Blog Update</a>

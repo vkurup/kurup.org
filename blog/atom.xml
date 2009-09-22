@@ -4,13 +4,30 @@
  <title>Vinod Kurup's Blog</title>
  <link href="http://www.kurup.org/blog/atom.xml" rel="self"/>
  <link href="http://www.kurup.org/blog/"/>
- <updated>2009-09-19T21:56:26-04:00</updated>
+ <updated>2009-09-21T20:42:01-04:00</updated>
  <id>http://www.kurup.org/blog/</id>
  <author>
    <name>Vinod Kurup</name>
    <email>vinod@kurup.com</email>
  </author>
  
+ 
+ <entry>
+   <title>Speed up Firefox on eeepc</title>
+   <link href="http://www.kurup.org/blog/2009/09/21/speed-up-firefox-on-eeepc/"/>
+   <updated>2009-09-21T00:00:00-04:00</updated>
+   <id>id:/blog/2009/09/21/speed-up-firefox-on-eeepc</id>
+   <content type="html">&lt;p&gt;I&amp;#8217;m too weak to lug around my monstrous 7 pound laptop, so I bought a &lt;a href='http://eeepc.asus.com/global/product1000.html'&gt;netbook&lt;/a&gt;. It&amp;#8217;s an eeepc 1000 and I love it. I use it for everything, except for processing the kids&amp;#8217; videos and photos. I still use the desktop for that.&lt;/p&gt;
+
+&lt;p&gt;The major issue that I&amp;#8217;ve had with it is that firefox seemed so slow. I tried other browsers, some which seemed faster, but I missed my firefox extensions. I googled and found that &lt;a href='http://wiki.debian.org/DebianEeePC/TipsAndTricks#SpeedupsluggishIceweasel.2BAC8-Firefox3'&gt;others had the same issue&lt;/a&gt;. There are 2 flash hard drives in the eeepc. The first is 8GB and contains the root filesystem. The second is 32GB and contains the &lt;code&gt;/home&lt;/code&gt; partition. Apparently the 8GB drive is &lt;strong&gt;significantly&lt;/strong&gt; faster than the 32GB one. So the OS performs excellently since it&amp;#8217;s on the 8GB drive, anything that requires a lot of disk access from the 32GB drive slows down. Firefox&amp;#8217;s &lt;code&gt;.mozilla&lt;/code&gt; configuration folder is mounted there by default.&lt;/p&gt;
+
+&lt;p&gt;Moving the &lt;code&gt;.mozilla&lt;/code&gt; folder to the 8GB drive has made web browsing speedy again. Here&amp;#8217;s how I did it. I&amp;#8217;m the only user on my system, so if you have multiple users, this will only fix the issue for one user.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo mkdir /usr/local/share/vinod-mozilla
+sudo chown vinod /usr/local/share/vinod-mozilla
+mv /home/vinod/.mozilla /usr/local/share/vinod-mozilla/
+ln -s /usr/local/share/vinod-mozilla/.mozilla /home/vinod/.mozilla&lt;/code&gt;&lt;/pre&gt;</content>
+ </entry>
  
  <entry>
    <title>Blog Update</title>
@@ -244,17 +261,6 @@ sudo checkinstall&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;I was running today even though I didn&amp;#8217;t want to. I figured I&amp;#8217;d just go around the block, maybe a mile. I strapped my nano Ipod to my arm and started off, feeling completely unmotivated. A minute of slow jogging later and I was deeply engrossed in a great story about a middle-aged long distance runner in NYC who jogs back to her old neighborhood and gets accosted by the new neighborhood kids living there. I couldn&amp;#8217;t stop now! So instead of turning right, I turned left and took the long way home. (Well&amp;#8230; 3 miles long).&lt;/p&gt;
 
 &lt;p&gt;Podcasts - they&amp;#8217;ll make you healthier!&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Soon there will be two</title>
-   <link href="http://www.kurup.org/blog/2008/12/17/soon-there-will-be-two/"/>
-   <updated>2008-12-17T00:00:00-05:00</updated>
-   <id>id:/blog/2008/12/17/soon-there-will-be-two</id>
-   <content type="html">&lt;p&gt;Kavi has been getting bored being surrounded by adults all the time. He is very happy to announce that a sibling is on its way. We&amp;#8217;re calling it blueberry. If things go on schedule, blueberry will be born sometime in June, so we&amp;#8217;ll have 2 June babies, a couple years apart.&lt;/p&gt;
-
-&lt;p&gt;Pregnancy has been uneventful, unless you count those recurrent waves of nausea and vomiting that Mala&amp;#8217;s been experiencing. Hopefully that will get better as we move into the second trimester.&lt;/p&gt;
-&lt;a href='/files/photos/blueberry-12wks-best.jpg'&gt;&lt;img title='blueberry-12wks-best' src='/files/photos/blueberry-12wks-best-300x202.jpg' height='202' alt='blueberry' width='300' /&gt;&lt;/a&gt;</content>
  </entry>
  
  
