@@ -25,7 +25,7 @@ layout: nil
 
  {% for post in site.posts %}
  <url>
-   <loc>http://www.kurup.org/{{ post.url }}</loc>
+   <loc>http://www.kurup.org{{ post.url }}</loc>
    <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
    <changefreq>monthly</changefreq>
    <priority>1</priority>
