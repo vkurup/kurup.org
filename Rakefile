@@ -66,7 +66,7 @@ task :tag do
 end
 
 desc 'Generate and publish the entire site, and send out pings'
-task :publish => [:build, :push, :sync, :ping] do
+task :publish => [:build, :push, :sync, :sitemap, :ping] do
 end
 
 desc 'create a new draft post'
