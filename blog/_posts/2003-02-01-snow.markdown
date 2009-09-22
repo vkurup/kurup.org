@@ -1,0 +1,7 @@
+---
+layout: post
+title: "Snow!"
+tags: [snow, nyc]
+---
+
+It's [snowing in NYC](http://kurup.org/photo/album?album_id=5325). Really hard.

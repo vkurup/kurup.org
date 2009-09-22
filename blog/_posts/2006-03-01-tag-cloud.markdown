@@ -1,0 +1,7 @@
+---
+layout: post
+title: "Tag Cloud"
+tags: [blog, delicious, tags]
+---
+
+And now I have a pretty tag cloud on the side of my blog (that I pretty much stole from [del.icio.us](http://del.icio.us))

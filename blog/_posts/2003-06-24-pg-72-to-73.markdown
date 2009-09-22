@@ -1,0 +1,15 @@
+---
+layout: post
+title: "PG 7.2 to 7.3"
+tags: [openacs, postgresql, programming]
+---
+
+Not all of OpenACS is Postgres 7.3 compliant yet. OpenACS 5 is compliant and the core packages in OpenACS 4.6 are compliant, but some non-core packages haven't been fixed yet. Noncompliant packages will complain:  
+
+    [24/Jun/2003:15:21:36][26623.196621][-conn:kurup::4] Error:  Ns_PgExec: result status: 7 message: ERROR:  Function  pa_collection__new("unknown", "unknown", "unknown", timestamp with time zone,  "unknown", "unknown", "unknown") does not exist
+    Unable to identify a function that satisfies the given argument types
+    You may need to add explicit typecasts
+
+It is looking for a function with `timestamp with time zone` as one of its parameters, but most OpenACS pl/pgsql functions were defined as accepting `timestamp`. In PG 7.3, `timestamp` means 'timestamp __without__ timezone'. `timestamptz` means 'timestamp **with** timezone'. So, the quick fix, is to change `timestamp` to `timestamptz`.
+
+Read more at [Bart's posts in this thread](http://openacs.org/forums/message-view?message_id=64527).

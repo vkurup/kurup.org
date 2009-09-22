@@ -1,0 +1,7 @@
+---
+layout: post
+title: "Heads up!"
+tags: [mars]
+---
+
+[Mars is closer than it will ever be](http://www.space.com/spacewatch/mars_preview_021108.html) (in our lifetime, at least).

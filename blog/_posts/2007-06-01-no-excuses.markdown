@@ -1,0 +1,11 @@
+---
+layout: post
+title: "No excuses"
+tags: [news, family]
+---
+
+_Attention Wisconsin Family Members:_
+
+[Midwest Airlines is restarting direct flights from Milwaukee to Raleigh-Durham.](http://www.newsobserver.com/news/story/587741.html) 
+
+Just FYI :-)

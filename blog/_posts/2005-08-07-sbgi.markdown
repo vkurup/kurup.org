@@ -1,0 +1,13 @@
+---
+layout: post
+title: "SBGI"
+tags: [investing, small, value]
+---
+
+[Andy asked](http://kurup.org/blog//one-entry?entry%5fid=22594):
+
+> Hey Vin, what do you think of SBG (Sinclair Broadcast Group) Its the company that owns Channels 18 and 24(my employer). Andy 
+
+I took a quick look at SBGI and would probably avoid it. The first place I always look is the market cap. At 700 million, it's a little bigger than the companies I'm investing in. The second place I look is the balance sheet and SBGI's scares me. It has a current ratio less than 2 (current assets divided by current liabilities). This means that they don't have much leeway in paying off bills due in the next year in a worst-case scenario. More than half of their assets are intangible assets (goodwill, etc). Basically, these are considered assets in an accounting sense, but aren't tangible. Sometimes intangible assets are very valuable (for example, Coke's brand name), but usually they aren't. They also have a huge amount of debt which, although common in the broadcast industry, makes them riskier. This combination of factors makes their tangible book value negative. That means that if the company goes under for any reason, the chances of stockholders getting anything is unlikely.
+
+Basically, I look for small companies (less than 500 million market cap), with strong balance sheets, priced cheap (P/B less than 1.5) and with improving fundamentals. This doesn't mean that SBGI won't do well. It might, but it doesn't fit into my strategy.
