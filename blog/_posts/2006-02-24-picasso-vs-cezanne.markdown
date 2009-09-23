@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Picasso vs C"
+title: "Picasso vs Cézanne"
 tags: [picasso, genius, cezanne, gladwell, galenson]
 ---
 

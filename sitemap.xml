@@ -22,7 +22,6 @@ layout: nil
   <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
   <priority>1</priority>
  </url>
-
  {% for post in site.posts %}
  <url>
    <loc>http://www.kurup.org{{ post.url }}</loc>
