@@ -40,7 +40,7 @@ end
 desc 'rsync the contents of ./_site to the server'
 task :sync do
   puts '* Publishing files to live server'
-  puts `rsync -az --delete "_site/" nfsn:`
+  puts `rsync -rlpvz --size-only --delete "_site/" nfsn:`
 end
 
 desc 'Push source code to Github'
