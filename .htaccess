@@ -13,6 +13,9 @@ RewriteRule ^blog/feed/atom$ http://feeds.feedburner.com/vkurup [R=302,L]
 RewriteCond %{QUERY_STRING} 9669
 RewriteRule ^blog/one-entry /blog/2004/01/02/backup-strategy? [L]
 
+RewriteCond %{QUERY_STRING} 22671
+RewriteRule ^blog/one-entry /blog/2005/08/12/mmmmm-bacon? [L]
+
 # Set up pretty error document pages
 ErrorDocument 404 /404.html
 ErrorDocument 403 /403.html
