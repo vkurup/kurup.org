@@ -1,0 +1,206 @@
+---
+layout: default
+title: Wireless
+---
+
+<h2>Getting Wireless on a Linux PowerBook</h2>
+by Vinod Kurup (<a href="mailto:vkurup@massmed.org">vkurup@massmed.org</a>)
+<hr />
+
+<h3>Credits</h3>
+
+Almost all of this information was obtained from 2 excellent sites,
+but I've changed the information to be specific for my needs. In
+general, they provide much more depth than I do here.  
+
+<ul> 
+<li><a href="http://www.roelle.com/wvlanPPC">Harald Roelle's page</a> </li>
+<li><a href="http://www.best.com/~pjl/personal/powerbook/wireless.html">Paul J. Lucas's page</a> </li>
+</ul> 
+
+<h3>Hardware</h3> 
+
+<ul> 
+<li>Macintosh PowerBook G3 1998 - Wallstreet </li>
+<li>Lucent Wavelan/IEEE Turbo 11 Mb PC Card </li>
+<li>Apple Airport BaseStation </li>
+</ul>
+
+<h3>Software</h3> 
+
+
+<ul> 
+<li>MacOS 8.6 </li>
+<li>Airport Software Installation CD </li>
+<li>LinuxPPC 2000 - installed with development tools and source code </li>
+<li>I've recently switched to Debian and it works there too!</li>
+<li><a href="http://sourceforge.net/project/showfiles.php?group_id=2405&amp;release_id=26617">PC Card driver source v3.1.25</a></li>
+</ul> 
+
+<h3>Procedures</h3> 
+
+<ol> 
+
+<li>Download the latest PC Card Driver. You can download them directly
+onto your Linux partition if you have wired networking set up there,
+or you can download them to your Mac partition and save them on an HFS
+partition that you can access from Linux. I did the latter. </li>
+
+<li>Get the Airport working with Mac OS - This worked out of the box
+for me. </li>
+
+<li>Copy the folder 'Airport Admin Utility' from the Airport CD to
+your hard drive. </li>
+
+<li>Make sure the PC card is inserted.  </li>
+
+<li>Go to the TCP/IP Control Panel. Choose 'Connect via: WaveLAN/IEEE'
+and 'Configure: Using DHCP Server' - Close the control panel and save
+changes. </li>
+
+
+<li>Open the 'Airport Admin Utility' program.  </li>
+
+<li>Once the Select Base Station window comes up, click on 'Other ...'</li>
+
+<li>Enter the IP address of 10.0.1.1 (if not already entered),
+password 'public' </li>
+
+<li>Change the 'Name:' &amp; the 'Network Name:' to something
+identical. Choose something without any spaces or funny characters to
+make the Linux setup straightforward. I changed both of mine to
+'Vinod'. Remember this name. Don't change anything else. If you've
+never adjusted any of the settings, then your transmissions will be
+unencrypted. That's OK, you can change that later once you get the
+basic setup working. Click 'Update' and quit the program.  </li>
+
+<li>Change your TCP/IP settings to what they were before Step 5.</li>
+
+<li>Launch Linux</li>
+
+<li>Recompile your kernel with the CONFIG_NET_RADIO checked 'yes'. I
+initially used 2.2.14 &amp; then 2.2.18, but recently have moved to
+2.44-pre1. See <a
+href="http://www.rapierbit.org/linux/newkernel.html#link3">rapierbit</a>
+for step by step instructions.  Basically, do the following:
+
+<ol>
+<li><code># make mrproper</code></li>
+<li><code># make menuconfig</code> (set CONFIG_NET_RADIO)</li>
+
+<li><code># make dep </code></li>
+<li><code># make vmlinux </code></li>
+<li><code># make modules</code></li>
+<li><code># make modules_install</code></li>
+<li>Install the vmlinux &amp; System.map files in the appropriate places</li>
+</ol>
+</li>
+
+<li>Note that the 2.4 kernels have PCMCIA support as an option in the
+kernel (CONFIG_PCMCIA). However, it only includes drivers, not the
+tools or config files. Also, the wvlan_cs module is not included in
+the kernel source (don't be fooled by the wavelan_cs module - it's
+old). The pcmcia_cs package tries to play nice with the kernel, so if
+you set CONFIG_PCMCIA to yes in the kernel, then, when you compile the
+pcmcia_cs package, it will only install tools &amp; config files, not
+drivers. This means that you won't get wireless support (cuz there's
+no wireless support in the kernel and pcmcia won't install it cuz it
+thinks the kernel is doing it). Anyway, the bottom line is that you
+should ignore the PCMCIA support in the kernel (set it to 'no') and
+rely on the pcmcia_cs package for everything. At least for now
+(2.4.4-pre1) </li>
+
+
+<li>Copy the untarred pcmcia-cs-3.1.25 folder from step 1 to
+/usr/src/.  You need to make one change for everything to compile on
+PowerPC. Go into <code>/usr/src/pcmcia-cs-3.1.25/wireless</code>. Edit
+the file airo.c. Near the top of the file, there's a line -
+
+<code>#include &lt;asm/segment.h&gt;</code>. Move this line down about
+4 lines so it's just before the <code>#include
+&lt;linux/kernel.h&gt;</code> line. See <a
+href="http://lists.debian.org/debian-release-0011/msg00055.html">this
+post</a> for more information. You don't actually need the airo
+module, but the pcmcia-cs modules won't compile cleanly and install
+without this change.
+</li>
+
+<li>do <code>make config</code> (accept all the defaults), <code>make
+all</code>, and <code>make install</code></li>
+
+<li>Reboot your kernel and login as root </li>
+
+<li>Edit /etc/pcmcia/config.opts - At the end of the file, add a line
+as follows:
+
+<blockquote><pre>
+module "wvlan_cs" opts "port_type=1 network_name=Vinod"
+</pre></blockquote>
+Change 'Vinod' to whatever you named your network in Step 9.
+</li>
+
+<li>Also, comment out the lines near the top that start with the words
+'include memory'. In their place, write the following 3 lines:
+
+<blockquote><pre>
+# System resources for PCMCIA devices
+include memory 0x80000000-0x80ffffff
+include port 0x100-0x1ff
+</pre></blockquote>
+</li>
+
+<li>Now edit /etc/pcmcia/wireless.opts. Near the top of this file is a
+four line section that you should remove (or comment out). Below it, I
+have the following: 
+
+<blockquote><pre>
+*,*,*,00:60:1D:*)
+     INFO="Wavelan IEEE - Vinod's network"
+     ESSID="Vinod"
+     MODE="Managed"
+     ;;
+</pre></blockquote>
+</li>
+
+<li>Give the command: <code>/etc/rc.d/init.d/pcmcia stop</code> (Debian: <code>/etc/init.d/pcmcia</code>) - Your PC
+Card might eject </li>
+
+<li>Give the command: <code>/etc/rc.d/init.d/pcmcia start</code></li>
+
+<li>Insert your PC Card (if it was ejected) - You should hear 2
+high-pitched beeps and the PC Card indicator light nearest you should
+light up and stay on (No flashing). You now have a connection from
+Linux to your BaseStation via your Lucent Card. </li>
+
+<li>So, we got a connection now, but it's only to the base
+station. How do we connect to the Internet? By setting up
+/etc/pcmcia/network.opts. Here's the relevant portion of mine:
+
+<blockquote><pre>
+case "$ADDRESS" in
+*,*,*,*)
+     INFO="Vinod's network setup"
+     IPADDR="192.168.0.5"
+     NETMASK="255.255.255.0"
+     NETWORK="192.168.0.0"
+     BROADCAST="192.168.0.255"
+     # Gateway address for static routing
+     GATEWAY="192.168.0.3"
+     # NFS mounts, should be listed in /etc/fstab
+     MOUNTS="/vinod"  # NFS mount a dir off my server
+     ;; 
+</pre></blockquote>
+</li>
+
+<li>You can add commands for DHCP there if you need - look at the
+examples in the file for more info. </li>
+
+
+<li>Now test it: <code># /etc/rc.d/init.d/pcmcia restart</code> - You
+should hear the 2 beeps again. do <code>ifconfig</code> and it should
+show your network. Go ahead an try to ping www.yahoo.com to make sure
+things are working. </li>
+
+</ol>
+
+<p>Please contact me with comments, questions or corrections. Thanks!</p>
