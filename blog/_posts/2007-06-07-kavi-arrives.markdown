@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Kavi Arrives!"
-tags: [baby, birthday, family]
+tags: [kavi, baby, birthday, family]
 ---
 
 Mala and I are so proud to announce the birth of our healthy, happy baby boy!
