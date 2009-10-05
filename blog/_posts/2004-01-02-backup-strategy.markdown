@@ -34,7 +34,8 @@ The `'v'` option is for verbose, which I'll turn off eventually once I know thin
 
 Here's what my exclude file looks like:
 
-    - *~ + /etc 
+    - *~
+    + /etc 
     - /home/vinod/web/kurup/log 
     + /home 
     + /root 
@@ -53,7 +54,7 @@ The rsync exclude syntax allows you to backup just the files you want. I'll just
 OK, the final thing is to set up SSH properly. I basically set it up like MarkD did, but since I need to login as root, I wanted to add a few more constraints. You can set up SSH to restrict a specific key to only run a certain command. So if someone somehow gets access to my key, they'll only be able to run rsync. If you don't put the command restriction in, they'll be able to login to your server as root. To add restraints to a key, add some statements to the beginning of the key in authorized_keys2. Here's my `/root/.ssh/authorized_keys2` (split onto multiple lines):
 
     command="rsync --server --sender -vlogDtpr --delete-excluded --numeric-ids . /"  
-    ssh-rsa AAAAB....&lt;snip> ...t8= root@Vinod-Kurups-Computer.local. 
+    ssh-rsa AAAAB....<snip> ...t8= root@Vinod-Kurups-Computer.local. 
 
 To get the proper command to put in your command="" statement, run your rsync command with an unrestricted SSH key first (i.e. just copy the id_rsa.pub to authorized_keys2). When you run the rsync command on your Mac, do a `ps auxw | grep rsync` on the server machine. The command that you see listed is the command that goes in the key.
 
