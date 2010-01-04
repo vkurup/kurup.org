@@ -3,7 +3,7 @@ layout: default
 title: Home
 ---
 
-Welcome to my home page! (Yes, I know it's 2009, but I still call it my
+Welcome to my home page! (Yes, I know it's 2010, but I still call it my
 home page). I'm probably the luckiest guy in the world, with a [beautiful
 wife](/wedding) and 2 sweet, life-loving kids to prove it. I am a
 hospitalist working at a community hospital in North Carolina. I am also a
