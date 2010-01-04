@@ -12,10 +12,9 @@ wife as the new year began. If that's not an auspicious start to a year, I
 don't know what one would be.
 
 I am so lucky. I have a great job, which is getting better all the time. I
-work hard, but I've get some pretty good karmic rewards. That's not to say
-that it is perfect and maybe someday I'll rant about the pitfalls of being
-a hospitalist, but it's certainly better than my life was as a primary care
-doctor.
+work hard, but I get some pretty good karmic rewards. It's not perfect and
+maybe someday I'll rant about the pitfalls of being a hospitalist, but it's
+certainly better than my life was as a primary care doctor.
 
 I live in a beautiful house where I feel comfortable and "at home". I have
 a loving extended family who, thankfully, are all pretty happy and healthy.
