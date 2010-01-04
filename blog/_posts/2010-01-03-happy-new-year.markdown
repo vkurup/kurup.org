@@ -4,7 +4,7 @@ title: Happy New Year!
 tags: life, family
 ---
 
-This is going to be a great year. I was working on Christmas Eve. My shift
+This is going to be a great year. I was working on New Year's Eve. My shift
 was supposed to end at midnight, which meant that I would normally be home
 around 12:30 AM, but my colleague let me out early since the ER was
 unusually light. I got home at 11:55 PM, so I was able to kiss my beautiful
