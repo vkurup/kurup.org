@@ -1,7 +1,0 @@
----
-layout: post
-title: "Bork!!!!"
-tags: [bork]
----
-
-I'm on the [Bork Team](http://kurup.org/photo/photo?photo_id=5134) - no relation to [Bork Log](http://badgertronics.com/blog) or [Borkware](http://borkware.com), of course... :-)

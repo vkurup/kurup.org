@@ -1,9 +1,0 @@
----
-layout: post
-title: "SCO"
-tags: [free-software]
----
-
-[Open Letter to SCO](http://www.catb.org/~esr/writings/mcbride2.html).
-
-*Loud Applause*

@@ -1,9 +1,0 @@
----
-layout: post
-title: "Google, M.D."
-tags: [medicine, google]
----
-
-I remember telling people at a dinner party that I often entered symptoms into Google to help me diagnose patients. I remember them being apalled.
-
-Turns out that [Google is pretty accurate.](http://general-medicine.jwatch.org/cgi/content/full/2006/1226/1?q=etoc)
