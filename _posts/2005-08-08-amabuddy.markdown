@@ -1,0 +1,12 @@
+---
+date: 2005/08/08 00:00:00
+layout: post
+title: "Amabuddy"
+categories: amazon, shopping
+---
+
+This seems useful.
+
+> You are in a bookshop or a record shop. You find something that interests you. You can't decide whether to buy it now or online later. What you need is a price check and a quick review, perhaps some ideas of something similar that others might recommend. [Amabuddy](http://www.amabuddy.com) can help!
+
+What you do is call (617) 712-3574 (There's a 888 number as well, but you'll be using a cell phone anyway). Then just punch in the ISBN# and listen to the Amazon price and reviews on the book you're looking at.
