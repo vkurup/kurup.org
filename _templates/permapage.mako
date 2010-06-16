@@ -9,8 +9,5 @@
 <noscript><a href="http://${bf.config.blog.disqus.name}.disqus.com/?url=ref">View the discussion thread.</a></noscript><a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 % endif
 <%def name="head()">
-<title>${post.title}</title>
-<link rel='stylesheet' href='${bf.config.filters.syntax_highlight.css_dir}/pygments_${bf.config.filters.syntax_highlight.style}.css' type='text/css' />
-<link rel="stylesheet" href="/css/screen.css" type="text/css" />
-<meta name="author" content="Vinod Kurup" />
+  <%include file="head.mako" args="title=post.title+' : '+bf.config.blog.name" />
 </%def>

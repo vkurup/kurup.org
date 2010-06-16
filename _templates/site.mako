@@ -27,7 +27,7 @@
   </body>
 </html>
 <%def name="head()">
-  <%include file="head.mako" />
+  <%include file="head.mako" args="title=bf.config.blog.name" />
 </%def>
 <%def name="header()">
   <%include file="header.mako" />
