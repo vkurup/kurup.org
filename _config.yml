@@ -1,8 +1,0 @@
----
-auto        : false
-lsi         : false
-pygments    : true
-permalink   : pretty
-exclude:
-  - readme.markdown
-  - Rakefile
