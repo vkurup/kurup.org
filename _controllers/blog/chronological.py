@@ -35,7 +35,7 @@ def write_blog_chron(posts,root):
         
 def write_blog_first_page():
     if not blog.custom_index:
-        page_posts = blog.posts[:blog.posts_per_page]
+        page_posts = blog.posts
         path = bf.util.path_join(blog.path,"index.html")
         blog.logger.info("Writing blog index page: "+path)
         if len(blog.posts) > blog.posts_per_page:
