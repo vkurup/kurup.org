@@ -30,8 +30,7 @@ find something interesting on my <a href="/blog">blog</a>. Recent posts include:
 <div class="section">
 <h1><a href="http://twitter.com/vkurup">Twitter</a></h1>
 
-Contacting Twitter... 
-{:#twitter_update_list }
+<div id="twitter_update_list">Contacting Twitter...</div>
 
 </div>
 

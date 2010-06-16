@@ -19,9 +19,3 @@ ${post.content}
   ${"| ".join(category_links)}
 </span>
 </address>
-
-
-% if bf.config.blog.disqus.enabled:
- | <a href="${post.permalink}#disqus_thread">View Comments</a>
-% endif
-
