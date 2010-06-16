@@ -1,7 +1,7 @@
 ---
 date: 2010/01/03 00:00:00
 layout: post
-title: Happy New Year!
+title: Happy New Year
 categories: life, family
 ---
 

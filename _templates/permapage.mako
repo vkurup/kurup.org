@@ -6,9 +6,7 @@
 % if bf.config.blog.disqus.enabled:
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-  var disqus_url = "${post.permalink}";
   var disqus_developer = "0";
-  var disqus_iframe_css = "/css/screen.css";
   var disqus_title = "${ post.title }";
 </script>
 <script type="text/javascript" src="http://disqus.com/forums/${bf.config.blog.disqus.name}/embed.js"></script>

@@ -3,7 +3,7 @@
 <div class="section list">
   <h1>${ post.date.strftime("%d %b %Y") }</h1>
   <p class="line">
-  <a class="title" href="${ post.permapath() }}">${ post.title }</a>
+  <a class="title" href="${ post.permapath() }">${ post.title }</a>
 %if bf.config.blog.disqus.enabled:
   <a class="comments" href="${ post.permalink }#disqus_thread">View Comments</a>
 %endif

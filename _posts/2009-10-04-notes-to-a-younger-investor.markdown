@@ -1,7 +1,7 @@
 ---
 date: 2009/10/04 00:00:00
 layout: post
-title: Notes to a young(er) investor
+title: Notes to a younger investor
 categories: investing, finances, stocks
 ---
 _A friend asked for some investing advice a few years ago. Here was my response._
