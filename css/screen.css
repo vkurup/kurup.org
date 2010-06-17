@@ -136,7 +136,6 @@ blockquote {
 }
 /* @group Table */
 table {
-	width: 80%;
 	margin: 1.5em auto 1.5em auto;
 	table-layout: fixed;
 	border-spacing: 0;
