@@ -1,7 +1,7 @@
 ---
 date: 1998/10/22 00:00:00
 layout: post
-title: Devi's Letter
+title: Letter From Devi
 categories: devi, family
 ---
 
@@ -31,6 +31,4 @@ August. Here it is!
 <img src="/images/devi-birthday-1.jpg">
 <img src="/images/devi-birthday-2.jpg">
 <img src="/images/devi-birthday-3.jpg">
-<include src="/packages/photo-album/www/thumb" url="/photo" photo_id="746">
-<include src="/packages/photo-album/www/thumb" url="/photo" photo_id="878">
 </p>
