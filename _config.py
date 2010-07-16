@@ -42,6 +42,5 @@ blog.description = "Thoughts on medicine, software and life"
 ## blog_timezone -- the timezone that you normally write your blog posts from
 blog.timezone    = "US/Eastern"
 
-
 blog.disqus.enabled = True
 blog.disqus.name = "vkurup"
