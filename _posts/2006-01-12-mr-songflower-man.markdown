@@ -1,7 +1,8 @@
 ---
 date: 2006/01/12 00:00:00
 layout: post
-title: "Mr. Songflower Man"
+title: Mr. Songflower Man
+permalink: /blog/2006/01/12/mr-songflower-man
 categories: fun, music, npr
 ---
 

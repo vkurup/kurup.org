@@ -1,7 +1,8 @@
 ---
 date: 2003/06/24 00:00:00
 layout: post
-title: "psql doesn't like tabs"
+title: psql doesn't like tabs
+permalink: /blog/2003/06/24/psql-doesnt-like-tabs
 categories: postgresql
 ---
 

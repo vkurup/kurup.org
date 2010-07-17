@@ -1,7 +1,8 @@
 ---
 date: 2007/06/07 00:00:00
 layout: post
-title: "Kavi Arrives!"
+title: Kavi Arrives!
+permalink: /blog/2007/06/07/kavi-arrives
 categories: kavi, baby, birthday, family
 ---
 

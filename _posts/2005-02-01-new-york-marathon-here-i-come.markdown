@@ -1,7 +1,8 @@
 ---
 date: 2005/02/01 00:00:00
 layout: post
-title: "New York Marathon, here I come"
+title: New York Marathon, here I come
+permalink: /blog/2005/02/01/new-york-marathon-here-i-come
 categories: running, marathon
 ---
 

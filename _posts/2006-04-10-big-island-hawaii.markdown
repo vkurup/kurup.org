@@ -1,7 +1,8 @@
 ---
 date: 2006/04/10 00:00:00
 layout: post
-title: "Big Island, Hawai'i"
+title: Big Island Hawai'i
+permalink: /blog/2006/04/10/big-island-hawaii
 categories: waterfall, beach, hawaii, kaluapig, vacation
 ---
 

@@ -1,7 +1,8 @@
 ---
 date: 2006/05/11 00:00:00
 layout: post
-title: "Investment Update - May 2006"
+title: Investment Update - May 2006
+permalink: /blog/2006/05/11/investment-update-may-2006
 categories: investing, quarterly
 ---
 

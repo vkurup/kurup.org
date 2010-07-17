@@ -1,7 +1,8 @@
 ---
 date: 2006/02/24 00:00:00
 layout: post
-title: "Picasso vs Cézanne"
+title: Picasso vs Cézanne
+permalink: /blog/2006/02/24/picasso-vs-cezanne
 categories: picasso, genius, cezanne, gladwell, galenson
 ---
 

@@ -13,11 +13,16 @@ RewriteRule ^blog/feed/atom$ http://feeds.feedburner.com/vkurup [R=302,L]
 RewriteCond %{HTTP_USER_AGENT} !FeedBurner
 RewriteRule ^blog/rss/rss.xml$ http://feeds.feedburner.com/vkurup [R=302,L]
 
+RewriteCond %{HTTP_USER_AGENT} !FeedBurner
+RewriteRule ^blog/atom.xml$ http://feeds.feedburner.com/vkurup [R=302,L]
+
 RewriteCond %{QUERY_STRING} 9669
 RewriteRule ^blog/one-entry /blog/2004/01/02/backup-strategy? [L]
 
 RewriteCond %{QUERY_STRING} 22671
 RewriteRule ^blog/one-entry /blog/2005/08/12/mmmmm-bacon? [L]
+
+RewriteRule ^blog/tag/([^/]+)$ /blog/category/$1/ [R]
 
 # Set up pretty error document pages
 ErrorDocument 404 /404.html
