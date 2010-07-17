@@ -13,7 +13,7 @@ Previous Trips:
 
 1. 2000 Youghiogheny Rafting
 1. 2001 Sea Kayaking North Carolina Outer Banks
-1. 2002 [Grand Canyon](http://kurup.org/blog/one-entry?entry%5fid=610)
-1. 2003 [Seattle](http://kurup.org/blog/one-entry?entry%5fid=7369)
+1. 2002 [Grand Canyon](/blog/2002/07/22/grand-canyon-update/)
+1. 2003 [Seattle](/blog/2003/07/31/4th-annual-cousins-reunion/)
 1. 2004 [Lake Tahoe](http://kurup.org/photo/album?album_id=14824)
 

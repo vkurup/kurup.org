@@ -1,22 +1,10 @@
 ---
-layout: default
-title: family
+date: 1998/12/01 00:00:00
+layout: post
+title: Trivandrum Medical College
+categories: medicine
 ---
-<p>
-<a href="fampics">Older pictures</a>
-</p>
 
-<p>
-<a href="/photo/album?album_id=5317">Grand Canyon Trip</a> - June 2002</p>
-
-<p> 
-Wow, this page is really out of date. Someday, I may get around to
-fixing it, but in the meantime, check out my <a
-href="/blog/swcat/16673">weblog posts which have been categorized as
-'Family'</a>.
-</p>
-
-<p>
 In November 1998, I travelled to India to visit family and work in an
 Infectious Disease Clinic.  I visited the Trivandrum Medical College and
 the Sree Chitra Tirunal Institue For Medical Sciences & Technology. The
@@ -25,5 +13,3 @@ but I was very impressed by the Sree Chitra Institute. I got a personal
 tour of the hospital and operating rooms from Dr. Krishnamanohar (a close
 friend of my brother-in-law). The standards were equal to U.S. Hospitals
 and I learned a lot about physical diagnosis in a very short time.
-</p>
-
