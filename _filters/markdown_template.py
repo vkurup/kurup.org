@@ -12,4 +12,4 @@ config = {
 logging.getLogger("MARKDOWN").setLevel(logging.ERROR)
 
 def run(content):
-    return markdown.markdown(content)
+    return markdown.markdown(content, ['footnotes'])
