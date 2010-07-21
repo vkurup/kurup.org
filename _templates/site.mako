@@ -22,8 +22,6 @@
     </div>
 
     <!-- Last modified at ${datetime.today().strftime('%c')} -->
-    <%include file="google-analytics.mako" />
-    <%include file="lloogg.mako" />
   </body>
 </html>
 <%def name="head()">

@@ -9,8 +9,7 @@
 %endif
   </p>
 ${ post.content }
-<!-- Feedburner Flare -->
-<script src="http://feeds.feedburner.com/~s/vkurup?i=${post.permalink}" type="text/javascript"> </script>
+
 <p class="tags"><% 
     category_links = []
     for category in post.categories:
