@@ -1,7 +1,5 @@
 <%inherit file="site.mako" />
 <%include file="post.mako" args="post=post" />
-<!-- Feedburner Flare -->
-<script src="http://feeds.feedburner.com/~s/vkurup?i=${ post.permalink }" type="text/javascript"></script>
 
 % if bf.config.blog.disqus.enabled:
 <div id="disqus_thread"></div>
