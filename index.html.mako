@@ -30,7 +30,37 @@ find something interesting on my <a href="/blog">blog</a>. Recent posts include:
 <div class="section">
 <h1><a href="http://twitter.com/vkurup">Twitter</a></h1>
 
-<div id="twitter_update_list">Contacting Twitter...</div>
+<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 4,
+  interval: 6000,
+  width: 'auto',
+  height: 100,
+  theme: {
+    shell: {
+      background: '#fff8dc',
+      color: '#000000'
+    },
+    tweets: {
+      background: '#ffffff',
+      color: '#000000',
+      links: '#4aed05'
+    }
+  },
+  features: {
+    scrollbar: false,
+    loop: false,
+    live: true,
+    hashtags: true,
+    timestamp: true,
+    avatars: false,
+    behavior: 'all'
+  }
+}).render().setUser('vkurup').start();
+</script>
 
 </div>
 
@@ -67,10 +97,6 @@ of my open source contributions</li>
 </ul>
 
 </div>
-
-<!-- Twitter js -->
-<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"> </script>
-<script type="text/javascript" src="http://twitter.com/statuses/user_timeline/vkurup.json?callback=twitterCallback2&count=1"> </script>
 
 <%def name="head()">
   <meta charset=utf-8> 
