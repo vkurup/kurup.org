@@ -5,7 +5,7 @@ title: HTML5 Up and Running
 categories: HTML, programming, web, book, review
 ---
 
-I preordered Mark Pilgrim's HTML5, Up and Running from Amazon back in
+I preordered Mark Pilgrim's [HTML5, Up and Running](http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&tag=diveintomark-20&creativeASIN=0596806027) from Amazon back in
 March. It's available for free as [Dive into
 HTML5](http://diveintohtml5.org/). I've been a fan of Mark's [writing](http://diveintomark.org)
 for a while, so buying the book was a way to thank him "with a
