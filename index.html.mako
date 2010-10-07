@@ -67,7 +67,7 @@ new TWTR.Widget({
 <div class="section">
 <h1><a href="http://picasaweb.google.com/vvkurup">Picasa</a></h1>
 
-<embed type="application/x-shockwave-flash" src="http://picasaweb.google.com/s/c/bin/slideshow.swf" width="320" height="212" flashvars="host=picasaweb.google.com&captions=1&hl=en_US&feat=flashalbum&RGB=0x000000&feed=http%3A%2F%2Fpicasaweb.google.com%2Fdata%2Ffeed%2Fapi%2Fuser%2Fvvkurup%3Falt%3Drss%26kind%3Dphoto%26access%3Dpublic%26psc%3DF%26q%26uname%3Dvvkurup" pluginspage="http://www.macromedia.com/go/getflashplayer"></embed>
+<embed type="application/x-shockwave-flash" src="http://picasaweb.google.com/s/c/bin/slideshow.swf" width="320" height="212" flashvars="host=picasaweb.google.com&amp;captions=1&amp;hl=en_US&amp;feat=flashalbum&amp;RGB=0x000000&amp;feed=http%3A%2F%2Fpicasaweb.google.com%2Fdata%2Ffeed%2Fapi%2Fuser%2Fvvkurup%3Falt%3Drss%26kind%3Dphoto%26access%3Dpublic%26psc%3DF%26q%26uname%3Dvvkurup" pluginspage="http://www.macromedia.com/go/getflashplayer"></embed>
 
 </div>
 
@@ -81,7 +81,7 @@ new TWTR.Widget({
 <div class="section">
 <h1><a href="http://www.delicious.com/vkurup">Delicious</a></h1>
 
-<script type="text/javascript" src="http://feeds.delicious.com/v2/js/vkurup?title=&count=5&sort=date&tags&extended"> </script>
+<script type="text/javascript" src="http://feeds.delicious.com/v2/js/vkurup?title=&amp;count=5&amp;sort=date&amp;tags&amp;extended"> </script>
 
 </div>
 
