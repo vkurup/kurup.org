@@ -2,7 +2,8 @@
    from datetime import datetime
 %>
 <%inherit file="base.mako" />
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
     ${self.head()}
   </head>

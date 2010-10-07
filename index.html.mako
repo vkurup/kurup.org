@@ -1,4 +1,4 @@
-<%inherit file="_templates/site.mako" />
+<%inherit file="site.mako" />
 
 <p>
 Welcome to my home page! (Yes, I know it's 2010, but I still call it my
@@ -99,13 +99,16 @@ of my open source contributions</li>
 </div>
 
 <%def name="head()">
-  <meta charset=utf-8> 
+  <meta charset="utf-8"> 
   <title>${bf.config.blog.name}</title>
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
   <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="${bf.util.site_path_helper(bf.config.blog.path,'/feed')}" />
-  <link rel="alternate" type="application/atom+xml" title="Atom 1.0"
-href="${bf.util.site_path_helper(bf.config.blog.path,'/feed/atom')}" />
-  <link rel='stylesheet' href='${bf.config.filters.syntax_highlight.css_dir}/pygments_${bf.config.filters.syntax_highlight.style}.css' type='text/css' />
-  <link rel="stylesheet" href="/css/screen.css" type="text/css" />
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="${bf.util.site_path_helper(bf.config.blog.path,'/feed/atom')}" />
+  <link rel="stylesheet" href="${bf.config.filters.syntax_highlight.css_dir}/pygments_${bf.config.filters.syntax_highlight.style}.css" />
+  <link rel="stylesheet" href="/css/screen.css" />
+  <link rel="shortcut icon" href="/favicon.ico" />
   <meta name="author" content="Vinod Kurup" />
   <meta name="verify-v1" content="7VLvj7jbZMA24/73SZ9uUEq3SeBuiX3+aSIBRtgH4jQ=" />
   <link rel="openid.server" href="http://www.myopenid.com/server" />
