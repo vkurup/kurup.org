@@ -31,7 +31,7 @@ ${ post.content }
   <h5> ${post.date.strftime("%d %b %Y")}</h5>
   <p class="line">
   <a class="title" href="${post.permapath()}">${post.title}</a>
-  <a class="comments" href="${post.permalink}#disqus_thread">View Comments</a>
+  <a class="comments" href="${post.permalink}/#disqus_thread">View Comments</a>
   </p>
 </div>
 %endfor
