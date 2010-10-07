@@ -6,7 +6,11 @@
    >
   <title type="text">${bf.config.blog.name}</title>
   <subtitle type="text">${bf.config.blog.description}</subtitle>
-
+  <author>
+    <name>Vinod Kurup</name>
+    <email>vinod@kurup.com</email>
+    <uri>${bf.config.site.url}</uri>
+  </author>
   <updated>${datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")}</updated>
   <generator uri="http://blogofile.com/">Blogofile</generator>
 
@@ -15,10 +19,6 @@
   <link rel="self" type="application/atom+xml" href="${bf.config.blog.url}/feed/atom/" />
 % for post in posts[:10]:
   <entry>
-    <author>
-      <name>${post.author}</name>
-      <uri>${bf.config.blog.url}</uri>
-    </author>
     <title type="html"><![CDATA[${post.title}]]></title>
     <link rel="alternate" type="text/html" href="${post.permalink}" />
     <id>${post.permalink}</id>
