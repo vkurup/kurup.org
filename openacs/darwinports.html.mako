@@ -1,7 +1,8 @@
----
-layout: default
-title: OpenACS - Darwinports Installation
----
+<%inherit file="site.mako" />
+<%def name="head()">
+  <%include file="head.mako" args="title='OpenACS - Darwinports Installation : '+bf.config.blog.name" />
+</%def>
+<%self:filter chain="markdown">
 
 ## Installing OpenACS via Darwinports
 
@@ -226,3 +227,4 @@ be happy to hear any comments or questions.
 [1]: http://en.wikipedia.org/wiki/DarwinPorts "Darwinports on Wikipedia"
 [2]: http://openacs.org/doc/openacs-5-1/complete-install.html "OpenACS Documentation"
 [3]: /files/openacs-dports.tgz "OpenACS dport"
+</%self:filter>
