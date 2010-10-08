@@ -1,8 +1,9 @@
-<%inherit file="site.mako" />
-<%def name="head()">
-  <%include file="head.mako" args="title='Another Mac OS X OpenACS Installation Guide : '+bf.config.blog.name" />
-</%def>
-<%self:filter chain="markdown">
+---
+date: 2003/09/14 00:00:00
+layout: post
+title: Another Mac OS X OpenACS Installation Guide
+categories: mac, openacs
+---
 
 ## Another Mac OS X OpenACS Installation Guide
 
@@ -152,5 +153,3 @@ anything special to get tDOM working with OpenACS 5.
 [6]: http://openacs.org/4/checkout "OpenACS CVS"
 [7]: http://archives.postgresql.org/pgsql-novice/2003-01/msg00099.php "Tom Lane's answer"
 [8]: http://xarg.net/ "Jeff Davis"
-
-</%self:filter>
