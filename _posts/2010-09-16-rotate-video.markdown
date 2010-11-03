@@ -22,7 +22,7 @@ correctly. Well, today, I found a way to fix the AVI files.
 
     mencoder -ovc copy -oac copy input.avi -o output.avi
 
-This just just creates a new AVI, copying the video and audio from the
+This just creates a new AVI, copying the video and audio from the
 original. Now, mplayer reports the correct total time. Then, to rotate
 the video:
 
