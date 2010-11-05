@@ -9,9 +9,9 @@
   </head>
   <body>
     <div id="site">
-      <div id="header">
+      <header>
         ${self.header()}
-      </div>
+      </header>
 
       <div id="page">
         ${next.body()}
@@ -21,6 +21,14 @@
         ${self.footer()}
       </div>
     </div>
+
+    <ul class="fixedmenu"> 
+      <li><a href="/about">About</a></li> 
+      <li><a href="/">Blog</a></li> 
+      <li><a href="/software">Software</a></li> 
+      <li><a class="medicine" href="/medicine">Medicine</a></li> 
+      <li><a class="feed" href="/blog/feed/atom/index.xml">Feed <img src="/images/rss.jpg"></a></li> 
+    </ul>
 
     <!-- Last modified at ${datetime.today().strftime('%c')} -->
   </body>
