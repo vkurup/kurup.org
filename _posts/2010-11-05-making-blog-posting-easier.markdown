@@ -1,5 +1,5 @@
 ---
-date: 2010-11-05 07:45:32
+date: 2010/11/05 07:15:32
 layout: post
 title: Making blog posting easier
 categories: elisp, programming
@@ -20,7 +20,7 @@ time-consuming. Here is my new posting function:
                            (format-time-string "%Y-%m-%d")
                            "-" slug ".markdown"))
         (insert "---\n")
-        (insert "date: " (format-time-string "%Y-%m-%d %H:%M:%S") "\n")
+        (insert "date: " (format-time-string "%Y/%m/%d %H:%M:%S") "\n")
         (insert "layout: post\n")
         (insert "title: " title "\n")
         (insert "categories: \n")
