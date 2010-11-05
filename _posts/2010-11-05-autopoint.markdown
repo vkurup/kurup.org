@@ -15,4 +15,11 @@ Then, you need to install autopoint:
 
 I ran into this while building
 [ledger](https://github.com/jwiegley/ledger) today and had never
-needed to do that before... strange.
+needed to do that before. The error that `acprep` provides is even
+more cryptic: 
+
+    Automatically preparing build ... Warning: autoreconf failed
+
+Then, I ran `autogen.sh` and the autpoint error showed up.
+
+
