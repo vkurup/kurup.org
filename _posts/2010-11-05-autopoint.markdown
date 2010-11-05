@@ -1,0 +1,18 @@
+---
+date: 2010/11/05 15:09:06
+layout: post
+title: Autopoint
+categories: linux
+---
+
+If you get this error message:
+
+    Can't exec "autopoint": No such file or directory at /usr/share/autoconf/Autom4te/FileUtils.pm
+
+Then, you need to install autopoint:
+
+    sudo aptitude install autopoint
+
+I ran into this while building
+[ledger](https://github.com/jwiegley/ledger) today and had never
+needed to do that before... strange.
