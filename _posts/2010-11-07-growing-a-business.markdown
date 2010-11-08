@@ -2,18 +2,13 @@
 date: 2010/11/07 20:31:19
 layout: post
 title: Growing a Business
-categories: 
+categories: business, review
 ---
-
-<a href="http://www.amazon.com/gp/product/0671671642?ie=UTF8&tag=vinodkurupshomep&linkCode=as2&camp=1789&creative=390957&creativeASIN=0671671642">Growing a Business</a>
-
-<iframe src="http://rcm.amazon.com/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFF8DC&fc1=000000&lc1=0000FF&t=vinodkurupshomep&o=1&p=8&l=as1&m=amazon&f=ifr&md=10FE9736YVPPT7A0FBG2&asins=0671671642" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
 
 I read this book in 2005, but never posted this review. So here it
 is...
 
-### Growing a Business
-#### by Paul Hawken
+## <a href="http://www.amazon.com/gp/product/0671671642?ie=UTF8&tag=vinodkurupshomep&linkCode=as2&camp=1789&creative=390957&creativeASIN=0671671642">Growing a Business</a> by Paul Hawken
 
 This is an honest and practical guide to running a business. I don't
 remember where I first heard about this book. Maybe [Lars](http://pinds.com)?
@@ -41,14 +36,14 @@ interesting to see it written way back when as well.
 
 ### Things I learned from this book
 
-#### It's probably not for me
+## It's probably not for me
 
 Starting your own business is not for everyone. It takes a temperament that
 isn't easily learned. I don't think I have Tradeskill. I'm not going to let
 that stop me from learning about business, but I'm going to be a little
 more thorough in my planning and preparation if I ever do it.
 
-#### The 5-15 report
+## The 5-15 report is a good idea
 
 He mentions something called a 5-15 report. it's a report that every
 employee in a company should have to write **every** week. It should take
@@ -57,7 +52,7 @@ progress report for the week, Part II is a report on the morale of the
 department and Part III is one idea to make the company better. I like the
 idea of a weekly low-commitment progress report.
 
-#### Overstaffing is the root of all evil
+## Overstaffing is the root of all evil
 
 A major problem of big business is over-staffing. Once an employee
 learns that their work is redundant, or requires little effort, they
@@ -73,17 +68,16 @@ with my workload. The company becomes more efficient. I see this
 effect of over-staffing where I work (although I didn't recognize it
 as such until reading this book)
 
-#### A few other quotes / concepts
+### random quotes / concepts from the book
  
-> Being in business is not about making money. It is a way to become who
-> you are (p. 19)
-
-Flat management/employee structures. Trust the people you work with and
+Flat management/employee structures are good. Trust the people you work with and
 give them wide latitude.
 
 Problems are opportunities - dive into them.
 
-> A good business has interesting problems. A bad business has boring
-> ones. (p. 39) 
+"A good business has interesting problems. A bad business has boring ones." (p. 39) 
 
 Have a partner. You shouldn't ever think of going it alone.
+
+"Being in business is not about making money. It is a way to become who you are." (p. 19)
+
