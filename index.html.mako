@@ -28,43 +28,6 @@ find something interesting on my <a href="/blog">blog</a>. Recent posts include:
 </div>
 
 <div class="section">
-<h1><a href="http://twitter.com/vkurup">Twitter</a></h1>
-
-<script src="http://widgets.twimg.com/j/2/widget.js"></script>
-<script>
-new TWTR.Widget({
-  version: 2,
-  type: 'profile',
-  rpp: 4,
-  interval: 6000,
-  width: 'auto',
-  height: 100,
-  theme: {
-    shell: {
-      background: '#fff8dc',
-      color: '#000000'
-    },
-    tweets: {
-      background: '#ffffff',
-      color: '#000000',
-      links: '#4aed05'
-    }
-  },
-  features: {
-    scrollbar: false,
-    loop: false,
-    live: true,
-    hashtags: true,
-    timestamp: true,
-    avatars: false,
-    behavior: 'all'
-  }
-}).render().setUser('vkurup').start();
-</script>
-
-</div>
-
-<div class="section">
 <h1><a href="http://picasaweb.google.com/vvkurup">Picasa</a></h1>
 
 <embed type="application/x-shockwave-flash" src="http://picasaweb.google.com/s/c/bin/slideshow.swf" width="320" height="212" flashvars="host=picasaweb.google.com&amp;captions=1&amp;hl=en_US&amp;feat=flashalbum&amp;RGB=0x000000&amp;feed=http%3A%2F%2Fpicasaweb.google.com%2Fdata%2Ffeed%2Fapi%2Fuser%2Fvvkurup%3Falt%3Drss%26kind%3Dphoto%26access%3Dpublic%26psc%3DF%26q%26uname%3Dvvkurup" pluginspage="http://www.macromedia.com/go/getflashplayer"></embed>
@@ -89,6 +52,7 @@ new TWTR.Widget({
 <h1>Interweb</h1>
 
 <ul>
+<li><a href="http://twitter.com/vkurup">Twitter</a></li>
 <li><a href="http://facebook.com/vvkurup">Facebook</a></li>
 <li><a href="http://friendfeed.com/vkurup">FriendFeed</a></li>
 <li><a href="http://openacs.org/forums/user-history?user_id=7027">OpenACS</a> - The bulk
