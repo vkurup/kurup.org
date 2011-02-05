@@ -31,6 +31,7 @@
     </ul>
 
     <!-- Last modified at ${datetime.today().strftime('%c')} -->
+    <%include file="google-analytics.mako" />
   </body>
 </html>
 <%def name="head()">
