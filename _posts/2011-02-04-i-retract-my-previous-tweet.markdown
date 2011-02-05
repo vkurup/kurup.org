@@ -15,7 +15,7 @@ work. I called a tow truck and then
 [tweeted](http://twitter.com/vkurup/status/31553126746038272) about
 how upset I was with the universe.
 
-    hey universe, I would love to go a full 6 months without a car dying. #kthxbye
+>hey universe, I would love to go a full 6 months without a car dying. #kthxbye
 
 Snarky, huh? Even stuck the childish #kthxbye in there. Blaming the
 universe is kinda like getting upset with God, in a scientist's mind.
@@ -48,10 +48,10 @@ I was also thinking about the previous time that the Altima died. I
 remember writing this affirmation in my journal, while I was waiting
 for the tow truck back in September 2008:
 
-    Late entry. This was written on the day that the Nissan's battery
-    died. Everything will be fine. I will find out later how this will
-    be a blessing in disguise. This car will give us another 2-3 years
-    of great service.
+>Late entry. This was written on the day that the Nissan's battery
+>died. Everything will be fine. I will find out later how this will
+>be a blessing in disguise. This car will give us another 2-3 years
+>of great service.
 
 It's now been 2 and a half years since then and the car has been
 steady and reliable throughout that time. How lucky can a guy get?
