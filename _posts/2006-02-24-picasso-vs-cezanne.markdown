@@ -41,3 +41,59 @@ Here are some great links that I found along the way. Thanks to Gladwell for suc
 - [A very concise description of Galenson's finding](http://chronicle.uchicago.edu/020124/quantifyingart.shtml)
 - [The first chapter of Galenson's new book](http://www.pupress.princeton.edu/chapters/s8019.html) [Old Masters and Young Geniuses](http://www.amazon.com/exec/obidos/ASIN/0691121095/vinodkurupshomep)
 - [An original article by Galenson which summarizes his work](http://www.nber.org/reporter/fall03/galenson.html), with pretty graphs!
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>Me too</b></p>
+<p>
+Guess I am a Cezanne type too :) Thanks for the post, I think they are
+both great artists.
+</p>
+<address class="signature">
+<span class="author">Dave Bauer</span>
+<span class="date">2006-02-25 11:31:13</span>
+</address>
+</div>
+
+<div class="one-comment">
+<p><b>time</b></p>
+<p>
+You'll get there, buddy, in time.
+</p>
+<p>
+Hey, I see you're tagging.   Party on.
+</p>
+<address class="signature">
+<span class="author">Dave T</span>
+<span class="date">2006-03-12 23:03:18</span>
+</address>
+</div>
+
+<div class="one-comment">
+<p><b>Mark Twain's Picasso</b></p>
+<p>
+I just heard Malcom give this same discussion to the Women President's
+Organization in Boston April 25, 2008.  The author he compared Mark
+Twain to was Herman Melvil.
+</p>
+<p>
+You did a good job of putting the main points of the talk together --
+something I was looking for as I am now seeking to communicate the
+message back to my company.
+</p>
+<p>
+I find it reassuring that while the world focuses on the overnite
+sensations, there is great value in those of us who bloom later.
+</p>
+<p>
+Thanks for the links.
+</p>
+<address class="signature">
+<span class="author">Unregistered Visitor</span>
+<span class="date">2008-04-26 17:19:03</span>
+</address>
+</div>
+
+</div>

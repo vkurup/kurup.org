@@ -34,4 +34,48 @@ This approach also resonates with my own personal approach to weight. I am somew
 
 --------
 
-It's been more than a year since I read and wrote this. I've made some small changes in the way that I counsel patients. I have tried to be less focused on weight, and more focused on healthy lifestyles, but it's been difficult. I certainly don't think my results have been that much better. To be fair, it's a more difficult process. It's easy to check a patient's weight, give them some dietary and fitness instructions and let them loose. It's harder to assess, in detail, what their habits are like and whether they are truly changing.  Of course, there is no silver bullet to a problem like this, but I still like the Health at Every Size motives. It's more a "positive thinking" approach and that fits my personality more.
+It's been more than a year since I read and wrote this. I've made some
+small changes in the way that I counsel patients. I have tried to be
+less focused on weight, and more focused on healthy lifestyles, but
+it's been difficult. I certainly don't think my results have been that
+much better. To be fair, it's a more difficult process. It's easy to
+check a patient's weight, give them some dietary and fitness
+instructions and let them loose. It's harder to assess, in detail,
+what their habits are like and whether they are truly changing.  Of
+course, there is no silver bullet to a problem like this, but I still
+like the Health at Every Size motives. It's more a "positive thinking"
+approach and that fits my personality more.
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>HAES</b></p>
+<p>
+Stumbled across your blog while surfing the web.  I've been
+incorporated HAES principles as a helath educator and in my own life
+for over a year now.  It is interesting to look at the research on the
+fat-health links.  When one controls for past dieting history
+(yo-yoing), fitness, and nutrition, most if not all the association
+between fat and poor heath disappears!  In fact, fat and healthy
+people live as long as or longer than thin people.  Unfortunately,
+because fat people are so encouraged to try to become thin people,
+they suffer the health effects of all that dieting and forced
+activity, not to mention prejudice and discrimination because people
+assume fat is a result of gluttony and sloth.  We do a disservice to
+both fat and thin people to assume that we can tell something about an
+individual's habits by their body size and to assume that everybody
+would be within a narrow body size range if they ate right and
+exercised.
+</p>
+<p>
+A really fun book to check out on this stuff is "Big Fat Lies."  Good
+luck with your development toward HAES.  It is worth it!
+</p>
+<address class="signature">
+<span class="author">Unregistered Visitor</span>
+<span class="date">2006-12-06 16:43:44</span>
+</address>
+</div>
+
+</div>

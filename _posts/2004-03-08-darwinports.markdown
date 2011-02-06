@@ -84,3 +84,66 @@ I haven't submitted this to the darwinports project yet because they recommend i
     # see darwinports install doc for details Delphy:~ walter$ sudo port -v -d install postgresql Password: ... Delphy:~ walter$ pwd /Users/walter Delphy:~ walter$ cd /opt/local/ Delphy:/opt/local walter$ mkdir pgsql Delphy:/opt/local walter$ mkdir pgsql/data Delphy:/opt/local walter$ sudo chown -R walter:staff pgsql Delphy:/opt/local walter$ initdb -D pgsql/data ... Delphy:/opt/local walter$ pg_ctl -D pgsql/data -l logfile start postmaster successfully started Delphy:/opt/local walter$ createlang plpgsql template1 Delphy:/opt/local walter$ createdb openacs-head CREATE DATABASE Delphy:/opt/local walter$ createuser openacs-head Shall the new user be allowed to create databases? (y/n) y Shall the new user be allowed to create more new users? (y/n) y CREATE USER Delphy:/opt/local walter$ sudo port -v -d install aolserver ...  Delphy:/opt/local walter$ cd ~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0/ Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0 walter$ sudo port -v -d install wget Password: ...  Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0 walter$ sudo wget http://twtelecom.dl.sourceforge.net/sourceforge/aolserver/nscache-1.5.tar.gz Password: ...  Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0 walter$ sudo wget http://twtelecom.dl.sourceforge.net/sourceforge/aolserver/nspostgres-4.0.tar.gz ...   Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0 walter$ sudo wget http://twtelecom.dl.sourceforge.net/sourceforge/aolserver/nssha1-0.1.tar.gz ...  Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0 walter$ sudo cvs -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/aolserver login Password:  (Logging in to anonymous@cvs.sourceforge.net) CVS password:  Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0 walter$ sudo cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/aolserver co nsrewrite ...  Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0 walter$ sudo tar xvfz nscache-1.5.tar.gz ; sudo tar xvfz nssha1-0.1.tar.gz ; sudo tar xvfz nspostgres-4.0.tar.gz ...  Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0 walter$ cd nscache-1.5  Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0/nscache-1.5 walter$ NSHOME=..; export NSHOME  Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0/nscache-1.5 walter$ sudo make install ...  Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0/nscache-1.5 walter$ cd ../nsrewrite/  Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0/nsrewrite walter$ sudo make install ...  Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0/nsrewrite walter$ cd ..  Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0 walter$ cd nssha1-0.1  Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0/nssha1-0.1 walter$ sudo make install  Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0/nssha1-0.1 walter$ cd ../nspostgres-4.0  # edit the Makefile from: # < MODLIBS   = -L$(PGLIB) -lpq # to # MODLIBS   = -L$(PGLIB) -lpq -lnsdb  Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0/nspostgres-4.0 walter$ sudo make install POSTGRES=/opt/local ACS=1 ...  Delphy:/opt/local walter$ cd /opt/local  Delphy:/opt/local walter$ sudo mkdir src Delphy:/opt/local walter$ sudo chmod 775 src   Delphy:/opt/local walter$ wget http://www.tdom.org/tDOM-0.7.8.tar.gz ... Delphy:/opt/local walter$ cd src/ Delphy:/opt/local/src walter$ tar xvfz ../tDOM-0.7.8.tar.gz  Delphy:/opt/local/src walter$ rm ../tDOM-0.7.8.tar.gz Delphy:/opt/local/src walter$ cd tDOM-0.7.8/  Delphy:/opt/local/src/tDOM-0.7.8 walter$ cd unix/ Delphy:/opt/local/src/tDOM-0.7.8/unix walter$ ../configure --enable-threads --disable-tdomalloc --prefix=/opt/local/aolserver  Delphy:/opt/local/src/tDOM-0.7.8/unix walter$ sudo make install ...  Delphy:/opt/local/src/tDOM-0.7.8/unix walter$ cd Delphy:~ walter$ cd Development/ Delphy:~/Development walter$ mkdir web Delphy:~/Development walter$ cd web  Delphy:~/Development/web walter$ cvs -z3 -d walterg@openacs.org:/cvsroot co acs-core password: ...  # i move the openacs code to openacs-head # mv openacs-4 openacs-head # edit openacs-head/etc/config.tcl to be localhost, etc ! set hostname                  localhost ! set address                   127.0.0.1  ! set server                    "openacs-head"   set servername                "New OpenACS Installation - Development"  ! set serverroot                "/Users/walter/Development/web/${server}"  Delphy:~/Development/web/openacs-head walter$ /opt/local/aolserver/bin/nsd -ft ~/Development/web/openacs-head/etc/config.tcl
 
 I think Fink and Darwinports can coexist since Fink is installed in `/sw` and Darwinports in `/opt/local`, but I'm sticking with Darwinports alone, for now.
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>darwinports distribution</b></p>
+<p>
+<p>
+I agree that a lot of the build process for an openacs install
+could be handled with things like dependencies on other ports using
+Darwinports.
+</p>
+<p>
+It would be pretty slick to be able to do something like the
+following:
+</p>
+<p>
+<blockquote><code>sudo port install openacs -type personal -name
+myopenacs.com -ip 123.456.78.9 -admin_email
+admin@myopenacs.com</code></blockquote>
+</p>
+<p>I'm not sure that the above passing of install parameters can
+happen yet with the <code>port</code> command.  A scenario like this
+may be necessary:
+</p>
+<br><blockquote><code>sudo port install openacs-deps-and-src</code></blockquote>
+<br><blockquote><code>sudo /opt/local/openacs/configure -type personal -name myopenacs.com -ip 123.456.78.9 -admin_email admin@myopenacs.com</code></blockquote>
+<br><blockquote><code>sudo openacs start # really a wrapper for for checking for db running, if not start it, and starting a server's nsd process</code></blockquote>
+<p>After getting to one or the other scenarios its a simple step to
+creating an Applescript UI for configuring the parameters and calling
+the command.
+</p>
+<p>It is also important to note that Darwinports, at least in theory,
+could be used on other Unix variants like Linux and FreeBSD.  The big
+trouble I see is that it isn't compliant with the standards that the
+OpenACS docs use.  However, I must admit that I'm kind of partial to
+the idea of having a separate <code>/opt</code> branch for stuff.
+</p>
+
+<address class="signature">
+<span class="author">Walter McGinnis</span>
+<span class="date">2004-03-20 14:28:36</span>
+</address>
+</div>
+
+<div class="one-comment">
+<p><b>Update</b></p>
+<p>
+I'm in the process of installing OpenACS for development on a
+different machine than previously.  I've updated to the latest
+versions of software.  As a result, if you follow my previous
+directions, you'll need to add a new flag to the "sudo port -v -d
+install" commands in order to keep the source files around (you need
+these to build other software later), namely "-k" for keep the working
+directories.
+</p>
+<address class="signature">
+<span class="author">Walter McGinnis</span>
+<span class="date">2004-12-03 17:10:46</span>
+</address>
+</div>
+
+</div>

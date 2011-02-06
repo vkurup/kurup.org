@@ -18,3 +18,29 @@ In April/May 2007, [IAL](http://finance.yahoo.com/q?s=IAL) got bought out for a 
 Here's how the rest of my portfolio is doing as of May 31st, 2007.
 
 <table cellspacing="0" summary="Stocks I currently own."> <tr> <th>Current Holdings</th>  <th>Purchased</th>  <th>Total Return (so far)</th> </tr>  <tr class="list-odd">  <td>Champion Industries ([CHMP](http://finance.yahoo.com/q?s=CHMP))</td>  <td>Nov 2005</td>  <td>76.74%</td> </tr>  <tr class="list-even"> <td>REX Stores ([RSC](http://finance.yahoo.com/q?s=RSC))</td>  <td>May 2006</td> <td>-18.49%</td> </tr>  <tr class="list-odd"> <td>Ecology &amp; Environment ([EEI](http://finance.yahoo.com/q?s=EEI))</td>  <td>May 2006</td> <td>21.97%</td> </tr>  <tr class="list-even"> <td>J. Alexander's ([JAX](http://finance.yahoo.com/q?s=JAX))</td>  <td>May 2006</td>  <td>53.18%</td> </tr>  <tr class="list-odd"> <td>Supreme Industries ([STS](http://finance.yahoo.com/q?s=STS))</td>  <td>May 2006</td>  <td>-8.93%</td> </tr>  <tr class="list-even"> <td>Bassett Furniture Industries ([BSET](http://finance.yahoo.com/q?s=BSET))</td>  <td>Aug 2006</td>  <td>-11.62%</td> </tr>  <tr class="list-odd"> <td>Superior Uniform Group ([SGC](http://finance.yahoo.com/q?s=SGC))</td>  <td>Nov 2006</td>  <td>-2.59%</td> </tr>  <tr class="list-even"> <td>Flexsteel Industries ([FLXS](http://finance.yahoo.com/q?s=FLXS))</td> <td>Nov 2006</td>  <td>13.85%</td> </tr>  <tr class="list-odd"> <td>Cost-U-Less ([CULS](http://finance.yahoo.com/q?s=CULS))</td>  <td>Nov 2006</td>  <td>12.05%</td> </tr>  <tr class="list-even"> <td>Perceptron ([PRCP](http://finance.yahoo.com/q?s=PRCP))</td> <td>Nov 2006</td>  <td>3.04%</td> </tr>  <tr class="list-odd"> <td>Parlux Fragrances ([PARL](http://finance.yahoo.com/q?s=PARL))</td>  <td>Nov 2006</td>  <td>-30.08%</td> </tr>  <tr class="list-even"> <td>Hardinge ([HDNG](http://finance.yahoo.com/q?s=HDNG))</td> <td>Feb 2007</td>  <td>102.01%</td> </tr>  <tr class="list-odd"> <td>Avalon Holdings ([AWX](http://finance.yahoo.com/q?s=AWX))</td>  <td>Feb 2007</td>  <td>32.50%</td> </tr>  <tr class="list-even"> <td>Cavalier Homes ([CAV](http://finance.yahoo.com/q?s=CAV))</td> <td>Feb 2007</td>  <td>21.11%</td> </tr>  <tr class="list-odd"> <td>Jewett-Cameron Trading Co. ([JCTCF](http://finance.yahoo.com/q?s=JCTCF))</td>  <td>Feb 2007</td>  <td>24.82%</td> </tr>  <tr class="list-even"> <td>Air T ([AIRT](http://finance.yahoo.com/q?s=AIRT))</td> <td>Feb 2007</td>  <td>11.97%</td> </tr>  <tr class="list-odd"> <td>Redhook Ale Brewery ([HOOK](http://finance.yahoo.com/q?s=HOOK))</td>  <td>May 2007</td>  <td>4.89%</td> </tr>  <tr class="list-even"> <td>Pope &amp; Talbot ([POP](http://finance.yahoo.com/q?s=POP))</td> <td>May 2007</td>  <td>-46.95%</td> </tr>  <tr class="list-odd"> <td>Pomeroy IT Solutions ([PMRY](http://finance.yahoo.com/q?s=PMRY))</td>  <td>May 2007</td>  <td>6.95%</td> </tr>  </table>
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>Congratulations</b></p>
+<p>
+Vinod!!! I have no idea how you have time for all of this stuff (plus reading books), but I have two things to say:
+</p>
+<p>
+1. CONGRATULATIONS ON THE NEW BABY! You must be so proud and so
+happy. I always knew that sweet Mala, who loves the Gilmore Girls and
+Peanut Butter Cup ice cream, is really a warrior on the inside and
+could tough out a delivery that would send me to the morphine drip.
+</p>
+<p>
+2. On a side note, I think the large caps are back man! In this world
+of private equity money and uber-duber liquidity, go large baby.
+</p>
+<address class="signature">
+<span class="author">Anonymous</span>
+<span class="date">2007-06-06 19:23:44</span>
+</address>
+</div>
+
+</div>

@@ -22,3 +22,25 @@ Also in this issue of the journal is a nice quote from Thoreau:
 Good advice, which I need to take more often.
 
 Reference: JAMA 2006-07-26 296:4 page 397
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>Thoreau Shmoreau</b></p>
+<p>
+That quote always gets credited to Thoreau instead of me. I believe I
+told you two weeks ago to "blog more" which is a less flowery approach
+to Thoreau's basic sentiment. He's such a snooze anyway - has anybody
+really ever read all of Walden? ;)
+</p>
+<p>
+-M http://millatonkonogy.blogspot.com
+</p>
+<address class="signature">
+<span class="author">Milla Tonkonogy</span>
+<span class="date">2006-08-01 21:27:59</span>
+</address>
+</div>
+
+</div>

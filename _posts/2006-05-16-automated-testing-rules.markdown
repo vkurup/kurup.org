@@ -23,3 +23,31 @@ The error was happening in `permission::grant`. It was complaining that `$runner
 I would never have caught this error until I tried to call `rl::runner::new` the second time on the same user. Which would make it one of those very difficult to track bugs. Automated testing saved me a lot of annoying debugging.
 
 That said, I wish OpenACS's testing facilities were better. I worked on a couple other bugs today and I'm trying really hard to write tests to expose bugs before fixing them, but it's really a strain. Especially when you need to do a combination of black box and white box testing. I'd like to make testing easier in OpenACS, but I'm not sure if I have the brainpower :-)
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>Improving Testing</b></p>
+<p>
+Vinod,
+</p>
+<p>
+There is definitely room for improvement. You can specify test
+dependency, I think, so you can create a test package environment,
+then run several tests using that setup. I haven't tried that yet, but
+it should help.
+</p>
+<p>
+Anothing thing to keep in mind is that testing can expose places in
+your code that might need to be decoupled. That is one of the
+advantages of testing, by thinking of how to run the code is isolation
+in the test, you can discover a better design :)
+</p>
+<address class="signature">
+<span class="author">Dave Bauer</span>
+<span class="date">2006-05-17 07:27:51</span>
+</address>
+</div>
+
+</div>

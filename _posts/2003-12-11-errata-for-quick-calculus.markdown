@@ -15,3 +15,24 @@ I just read [Quick Calculus: A Self-Teaching Guide, 2nd Edition](http://www.amaz
 Errors in technical books annoy me because I spend way too much time trying to figure out why I'm mixed up. Not having a published errata online annoys me even more. See [Mark's book](http://borkware.com/corebook/errata) for an errata page done right.
 
 All ranting aside, Quick Calculus is an ideal resource if you're looking to brush up on the basics of Calculus. It's short and interactive, yet it doesn't sugarcoat the material.
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>Thanks, I was thinking about getting Quick Calculus one of these days</b></p>
+<p>
+I read Pratical Algebra, another in this series. I am currently not
+reading Geomery and Trigonomtry for Calculus, also in the series. I
+really wish I had paid more attenion back when I took all these math
+courses. That said, if you need to relearn math, those books work
+well. I suspect the bits of Calculus I learned are still in my brain
+somewhere, and just need to be put back together.
+</p>
+<address class="signature">
+<span class="author">Dave Bauer</span>
+<span class="date">2003-12-10 22:35:20</span>
+</address>
+</div>
+
+</div>

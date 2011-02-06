@@ -16,4 +16,46 @@ I [posted about this last year](http://kurup.org/blog/2005/12/30/good-causes), s
 - [Association for India's Development](http://sahyadri.aidindia.org/content/blogsection/3/67/) - Promoting sustainable development in India
 - [World Education](http://www.worlded.org/WEIInternet/aboutus/index.cfm) - world education :)
 
-You can look up most charities on the [Charity Navigator](http://www.charitynavigator.org/index.cfm/bay/search.fourstar.htm) website to see how efficient and organized they are. The ones above received the highest rating, 4 stars.
+You can look up most charities on the [Charity
+Navigator](http://www.charitynavigator.org/index.cfm/bay/search.fourstar.htm)
+website to see how efficient and organized they are. The ones above
+received the highest rating, 4 stars.
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>Thanks From Grameen Foundation USA</b></p>
+<p>
+Just wanted to thank you personally for your generous donation to GFUSA.
+</p>
+<p>
+This is not an "official" thank your for tax purposes -- you will
+receive that via post in the next few days.  I happened upon your blog
+after googling your name in an effort to reconcile an old MA address
+our database listed for your contact.  Thought it would be neat to
+send along an extra thanks!
+</p>
+<address class="signature">
+<span class="author">Matt Mechenbier</span>
+<span class="date">2006-01-05 16:12:20</span>
+</address>
+</div>
+
+<div class="one-comment">
+<p><b>Asha running blog</b></p>
+<p>
+Hi Vinod,
+</p>
+<p>
+Congrats on your running achievements.  I'm a Kurup runner also who
+coaches the DC Asha for Education marathon training program. drop me a
+line
+</p>
+<address class="signature">
+<span class="author">Ramesh Kurup</span>
+<span class="date">2006-01-18 23:42:30</span>
+</address>
+</div>
+
+</div>

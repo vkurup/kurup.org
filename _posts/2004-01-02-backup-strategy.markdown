@@ -60,3 +60,108 @@ OK, the final thing is to set up SSH properly. I basically set it up like MarkD 
 To get the proper command to put in your command="" statement, run your rsync command with an unrestricted SSH key first (i.e. just copy the id_rsa.pub to authorized_keys2). When you run the rsync command on your Mac, do a `ps auxw | grep rsync` on the server machine. The command that you see listed is the command that goes in the key.
 
 After reading MarkD's article, the one thing I might change is to tar up the data on the Linux server that needs its user/group info preserved (`/etc`, `/root`, and `/usr/local`) and then store that on the server in my user's home directory. I then wouldn't have to rsync as root, so it would simplify things. The drawback is that anytime anything changed in any of those directories, I'd be backing up the entire directories again. Hopefully this would be mitigated by the fact that they wouldn't change often and since they're mostly text files, they compress well.
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>Yeah, baby</b></p>
+<p>
+Great minds do thing alike :-)  ours too.
+</p>
+<p>
+I added a pointer to this from my rsync backup page, since I like your
+concise description of tar and rsync, plus the other root-related
+issues.  I found I haven't had to touch /etc since Cathy already set
+up networking, and all my junk is running from daemontools.  Back when
+I was colocating my machine, I would have loved to learn that trick
+though.  Rebuilding the /etc configs from scratch in a disaster
+recovery mode is a huge royal pain.
+</p>
+
+<p>
+I wish I had set something like this up *years* ago.  Entirely too
+easy, and it seems to work.
+</p>
+<address class="signature">
+<span class="author">Mark Dalrymple</span>
+<span class="date">2004-01-04 19:57:05</span>
+</address>
+</div>
+
+<div class="one-comment">
+<p><b>HFS+ aware rsync</b></p>
+<p>
+I'm setting this up on my LAN to do some nightly backups between Macs.
+It should be noted that the rsync included with Mac OS X isn't HFS+
+aware.  Not a big deal for backups from Linux, etc., but if you want
+to absolutely get everything on a Mac, probably worth it to download
+Rsyncx (check versiontracker.com) or if you are a darwinports user,
+you can do the following:
+</p>
+<p>
+sudo port install hfsrsync
+</p>
+
+<p>
+and use the "hfsrsync" command as you would the rsync command in the
+instructions above.  Rsyncx actually moves the original rsync command
+to orig_rsync and places itself as the rsync command, so after
+downloading and installing it, you could use the instructions
+unaltered.
+</p>
+<address class="signature">
+<span class="author">Walter McGinnis</span>
+<span class="date">2005-03-30 13:27:54</span>
+</address>
+</div>
+
+<div class="my-comment">
+<p><b>Thanks Walter</b></p>
+<p>
+I'm currently using Carbon Copy Cloner to backup my mac to an external
+firewire, but I'll probably want to switch to hfsrsync at some
+point. Thanks for the pointer!
+</p>
+<address class="signature">
+<span class="author">Vinod Kurup</span>
+<span class="date">2005-09-15 11:00:44</span>
+</address>
+</div>
+
+<div class="one-comment">
+<p><b>rsync exclude file syntax</b></p>
+<p>
+Thanks for the explanation. Googling rsync exclude did not give me
+what I was looking for -- syntax for the exclude file. man rsync
+doesn't explain it very well either
+</p>
+<address class="signature">
+<span class="author">Patrick Greenwood</span>
+<span class="date">2006-09-07 10:04:30</span>
+</address>
+</div>
+
+<div class="one-comment">
+<p><b>will this work</b></p>
+<p>
+Hi there,
+</p>
+<p>
+i am totally new to backup of filesystem and i am suppose to propose a
+backup strategy for a school assignment.
+</p>
+<p>
+i have a solaris 9.0 run filesystem of 9TB
+</p>
+<p>
+can i implement Rsync as the backup strategy? would it be sufficient?
+thanks for advice :)
+</p>
+<address class="signature">
+<span class="author">Unregistered Visitor</span>
+<span class="date">2007-02-07 09:46:47</span>
+</address>
+</div>
+
+</div>

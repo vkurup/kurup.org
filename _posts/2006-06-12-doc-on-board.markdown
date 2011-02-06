@@ -11,4 +11,21 @@ Yep, the "Vinod Kurup" quoted is yours truly! I'm really grateful to Scott for u
 
 Here's the [online version of the article](http://www.runnersworld.com/article/0,5033,s6-78-0-0-9823,00.html), but go check out the magazine because it's, you know, much cooler.
 
-Also check out [Scott's site](http://www.scottdouglas.biz) for more interesting articles about running.
+Also check out [Scott's site](http://www.scottdouglas.biz) for more
+interesting articles about running.
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>Dr. Kurup</b></p>
+<p>
+You are freaking amazing!
+</p>
+<address class="signature">
+<span class="author">Unregistered Visitor</span>
+<span class="date">2006-07-09 17:05:45</span>
+</address>
+</div>
+
+</div>

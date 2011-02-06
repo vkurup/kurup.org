@@ -25,3 +25,38 @@ Outlook Group([OUTL](http://finance.yahoo.com/q?s=OUTL)) | 2/1/2005 | 33.09% |
 All American Semiconductor ([SEMI](http://finance.yahoo.com/q?s=SEMI)) | 2/1/2005 | -2.09% |
 Duckwall-ALCO Stores ([DUCK](http://finance.yahoo.com/q?s=DUCK)) | 2/1/2005 | 24.21% |
 Cobra Electronics ([COBR](http://finance.yahoo.com/q?s=COBR)) | 2/1/2005 | 15.92% |
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>What do you think about this stock</b></p>
+<p>
+Hey Vin, what do you think of SBG(Sinclair Broadcast Group)
+</p>
+<p>
+Its the company that owns Channels 18 and 24(my employer).
+</p>
+<address class="signature">
+<span class="author">Andy Drout</span>
+<span class="date">2005-08-05 21:12:25</span>
+</address>
+</div>
+
+<div class="one-comment">
+<p><b>Hey Guy!!- Check out SSYS</b></p>
+<p>
+Hey Man- what do you think of SSYS??  Hopefully I will have a phone
+soon so I can surf/call people!!
+</p>
+
+<p>
+P.S.- Gotta love Sandisk SNDK!!!!!!!
+</p>
+<address class="signature">
+<span class="author">Gerald Cherayil</span>
+<span class="date">2005-10-24 16:18:27</span>
+</address>
+</div>
+
+</div>

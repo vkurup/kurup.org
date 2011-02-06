@@ -35,4 +35,103 @@ set max -1 foreach qword $sorted_qwords {
 }
 {% endhighlight %}
 
-About 19 lines and pretty simple to write and read. Can this be improved?
+About 19 lines and pretty simple to write and read. Can this be
+improved?
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>Meditations on programming languages</b></p>
+<p>
+I like Paul Graham's essays on this subject.
+</p>
+<p>
+Have you seen this http://paulgraham.com/fix.html or this
+http://paulgraham.com/icad.html  ?
+</p>
+<address class="signature">
+<span class="author">Prem Thomas</span>
+<span class="date">2006-10-03 14:13:23</span>
+</address>
+</div>
+
+<div class="one-comment">
+<p><b>Tcl functional programming (And the example in Perl</b></p>
+<p>
+I don't do as much tcl programming as I used to, but I do do a lot of
+Perl and some Ruby.
+</p>
+One thing I have really picked up from the Perl community is a love of
+using functional programming when it makes sense (which is quite a
+bit). If you want to get into functional programming in tcl there are
+quite a few good resources on the tcl.tk wiki, but there's also a
+fantastic functional tcl package in openacs that every openacs
+programmer should make themselves familiar with:
+<p>
+<a
+href="http://openacs.org/api-doc/procs-file-view?version_id=358343&path=packages/acs-tcl/tcl/ad-functional-procs.tcl">ACS
+Tcl 5.2.0 : ad-functional-procs.tcl</a> - full lambda functions (with
+no memory leaks, although a bit of memory usage)
+</p>
+<p>
+Now, onto the fun part! I thought I'd take on the Q word example in
+Perl. Here's a reasonable way to do it in Perl:
+</p>
+
+<pre>
+use strict;
+open W, '/usr/share/dict/words' or die $!;
+my @words = &lt;W&gt;;
+chomp @words;
+close W;
+
+my $max = 0;
+for my $word (sort {length $a <=> length $b} sort grep { /^q/i } @words) {
+    if (length $word > $max) {
+        $max = length $word;
+        print "Words of length $max:\n"
+    }
+
+    print "$word\n";
+}
+</pre>
+
+<p>
+And here's the pathological way :)
+</p>
+
+<pre>
+open W, '/usr/share/dict/words';
+
+length > $max ? print 'Words of length ' . (($max = length) -1) . ":\n$_" : print
+for sort {length $a <=> length $b} sort grep { /^q/i } &lt;W&gt;;
+</pre>
+<address class="signature">
+<span class="author">Mark Aufflick</span>
+<span class="date">2006-11-26 21:49:24</span>
+</address>
+</div>
+
+<div class="my-comment">
+<p><b>More stuff to learn</b></p>
+<p>
+Thanks Prem for the amusing comments about languages. I still have the
+"Revenge of the Nerds" on my to-read list.
+</p>
+<p>
+Mark, that is one scary looking snippet of Perl. :) Thanks for the
+links to the functional programming procs in OpenACS. I had never seen
+those. Do you know of any code that uses them?
+</p>
+<p>
+I've been meaning to learn some more about functional programming, but
+the going has been difficult. It's definitely a different mindset.
+</p>
+<address class="signature">
+<span class="author">Vinod Kurup</span>
+<span class="date">2006-12-14 16:34:02</span>
+</address>
+</div>
+
+</div>

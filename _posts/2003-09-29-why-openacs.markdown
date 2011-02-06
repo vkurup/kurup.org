@@ -18,3 +18,56 @@ To be honest, I'm not sure that OpenACS is the right application if you're just 
 OpenACS's main power lies in the fine-grained control that it gives you. Every object and area can be controlled the way you want, so the level of control that users have is up to you. The database API is clean and gives you full access to the database of your choice - Oracle or PostgreSQL. Your hands aren't tied. The templating system is intuitive yet offers a lot of features for more complex, specific cases if needed. A lot of work is currently going into building and improving an automated testing framework. There are plenty of other reasons why I love OpenACS and I'll write about them some more as examples of them come up.
 
 In short, OpenACS is the way for me to get things done on the web.
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>A unified package</b></p>
+<p>
+What I really like about it is that it has the common data model.  The
+same user features, the same content features, are available
+everywhere.  Try to glue together a PHP forum and a PHP shopping cart
+made by two different groups and you're in for a good deal of work.
+
+I'm also a fan of esoteric technologies.  I like using tools that work
+well (Macs, postgresql, aolserver, qmail) rather than the tools
+everyone uses, since the popular tools are usually extremely
+feature-rich, but ugly as sin on the inside (Windows, Apache,
+sendmail)
+</p>
+<address class="signature">
+<span class="author">Mark Dalrymple</span>
+<span class="date">2003-10-03 17:58:20</span>
+</address>
+</div>
+
+<div class="my-comment">
+<p><b>Can't believe I forgot to mention that!</b></p>
+<p>
+The consistent user-centered datamodel is key. I think some joker
+wrote an <a
+href="http://macedition.com/bolts/bolts_20030207.php">excellent
+article about OpenACS and its strong points.</a> I really meant to
+point to that article in my post, since it succintly describes
+everything that I was trying to say. :-)
+</p>
+<address class="signature">
+<span class="author">Vinod Kurup</span>
+<span class="date">2003-10-06 13:48:18</span>
+</address>
+</div>
+
+<div class="one-comment">
+<p><b>oh yeah</b></p>
+<p>
+you can ignore that thing.  the guy that wrote it is a big jerk.  And
+he looks funny.  And he drools.
+</p>
+<address class="signature">
+<span class="author">Mark Dalrymple</span>
+<span class="date">2003-10-07 22:39:46</span>
+</address>
+</div>
+
+</div>

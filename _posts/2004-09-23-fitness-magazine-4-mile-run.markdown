@@ -12,3 +12,34 @@ I didn't warm up as much as I would've liked, but the first 2 miles went suprisi
 <img src="http://kurup.org/photo/images/16141/04fitness11.jpg" height="500" width="333" alt="04fitness11.jpg"/>
 
 My Finish Time was 29:47. Here are some more [pics from the race](http://www.nyrrc.org/race/2004/photosa40918.html).
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>Out of Shape</b></p>
+<p>
+Boy I must be out of shape because I look like that after I walk up a
+few flights of stairs. Good for you to be able to still run these
+races at your age.
+</p>
+<address class="signature">
+<span class="author">Andy Drout</span>
+<span class="date">2004-09-26 19:42:51</span>
+</address>
+</div>
+
+<div class="my-comment">
+<p><b>at my age</b></p>
+<p>
+Hey, I'm as old as you are, so watch it with the "old-age" comments
+:-) In any case, I'm sure you can still swat a baseball a lot farther
+than I can.
+</p>
+<address class="signature">
+<span class="author">Vinod Kurup</span>
+<span class="date">2004-09-26 22:47:09</span>
+</address>
+</div>
+
+</div>

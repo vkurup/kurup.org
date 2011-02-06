@@ -26,3 +26,49 @@ Scheduled:
 - Oct 15: Staten Island
 
 [Read more race reports at Derek Rose's blog.](http://derekrose.com/wp/?p=864)
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>good job</b></p>
+<p>
+Hey, looks like you made substantial headway since Manhattan half,
+that's great.  Nice race report.  And don't worry about the hills; the
+more you run them, the less high they seem.  (I'm lying of course!)
+that's my home training ground, so they seem like predictable friends
+to me...
+</p>
+<p>
+see you at Bronx Half I hope.
+</p>
+<address class="signature">
+<span class="author">Anonymous</span>
+<span class="date">2006-03-18 23:55:01</span>
+</address>
+</div>
+
+<div class="my-comment">
+<p><b>Thanks</b></p>
+<p>
+Lucky you - It must be nice to train in Prospect Park. I love the
+Bronx, but I haven't found a dependable course yet. I'm a mile away
+from Van Cortlandt park, but it doesn't have any runner-friendly loops
+like Prospect Park or Central Park. But it does have hills - I guess I
+should work there a bit more, huh?
+</p>
+<p>
+My Manhattan time is misleading because I didn't train at all for
+it. I was expecting the Manhattan half to be in August like it was
+last year, so I was slacking off in my running :-)
+</p>
+<p>
+How'd you do? See ya at the Bronx!
+</p>
+<address class="signature">
+<span class="author">Vinod Kurup</span>
+<span class="date">2006-03-19 08:22:50</span>
+</address>
+</div>
+
+</div>

@@ -451,6 +451,34 @@ form#comment {
 }
 /* @end */
 
+/* vinod old comments */
+#comment-box {
+	background: white;
+	padding: 3em 3em 1.5em 3em;
+	border: 1px solid #ccc;
+	box-shadow: 2px 2px 8px #aaa;
+	-webkit-box-shadow: 2px 2px 8px #aaa;
+	-moz-box-shadow: 2px 2px 8px #aaa;	
+	margin-top: 2.93em;
+        padding-top: 0;
+}
+.one-comment {
+	background-color: whitesmoke !important;
+	border-top: 1px solid silver !important;
+	border-bottom: 1px solid silver !important;
+	margin-bottom: 1.15em !important;
+        padding-left: 1em;
+        padding-right: 1em;
+}
+.my-comment {
+	background-color: #f5dadd !important;
+	border-top: 1px solid silver !important;
+	border-bottom: 1px solid silver !important;
+	margin-bottom: 1.15em !important;
+        padding-left: 1em;
+        padding-right: 1em;
+}
+
 /* @group LibraryThing */
 span.LTtitle { display: none; }
 div.LTitem { display: inline; margin-right: 0.7em; }
