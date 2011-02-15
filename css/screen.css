@@ -560,6 +560,12 @@ img.maruku-png { }
 
 img {border: none;}
 
+.adsense-text {
+  position: fixed;
+  bottom: 0em;
+  right: -1em;
+}
+
 ul.fixedmenu { 
   position: fixed;
   bottom: 0em;

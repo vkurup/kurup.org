@@ -30,6 +30,19 @@
       <li><a class="feed" href="/blog/feed/atom/index.xml">Feed <img src="/images/rss.jpg"></a></li> 
     </ul>
 
+    <div class="adsense-text">
+      <script type="text/javascript"><!--
+      google_ad_client = "ca-pub-4972120581861523";
+      /* Text Links */
+      google_ad_slot = "7058565667";
+      google_ad_width = 120;
+      google_ad_height = 90;
+      //-->
+      </script>
+      <script type="text/javascript"
+      src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+      </script>
+    </div>
     <!-- Last modified at ${datetime.today().strftime('%c')} -->
     <%include file="google-analytics.mako" />
   </body>
