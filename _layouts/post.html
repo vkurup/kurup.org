@@ -1,0 +1,48 @@
+---
+layout: default
+feed: atom.xml
+---
+
+<h1 class="emphnext">{{ page.title }}</h1>
+
+{{ content }}
+
+<address class="signature">
+  <span class="author">&nbsp;</span>
+  <span class="date">{{ page.date | date_to_long_string }}</span>
+  <span class="tags">{% for tag in page.tags %}<a href="http://www.google.com/search?q={{ tag }}+site:www.kurup.org" rel="tag">{{ tag }}</a> {% if forloop.last %} {% else %} | {% endif %}{% endfor %}</span>
+</address>
+
+<!-- Feedburner Flare -->
+<script src="http://feeds.feedburner.com/~s/vkurup?i=http://www.kurup.org{{ page.url }}" type="text/javascript"></script>
+
+<!-- Discus Comments -->
+<div id="disqus_thread"></div>
+
+<!-- Enable Disqus comments -->
+<script type="text/javascript">
+    var disqus_developer = "0";
+    var disqus_iframe_css = "http://www.kurup.org/blog/files/css/screen.css";
+    var disqus_title = "{{ page.title }}";
+</script>
+<script type="text/javascript" src="http://disqus.com/forums/vkurup/embed.js"></script>
+
+<noscript>
+		<a href="http://vkurup.disqus.com/?url=ref">View the discussion thread.</a>
+</noscript>
+
+<!-- DISQUS CODE -->
+<script type="text/javascript">
+//<![CDATA[
+(function() {
+	var links = document.getElementsByTagName('a');
+	var query = '?';
+	for(var i = 0; i < links.length; i++) {
+	if(links[i].href.indexOf('#disqus_thread') >= 0) {
+		query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+	}
+	}
+	document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/vkurup/get_num_replies.js' + query + '"></' + 'script>');
+})();
+//]]>
+</script>
