@@ -560,10 +560,16 @@ img.maruku-png { }
 
 img {border: none;}
 
+.adsense-banner {
+  position: fixed;
+  bottom: 100px;
+  right: 10px;
+}
+
 .adsense-text {
   position: fixed;
   bottom: 0em;
-  right: -1em;
+  right: 10px;
 }
 
 ul.fixedmenu { 

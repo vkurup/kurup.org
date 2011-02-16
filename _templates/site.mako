@@ -30,6 +30,20 @@
       <li><a class="feed" href="/blog/feed/atom/index.xml">Feed <img src="/images/rss.jpg"></a></li> 
     </ul>
 
+    <div class="adsense-banner">
+      <script type="text/javascript"><!--
+      google_ad_client = "ca-pub-4972120581861523";
+      /* Right banner */
+      google_ad_slot = "9468878174";
+      google_ad_width = 120;
+      google_ad_height = 240;
+      //-->
+      </script>
+      <script type="text/javascript"
+      src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+      </script>
+    </div>
+
     <div class="adsense-text">
       <script type="text/javascript"><!--
       google_ad_client = "ca-pub-4972120581861523";
