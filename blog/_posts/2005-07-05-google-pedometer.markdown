@@ -2,7 +2,7 @@
 date: 2005/07/05 00:00:00
 layout: post
 title: "Google Pedometer"
-categories: pedometer, maps, running, google, gps
+tags: pedometer maps running google gps
 ---
 
 I admit it. As a runner, I'm obsessive about my mileage. It's not that I'm obsessive about running and getting my mileage in. That would be a good thing. Once I do go for a run, I'm obsessive about knowing exactly how far I've run.

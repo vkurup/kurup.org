@@ -2,7 +2,7 @@
 date: 2006/12/27 00:00:00
 layout: post
 title: "Length of therapy with bisphosphonates"
-categories: medicine, osteoporosis
+tags: medicine osteoporosis
 ---
 
 Sorry for another post linking to [Journal Watch](http://jwatch.org), but they really are doing a great job of reading my mind...

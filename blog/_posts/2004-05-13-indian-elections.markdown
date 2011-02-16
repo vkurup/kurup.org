@@ -2,7 +2,7 @@
 date: 2004/05/13 00:00:00
 layout: post
 title: "Indian Elections"
-categories: india
+tags: india
 ---
 
 India offshores the prime ministership (link broken).

@@ -2,7 +2,7 @@
 date: 1998/10/22 00:00:00
 layout: post
 title: Letter From Devi
-categories: devi, family
+tags: devi family
 ---
 
 I recently got a letter from my niece, Devi, which broke my heart...
@@ -25,10 +25,6 @@ I recently got a letter from my niece, Devi, which broke my heart...
 So, Devi, I have a very special picture from our birthday party together in
 August. Here it is!
 
-</p>
-
-<p>
 <img src="/images/devi-birthday-1.jpg">
 <img src="/images/devi-birthday-2.jpg">
 <img src="/images/devi-birthday-3.jpg">
-</p>

@@ -2,7 +2,7 @@
 date: 2009/09/21 00:00:00
 layout: post 
 title: Speed up Firefox on eeepc
-yycategories: linux
+tags: linux
 ---
 
 I'm too weak to lug around my monstrous 7 pound laptop, so I bought a

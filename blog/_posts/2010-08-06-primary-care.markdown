@@ -2,7 +2,7 @@
 date: 2010/08/06 11:59:00
 layout: post
 title: Primary Care Doctors
-categories: medicine, hospitalist
+tags: medicine hospitalist
 ---
 
 I used to be a primary care physician, but switched to being a hospitalist

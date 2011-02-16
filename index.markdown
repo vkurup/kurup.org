@@ -3,14 +3,13 @@ layout: default
 title: Home
 ---
 
-Welcome to my home page! (Yes, I know it's 2010, but I still call it my
-home page). I'm probably the luckiest guy in the world, with a [beautiful
-wife](/wedding) and 2 sweet, life-loving kids to prove it. I am a
-hospitalist working at a community hospital in North Carolina. I am also a
-(free software) programmer, writer, runner, foodie, new homeowner, reader,
-investor, in addition to about a hundred other things. I'm basically a
-wannabee Renaissance Man. On these pages, you can find out more about those
-interests.
+Welcome to my home page! (Yes, I know it's 2011, but I still call it
+my home page). I'm probably the luckiest guy in the world, with a
+[beautiful wife](/wedding) and 2 sweet, life-loving kids to prove
+it. I am a hospitalist working at a community hospital in North
+Carolina. I am also a (free software) programmer, writer, runner,
+foodie, homeowner, reader, investor, in addition to about a hundred
+other things. I'm basically a wannabee Renaissance Man.
 
 +-- {.section}
 [Blog](/blog)
@@ -18,14 +17,14 @@ interests.
 I have been irregularly blogging for over ten years. A good percentage of
 my posts seem to be apologies for not posting more often. Still, you may
 find something interesting on my [blog](/blog). Recent posts include:
-{% for post in site.posts limit:5 %}
+
 <ul class="compact recent">
-<li>
-	<a href="{{ post.url }}" title="{{ post.excerpt }}">{{ post.title }}</a>
-	<span class="date">{{ post.date | date_to_string }}</span> 
-</li>
-</ul>
+{% for post in site.posts limit:5 %}
+  <li><a href="{{ post.url }}" title="{{ post.excerpt }}">{{ post.title }}</a>
+	<span class="date">{{ post.date | date_to_string }}</span></li>
 {% endfor %}
+</ul>
+
 =--
 
 +-- {.section}
@@ -61,6 +60,7 @@ Contacting Twitter...
 +-- {.section}
 Interweb
 ========
+- [Twitter](http://twitter.com/vkurup)
 - [Facebook](http://facebook.com/vvkurup)
 - [FriendFeed](http://friendfeed.com/vkurup)
 - [OpenACS](http://openacs.org/forums/user-history?user_id=7027) - The bulk

@@ -2,7 +2,7 @@
 date: 2004/01/15 00:00:00
 layout: post
 title: "Compiling OpenFTS on Mac OS X"
-categories: mac, compiling, openacs, software
+tags: mac compiling openacs software
 ---
 
 It wasn't easy, but I finally got OpenFTS-0.3.2-tcl to compile on Mac OS X (10.2.8). I started by reading the excellent Mac OS X porting guides from [Fink](http://fink.sourceforge.net/doc/porting/basics.php) and [Apple](http://developer.apple.com/documentation/Porting/Conceptual/PortingUnix/intro/chapter_1_section_1.html). Unfortunately, the OpenFTS Makefile and configure scripts aren't standard, so I had to muck around with things alot. Here's the diff:  

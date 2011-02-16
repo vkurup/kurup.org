@@ -2,7 +2,7 @@
 date: 2002/09/22 00:00:00
 layout: post
 title: "R.I.P."
-categories: apple, ipod, backup
+tags: apple ipod backup
 ---
 
 Bad news! My Powerbook G3 went kaput yesterday. After a day or so of troubleshooting, I'm blaming it on a dead Power Management Unit. I bought it used in 1999 and have been using it *heavily* since. It's lived in 7 apartments with me (yup, 7!) from Boston to Green Bay to Minneapolis to Boston (again!) and now to NYC. I still think that 4-5 years is way too short a lifespan for a computer, especially since it was meeting my needs in every other way. But, alas, that's life in these days of planned obsolescence.

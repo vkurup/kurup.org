@@ -2,7 +2,7 @@
 date: 2006/09/09 00:00:00
 layout: post
 title: "Beautiful mind"
-categories: brain, amazing, video, autism
+tags: brain amazing video autism
 ---
 
 [This is one of the most amazing things I've ever seen.](http://youtube.com/watch?v=0TibQ_1zH3U) An autistic man takes a 45 minute helicopter ride over Rome and recreates what he sees with near perfect accuracy on paper. [More information about him](http://xenmate.blogspot.com/2006/05/human-camera.html)

@@ -2,7 +2,7 @@
 date: 2003/07/16 00:00:00
 layout: post
 title: "Setting up WEP"
-categories: wireless
+tags: wireless
 ---
 
 How to set up WEP encryption:

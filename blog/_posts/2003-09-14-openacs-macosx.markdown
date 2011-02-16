@@ -2,7 +2,7 @@
 date: 2003/09/14 00:00:00
 layout: post
 title: Another Mac OS X OpenACS Installation Guide
-categories: mac, openacs
+tags: mac openacs
 ---
 
 ## Another Mac OS X OpenACS Installation Guide

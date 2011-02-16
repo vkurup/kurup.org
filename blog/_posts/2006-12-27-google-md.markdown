@@ -2,7 +2,7 @@
 date: 2006/12/27 00:00:00
 layout: post
 title: "Google, M.D."
-categories: medicine, google
+tags: medicine google
 ---
 
 I remember telling people at a dinner party that I often entered symptoms into Google to help me diagnose patients. I remember them being apalled.

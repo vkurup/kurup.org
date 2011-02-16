@@ -2,7 +2,7 @@
 date: 2003/04/02 00:00:00
 layout: post
 title: My Computers
-categories: computers
+tags: computers
 ---
 
 My introduction to computers came when I was about 6 or 7 years old - I

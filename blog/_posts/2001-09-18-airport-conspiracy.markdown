@@ -2,7 +2,7 @@
 date: 2001/09/18 00:00:00
 layout: post
 title: "Airport Conspiracy?"
-categories: apple
+tags: apple
 ---
 
 My allegiance to Apple is wavering. I came home to find my home wireless network down. I walked over to my Apple Airport Basestation and saw that instead of emitting reassuring green lights, it was alternating between lighting the left red light and then all three amber lights. I searched on apple's website for troubleshooting information without any luck. Finally, (thanks again to Google) I found these 3 reports of Basestations that had bit the dust shortly after warranty expiration:

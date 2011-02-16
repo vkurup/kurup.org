@@ -2,7 +2,7 @@
 date: 2004/08/21 00:00:00
 layout: post
 title: "My Summer Racing Results"
-categories: running, race
+tags: running race
 ---
 
 I ran 5 more races this summer in my quest to automatically qualify for next year's [New York Marathon](http://www.ingnycmarathon.org/). The Fifth Avenue Mile was a breakthrough run for me. I easily outdid my pre-race goal of breaking 7 minutes and came within 40 seconds of my best time ever (5:07 fifteen years ago). This makes me think that I might be able to break 4 hours in the marathon next year if I train properly.  

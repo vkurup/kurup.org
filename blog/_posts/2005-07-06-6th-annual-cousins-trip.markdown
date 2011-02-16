@@ -2,7 +2,7 @@
 date: 2005/07/06 00:00:00
 layout: post
 title: "6th Annual Cousins Trip"
-categories: lakegeorge, cousins, reunion, photos
+tags: lakegeorge cousins reunion photos
 ---
 
 <img src="http://kurup.org/photo/images/21589/IMG_3869.jpg" width="500" alt="Walking on water (Lake George)"/>

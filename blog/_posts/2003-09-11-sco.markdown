@@ -2,7 +2,7 @@
 date: 2003/09/11 00:00:00
 layout: post
 title: "SCO"
-categories: free-software
+tags: free-software
 ---
 
 [Open Letter to SCO](http://www.catb.org/~esr/writings/mcbride2.html).

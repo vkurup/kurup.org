@@ -2,7 +2,7 @@
 date: 2006/08/22 00:00:00
 layout: post
 title: "Pediatric Endocrinologist for Hire"
-categories: endocrinology, job, search, pediatric
+tags: endocrinology job search pediatric
 ---
 
 Mala finishes her fellowship in July 2007, so we've entered job search mode. We've got a few interviews scheduled, but it just seems harder than it should be to find out who has positions available.

@@ -2,7 +2,7 @@
 date: 2010/07/29 13:50:00
 layout: post
 title: Hospitalist Notes 1
-categories: medicine, hospitalist
+tags: medicine hospitalist
 ---
 
 My last night shift was a little less busy than most, so I forced myself to pick something about each patient I admitted and look it up. I tend to do this anyway, but I never keep notes or write about it. Here's what I wrote about that night:

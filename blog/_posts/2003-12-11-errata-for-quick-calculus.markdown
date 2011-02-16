@@ -2,7 +2,7 @@
 date: 2003/12/11 00:00:00
 layout: post
 title: "Errata for Quick Calculus"
-categories: calculus
+tags: calculus
 ---
 
 I just read [Quick Calculus: A Self-Teaching Guide, 2nd Edition](http://www.amazon.com/exec/obidos/ASIN/0471827223/vinodkurupshomep) by Daniel Kleppner and Norman Ramsey. I found a few errors, but couldn't find an errata listing online, so I'm documenting them here for future reference.

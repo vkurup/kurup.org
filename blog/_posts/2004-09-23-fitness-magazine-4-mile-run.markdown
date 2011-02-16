@@ -2,7 +2,7 @@
 date: 2004/09/23 00:00:00
 layout: post
 title: "Fitness Magazine 4 mile run"
-categories: running, race
+tags: running race
 ---
 
 I ran the [Fitness Magazine 4 mile](http://web2.nyrrc.org/cgi-bin/htmlos.cgi/70321.2.524689168900021574) race in Central Park last weekend. The remnants of Hurricane Ivan were flooding the streets, so I was certain that the race would be cancelled (or that I would chicken out). Neither happened as the sky cleared 10 minutes before the race started.

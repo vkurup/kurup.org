@@ -2,7 +2,7 @@
 date: 2006/08/04 00:00:00
 layout: post
 title: "Talking History is history"
-categories: podcast, favorite, history
+tags: podcast favorite history
 ---
 
 One of my favorite podcasts is going on hiatus. (A [podcast](http://en.wikipedia.org/wiki/Podcast) is basically a fancy word for a radio show that you can download to your MP3 player.) [Talking History](http://talkinghistory.oah.org/) is produced by the Organization of American Historians and because of budget problems, they cutting funding for Talking History.

@@ -2,7 +2,7 @@
 date: 2006/06/12 00:00:00
 layout: post
 title: "Doc on Board"
-categories: medicine, magazine, running
+tags: medicine magazine running
 ---
 
 Stop what you're doing and go buy the July 2006 issue of [Runner's World](http://www.runnersworld.com). Flip to page 49 and read the fine article by Scott Douglas on things a runner should discuss with their physician.

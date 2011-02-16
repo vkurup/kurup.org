@@ -2,7 +2,7 @@
 date: 2009/06/13 00:00:00
 layout: post
 title: "Great weekend"
-categories: vishali, kavi
+tags: vishali kavi
 ---
 
 I can barely believe it, but Kavi is 2 years old now. This is such a great age. I remember saying that a year ago, but he's even more enjoyable now. He's excited about everything new. He's running nonstop, singing out loud, and dancing up a storm.

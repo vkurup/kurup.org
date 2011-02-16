@@ -2,7 +2,7 @@
 date: 2006/12/08 00:00:00
 layout: post
 title: "India Trip 2006"
-categories: goldentemple, india, vaishnodevi, family, jaipur
+tags: goldentemple india vaishnodevi family jaipur
 ---
 
 [<img src="http://kurup.org/photo/images/82588/vaishnodevi.jpg" width="580" alt="vaishnodevi" />](http://kurup.org/photo/photo?photo_id=82581)

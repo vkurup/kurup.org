@@ -2,7 +2,7 @@
 date: 2003/09/07 00:00:00
 layout: post
 title: "A little pain never hurt anybody"
-categories: running
+tags: running
 ---
 
 [<img src="http://kurup.org/photo/images/9499/10k.jpg" height="384" width="256" alt="10k.jpg" />](http://kurup.org/photo/photo?photo_id=9496)

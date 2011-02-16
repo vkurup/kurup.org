@@ -2,7 +2,7 @@
 date: 2007/01/07 00:00:00
 layout: post
 title: "Investment Performance 1996-2006"
-categories: investing, performance, annual
+tags: investing performance annual
 ---
 
 Here's my 2006 Investment Performance update. My individual stock picks broke their 4 year winning streak versus the S&amp;P500 and overall (including my 403b), I lagged the market by a couple percentage points. That makes for a pretty lousy year overall. So, is it time to switch tactics? Give in and stick all my money in an index fund? Some would say yes (or more like "YES, you IDIOT!"). I knew when I started this approach that there would be times where I would underperform, even for long periods of time, meaning 1-2 years. But, on the whole, I would come out ahead. Small cheap companies have always outperformed over the long run. I still believe that and will continue with this approach, at least until 2009, at which point I will have a 5 year track record to analyze. In the meantime, I'm not going to cry too much about a 12.8% gain.

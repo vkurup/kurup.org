@@ -2,7 +2,7 @@
 date: 2010/11/06 21:53:36
 layout: post
 title: First full phone conversation with Kavi
-categories: kavi
+tags: kavi
 ---
 
 I had my first full phone conversation with Kavi today. I was about to

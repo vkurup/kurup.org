@@ -2,7 +2,7 @@
 date: 2010/07/19 16:08:00
 layout: post
 title: Stock Market Timing
-categories: investing, programming, python
+tags: investing programming python
 ---
 
 If you asked me a few years ago, I would have said you absolutely can't

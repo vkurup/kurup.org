@@ -2,7 +2,7 @@
 date: 2006/02/17 00:00:00
 layout: post
 title: "Pound update kills my website"
-categories: webserver, pound, debian, troubleshooting
+tags: webserver pound debian troubleshooting
 ---
 
 No one but me noticed, I'm sure, but my website was down for part of yesterday. Don't worry, refunds to paying customers are on their way :-)

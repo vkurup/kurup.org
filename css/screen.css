@@ -60,7 +60,7 @@ hr {
 sup { line-height: 1ex; }
 
 #site {
-	max-width: 49em;
+	max-width: 46em;
 	margin: 1.5em auto 3em auto;
 	line-height:1.5em;
 }
@@ -454,7 +454,7 @@ form#comment {
 /* vinod old comments */
 #comment-box {
 	background: white;
-	padding: 3em 3em 1.5em 3em;
+	padding: 1em 1em 1em 1em;
 	border: 1px solid #ccc;
 	box-shadow: 2px 2px 8px #aaa;
 	-webkit-box-shadow: 2px 2px 8px #aaa;
@@ -560,10 +560,16 @@ img.maruku-png { }
 
 img {border: none;}
 
+.adsense-banner {
+  position: fixed;
+  bottom: 100px;
+  right: 10px;
+}
+
 .adsense-text {
   position: fixed;
   bottom: 0em;
-  right: -1em;
+  right: 10px;
 }
 
 ul.fixedmenu { 

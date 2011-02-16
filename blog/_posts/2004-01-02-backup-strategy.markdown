@@ -2,7 +2,7 @@
 date: 2004/01/02 00:00:00
 layout: post
 title: "Backup strategy"
-categories: rsync, backup, strategy
+tags: rsync backup strategy
 ---
 
 [Badgertronics.com](http://badgertronics.com), [borkware.com](http://borkware.com), and company went through the same ordeal that [kurup.org](http://kurup.org/blog/one-entry?entry%5fid=9660) did and MarkD has promptly published his [new backup strategy](http://borkware.com/rants/rsync-backups/). He uses [rsync](http://rsync.samba.org/) over [SSH](http://www.openssh.com/) which, interestingly enough, is the same strategy that I came up with. Great minds must think alike.

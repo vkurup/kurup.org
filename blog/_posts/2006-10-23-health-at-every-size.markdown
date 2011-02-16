@@ -2,7 +2,7 @@
 date: 2006/10/23 00:00:00
 layout: post
 title: "Health at every size"
-categories: medicine, obesity, fitness
+tags: medicine obesity fitness
 ---
 
 I read this article on ["Health at Every Size"](http://www.medscape.com/viewarticle/506299) back in July 2005, took some notes and then put it in my "To Blog About" Folder. In the "I'll get to it ... eventually" category, here are my notes from 16 months ago: 

@@ -2,7 +2,7 @@
 date: 2005/01/10 00:00:00
 layout: post
 title: "First Race of the Year"
-categories: running, race
+tags: running race
 ---
 
 **[Fred Lebow Classic](http://web2.nyrrc.org/cgi-bin/start.cgi/aes-programs/results/startup.html?result.id=a50109&amp;result.year=2005)**

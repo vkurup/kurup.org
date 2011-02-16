@@ -2,7 +2,7 @@
 date: 2009/09/26 00:00:00
 layout: post
 title: Growing up too fast
-categories: kavi, childhood
+tags: kavi childhood
 ---
 
 I love watching Kavi's expressions. We took the kids to the [Museum of Life

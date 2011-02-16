@@ -2,7 +2,7 @@
 date: 2005/11/05 00:00:00
 layout: post
 title: "New York Marathon Eve"
-categories: newyork, pr, running, marathon
+tags: newyork pr running marathon
 ---
 
 The marathon is tomorrow. I can't wait, but I'm pretty nervous. I really want to break 5 hours this time. You can track me online at [the NY Marathon site](http://www.ingnycmarathon.org/results/index.php). I'll be runner number 27072.

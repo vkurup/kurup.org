@@ -2,7 +2,7 @@
 date: 2009/10/09 00:00:00
 layout: post
 title: Found the Carolina North trail
-categories: running, zen, happiness
+tags: running zen happiness
 ---
 
 When Mala and I started looking for homes, we listed on a yellow notepad

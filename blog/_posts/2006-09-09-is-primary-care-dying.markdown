@@ -2,7 +2,7 @@
 date: 2006/09/09 00:00:00
 layout: post
 title: "Is Primary Care Dying?"
-categories: informatics, medicine
+tags: informatics medicine
 ---
 
 [Dave referenced an interesting article](http://kurup.org/dave/blog/2006/09/07/primary-care-medicine-perspective) in the NEJM titled ["Primary Care -- Will it Survive?"](http://content.nejm.org/cgi/content/full/355/9/861) These two quotes summarize the problem:

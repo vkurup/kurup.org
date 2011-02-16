@@ -2,7 +2,7 @@
 date: 2004/05/14 00:00:00
 layout: post
 title: "In Israel, a Ban on Indian Wigs; In Brooklyn, a Rush to Comply"
-categories: india
+tags: india
 ---
 
 Reported in the New York Times: (free registration required)

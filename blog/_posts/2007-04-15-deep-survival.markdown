@@ -2,7 +2,7 @@
 date: 2007/04/15 00:00:00
 layout: post
 title: "Deep Survival"
-categories: review, book, survival, adventure
+tags: review book survival adventure
 ---
 
 [<img class="floatRight" src="http://kurup.org/images/deep_survival.jpg">](http://www.amazon.com/gp/product/0393326152?ie=UTF8&tag=vinodkurupshomep&linkCode=as2&camp=1789&creative=9325&creativeASIN=0393326152)<img src="http://www.assoc-amazon.com/e/ir?t=vinodkurupshomep&l=as2&o=1&a=0393326152" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />  If you go on adventure trips, you should read ["Deep Survival"](http://www.amazon.com/gp/product/0393326152?ie=UTF8&tag=vinodkurupshomep&linkCode=as2&camp=1789&creative=9325&creativeASIN=0393326152), by Laurence Gonzales. I finished it on my marathon subway rides yesterday. It's partly a voyeuristic look into how people do or don't survive when bad things happen. This part is pure storytelling and who doesn't love a good story? At times, the outdoorsy jargon made it hard for me to follow what exactly was going on, but on the whole I was sucked in, turning pages to see what happened to our poor characters.

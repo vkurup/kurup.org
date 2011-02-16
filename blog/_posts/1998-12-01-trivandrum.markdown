@@ -2,7 +2,7 @@
 date: 1998/12/01 00:00:00
 layout: post
 title: Trivandrum Medical College
-categories: medicine
+tags: medicine
 ---
 
 In November 1998, I travelled to India to visit family and work in an

@@ -2,7 +2,7 @@
 date: 2003/08/16 00:00:00
 layout: post
 title: "Let there be light!"
-categories: blackout, nyc
+tags: blackout nyc
 ---
 
 The power finally came back on at around 7:20 PM tonight. I was sitting on my futon trying as hard as I could not to sweat, when I heard a loud cheer from the courtyard and saw that the lights had gone on in the apartments outside my window. 

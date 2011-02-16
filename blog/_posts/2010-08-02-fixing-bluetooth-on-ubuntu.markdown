@@ -2,7 +2,7 @@
 date: 2010/08/02 21:40:00
 layout: post
 title: Ubuntu Bluetooth Workaround
-categories: ubuntu, linux, bluetooth
+tags: ubuntu linux bluetooth
 ---
 
 I use bluetooth to transfer podcasts from my laptop to my Palm Centro. A
@@ -73,4 +73,4 @@ should be fixed in the next version of Ubuntu.
 If you're wondering why I use a slow protocol like bluetooth to transfer
 large files to an SD card, rather than just ejecting the SD card and
 inserting it into the laptop, well... you haven't tried to access the SD
-card on a Palm Centro. #paininthe*&^@!
+card on a Palm Centro. #paininthe\&^@!

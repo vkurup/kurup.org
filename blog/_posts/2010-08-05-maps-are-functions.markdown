@@ -2,7 +2,7 @@
 date: 2010/08/05 15:16:00
 layout: post
 title: Maps are functions, too
-categories: programming, clojure
+tags: programming clojure
 ---
 
 Braindump time. Here's what I've read about clojure in the past few days. I don't understand what this means yet, but maybe someday I will:

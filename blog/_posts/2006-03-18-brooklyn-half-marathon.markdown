@@ -2,7 +2,7 @@
 date: 2006/03/18 00:00:00
 layout: post
 title: "Brooklyn Half Marathon"
-categories: brooklyn, race, running
+tags: brooklyn race running
 ---
 
 It was cold out there today. I was wearing a long sleeve shirt, long pants, a headband and gloves, and I was still cold. I doubted whether I'd be able to break 2 hours, like I'd hoped. A mile into the race I was sure I wouldn't be able to do it. It felt like I was just running in place. As usual though, I eventually warmed up and felt pretty good.

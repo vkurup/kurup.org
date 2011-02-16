@@ -2,7 +2,7 @@
 date: 2006/04/16 00:00:00
 layout: post
 title: "How long will it take Gerry to find this post?"
-categories: startup, paulgraham, friends, ideas
+tags: startup paulgraham friends ideas
 ---
 
 So, I just talked with one of my best friends and learned that he **still** doesn't read my blog. Devastating! We had an interesting conversation about how the value of 'The Great Idea' can be overrated and I wanted to point him to this [great essay about the same topic by Paul Graham](http://paulgraham.com/ideas.html). Let's see how long it takes him to find it.

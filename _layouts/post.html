@@ -1,9 +1,8 @@
 ---
 layout: default
-feed: atom.xml
 ---
 
-<h1 class="emphnext">{{ page.title }}</h1>
+<h1 class="emphnext"><a href="{{ page.url }}" rel="bookmark" title="Permanent Link to '{{ page.title }}'">{{ page.title }}</a></h1>
 
 {{ content }}
 
@@ -12,6 +11,18 @@ feed: atom.xml
   <span class="date">{{ page.date | date_to_long_string }}</span>
   <span class="tags">{% for tag in page.tags %}<a href="http://www.google.com/search?q={{ tag }}+site:www.kurup.org" rel="tag">{{ tag }}</a> {% if forloop.last %} {% else %} | {% endif %}{% endfor %}</span>
 </address>
+
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-4972120581861523";
+/* Main */
+google_ad_slot = "9048599036";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
 
 <!-- Feedburner Flare -->
 <script src="http://feeds.feedburner.com/~s/vkurup?i=http://www.kurup.org{{ page.url }}" type="text/javascript"></script>
@@ -22,14 +33,12 @@ feed: atom.xml
 <!-- Enable Disqus comments -->
 <script type="text/javascript">
     var disqus_developer = "0";
-    var disqus_iframe_css = "http://www.kurup.org/blog/files/css/screen.css";
+    var disqus_iframe_css = "http://www.kurup.org/blog/css/screen.css";
     var disqus_title = "{{ page.title }}";
 </script>
 <script type="text/javascript" src="http://disqus.com/forums/vkurup/embed.js"></script>
 
-<noscript>
-		<a href="http://vkurup.disqus.com/?url=ref">View the discussion thread.</a>
-</noscript>
+<noscript><a href="http://vkurup.disqus.com/?url=ref">View the discussion thread.</a></noscript>
 
 <!-- DISQUS CODE -->
 <script type="text/javascript">

@@ -2,7 +2,7 @@
 date: 2010/11/04 07:00:00
 layout: post
 title: Advice on writing
-categories: writing, motivation
+tags: writing motivation
 ---
 
 I just found this [great article on

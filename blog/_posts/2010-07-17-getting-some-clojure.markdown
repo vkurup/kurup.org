@@ -2,7 +2,7 @@
 date: 2010/07/17 19:55:00
 layout: post
 title: Getting some clojure
-categories: programming, clojure
+tags: programming clojure
 ---
 
 Steve Yegge is one of my favorite bloggers. I read ["You Should Write

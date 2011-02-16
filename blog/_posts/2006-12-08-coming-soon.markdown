@@ -2,7 +2,7 @@
 date: 2006/12/08 00:00:00
 layout: post
 title: "Coming Soon!"
-categories: baby, family
+tags: baby family
 ---
 
 It's been hard to keep this news from friends and family, but we

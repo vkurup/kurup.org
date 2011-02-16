@@ -2,7 +2,7 @@
 date: 2006/07/25 00:00:00
 layout: post
 title: "Recurrent DVT"
-categories: medicine, dvt, anticoagulation
+tags: medicine dvt anticoagulation
 ---
 
 The duration of treatment for a deep venous thrombosis (DVT) is problematic. Most patients who have one will never have another one, yet those who do have a 5% risk of death due to their recurrent DVT. We need a simple test which separates one group from the other.

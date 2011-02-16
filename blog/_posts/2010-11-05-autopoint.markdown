@@ -2,7 +2,7 @@
 date: 2010/11/05 15:09:06
 layout: post
 title: Autopoint
-categories: linux
+tags: linux
 ---
 
 If you get this error message:

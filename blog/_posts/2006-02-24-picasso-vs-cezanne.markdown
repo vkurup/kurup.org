@@ -3,7 +3,7 @@ date: 2006/02/24 00:00:00
 layout: post
 title: Picasso vs Cézanne
 permalink: /blog/2006/02/24/picasso-vs-cezanne
-categories: picasso, genius, cezanne, gladwell, galenson
+tags: picasso genius cezanne gladwell galenson
 ---
 
 We saw [Malcolm Gladwell talk at Columbia](http://www.cuarts.com/cu_arts_blog/2006/02/malcom_gladwell.html) on Tuesday. He's the author of [Blink](http://www.amazon.com/exec/obidos/ASIN/0316172324/vinodkurupshomep) and [The Tipping Point](http://www.amazon.com/exec/obidos/ASIN/0316346624/vinodkurupshomep) and he's a staff writer at the New Yorker. He spoke about different types of genius. I've tried to recreate his main points from memory, so I apologize in advance if I've remembered things incorrectly.

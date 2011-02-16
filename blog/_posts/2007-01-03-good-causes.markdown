@@ -2,7 +2,7 @@
 date: 2007/01/03 00:00:00
 layout: post
 title: "Good causes"
-categories: charity
+tags: charity
 ---
 
 I [posted about this last year](http://kurup.org/blog/2005/12/30/good-causes), so here's our updated donation list for 2006. Again, I think they're all great causes, so I encourage you to check them out.

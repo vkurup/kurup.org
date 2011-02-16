@@ -2,7 +2,7 @@
 date: 2003/06/24 00:00:00
 layout: post
 title: "PG 7.2 to 7.3"
-categories: openacs, postgresql, programming
+tags: openacs postgresql programming
 ---
 
 Not all of OpenACS is Postgres 7.3 compliant yet. OpenACS 5 is compliant and the core packages in OpenACS 4.6 are compliant, but some non-core packages haven't been fixed yet. Noncompliant packages will complain:  

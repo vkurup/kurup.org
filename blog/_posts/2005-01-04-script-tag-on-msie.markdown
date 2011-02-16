@@ -2,7 +2,7 @@
 date: 2005/01/04 00:00:00
 layout: post
 title: "SCRIPT Tag on MSIE"
-categories: web
+tags: web
 ---
 
 Word to the wise. MSIE5 (Mac) doesn't like:

@@ -2,7 +2,7 @@
 date: 2005/07/15 00:00:00
 layout: post
 title: "Bronx Half-Marathon"
-categories: running, marathon
+tags: running marathon
 ---
 
 <img style="float: right;" src="http://kurup.org/photo/images/22265/bronx-half.jpg" height="500" width="333" alt="Finishing the Bronx Half Marathon"/>

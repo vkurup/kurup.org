@@ -2,7 +2,7 @@
 date: 2010/09/16 09:09:00
 layout: post
 title: Rotating videos
-categories: video, linux
+tags: video linux
 ---
 
 I found out how to rotate video today. I often take video with my

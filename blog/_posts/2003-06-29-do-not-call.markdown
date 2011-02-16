@@ -2,7 +2,7 @@
 date: 2003/06/29 00:00:00
 layout: post
 title: "Do Not Call"
-categories: donotcall
+tags: donotcall
 ---
 
 I'm going to sign up for the [National Do-Not-Call Registry](http://donotcall.gov/), but I'm not sure that it's going to reduce the number of calls I get. Look at the [exemption list](http://www.ftc.gov/bcp/conline/pubs/alerts/dncalrt.htm#Exceptions):  

@@ -2,7 +2,7 @@
 date: 2003/01/07 00:00:00
 layout: post
 title: "Gerry and Kim - the website"
-categories: gerry, friends, wedding, web
+tags: gerry friends wedding web
 ---
 
 I finally finished [Gerry and Kim's wedding site](http://cherayil.kurup.org). The HTTP address is temporary. I had made a promise to Kim back in September that I would finish it, but that I needed a deadline. My brain seems to refuse to work without a deadline. Anyway, she said, "end of the year" and sure enough, it went live on 12/31/2002. It's running on [OpenACS 4](http://openacs.org) (CVS HEAD 12/25/2002), using an Open Source CSS stylesheet from [http://w3.org](http://www.w3.org). All comments welcome.

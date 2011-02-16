@@ -2,7 +2,7 @@
 date: 2010/08/25 14:53:00
 layout: post
 title: HTML5 Up and Running
-categories: HTML, programming, web, book, review
+tags: HTML programming web book review
 ---
 
 I preordered Mark Pilgrim's [HTML5, Up and Running](http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&tag=diveintomark-20&creativeASIN=0596806027) from Amazon back in

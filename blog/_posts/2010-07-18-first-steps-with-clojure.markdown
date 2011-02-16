@@ -2,7 +2,7 @@
 date: 2010/07/18 16:29:00
 layout: post
 title: First Steps with Clojure
-categories: programming, clojure
+tags: programming clojure
 ---
 As mentioned yesterday, I'm teaching myself clojure. I started by trying to
 install it. 

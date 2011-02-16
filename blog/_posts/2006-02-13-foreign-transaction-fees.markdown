@@ -2,7 +2,7 @@
 date: 2006/02/13 00:00:00
 layout: post
 title: "Foreign transaction fees"
-categories: shopping, fees, abebooks, creditcard
+tags: shopping fees abebooks creditcard
 ---
 
 Now that credit card companies are charging extra fees for foreign

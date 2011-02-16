@@ -2,7 +2,7 @@
 date: 2003/06/28 00:00:00
 layout: post
 title: "compiling vpopmail"
-categories: sysadmin, mail
+tags: sysadmin mail
 ---
 
 I'm setting up [vpopmail](http://inter7.com/vpopmail.html) 5.2.1 - a POP3 email manager for qmail, but it won't compile out of the box.

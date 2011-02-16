@@ -2,7 +2,7 @@
 date: 2003/10/12 00:00:00
 layout: post
 title: "Nice runs!"
-categories: running
+tags: running
 ---
 
 Dilu and Amit raced 26.2 miles in the [Chicago Marathon](http://chicagomarathon.com) today and both finished with amazing times. Dilu completed his first marathon in 4:19:18 which is less than 10 minute miles and almost an hour better than my first one. Amit ran the 2000 Chicago Marathon with me and finished in 4:30ish, I think. He ran today in 3:57:32 - breaking that elusive 4 hr barrier. Nice job guys!

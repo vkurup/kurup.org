@@ -2,7 +2,7 @@
 date: 2003/09/29 00:00:00
 layout: post
 title: "Why OpenACS?"
-categories: evangelism, openacs, why
+tags: evangelism openacs why
 ---
 
 [Bhavesh](http://www.veshman.com/mt/index.php) responded to my [seemingly irrational exuberance about OpenACS](http://kurup.org/blog/one-entry?entry%5fid=9513) asking, "What's the excitement about OpenACS?"

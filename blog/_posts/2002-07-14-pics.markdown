@@ -2,7 +2,7 @@
 date: 2002/07/14 00:00:00
 layout: post
 title: "Pics"
-categories: residency, grand-canyon, cousins-trip, family
+tags: residency grand-canyon cousins-trip family
 ---
 
 Geoff organized a [mini-residency-reunion](http://kurup.org/photo/album?album_id=5320) back in June and somehow scammed Joyce and Howard into hosting it :-)

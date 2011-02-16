@@ -3,7 +3,7 @@ date: 2006/05/11 00:00:00
 layout: post
 title: Investment Update - May 2006
 permalink: /blog/2006/05/11/investment-update-may-2006
-categories: investing, quarterly
+tags: investing quarterly
 ---
 
 I sold 3 stocks ([OUTL](http://finance.yahoo.com/q?s=OUTL), [MRINA.PK](http://finance.yahoo.com/q?s=MRINA.PK) and [KBALB](http://finance.yahoo.com/q?s=KBALB)) and bought 5 ([RSC](http://finance.yahoo.com/q?s=RSC), [JAX](http://finance.yahoo.com/q?s=JAX), [EEI](http://finance.yahoo.com/q?s=EEI), [KEYN](http://finance.yahoo.com/q?s=KEYN) and [STS](http://finance.yahoo.com/q?s=STS)).

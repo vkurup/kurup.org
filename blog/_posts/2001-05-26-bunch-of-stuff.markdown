@@ -2,7 +2,7 @@
 date: 2001/05/26 00:00:00
 layout: post
 title: "Bunch of stuff"
-categories: dotcom, update, free-software, family, deepu, manu
+tags: dotcom update free-software family deepu manu
 ---
 
 Life has been moving too quickly for me to document my menial existence. Check back again soon when my existence is not so menial! In the meantime, here's a Cliff Note's version (may Cliff rest in peace) of the past 5 months (in no particular order).

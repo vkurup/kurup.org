@@ -3,7 +3,7 @@ date: 2006/04/10 00:00:00
 layout: post
 title: Big Island Hawai'i
 permalink: /blog/2006/04/10/big-island-hawaii
-categories: waterfall, beach, hawaii, kaluapig, vacation
+tags: waterfall beach hawaii kaluapig vacation
 ---
 
 We're back from a week in paradise and have the [photos to prove it](http://kurup.org/photo/album?album_id=61014). Thanks to Peary and Michelle for the warm hospitality in Honolulu. We thoroughly enjoyed every moment. The weather was perfect which was especially nice since it had rained for the 40 days prior to our arrival. Kalua pig is even better than it sounds.

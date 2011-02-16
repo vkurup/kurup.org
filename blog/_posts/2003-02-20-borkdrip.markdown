@@ -2,7 +2,7 @@
 date: 2003/02/20 00:00:00
 layout: post
 title: "BorkDrip!"
-categories: macosx, programming
+tags: macosx programming
 ---
 
 Got Mac OS X? Want a cool screensaver? I stole this from [MarkD](http://badgertronics.com/blog) over at [BorkWare](http://borkware.com/products/borkware-drip/) and then modified it to allow multiple drips and configurable block sizes.

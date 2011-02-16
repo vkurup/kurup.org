@@ -2,7 +2,7 @@
 date: 2003/07/20 00:00:00
 layout: post
 title: "Updating from CVS"
-categories: openacs, cvs, updating, programming
+tags: openacs cvs updating programming
 ---
 
 Here's the steps I take in order to update my site from the latest OpenACS CVS. All of this info comes from [Andrew Piskorski's great CVS page](http://piskorski.com/docs/cvs-conventions.html) or from pages listed in his document.
