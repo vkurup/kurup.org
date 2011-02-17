@@ -1,8 +1,0 @@
----
-date: 2006/03/01 00:00:00
-layout: post
-title: "Tag Cloud"
-categories: blog, delicious, tags
----
-
-And now I have a pretty tag cloud on the side of my blog (that I pretty much stole from [del.icio.us](http://del.icio.us))

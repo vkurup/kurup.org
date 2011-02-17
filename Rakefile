@@ -35,6 +35,7 @@ task :build do
   puts `rm -r ./_site/*`
   puts '* Generating static site with Jekyll'
   puts `jekyll`
+  puts `cp -r ./.nfsn-awicons ./_site/`
 end
 
 desc 'rsync the contents of ./_site to the server'

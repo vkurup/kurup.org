@@ -1,0 +1,48 @@
+---
+date: 2003/12/17 00:00:00
+layout: post
+title: "I'm back!"
+tags: webhosting openacs
+---
+
+This site was down for the past few days due to a [SNAFU with acornhosting's upstream provider](http://openacs.org/forums/message-view?message_id=152527). You'd think I'd have learned to have a backup strategy in place by now, but you'd be overestimating my intelligence. Luckily, Cathy was somehow able to negotiate with her failed upstream provider to get my (and other acornhosting customers') data back. After this episode, I promise to backup religiously and I'm even more sold on [acornhosting](http://acornhosting.net) as a solid web hosting provider.
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>rsync rules(tm)</b></p>
+<p>
+Cathy indeed went the extra 25 miles for me, recovering most of my
+junk.  I've started setting up backups with rsync, and it's looking
+like it'll work pretty well.  Short commands on my home Mac like:
+</p>
+
+<pre>
+rsync -a -e ssh markd@borkware.com:/home/markd/ home
+rsync -a -e ssh markd@borkware.com:/usr/local/cvsroot cvs
+</pre>
+
+<p>
+is all that's necessary to update the backup of my home and cvs
+respository.  Now to get the pg_dumpall and this thing into cron on
+the appropriate machine, and life should be good.
+</p>
+<address class="signature">
+<span class="author">Mark Dalrymple</span>
+<span class="date">2003-12-30 10:12:17</span>
+</address>
+</div>
+
+<div class="one-comment">
+<p><b>Now dogumented</b></p>
+<p>
+<a href="http://borkware.com/rants/rsync-backups/">Cheesy Web backups using Rsync</a>
+</p>
+<address class="signature">
+<span class="author">Mark Dalrymple</span>
+<span class="date">2003-12-31 14:32:27</span>
+</address>
+</div>
+
+</div>
