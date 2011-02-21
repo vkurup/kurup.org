@@ -2,10 +2,10 @@
 date: 2006/09/05 00:00:00
 layout: post
 title: "Ecce Bed &amp; Breakfast"
-tags: newyork review bedandbreakfast travel
+tags: new-york review travel
 ---
 
-<img src="/files/photos/ecce-panorama.jpg" width="580" alt="Ecce view" />
+<img src="/images/ecce-panorama.jpg" width="580" alt="Ecce view" />
 
 Can you believe that it's been a year since [we got
 married](http://kurup.org/wedding)? Me neither. For our wedding, Mike
@@ -20,7 +20,7 @@ We finally found a website that showed off those things and made a
 reservation at [Ecce](http://www.eccebedandbreakfast.com/). We had
 high expectations, but I'm happy to say that they were exceeded. You
 won't find more hospitable proprietors than Alan and Kurt. Our [room
-was tastefully designed](/files/photos/ecce-room.jpg) and was stocked
+was tastefully designed](/images/ecce-room.jpg) and was stocked
 with a gourmet coffee machine, TV/DVD/VCR, fridge and jacuzzi! It was
 pure luxury. The breakfasts were over the top. Definitely try the
 french toast with chocolate.

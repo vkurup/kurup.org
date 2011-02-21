@@ -2,7 +2,7 @@
 date: 2010/11/07 20:31:19
 layout: post
 title: Growing a Business
-tags: business review
+tags: business book-review
 ---
 
 I read this book in 2005, but never posted this review. So here it

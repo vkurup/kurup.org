@@ -2,7 +2,7 @@
 date: 2009/07/04 00:00:00
 layout: post
 title: "clamz to the rescue"
-tags: gpl linux music
+tags: free-software linux music
 ---
 
 [Kottke](http://kottke.org/09/05/99-classical-mp3s-for-8) linked to some great deals on [classical music at amazon](http://www.amazon.com/gp/product/B001U1J2S4?ie=UTF8&tag=vinodkurupshomep&linkCode=as2&camp=1789&creative=390957&creativeASIN=B001U1J2S4)<img src="http://www.assoc-amazon.com/e/ir?t=vinodkurupshomep&l=as2&o=1&a=B001U1J2S4" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />. In order to download them, you need to have the amazon mp3 downloader installed. They now offer a Debian (linux) version, but I couldn't get it working. It's meant for an older version of Debian, but it doesn't recognize the newer versions of the libraries installed on my system. I thought about doing some fancy apt-getting to try to get the right versions, but just thinking about that made my head throb. Then I heard about [clamz](http://code.google.com/p/clamz/), an open source project to replicate the amazon mp3 downloader. I installed the library packages they recommended (libgcrypt11-dev, libcurl4-openssl-dev, and libexpat1-dev) and then installed it. 

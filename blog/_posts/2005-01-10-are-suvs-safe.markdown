@@ -2,7 +2,7 @@
 date: 2005/01/10 00:00:00
 layout: post
 title: "Are SUVs safe?"
-tags: suv safety gladwell
+tags: interesting gladwell
 ---
 
 Interesting article about SUV safety. Here's a quote:

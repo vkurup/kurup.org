@@ -2,7 +2,7 @@
 date: 2009/09/22 00:00:00
 layout: post
 title: Running slow
-tags: running
+tags: running motivation
 ---
 
 I've been a runner for a long time. I started running in junior high

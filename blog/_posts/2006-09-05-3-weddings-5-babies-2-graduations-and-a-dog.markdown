@@ -2,7 +2,7 @@
 date: 2006/09/05 00:00:00
 layout: post
 title: "3 weddings, 5 babies, 2 graduations and a dog"
-tags: photos friends family babies wedding
+tags: friends family babies wedding
 ---
 
 [<img src="http://kurup.org/photo/images/73324/IMG_5830.JPG" width="500" alt="IMG_5830.JPG" />](http://kurup.org/photo/photo?photo_id=73317)

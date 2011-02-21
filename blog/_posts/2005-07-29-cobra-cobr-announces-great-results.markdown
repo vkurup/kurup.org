@@ -2,7 +2,7 @@
 date: 2005/07/29 00:00:00
 layout: post
 title: "Cobra (COBR) announces great results"
-tags: investing cobr
+tags: investing
 ---
 
 Cobra Industries ([COBR](http://finance.yahoo.com/q?s=COBR)) announced their second quarter results today. I bought COBR in February 2005 because they seemed really undervalued (based on Price/Book and Price/Earnings ratios). They make [CB radios](http://en.wikipedia.org/wiki/Citizens_Band), [2-way radios](http://en.wikipedia.org/wiki/Two_way_radio), radar detectors, and are starting to make handheld GPS devices. Cobra owns around 60% of the CB radio market, 20% of the 2-way radio market and 60% of the radar-detector market. They've just started in the GPS market and their major product, the NavOne 3000, seems like a flop so far.

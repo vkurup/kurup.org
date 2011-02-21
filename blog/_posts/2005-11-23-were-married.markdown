@@ -2,7 +2,7 @@
 date: 2005/11/23 00:00:00
 layout: post
 title: "We're married!"
-tags: happiness wedding
+tags: happiness family life wedding
 ---
 
 [<img class="floatLeft" src="http://kurup.org/wedding/photo-album/images/24018/24016" height="112" width="150" alt="Mala and Vinod" />](http://kurup.org/wedding/photo-album/photo?photo_id=24011) Life update time. If you're a keen follower of this site, you'll have noticed the little box in the upper left hand corner announcing my [wedding to Mala](http://kurup.org/wedding). We got married a few months back and it was documented in photos by [friends, family](http://kurup.org/wedding/photo-album/album?album_id=17012) and even [an official photographer](http://kurup.org/wedding/photo-album/album?album_id=17010). (Time wasting warning: There are 500 pictures from friends and family, 1200+ proofs from our photographer).

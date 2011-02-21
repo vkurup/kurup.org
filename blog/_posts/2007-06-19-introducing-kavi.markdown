@@ -2,7 +2,7 @@
 date: 2007/06/19 00:00:00
 layout: post
 title: "Introducing Kavi"
-tags: baby video family kavi
+tags: family
 ---
 
 And here's his [first

@@ -2,7 +2,7 @@
 date: 2005/02/02 00:00:00
 layout: post
 title: "Association of anemia with diastolic dysfunction among patients with coronary artery disease in the Heart and Soul Study"
-tags: medicine
+tags: medicine family
 ---
 
 Congratulations to my cousin Deepu for getting published in the American Journal of Cardiology.

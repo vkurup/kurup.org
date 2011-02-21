@@ -2,7 +2,7 @@
 date: 2010/11/06 21:53:36
 layout: post
 title: First full phone conversation with Kavi
-tags: kavi
+tags: family parenting
 ---
 
 I had my first full phone conversation with Kavi today. I was about to

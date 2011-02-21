@@ -2,7 +2,7 @@
 date: 2006/02/16 00:00:00
 layout: post
 title: "Creating a Blog Application using the OpenACS Content Repository"
-tags: blog cr openacs programming web
+tags: blog openacs programming web
 ---
 
 I created a very simple blog application using the OpenACS Content Repository (CR). When I say simple, I mean simple, probably to the point of being useless. I just wanted to try writing something as quickly as possible using the CR. Here's a quick run-through of the code, in case it might help someone else understand how to use the CR. I'm not including much commentary; email me (or comment) if you'd like me to expound more.

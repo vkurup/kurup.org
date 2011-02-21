@@ -2,7 +2,7 @@
 date: 2005/06/27 00:00:00
 layout: post
 title: "Finding dirt in the footnotes"
-tags: investing statements financial
+tags: investing
 ---
 
 [Footnoted.org](http://www.footnoted.org) is a blog that delves into SEC filings looking for those juicy details that companies are trying to hide from investors. Mainly, these details include things like excessive executive compensation or shady related-party transactions. You don't want companies that you're invested in to show up on her blog (except on Fridays when she tries to find companies that are doing responsible things).

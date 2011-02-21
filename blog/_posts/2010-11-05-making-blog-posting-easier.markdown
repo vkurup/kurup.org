@@ -2,7 +2,7 @@
 date: 2010/11/05 07:15:32
 layout: post
 title: Making blog posting easier
-tags: elisp programming
+tags: elisp programming emacs
 ---
 
 Another piece of advice that I've heard over and over again is to make

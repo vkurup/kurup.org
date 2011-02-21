@@ -2,10 +2,10 @@
 date: 2005/08/07 00:00:00
 layout: post
 title: "SBGI"
-tags: investing small value
+tags: investing value
 ---
 
-[Andy asked](http://kurup.org/blog//one-entry?entry%5fid=22594):
+[Andy asked](http://kurup.org/blog/2005/08/01/quarterly-sells):
 
 > Hey Vin, what do you think of SBG (Sinclair Broadcast Group) Its the company that owns Channels 18 and 24(my employer). Andy 
 

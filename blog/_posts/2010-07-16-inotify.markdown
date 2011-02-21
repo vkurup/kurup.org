@@ -2,7 +2,7 @@
 date: 2010/07/16 21:01:00
 layout: post
 title: inotify
-tags: unix sysadmin
+tags: linux unix sysadmin
 ---
 
 [incron](http://inotify.aiken.cz/) seems to be a pretty neat tool. It's
