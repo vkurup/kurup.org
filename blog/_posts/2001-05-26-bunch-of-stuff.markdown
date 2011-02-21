@@ -1,11 +1,14 @@
 ---
 date: 2001/05/26 00:00:00
 layout: post
-title: "Bunch of stuff"
-tags: dotcom update free-software family deepu manu
+title: Bunch of stuff
+tags: dotcom life free-software family cousins-trip
 ---
 
-Life has been moving too quickly for me to document my menial existence. Check back again soon when my existence is not so menial! In the meantime, here's a Cliff Note's version (may Cliff rest in peace) of the past 5 months (in no particular order).
+Life has been moving too quickly for me to document my menial
+existence. Check back again soon when my existence is not so menial!
+In the meantime, here's a Cliff Note's version (may Cliff rest in
+peace) of the past 5 months (in no particular order).
 
 - I left medicalrecords.com
 - I began doing freelance web development
@@ -18,4 +21,3 @@ Life has been moving too quickly for me to document my menial existence. Check b
 - We celebrated my roommate Gerry's bachelor party in Miami. Enough said ;-)
 - My brother [Manu](http://kurup.net) got a sweet job at Harley Davidson!!! He'll be travelling to places like Japan, Brazil and Australia and taking his little brother with him (hint, hint)
 - A bunch of other stuff happened, but my fingers are getting tired.
-

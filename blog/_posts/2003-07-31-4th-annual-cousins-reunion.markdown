@@ -1,8 +1,8 @@
 ---
 date: 2003/07/31 00:00:00
 layout: post
-title: "4th Annual Cousins Reunion"
-tags: cousins-trip kayaking reunion seattle photos
+title: 4th Annual Cousins Reunion
+tags: cousins-trip family
 ---
 
 We went whitewater rafting in Pennsylvania in 2000, sea-kayaking in North Carolina in 2001, and [death-marching (er... hiking) in the Grand Canyon in 2002](http://kurup.org/photo/album?album_id=5317). This year, we chose [kayaking and hiking in Seattle](http://kurup.org/photo/album?album_id=5564).

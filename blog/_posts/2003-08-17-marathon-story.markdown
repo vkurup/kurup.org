@@ -1,7 +1,7 @@
 ---
 date: 2003/08/17 00:00:00
 layout: post
-title: "Marathon Story"
+title: Marathon Story
 tags: funny marathon
 ---
 

@@ -1,8 +1,11 @@
 ---
 date: 1999/07/15 00:00:00
 layout: post
-title: "Waiting"
-tags: medicine locum hospitalist
+title: Waiting
+tags: medicine life hospitalist
 ---
 
-Still waiting to hear where my first assignment will be. Possibilities include a VA Hospital in Maine, a hospitalist practice in Green Bay, WI, a practice in Racine, WI, or an outpatient practice in Minnesota. Details to follow...
+Still waiting to hear where my first assignment will be. Possibilities
+include a VA Hospital in Maine, a hospitalist practice in Green Bay,
+WI, a practice in Racine, WI, or an outpatient practice in
+Minnesota. Details to follow...

@@ -1,7 +1,7 @@
 ---
 date: 2003/08/02 00:00:00
 layout: post
-title: "Running in the Rain"
+title: Running in the Rain
 tags: running
 ---
 

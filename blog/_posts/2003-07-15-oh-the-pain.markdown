@@ -1,7 +1,7 @@
 ---
 date: 2003/07/15 00:00:00
 layout: post
-title: "oh, the pain!"
+title: oh, the pain!
 tags: pain running
 ---
 

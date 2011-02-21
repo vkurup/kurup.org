@@ -1,7 +1,7 @@
 ---
 date: 2003/06/28 00:00:00
 layout: post
-title: "compiling vpopmail"
+title: compiling vpopmail
 tags: sysadmin mail
 ---
 

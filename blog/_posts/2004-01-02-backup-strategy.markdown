@@ -1,11 +1,11 @@
 ---
 date: 2004/01/02 00:00:00
 layout: post
-title: "Backup strategy"
-tags: rsync backup strategy
+title: Backup strategy
+tags: rsync sysadmin backup
 ---
 
-[Badgertronics.com](http://badgertronics.com), [borkware.com](http://borkware.com), and company went through the same ordeal that [kurup.org](http://kurup.org/blog/one-entry?entry%5fid=9660) did and MarkD has promptly published his [new backup strategy](http://borkware.com/rants/rsync-backups/). He uses [rsync](http://rsync.samba.org/) over [SSH](http://www.openssh.com/) which, interestingly enough, is the same strategy that I came up with. Great minds must think alike.
+[Badgertronics.com](http://badgertronics.com), [borkware.com](http://borkware.com), and company went through the same ordeal that [kurup.org](http://kurup.org/blog/2003/12/17/im-back) did and MarkD has promptly published his [new backup strategy](http://borkware.com/rants/rsync-backups/). He uses [rsync](http://rsync.samba.org/) over [SSH](http://www.openssh.com/) which, interestingly enough, is the same strategy that I came up with. Great minds must think alike.
 
 The canonical standard for doing backups on UNIX systems is tar (short for **t**ape **ar**chive). tar converts directories of files into a single tar archive file which you would then spit to an attached tape drive. To be up-to-date, you need to do this on a regular basis - perhaps daily. So each day, you'd tar up all your important files and send them off to the tape drive. To recover your files, you'd need to read the whole tar archive file back from the tape and then extract the specific files or directories that you want from the tar archive. This works fine if you're backing up to a tape drive, because you don't care about network bandwidth. If you're backing up over the network to another machine's hard drive, then each daily archive file has to be sent over the network to your backup machine. Even if you don't change any files from one day to the next, the entire set of files gets archived and sent across the network. Bye bye precious bandwidth!
 

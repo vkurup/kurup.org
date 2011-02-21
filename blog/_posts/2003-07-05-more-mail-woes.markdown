@@ -1,7 +1,7 @@
 ---
 date: 2003/07/05 00:00:00
 layout: post
-title: "More Mail Woes"
+title: More Mail Woes
 tags: sysadmin mail
 ---
 

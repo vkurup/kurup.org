@@ -1,7 +1,7 @@
 ---
 date: 2003/09/07 00:00:00
 layout: post
-title: "A little pain never hurt anybody"
+title: A little pain never hurt anybody
 tags: running
 ---
 

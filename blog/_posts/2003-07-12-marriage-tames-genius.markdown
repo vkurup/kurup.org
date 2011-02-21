@@ -1,7 +1,7 @@
 ---
 date: 2003/07/12 00:00:00
 layout: post
-title: "marriage 'tames' genius"
+title: marriage 'tames' genius
 tags: uncategorized
 ---
 

@@ -1,7 +1,7 @@
 ---
 date: 2003/07/20 00:00:00
 layout: post
-title: "AOLserver CGI errors"
+title: AOLserver CGI errors
 tags: aolserver web programming
 ---
 

@@ -1,8 +1,8 @@
 ---
 date: 2003/12/17 00:00:00
 layout: post
-title: "I'm back!"
-tags: webhosting openacs
+title: I'm back!
+tags: sysadmin openacs
 ---
 
 This site was down for the past few days due to a [SNAFU with acornhosting's upstream provider](http://openacs.org/forums/message-view?message_id=152527). You'd think I'd have learned to have a backup strategy in place by now, but you'd be overestimating my intelligence. Luckily, Cathy was somehow able to negotiate with her failed upstream provider to get my (and other acornhosting customers') data back. After this episode, I promise to backup religiously and I'm even more sold on [acornhosting](http://acornhosting.net) as a solid web hosting provider.

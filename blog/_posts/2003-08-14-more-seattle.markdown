@@ -1,7 +1,7 @@
 ---
 date: 2003/08/14 00:00:00
 layout: post
-title: "More Seattle"
+title: More Seattle
 tags: cousins-trip family
 ---
 

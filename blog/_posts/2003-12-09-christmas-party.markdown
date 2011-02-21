@@ -1,7 +1,7 @@
 ---
 date: 2003/12/09 00:00:00
 layout: post
-title: "Christmas Party"
+title: Christmas Party
 tags: family
 ---
 

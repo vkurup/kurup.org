@@ -1,7 +1,7 @@
 ---
 date: 2003/08/13 00:00:00
 layout: post
-title: "annual waste of time?"
+title: annual waste of time?
 tags: medicine
 ---
 

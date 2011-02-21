@@ -1,7 +1,7 @@
 ---
 date: 2003/12/04 00:00:00
 layout: post
-title: "Running is addictive"
+title: Running is addictive
 tags: running
 ---
 

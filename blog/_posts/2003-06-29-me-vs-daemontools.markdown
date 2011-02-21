@@ -1,7 +1,7 @@
 ---
 date: 2003/06/29 00:00:00
 layout: post
-title: "me vs. daemontools"
+title: me vs. daemontools
 tags: daemontools sysadmin
 ---
 
