@@ -2,7 +2,7 @@
 date: 2004/08/11 00:00:00
 layout: post
 title: "Wall of water"
-tags: cousins reunion tahoe photos
+tags: cousins-trip reunion tahoe photos
 ---
 
 http://www.cnn.com/2004/US/West/08/05/wallofwater.ap/index.html (link now broken)

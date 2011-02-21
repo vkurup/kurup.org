@@ -1,8 +1,8 @@
 ---
 date: 2006/02/08 00:00:00
 layout: post
-title: "Doing nothing"
-tags: investing quarterly duck amn
+title: Doing nothing
+tags: investing quarterly
 ---
 
 It's time for my quarterly investment update. Every 3 months, I look at my portfolio and sell stocks that I don't like and then buy ones that I do. This quarter, I'm doing **nothing**.
