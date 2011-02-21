@@ -353,9 +353,8 @@ p.excerpt { margin: 0; }
 }
 /* tags for index page */
 p.tags {
-	font-size: 87.5%;
+    font-size: 87.5%;
     text-align: right;
-	line-height: 0em;
 }
 
 /* @end */

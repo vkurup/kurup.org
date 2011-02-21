@@ -9,7 +9,7 @@ layout: default
 <address class="signature">
   <span class="author">&nbsp;</span>
   <span class="date">{{ page.date | date_to_long_string }}</span>
-  <span class="tags">{% for tag in page.tags %}<a href="http://www.google.com/search?q={{ tag }}+site:www.kurup.org" rel="tag">{{ tag }}</a> {% if forloop.last %} {% else %} | {% endif %}{% endfor %}</span>
+  <span class="tags">{% for tag in page.tags %}<a href="/blog/categories/{{ tag }}/" rel="tag">{{ tag }}</a> {% if forloop.last %} {% else %} | {% endif %}{% endfor %}</span>
 </address>
 
 <script type="text/javascript"><!--

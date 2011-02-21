@@ -17,6 +17,8 @@ exclude:
   - readme.markdown
   - Rakefile
 
+category_dir: /blog/categories
+
 maruku:
   use_tex:    false
   use_divs:   false
