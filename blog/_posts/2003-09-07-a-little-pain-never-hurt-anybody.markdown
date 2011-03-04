@@ -5,7 +5,7 @@ title: A little pain never hurt anybody
 tags: running
 ---
 
-[<img src="http://kurup.org/photo/images/9499/10k.jpg" height="384" width="256" alt="10k.jpg" />](http://kurup.org/photo/photo?photo_id=9496)
+<img class="left inset" src="/images/10k.jpg" height="384" width="256" alt="10k.jpg" />
 
 I can barely believe it myself, but I ran 20 miles this morning in Central Park. The [New York Road Runners Club organized a long run](http://www.nyrrc.org/race/2003/r0906x00.htm) for people training for fall marathons. The longest I had run before was about 17 miles for my Chicago Marathon training, but I remember that "run" being mostly walking in the second half.
 

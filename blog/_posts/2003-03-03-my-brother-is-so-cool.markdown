@@ -12,4 +12,4 @@ despite having the warm helmet, I was still freezing. I can't imagine
 what Manu was feeling. Halfway through the ride, I asked him, but his
 face was too frozen to talk. :-) 
 
-<img src="http://kurup.org/photo/images/5305" alt="Me and Manu on Harley" width="500" />
+<img src="/images/harley.jpg" alt="Me and Manu on Harley" />
