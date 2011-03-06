@@ -47,7 +47,7 @@ to my day job!
 [\[L\]loogg](http://lloogg.com). `tail -f access.log` for the web
 
 [\[M\]yfitnesspal](http://myfitnesspal.com). We're using this to track
-our diet and exercise. We used to use [Fitday](fitday.com), but this
+our diet and exercise. We used to use [Fitday](http://fitday.com), but this
 is so much easier and there's a social component that is
 motivating. It's amazing how comprehensive their food database is.
 
@@ -79,7 +79,7 @@ of snow this winter meant lots of checks to see if daycare was open.
 [Old Duke \[W\]ebmail](http://webmail.duhs.duke.edu/owa). Lotus Notes,
 then Outlook 2007, now defunct.
 
-[\[X\]KCD](http://http://xkcd.com/). The best comic strip in the world.
+[\[X\]KCD](http://xkcd.com/). The best comic strip in the world.
 
 [\[Y\]outube](http://youtube.com). Videos of the cutest kids in the
 world. Plus I think there are some other videos there...
