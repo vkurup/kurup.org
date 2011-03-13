@@ -7,7 +7,7 @@ tags: life engagement happiness
 
 And I'm so happy!
 
-<img src="http://kurup.org/photo/images/16163/IMG_2419.jpg" width="500" alt="Mala and me" />
+![Mala and me](/images/siena-hotel.jpg){: .inset width=500}
 
 <div id="comment-box">
 <h2>Comments from old site</h2>

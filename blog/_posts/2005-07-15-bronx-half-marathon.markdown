@@ -5,7 +5,7 @@ title: "Bronx Half-Marathon"
 tags: running marathon race
 ---
 
-<img style="float: right;" src="http://kurup.org/photo/images/22265/bronx-half.jpg" height="500" width="333" alt="Finishing the Bronx Half Marathon"/>
+<img class="inset right" src="/images/bronx-half.jpg" height="500" width="333" alt="Finishing the Bronx Half Marathon" />
 
 I ran the [Bronx Half-Marathon](http://web2.nyrrc.org/cgi-bin/start.cgi/aes-programs/results/startup.html?result.id=a50710&amp;result.year=2005) on Sunday in 2:07:05. I ran the same race last year in 2:07:02. How's that for consistent?. Of course, I'd rather be consistently _fast_ than consistently _slow_, but I'm trying to look on the bright side. By the way, I really do enjoy these races more than my pictures would suggest :-)
 
