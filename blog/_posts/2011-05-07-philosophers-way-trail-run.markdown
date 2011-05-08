@@ -17,7 +17,7 @@ walked for about a quarter mile. I didn't really start running
 smoothly until about a mile in and the next 3 miles were spent passing
 and waiting, passing and waiting. That in itself is ok ... it's part
 of trail running. I would've just extended the time that we were on
-the wide tack to give time for people to string out a bit more. Like I
+the wide track to give time for people to string out a bit more. Like I
 said ... minor annoyance.
 
 Once we got moving, I had a blast. I just love running in the woods. I
