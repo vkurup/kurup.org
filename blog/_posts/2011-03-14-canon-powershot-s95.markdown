@@ -40,4 +40,3 @@ Here's a few photos from this weekend:
 <a href="https://picasaweb.google.com/lh/photo/v64vudaGJbWeRJEr2gU67A?feat=embedwebsite"><img src="https://lh6.googleusercontent.com/_CYj0H0Z580E/TXy5RdfwFNI/AAAAAAAARHw/544mk4kmOYU/s288/IMG_0077.JPG" height="216" width="288" class="inset"></a>
 
 <a href="https://picasaweb.google.com/lh/photo/vbtjr_1y8AwbRfWE_NlQvA?feat=embedwebsite"><img src="https://lh6.googleusercontent.com/_CYj0H0Z580E/TXy5Sh_fYaI/AAAAAAAARH4/ZMqv4xXsqeE/s288/IMG_0081.JPG" height="216" width="288" class="inset"></a>
-s
