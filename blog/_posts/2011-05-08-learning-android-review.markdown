@@ -5,9 +5,7 @@ title: Learning Android Review
 tags: android review
 ---
 
-<a href="http://amzn.to/m8SK61"><img class="inset right"
-src="http://ws.assoc-amazon.com/widgets/q?_encoding=UTF8&Format=_SL160_&ASIN=1449390501&MarketPlace=US&ID=AsinImage&WS=1&tag=vinodkurupshomep&ServiceVersion=20070822"
-/></a>
+<a href="http://amzn.to/m8SK61"><img class="inset right" src="/images/learning-android.jpg" /></a>
 
 I recently finished reading [Learning
 Android](http://amzn.to/m8SK61). I have a Droid X, Mala has a Droid
