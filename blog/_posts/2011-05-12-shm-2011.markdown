@@ -1,5 +1,5 @@
 ---
-date: 2011/05/12 10:35:21
+date: 2011/05/13 05:35:21
 layout: post
 title: SHM 2011
 tags: hospitalist medicine
@@ -113,10 +113,14 @@ continuity of care, so that after the intervention there was a huge
 increase in the amount of patients that were seen only by 1 intern
 during their stay. Very interesting!
 
+### SHM promotion
+
 My attention faded during the award presentations and SHM motivational
 speeches, but Joseph Li, the incoming SHM president, did come clean
 and acknowledge that he was born outside the U.S., despite his lack of
 an accent. The birthers were right!
+
+### Geographic rounding
 
 Emory Hospitalists then presented a talk which was titled 'Utilizing
 Technology to Improve Clinical and Operational Performance of
@@ -144,3 +148,49 @@ encouraged hospitalists to stop focusing on numbers and instead to
 focus on making things run better, so hospitalists who were previously
 "anti-teamwork" are now offering to help out when they're done with
 their work. Anecdotal, but I like stories like that.
+
+They also mentioned that they created a video dramatization of their
+bedside rounds. If I can find it, I will link to it.
+
+### Updates in Hospital Medicine
+
+- Oral prednisone 60 mg daily as good as 600 mg IV for COPD
+exacerbation (Presented at DRH Journal club)
+- OK to extend peripheral IVs rather than change routinely (Emailed to
+me by DRH Hospitalist)
+- Getting appts for COPD exacerbation pts within 30 days may decrease
+rehospitalization (duh!)
+- Benefit for tPA in stroke up to 4.5 hours, but earlier is better
+(DRH Journal club)
+- Gurgling sounds predict pneumonia and ICU transfer (duh)
+- Routine ID consultation in Staph aureus bacteremia significantly
+improves mortality (HR 0.44) (NEW TO ME) 
+- Coagulopathy in liver disease doesn't protect against VTE (duh)
+- Metformin does not cause lactic acidosis (old news, but nice to be
+data-supported now)
+- Enteral nutrition better than TPN in pancreatitis (DRH email/conversations)
+- In ICU palliative care situations, only 47% of family members based
+their survival estimates on MD's prognosis advice.
+
+I skipped the ICU stuff. Far fewer of these updates were new to me
+(listed as NEW in the list above) than in previous years. I attribute
+that to my colleagues at Durham Regional who have been sharing the
+knowledge that they've been collecting from various meetings and
+readings this year.
+
+### Careers in Academic Medicine
+
+This was a workshop on how to pursue your ideal life in academic
+medicine. I loved the energy and enthusiasm of the instructors. This
+probably would've benefited from being a longer course with fewer,
+more involved participants. The basic premise was to document what
+exactly you are doing now, what you're getting paid to do, and what
+you enjoy doing. Then you reconcile the differences in those 3 lists
+and try to identify how to make them match.
+
+### No wireless
+
+This would have been posted a lot earlier if I could ever get on the
+SHM wireless network at the Gaylord Convention Center. "Please
+wait. You will be redirected to the authentication page in 5 seconds."
+You lie!
