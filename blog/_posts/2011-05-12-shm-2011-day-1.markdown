@@ -1,7 +1,7 @@
 ---
 date: 2011/05/12 10:35:21
 layout: post
-title: SHM 2011 Day 1
+title: SHM 2011
 tags: hospitalist medicine
 ---
 
@@ -85,7 +85,62 @@ Reactive arthritis can be seen after Clostridium difficile infections.
 
 20% of cases of Neisseria meningitidis do not have meningitis.
 
+### Poster presentations
+
 The poster presentations are always fun to read, though if I see one
 more poster about the readmission problem, I will vomit.
 
-That's the end of Day 1.
+### Research Abstract Awards
+
+The winning research abstracts were very interesting. 
+
+- UCSF described changes that they made to meet new ACGME requirements
+while decreasing costs and improving certain quality measures. 
+- Johns Hopkins hospitalists modified their CPOE system to show the
+costs of specific lab tests, hoping to change provider behavior. They
+were able to show that providers ordered less tests when they saw the
+cost. Duh, you say, but there is so little cost information available
+to providers, so this is innovative if only for that reason.
+- Hospitalists (in Colorado, I think?) used the Toyota Production
+System to model problems with current intern work schedules. They then
+reworked the schedule to minimize waste of resident resources, while
+improving continuity and resident satisfaction. They were able to
+basically eliminate moonlighter and jeopardy use. I didn't quite
+understand the schedule because it was presented quickly, but I like
+how they analyzed where resources were being wasted and adjusted
+things to minimize that waste. I also like that they optimized for
+continuity of care, so that after the intervention there was a huge
+increase in the amount of patients that were seen only by 1 intern
+during their stay. Very interesting!
+
+My attention faded during the award presentations and SHM motivational
+speeches, but Joseph Li, the incoming SHM president, did come clean
+and acknowledge that he was born outside the U.S., despite his lack of
+an accent. The birthers were right!
+
+Emory Hospitalists then presented a talk which was titled 'Utilizing
+Technology to Improve Clinical and Operational Performance of
+Hospitalists' but it should really have been titled "Geographic
+Bedside Rounds: Just Do It!". They did mention the IT improvements
+they've made to support geographic rounding, but the value of the talk
+was in describing how they implemented geographic rounding and how it
+has been received by the involved parties. Moving to geographic
+rounding helps providers the least. It's basically an addition to our
+workload. On the other hand, patients, nurses, and social workers get
+a lot of benefit and obviously, the patients are the most important
+factor here. We will have to see the patient more than once and our
+workflow will have to change, but it seems that the benefits outweigh
+the extra costs to the individual provider. Paraphrased, "Nurses and
+social workers would riot if we stopped this system, but even
+hospitalists wouldn't want to go back to the old way, if put to a
+referendum." Something that only came out in the post-talk questions
+was how this has improved overall teamwork. They used to have a
+complicated system about how new admissions were assigned, taking into
+account census numbers, discharge numbers, and other factors. Now,
+with the new system, there are days that one hospitalist will have
+completely unequal numbers or new patients than another hospitalist,
+but it is understood that things will even out over time. That has
+encouraged hospitalists to stop focusing on numbers and instead to
+focus on making things run better, so hospitalists who were previously
+"anti-teamwork" are now offering to help out when they're done with
+their work. Anecdotal, but I like stories like that.
