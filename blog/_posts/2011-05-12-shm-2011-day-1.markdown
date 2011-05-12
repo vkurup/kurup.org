@@ -1,0 +1,91 @@
+---
+date: 2011/05/12 10:35:21
+layout: post
+title: SHM 2011 Day 1
+tags: hospitalist medicine
+---
+
+Here are some (unorganized) thoughts about my experience at the
+Society of Hospital Medicine (SHM) 2011 conference in Dallas, TX. The
+initial presentation dissected the SHM Annual Compensation survey,
+discussing how much hospitalists are getting paid and how hard they're
+working. I understand the importance of that stuff, but ever since I
+got my first $638.36 paycheck as an intern, money hasn't been an issue
+for me.
+
+The second talk was by Bob Kocher, an Obama insider during the
+healthcare reform legislation. Gerry would have loved this one. He
+briefly described how a bill becomes a law... it apparently doesn't
+follow the Schoolhouse Rock model anymore. An one point, reform looked
+dead, when the Catholic Nuns came out in favor of the legislation
+allowing multiple congress members to change their vote to "Yes". As
+Kocher put it (paraphrasing), "When the Nuns broke with the Bishops,
+healthcare reform could move forward." Doesn't that seem like a
+statement that should be in a history book about medieval times,
+rather than a statement about 2010 United States politics?  Maybe it's
+just me...
+
+### Neurologic emergencies
+
+The Neurologic emergencies talk was entertaining, though maybe more
+useful to an intensivist. David Likosky is hilarious in a geeky kind
+of way. A few things I learned:
+
+Always maintain a good differential diagnosis and don't jump to a
+conclusion too quickly. He described a case of an alcoholic who
+presented in coma and had dynamic pupils making a brainstem stroke the
+most likely diagnosis. A lot of time was spent to rule that out, and
+then his labs came back with a sugar of 13, indicating that the
+diagnosis of hypoglycemia was missed. He described some of the reasons
+that happened and I can see them happening to me. The point is never
+to get fixated on a diagnosis, but to make sure that you've done the
+proper initial workup. A fingerstick glucose should always be done in
+a coma workup.
+
+A few points on status epilepticus (SE)
+
+- Convulsive SE is a seizure that lasts more than 5 minutes, and is a medical
+emergency. 
+- Lorazepam is probably better than Diazepam and don't be
+afraid to use high doses (Start at 4 IV). We commonly underdose and
+underdosing hurts. 
+- Nonconvulsive SE is considered as a medical urgency. A lot of
+patients have SE on EEG after convulsions have stopped and many have
+persistent subclinical seizures after SE is controlled. So, repeat the
+EEG, monitor the EEG.
+- Absence seizures is really a diagnosis of children. (Not really
+  about SE)
+
+Things to make you think that a CVA may be posterior circulation: Loss
+of consciousness, pupillary abnormalities, superhigh BP. Allow it to
+stay superhigh and keep the patient flat. Because posterior
+circulation strokes have such bad outcomes, it's OK to intervene after
+the window if there doesn't seem to be any other hope.
+
+### Dermatology images (Paul Aronowitz)
+
+When approaching a rash, ask 3 questions: Did the patient cause this
+rash? Did we do that to the patient? (Ask this twice). Is this rash a
+manifestation of some other disease? We often jump to the third
+question, but should consider the first two.
+
+The snake bite risk factors are pretty interesting: 
+- Male
+- Age 17-27
+- Deliberate attempt to handle, harm or kill snake
+- Summer months
+- Alcohol intoxication
+- Tattoos
+
+DRESS (Drug reaction with eosinophilia and systemic symptoms) usually
+occurs 2-6 weeks after the drug is started, but occurs quicker after
+rechallenge with the drug.
+
+Reactive arthritis can be seen after Clostridium difficile infections.
+
+20% of cases of Neisseria meningitidis do not have meningitis.
+
+The poster presentations are always fun to read, though if I see one
+more poster about the readmission problem, I will vomit.
+
+That's the end of Day 1.
