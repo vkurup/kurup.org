@@ -498,6 +498,10 @@ div.LTprovided { display: none; }
 .delicious-posts a { }
 p.delicious-extended { font-size: 100%; display: inline; }
 p.delicious-extended:before { content: ' — '; }
+.pin-title { font-size:1em;text-decoration:none;color:#00a}
+.pin-description { color:#555; }
+.pin-tag { color:#18c;text-decoration:none;font-size:0.9em; }
+
 /* @end */
 
 /* @group Footer */

@@ -51,9 +51,9 @@ Contacting Twitter...
 =--
 
 +-- {.section}
-[Delicious](http://www.delicious.com/vkurup)
+[Pinboard](https://pinboard.in/u:vkurup)
 ============================================
-<script type="text/javascript" src="http://feeds.delicious.com/v2/js/vkurup?title=&count=5&sort=date&tags&extended"> </script>
+<script language="javascript" src="http://pinboard.in//widgets/v1/linkroll/?user=vkurup&count=10"> </script>
 
 =--
 
