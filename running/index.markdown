@@ -35,7 +35,10 @@ Here are my [blog posts about running](/blog/categories/running/).
 - year:
 
 
-### Daily Mile Widget
+### Daily Mile Widget:
 
-<script src="http://www.dailymile.com/people/vkurup/training/widget.js" type="text/javascript"> </script><noscript><a href="http://www.dailymile.com/people/vkurup" title="Running Training Log"><img alt="Running Training Log" src="http://www.dailymile.com/images/badges/dailymile_badge_180x60_orange.gif" style="border: 0;" /></a></noscript>
+
+
+<script src="http://www.dailymile.com/people/vkurup/training/widget.js" type="text/javascript"> </script>
+<noscript><a href="http://www.dailymile.com/people/vkurup" title="Running Training Log"><img alt="Running Training Log" src="http://www.dailymile.com/images/badges/dailymile_badge_180x60_orange.gif" style="border: 0;" /></a></noscript>
 
