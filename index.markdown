@@ -66,6 +66,22 @@ Interweb
 - [OpenACS](http://openacs.org/forums/user-history?user_id=7027) - The bulk
 of my open source contributions
 - [GitHub](http://github.com/vkurup)
+- [Coderwall](http://coderwall/com/vkurup)
+
+<div id="coderwall_badges">
+  <script
+    type="text/javascript"
+    src="http://coderwall-widget.appspot.com/coderwallbadges.js/vkurup">
+  </script>
+  <script>
+    new CoderwallWidget({
+      'color':'#000000',
+      'backgroundColor':'#ffffff',
+      'width':245,
+      'height':80
+    });
+  </script>
+</div>
 
 =--
 
