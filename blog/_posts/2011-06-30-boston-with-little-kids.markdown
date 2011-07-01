@@ -79,7 +79,7 @@ add, please leave a comment or point to your blog.
   River, there's plenty to watch and play with. Kavi and Anika really
   liked the little car. Oh, and if you happen to go right (east)
   instead of left, there's a great playground near the tennis
-  courts, which is on the way to the Museum of Science.
+  courts, which is on the way to the Museum of Science. <br>
   <a href="https://picasaweb.google.com/lh/photo/VU9ZILbVTM3WjUQf8ewOVA?feat=embedwebsite"><img class="inset" src="https://lh5.googleusercontent.com/-ZyXEp8eIv8E/Tf_CXQ8c-II/AAAAAAAASp0/RwBruXMUjrI/s400/IMG_1675.JPG" height="300" width="400" /></a>
 - [Hatch shell](http://www.hatchshell.com/):
   There was an AIDS race while we were there which meant lots of people and
@@ -147,7 +147,7 @@ add, please leave a comment or point to your blog.
   Nostalgic coffee and donuts, but NO BATHROOMS!
 - [Asian Garden](http://www.yelp.com/biz/asian-garden-boston):
   The best salt & pepper squid that I have ever had. Still as good as
-  I remember it 15 years ago!
+  I remember it 15 years ago! <br>
   <a href="https://picasaweb.google.com/lh/photo/bUxOVG-Gxd9RUfydEzit9Q?feat=embedwebsite"><img class="inset" src="https://lh5.googleusercontent.com/-7kdUE3ux_Uc/Tf_B8KQJ1sI/AAAAAAAASmI/GDK1-ESwPxY/s400/IMG_1500.JPG" height="300" width="400" /></a>
 - Dim Sum at [Hei La Moon](http://www.yelp.com/biz/hei-la-moon-boston):
   Mala was at her meeting, Anika was asleep and Kavi was sick, so only
