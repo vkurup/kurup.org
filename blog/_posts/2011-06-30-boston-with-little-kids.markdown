@@ -2,7 +2,7 @@
 date: 2011/06/30 11:50:22
 layout: post
 title: Boston with little kids
-tags: 
+tags: travel family boston
 ---
 
 I'm sorry, but I just can't believe it's been almost 10 years since I
