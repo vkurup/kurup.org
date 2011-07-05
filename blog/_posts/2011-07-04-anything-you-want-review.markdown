@@ -6,6 +6,7 @@ tags: business book review
 ---
 
 <a href="http://t.co/rdADtHa"><img class="inset right" src="http://ws.assoc-amazon.com/widgets/q?_encoding=UTF8&Format=_SL160_&ASIN=1936719118&MarketPlace=US&ID=AsinImage&WS=1&tag=vinodkurupshomep&ServiceVersion=20070822" ></a>
+<img src="http://www.assoc-amazon.com/e/ir?t=&l=as2&o=1&a=1936719118&camp=217145&creative=399373" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 
 I don't know why I keep reading books about entrepreneurship. I like
 the idea of building a business, having passion for something, and
@@ -13,7 +14,7 @@ most importantly, living life on your own terms. I just [don't think
 I'm cut out for it](/blog/2010/11/07/growing-a-business). But see if
 that will stop me from devouring [Hacker
 News](http://news.ycombinator.com), [startup
-podcasts](http://mixergy.com) and books like Derek Sivers' [Anything
+podcasts](http://mixergy.com) and books like [Derek Sivers'](http://sivers.org) [Anything
 You
 Want](http://t.co/rdADtHa).
 
@@ -75,21 +76,17 @@ little more 'explicit', as he describes in this
 
 ### A few other quotes that I loved
 
-#### Humility
+<br>
 
-> I hope you find these ideas useful for your own life or business. I also hope you disagree with some of them. Then I hope you email me to tell me about your different point of view, because that's my favorite part of all.
-> 
-> (I'm a student, not a guru)
+##### Getting things done isn't the only goal
 
-#### Getting things done isn't the only goal
+> \[Other people\] assume the only reason we do anything is to get it done, and doing it yourself is not the most efficient way. But that's forgetting about the joy of learning and doing.
 
-> [Other people] assume the only reason we do anything is to get it done, and doing it yourself is not the most efficient way. But that's forgetting about the joy of learning and doing.
-
-#### Know thyself
+##### Know thyself
 
 > Just pay close attention to what excites you and what drains you. Pay close attention to when you're being the real you and when you're trying to impress the invisible jury.
 
-#### Unexpected twist
+##### Unexpected twist
 
 > So I considered firing everyone and hiring a whole new crew. ... I never saw or spoke to my employees again. Never saw the office again.
 
@@ -113,4 +110,6 @@ customers will love you.
 
 ### Bottom line
 
-I enjoyed this book. It's a quick read, it's cheap (I read the Kindle version on my Android tablet for $7.99) and it's inspirational. I recommend it.
+I enjoyed this book. It's a quick read, it's cheap (I read the Kindle
+version on my Android tablet for $7.99) and it's inspirational. I
+<a href="http://t.co/rdADtHa">recommend it</a>.
