@@ -18,7 +18,7 @@ feed: atom.xml
 <!-- Feedburner Flare -->
 <script src="http://feeds.feedburner.com/~s/vkurup?i=http://www.kurup.org{{ post.url }}" type="text/javascript"> </script>
 
-<p class="tags">{% for tag in post.tags %}<a href="http://www.google.com/search?q={{ tag }}+site:www.kurup.org" rel="tag">{{ tag }}</a> {% if forloop.last %} {% else %} | {% endif %}{% endfor %}</p>
+<p class="tags">{% for tag in post.tags %}<a href="/blog/categories/{{ tag }}" rel="tag">{{ tag }}</a> {% if forloop.last %} {% else %} | {% endif %}{% endfor %}</p>
 </div>
 
 {% endfor %}
