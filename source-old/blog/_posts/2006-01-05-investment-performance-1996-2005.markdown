@@ -2,7 +2,7 @@
 date: 2006/01/05 00:00:00
 layout: post
 title: "Investment Performance 1996-2005"
-tags: investing performance annual
+categories: investing performance annual
 ---
 
 As [promised last

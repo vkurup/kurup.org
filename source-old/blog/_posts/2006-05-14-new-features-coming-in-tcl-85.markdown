@@ -2,7 +2,7 @@
 date: 2006/05/14 00:00:00
 layout: post
 title: New Features coming in Tcl 8.5
-tags: tcl programming
+categories: tcl programming
 ---
 
 I was looking at the [Tcl 8.4 man page for 'split'](http://www.tcl.tk/man/tcl8.4/TclCmd/split.htm) and saw this example code:

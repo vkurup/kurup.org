@@ -2,7 +2,7 @@
 date: 2003/08/28 00:00:00
 layout: post
 title: Getting faster...
-tags: running
+categories: running
 ---
 
 I got home as it was getting dark, so I ran at the gym, on the

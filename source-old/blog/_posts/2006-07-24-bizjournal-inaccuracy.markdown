@@ -2,7 +2,7 @@
 date: 2006/07/24 00:00:00
 layout: post
 title: "Bizjournal inaccuracy"
-tags: investing stocks
+categories: investing stocks
 ---
 
 Blair Corp, a company in my portfolio, announced second quarter earnings today. They were disappointing, but not as disappointing as reported by [bizjournals](http://www.bizjournals.com).

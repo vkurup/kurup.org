@@ -3,7 +3,7 @@ date: 2007/06/07 00:00:00
 layout: post
 title: Kavi Arrives!
 permalink: /blog/2007/06/07/kavi-arrives
-tags: family
+categories: family
 ---
 
 Mala and I are so proud to announce the birth of our healthy, happy baby boy!

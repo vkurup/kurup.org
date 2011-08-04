@@ -2,7 +2,7 @@
 date: 2006/09/25 00:00:00
 layout: post
 title: "Working with collections"
-tags: tcl programming
+categories: tcl programming
 ---
 
 Steve Yegge wrote about the [expressiveness of

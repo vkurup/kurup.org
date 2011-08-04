@@ -2,7 +2,7 @@
 date: 2011/07/04 21:12:11
 layout: post
 title: Anything You Want Review
-tags: business book review
+categories: business book review
 ---
 
 <a href="http://t.co/rdADtHa"><img class="inset right" src="http://ws.assoc-amazon.com/widgets/q?_encoding=UTF8&Format=_SL160_&ASIN=1936719118&MarketPlace=US&ID=AsinImage&WS=1&tag=vinodkurupshomep&ServiceVersion=20070822" ></a>

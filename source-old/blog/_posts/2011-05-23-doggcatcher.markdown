@@ -2,7 +2,7 @@
 date: 2011/05/23 21:51:46
 layout: post
 title: Doggcatcher
-tags: podcasts android
+categories: podcasts android
 ---
 
 I talked yesterday about how I didn't like the Google Listen podcast

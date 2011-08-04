@@ -2,7 +2,7 @@
 date: 2006/09/05 00:00:00
 layout: post
 title: "Ecce Bed &amp; Breakfast"
-tags: new-york review travel
+categories: new-york review travel
 ---
 
 <img src="/images/ecce-panorama.jpg" width="580" alt="Ecce view" />

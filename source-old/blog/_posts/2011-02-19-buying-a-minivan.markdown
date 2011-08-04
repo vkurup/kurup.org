@@ -2,7 +2,7 @@
 date: 2011/02/19 20:45:07
 layout: post
 title: Buying a Minivan
-tags: minivan
+categories: minivan
 ---
 
 The time comes in every man's life where he eventually has to break

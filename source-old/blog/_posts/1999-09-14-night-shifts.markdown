@@ -2,7 +2,7 @@
 date: 1999/09/14 00:00:00
 layout: post
 title: Night shifts
-tags: medicine life hospitalist
+categories: medicine life hospitalist
 ---
 
 Well, I'm gonna be here in Green Bay for a little while longer,

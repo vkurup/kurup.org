@@ -2,7 +2,7 @@
 date: 2002/09/22 00:00:00
 layout: post
 title: R.I.P.
-tags: apple ipod computer backup
+categories: apple ipod computer backup
 ---
 
 Bad news! My Powerbook G3 went kaput yesterday. After a day or so of

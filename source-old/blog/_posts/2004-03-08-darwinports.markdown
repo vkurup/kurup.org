@@ -2,7 +2,7 @@
 date: 2004/03/08 00:00:00
 layout: post
 title: darwinports
-tags: darwinports mac-os-x openacs
+categories: darwinports mac-os-x openacs
 ---
 
 In the process of installing Panther from scratch, I decided to use [DarwinPorts](http://darwinports.opendarwin.org/). It's a packaging system for the abundant UNIX [free software](http://www.fsf.org/) available on Mac OS X. I had previously used [Fink](http://fink.sf.net) which, while being an admirable project, seemed a little opaque to me. I never quite knew where data was being installed and which locations were being searched to see if prerequisites were present. Darwinports seems to be a little better at finding programs/libraries that are already installed. I freely admit my ignorance in this matter, though. It may simply be that I understand Darwinports better than I did Fink, but that, in itself is an important criteria.

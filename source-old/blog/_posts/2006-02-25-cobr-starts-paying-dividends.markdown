@@ -2,7 +2,7 @@
 date: 2006/02/25 00:00:00
 layout: post
 title: "COBR starts paying dividends"
-tags: investing dividends
+categories: investing dividends
 ---
 
 Cobra Electronics ([COBR](http://finance.yahoo.com/q?s=COBR)) annouced quarterly results on Thursday. Revenue was up a little. Net income was up a lot, but mostly due to one time events. The market wasn't impressed and the stock fell 8%. Day to day price changes don't worry me, so that's not what I'm writing about. [I mentioned back in July that I was concerned about the cash hoard that Cobra was amassing](http://kurup.org/blog/one-entry?entry_id=22593). Specifically I said:

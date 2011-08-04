@@ -2,7 +2,7 @@
 date: 2010/08/02 21:40:00
 layout: post
 title: Ubuntu Bluetooth Workaround
-tags: linux
+categories: linux
 ---
 
 I use bluetooth to transfer podcasts from my laptop to my Palm Centro. A

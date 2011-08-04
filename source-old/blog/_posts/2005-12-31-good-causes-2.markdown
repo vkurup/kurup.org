@@ -2,7 +2,7 @@
 date: 2005/12/31 00:00:00
 layout: post
 title: "Good causes"
-tags: charity
+categories: charity
 ---
 
 It's that time of year again - time to reduce my tax bill! Here are the charities that we're donating to this year. I think they're all great causes, so I encourage you to check them out.

@@ -2,7 +2,7 @@
 date: 2003/06/29 00:00:00
 layout: post
 title: me vs. daemontools
-tags: daemontools sysadmin
+categories: daemontools sysadmin
 ---
 
 I have a love/hate relationship with [daemontools](http://cr.yp.to/daemontools.html). It's powerful way to manage services (like web servers and mail servers), but it sometimes doesn't act the way I expect it to. 

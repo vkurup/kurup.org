@@ -2,7 +2,7 @@
 date: 1998/03/01 00:00:00
 layout: post
 title: Cruise
-tags: family
+categories: family
 ---
 In March '98, after a grueling month in the ICU, I went on a cruise with my
 cousins and their parents. I'm currently seriously considering working as a

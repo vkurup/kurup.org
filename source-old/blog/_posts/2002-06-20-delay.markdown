@@ -2,7 +2,7 @@
 date: 2002/06/20 00:00:00
 layout: post
 title: Delay
-tags: medicine life
+categories: medicine life
 ---
 
 OK, OK... it's been way too long since I've updated this page. I just

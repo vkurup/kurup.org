@@ -2,7 +2,7 @@
 date: 2003/10/28 00:00:00
 layout: post
 title: The Wall is not a myth
-tags: running marathon race
+categories: running marathon race
 ---
 
 I ran the [Marine Corps Marathon](http://marinemarathon.com) yesterday

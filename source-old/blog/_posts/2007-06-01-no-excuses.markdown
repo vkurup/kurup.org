@@ -2,7 +2,7 @@
 date: 2007/06/01 00:00:00
 layout: post
 title: "No excuses"
-tags: news family
+categories: news family
 ---
 
 _Attention Wisconsin Family Members:_

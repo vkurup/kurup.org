@@ -2,7 +2,7 @@
 date: 2001/05/26 00:00:00
 layout: post
 title: Bunch of stuff
-tags: dotcom life free-software family cousins-trip
+categories: dotcom life free-software family cousins-trip
 ---
 
 Life has been moving too quickly for me to document my menial

@@ -2,7 +2,7 @@
 date: 2001/05/29 00:00:00
 layout: post
 title: Girish is published!
-tags: family
+categories: family
 ---
 
 My cousin Girish was interviewed for an article about hormone

@@ -2,7 +2,7 @@
 date: 2011/05/20 20:58:06
 layout: post
 title: gitignore
-tags: programming
+categories: programming
 ---
 
 I found this great github project. It's just a [list of .gitignore

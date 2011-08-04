@@ -2,7 +2,7 @@
 date: 2008/12/13 00:00:00
 layout: post
 title: "Starting again"
-tags: blog informatics medicine writing
+categories: blog informatics medicine writing
 ---
 
 For the remaining 2 readers of kurup.org (one of them being me), let me apologize for the lack of posts here over the past couple years. I have always meant to write more, but most of my writing seems to consist of apologies for not writing, short bursts of writing, and then long stretches of inactivity. We are nearing the end of a long stretch of inactivity now, so it's time for the apologies.

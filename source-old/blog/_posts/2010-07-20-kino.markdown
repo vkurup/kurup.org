@@ -2,7 +2,7 @@
 date: 2010/07/20 20:51:00
 layout: post
 title: My video editing process
-tags: kino linux video
+categories: kino linux video
 ---
 
 I use [kino](http://www.kinodv.org/) to edit the

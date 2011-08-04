@@ -2,7 +2,7 @@
 date: 2011/05/13 05:35:21
 layout: post
 title: SHM 2011
-tags: hospitalist medicine
+categories: hospitalist medicine
 ---
 
 Here are some (unorganized) thoughts about my experience at the

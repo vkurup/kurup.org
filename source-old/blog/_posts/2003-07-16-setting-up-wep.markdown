@@ -2,7 +2,7 @@
 date: 2003/07/16 00:00:00
 layout: post
 title: Setting up WEP
-tags: sysadmin wireless
+categories: sysadmin wireless
 ---
 
 How to set up WEP encryption:

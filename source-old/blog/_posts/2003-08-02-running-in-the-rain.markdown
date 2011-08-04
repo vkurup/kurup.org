@@ -2,7 +2,7 @@
 date: 2003/08/02 00:00:00
 layout: post
 title: Running in the Rain
-tags: running
+categories: running
 ---
 
 It was pouring, monsoon-style here in NYC today, but I went running anyway. When it's raining, no one else is out, so I get the path to myself. And jumping over (or through) the puddles makes me feel like a tough guy. I swear I can hear the Rocky theme song when I run in the rain. The only bad thing about running in the rain is that the always-stunning midtown skyline gets obscured by the clouds.

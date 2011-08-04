@@ -2,7 +2,7 @@
 date: 2008/08/02 00:00:00
 layout: post
 title: "I'm alive"
-tags: life blog hospitalist
+categories: life blog hospitalist
 ---
 
 OK, I know it's been almost a year since I updated this blog, but rest assured that I'm still alive and kicking. The observant among you will notice that the design of the blog has changed. The even more observant will notice that huge swaths of content are now missing. Things like my photo albums, my running log, old comments, and Kavi's little site are now gone. They may make a reappearance someday, especially if I get prodded sufficiently. I have my old site running locally on my laptop, but I'm too lazy to bring it all back right now.

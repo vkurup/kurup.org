@@ -2,7 +2,7 @@
 date: 2011/03/03 21:11:24
 layout: post
 title: Parenting Highs and Lows
-tags: parenting life
+categories: parenting life
 ---
 
 *Written a few weeks ago*

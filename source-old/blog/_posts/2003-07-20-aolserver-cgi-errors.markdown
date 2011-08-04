@@ -2,7 +2,7 @@
 date: 2003/07/20 00:00:00
 layout: post
 title: AOLserver CGI errors
-tags: aolserver web programming
+categories: aolserver web programming
 ---
 
 Scenario: You're trying to run a CGI program under AOLserver and you see this in your error log: 

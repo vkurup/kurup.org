@@ -2,7 +2,7 @@
 date: 2009/09/19 00:00:00
 layout: post
 title: bye bye Wordpress
-tags: blog design jekyll programming
+categories: blog design jekyll programming
 ---
 This site has undergone another transformation. I've ditched [Wordpress](http://wordpress.org) and am now using a tool called [Jekyll](http://github.com/mojombo/jekyll). It's a program that runs on my laptop and generates static files from a bunch of templates. I then upload the static files to my server. Wordpress, like any dynamic software, has security risks. Especially since it's such a popular blog app, it's always under attack. I don't have the time or interest to keep up with updates, especially since my blogging is so low-profile. It's just something I do for fun. 
 

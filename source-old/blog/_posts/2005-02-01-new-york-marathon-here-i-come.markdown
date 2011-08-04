@@ -3,7 +3,7 @@ date: 2005/02/01 00:00:00
 layout: post
 title: New York Marathon, here I come
 permalink: /blog/2005/02/01/new-york-marathon-here-i-come
-tags: running marathon
+categories: running marathon
 ---
 
 It's official. I got an email the other day:

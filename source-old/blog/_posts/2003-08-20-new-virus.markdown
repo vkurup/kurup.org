@@ -2,7 +2,7 @@
 date: 2003/08/20 00:00:00
 layout: post
 title: New virus?
-tags: virus
+categories: virus
 ---
 
 I've been getting weird emails over the past day or so. The `From:` address is always different, there is no body text and there is an attachment called `your_document.pif`. The `From:` address is sometimes recognizable, but seems to be spoofed.

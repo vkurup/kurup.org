@@ -2,7 +2,7 @@
 date: 2011/05/21 20:51:37
 layout: post
 title: 5 by 5
-tags: podcasts
+categories: podcasts
 ---
 
 My commute to work is 25 minutes each way, so I'm always looking for a

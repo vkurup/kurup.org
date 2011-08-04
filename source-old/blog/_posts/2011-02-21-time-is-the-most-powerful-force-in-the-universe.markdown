@@ -2,7 +2,7 @@
 date: 2011/02/21 14:23:43
 layout: post
 title: Time is the most powerful force in the universe
-tags: running meditation braindump
+categories: running meditation braindump
 ---
 
 Thanks to Mala's inspiration, I've been running a lot more over the

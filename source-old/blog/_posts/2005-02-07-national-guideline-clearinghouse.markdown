@@ -2,7 +2,7 @@
 date: 2005/02/07 00:00:00
 layout: post
 title: "National Guideline Clearinghouse"
-tags: medicine guidelines
+categories: medicine guidelines
 ---
 
 I subscribe to the National Guideline Clearinghouse's (NGC) email alert service. Sponsored by the [Agency for Healthcare Research and Quality](http://www.ahrq.gov/), the NGC is a database of clinical guidelines from numerous sources. [Sign up for their alert service](http://www.guideline.gov/whatsnew/subscription.aspx) to receive email whenever a guideline is added or changed.

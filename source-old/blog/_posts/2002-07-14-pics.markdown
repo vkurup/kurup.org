@@ -2,7 +2,7 @@
 date: 2002/07/14 00:00:00
 layout: post
 title: Pics
-tags: friends grand-canyon cousins-trip family
+categories: friends grand-canyon cousins-trip family
 ---
 
 Geoff organized a

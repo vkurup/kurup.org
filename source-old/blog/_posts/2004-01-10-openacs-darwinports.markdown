@@ -2,7 +2,7 @@
 date: 2004/01/10 00:00:00
 layout: post
 title: Installing OpenACS via Darwinports
-tags: openacs mac-os-x
+categories: openacs mac-os-x
 ---
 
 ## Installing OpenACS via Darwinports

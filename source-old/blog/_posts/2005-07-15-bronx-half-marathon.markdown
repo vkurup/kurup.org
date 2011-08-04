@@ -2,7 +2,7 @@
 date: 2005/07/15 00:00:00
 layout: post
 title: "Bronx Half-Marathon"
-tags: running marathon race
+categories: running marathon race
 ---
 
 <img class="inset right" src="/images/bronx-half.jpg" height="500" width="333" alt="Finishing the Bronx Half Marathon" />

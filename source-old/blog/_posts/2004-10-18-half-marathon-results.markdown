@@ -2,7 +2,7 @@
 date: 2004/10/18 00:00:00
 layout: post
 title: "Half marathon results"
-tags: running race
+categories: running race
 ---
 
 I ran 2 more half-marathons in the past couple weeks. I ran [Greta's Great Gallop](http://web2.nyrrc.org/cgi-bin/start.cgi/aes-programs/results/startup.html?result.id=a41003&amp;result.year=2004) on October 3rd in Central Park and then ran the [Staten Island Half Marathon](http://web2.nyrrc.org/cgi-bin/start.cgi/aes-programs/results/startup.html?result.id=a41017&amp;result.year=2004) today.

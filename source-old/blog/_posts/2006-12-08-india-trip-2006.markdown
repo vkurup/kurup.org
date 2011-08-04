@@ -2,7 +2,7 @@
 date: 2006/12/08 00:00:00
 layout: post
 title: "India Trip 2006"
-tags: india travel vacation family
+categories: india travel vacation family
 ---
 
 ![vaishnodevi](/images/vaishnodevi.jpg){: .inset width=580}

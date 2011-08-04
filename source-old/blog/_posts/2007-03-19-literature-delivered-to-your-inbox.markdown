@@ -2,7 +2,7 @@
 date: 2007/03/19 00:00:00
 layout: post
 title: "Literature delivered to your inbox"
-tags: education literature interesting book-review
+categories: education literature interesting book-review
 ---
 
 [DailyLit.com](http://dailylit.com) is an interesting service that takes classic books and chops them up in to bite-sized pieces that you can read in just a few minutes. It then emails you one piece at a time until you finish the book. You can customize how often you get the emails.

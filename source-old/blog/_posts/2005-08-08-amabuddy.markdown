@@ -2,7 +2,7 @@
 date: 2005/08/08 00:00:00
 layout: post
 title: "Amabuddy"
-tags: amazon shopping
+categories: amazon shopping
 ---
 
 This seems useful.

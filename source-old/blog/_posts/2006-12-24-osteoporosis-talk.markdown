@@ -2,7 +2,7 @@
 date: 2006/12/24 00:00:00
 layout: post
 title: "Osteoporosis Talk"
-tags: medicine education
+categories: medicine education
 ---
 
 I gave the residents a talk on osteoporosis at noon conference on Friday. Here's the powerpoint slides that I created, in case they might be useful to anyone. They're licensed under a [Creative Commons](http://creativecommons.org) license and available in 2 formats - [ODP (good)](http://en.wikipedia.org/wiki/OpenDocument) and PPT (bad).

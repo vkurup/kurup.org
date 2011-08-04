@@ -2,7 +2,7 @@
 date: 2011/03/14 20:01:35
 layout: post
 title: Canon Powershot S95
-tags: photography review
+categories: photography review
 ---
 
 There's something about photography that seems to attract

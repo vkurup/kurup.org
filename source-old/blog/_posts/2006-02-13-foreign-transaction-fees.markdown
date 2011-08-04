@@ -2,7 +2,7 @@
 date: 2006/02/13 00:00:00
 layout: post
 title: Foreign transaction fees
-tags: shopping fees
+categories: shopping fees
 ---
 
 Now that credit card companies are charging extra fees for foreign

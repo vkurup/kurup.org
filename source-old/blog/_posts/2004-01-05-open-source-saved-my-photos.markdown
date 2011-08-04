@@ -2,7 +2,7 @@
 date: 2004/01/05 00:00:00
 layout: post
 title: Open Source saved my photos!
-tags: mac-os-x free-software
+categories: mac-os-x free-software
 ---
 
 Loyal readers of my blog will remember that my Powerbook Wallstreet G3 died on September 21st, 2002. Since I'm probably the only one that remembers, I'll point you to that [blog entry](http://kurup.org/blog/2002/09/22/rip). The good news was that the hard drive was intact, the bad news was that I didn't have an easy way of accessing it. I have a Firewire enclosure, and my old Powerbook was running Linux, so I figured it wouldn't be too difficult to get my new Powerbook to read the data off the old HD. I mean Mac OS X and Linux are the same underneath, right? Well, not quite. Mac OS X uses a filesystem called HFS+ and my version of Linux uses a filesystem called ext2. Turns out that no one had written an ext2 driver for Mac OS X.

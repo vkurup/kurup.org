@@ -2,7 +2,7 @@
 date: 2006/09/05 00:00:00
 layout: post
 title: "3 weddings, 5 babies, 2 graduations and a dog"
-tags: friends family babies wedding
+categories: friends family babies wedding
 ---
 
 <img src="/images/mala-nyc.jpg" width="500" alt="IMG_5830.JPG" />

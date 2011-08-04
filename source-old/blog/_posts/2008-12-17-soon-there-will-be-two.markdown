@@ -2,7 +2,7 @@
 date: 2008/12/17 00:00:00
 layout: post
 title: "Soon there will be two"
-tags: baby family life
+categories: baby family life
 ---
 
 Kavi has been getting bored being surrounded by adults all the time. He is very happy to announce that a sibling is on its way. We're calling it blueberry. If things go on schedule, blueberry will be born sometime in June, so we'll have 2 June babies, a couple years apart.

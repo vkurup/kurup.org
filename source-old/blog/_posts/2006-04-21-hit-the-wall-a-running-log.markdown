@@ -2,7 +2,7 @@
 date: 2006/04/21 00:00:00
 layout: post
 title: "Hit The Wall (a running log)"
-tags: running programming tcl openacs software
+categories: running programming tcl openacs software
 ---
 
 I built a web application to keep track of my running a couple years

@@ -2,7 +2,7 @@
 date: 2007/06/03 00:00:00
 layout: post
 title: "Belated Investment Update"
-tags: investing quarterly
+categories: investing quarterly
 ---
 
 Let's also get caught up with my investments. I last updated in May 2006 when I bought [STS](http://finance.yahoo.com/q?s=STS), [JAX](http://finance.yahoo.com/q?s=JAX), [EEI](http://finance.yahoo.com/q?s=EEI), [KEYN](http://finance.yahoo.com/q?s=KEYN) and [RSC](http://finance.yahoo.com/q?s=RSC).

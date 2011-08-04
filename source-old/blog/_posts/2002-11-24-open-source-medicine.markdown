@@ -2,7 +2,7 @@
 date: 2002/11/24 00:00:00
 layout: post
 title: Open Source Medicine
-tags: free-software open-source medicine writing
+categories: free-software open-source medicine writing
 ---
 
 I wrote up a [little intro piece on the use of open source software in medical applications (PDF)](http://kurup.org/files/OpenSourceMedicine.pdf). HTML below...

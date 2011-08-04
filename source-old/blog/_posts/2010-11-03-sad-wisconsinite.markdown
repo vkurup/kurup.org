@@ -2,7 +2,7 @@
 date: 2010/11/03 08:44:00
 layout: post
 title: A sad day for this Wisconsinite
-tags: news
+categories: news
 ---
  
 [Russ Feingold](http://www.russfeingold.org/) lost his U.S. Senate

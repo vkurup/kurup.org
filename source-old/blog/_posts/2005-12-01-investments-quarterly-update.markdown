@@ -2,7 +2,7 @@
 date: 2005/12/01 00:00:00
 layout: post
 title: "Investments: Quarterly Update"
-tags: investing quarterly
+categories: investing quarterly
 ---
 
 DUCK lost money both in its most recent quarter and over the past 12 months, so I sold it. I wish I'd been smarter about the way I sold it. I hadn't decided which new stocks to buy yet, so instead of just selling DUCK and sitting in cash, I thought I'd using a trailing-stop order. With a regular stop, you tell your broker to sell the stock once the price drops below a certain point. If the current price is $23.50 and you set a stop at $23.00, then when the price drops below $23, the broker sends the order to the market and fills it. It's a way to automatically limit your losses (or protect a certain amount of gains) in a stock. A trailing stop works the same way, except that the stop-price moves up whenever the current-price moves up. You set a trailing-stop at 50 cents below market. If the current price is $23.50, your stop is at $23.00. If the current price goes to $24, then your stop moves up with it to $23.50. I figured this would be perfect for my situation. I knew I wanted to sell DUCK. I didn't know what I wanted to buy next. If DUCK went up in this period of time, I'd benefit. If DUCK went down, I'd lose very little.

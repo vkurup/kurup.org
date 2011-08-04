@@ -2,7 +2,7 @@
 date: 2011/02/04 21:43:53
 layout: post
 title: I retract my previous tweet
-tags: car perspective life
+categories: car perspective life
 ---
 
 I take it back. I was upset, OK? Never tweet when you're upset. I'm

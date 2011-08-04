@@ -2,7 +2,7 @@
 date: 2005/08/12 00:00:00
 layout: post
 title: "Mmmmm Bacon..."
-tags: food
+categories: food
 ---
 
 Now this is a [good idea for a blog](http://baconshow.blogspot.com/).

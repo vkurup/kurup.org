@@ -2,7 +2,7 @@
 date: 1999/12/06 00:00:00
 layout: post
 title: Back to Massachusetts
-tags: medicine life
+categories: medicine life
 ---
 
 I've started a new rotation in at a chronic rehab hospital in Waltham,

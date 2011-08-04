@@ -2,7 +2,7 @@
 date: 2006/05/04 00:00:00
 layout: post
 title: "Louie and Ernie's"
-tags: new-york-city bronx food pizza restaurant-review
+categories: new-york-city bronx food pizza restaurant-review
 ---
 
 <img class="inset" src="/images/pizza.jpg" alt="Pizza" />

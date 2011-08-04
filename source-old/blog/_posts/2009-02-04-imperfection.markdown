@@ -2,7 +2,7 @@
 date: 2009/02/04 00:00:00
 layout: post
 title: "Imperfection"
-tags: create motivation perfectionism projects
+categories: create motivation perfectionism projects
 ---
 
 I've had a lot of great plans which I've never fulfilled. Don't get me wrong. My life is beyond great and I see it getting better every day. There just happen to be a lot of things that I've planned to do which I have not done.

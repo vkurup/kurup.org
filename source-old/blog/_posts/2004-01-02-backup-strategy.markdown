@@ -2,7 +2,7 @@
 date: 2004/01/02 00:00:00
 layout: post
 title: Backup strategy
-tags: rsync sysadmin backup
+categories: rsync sysadmin backup
 ---
 
 [Badgertronics.com](http://badgertronics.com), [borkware.com](http://borkware.com), and company went through the same ordeal that [kurup.org](http://kurup.org/blog/2003/12/17/im-back) did and MarkD has promptly published his [new backup strategy](http://borkware.com/rants/rsync-backups/). He uses [rsync](http://rsync.samba.org/) over [SSH](http://www.openssh.com/) which, interestingly enough, is the same strategy that I came up with. Great minds must think alike.

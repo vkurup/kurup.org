@@ -2,7 +2,7 @@
 date: 2005/02/12 00:00:00
 layout: post
 title: "Open PDFs in Preview by default"
-tags: mac-os-x
+categories: mac-os-x
 ---
 
 Adobe Acrobat takes forever to load (with "forever" being defined as 4-5 seconds), so I wanted all my PDFs to open in Preview, by default. The thread above explains how to do it.

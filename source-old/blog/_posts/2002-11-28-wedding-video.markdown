@@ -2,7 +2,7 @@
 date: 2002/11/28 00:00:00
 layout: post
 title: Wedding Video
-tags: friends
+categories: friends
 ---
 
 If you'll scroll down a bit, back to June 28th, 2001, you'll see that I promised 'Video' of the wedding of Gerry and Kim. Go ahead, scroll... I'll wait.

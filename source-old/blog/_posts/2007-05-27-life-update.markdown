@@ -2,7 +2,7 @@
 date: 2007/05/27 00:00:00
 layout: post
 title: "Life Update"
-tags: life medicine friends family
+categories: life medicine friends family
 ---
 
 Once again, I've fallen behind on my life updates, so let's get caught up.

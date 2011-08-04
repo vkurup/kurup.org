@@ -2,7 +2,7 @@
 date: 2004/03/08 00:00:00
 layout: post
 title: "Don't use \"Archive and Install\""
-tags: mac-os-x installation
+categories: mac-os-x installation
 ---
 
 Thanks to the fine folks at [badgertronics](http://badgertronics.com/blog), I was able to upgrade my Powerbook to Panther free-of-charge. I initially did an "Archive and Install" upgrade, as recommended by the upgrade guide at [TidBITS](http://www.tidbits.com/takecontrol/#upgrading) (easily worth the measly $5, IMHO). But soon after the install, I noticed that my system seemed a lot slower. I couldn't pinpoint a specific problem, but things just seemed sluggish. I definitely noticed that DNS seemed to be broken. I was moved to act when I noticed that my IMAP client ([offlineimap](http://gopher.quux.org:70/devel/offlineimap)) took 15 minutes to sync 48 IMAP Maildirs between my Mac and my server. According to the offlineimap docs, syncing 50 Maildir folders should take around 3 seconds. Hmmm.... that seems a little wrong.

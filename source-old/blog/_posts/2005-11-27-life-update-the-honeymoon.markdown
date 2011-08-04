@@ -2,7 +2,7 @@
 date: 2005/11/27 00:00:00
 layout: post
 title: "Life Update: The Honeymoon"
-tags: sonoma life family honeymoon napa wedding
+categories: sonoma life family honeymoon napa wedding
 ---
 
 ![Amazing etched door](/images/napa-etched-door.jpg){: .inset .right height=150 width=113} We honeymooned in California Wine Country. We stayed at the [Hilton in Santa Rosa](http://www.winecountryhilton.com/), about halfway between Napa and Sonoma. In Napa, we visited [Sterling](http://www.sterlingvineyards.com/), [Peju](http://www.peju.com/), [V. Sattui](http://www.vsattui.com/) and [Artesa](http://www.artesawinery.com/). I enjoy wine, but not to the point that I can tell the difference between a good wine and a great one. So, I grade vineyards on different criteria. Go to Sterling for the view and the self-guided tour. Go to Peju to see the stained glass and the etched door. Go to V. Sattui for the free wine tasting, the gourmet deli and the picnic area. Go to Artesa because, well, it's a nice stop on the way back to San Francisco. 

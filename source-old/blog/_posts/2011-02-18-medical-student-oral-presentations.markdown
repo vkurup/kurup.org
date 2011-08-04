@@ -2,7 +2,7 @@
 date: 2011/02/18 14:57:09
 layout: post
 title: Medical Student Oral Presentations
-tags: medicine education
+categories: medicine education
 ---
 
 I enjoyed

@@ -2,7 +2,7 @@
 date: 2003/08/13 00:00:00
 layout: post
 title: annual waste of time?
-tags: medicine
+categories: medicine
 ---
 
 Another interesting article in the Times today. Lo and behold, the [annual physical exam](http://www.nytimes.com/2003/08/12/health/12PHYS.html) is useless. Shocking, huh? Well, no - not really. The first [questions about the annual physical](http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=PubMed&amp;cmd=Retrieve&amp;list_uids=7030166&amp;dopt=Citation) cropped up 20 years ago and recent studies have only confirmed these initial doubts.

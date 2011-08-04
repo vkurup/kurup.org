@@ -2,7 +2,7 @@
 date: 2003/07/30 00:00:00
 layout: post
 title: Don't get sued
-tags: music eff free
+categories: music eff free
 ---
 
 The topic of music sharing and its legality came up during our annual cousins trip in Seattle. Here's an important article on [How Not to Get Sued by the RIAA](http://www.eff.org/IP/P2P/howto-notgetsued.php). The most important thing is the last line in the article:

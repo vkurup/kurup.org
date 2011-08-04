@@ -2,7 +2,7 @@
 date: 2001/01/04 00:00:00
 layout: post
 title: My first OpenACS port
-tags: openacs free-software programming
+categories: openacs free-software programming
 ---
 
 I finished porting the homepage module from

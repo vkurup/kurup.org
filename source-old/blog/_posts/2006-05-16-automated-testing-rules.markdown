@@ -2,7 +2,7 @@
 date: 2006/05/16 00:00:00
 layout: post
 title: "Automated Testing Rules"
-tags: programming tcl testing openacs
+categories: programming tcl testing openacs
 ---
 
 Automated testing is a good thing. For my running log application, I have a proc that creates a new log for a user, called rl::runner::new. If you happen to call it for a user who already has a log, it returns the already created log. When I created the proc way back when, I also created an automated test to make sure that creation worked and that redundant calls returned the orignal log.

@@ -2,7 +2,7 @@
 date: 1999/12/06 00:00:00
 layout: post
 title: medicalrecords.com
-tags: medicine startup dotcom
+categories: medicine startup dotcom
 ---
 
 An opportunity arose that I just couldn't pass up. I've been offered a

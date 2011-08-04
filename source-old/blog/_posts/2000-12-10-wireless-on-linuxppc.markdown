@@ -2,7 +2,7 @@
 date: 2000/12/10 00:00:00
 layout: post
 title: Wireless on LinuxPPC
-tags: wireless linux
+categories: wireless linux
 ---
 
 I've coaxed my wireless card to work on LinuxPPC. Read [how I did

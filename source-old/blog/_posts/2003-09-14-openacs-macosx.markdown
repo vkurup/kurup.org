@@ -2,7 +2,7 @@
 date: 2003/09/14 00:00:00
 layout: post
 title: Another Mac OS X OpenACS Installation Guide
-tags: mac-os-x openacs programming
+categories: mac-os-x openacs programming
 ---
 
 ## Another Mac OS X OpenACS Installation Guide

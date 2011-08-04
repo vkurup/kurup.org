@@ -2,7 +2,7 @@
 date: 2011/07/20 19:15:29
 layout: post
 title: Daivame Kaithozham
-tags: family
+categories: family
 ---
 
 Ever since I was a boy, I have been singing a song called 'Daivame

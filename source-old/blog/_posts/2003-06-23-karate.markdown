@@ -2,7 +2,7 @@
 date: 2003/06/23 00:00:00
 layout: post
 title: Karate?
-tags: self-defense
+categories: self-defense
 ---
 
 I had dinner with a friend of mine whom I hadn't seen in a few

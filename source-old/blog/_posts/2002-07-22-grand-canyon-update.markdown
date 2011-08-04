@@ -2,7 +2,7 @@
 date: 2002/07/22 00:00:00
 layout: post
 title: Grand Canyon Update
-tags: cousins-trip family grand-canyon
+categories: cousins-trip family grand-canyon
 ---
 
 I found some more pictures from the Phoenix trip, so [check 'em

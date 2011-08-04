@@ -2,7 +2,7 @@
 date: 2005/07/06 00:00:00
 layout: post
 title: "6th Annual Cousins Trip"
-tags: lake-george cousins-trip family
+categories: lake-george cousins-trip family
 ---
 
 <img src="/images/girish-water.jpg" width="500" class="inset" alt="Walking on water (Lake George)"/>

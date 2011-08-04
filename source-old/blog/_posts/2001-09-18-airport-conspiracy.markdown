@@ -2,7 +2,7 @@
 date: 2001/09/18 00:00:00
 layout: post
 title: Airport Conspiracy?
-tags: apple
+categories: apple
 ---
 
 My allegiance to Apple is wavering. I came home to find my home

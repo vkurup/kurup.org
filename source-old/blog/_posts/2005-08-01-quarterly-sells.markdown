@@ -2,7 +2,7 @@
 date: 2005/08/01 00:00:00
 layout: post
 title: "Quarterly Sells"
-tags: investing quarterly
+categories: investing quarterly
 ---
 
 I try to do my portfolio cleanup every 3 months, selling any companies that don't fit my strategy and buying new ones that do. So, I'm selling 5 stocks. I haven't decided on my buys yet, but I'm looking at BAMM, BZ, CALM, ESP, PWX, SCX and SRT (among others).

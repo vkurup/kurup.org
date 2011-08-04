@@ -2,7 +2,7 @@
 date: 2003/07/05 00:00:00
 layout: post
 title: More Mail Woes
-tags: sysadmin mail
+categories: sysadmin mail
 ---
 
 I spent most of this afternoon struggling with a mail issue and I didn't find it documented well anywhere else, so I'm going to write about it here in the hopes that it might help someone else.

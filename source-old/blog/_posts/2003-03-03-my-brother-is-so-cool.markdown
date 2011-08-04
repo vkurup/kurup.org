@@ -2,7 +2,7 @@
 date: 2003/03/03 00:00:00
 layout: post
 title: My brother is so cool
-tags: family
+categories: family
 ---
 
 I've been meaning to put this pic up for a while. That's me in back,

@@ -2,7 +2,7 @@
 date: 2005/08/07 00:00:00
 layout: post
 title: "SBGI"
-tags: investing value
+categories: investing value
 ---
 
 [Andy asked](http://kurup.org/blog/2005/08/01/quarterly-sells):

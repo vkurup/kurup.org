@@ -2,7 +2,7 @@
 date: 1999/08/06 00:00:00
 layout: post
 title: Going to the homeland!
-tags: medicine hospitalist life
+categories: medicine hospitalist life
 ---
 
 I found out recently that I'll be spending 3 weeks (maybe longer) in

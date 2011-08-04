@@ -2,7 +2,7 @@
 date: 1998/10/22 00:00:00
 layout: post
 title: Letter From Devi
-tags: devi family
+categories: devi family
 ---
 
 I recently got a letter from my niece, Devi, which broke my heart...

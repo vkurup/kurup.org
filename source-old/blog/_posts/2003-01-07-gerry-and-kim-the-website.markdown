@@ -2,7 +2,7 @@
 date: 2003/01/07 00:00:00
 layout: post
 title: Gerry and Kim - the website
-tags: friends programming web
+categories: friends programming web
 ---
 
 I finally finished [Gerry and Kim's wedding

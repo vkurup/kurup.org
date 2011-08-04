@@ -1,7 +1,7 @@
 ---
 title: My Anti-Writing Cycle
 date: 2010/07/27 21:30:00
-tags: writing clojure blog
+categories: writing clojure blog
 permalink: /blog/2010/07/27/my-anti-writing-cycle
 layout: post
 ---

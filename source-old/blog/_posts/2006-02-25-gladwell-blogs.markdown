@@ -2,7 +2,7 @@
 date: 2006/02/25 00:00:00
 layout: post
 title: "Gladwell blogs"
-tags: interesting gladwell
+categories: interesting gladwell
 ---
 
 Sorry for two posts about Gladwell in one day, but I just found out that [Gladwell has started a blog](http://gladwell.typepad.com/). Looks like he started the day after his Columbia speech which is interesting because he put some blame on the internet for our society's bias towards Picasso. Maybe he's trying to test his theories :-)

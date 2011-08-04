@@ -2,7 +2,7 @@
 date: 2003/02/20 00:00:00
 layout: post
 title: India 2003
-tags: india family life
+categories: india family life
 ---
 
 My parents and I went to India for 2 weeks. We spent a couple days in

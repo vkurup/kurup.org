@@ -2,7 +2,7 @@
 date: 2003/08/16 00:00:00
 layout: post
 title: Let there be light!
-tags: blackout life new-york-city
+categories: blackout life new-york-city
 ---
 
 The power finally came back on at around 7:20 PM tonight. I was

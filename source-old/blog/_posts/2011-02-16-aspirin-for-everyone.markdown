@@ -2,7 +2,7 @@
 date: 2011/02/16 21:17:23
 layout: post
 title: Aspirin for everyone
-tags: medicine
+categories: medicine
 ---
 
 Aspirin is one of those wonder drugs - simple, cheap and effective

@@ -2,7 +2,7 @@
 date: 2011/05/07 20:44:27
 layout: post
 title: Philosopher's Way Trail Run
-tags: running
+categories: running
 ---
 I ran the 15K [Philosopher's Way Trail
 Run](http://www.trailheads.org/pwtr/) today. It's on the eastern end

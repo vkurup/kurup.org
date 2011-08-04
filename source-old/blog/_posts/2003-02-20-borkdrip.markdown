@@ -2,7 +2,7 @@
 date: 2003/02/20 00:00:00
 layout: post
 title: BorkDrip!
-tags: mac-os-x cocoa programming
+categories: mac-os-x cocoa programming
 ---
 
 Got Mac OS X? Want a cool screensaver? I stole this from

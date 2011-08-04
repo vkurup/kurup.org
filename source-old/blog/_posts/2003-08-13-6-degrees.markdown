@@ -2,7 +2,7 @@
 date: 2003/08/13 00:00:00
 layout: post
 title: 6 degrees?
-tags: family friends
+categories: family friends
 ---
 
 An article in the NY Times claims that ['6 degrees of separation' is an exaggeration](http://www.nytimes.com/2003/08/12/science/12MAIL.html). They tested it by asking people to forward emails to people that they knew in hopes that the chain would eventually lead to 1 of the researchers' destinations. I know that I delete any chain mail that I get, so I'm not sure that the study's results are valid. 

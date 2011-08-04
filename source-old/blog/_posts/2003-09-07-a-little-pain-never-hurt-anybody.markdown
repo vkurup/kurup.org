@@ -2,7 +2,7 @@
 date: 2003/09/07 00:00:00
 layout: post
 title: A little pain never hurt anybody
-tags: running
+categories: running
 ---
 
 <img class="left inset" src="/images/10k.jpg" height="384" width="256" alt="10k.jpg" />

@@ -2,7 +2,7 @@
 date: 2011/05/16 20:44:12
 layout: post
 title: Android ResourcesNotFoundException
-tags: android programming
+categories: android programming
 ---
 
 If you see this error:

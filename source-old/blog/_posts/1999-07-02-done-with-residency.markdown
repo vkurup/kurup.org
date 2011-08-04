@@ -2,7 +2,7 @@
 date: 1999/07/02 00:00:00
 layout: post
 title: Done with residency
-tags: medicine life
+categories: medicine life
 ---
 
 Well, I've finally finished my internal medicine residency at New

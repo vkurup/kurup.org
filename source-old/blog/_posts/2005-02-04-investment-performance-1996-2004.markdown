@@ -2,7 +2,7 @@
 date: 2005/02/04 00:00:00
 layout: post
 title: "Investment Performance 1996 - 2004"
-tags: investing performance annual
+categories: investing performance annual
 ---
 
 OK, it's well past the end of 2004 and I've finally calculated how my investments have done for the year. I've also analyzed my overall investment results since I started investing in 1996.

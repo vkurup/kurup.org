@@ -2,7 +2,7 @@
 date: 2010/01/03 00:00:00
 layout: post
 title: Happy New Year
-tags: life family
+categories: life family
 ---
 
 This is going to be a great year. I was working on New Year's Eve. My shift

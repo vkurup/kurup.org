@@ -2,7 +2,7 @@
 date: 2011/05/22 20:51:03
 layout: post
 title: Google Listen doesn't rock
-tags: podcasts android
+categories: podcasts android
 ---
 
 In the years I've been listening to podcasts, I've only found 2
