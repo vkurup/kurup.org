@@ -8,12 +8,14 @@ layout: nil
   <link href="{{ site.url }}/atom.xml" rel="self"/>
   <link href="{{ site.url }}/"/>
   <updated>{{ site.time | date_to_xmlschema }}</updated>
-  <id>{{ site.url }}/</id>
+  <generator uri="http://github.com/mojombo/jekyll">Jekyll</generator>
+  <id>{{ site.url }}/atom.xml</id>
   <author>
     <name>{{ site.author }}</name>
     {% if site.email %}
       <email>{{ site.email }}</email>
     {% endif %}
+    <uri>http://www.kurup.org</uri>
   </author>
 
   {% for post in site.posts limit: 20 %}
@@ -21,7 +23,9 @@ layout: nil
     <title>{{ post.title }}</title>
     <link href="{{ site.url }}{{ post.url }}"/>
     <updated>{{ post.date | date_to_xmlschema }}</updated>
-    <id>{{ site.url }}{{ post.id }}</id>
+    <id>id:{{ post.id }}</id>
+   {% for category in post.categories: %}<category scheme="http://www.kurup.org" term="{{category}}" />
+   {% endfor %}
     <content type="html">{{ post.content | expand_urls: site.url | xml_escape }}</content>
   </entry>
   {% endfor %}
