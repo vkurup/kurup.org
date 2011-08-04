@@ -8,7 +8,7 @@ module Jekyll
 
     def render(context)
       html = ""
-      tags = context.registers[:site].tags.sort
+      tags = context.registers[:site].categories.sort
       avg = tags.inject(0.0) {|memo, tag| memo += tag[1].length} / tags.length
       weights = Hash.new
       tags.each {|tag| weights[tag[0]] = tag[1].length/avg}
