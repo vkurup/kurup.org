@@ -1,7 +1,6 @@
 ---
-layout: default
+layout: page
 title: Software
-top: kurup.org
 ---
 
 Placeholder for software I've developed. For now, go look at my
