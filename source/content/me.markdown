@@ -1,7 +1,6 @@
 ---
-layout: default
-title: Me
-top: kurup.org
+layout: page
+title: Old About Me
 ---
 
 I was born in Columbus, Ohio, but my parents moved to Milwaukee, 
