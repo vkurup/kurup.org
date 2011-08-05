@@ -267,7 +267,7 @@ task :config_deploy, :branch do |t, args|
 end
 
 desc 'Generate and publish the entire site, and send out pings'
-task :publish => [:build, :deploy, :sitemap, :ping] do
+task :publish => [:generate, :deploy, :sitemap, :ping] do
 end
 
 def ok_failed(condition)
