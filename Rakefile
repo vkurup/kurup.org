@@ -21,6 +21,7 @@ themes_dir   = ".themes"   # directory for blog files
 new_post_ext = "markdown"  # default new post file extension when using the new_post task
 new_page_ext = "markdown"  # default new page file extension when using the new_page task
 
+task :default => :preview
 
 desc "Initial setup for Octopress: copies the default theme into the path of Jekyll's generator. Rake install defaults to rake install[classic] to install a different theme run rake install[some_theme_name]"
 task :install, :theme do |t, args|
@@ -43,6 +44,7 @@ desc "Generate jekyll site"
 task :generate do
   puts "## Generating Site with Jekyll"
   system "jekyll"
+  cp_r "#{source_dir}/.nfsn-awicons/.",  "#{public_dir}/.nfsn-awicons"
 end
 
 desc "Watch the site and regenerate when it changes"
@@ -53,6 +55,29 @@ end
 desc "preview the site in a web browser"
 task :preview do
   system "trap 'kill $jekyllPid $compassPid' Exit; jekyll --auto --server & jekyllPid=$!; compass watch & compassPid=$!; wait"
+end
+
+desc 'Ping pingomatic'
+task :ping do
+  begin
+    require 'xmlrpc/client'
+    puts '* Pinging ping-o-matic'
+    XMLRPC::Client.new('rpc.pingomatic.com', '/').call('weblogUpdates.extendedPing', 'Vinod Kurup' , 'http://www.kurup.org/', 'http://www.kurup.org/blog/atom.xml')
+  rescue LoadError
+    puts '! Could not ping ping-o-matic, because XMLRPC::Client could not be found.'
+  end
+end
+
+desc 'Notify Google of the new sitemap'
+task :sitemap do
+  begin
+    require 'net/http'
+    require 'uri'
+    puts '* Pinging Google about our sitemap'
+    Net::HTTP.get('www.google.com', '/webmasters/tools/ping?sitemap=' + URI.escape('http://www.kurup.org/sitemap.xml'))
+  rescue LoadError
+    puts '! Could not ping Google about our sitemap, because Net::HTTP or URI could not be found.'
+  end
 end
 
 # usage rake new_post[my-new-post] or rake new_post['my new post'] or rake new_post (defaults to "new-post")
@@ -164,8 +189,7 @@ end
 desc "Deploy website via rsync"
 task :rsync do
   puts "## Deploying website via Rsync"
-  puts "## vk debug: rsync -rlpvz --size-only --delete #{public_dir}/ #{ssh_user}:#{document_root}"
-  #ok_failed system("rsync -rlpvz --size-only --delete #{public_dir}/ #{ssh_user}:#{document_root}")
+  ok_failed system("rsync -rlpvz --size-only --delete #{public_dir}/ #{ssh_user}:#{document_root}")
 end
 
 desc "deploy public directory to github pages"
@@ -240,6 +264,10 @@ task :config_deploy, :branch do |t, args|
     end
   end
   puts "## Deployment configured. Now you can deploy to the #{args.branch} branch with `rake deploy` ##"
+end
+
+desc 'Generate and publish the entire site, and send out pings'
+task :publish => [:build, :deploy, :sitemap, :ping] do
 end
 
 def ok_failed(condition)
