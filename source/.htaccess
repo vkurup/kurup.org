@@ -22,7 +22,9 @@ RewriteRule ^blog/one-entry /blog/2004/01/02/backup-strategy? [L]
 RewriteCond %{QUERY_STRING} 22671
 RewriteRule ^blog/one-entry /blog/2005/08/12/mmmmm-bacon? [L]
 
-RewriteRule ^blog/tag/([^/]+)$ /blog/category/$1/ [R]
+RewriteRule ^blog/tag/([^/]+)$ /blog/categories/$1/ [R]
+
+RewriteRule ^blog/category/([^/]+)$ /blog/categories/$1/ [R]
 
 # Set up pretty error document pages
 ErrorDocument 404 /404.html
