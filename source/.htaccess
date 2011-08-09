@@ -27,6 +27,8 @@ RewriteRule ^blog/tag/([^/]+)$ /blog/categories/$1/ [R]
 RewriteRule ^blog/category/([^/]+)$ /blog/categories/$1/ [R]
 RewriteRule ^blog/category/([^/]+)/$ /blog/categories/$1/ [R]
 
+RewriteRule ^blog[/]*$ / [R]
+
 # Set up pretty error document pages
 ErrorDocument 404 /404.html
 ErrorDocument 403 /403.html
