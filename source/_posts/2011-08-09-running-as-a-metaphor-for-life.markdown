@@ -11,11 +11,11 @@ that running is a metaphor for life. I've [discussed some of this
 before with my cousins Dilu and
 Harish](/blog/2003/10/28/the-wall-is-not-a-myth/) before.
 
-Robert Frost famously wrote:
-
-> ... two roads diverged in a wood, and I -- 
-> I took the one less traveled by,
-> And that has made all the difference.
+{% blockquote Robert Frost http://en.wikipedia.org/wiki/The_Road_Not_Taken_(poem) %}
+... two roads diverged in a wood, and I -- 
+I took the one less traveled by,
+And that has made all the difference.
+{% endblockquote %}
 
 While trail running, I have come to the realization that you never
 have to worry about the fork in the road, nor the decision associated
