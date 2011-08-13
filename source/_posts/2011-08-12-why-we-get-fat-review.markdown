@@ -78,17 +78,16 @@ quite a bit of genetic variation from person to person, so some
 individuals will be able to tolerate more carbs than others, and not
 everyone will be completely lean even without any carbs.
 
-He spends a lot time going over the history of dietary research dating
-back centuries. He makes a good case to suggest that the danger of
-carbs was well understood and accepted in all scientific and
-nonscientific circles until the last 50 years or so, when there was a
-change that attributed obesity to behavioral weakness. This was
-started by the acceptance of the calorie imbalance hypothesis. Once
-people accepted the thinking that taking in more calories than you
-expend causes obesity, it was a short step to blaming obesity on the
-individual for not controlling their diet or exercising more. The
-focus of scientific research was taken off of fat deposition and on to
-behavioral changes.
+He spends a lot of time going over the history of dietary research
+dating back centuries. The danger of carbs was well understood and
+accepted in all scientific and nonscientific circles until the last 50
+years or so, when there was a change that attributed obesity to
+behavioral weakness. This was started by the acceptance of the calorie
+imbalance hypothesis. Once people accepted the thinking that taking in
+more calories than you expend causes obesity, it was a short step to
+blaming obesity on the individual for not controlling their diet or
+exercising more. The focus of scientific research was taken off of fat
+deposition and on to behavioral changes.
 
 I had been coming around to this conclusion slowly over the past few
 years (and am embarrassed that it has taken me this long). I remember
@@ -124,12 +123,13 @@ Michael Pollan's recommendation to "Eat Real Food".
 
 At some point, I'd like to review all the science behind the
 conclusions in Taubes' book, just so I can have a better understanding
-for myself. I recommend to anyone treating patients (nurses, doctors,
-nutritionists, trainers) to read this book.  
+for myself. I recommend that anyone treating patients (nurses,
+doctors, nutritionists, trainers) or anyone trying to get healthier
+read this book.
  
 Some other much more entertaining and useful links:
 
 - [Latest in Paleo podcast](http://www.latestinpaleo.com/)
 - [Weston A. Price Foundation](http://www.westonaprice.org/)
 - [Paleo Diet: Link Primer](http://hivelogic.com/articles/the-paleo-diet-a-link-primer/)
-- [Great podcast by 2 Duke docs](http://radio.theheart.org/bob-harrington-show/2010/12/10/31-atkins-diet-obesity-and-cardiovascular-disease-risk-with-dr-eric-westman) - theheart.org
+- [Great podcast episode by 2 Duke docs](http://radio.theheart.org/bob-harrington-show/2010/12/10/31-atkins-diet-obesity-and-cardiovascular-disease-risk-with-dr-eric-westman) - theheart.org
