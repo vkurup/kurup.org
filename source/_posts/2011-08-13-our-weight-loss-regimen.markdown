@@ -6,10 +6,11 @@ comments: true
 categories: health food
 ---
 
-After writing yesterday's post about how Mala and I have been losing
-so much weight over the past 8 months, I thought I should post a small
-sampling of the food that Mala has made for us in that time. Yes, I am
-a lucky, lucky man.
+After writing [yesterday's
+post](/blog/2011/08/13/our-weight-loss-regimen) about how Mala and I
+have been losing so much weight over the past 8 months, I thought I
+should post a small sampling of the food that Mala has made for us in
+that time. Yes, I am a lucky, lucky man.
 
 <table>
 
