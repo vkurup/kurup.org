@@ -1,0 +1,34 @@
+---
+layout: post
+date: 2011/09/06 14:01:22
+title: Surprise, I'm 40!
+comments: true
+categories: family, friends 
+---
+
+{% img /images/vinod40-1.jpg Vinod is surprised %}
+
+Have you ever been in one of those dreams where everything seems
+normal and then a flying car (or something equally crazy) comes out of
+nowhere? I'm used to having experiences like that when I'm dreaming,
+but it was quite surreal to have it during waking hours.
+
+Mala and Kavi had gone ahead (surreptiously to plan a surprise party
+for someone else!). We were to meet at the ferris wheel at the Navy
+Pier. I found her and she took my hand. She started leading me through
+the crowds of tourists. I could sense excitement in her demeanor, but
+didn't think anything of it. She led me towards a group of people and
+I caught a glimpse of someone who looked like my Dad. That's
+weird... why would he be here? It's at that point that neurons started
+to malfunction and I began to feel like I was in a dream. Then I saw
+Mala's mom and got even more confused. Slowly the group of strangers
+came into focus and revealed themselves as my friends and family from
+around the country. It was, without a doubt, the best birthday present
+that I have ever received, or expect to receive. Thanks to Mala for
+months of planning, and for wanting to make me feel special even
+though I feel this way every day when I wake up next to her. Thanks to
+all my friends and family who could make it and to the ones who
+couldn't. If this is the culmination of 40 years on this earth, I
+can't wait for the next 40!
+
+{% img /images/vinod40-2.jpg Vinod is 40 %}
