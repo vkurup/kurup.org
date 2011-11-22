@@ -23,7 +23,7 @@ home and with the residents before I presented to an attending.
 
 I also give each student a printed copy of the [guidelines posted at
 the University of Washington's medical education
-site](http://depts.washington.edu/medclerk/student/presentation.html). It
+site](https://depts.washington.edu/medclerk/drupal/pages/Oral-Presentation-Guidelines). It
 goes into more detail about all of these issues. My favorite portion
 is the graph that they present, which I'll reproduce here:
 
