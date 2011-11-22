@@ -54,6 +54,13 @@ they were "relatively" well.
  
 > He was completely well (or "in his usual state of health" for chronically ill patients) until 5 days ago, when he noticed feeling short of breath after walking 300 feet to his mailbox. Over the course of the next 5 days, his dyspnea worsened to the point that he was short of breath at rest. He tried taking his albuterol inhaler, but felt no relief. Etc…
 
+It's also useful to split the HPI into 2 distinct sections. The first
+part is the patient's story, as described above. In the second part,
+you take that story and decide what a reasonable differential
+diagnosis list would be after listening to the first part. Then
+provide the listener with appropriate ROS and PMH items to help them
+rule those other diagnoses out.
+
 **PMH**
 
 You may have mentioned a few of these in the CC, but repeat them
