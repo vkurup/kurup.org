@@ -23,7 +23,7 @@ home and with the residents before I presented to an attending.
 
 I also give each student a printed copy of the [guidelines posted at
 the University of Washington's medical education
-site](http://depts.washington.edu/medclerk/student/presentation.html). It
+site](https://depts.washington.edu/medclerk/drupal/pages/Oral-Presentation-Guidelines). It
 goes into more detail about all of these issues. My favorite portion
 is the graph that they present, which I'll reproduce here:
 
@@ -53,6 +53,13 @@ illness, that is hard, so you may have to start at the last time that
 they were "relatively" well.
  
 > He was completely well (or "in his usual state of health" for chronically ill patients) until 5 days ago, when he noticed feeling short of breath after walking 300 feet to his mailbox. Over the course of the next 5 days, his dyspnea worsened to the point that he was short of breath at rest. He tried taking his albuterol inhaler, but felt no relief. Etc…
+
+It's also useful to split the HPI into 2 distinct sections. The first
+part is the patient's story, as described above. In the second part,
+you take that story and decide what a reasonable differential
+diagnosis list would be after listening to the first part. Then
+provide the listener with appropriate ROS and PMH items to help them
+rule those other diagnoses out.
 
 **PMH**
 
