@@ -66,7 +66,8 @@ module Jekyll
     end
 
     def location_on_server
-      "#{site.config['url']}#{url}"
+      path = File.join(url, "index.html") if template[/\.html$/].nil?
+      "#{site.config['url']}#{path}"
     end
   end
 

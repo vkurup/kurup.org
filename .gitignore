@@ -9,5 +9,6 @@ sass.old
 source.old
 source/_stash
 source/stylesheets/screen.css
+source/.nfsn-awicons
 vendor
 node_modules

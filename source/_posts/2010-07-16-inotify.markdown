@@ -1,0 +1,73 @@
+---
+date: 2010/07/16 21:01:00
+layout: post
+title: inotify
+categories: linux unix sysadmin
+---
+
+[incron](http://inotify.aiken.cz/) seems to be a pretty neat tool. It's
+cron-for-file-activities. [Cron](http://en.wikipedia.org/wiki/Cron) is a
+common unix tool that allows you to run any command at a specified
+time. It's immensely useful for running anything that you want to occur on
+a regular basis: backups, daily reminder emails, downloading podcasts,
+etc. If you've used unix to any significant extent, you've used cron.
+
+incron takes that cron metaphor and applies it to file activity. You
+specify which files you want to watch, and then you specify which activities
+you are interested in. If incron notices any of those activities occurring
+on your files, it launches the command that you specified. Activities could
+include creating a new file, modifying a file, accessing a file, among
+multiple other possibilities. incron takes advantage of the inotify system
+built into recent linux kernels, which supposedly is more efficient than
+previous ways of doing this same thing.
+
+incron seemed to be just what I wanted. I wanted to watch a specific
+directory and launch a tool to rebuild my website if any of those files
+changed. The problem is that incron doesn't work recursively on
+directories. You have to specify each directory, the activities on that
+directory, and the command to launch. If you create new directories, you
+have to tell incron about them specifically. This ruins the benefit of the
+tool for me. It seems the developer has been planning to implement
+recursive watching for the past 4 years ago, but hasn't done it yet. If it
+hasn't happened in 4 years, it's probably not going to happen soon.
+
+But, I found a perfectly usable way to get what I
+want. [inotify-tools](http://wiki.github.com/rvoicilas/inotify-tools/)
+includes a program called `inotifywait`. It takes a file or directory name
+and listens for specific activities that you are interested in. It
+basically waits until it sees one of those activities and then returns
+control back to you. So, you can something like (pseudocode):
+
+    while (inotifywait /home/vinod/web/kurup.org):
+        # triggered
+        rebuild my server
+
+`inotifywait` waits for my activities. If it finds one, it returns TRUE and
+my server gets rebuilt, and then the while loop restarts. Best of all,
+`inotifywait` can work recursively on a directory. Which brings me to my
+`watch-rebuild.sh` script which watches my web source files for changes,
+and rebuilds the web generated files on demand. It also pops up a little
+GNOME notification using `notify-send`:
+
+$$code(lang=bash)
+    #!/bin/bash
+    
+    BLOGOFILE='/usr/local/bin/blogofile'
+    BLOGDIR='/home/vinod/web/kurup.org'
+    
+    # requires libnotify-bin for notify-osd notification
+    # requires inotify-tools
+    while LINE=$(inotifywait -rq --timefmt '%F %R' --format '%T %e %f' \
+          -e close_write -e move -e delete "$BLOGDIR");
+    do
+            echo -n "Rebuilding $LINE ..."
+            $BLOGOFILE -s $BLOGDIR build
+            echo "done"
+            notify-send -u low "Rebuild Done" "Watching again"
+    done
+$$/code
+
+`-r` = recursive  
+`-q` = be quiet  
+`--timefmt` & `--format` = what we want to display on the command line  
+`-e` = each of the individual events that we are interested in

@@ -31,8 +31,9 @@ module Jekyll
     #  +category+     is the category currently being processed.
     def initialize(site, base, category_dir, category)
       @site = site
+      root = site.config['root']
       @base = base
-      @dir  = category_dir
+      @dir  = root + category_dir
       @name = 'index.html'
       self.process(@name)
       # Read the YAML data from the layout page.
