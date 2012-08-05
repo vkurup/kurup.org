@@ -221,7 +221,7 @@ task :update_source, :theme do |t, args|
   puts "## Copied #{source_dir} into #{source_dir}.old/"
   cp_r "#{themes_dir}/"+theme+"/source/.", source_dir, :remove_destination=>true
   cp_r "#{source_dir}.old/_includes/custom/.", "#{source_dir}/_includes/custom/", :remove_destination=>true
-  cp "#{source_dir}.old/favicon.png", source_dir
+  cp "#{source_dir}.old/favicon.ico", source_dir
   mv "#{source_dir}/index.html", "#{blog_index_dir}", :force=>true if blog_index_dir != source_dir
   cp "#{source_dir}.old/index.html", source_dir if blog_index_dir != source_dir && File.exists?("#{source_dir}.old/index.html")
   puts "## Updated #{source_dir} ##"
@@ -408,3 +408,29 @@ task :list do
   puts "Tasks: #{(Rake::Task.tasks - [Rake::Task[:list]]).join(', ')}"
   puts "(type rake -T for more detail)\n\n"
 end
+
+
+# vkurup additions
+desc 'Ping pingomatic'
+task :ping do
+  begin
+    require 'xmlrpc/client'
+    puts '* Pinging ping-o-matic'
+    XMLRPC::Client.new('rpc.pingomatic.com', '/').call('weblogUpdates.extendedPing', 'Vinod Kurup' , 'http://www.kurup.org/', 'http://www.kurup.org/blog/atom.xml')
+  rescue LoadError
+    puts '! Could not ping ping-o-matic, because XMLRPC::Client could not be found.'
+  end
+end
+
+desc 'Notify Google of the new sitemap'
+task :sitemap do
+  begin
+    require 'net/http'
+    require 'uri'
+    puts '* Pinging Google about our sitemap'
+    Net::HTTP.get('www.google.com', '/webmasters/tools/ping?sitemap=' + URI.escape('http://www.kurup.org/sitemap.xml'))
+  rescue LoadError
+    puts '! Could not ping Google about our sitemap, because Net::HTTP or URI could not be found.'
+  end
+end
+
