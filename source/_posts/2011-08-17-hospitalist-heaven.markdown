@@ -4,6 +4,7 @@ date: 2011/08/17 21:41:09
 title: Hospitalist Heaven
 comments: true
 categories: hospitalist medicine
+published: false
 ---
 
 Whenever things get too busy in the hospital, morale drops. I

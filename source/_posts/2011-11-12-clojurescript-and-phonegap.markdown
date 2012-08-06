@@ -65,6 +65,7 @@ kg/m<super>2</super>.
 
 Here's the CLJS file:
 
+``` clojure
     (ns bmi)
     
     (defn height [feet inches]
@@ -83,6 +84,7 @@ Here's the CLJS file:
       (let [h (height (js/parseInt form.f.value) (js/parseInt form.i.value))
             w (weight (js/parseInt form.l.value))]
         (js/navigator.notification.alert (bmi h w) hello.alertDismissed)))
+```
     
 Basically, we create simple functions to convert Imperial heights and
 weights to metric values, calculate a BMI and then use `displaybmi` to
@@ -101,24 +103,25 @@ prefix, the compiler would assume you meant a call in the local
 
 Here's the HTML file (in `HelloPhoneGap/assets/www/`):
 
-    <!DOCTYPE HTML>
-    <html>
-      <head>
-        <title>BMI calculator</title>
-        <script type="text/javascript" charset="utf-8" src="phonegap-1.0.0.js"></script>
-        <script type="text/javascript" charset="utf-8" src="bmi.js"></script>
-      </head>
-      <body>
-        <h1>BMI calculator</h1>
-    
-        <form>
-          Height: <input name="f" size="2"> ft. <input name="i" size="2"> in. <br>
-          Weight: <input name="l" size="2"> lbs.<br>
-          <input type="button" value="Calculate BMI" onclick="bmi.displaybmi(this.form)">
-        </form>
+{% codeblock lang:html %}
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>BMI calculator</title>
+    <script type="text/javascript" charset="utf-8" src="phonegap-1.0.0.js"></script>
+    <script type="text/javascript" charset="utf-8" src="bmi.js"></script>
+  </head>
+  <body>
+    <h1>BMI calculator</h1>
 
-      </body>
-    </html>
+    <form>
+      Height: <input name="f" size="2"> ft. <input name="i" size="2"> in. <br>
+      Weight: <input name="l" size="2"> lbs.<br>
+      <input type="button" value="Calculate BMI" onclick="bmi.displaybmi(this.form)">
+    </form>
+   </body>
+</html>
+{% endcodeblock %}
 
 Now compile the CLJS and move the compiled JS file to
 `HelloPhoneGap/assets/www/`
