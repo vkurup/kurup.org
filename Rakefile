@@ -54,7 +54,6 @@ task :generate do
   puts "## Generating Site with Jekyll"
   system "compass compile --css-dir #{source_dir}/stylesheets"
   system "jekyll"
-  cp_r "#{source_dir}/.nfsn-awicons/.",  "#{public_dir}/.nfsn-awicons"
 end
 
 desc "Watch the site and regenerate when it changes"
@@ -88,29 +87,6 @@ task :preview do
   }
 
   [jekyllPid, compassPid, rackupPid].each { |pid| Process.wait(pid) }
-end
-
-desc 'Ping pingomatic'
-task :ping do
-  begin
-    require 'xmlrpc/client'
-    puts '* Pinging ping-o-matic'
-    XMLRPC::Client.new('rpc.pingomatic.com', '/').call('weblogUpdates.extendedPing', 'Vinod Kurup' , 'http://www.kurup.org/', 'http://www.kurup.org/blog/atom.xml')
-  rescue LoadError
-    puts '! Could not ping ping-o-matic, because XMLRPC::Client could not be found.'
-  end
-end
-
-desc 'Notify Google of the new sitemap'
-task :sitemap do
-  begin
-    require 'net/http'
-    require 'uri'
-    puts '* Pinging Google about our sitemap'
-    Net::HTTP.get('www.google.com', '/webmasters/tools/ping?sitemap=' + URI.escape('http://www.kurup.org/sitemap.xml'))
-  rescue LoadError
-    puts '! Could not ping Google about our sitemap, because Net::HTTP or URI could not be found.'
-  end
 end
 
 # usage rake new_post[my-new-post] or rake new_post['my new post'] or rake new_post (defaults to "new-post")
@@ -377,10 +353,6 @@ task :setup_github_pages, :repo do |t, args|
   puts "\n---\n## Now you can deploy to #{url} with `rake deploy` ##"
 end
 
-desc 'Generate and publish the entire site, and send out pings'
-task :publish => [:generate, :deploy, :sitemap, :ping] do
-end
-
 def ok_failed(condition)
   if (condition)
     puts "OK"
@@ -434,3 +406,6 @@ task :sitemap do
   end
 end
 
+desc 'Generate and publish the entire site, and send out pings'
+task :publish => [:generate, :deploy, :sitemap, :ping] do
+end
