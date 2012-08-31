@@ -3,7 +3,7 @@ layout: post
 date: 2011/09/06 14:01:22
 title: Surprise, I'm 40!
 comments: true
-categories: family, friends 
+categories: family friends 
 ---
 
 {% img /images/vinod40-1.jpg Vinod is surprised %}

@@ -3,7 +3,7 @@ layout: post
 date: 2011/09/08 21:58:48
 title: Fixing wireless on eeePC
 comments: true
-categories: linux, sysadmin
+categories: linux sysadmin
 ---
 
 I have an ASUS eeePC 1000, running Ubuntu 10.10. Wireless worked

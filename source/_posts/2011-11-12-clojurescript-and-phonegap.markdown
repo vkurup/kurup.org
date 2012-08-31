@@ -3,7 +3,7 @@ layout: post
 date: 2011/11/12 21:39:34
 title: ClojureScript and PhoneGap
 comments: true
-categories: clojure, programming, android
+categories: clojure programming android
 ---
 
 [Phonegap](http://phonegap.com) is a tool that allows you to develop

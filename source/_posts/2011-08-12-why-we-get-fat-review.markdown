@@ -3,7 +3,7 @@ layout: post
 date: 2011/08/12 12:44:31
 title: Why We Get Fat Review
 comments: true
-categories: review health
+categories: book-review health
 ---
 
 Dear patients,

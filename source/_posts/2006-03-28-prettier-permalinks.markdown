@@ -2,7 +2,7 @@
 date: 2006/03/28 00:00:00
 layout: post
 title: "Prettier permalinks"
-categories: blog web permalink openacs
+categories: blog web permalink openacs programming
 ---
 
 Permalink stands for 'permanent link'. When you create a blog post, it gets added to the top of your blog, pushing older entries down. Eventually, posts get pushed off the front page, so it's important that you have a way to refer to old blog posts. A permalink is the link that will always point to a specific post.

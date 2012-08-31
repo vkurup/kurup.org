@@ -2,7 +2,7 @@
 date: 2011/05/08 22:10:19
 layout: post
 title: Learning Android Review
-categories: android review
+categories: android book-review programming
 ---
 
 <a href="http://amzn.to/m8SK61"><img class="inset right" src="/images/learning-android.jpg" /></a>

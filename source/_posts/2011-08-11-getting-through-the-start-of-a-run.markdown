@@ -3,7 +3,7 @@ layout: post
 date: 2011/08/11 12:06:06
 title: Getting through the start of a run
 comments: true
-categories: 
+categories: running
 ---
 
 I love running. Wait, that's a lie. I love running after I've finished

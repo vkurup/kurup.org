@@ -3,7 +3,7 @@ date: 2011/08/09 20:41:02
 layout: post
 title: Running as a metaphor for life
 comments: true
-categories: running
+categories: running writing
 ---
 
 I was thinking the other day, on a run, of course, about the many ways

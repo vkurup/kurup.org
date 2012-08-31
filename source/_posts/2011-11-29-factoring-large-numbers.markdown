@@ -3,7 +3,7 @@ layout: post
 date: 2011/11/29 21:59:20
 title: On Factoring Large Numbers
 comments: true
-categories: clojure math
+categories: clojure math programming
 ---
 
 I wonder how many of my blog posts are based on stories from [This
