@@ -6,6 +6,8 @@ comments: true
 categories: programming emacs python
 ---
 
+(Note: See the bottom of this post for updates)
+
 I was honored to to give my "Emacs for Python Programming" talk at the
 inaugural [PyCarolinas](http://pycarolinas.org) conference. The
 conference was a huge success in every way, thanks to the efforts of
@@ -26,7 +28,6 @@ This may work with other setups, but here's what I tested:
 - [virtualenv](http://www.virtualenv.org/)
 - [virtualenvwrapper](http://virtualenvwrapper.readthedocs.org/)
 - git
-- bzr
 
 ## Step 1: Clear out any previous customization ##
 
@@ -132,21 +133,21 @@ at
 [http://launchpad.net/python-mode](http://launchpad.net/python-mode).
 It does periodically get uploaded to
 [Marmalade](http://marmalade-repo.org/packages/python-mode), but the
-version that is there now (6.0.10) is missing a couple important
-things. The submodule pycomplete.el doesn't work and virtualenv
-management is buggy. The current trunk version works well, so I
-recommend using that. I'll update this post once a stable working
-version gets uploaded to [Marmalade](http://marmalade-repo.org/) or
+auto-completion using pycomplete doesn't work well on the version that
+is there now (6.0.10), so I recommend that you manually download and
+install the latest stable version (6.0.12). I'll update this post once
+a stable working version gets uploaded to
+[Marmalade](http://marmalade-repo.org/) or
 [Melpa](http://melpa.milkbox.net/).
 
 {% codeblock lang:bash %}
 vinod:~$ cd ~/.emacs.d/$USER
-vinod:~/.emacs.d/vinod$ bzr branch lp:python-mode
+vinod:~/.emacs.d/vinod$ curl -L https://launchpad.net/python-mode/trunk/6.0.12/+download/python-mode.el-6.0.12.tar.gz | tar xz
 {% endcodeblock %}
 
 ## Step 8: Test it all out ##
 
-Open a python file named `test.py`. Type the following:
+Launch emacs and open a python file named `test.py`. Type the following:
 
     import os
     os.path.jo
@@ -192,18 +193,18 @@ vinod:~$ mkvirtualenv newproject
 
 {% codeblock lang:bash %}
 (newproject)vinod:~$ cd ~/src/Pymacs
-(newproject)vinod:~~/src/Pymacs$ make install
+(newproject)vinod:~/src/Pymacs$ make install
 {% endcodeblock %}
 
 ### Install the other pip modules ###
 
 {% codeblock lang:bash %}
-(newproject)vinod:~~/src/Pymacs$ pip install pyflakes pep8
+(newproject)vinod:~/src/Pymacs$ pip install pyflakes pep8
 {% endcodeblock %}
 
 ### Switch to that virtualenv in emacs ###
 
-    M-x virtualenv-workon RET newproject RET
+    M-x virtualenv-workon RET newproject/ RET
 
 ## Issues ##
 
@@ -215,16 +216,10 @@ workaround is to call `M-x pymacs-terminate-services`, then `M-x
 virtualenv-workon` to change your virtualenv, and then finally
 `M-x py-load-pymacs` to restart pymacs
 
-### Python-mode.el contains nonworking version of Pymacs ###
-
-This causes conflicts when trying to load the real version, so you
-have to make sure to explicitly load the real version first.
-
-### Need trunk version of python-mode.el ###
+### Latest stable version of python-mode.el isn't on Melpa ###
 
 I'd much prefer to just load python-mode using the built-in Emacs
-package manager, but until the current trunk version gets released, we
-can't do that.
+package manager.
 
 ### Pymacs installation is harder than it needs to be ###
 
@@ -283,3 +278,14 @@ I gleaned knowledge from all of the following, in no particular order.
 - [Ryan McGuire's .emacs.d](https://github.com/EnigmaCurry/emacs)
 - [AutoComplete for Python (enigmacurry.com)](http://www.enigmacurry.com/2009/01/21/autocompleteel-python-code-completion-in-emacs/)
 - [The original Python IDE post (enigmacurry.com)](http://www.enigmacurry.com/2008/05/09/emacs-as-a-powerful-python-ide/)
+
+## Updates ##
+
+#### 2012-10-27 ####
+
+Thanks to [@danpoirier](https://twitter.com/danpoirier) and
+[@gregnewman](http://twitter.com/gregnewman) for testing. I initially
+recommended using the master branch of python-mode.el, but now I
+recommend using the latest stable release (as of now) which is version
+6.0.12 to avoid problems loading Pymacs. I've also changed the `init.el`
+above to account for those changes.
