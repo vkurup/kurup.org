@@ -14,7 +14,7 @@ conference was a huge success in every way, thanks to the efforts of
 [Calvin Spealman](http://www.ironfroggy.com/), et. al. I promised that
 I would post my Emacs setup, so here it is.
 
-- Slides: [https://speakerdeck.com/vkurup/emacs-python](https://speakerdeck.com/vkurup/emacs-python)
+- Slides: [https://speakerdeck.com/vkurup/emacs-for-python-programming](https://speakerdeck.com/vkurup/emacs-for-python-programming)
 - Video: [Will be posted once posted]
 
 ## Step 0: Prerequisites ##
@@ -287,5 +287,7 @@ Thanks to [@danpoirier](https://twitter.com/danpoirier) and
 [@gregnewman](http://twitter.com/gregnewman) for testing. I initially
 recommended using the master branch of python-mode.el, but now I
 recommend using the latest stable release (as of now) which is version
-6.0.12 to avoid problems loading Pymacs. I've also changed the `init.el`
-above to account for those changes.
+6.0.12 to avoid problems loading Pymacs. There's a bug on 6.0.12 with
+`virtualenv-workon` that requires you to put a trailing slash after
+the name of your virtualenv, so I've updated the `init.el` file above
+to account for those changes.
