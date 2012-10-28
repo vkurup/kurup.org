@@ -8,14 +8,12 @@ categories: programming emacs python
 
 (Note: See the bottom of this post for updates)
 
-I was honored to to give my "Emacs for Python Programming" talk at the
-inaugural [PyCarolinas](http://pycarolinas.org) conference. The
-conference was a huge success in every way, thanks to the efforts of
-[Calvin Spealman](http://www.ironfroggy.com/), et. al. I promised that
-I would post my Emacs setup, so here it is.
-
-- Slides: [https://speakerdeck.com/vkurup/emacs-for-python-programming](https://speakerdeck.com/vkurup/emacs-for-python-programming)
-- Video: [Will be posted once posted]
+I was honored to to give my
+["Emacs for Python Programming"](https://speakerdeck.com/vkurup/emacs-for-python-programming)
+talk at the inaugural [PyCarolinas](http://pycarolinas.org)
+conference. The conference was a huge success in every way, thanks to
+the efforts of [Calvin Spealman](http://www.ironfroggy.com/), et. al.
+I promised that I would post my Emacs setup, so here it is.
 
 ## Step 0: Prerequisites ##
 
