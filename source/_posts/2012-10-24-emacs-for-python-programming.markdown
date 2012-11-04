@@ -212,7 +212,7 @@ For the most part, this won't affect much, but if you move from a
 Python2 project to a Python3 project, you may have problems. The
 workaround is to call `M-x pymacs-terminate-services`, then `M-x
 virtualenv-workon` to change your virtualenv, and then finally
-`M-x py-load-pymacs` to restart pymacs
+`M-x load-pycomplete` to restart pymacs and pycomplete.
 
 ### Latest stable version of python-mode.el isn't on Melpa ###
 
