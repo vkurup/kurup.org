@@ -51,7 +51,7 @@ that was available at the Outlet store on October 4th, 2012:
 
 <tr>
 <td>OS</td>
-<td><srong>Windows 7 Pro</strong></td>
+<td><strong>Windows 7 Pro</strong></td>
 <td>Windows 7 Home</td>
 </tr>
 
