@@ -2,6 +2,6 @@
 layout: nil
 ---
 User-agent: *
-Disallow: /files
+Disallow:
 
 Sitemap: {{ site.url }}/sitemap.xml
