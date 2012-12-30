@@ -1,2 +1,7 @@
+---
+layout: nil
+---
 User-agent: *
 Disallow: /files
+
+Sitemap: {{ site.url }}/sitemap.xml
