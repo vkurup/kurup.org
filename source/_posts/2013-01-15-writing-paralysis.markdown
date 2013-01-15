@@ -45,3 +45,6 @@ will think that you are so full of yourself for even considering
 yourself a writer. But, this is my first step in letting my guard down
 to get this blog flowing. Because I do believe that writing is healthy
 and will make me a better person. 
+
+In addition to committing to blogging more frequently, I'm also going
+to try a twitter hiatus a week and see what happens.
