@@ -146,7 +146,7 @@ Create a file named `.emacs.d/init.el` with the following contents:
 
 We'll keep all the python-side customization in a virtualenv named
 `default`. It's important that the name you choose is the same as the
-name in the `(virtualenv-workon)` command in line 49 of Step 2.
+name in the `(virtualenv-workon)` command in line 45 of Step 2.
 
 {% codeblock lang:bash %}
 vinod:~$ mkvirtualenv -p python2 default
