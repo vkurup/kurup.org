@@ -56,4 +56,7 @@ class AbstractTest(TestCase):
 
 ```
 
+Oh, and I almost forgot... if you use [South](http://south.readthedocs.org/en/latest/index.html),
+this might not work, unless you set `SOUTH_TESTS_MIGRATE` to `False` in your settings file.
+
 Comments and corrections welcome!
