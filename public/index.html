@@ -1,0 +1,1189 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Vinod Kurup</title>
+  <meta name="author" content="Vinod Kurup">
+
+  
+  <meta name="description" content="Let&#8217;s play &#8216;Spot the bug&#8217;. We&#8217;re building a simple system that shows photos. Each photo has a
+publish_date and we should only &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.kurup.org/">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/vkurup" rel="alternate" title="Vinod Kurup" type="application/atom+xml">
+  <!--Fonts from Google's Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Quattrocento' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+<meta name="verify-v1" content="7VLvj7jbZMA24/73SZ9uUEq3SeBuiX3+aSIBRtgH4jQ=" />
+<link rel="openid.server" href="http://www.myopenid.com/server" />
+<link rel="openid.delegate" href="http://vkurup.myopenid.com/" />
+<link rel="openid2.local_id" href="http://vkurup.myopenid.com/" />
+<link rel="openid2.provider" href="http://www.myopenid.com/server" />
+<meta http-equiv="X-XRDS-Location" content="http://www.myopenid.com/xrds?username=vkurup.myopenid.com" />
+
+<link href="/favicon.ico" rel="shortcut icon" />
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-79447-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Vinod Kurup</a></h1>
+  
+    <h2>Hospitalist/programmer in search of the meaning of life</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/vkurup" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.kurup.org" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul role=main-navigation>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/about.html">About Me</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/blog/categories">Categories</a></li>
+  <li><a href="/medicine">Medicine</a></li>
+  <li><a href="/running">Running</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/07/28/cbv-dynamic">Using Dynamic Queries in a CBV</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-28T22:08:00-04:00" pubdate data-updated="true">Jul 28<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Let&#8217;s play &#8216;Spot the bug&#8217;. We&#8217;re building a simple system that shows photos. Each photo has a
+<code>publish_date</code> and we should only show photos that have been published (i.e. their <code>publish_date</code> is
+in the past).</p>
+
+<figure class='code'><figcaption><span>models.py</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">class</span> <span class="nc">PhotoManager</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Manager</span><span class="p">):</span>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">live</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">as_of</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+</span><span class='line'>        <span class="k">if</span> <span class="n">as_of</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+</span><span class='line'>            <span class="n">as_of</span> <span class="o">=</span> <span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_query_set</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">publish_date__lte</span><span class="o">=</span><span class="n">as_of</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And the view to show those photos:</p>
+
+<figure class='code'><figcaption><span>views.py</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">class</span> <span class="nc">ShowPhotosView</span><span class="p">(</span><span class="n">ListView</span><span class="p">):</span>
+</span><span class='line'>    <span class="n">queryset</span> <span class="o">=</span> <span class="n">Hero</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">live</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Can you spot the bug? I sure didn&#8217;t&#8230; until the client complained that newly published photos never
+showed up on the site. Restarting the server fixed the problem temporarily. The newly published
+photos would show up, but then any photos published after the server restart again failed to
+display.</p>
+
+<p>The problem is that the <code>ShowPhotosView</code> class is instantiated when the server starts.
+<code>ShowPhotosView.queryset</code> gets set to the value returned by <code>Hero.objects.live()</code>. That, in turn, is a
+<code>QuerySet</code>, but it&#8217;s a <code>QuerySet</code> with <code>as_of</code> set to <code>timezone.now()</code> <em>WHEN THE SERVER STARTS UP</em>. That
+<code>as_of</code> value never gets updated, so newer photos never get captured in the query.</p>
+
+<p>There&#8217;s probably multiple ways to fix this, but an easy one is:</p>
+
+<figure class='code'><figcaption><span>views.py</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">class</span> <span class="nc">ShowPhotosView</span><span class="p">(</span><span class="n">ListView</span><span class="p">):</span>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">get_queryset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span class='line'>        <span class="k">return</span> <span class="n">Hero</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">live</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now, instead of the queryset being instantiated at server start-up, it&#8217;s instantiated only when
+<code>ShowPhotosView.get_queryset()</code> is called, which is when a request is made.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/07/23/some-emacs-posts">Some Emacs Posts</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-23T21:38:00-04:00" pubdate data-updated="true">Jul 23<span>rd</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>A few cool Emacs posts have flown across my radar, so I&#8217;m noting them here for that time in the
+future when I have time to play with them.</p>
+
+<ul>
+<li><a href="http://endlessparentheses.com/manually-choose-a-fallback-font-for-unicode.html">Get unicode glyphs to show properly</a>. (╯°□°）╯︵ ┻━┻</li>
+<li><a href="http://jr0cket.co.uk/2013/10/create-cool-slides--Org-mode-Revealjs.html/">Creating slides with org-mode and Reveal.js</a>.
+Finally, a sane way to create a presentation :)</li>
+<li><a href="https://github.com/syohex/emacs-anzu">Anzu</a>: Improves incremental search. Anzu shows the number
+of matches found, and how many matches remain in the document.
+<img src="https://github.com/syohex/emacs-anzu/raw/master/image/anzu.gif"></li>
+<li><a href="http://from-the-cloud.com/en/emacs/2013/01/28_emacs-as-a-django-ide-with-python-djangoel.html">Emacs as a Django IDE</a>:
+I tried this out briefly, but didn&#8217;t end up sticking with it. It seemed too heavyweight.
+I&#8217;m probably just too used to my own workflow. I still think it&#8217;s an interesting idea and would
+like to try it again sometime.</li>
+<li><a href="http://emacsredux.com/blog/2014/07/22/travel-back-and-forward-in-git-history/">Travel back and forth in git history</a>:
+I&#8217;m addicted to <a href="http://www.emacswiki.org/emacs/Magit">magit mode</a>, to the point that the
+only git command I use manually nowadays is <code>git clone</code>. I do everything else in magit. Magit has
+a <code>magit-blame-mode</code> which shows when each line in a file was changed and by whom.
+<code>git-timemachine</code> seems to take that a step further by visiting each revision, one by
+one. I can think of a few times where that would have been useful.</li>
+<li><a href="https://github.com/omouse/emacs-sos">Search StackOverflow from inside Emacs</a>: Enough said.</li>
+<li><a href="https://github.com/skeeto/elfeed">Emacs RSS client</a>: Still using NewsBlur, but totally miss
+Google Reader. Maybe I need to try this one out.</li>
+<li><a href="http://sachachua.com/blog/series/read-lisp-tweak-emacs/">Sacha Chua&#8217;s minicourse on Elisp</a>: Have
+to read through this someday!</li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/07/22/pygments-py3">Pygments on Arch Linux</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-22T21:16:00-04:00" pubdate data-updated="true">Jul 22<span>nd</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I wrote my first blog post in a little while (ok, ok&#8230; 18 months) yesterday and when I tried to
+generate the post, it failed. Silently failed, which is the worst kind of failure. I&#8217;m still not
+sure why it was silent, but I eventually was able to force it to show me an error message:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>/home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/pygments.rb-0.3.4/lib/pygments/popen.rb:354:in `rescue in get_header': Failed to get header. (MentosError)
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/pygments.rb-0.3.4/lib/pygments/popen.rb:335:in `get_header'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/pygments.rb-0.3.4/lib/pygments/popen.rb:232:in `block in mentos'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/1.9.1/timeout.rb:68:in `timeout'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/pygments.rb-0.3.4/lib/pygments/popen.rb:206:in `mentos'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/pygments.rb-0.3.4/lib/pygments/popen.rb:189:in `highlight'
+</span><span class='line'>  from /home/vinod/dev/kurup.org/plugins/pygments_code.rb:24:in `pygments'
+</span><span class='line'>  from /home/vinod/dev/kurup.org/plugins/pygments_code.rb:14:in `highlight'
+</span><span class='line'>  from /home/vinod/dev/kurup.org/plugins/backtick_code_block.rb:37:in `block in render_code_block'
+</span><span class='line'>  from /home/vinod/dev/kurup.org/plugins/backtick_code_block.rb:13:in `gsub'
+</span><span class='line'>  from /home/vinod/dev/kurup.org/plugins/backtick_code_block.rb:13:in `render_code_block'
+</span><span class='line'>  from /home/vinod/dev/kurup.org/plugins/octopress_filters.rb:12:in `pre_filter'
+</span><span class='line'>  from /home/vinod/dev/kurup.org/plugins/octopress_filters.rb:28:in `pre_render'
+</span><span class='line'>  from /home/vinod/dev/kurup.org/plugins/post_filters.rb:112:in `block in pre_render'
+</span><span class='line'>  from /home/vinod/dev/kurup.org/plugins/post_filters.rb:111:in `each'
+</span><span class='line'>  from /home/vinod/dev/kurup.org/plugins/post_filters.rb:111:in `pre_render'
+</span><span class='line'>  from /home/vinod/dev/kurup.org/plugins/post_filters.rb:166:in `do_layout'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/jekyll-0.12.0/lib/jekyll/post.rb:195:in `render'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/jekyll-0.12.0/lib/jekyll/site.rb:200:in `block in render'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/jekyll-0.12.0/lib/jekyll/site.rb:199:in `each'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/jekyll-0.12.0/lib/jekyll/site.rb:199:in `render'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/jekyll-0.12.0/lib/jekyll/site.rb:41:in `process'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/jekyll-0.12.0/bin/jekyll:264:in `&lt;top (required)&gt;'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/bin/jekyll:23:in `load'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/bin/jekyll:23:in `&lt;main&gt;'</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Professor Google tells me that this happens when you try to
+<a href="https://github.com/tmm1/pygments.rb/issues/45">run the pygments.rb library in a Python 3 environment</a>.
+(pygments.rb is a Ruby wrapper around the Python Pygments library). The fix is to run the code in a
+Python2 virtualenv. I guess the last time I updated my blog, Arch still had Python2 as the system
+default. No, I don&#8217;t want to check how long ago that was.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ mkvirtualenv -p `which python2` my_blog
+</span><span class='line'>(my_blog)$ bundle exec rake generate</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So now I&#8217;m running a Ruby command in a Ruby environment (rbenv) inside a Python 2 virtualenv. Maybe
+it&#8217;s time to switch blog tools again&#8230;</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/07/21/django-test-models">How to Create Test Models in Django</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-21T20:44:00-04:00" pubdate data-updated="true">Jul 21<span>st</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>It&#8217;s occasionally useful to be able to create a Django model class in your unit test suite. Let&#8217;s
+say you&#8217;re building a library which creates an
+<a href="https://docs.djangoproject.com/en/dev/topics/db/models/#abstract-base-classes">abstract model</a>
+which your users will want to subclass. There&#8217;s no need for your library to subclass it, but your
+library should still test that you can create a subclass and test out its features. If you create
+that model in your <code>models.py</code> file, then Django will think that it is a real part of your library and
+load it whenever you (or your users) call <code>syncdb</code>. That&#8217;s bad.</p>
+
+<p>The <a href="https://code.djangoproject.com/ticket/7835#comment:24">solution</a> is to create it in a <code>tests.py</code>
+file within your Django app. If it&#8217;s not in <code>models.py</code>, Django won&#8217;t load it during <code>syncdb</code>.</p>
+
+<figure class='code'><figcaption><span>tests.py</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">django.test</span> <span class="kn">import</span> <span class="n">TestCase</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">MyAbstractModel</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">MyTestModel</span><span class="p">(</span><span class="n">MyAbstractModel</span><span class="p">):</span>
+</span><span class='line'>    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">AbstractTest</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">test_my_test_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span class='line'>        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">MyTestModel</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;foo&#39;</span><span class="p">))</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>A problem with this solution is that I rarely use a single <code>tests.py</code> file. Instead we use multiple
+test files collected in a tests package. If you try to create a model in <code>tests/test_foo.py</code>, then
+this approach fails because Django tries to create the model in an application named <code>tests</code>, but
+there is no such app in INSTALLED_APPS. The solution is to set <code>app_label</code> to the name of your app
+in an inner Meta class.</p>
+
+<figure class='code'><figcaption><span>tests/test_foo.py</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">django.test</span> <span class="kn">import</span> <span class="n">TestCase</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">from</span> <span class="nn">..models</span> <span class="kn">import</span> <span class="n">MyAbstractModel</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">MyTestModel</span><span class="p">(</span><span class="n">MyAbstractModel</span><span class="p">):</span>
+</span><span class='line'>    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+</span><span class='line'>        <span class="n">app_label</span> <span class="o">=</span> <span class="s">&#39;myappname&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">AbstractTest</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">test_my_test_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span class='line'>        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">MyTestModel</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;foo&#39;</span><span class="p">))</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Oh, and I almost forgot&#8230; if you use <a href="http://south.readthedocs.org/en/latest/index.html">South</a>,
+this might not work, unless you set <code>SOUTH_TESTS_MIGRATE</code> to <code>False</code> in your settings file.</p>
+
+<p>Comments and corrections welcome!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/01/21/peanut-allergy-a-personal-clinical-review">Peanut Allergy, a Personal Clinical Review</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-21T07:49:22-05:00" pubdate data-updated="true">Jan 21<span>st</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>A Vignette</h2>
+
+<p>A 22-month-old previously healthy girl was brought to the emergency
+room in respiratory distress. She had been well until the day of
+presentation. Shortly after disembarking from an airline flight, she
+developed cough with one episode of emesis. En route to the emergency
+room, her breathing became labored and she developed hives. She was
+diagnosed as having an allergic reaction and treated aggressively with
+IV methylprednisolone, IV diphenhydramine, inhaled albuterol, and
+oxygen. Mechanical ventilation was not required and her symptoms
+improved rapidly. She was monitored in the emergency room for an
+extended period and discharged in stable condition with a prescription
+for diphenhydramine and methylprednisolone solutions. No specific
+allergen was identified. She was seen by a pediatric allergist where
+she was found to have a 6 mm response to peanut on skin prick testing,
+and a peanut-specific IgE level of 52 kU/L. She was diagnosed as
+having severe peanut allergy and avoidance was strongly recommended.</p>
+
+<h2>Discussion</h2>
+
+<p>Peanut allergy affects between 0.4 and 2.0% of children. Prevalence
+has been increasing in recent years, but the reason for this increase
+is not well understood. If reactions are identified immediately,
+treatment is usually effective. Despite this, about 200 people die
+each year from peanut reactions. Biphasic reactions, in which the
+initial reaction subsides, but then recurs within a few hours, are
+common. The second portion of a biphasic reaction is often less
+treatable. Because of this risk, patients should be monitored for at
+least 4 hours after a reaction. Patients who successfully treat their
+own reactions with subcutaneous epinephrine should still seek medical
+attention, again to monitor for biphasic reactions.</p>
+
+<p>The gold standard for diagnosis is a double blind placebo controlled
+food challenge (DBPCFC), but this is rarely done. A diagnosis can
+usually be reliably made with clinical history, skin prick testing and
+a peanut-specific IgE blood test (psIgE). A skin prick test involves
+pricking the skin with a needle that is exposed to peanut extract and
+measuring the allergic rash that develops. The psIgE blood test
+measures the amount of antibody against peanut proteins. The higher it
+is, the more allergic the patient is. A positive skin test or psIgE is
+not sufficient for the diagnosis. Some type of reaction to peanuts is
+required (either spontaneous, or via monitored food challenge).</p>
+
+<p>Peanut allergy was previously felt to be permanent, but recent
+evidence documents that 20% of children outgrow their allergy. More
+than 60% of patients with an psIgE level of less than 5 passed a food
+challenge. IgE levels correlate inversely with likelihood of
+resolution, but this correlation is by no means perfect. Some patients
+with undetectable psIgE levels will fail a challenge, while some
+patients with very high psIgE levels will pass. One expert recommends
+waiting until the age of 4 to consider a challenge, and to use a
+cutoff psIgE level of less than 5 kU/L in most patients. Recurrence
+of peanut allergy after resolution is rare, but is associated with the
+lack of regular peanut intake after resolution of the allergy.</p>
+
+<p>Controversy exists regarding risk factors for developing peanut
+allergy. The AAP initially recommended that peanut not be introduced
+early in a child&#8217;s life, but rescinded that advice given the lack of
+evidence behind it. This leaves a void for parents as there is no
+recommendation to withold or introduce peanuts to toddlers. It is also
+not clear if maternal peanut intake during pregnancy or breast feeding
+increases the risk of developing peanut allergy in children. Studies
+have been conflicting, so more definitive studies are underway. No
+evidence-based advice can be given one way or the other to pregnant or
+breastfeeding women, but at the minimum, there is no good evidence to
+support avoiding peanuts.</p>
+
+<p>The mainstay of treatment is education. Parents should be taught not
+only how to identify peanuts in foods, but to identify situations
+which are high-risk for exposure to peanuts. Avoidance of buffets,
+ice-cream parlors, and bakeries is recommended because the risk of
+cross-contamination in those setting is high. Religious reading of
+food labels is important. Patients who are allergic to peanuts are
+often also allergic to tree nuts, despite the dissimilarity in those
+food types. Highly refined peanut oil is usually <em>NOT</em> a risk, but
+cold-pressed peanut oil is not safe.</p>
+
+<p>Most importantly, an epi-pen should be carried at all times and extra
+doses should be left at daycare facilities and schools. All caregivers
+should be comfortable giving an epi-pen injection and this should be
+provided at the first sign of a systemic allergic reaction. Waiting to
+give diphenhydramine or other therapies a &#8220;chance to work&#8221; can be
+dangerous. Follow a <a href="http://www.foodallergy.org/files/media/food-allergy-action-plan/FAAP.pdf">Food Allergy Action
+Plan</a>
+Over 80% of people who died from allergic reactions were not given
+appropriate instructions on how to prevent future reactions. Most
+mortality occurs because of late treatment. If you take one thing away
+from this long post, keep an epi-pen handy and use it liberally.</p>
+
+<p>Trials are underway investigating various oral-based immunotherapies,
+but none are strongly recommended at this point. Injection
+immunotherapy has not been found to be useful.</p>
+
+<h2>Personal Comment</h2>
+
+<p>So, the 22 month old above is Anika and she gave us the scare of our
+life a couple years ago. The scary part now is that we never saw her
+actually eat a peanut, so we&#8217;re especially vigilant now. Fortunately,
+Anika seems to understand the importance of avoiding peanuts. When she
+was diagnosed, I did some research but never documented my notes. She
+recently had another allergist appointment, so I reviewed those notes
+and any new data. I figured I should write up my notes so I wouldn&#8217;t
+have to review this again from scratch every year. I didn&#8217;t intend it
+to come out so &#8216;medical-speaky&#8217;, but there it is. Anika and Kavi are
+sitting next to me as I write this and they want to give some
+information to you, too.</p>
+
+<p>Kavi says:</p>
+
+<blockquote><p>&#8220;Always ask at the restaurant if things have peanuts and make foods
+at home that do not have peanuts. Always check if there are peanuts in
+every food you eat.&#8221;</p></blockquote>
+
+<p>Anika says:</p>
+
+<blockquote><p>&#8220;We might have to go to the doctor if we eat peanuts. If I eat
+peanuts by accident, my teacher will give me a Happy-Pen (epi-pen).&#8221;</p></blockquote>
+
+<h2>References</h2>
+
+<ol>
+<li>Sampson HA. Peanut Allergy. N Engl J Med, 2002;346;1294-8.
+http://www.nejm.org/doi/full/10.1056/NEJMcp012667</li>
+<li>Fleischer DM, et. al. The natural progression of peanut allergy:
+Resolution and the possibility of recurrence. J Allergy Clin
+Immunol, 2003;112;183-9.
+http://www.jacionline.org/article/S0091-6749(03)01251-X/abstract</li>
+<li>O&#8217;B Hourihane J. Peanut Allergy. Pediatr Clin N Am, 2011;58;445-57.
+http://www.pediatric.theclinics.com/article/S0031-3955(11)00006-X/abstract</li>
+<li>Rinaldi M, et. al. Peanut allergy diagnoses among children
+residing in Olmstead County, Minnesota. J Allergy Clin Immunol, 2012:130:945-50.</li>
+<li>Burks AW. Early peanut consumption: postpone or promote? J Allergy
+Clin Immunol. 2009:123:417-423.
+http://www.jacionline.org/article/S0091-6749(08)02436-6/fulltext</li>
+</ol>
+
+
+<h2>RSS URL:</h2>
+
+<p>Here&#8217;s a
+<a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/erss.cgi?rss_guid=1t7jLQ--MCbUSbgzXRNqEMLPWIMWlZiqoEMdLvUTNUIFZ-UsA4">medline feed URL</a>
+that I monitor which should show new studies or reviews related to
+this topic.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/01/17/priorities-and-gtd">Priorities and GTD</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-17T13:38:07-05:00" pubdate data-updated="true">Jan 17<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Pre-GTD task management systems recommended that you assign a priority
+to each task. When looking at a list of tasks, you then choose the
+ones with the highest priority. David Allen (author of GTD) includes
+&#8216;priority&#8217; as one of the things that you should consider when you are
+deciding what to do, but only after you have considered context, time
+available, and energy available. Which makes sense. As Merlin Mann
+says, it doesn&#8217;t matter if mowing your lawn is your highest priority
+when you&#8217;re sitting in an airplane. Only if you&#8217;re in the right
+context with the right amount of time and the right amount of energy,
+should you consider which of the remaining available tasks is highest
+priority.</p>
+
+<p>The risk, though, is that there are so many little &#8216;easy&#8217; tasks that I
+could do instead of important, &#8216;hard&#8217; tasks. I&#8217;m also really good at
+convincing myself that I don&#8217;t have the energy available to do harder
+tasks when I really should. So when I get back into GTD, I process all
+the things hiding in the back of my brain which leads to the creation
+of lots of simple tasks. Google this, buy that, throw away the other
+thing. But the two things that I really want to be doing more are
+writing and programming. Both of those take blocks of uninterrupted
+time and effort, so I end up subconsciously shying away from them. I
+actually feel better about it, too, because now I have all these other
+tasks that I can do instead. So, I feel productive, even when ignoring
+the more important things that I should be doing. I&#8217;m moving more
+efficiently, but in the wrong direction.</p>
+
+<p>I&#8217;ve avoided that a little bit this time by doing a little bit of
+prioritization each night before I go to bed. I look through my todo
+list and pick about 3-5 things that I want to get done the next day. I
+tag those with the &#8216;today&#8217; tag and then the next morning I look at
+that list and start working on those things before doing anything
+else. I&#8217;ve heard this
+<a href="http://gettingresults.com/wiki/The_Rule_of_3">trick</a> from a lot of
+people before, so I don&#8217;t remember who I heard it from first.</p>
+
+<p>So far it&#8217;s been effective for me. The problem always starts again
+though when I go back on service, because then I can only really focus
+on one thing and that is getting my work done at the hospital. We&#8217;ll
+see if I can somehow figure out a way to get at least one non-work
+thing done on each of those days.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/01/16/gtd-again">GTD Again?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-16T09:27:03-05:00" pubdate data-updated="true">Jan 16<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Thanks to
+<a href="http://5by5.tv/b2w/95">Merlin Mann&#8217;s recent series of podcasts on GTD</a>,
+I&#8217;m getting back on the GTD wagon (for about the 100th time). I read
+<a href="http://www.davidco.com/">Getting Things Done</a> in 2002 and have been
+trying to implement it ever since. I&#8217;ve had periods where I followed
+it religiously for a month at a time, but it&#8217;s never completely stuck.
+From what I hear, this is normal and I accept it now. This won&#8217;t be
+the last time that I restart GTD. Even when I&#8217;m not actively using
+GTD, I think in GTD terms, thinking about next actions and projects
+and ruthlessly placing projects on the backburner. I just have trouble
+sticking with the entire GTD workflow, especially the ubiquitous
+capture (I trust my brain too much) and the weekly reviews (they just
+seem too painful). I&#8217;ve used every online and offline tool in the
+book, too. Despite not doing so great with GTD, I&#8217;d say my life is an
+overwhelming success.</p>
+
+<p>So why try again? Each time I have gotten back on the bandwagon, I&#8217;ve
+had a surge in productivity. I wrote more. I made some clear decisions
+on issues that I had been procrastinating on. I wouldn&#8217;t be surprised
+if each of my major life improvements over the past 10 years was
+associated with a time where I got back on the GTD wagon. I can&#8217;t
+prove that, because I don&#8217;t keep enough details, but I always feel
+better and think clearer when I&#8217;m on GTD.</p>
+
+<p>But, I&#8217;ve failed so many times&#8230; what kind of hubris makes me think
+I&#8217;ll get it this time?
+<a href="http://www.quotationspage.com/quote/36285.html">&#8220;Fall down seven times, get up eight.&#8221;</a>
+Parenthood has taught this to me. Of course we don&#8217;t expect our kids
+to learn each skill the first time they try. We expect that walking
+and reading and writing and bike-riding will take time, multiple
+efforts, and multiple failures. But eventually they will get it. Yet,
+with each failure, kids get upset (to varying degrees). The answer at
+that point is not to tell them to give up. Yet, that&#8217;s what I do to
+myself. So, I&#8217;m going to treat myself like a kid and let myself fail,
+understanding that each failure will get me closer to that one time
+where I will succeed.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/01/15/writing-paralysis">Writing Paralysis</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-15T14:45:09-05:00" pubdate data-updated="true">Jan 15<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I think twitter and facebook stunt my writing. The more that I read
+tweets, the more self-conscious I get when I write. Not that my
+writing is all that original, but I still feel that it is something
+that comes from me. I worry so much about presenting ideas of others
+as my own without even remembering that I had seen the ideas before.
+In the old days, the things that I read were long form. Books,
+articles, maybe blog posts. They each left an impression on me, maybe
+good, maybe bad, but I had a sense where they were coming from. When I
+wrote I could reliably say where the inspiration for my idea had come
+from. Now with twitter, I see all these ideas and thoughts, some of
+which are interesting, but few of which leave a lasting impression on
+me. So now I have this fear that the things that I am considering my
+own ideas are actually the ideas of others, improperly attributed. Of
+course, that&#8217;s silly. No idea is original, but it&#8217;s just serious
+enough to stifle my writing. Because, as a writer, I am the
+scaredy-cat of all scaredy-cats and any criticism of my writing bites
+deep to the heart. I also know that this is something that I just need
+to get over. You cannot express ideas without inviting criticism.
+I also don&#8217;t just want to let criticism fall off me. I want to learn
+from critics. But saying all that doesn&#8217;t necessarily make it any
+easier. Even writing this post, I feel like a fraud. I&#8217;ve said that
+I&#8217;m a writer a couple times up there, but what evidence do I have to
+support that claim? Most of my blog posts are so simple or technical
+or repetitive. Nothing that would strike me as an &#8216;original idea&#8217;.
+This whole post makes it seem like I am more important or better than
+I really am.</p>
+
+<p>What is my point with all this? I want to be able to write. I know
+that there are people out there who could benefit from things in my
+brain (maybe not a lot). I know that there are people out there who
+can help me (in ways that I can&#8217;t even expect). So, I want to write
+and I want it to be freely flowing and I don&#8217;t want to force myself to
+feel that what I am writing is useful or authoritative or perfect. I
+apologize to you, Vinod, my biggest critic. I know that you are
+cringing inside because you&#8217;re thinking that anyone who reads this
+will think that you are so full of yourself for even considering
+yourself a writer. But, this is my first step in letting my guard down
+to get this blog flowing. Because I do believe that writing is healthy
+and will make me a better person.</p>
+
+<p>In addition to committing to blogging more frequently, I&#8217;m also going
+to try a twitter hiatus for a week and see what happens.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/01/09/steal-my-web-app-idea">Steal My Web App Idea</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-09T22:00:01-05:00" pubdate data-updated="true">Jan 9<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Now that we have 3 kids, I&#8217;m always internally comparing one to the
+other. Sure that&#8217;s not healthy and will probably breed resentment in
+them during their teenage years, but what&#8217;s a bad parent to do?</p>
+
+<p>I need an app that takes 2 kids&#8217; birthdays and then shows me what day
+it was when the older kid was the age that the younger kid is now.
+Wow, that&#8217;s a confusing sentence. In simpler terms, if I have a
+3-year-old and a 1-year-old, then the app would show me the day that
+the 3-year-old was 1.</p>
+
+<p>Then, I want the app to take that date and go through all of my
+personal files (photos, notes, twitter stream, facebook stream, etc.)
+and show me what was happening in our life around that day.</p>
+
+<p>In short, it would show a snapshot of what our life was like when the
+older kid was the age that the younger kid is now. I&#8217;d call it
+WhenIWasYourAge or something catchy like that.</p>
+
+<p>Seems simple enough to build, but I don&#8217;t see myself getting to it
+anytime soon. Smart people say to set your ideas free and if they love
+you they&#8217;ll come back. (Wait, I think I&#8217;m mixing metaphors here).</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/12/30/how-to-change-the-rear-tire-on-a-12-inch-bicycle">How to Change the Rear Tire on a 12 Inch Bicycle</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-30T15:00:40-05:00" pubdate data-updated="true">Dec 30<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;m not the handiest guy in the world, so I&#8217;m pretty proud that I was
+able to fix a flat tire on Kavi&#8217;s 12&#8221; bicycle.</p>
+
+<p>DISCLAIMER: I have almost no idea what I&#8217;m doing. Follow my
+instructions at your peril.</p>
+
+<p>I&#8217;ve fixed flats before, but it&#8217;s been a long time. Fixing it on such
+a tiny bike was a lot harder than I thought. The manual makes it seem
+so simple. &#8220;Remove the wheel, take the tube out, patch the tube and
+then replace the tube and tire.&#8221; Right&#8230; I got stuck at step 1.
+Removing the wheel isn&#8217;t straightforward. Most of the videos available
+online focus on adult-sized bikes which have quick-release tires. You
+pull a release lever back and then pull the tire off. Kids bikes have
+bolts instead of quick-release levers. You have to loosen the bolts,
+but you don&#8217;t have to take the bolts completely off. You also have to
+take off the plastic chain guard that prevents kids from rubbing their
+legs against the chain. Finally, there&#8217;s this little metal piece that
+attaches the wheel to the frame. I think it&#8217;s there for the
+pedal-brake to work. In any case, you have to take that off. Once the
+wheel is loosened, you have to unhook the wheel from the chain. This
+is also easier in big bikes which have multiple gears, making it
+possible to place the chain in a position to easily get it off the
+wheel. In a kid&#8217;s bike, it&#8217;s harder. Once I loosened the bolts on both
+sides of the wheel, I pushed the wheel a little forward, which
+loosened the chain and made it easy to release from the chain.</p>
+
+<p>The next difficulty was getting the tube out of the tire. All the
+videos make this seem so easy. Place a tire lever in the tire to pull
+it over the rim. Put another tire lever in and slide it around the rim
+to get the rest of the tire out. Kavi&#8217;s tires are so tight that this
+was impossible. I could get the first tire lever in, but when I put
+the second tire lever in, it was completely immovable. There was no
+way that I was going to be able to slide it anywhere. I finally found
+a website where they recommended using a third tire lever. Put the
+first two in a few inches apart. Then put the third one in another
+inch away from the second one. Finally remove the middle one and move
+it an inch past the third one. In this way, I was able to get the tire
+off eventually.</p>
+
+<p>I then got the tube out and found the leak. I placed a patch on it,
+but when I reinflated the tire, the leaking air just pushed it&#8217;s way
+through the patch. I tried roughing up the area with the roughing
+tool, but that didn&#8217;t help. Finally, I resorted to the layman&#8217;s
+favorite tool: duct tape. I placed the patch, then wrapped it with
+duct tape. It&#8217;s held together for a few months now.</p>
+
+<p>Hopefully Kavi will graduate to the next size bike before my handiwork
+breaks down. On another note, Kavi was easily able to pick up the
+basics of riding a bike by following the
+<a href="http://www.rei.com/learn/expert-advice/teach-child-to-ride-a-bike.html">REI guide</a>.
+I took off the training wheels and the pedals, which allowed him to
+get the feeling of balancing the bike without having to keep his feet
+on the pedals. Once he got that part, it was relatively easy for him
+to balance with the pedals on. He also proved to be a much tougher kid
+than I was. Everytime he fell, he got right back on.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/2/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/07/28/cbv-dynamic">Using dynamic queries in a CBV</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/23/some-emacs-posts">Some Emacs Posts</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/22/pygments-py3">Pygments on Arch Linux</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/21/django-test-models">How to create test models in Django</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/21/peanut-allergy-a-personal-clinical-review">Peanut Allergy, a personal clinical review</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/17/priorities-and-gtd">Priorities and GTD</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/16/gtd-again">GTD again?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/15/writing-paralysis">Writing paralysis</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/09/steal-my-web-app-idea">Steal My Web App Idea</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/30/how-to-change-the-rear-tire-on-a-12-inch-bicycle">How to change the rear tire on a 12 inch bicycle</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/05/nsbrief-gets-the-best-guests">NSBrief gets the best guests</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/24/emacs-for-python-programming">Emacs for Python Programming</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet">Emacs Autocomplete stumbles on yasnippet</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/14/ive-gone-to-the-dark-side">I&#8217;ve gone to the dark side</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/04/avik-arrives">Avik Arrives!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/21/thoughts-on-free-will">Thoughts on Free Will</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/19/facebook-is-killing-blogging">Facebook is killing blogging</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/16/a-great-moment">A great moment</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/07/nasa-curiosity-lands">NASA Curiosity Lands</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/03/blogging-again">Blogging Again</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("vkurup", 5, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/vkurup" class="twitter-follow-button" data-show-count="true">Follow @vkurup</a>
+  
+</section>
+
+
+<section>
+  <h1>My Pinboard</h1>
+  <ul id="pinboard_linkroll">Fetching linkroll&#8230;</ul>
+  <p><a href="http://pinboard.in/u:vkurup">My Pinboard Bookmarks &raquo;</a></p>
+</section>
+<script type="text/javascript">
+  var linkroll = 'pinboard_linkroll'; //id target for pinboard list
+  var pinboard_user = "vkurup"; //id target for pinboard list
+  var pinboard_count = 10; //id target for pinboard list
+  (function(){
+    var pinboardInit = document.createElement('script');
+    pinboardInit.type = 'text/javascript';
+    pinboardInit.async = true;
+    pinboardInit.src = '/javascripts/pinboard.js';
+    document.getElementsByTagName('head')[0].appendChild(pinboardInit);
+  })();
+</script>
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  <a rel="license"
+  href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Some rights
+  reserved</a> by <a rel="author" href="https://profiles.google.com/vvkurup/" title="View my Google Profile">Vinod Kurup</a> -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'vkurup';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

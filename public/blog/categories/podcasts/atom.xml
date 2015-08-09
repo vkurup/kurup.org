@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: podcasts | Vinod Kurup]]></title>
+  <link href="http://www.kurup.org/blog/categories/podcasts/atom.xml" rel="self"/>
+  <link href="http://www.kurup.org/"/>
+  <updated>2015-08-08T22:40:46-04:00</updated>
+  <id>http://www.kurup.org/</id>
+  <author>
+    <name><![CDATA[Vinod Kurup]]></name>
+    <email><![CDATA[vinod@kurup.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Doggcatcher]]></title>
+    <link href="http://www.kurup.org/blog/2011/05/23/doggcatcher"/>
+    <updated>2011-05-23T21:51:46-04:00</updated>
+    <id>http://www.kurup.org/blog/2011/05/23/doggcatcher</id>
+    <content type="html"><![CDATA[<p>I talked yesterday about how I didn't like the Google Listen podcast
+client. I did a little Googling and found a nice solution (somewhat
+ironic, in an Alanis Morrissette kinda way):
+<a href="http://www.doggcatcher.com/">Doggcatcher</a>. It costs $6.99 and I spent
+an extra $3.99 for <a href="https://market.android.com/details?id=com.aocate.presto">Presto Sound
+Library</a>
+which allows you to speed up the podcasts a little. Sorry Merlin! (He
+hates when people do this). Doggcatcher seems to do everything I
+mentioned as requirements in yesterday's post. I also like that it
+doesn't sync between clients, so I can have audio podcasts on my phone
+and video podcasts on my gtab tablet. It has a million configuration
+options, so you can set certain podcasts as higher priority than
+others and you can define how many episodes should be downloaded per
+podcast. I love having that kind of flexibility. Most importantly, the
+UI has been understandable and every time I launch it, I'm placed
+right back at the same place that I left off when I quit.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Google Listen doesn't rock]]></title>
+    <link href="http://www.kurup.org/blog/2011/05/22/google-listen-doesnt-rock"/>
+    <updated>2011-05-22T20:51:03-04:00</updated>
+    <id>http://www.kurup.org/blog/2011/05/22/google-listen-doesnt-rock</id>
+    <content type="html"><![CDATA[<p>In the years I've been listening to podcasts, I've only found 2
+podcast clients that I've really liked: iTunes (back around 2005-2007)
+and a bash script that I wrote which simply copied files downloaded by
+<a href="http://podget.sourceforge.net/">podget</a> onto my iPod nano. <a href="http://listen.googlelabs.com/">Google
+Listen</a> on my Droid X (Android 2.2) is
+tolerable, but only barely. I think my requirements are simple. I want
+to put in URLs and have the client get all the podcasts in that URL
+and stick them in a queue. I want the client to refresh every N hours
+and add new files to the queue. I want the client to automatically
+download each file in the queue. Once I listen to a file, I want the
+client to delete it from my device. I'd like a configurable option to
+be able to save a file, while I'm listening to it, so if I am
+listening to something that I want to hear again, I hit a save button
+and it won't automatically be deleted. If I don't like an episode, I'd
+like to hit 'next' to have that podcast deleted and the next one
+started. Finally, I want some statistics about which podcasts I'm
+listening to, which ones I'm skipping, and then some suggestions about
+which podcasts I might like. A product from Google should be able to
+do this. Unfortunately, I can't reliably tell which podcasts I'm
+subscribed to. There is a 'subscribe' button in each one, and when I
+click it, it changes to 'unsubscribe', but then when I back out and
+come back, it says 'subscribe' again, so I'm not sure if I am
+subscribed or unsubscribed. When I subscribe, the podcasts show up in
+Google Reader, and I don't want them there. I understand the idea of
+reusing Google Reader since it is a RSS/Atom reader, but I never
+listen to podcasts on my computer. I don't know what happens if I mark
+something as read in Google Reader. Does that mean it won't show up in
+Listen? I haven't figured it out. Each time I start Listen, it seems
+that a different podcast starts, rather than starting where I left
+off. Well, it's inconsistent. Sometimes it works, sometimes it
+doesn't. Skipping a podcast doesn't delete it, although there is a
+config option for that. Maybe I'm just doing it wrong. Most
+annoyingly, it doesn't automatically download all the podcasts, so
+when one finishes, I have to wait for the next one to start buffering
+and if I'm driving and I happen to be in a poor 3G service area, that
+might take a while. Maybe this should be my first Android project?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[5 by 5]]></title>
+    <link href="http://www.kurup.org/blog/2011/05/21/5-by-5"/>
+    <updated>2011-05-21T20:51:37-04:00</updated>
+    <id>http://www.kurup.org/blog/2011/05/21/5-by-5</id>
+    <content type="html"><![CDATA[<p>My commute to work is 25 minutes each way, so I'm always looking for a
+podcast to listen to. I've been a fan of the
+<a href="http://43folders.com">43folders</a> website for years and Merlin Mann
+recently started a podcast called <a href="http://5by5.tv/b2w">Back To Work</a>
+with Dan Benjamin. Dan Benjamin, it turns out, is the founder of a
+network called <a href="http://5by5.tv/">5by5</a>, which he says has been called
+"NPR for geeks". The shows I've listened to have all been sharp and
+entertaining so far. I especially like <a href="http://5by5.tv/paleo/16">Latest in
+Paleo</a> (despite the fact that I'm not eating
+anything near a Paleo diet) and the Pipeline (check out the interview
+with <a href="http://5by5.tv/pipeline/49">Philip Elmer-DeWitt</a>). Looking
+through the list of shows, I can only believe that Dan Benjamin has to
+be the most productive person on the face of the earth.</p>
+
+<p>I'm currently also listening to <a href="http://twit.tv/aaa">All About
+Android</a>, <a href="http://www.thisamericanlife.org/">This American
+Life</a> and some <a href="http://webcast.berkeley.edu/course_details.php?seriesid=1906978271">UC-Berkeley CS
+lectures</a>. Any
+other great podcasts I'm missing?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Selected Shorts]]></title>
+    <link href="http://www.kurup.org/blog/2009/01/29/selected-shorts"/>
+    <updated>2009-01-29T00:00:00-05:00</updated>
+    <id>http://www.kurup.org/blog/2009/01/29/selected-shorts</id>
+    <content type="html"><![CDATA[<p>I've been meaning to thank Deepu for giving me a list of some cool podcasts to check out. My commute is about 30 minutes each way, and listening to podcasts I enjoy helps keep me sane. I added the <a href="http://www.themoth.org/podcast">Moth Podcast</a>, <a href="http://www.npr.org/rss/podcast/podcast_detail.php?siteId=9911210">NPR Selected Shorts</a>, and <a href="http://www.wnyc.org/shows/radiolab">RadioLab</a> to my podcast list and have been enjoying all of them. NPR Shorts is my favorite of the bunch. It's usually 2 short stories being read live somewhere in NYC. I love short stories. I thought I loved them because they're short. Reading a novel just takes too much devotion sometimes. But there's something more than that, too. I just love how a good short story starts with a simple premise or a few simple characters and then draws you in, so that within a minute, you feel completely involved.</p>
+
+<p>I was running today even though I didn't want to. I figured I'd just go around the block, maybe a mile. I strapped my nano Ipod to my arm and started off, feeling completely unmotivated. A minute of slow jogging later and I was deeply engrossed in a great story about a middle-aged long distance runner in NYC who jogs back to her old neighborhood and gets accosted by the new neighborhood kids living there. I couldn't stop now! So instead of turning right, I turned left and took the long way
+home. (Well... 3 miles long).</p>
+
+<p>Podcasts - they'll make you healthier!</p>
+]]></content>
+  </entry>
+  
+</feed>

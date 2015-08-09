@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: coffee | Vinod Kurup]]></title>
+  <link href="http://www.kurup.org/blog/categories/coffee/atom.xml" rel="self"/>
+  <link href="http://www.kurup.org/"/>
+  <updated>2015-08-08T22:40:46-04:00</updated>
+  <id>http://www.kurup.org/</id>
+  <author>
+    <name><![CDATA[Vinod Kurup]]></name>
+    <email><![CDATA[vinod@kurup.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Senseo Coffee Maker]]></title>
+    <link href="http://www.kurup.org/blog/2006/01/04/senseo-coffee-maker"/>
+    <updated>2006-01-04T00:00:00-05:00</updated>
+    <id>http://www.kurup.org/blog/2006/01/04/senseo-coffee-maker</id>
+    <content type="html"><![CDATA[<p>Oh, in my last post, I forgot to mention one other cause we supported - <a href="http://nybg.org">The New York Botanical Gardens</a>. I don't really think of it as charity, since we definitely get our money's worth of enjoyment out of the park. In addition, the gardens gave their members a gift this year - the Phillips Senseo Coffee Maker. This is one of those Pod coffee makers. You stick in a coffee-pod and the machine shoots boiling water through the pod and into your coffee mug. It makes 1 cup at a time, but it takes only 30 seconds, so making coffee for a group is just a matter of lining up a bunch of cups and changing the pod each time. Cleanup is easy and the coffee is suprisingly good.</p>
+
+<p>But, the pods are a little expensive - it comes to about 30-40 cents per cup. And, while the coffee is good, I sure miss my <a href="http://www.themudtruck.com/">MUD</a>. Well, good news. <a href="http://www.ineedcoffee.com/04/coffeepods/">You can make your own coffee pods!</a>. Once I find the right tools (vitamin jars?), I'm going to try this, despite this ominous warning:</p>
+
+<blockquote><p>Be careful not to use too big of filter or to make sloppy folds. If you plug up your machine the pressure build up will either <strong>spray hot water all over the place</strong> or will engage the safety locks which prevent the lid from being re-opened.</p></blockquote>
+]]></content>
+  </entry>
+  
+</feed>

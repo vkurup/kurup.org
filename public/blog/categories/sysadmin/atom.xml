@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: sysadmin | Vinod Kurup]]></title>
+  <link href="http://www.kurup.org/blog/categories/sysadmin/atom.xml" rel="self"/>
+  <link href="http://www.kurup.org/"/>
+  <updated>2015-08-08T22:40:46-04:00</updated>
+  <id>http://www.kurup.org/</id>
+  <author>
+    <name><![CDATA[Vinod Kurup]]></name>
+    <email><![CDATA[vinod@kurup.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Fixing wireless on eeePC]]></title>
+    <link href="http://www.kurup.org/blog/2011/09/08/fixing-wireless-on-eeepc"/>
+    <updated>2011-09-08T21:58:48-04:00</updated>
+    <id>http://www.kurup.org/blog/2011/09/08/fixing-wireless-on-eeepc</id>
+    <content type="html"><![CDATA[<p>I have an ASUS eeePC 1000, running Ubuntu 10.10. Wireless worked
+flawlessly at home, which is where I use it 99% of the time. On our
+most recent trip, however, it wasn't working. It couldn't connect to a
+WPA-secured network. Here are the relevant error messages:</p>
+
+<pre><code>NetworkManager[770]: &lt;warn&gt; Activation (wlan0/wireless): association took too long.
+NetworkManager[770]: &lt;warn&gt; (wlan0): link timed out.
+NetworkManager[770]: &lt;warn&gt; Activation (wlan0) failed for access point (linksys)
+NetworkManager[770]: &lt;warn&gt; Activation (wlan0) failed.
+NetworkManager[770]: &lt;info&gt; (wlan0): deactivating device (reason: 0).
+</code></pre>
+
+<p>After a little googling on my phone, I found out that <a href="http://www.ctbarker.info/2010/05/ubuntu-1004-wireless-chipsets-and-wpa.html">others had this
+problem with the rt2860sta wireless
+driver</a>. Fortunately,
+there is a solution, which involved downloading the source code for
+the latest driver, modifying it a bit and rebuilding the driver. Here
+are the instructions:</p>
+
+<h3>Step 1: Download the driver</h3>
+
+<p>Download the <a href="http://www.ralinktech.com/license_us.php?n=2&amp;p=0&amp;t=U0wyRnpjMlYwY3k4eU1ERXdMekEzTHpFMkwyUnZkMjVzYjJGa05qZ3hPRFUwTmpBd05DNWllakk5UFQweU1ERXdYekEzWHpFMlgxSlVNamcyTUY5TWFXNTFlRjlUVkVGZmRqSXVOQzR3TGpBdWRHRnlD">latest rt2860sta
+driver</a>.</p>
+
+<h3>Step 2: Rename and extract the downloaded file</h3>
+
+<p>Mine was named <code>download.php</code>, but it's really a tar file:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>extract.sh </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>vinod@ike:~ <span class="nv">$ </span>mkdir <span class="nb">test</span>
+</span><span class='line'>vinod@ike:~ <span class="nv">$ </span>mv download.php <span class="nb">test</span>/driver.tar
+</span><span class='line'>vinod@ike:~ <span class="nv">$ </span><span class="nb">cd test</span>/
+</span><span class='line'>vinod@ike:~/test <span class="nv">$ </span>tar xf driver.tar
+</span><span class='line'>vinod@ike:~/test <span class="nv">$ </span>mv 2010_07_16_RT2860_Linux_STA_v2.4.0.0 driver
+</span><span class='line'>vinod@ike:~/test <span class="nv">$ </span><span class="nb">cd </span>driver
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>Step 3: Apply patch</h3>
+
+<p><div><script src='https://gist.github.com/1205291.js?file=driver.patch'></script>
+<noscript><pre><code>diff -urbB old/common/cmm_wpa.c new/common/cmm_wpa.c
+--- old/common/cmm_wpa.c	2010-07-08 07:40:24.000000000 -0400
++++ new/common/cmm_wpa.c	2011-08-30 18:27:46.856572005 -0400
+@@ -2420,7 +2420,7 @@
+ 	UCHAR		PrimaryRsnie;			
+ 	BOOLEAN		bMixCipher = FALSE;	// indicate the pairwise and group cipher are different
+ 	UCHAR		p_offset;		
+-	WPA_MIX_PAIR_CIPHER		FlexibleCipher = MIX_CIPHER_NOTUSE;	// it provide the more flexible cipher combination in WPA-WPA2 and TKIPAES mode
++	WPA_MIX_PAIR_CIPHER		FlexibleCipher = WPA_TKIPAES_WPA2_TKIPAES;
+ 		
+ 	rsnielen_cur_p = NULL;
+ 	rsnielen_ex_cur_p = NULL;
+diff -urbB old/os/linux/config.mk new/os/linux/config.mk
+--- old/os/linux/config.mk	2010-07-09 04:58:09.000000000 -0400
++++ new/os/linux/config.mk	2011-08-30 18:23:52.120572001 -0400
+@@ -8,10 +8,10 @@
+ HAS_XLINK=n
+ 
+ # Support Wpa_Supplicant
+-HAS_WPA_SUPPLICANT=n
++HAS_WPA_SUPPLICANT=y
+ 
+ # Support Native WpaSupplicant for Network Maganger
+-HAS_NATIVE_WPA_SUPPLICANT_SUPPORT=n
++HAS_NATIVE_WPA_SUPPLICANT_SUPPORT=y
+ 
+ #Support Net interface block while Tx-Sw queue full
+ HAS_BLOCK_NET_IF=n
+</code></pre></noscript></div>
+</p>
+
+<h3>Step 4: Backup old driver</h3>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>backup.sh </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>vinod@ike~/test/driver/ <span class="nv">$ </span>sudo ifconfig wlan0 down
+</span><span class='line'>vinod@ike~/test/driver/ <span class="nv">$ </span>sudo rmmod rt2860sta
+</span><span class='line'>vinod@ike~/test/driver/ <span class="nv">$ </span>mkdir backup
+</span><span class='line'>vinod@ike~/test/driver/ <span class="nv">$ </span>sudo mv /etc/Wireless/RT2860STA backup/
+</span><span class='line'>vinod@ike~/test/driver/ <span class="nv">$ </span>sudo mv /lib/modules/2.6.35-30-generic/kernel/drivers/staging/rt2860/rt2860sta.ko backup/
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>Step 5: Install and activate new driver</h3>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>build.sh </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>vinod@ike:~/test/driver <span class="nv">$ </span>sudo make install
+</span><span class='line'>vinod@ike:~/test/driver <span class="nv">$ </span>sudo depmod -a
+</span><span class='line'>vinod@ike:~/test/driver <span class="nv">$ </span>sudo modprobe rt2860sta
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>Step 6: Fix problems with hibernation</h3>
+
+<p>A separate problem is that wireless has been flaky when the computer
+wakes from hibernation, but <a href="http://www.twentyways.com/2010/11/19/fixing-wireless-issues-with-asus-eeepc-1000he-running-ubuntu-10-10/">it's also
+fixable</a>.</p>
+
+<p>Add the following lines to <code>/etc/modprobe.d/blacklist.conf</code>:</p>
+
+<pre><code>blacklist rt2800pci
+blacklist rt2800lib
+blacklist rt2x00usb
+blacklist rt2x00pci
+blacklist rt2x00lib
+</code></pre>
+
+<p>Create a new file called <code>/etc/pm/config.d/unload_wireless</code> with the following line:</p>
+
+<pre><code>SUSPEND_MODULES="rt2860sta"
+</code></pre>
+
+<p>Reboot and you should have WPA-compatible, hibernatable wireless.</p>
+
+<h3>References:</h3>
+
+<ol>
+<li><a href="http://www.ctbarker.info/2010/05/ubuntu-1004-wireless-chipsets-and-wpa.html">rt2860sta driver installation</a></li>
+<li><a href="http://www.twentyways.com/2010/11/19/fixing-wireless-issues-with-asus-eeepc-1000he-running-ubuntu-10-10/">Proper hibernation</a></li>
+<li><a href="http://ubuntuforums.org/showthread.php?t=1476007">Ubuntu Forums thread</a></li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[inotify]]></title>
+    <link href="http://www.kurup.org/blog/2010/07/16/inotify"/>
+    <updated>2010-07-16T21:01:00-04:00</updated>
+    <id>http://www.kurup.org/blog/2010/07/16/inotify</id>
+    <content type="html"><![CDATA[<p><a href="http://inotify.aiken.cz/">incron</a> seems to be a pretty neat tool. It's
+cron-for-file-activities. <a href="http://en.wikipedia.org/wiki/Cron">Cron</a> is a
+common unix tool that allows you to run any command at a specified
+time. It's immensely useful for running anything that you want to occur on
+a regular basis: backups, daily reminder emails, downloading podcasts,
+etc. If you've used unix to any significant extent, you've used cron.</p>
+
+<p>incron takes that cron metaphor and applies it to file activity. You
+specify which files you want to watch, and then you specify which activities
+you are interested in. If incron notices any of those activities occurring
+on your files, it launches the command that you specified. Activities could
+include creating a new file, modifying a file, accessing a file, among
+multiple other possibilities. incron takes advantage of the inotify system
+built into recent linux kernels, which supposedly is more efficient than
+previous ways of doing this same thing.</p>
+
+<p>incron seemed to be just what I wanted. I wanted to watch a specific
+directory and launch a tool to rebuild my website if any of those files
+changed. The problem is that incron doesn't work recursively on
+directories. You have to specify each directory, the activities on that
+directory, and the command to launch. If you create new directories, you
+have to tell incron about them specifically. This ruins the benefit of the
+tool for me. It seems the developer has been planning to implement
+recursive watching for the past 4 years ago, but hasn't done it yet. If it
+hasn't happened in 4 years, it's probably not going to happen soon.</p>
+
+<p>But, I found a perfectly usable way to get what I
+want. <a href="http://wiki.github.com/rvoicilas/inotify-tools/">inotify-tools</a>
+includes a program called <code>inotifywait</code>. It takes a file or directory name
+and listens for specific activities that you are interested in. It
+basically waits until it sees one of those activities and then returns
+control back to you. So, you can something like (pseudocode):</p>
+
+<pre><code>while (inotifywait /home/vinod/web/kurup.org):
+    # triggered
+    rebuild my server
+</code></pre>
+
+<p><code>inotifywait</code> waits for my activities. If it finds one, it returns TRUE and
+my server gets rebuilt, and then the while loop restarts. Best of all,
+<code>inotifywait</code> can work recursively on a directory. Which brings me to my
+<code>watch-rebuild.sh</code> script which watches my web source files for changes,
+and rebuilds the web generated files on demand. It also pops up a little
+GNOME notification using <code>notify-send</code>:</p>
+
+<p>$$code(lang=bash)</p>
+
+<pre><code>#!/bin/bash
+
+BLOGOFILE='/usr/local/bin/blogofile'
+BLOGDIR='/home/vinod/web/kurup.org'
+
+# requires libnotify-bin for notify-osd notification
+# requires inotify-tools
+while LINE=$(inotifywait -rq --timefmt '%F %R' --format '%T %e %f' \
+      -e close_write -e move -e delete "$BLOGDIR");
+do
+        echo -n "Rebuilding $LINE ..."
+        $BLOGOFILE -s $BLOGDIR build
+        echo "done"
+        notify-send -u low "Rebuild Done" "Watching again"
+done
+</code></pre>
+
+<p>$$/code</p>
+
+<p><code>-r</code> = recursive<br/>
+<code>-q</code> = be quiet<br/>
+<code>--timefmt</code> &amp; <code>--format</code> = what we want to display on the command line<br/>
+<code>-e</code> = each of the individual events that we are interested in</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Pound update kills my website]]></title>
+    <link href="http://www.kurup.org/blog/2006/02/17/pound-update-kills-my-website"/>
+    <updated>2006-02-17T00:00:00-05:00</updated>
+    <id>http://www.kurup.org/blog/2006/02/17/pound-update-kills-my-website</id>
+    <content type="html"><![CDATA[<p>No one but me noticed, I'm sure, but my website was down for part of yesterday. Don't worry, refunds to paying customers are on their way :-)</p>
+
+<p>What happened? I was doing my regular debian <code>apt-get upgrade</code> and the reverse proxy that I use, <a href="http://www.apsis.ch/pound/">pound</a>, got updated. The upgrade was a pretty significant one. Pound 2.0 changed the way that it expects configuration files to be formatted. Unfortunately, the Debian update didn't mention this, so the new version of pound tried to read my old config file, got confused and shut down. Without a reverse proxy, there's no way to get to my site from the outside.</p>
+
+<p>I thought it would be simple to rewrite the config file to match the new format, but it took longer than I expected. Most of the changes were easy. The new format requires string parameters to be enclosed in double-quotes. Some of the parameters which used to be global (like ExtendedHTTP and WebDAV) were renamed and moved into non-global sections. There were a few other minor changes which make the config file easier to understand.</p>
+
+<p>Unfortunately, fixing all of that still didn't get Pound working. There were still 2 problems. First was that the internal port number was being shown to the web browser. If you typed in "http://kurup.org", the browser would show "http://kurup.org:8001/" in the Location bar. This only occured when the backend server returned 30x redirection status's. Based on my config, Pound was supposed to be rewriting the Location header to avoid this problem. I found the solution to this one <a href="http://www.apsis.ch/pound/pound_list/archive/2006/2006-01/1136458627000#1136458627000">here</a>. Scroll down to Robert Segall's (the author of Pound) second reply. He says:</p>
+
+<blockquote><p>The conditions for changing the Location header are:
+- Change30x is set (value 1) for the Service in question
+- the response is one of 301, 302, 303 or 307
+- a Host header was seen in the original request
+- the Location header, after DNS resolution, points either to the same address as the one Pound is using to accept the request (aka the ListenHTTP/ListenHTTPS), or to the back-end that issued this response</p></blockquote>
+
+<p>Everything was being fulfilled except the last one, specifically the 'After DNS resolution' part. When I do a <code>nslookup kurup.org</code> on my server, it returns 66.98.222.124. The address I was using in the config file was 127.0.0.1 (localhost). Since these didn't match, Pound was not rewriting the header. I changed my pound config to listen on 66.98.222.124 and that problem was fixed.</p>
+
+<p>The final problem was that pound stopped redirecting requests to the other virtual servers on my machine. Whenever a request would come in, pound would crash with the following message in syslog:</p>
+
+<pre><code>Feb 17 08:11:10 vkurup pound: MONITOR: worker exited on signal 11, restarting... 
+</code></pre>
+
+<p>The only difference between the config for kurup.org and the other virtual servers was that I had a SESSION parameter in kurup.org. I introduced a SESSION parameter into the other servers and <em>surprise</em>, they started working too. I finally found the reason <a href="http://www.apsis.ch/pound/pound_list/archive/2006/2006-02/1139101111000#1139101111000">here.</a> I assume that will be fixed in the next release.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Editing as root in emacs]]></title>
+    <link href="http://www.kurup.org/blog/2005/12/20/editing-as-root-in-emacs"/>
+    <updated>2005-12-20T00:00:00-05:00</updated>
+    <id>http://www.kurup.org/blog/2005/12/20/editing-as-root-in-emacs</id>
+    <content type="html"><![CDATA[<p>I've been using emacs for 7 years and I just learned today that you can edit files as root while you're logged into emacs as an unprivileged user. Using sudo, of course. The details are <a href="http://lists.gnu.org/archive/html/emacs-wiki-discuss/2005-12/msg00014.html">here</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Backup strategy]]></title>
+    <link href="http://www.kurup.org/blog/2004/01/02/backup-strategy"/>
+    <updated>2004-01-02T00:00:00-05:00</updated>
+    <id>http://www.kurup.org/blog/2004/01/02/backup-strategy</id>
+    <content type="html"><![CDATA[<p><a href="http://badgertronics.com">Badgertronics.com</a>, <a href="http://borkware.com">borkware.com</a>, and company went through the same ordeal that <a href="http://kurup.org/blog/2003/12/17/im-back">kurup.org</a> did and MarkD has promptly published his <a href="http://borkware.com/rants/rsync-backups/">new backup strategy</a>. He uses <a href="http://rsync.samba.org/">rsync</a> over <a href="http://www.openssh.com/">SSH</a> which, interestingly enough, is the same strategy that I came up with. Great minds must think alike.</p>
+
+<p>The canonical standard for doing backups on UNIX systems is tar (short for <strong>t</strong>ape <strong>ar</strong>chive). tar converts directories of files into a single tar archive file which you would then spit to an attached tape drive. To be up-to-date, you need to do this on a regular basis - perhaps daily. So each day, you'd tar up all your important files and send them off to the tape drive. To recover your files, you'd need to read the whole tar archive file back from the tape and then extract the specific files or directories that you want from the tar archive. This works fine if you're backing up to a tape drive, because you don't care about network bandwidth. If you're backing up over the network to another machine's hard drive, then each daily archive file has to be sent over the network to your backup machine. Even if you don't change any files from one day to the next, the entire set of files gets archived and sent across the network. Bye bye precious bandwidth!</p>
+
+<p>rsync is a <strong>r</strong>emote <strong>sync</strong>hronization tool. The first time, rsync sends all the data over the network to your backup machine. Just like tar. The benefit comes the next time you backup. Instead of sending all the files again, rsync only transfers files that have been changed. If no files were changed, no files get transferred. And when you want to recover data, you transfer just the specific files that you want back to your machine (using rsync or scp or telnet or whatever).</p>
+
+<p>Note that rsync also works better than an incremental backup strategy using tar. You can use tar to do a full backup weekly and incremental backups daily. Incremental backups backup just files which have changed since yesterday's backup. This will improve bandwidth usage, but makes recovery more complex. You have to extract the latest full backup, then extract any more recent incremental backups over your full backup and then extract the specific files that you need. On the other hand, the backup produced with rsync is always up-to-date (as of the last time you ran rsync).</p>
+
+<p>There are lots of backup tools that use rsync as their workhorse and add features on top of it. <a href="http://rdiff-backup.stanford.edu/">rdiff-backup</a> makes regularly scheduled backups, but each time it runs, it keeps a copy of the changes to any files which have changed (i.e. the diff's) as well as the date and time of those changes. So, while the backup filesystem is a perfect mirror of your system, a few extra commands can give you a copy of your filesystem as it was, say, 5 days ago. rdiff-backup takes the backup filesystem and applies any diffs that occurred over the past five days. Diff files only record changes from one version of a file to another, so they are very small (in proportion to the entire backup). This allows rdiff-backup to provide snapshots of your system at almost any time without using a significant amount of disk space.</p>
+
+<p>I tried rdiff-backup and it works great for Linux to Linux backups, but it gave me trouble when I tried to backup Linux to Mac OS X. Linux uses a case-sensitive filesystem (ext2). You can have the files <code>foo</code> and <code>FOO</code> in the same directory and Linux treats them as different files. Mac OS X's file system is case-insensitive, so if you make a file <code>FOO</code>, it will overwrite a file <code>foo</code> in the same directory. rdiff-backup tries to take this into account by quoting any filename with capital letters in it. Unfortunately, the most recent version from CVS (as of 2004-01-01) <a href="http://lists.gnu.org/archive/html/rdiff-backup-users/2003-12/msg00045.html">doesn't properly unquote them</a>. Even if it did work properly, it ruins one of the main benefits of using rsync - having a true mirror of your system. Now instead of having a file <code>README</code> in your backup, you have a file <code>;082;069;065;068;077;069</code> (that's <code>README</code> quoted). I can no longer just scp a directory from my Mac backup machine to my linux server. I have to use rdiff-backup to do the transfer so that it gets properly unquoted. I would prefer to be able to turn the quoting stuff off completely. If you're crazy enough to have 2 files in a Linux directory with the same name, but just capitalized differently, you're just asking for trouble.</p>
+
+<p>I also realized that rdiff-backup is overkill for what I need. If I really want to be able to recover a file that I deleted 5 days ago, I should be using CVS for that data. My backups are there simply for unexpected data loss.</p>
+
+<p>So, I'm currently using plain rsync over SSH. I do 2 things to prepare my system before running rsync. First, I run <code>dpkg --get-selections</code> to dump a list of my installed Debian packages. When recovering my system, I can feed that file to <code>dpkg --set-selections</code> and then run <code>apt-get dselect-upgrade</code> to get all my packages set up as I had before. So, I put this in my crontab:</p>
+
+<pre><code> # save apt selections 00 20 * * *  /usr/bin/dpkg --get-selections &gt; /home/vinod/apt-settings/dpkg-selections
+</code></pre>
+
+<p>The other thing I need to do is to dump my Postgres databasse. I currently do this from a scheduled procedure in AOLserver as documented at the bottom of the <a href="http://openacs.org/doc/openacs-4-6-3/backup-recovery.html">OpenACS 4.6.3 documentation</a>.</p>
+
+<p>Finally, we get to rsync. Like MarkD, I'm going to run rsync from my Mac and pull the data from the Linux server over to the Mac. Unlike MarkD, I'm going to run rsync as my root user so that I can preserve users and groups of my <code>/etc</code> files. Here's my root crontab entry on my Mac (split into multiple lines for reading convenience):</p>
+
+<pre><code>00 21 * * * rsync -av --numeric-ids --delete --delete-excluded
+   --exclude-from=/Users/vinod/backup/acorn_exclude -e ssh acorn:/
+   /Users/vinod/backup/acorn/latest &gt;&gt; /Users/vinod/backup/backup.log
+</code></pre>
+
+<p>The <code>'v'</code> option is for verbose, which I'll turn off eventually once I know things are working well. The <code>--numeric-ids</code> option preserves the user and group ids as numeric ids rather than trying to use user/group names from my Mac. the <code>--delete</code> and <code>--delete-excluded</code> make sure that files deleted on the Linux server are also deleted in the backup. The <code>--exclude-from</code> reads <code>/Users/vinod/backup/acorn_exclude</code> and follows its instructions as to which files to backup. I'll talk about that next. The <code>-e</code> option says to use SSH to transfer the data. Finally the last two options say to get the data from host acorn (set to vkurup.acornhosting.net in <code>/etc/hosts</code>) and rsync it to <code>/Users/vinod/backup/acorn/latest</code>. To see exactly what files rsync is excluding or including, add another <code>-v</code> option to rsync. Also useful is the <code>-n</code> option, which tells rsync to show you what it would do without actually transferring anything.</p>
+
+<p>Here's what my exclude file looks like:</p>
+
+<pre><code>- *~
++ /etc 
+- /home/vinod/web/kurup/log 
++ /home 
++ /root 
++ /usr 
++ /usr/local 
+- /usr/* 
+- /var/lib/courier 
+- /var/lib/postgres/data 
++ /var 
++ /var/lib 
+- /var/* 
+- /*
+</code></pre>
+
+<p>The rsync exclude syntax allows you to backup just the files you want. I'll just discuss a couple examples, so you should see the manpage for more details. Line 1 says to ignore any emacs backup files. Line 3 says to ignore <code>/home/vinod/web/kurup/log</code> while Line 4 says to include everything else in the <code>/home</code> directory. Conversely, line 7 says to include <code>/usr/local</code> (and everything in it), while Line 8 says to ignore anything else in the <code>/usr</code> directory. Line 6 is important. If you didn't include it, nothing in <code>/usr/local</code> would get included. Each filename is checked against this list, but in a recursive fashion. So if rsync is working on the file <code>/usr/local/foo</code>, it first looks for a pattern that matches <code>/usr</code>, then for a pattern that matches <code>/usr/local</code>, then finally for a pattern that matches <code>/usr/local/foo</code>. It uses the first pattern that matches. So, if you didn't include line 6, the search for <code>/usr</code> would find line 8 and stop, thus excluding everything in <code>/usr/local</code>. Not what you want. I know that was confusing - recursion always makes my head spin...</p>
+
+<p>OK, the final thing is to set up SSH properly. I basically set it up like MarkD did, but since I need to login as root, I wanted to add a few more constraints. You can set up SSH to restrict a specific key to only run a certain command. So if someone somehow gets access to my key, they'll only be able to run rsync. If you don't put the command restriction in, they'll be able to login to your server as root. To add restraints to a key, add some statements to the beginning of the key in authorized_keys2. Here's my <code>/root/.ssh/authorized_keys2</code> (split onto multiple lines):</p>
+
+<pre><code>command="rsync --server --sender -vlogDtpr --delete-excluded --numeric-ids . /"  
+ssh-rsa AAAAB....&lt;snip&gt; ...t8= root@Vinod-Kurups-Computer.local. 
+</code></pre>
+
+<p>To get the proper command to put in your command="" statement, run your rsync command with an unrestricted SSH key first (i.e. just copy the id_rsa.pub to authorized_keys2). When you run the rsync command on your Mac, do a <code>ps auxw | grep rsync</code> on the server machine. The command that you see listed is the command that goes in the key.</p>
+
+<p>After reading MarkD's article, the one thing I might change is to tar up the data on the Linux server that needs its user/group info preserved (<code>/etc</code>, <code>/root</code>, and <code>/usr/local</code>) and then store that on the server in my user's home directory. I then wouldn't have to rsync as root, so it would simplify things. The drawback is that anytime anything changed in any of those directories, I'd be backing up the entire directories again. Hopefully this would be mitigated by the fact that they wouldn't change often and since they're mostly text files, they compress well.</p>
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>Yeah, baby</b></p>
+<p>
+Great minds do thing alike :-)  ours too.
+</p>
+<p>
+I added a pointer to this from my rsync backup page, since I like your
+concise description of tar and rsync, plus the other root-related
+issues.  I found I haven't had to touch /etc since Cathy already set
+up networking, and all my junk is running from daemontools.  Back when
+I was colocating my machine, I would have loved to learn that trick
+though.  Rebuilding the /etc configs from scratch in a disaster
+recovery mode is a huge royal pain.
+</p>
+
+<p>
+I wish I had set something like this up *years* ago.  Entirely too
+easy, and it seems to work.
+</p>
+<address class="signature">
+<span class="author">Mark Dalrymple</span>
+<span class="date">2004-01-04 19:57:05</span>
+</address>
+</div>
+
+<div class="one-comment">
+<p><b>HFS+ aware rsync</b></p>
+<p>
+I'm setting this up on my LAN to do some nightly backups between Macs.
+It should be noted that the rsync included with Mac OS X isn't HFS+
+aware.  Not a big deal for backups from Linux, etc., but if you want
+to absolutely get everything on a Mac, probably worth it to download
+Rsyncx (check versiontracker.com) or if you are a darwinports user,
+you can do the following:
+</p>
+<p>
+sudo port install hfsrsync
+</p>
+
+<p>
+and use the "hfsrsync" command as you would the rsync command in the
+instructions above.  Rsyncx actually moves the original rsync command
+to orig_rsync and places itself as the rsync command, so after
+downloading and installing it, you could use the instructions
+unaltered.
+</p>
+<address class="signature">
+<span class="author">Walter McGinnis</span>
+<span class="date">2005-03-30 13:27:54</span>
+</address>
+</div>
+
+<div class="my-comment">
+<p><b>Thanks Walter</b></p>
+<p>
+I'm currently using Carbon Copy Cloner to backup my mac to an external
+firewire, but I'll probably want to switch to hfsrsync at some
+point. Thanks for the pointer!
+</p>
+<address class="signature">
+<span class="author">Vinod Kurup</span>
+<span class="date">2005-09-15 11:00:44</span>
+</address>
+</div>
+
+<div class="one-comment">
+<p><b>rsync exclude file syntax</b></p>
+<p>
+Thanks for the explanation. Googling rsync exclude did not give me
+what I was looking for -- syntax for the exclude file. man rsync
+doesn't explain it very well either
+</p>
+<address class="signature">
+<span class="author">Patrick Greenwood</span>
+<span class="date">2006-09-07 10:04:30</span>
+</address>
+</div>
+
+<div class="one-comment">
+<p><b>will this work</b></p>
+<p>
+Hi there,
+</p>
+<p>
+i am totally new to backup of filesystem and i am suppose to propose a
+backup strategy for a school assignment.
+</p>
+<p>
+i have a solaris 9.0 run filesystem of 9TB
+</p>
+<p>
+can i implement Rsync as the backup strategy? would it be sufficient?
+thanks for advice :)
+</p>
+<address class="signature">
+<span class="author">Unregistered Visitor</span>
+<span class="date">2007-02-07 09:46:47</span>
+</address>
+</div>
+
+</div>
+
+]]></content>
+  </entry>
+  
+</feed>

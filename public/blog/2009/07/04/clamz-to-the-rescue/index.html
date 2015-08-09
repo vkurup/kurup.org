@@ -1,0 +1,374 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>clamz to the rescue - Vinod Kurup</title>
+  <meta name="author" content="Vinod Kurup">
+
+  
+  <meta name="description" content="Kottke linked to some great deals on classical music at amazon. In order to download them, you need to have the amazon mp3 downloader installed. They &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.kurup.org/blog/2009/07/04/clamz-to-the-rescue">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/vkurup" rel="alternate" title="Vinod Kurup" type="application/atom+xml">
+  <!--Fonts from Google's Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Quattrocento' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+<meta name="verify-v1" content="7VLvj7jbZMA24/73SZ9uUEq3SeBuiX3+aSIBRtgH4jQ=" />
+<link rel="openid.server" href="http://www.myopenid.com/server" />
+<link rel="openid.delegate" href="http://vkurup.myopenid.com/" />
+<link rel="openid2.local_id" href="http://vkurup.myopenid.com/" />
+<link rel="openid2.provider" href="http://www.myopenid.com/server" />
+<meta http-equiv="X-XRDS-Location" content="http://www.myopenid.com/xrds?username=vkurup.myopenid.com" />
+
+<link href="/favicon.ico" rel="shortcut icon" />
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-79447-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Vinod Kurup</a></h1>
+  
+    <h2>Hospitalist/programmer in search of the meaning of life</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/vkurup" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.kurup.org" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul role=main-navigation>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/about.html">About Me</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/blog/categories">Categories</a></li>
+  <li><a href="/medicine">Medicine</a></li>
+  <li><a href="/running">Running</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Clamz to the Rescue</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-07-04T00:00:00-04:00" pubdate data-updated="true">Jul 4<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><a href="http://kottke.org/09/05/99-classical-mp3s-for-8">Kottke</a> linked to some great deals on <a href="http://www.amazon.com/gp/product/B001U1J2S4?ie=UTF8&amp;tag=vinodkurupshomep&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=B001U1J2S4">classical music at amazon</a><img src="http://www.assoc-amazon.com/e/ir?t=vinodkurupshomep&l=as2&o=1&a=B001U1J2S4" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />. In order to download them, you need to have the amazon mp3 downloader installed. They now offer a Debian (linux) version, but I couldn&#8217;t get it working. It&#8217;s meant for an older version of Debian, but it doesn&#8217;t recognize the newer versions of the libraries installed on my system. I thought about doing some fancy apt-getting to try to get the right versions, but just thinking about that made my head throb. Then I heard about <a href="http://code.google.com/p/clamz/">clamz</a>, an open source project to replicate the amazon mp3 downloader. I installed the library packages they recommended (libgcrypt11-dev, libcurl4-openssl-dev, and libexpat1-dev) and then installed it.</p>
+
+<p>I&#8217;m always a little leary to install packages from source, because then they&#8217;re not managed by the package manager (apt-get). It becomes more of a tedious process to keep them updated or to uninstall them. To partially workaround that problem, I use a program called <a href="http://www.asic-linux.com.mx/~izto/checkinstall/">checkinstall</a>. It basically creates a package for any program that you want to install from source. So, instead of :</p>
+
+<pre><code>./configure
+make
+sudo make install
+</code></pre>
+
+<p>you do:</p>
+
+<pre><code>./configure
+make
+sudo checkinstall
+</code></pre>
+
+<p>It then creates a .deb and installs it. It asks you for some basic info about the program, but guesses as much as it can and does a decent job. I haven&#8217;t delved into anything more involved than that, but there are ways to document dependencies which would allow it to be even more integrated into the package management system.</p>
+
+<p>Anyway, it installed perfectly and within seconds I was downloading the music that I had purchased.</p>
+
+<pre><code>vinod@ike:~/Music $ clamz "Desktop/The 99 Most Essential Mozart Masterpieces.amz"
+</code></pre>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Vinod Kurup</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-07-04T00:00:00-04:00" pubdate data-updated="true">Jul 4<span>th</span>, 2009</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/free-software/'>free-software</a>, <a class='category' href='/blog/categories/linux/'>linux</a>, <a class='category' href='/blog/categories/music/'>music</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.kurup.org/blog/2009/07/04/clamz-to-the-rescue" data-via="vkurup" data-counturl="http://www.kurup.org/blog/2009/07/04/clamz-to-the-rescue" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2009/06/30/ooohh-gross" title="Previous Post: Ooohh... gross!">&laquo; Ooohh... gross!</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2009/07/23/flow" title="Next Post: Flow">Flow &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/07/28/cbv-dynamic">Using dynamic queries in a CBV</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/23/some-emacs-posts">Some Emacs Posts</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/22/pygments-py3">Pygments on Arch Linux</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/21/django-test-models">How to create test models in Django</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/21/peanut-allergy-a-personal-clinical-review">Peanut Allergy, a personal clinical review</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/17/priorities-and-gtd">Priorities and GTD</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/16/gtd-again">GTD again?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/15/writing-paralysis">Writing paralysis</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/09/steal-my-web-app-idea">Steal My Web App Idea</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/30/how-to-change-the-rear-tire-on-a-12-inch-bicycle">How to change the rear tire on a 12 inch bicycle</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/05/nsbrief-gets-the-best-guests">NSBrief gets the best guests</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/24/emacs-for-python-programming">Emacs for Python Programming</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet">Emacs Autocomplete stumbles on yasnippet</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/14/ive-gone-to-the-dark-side">I've gone to the dark side</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/04/avik-arrives">Avik Arrives!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/21/thoughts-on-free-will">Thoughts on Free Will</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/19/facebook-is-killing-blogging">Facebook is killing blogging</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/16/a-great-moment">A great moment</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/07/nasa-curiosity-lands">NASA Curiosity Lands</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/03/blogging-again">Blogging Again</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("vkurup", 5, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/vkurup" class="twitter-follow-button" data-show-count="true">Follow @vkurup</a>
+  
+</section>
+
+
+<section>
+  <h1>My Pinboard</h1>
+  <ul id="pinboard_linkroll">Fetching linkroll...</ul>
+  <p><a href="http://pinboard.in/u:vkurup">My Pinboard Bookmarks &raquo;</a></p>
+</section>
+<script type="text/javascript">
+  var linkroll = 'pinboard_linkroll'; //id target for pinboard list
+  var pinboard_user = "vkurup"; //id target for pinboard list
+  var pinboard_count = 10; //id target for pinboard list
+  (function(){
+    var pinboardInit = document.createElement('script');
+    pinboardInit.type = 'text/javascript';
+    pinboardInit.async = true;
+    pinboardInit.src = '/javascripts/pinboard.js';
+    document.getElementsByTagName('head')[0].appendChild(pinboardInit);
+  })();
+</script>
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  <a rel="license"
+  href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Some rights
+  reserved</a> by <a rel="author" href="https://profiles.google.com/vvkurup/" title="View my Google Profile">Vinod Kurup</a> -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'vkurup';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

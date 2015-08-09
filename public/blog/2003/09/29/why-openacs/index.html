@@ -1,0 +1,419 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Why OpenACS? - Vinod Kurup</title>
+  <meta name="author" content="Vinod Kurup">
+
+  
+  <meta name="description" content="Bhavesh responded to my seemingly irrational exuberance about OpenACS asking, &#8220;What&#8217;s the excitement about OpenACS?&#8221; There are much &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.kurup.org/blog/2003/09/29/why-openacs">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/vkurup" rel="alternate" title="Vinod Kurup" type="application/atom+xml">
+  <!--Fonts from Google's Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Quattrocento' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+<meta name="verify-v1" content="7VLvj7jbZMA24/73SZ9uUEq3SeBuiX3+aSIBRtgH4jQ=" />
+<link rel="openid.server" href="http://www.myopenid.com/server" />
+<link rel="openid.delegate" href="http://vkurup.myopenid.com/" />
+<link rel="openid2.local_id" href="http://vkurup.myopenid.com/" />
+<link rel="openid2.provider" href="http://www.myopenid.com/server" />
+<meta http-equiv="X-XRDS-Location" content="http://www.myopenid.com/xrds?username=vkurup.myopenid.com" />
+
+<link href="/favicon.ico" rel="shortcut icon" />
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-79447-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Vinod Kurup</a></h1>
+  
+    <h2>Hospitalist/programmer in search of the meaning of life</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/vkurup" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.kurup.org" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul role=main-navigation>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/about.html">About Me</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/blog/categories">Categories</a></li>
+  <li><a href="/medicine">Medicine</a></li>
+  <li><a href="/running">Running</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Why OpenACS?</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-09-29T00:00:00-04:00" pubdate data-updated="true">Sep 29<span>th</span>, 2003</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><a href="http://www.veshman.com/mt/index.php">Bhavesh</a> responded to my <a href="http://kurup.org/blog/one-entry?entry%5fid=9513">seemingly irrational exuberance about OpenACS</a> asking, &#8220;What&#8217;s the excitement about OpenACS?&#8221;</p>
+
+<p>There are much better answers to this question, starting with <a href="http://www.acornhosting.com/whyoacs">Why OpenACS?</a>, by my web host <a href="http://www.acornhosting.com/">Cathy Sarisky</a>, but here&#8217;s my super brief answer.</p>
+
+<p>OpenACS is a toolkit to build online communities, that is, sites which value  users and their contributions. OpenACS provides applications which allow users to create and manage content - applications like forums, photo albums, blogs, calendars, wikis, and file storage areas. Users can obviously create content in these areas, but they can also be given extra privileges to moderate the content or grant privileges to others. So, administrators can delegate the management of the site to those who are most invested in it - the community. Currently, OpenACS&#8217;s main focus has been at <a href="http://dotlrn.org/">educational  institutions</a> (<a href="http://web.mit.edu/">MIT</a>, <a href="http://www.uni-heidelberg.de/index_e.html">the University of Heidelberg</a>, and many others) where it&#8217;s ideally suited for course management. It&#8217;s currently not polished enough to be used out-of-the-box unless you&#8217;re comfortable with Linux system adminstration, but <a href="http://openacs.org/forums/message-view?message_id=117914">improvements are being made in that area</a>.</p>
+
+<p><a href="http://kurup.org/content/site-info">This site is built on OpenACS</a>, but I barely scratch the surface of the features available. I plan to add more stuff soon, but <a href="http://openacs.org/forums/message-view?message_id=125253">OpenACS is in the midst of releasing its next version</a>, so I&#8217;m concentrating my extensive free time in that endeavor. Once OpenACS 5 is out, I&#8217;ll upgrade this site and then add some of the bells and whistles.</p>
+
+<p>To be honest, I&#8217;m not sure that OpenACS is the right application if you&#8217;re just looking to build a personal website. <a href="http://movabletype.org/">Movable Type</a> is much more suited to that purpose. OpenACS is useful when you want to allow a <strong>bunch of users</strong> to each have <strong>complete control</strong> over their own personal websites, yet also allow those users to interact with each other, perhaps even aggregating content from multiple users in one place. So, if you wanted to create a service that competed with <a href="http://blogs.com/">TypePad</a>, you could use OpenACS to do that.</p>
+
+<p>OpenACS&#8217;s main power lies in the fine-grained control that it gives you. Every object and area can be controlled the way you want, so the level of control that users have is up to you. The database API is clean and gives you full access to the database of your choice - Oracle or PostgreSQL. Your hands aren&#8217;t tied. The templating system is intuitive yet offers a lot of features for more complex, specific cases if needed. A lot of work is currently going into building and improving an automated testing framework. There are plenty of other reasons why I love OpenACS and I&#8217;ll write about them some more as examples of them come up.</p>
+
+<p>In short, OpenACS is the way for me to get things done on the web.</p>
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>A unified package</b></p>
+<p>
+What I really like about it is that it has the common data model.  The
+same user features, the same content features, are available
+everywhere.  Try to glue together a PHP forum and a PHP shopping cart
+made by two different groups and you&#8217;re in for a good deal of work.
+
+I&#8217;m also a fan of esoteric technologies.  I like using tools that work
+well (Macs, postgresql, aolserver, qmail) rather than the tools
+everyone uses, since the popular tools are usually extremely
+feature-rich, but ugly as sin on the inside (Windows, Apache,
+sendmail)
+</p>
+<address class="signature">
+<span class="author">Mark Dalrymple</span>
+<span class="date">2003-10-03 17:58:20</span>
+</address>
+</div>
+
+<div class="my-comment">
+<p><b>Can&#8217;t believe I forgot to mention that!</b></p>
+<p>
+The consistent user-centered datamodel is key. I think some joker
+wrote an <a
+href="http://macedition.com/bolts/bolts_20030207.php">excellent
+article about OpenACS and its strong points.</a> I really meant to
+point to that article in my post, since it succintly describes
+everything that I was trying to say. :-)
+</p>
+<address class="signature">
+<span class="author">Vinod Kurup</span>
+<span class="date">2003-10-06 13:48:18</span>
+</address>
+</div>
+
+<div class="one-comment">
+<p><b>oh yeah</b></p>
+<p>
+you can ignore that thing.  the guy that wrote it is a big jerk.  And
+he looks funny.  And he drools.
+</p>
+<address class="signature">
+<span class="author">Mark Dalrymple</span>
+<span class="date">2003-10-07 22:39:46</span>
+</address>
+</div>
+
+</div>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Vinod Kurup</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-09-29T00:00:00-04:00" pubdate data-updated="true">Sep 29<span>th</span>, 2003</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/openacs/'>openacs</a>, <a class='category' href='/blog/categories/programming/'>programming</a>, <a class='category' href='/blog/categories/web/'>web</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.kurup.org/blog/2003/09/29/why-openacs" data-via="vkurup" data-counturl="http://www.kurup.org/blog/2003/09/29/why-openacs" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2003/09/19/almost-famous" title="Previous Post: Almost famous">&laquo; Almost famous</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2003/10/08/comments-fixed" title="Next Post: Comments fixed">Comments fixed &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/07/28/cbv-dynamic">Using dynamic queries in a CBV</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/23/some-emacs-posts">Some Emacs Posts</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/22/pygments-py3">Pygments on Arch Linux</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/21/django-test-models">How to create test models in Django</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/21/peanut-allergy-a-personal-clinical-review">Peanut Allergy, a personal clinical review</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/17/priorities-and-gtd">Priorities and GTD</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/16/gtd-again">GTD again?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/15/writing-paralysis">Writing paralysis</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/09/steal-my-web-app-idea">Steal My Web App Idea</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/30/how-to-change-the-rear-tire-on-a-12-inch-bicycle">How to change the rear tire on a 12 inch bicycle</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/05/nsbrief-gets-the-best-guests">NSBrief gets the best guests</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/24/emacs-for-python-programming">Emacs for Python Programming</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet">Emacs Autocomplete stumbles on yasnippet</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/14/ive-gone-to-the-dark-side">I've gone to the dark side</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/04/avik-arrives">Avik Arrives!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/21/thoughts-on-free-will">Thoughts on Free Will</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/19/facebook-is-killing-blogging">Facebook is killing blogging</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/16/a-great-moment">A great moment</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/07/nasa-curiosity-lands">NASA Curiosity Lands</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/03/blogging-again">Blogging Again</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("vkurup", 5, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/vkurup" class="twitter-follow-button" data-show-count="true">Follow @vkurup</a>
+  
+</section>
+
+
+<section>
+  <h1>My Pinboard</h1>
+  <ul id="pinboard_linkroll">Fetching linkroll...</ul>
+  <p><a href="http://pinboard.in/u:vkurup">My Pinboard Bookmarks &raquo;</a></p>
+</section>
+<script type="text/javascript">
+  var linkroll = 'pinboard_linkroll'; //id target for pinboard list
+  var pinboard_user = "vkurup"; //id target for pinboard list
+  var pinboard_count = 10; //id target for pinboard list
+  (function(){
+    var pinboardInit = document.createElement('script');
+    pinboardInit.type = 'text/javascript';
+    pinboardInit.async = true;
+    pinboardInit.src = '/javascripts/pinboard.js';
+    document.getElementsByTagName('head')[0].appendChild(pinboardInit);
+  })();
+</script>
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  <a rel="license"
+  href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Some rights
+  reserved</a> by <a rel="author" href="https://profiles.google.com/vvkurup/" title="View my Google Profile">Vinod Kurup</a> -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'vkurup';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

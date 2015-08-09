@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: pain | Vinod Kurup]]></title>
+  <link href="http://www.kurup.org/blog/categories/pain/atom.xml" rel="self"/>
+  <link href="http://www.kurup.org/"/>
+  <updated>2015-08-08T22:40:46-04:00</updated>
+  <id>http://www.kurup.org/</id>
+  <author>
+    <name><![CDATA[Vinod Kurup]]></name>
+    <email><![CDATA[vinod@kurup.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[oh, the pain!]]></title>
+    <link href="http://www.kurup.org/blog/2003/07/15/oh-the-pain"/>
+    <updated>2003-07-15T00:00:00-04:00</updated>
+    <id>http://www.kurup.org/blog/2003/07/15/oh-the-pain</id>
+    <content type="html"><![CDATA[<p>Ugh... I woke up this morning with a nagging pain in my right knee. It kinda improved through the day, so I wasn't too worried about it, but when I tried to run on it this evening, it really hurt. So I'm gonna keep to the bike for awhile. I remember having this problem (which I think is <a href="http://www.emedx.com/emedx/diagnosis_information/knee_disorders/patellar_tendonitis_outline.htm">patellar tendonitis</a>) during the <a href="/blog/2000/10/23/marathon">last marathon</a> and I remember that it got better pretty quick, so I'm praying it's the same this time.</p>
+]]></content>
+  </entry>
+  
+</feed>

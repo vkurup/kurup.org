@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: reference | Vinod Kurup]]></title>
+  <link href="http://www.kurup.org/blog/categories/reference/atom.xml" rel="self"/>
+  <link href="http://www.kurup.org/"/>
+  <updated>2015-08-08T22:40:46-04:00</updated>
+  <id>http://www.kurup.org/</id>
+  <author>
+    <name><![CDATA[Vinod Kurup]]></name>
+    <email><![CDATA[vinod@kurup.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Hospitalist Handbook]]></title>
+    <link href="http://www.kurup.org/blog/2005/08/22/hospitalist-handbook"/>
+    <updated>2005-08-22T00:00:00-04:00</updated>
+    <id>http://www.kurup.org/blog/2005/08/22/hospitalist-handbook</id>
+    <content type="html"><![CDATA[<p>If you're looking for a clear, concise handbook for Hospitalist Medicine, check out the <a href="http://medicine.ucsf.edu/education/resed/handbook/index.html">UCSF Hospitalist Handbook</a>, available free online. I'm not sure it's up-to-date (the copyright notice states 2002), but it still seems relevant and useful. And I'm not just saying that because my cousin Deepu Nair wrote the <a href="http://medicine.ucsf.edu/education/resed/handbook/HospH2002_C1.htm">Night Calls</a> section.</p>
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>You read my mind</b></p>
+<p>
+Vin you read my mind I have been waiting for a handbook on hospitalist
+medicine, thank you so much. Oh one more thing, Happy 34th, starting
+to feel older yet?
+</p>
+<address class="signature">
+<span class="author">Andy Drout</span>
+<span class="date">2005-08-22 21:08:12</span>
+</address>
+</div>
+
+<div class="one-comment">
+<p><b>Sandeep</b></p>
+<p>
+this is a cool site!  the wedding was so much fun!!! we can't wait for
+the whole family to get together like that again!
+</p>
+
+<p>
+from sandeep!!! hahaha
+</p>
+<address class="signature">
+<span class="author">Sandeep Nair</span>
+<span class="date">2005-09-08 02:48:43</span>
+</address>
+</div>
+
+</div>
+
+]]></content>
+  </entry>
+  
+</feed>

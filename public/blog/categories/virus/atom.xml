@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: virus | Vinod Kurup]]></title>
+  <link href="http://www.kurup.org/blog/categories/virus/atom.xml" rel="self"/>
+  <link href="http://www.kurup.org/"/>
+  <updated>2015-08-08T22:40:46-04:00</updated>
+  <id>http://www.kurup.org/</id>
+  <author>
+    <name><![CDATA[Vinod Kurup]]></name>
+    <email><![CDATA[vinod@kurup.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[New virus?]]></title>
+    <link href="http://www.kurup.org/blog/2003/08/20/new-virus"/>
+    <updated>2003-08-20T00:00:00-04:00</updated>
+    <id>http://www.kurup.org/blog/2003/08/20/new-virus</id>
+    <content type="html"><![CDATA[<p>I've been getting weird emails over the past day or so. The <code>From:</code> address is always different, there is no body text and there is an attachment called <code>your_document.pif</code>. The <code>From:</code> address is sometimes recognizable, but seems to be spoofed.</p>
+
+<p><a href="http://www.google.com/search?hl=en&amp;amp;ie=UTF-8&amp;amp;oe=UTF-8&amp;amp;q=your_document.pif">Google only gave me 1 document for "your_document.pif"</a> and that document states that <a href="http://www.f-secure.com/v-descs/sobig_f.shtml">this is a new virus called W32/Sobig.F-mm</a> (link changed due to 404). Not much info about it yet, but it seems pretty widespread.</p>
+
+<p><strong>Update:</strong> Wow, google only had 1 document for the above search when I wrote this a few hours ago and now it has 391! Looks like this virus is just taking off. <a href="http://www.local6.com/news/2420899/detail.html">Fastest. Virus. Ever.</a></p>
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>Sobig.F</b></p>
+<p>
+According to an article in today's paper (Milwaukee Journal Sentinel
+8/21/03) This was called the fastest growing virus ever by MessageLabs
+Inc. It halted CSX Transportation trains in Washington DC and infected
+more than 2000 computers at the University of Wisconsin Madison.  It
+infects PC's running Microsoft Windows, and turns PCs into relayers of
+spam e-mail clogging computer servers on the internet and crashing
+networks.  The subject line could say "Details", Thank You", or
+"Wicked screensaver". The virus doesn't appear to be destroying data
+or causing other lasting damage to the machines or networks it has
+infected.  You just have to face the daunting task of deleting a ton
+of virus e-mails.
+</p>
+<address class="signature">
+<span class="author">Andy Drout</span>
+<span class="date">2003-08-21 15:56:28</span>
+</address>
+</div>
+
+</div>
+
+]]></content>
+  </entry>
+  
+</feed>

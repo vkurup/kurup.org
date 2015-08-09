@@ -1,0 +1,1721 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title>Vinod Kurup</title>
+  <link href="http://www.kurup.org/blog/atom.xml" rel="self"/>
+  <link href="http://www.kurup.org"/>
+  <updated>2015-08-08T22:40:46-04:00</updated>
+  <generator uri="http://github.com/mojombo/jekyll">Jekyll</generator>
+  <id>http://www.kurup.org/blog/atom.xml</id>
+  <author>
+    <name>Vinod Kurup</name>
+    
+      <email>vinod@kurup.com</email>
+    
+    <uri>http://www.kurup.org</uri>
+  </author>
+
+  
+  <entry>
+    <title>Using dynamic queries in a CBV</title>
+    <link href="http://www.kurup.org/blog/2014/07/28/cbv-dynamic"/>
+    <updated>2014-07-28T22:08:00-04:00</updated>
+    <id>id:/blog/2014/07/28/cbv-dynamic</id>
+   <category scheme="http://www.kurup.org" term="django" />
+   <category scheme="http://www.kurup.org" term="programming" />
+   
+    <content type="html">&lt;p&gt;Let&amp;#8217;s play &amp;#8216;Spot the bug&amp;#8217;. We&amp;#8217;re building a simple system that shows photos. Each photo has a
+&lt;code&gt;publish_date&lt;/code&gt; and we should only show photos that have been published (i.e. their &lt;code&gt;publish_date&lt;/code&gt; is
+in the past).&lt;/p&gt;
+
+&lt;figure class=&#8217;code&#8217;&gt;&lt;figcaption&gt;&lt;span&gt;models.py&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line-number&#8217;&gt;1&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;2&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;3&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;4&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;5&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;python&#8217;&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;PhotoManager&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Manager&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;live&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;as_of&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;as_of&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;            &lt;span class=&quot;n&quot;&gt;as_of&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timezone&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_query_set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;publish_date__lte&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;as_of&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+&lt;p&gt;And the view to show those photos:&lt;/p&gt;
+
+&lt;figure class=&#8217;code&#8217;&gt;&lt;figcaption&gt;&lt;span&gt;views.py&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line-number&#8217;&gt;1&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;2&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;python&#8217;&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ShowPhotosView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ListView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;    &lt;span class=&quot;n&quot;&gt;queryset&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Hero&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;live&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+&lt;p&gt;Can you spot the bug? I sure didn&amp;#8217;t&amp;#8230; until the client complained that newly published photos never
+showed up on the site. Restarting the server fixed the problem temporarily. The newly published
+photos would show up, but then any photos published after the server restart again failed to
+display.&lt;/p&gt;
+
+&lt;p&gt;The problem is that the &lt;code&gt;ShowPhotosView&lt;/code&gt; class is instantiated when the server starts.
+&lt;code&gt;ShowPhotosView.queryset&lt;/code&gt; gets set to the value returned by &lt;code&gt;Hero.objects.live()&lt;/code&gt;. That, in turn, is a
+&lt;code&gt;QuerySet&lt;/code&gt;, but it&amp;#8217;s a &lt;code&gt;QuerySet&lt;/code&gt; with &lt;code&gt;as_of&lt;/code&gt; set to &lt;code&gt;timezone.now()&lt;/code&gt; &lt;em&gt;WHEN THE SERVER STARTS UP&lt;/em&gt;. That
+&lt;code&gt;as_of&lt;/code&gt; value never gets updated, so newer photos never get captured in the query.&lt;/p&gt;
+
+&lt;p&gt;There&amp;#8217;s probably multiple ways to fix this, but an easy one is:&lt;/p&gt;
+
+&lt;figure class=&#8217;code&#8217;&gt;&lt;figcaption&gt;&lt;span&gt;views.py&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line-number&#8217;&gt;1&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;2&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;3&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;python&#8217;&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ShowPhotosView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ListView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_queryset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Hero&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;live&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+&lt;p&gt;Now, instead of the queryset being instantiated at server start-up, it&amp;#8217;s instantiated only when
+&lt;code&gt;ShowPhotosView.get_queryset()&lt;/code&gt; is called, which is when a request is made.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Some Emacs Posts</title>
+    <link href="http://www.kurup.org/blog/2014/07/23/some-emacs-posts"/>
+    <updated>2014-07-23T21:38:00-04:00</updated>
+    <id>id:/blog/2014/07/23/some-emacs-posts</id>
+   <category scheme="http://www.kurup.org" term="emacs" />
+   <category scheme="http://www.kurup.org" term="programming" />
+   
+    <content type="html">&lt;p&gt;A few cool Emacs posts have flown across my radar, so I&amp;#8217;m noting them here for that time in the
+future when I have time to play with them.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://endlessparentheses.com/manually-choose-a-fallback-font-for-unicode.html&quot;&gt;Get unicode glyphs to show properly&lt;/a&gt;. (╯°□°）╯︵ ┻━┻&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://jr0cket.co.uk/2013/10/create-cool-slides&#8211;Org-mode-Revealjs.html/&quot;&gt;Creating slides with org-mode and Reveal.js&lt;/a&gt;.
+Finally, a sane way to create a presentation :)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/syohex/emacs-anzu&quot;&gt;Anzu&lt;/a&gt;: Improves incremental search. Anzu shows the number
+of matches found, and how many matches remain in the document.
+&lt;img src=&quot;https://github.com/syohex/emacs-anzu/raw/master/image/anzu.gif&quot;&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://from-the-cloud.com/en/emacs/2013/01/28_emacs-as-a-django-ide-with-python-djangoel.html&quot;&gt;Emacs as a Django IDE&lt;/a&gt;:
+I tried this out briefly, but didn&amp;#8217;t end up sticking with it. It seemed too heavyweight.
+I&amp;#8217;m probably just too used to my own workflow. I still think it&amp;#8217;s an interesting idea and would
+like to try it again sometime.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://emacsredux.com/blog/2014/07/22/travel-back-and-forward-in-git-history/&quot;&gt;Travel back and forth in git history&lt;/a&gt;:
+I&amp;#8217;m addicted to &lt;a href=&quot;http://www.emacswiki.org/emacs/Magit&quot;&gt;magit mode&lt;/a&gt;, to the point that the
+only git command I use manually nowadays is &lt;code&gt;git clone&lt;/code&gt;. I do everything else in magit. Magit has
+a &lt;code&gt;magit-blame-mode&lt;/code&gt; which shows when each line in a file was changed and by whom.
+&lt;code&gt;git-timemachine&lt;/code&gt; seems to take that a step further by visiting each revision, one by
+one. I can think of a few times where that would have been useful.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/omouse/emacs-sos&quot;&gt;Search StackOverflow from inside Emacs&lt;/a&gt;: Enough said.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/skeeto/elfeed&quot;&gt;Emacs RSS client&lt;/a&gt;: Still using NewsBlur, but totally miss
+Google Reader. Maybe I need to try this one out.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://sachachua.com/blog/series/read-lisp-tweak-emacs/&quot;&gt;Sacha Chua&amp;#8217;s minicourse on Elisp&lt;/a&gt;: Have
+to read through this someday!&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+  </entry>
+  
+  <entry>
+    <title>Pygments on Arch Linux</title>
+    <link href="http://www.kurup.org/blog/2014/07/22/pygments-py3"/>
+    <updated>2014-07-22T21:16:00-04:00</updated>
+    <id>id:/blog/2014/07/22/pygments-py3</id>
+   <category scheme="http://www.kurup.org" term="programming" />
+   
+    <content type="html">&lt;p&gt;I wrote my first blog post in a little while (ok, ok&amp;#8230; 18 months) yesterday and when I tried to
+generate the post, it failed. Silently failed, which is the worst kind of failure. I&amp;#8217;m still not
+sure why it was silent, but I eventually was able to force it to show me an error message:&lt;/p&gt;
+
+&lt;figure class=&#8217;code&#8217;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line-number&#8217;&gt;1&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;2&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;3&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;4&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;5&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;6&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;7&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;8&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;9&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;10&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;11&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;12&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;13&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;14&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;15&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;16&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;17&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;18&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;19&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;20&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;21&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;22&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;23&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;24&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;25&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;&lt;code class=&#8221;&gt;&lt;span class=&#8217;line&#8217;&gt;/home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/pygments.rb-0.3.4/lib/pygments/popen.rb:354:in `rescue in get_header&#8217;: Failed to get header. (MentosError)
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/pygments.rb-0.3.4/lib/pygments/popen.rb:335:in `get_header&#8217;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/pygments.rb-0.3.4/lib/pygments/popen.rb:232:in `block in mentos&#8217;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/1.9.1/timeout.rb:68:in `timeout&#8217;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/pygments.rb-0.3.4/lib/pygments/popen.rb:206:in `mentos&#8217;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/pygments.rb-0.3.4/lib/pygments/popen.rb:189:in `highlight&#8217;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  from /home/vinod/dev/kurup.org/plugins/pygments_code.rb:24:in `pygments&#8217;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  from /home/vinod/dev/kurup.org/plugins/pygments_code.rb:14:in `highlight&#8217;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  from /home/vinod/dev/kurup.org/plugins/backtick_code_block.rb:37:in `block in render_code_block&#8217;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  from /home/vinod/dev/kurup.org/plugins/backtick_code_block.rb:13:in `gsub&#8217;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  from /home/vinod/dev/kurup.org/plugins/backtick_code_block.rb:13:in `render_code_block&#8217;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  from /home/vinod/dev/kurup.org/plugins/octopress_filters.rb:12:in `pre_filter&#8217;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  from /home/vinod/dev/kurup.org/plugins/octopress_filters.rb:28:in `pre_render&#8217;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  from /home/vinod/dev/kurup.org/plugins/post_filters.rb:112:in `block in pre_render&#8217;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  from /home/vinod/dev/kurup.org/plugins/post_filters.rb:111:in `each&#8217;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  from /home/vinod/dev/kurup.org/plugins/post_filters.rb:111:in `pre_render&#8217;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  from /home/vinod/dev/kurup.org/plugins/post_filters.rb:166:in `do_layout&#8217;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/jekyll-0.12.0/lib/jekyll/post.rb:195:in `render&#8217;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/jekyll-0.12.0/lib/jekyll/site.rb:200:in `block in render&#8217;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/jekyll-0.12.0/lib/jekyll/site.rb:199:in `each&#8217;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/jekyll-0.12.0/lib/jekyll/site.rb:199:in `render&#8217;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/jekyll-0.12.0/lib/jekyll/site.rb:41:in `process&#8217;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/jekyll-0.12.0/bin/jekyll:264:in `&amp;lt;top (required)&amp;gt;&#8217;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  from /home/vinod/.rbenv/versions/1.9.3-p286/bin/jekyll:23:in `load&#8217;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  from /home/vinod/.rbenv/versions/1.9.3-p286/bin/jekyll:23:in `&amp;lt;main&amp;gt;&#8217;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+&lt;p&gt;Professor Google tells me that this happens when you try to
+&lt;a href=&quot;https://github.com/tmm1/pygments.rb/issues/45&quot;&gt;run the pygments.rb library in a Python 3 environment&lt;/a&gt;.
+(pygments.rb is a Ruby wrapper around the Python Pygments library). The fix is to run the code in a
+Python2 virtualenv. I guess the last time I updated my blog, Arch still had Python2 as the system
+default. No, I don&amp;#8217;t want to check how long ago that was.&lt;/p&gt;
+
+&lt;figure class=&#8217;code&#8217;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line-number&#8217;&gt;1&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;2&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;&lt;code class=&#8221;&gt;&lt;span class=&#8217;line&#8217;&gt;$ mkvirtualenv -p `which python2` my_blog
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;(my_blog)$ bundle exec rake generate&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+&lt;p&gt;So now I&amp;#8217;m running a Ruby command in a Ruby environment (rbenv) inside a Python 2 virtualenv. Maybe
+it&amp;#8217;s time to switch blog tools again&amp;#8230;&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>How to create test models in Django</title>
+    <link href="http://www.kurup.org/blog/2014/07/21/django-test-models"/>
+    <updated>2014-07-21T20:44:00-04:00</updated>
+    <id>id:/blog/2014/07/21/django-test-models</id>
+   <category scheme="http://www.kurup.org" term="django" />
+   <category scheme="http://www.kurup.org" term="programming" />
+   
+    <content type="html">&lt;p&gt;It&amp;#8217;s occasionally useful to be able to create a Django model class in your unit test suite. Let&amp;#8217;s
+say you&amp;#8217;re building a library which creates an
+&lt;a href=&quot;https://docs.djangoproject.com/en/dev/topics/db/models/#abstract-base-classes&quot;&gt;abstract model&lt;/a&gt;
+which your users will want to subclass. There&amp;#8217;s no need for your library to subclass it, but your
+library should still test that you can create a subclass and test out its features. If you create
+that model in your &lt;code&gt;models.py&lt;/code&gt; file, then Django will think that it is a real part of your library and
+load it whenever you (or your users) call &lt;code&gt;syncdb&lt;/code&gt;. That&amp;#8217;s bad.&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://code.djangoproject.com/ticket/7835#comment:24&quot;&gt;solution&lt;/a&gt; is to create it in a &lt;code&gt;tests.py&lt;/code&gt;
+file within your Django app. If it&amp;#8217;s not in &lt;code&gt;models.py&lt;/code&gt;, Django won&amp;#8217;t load it during &lt;code&gt;syncdb&lt;/code&gt;.&lt;/p&gt;
+
+&lt;figure class=&#8217;code&#8217;&gt;&lt;figcaption&gt;&lt;span&gt;tests.py&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line-number&#8217;&gt;1&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;2&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;3&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;4&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;5&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;6&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;7&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;8&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;9&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;10&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;11&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;python&#8217;&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.db&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.test&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TestCase&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;.models&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MyAbstractModel&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyTestModel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MyAbstractModel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;    &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CharField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max_length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AbstractTest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TestCase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test_my_test_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;assertTrue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MyTestModel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;foo&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+&lt;p&gt;A problem with this solution is that I rarely use a single &lt;code&gt;tests.py&lt;/code&gt; file. Instead we use multiple
+test files collected in a tests package. If you try to create a model in &lt;code&gt;tests/test_foo.py&lt;/code&gt;, then
+this approach fails because Django tries to create the model in an application named &lt;code&gt;tests&lt;/code&gt;, but
+there is no such app in INSTALLED_APPS. The solution is to set &lt;code&gt;app_label&lt;/code&gt; to the name of your app
+in an inner Meta class.&lt;/p&gt;
+
+&lt;figure class=&#8217;code&#8217;&gt;&lt;figcaption&gt;&lt;span&gt;tests/test_foo.py&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line-number&#8217;&gt;1&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;2&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;3&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;4&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;5&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;6&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;7&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;8&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;9&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;10&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;11&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;12&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;13&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;14&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;python&#8217;&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.db&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.test&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TestCase&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;..models&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MyAbstractModel&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyTestModel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MyAbstractModel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;    &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CharField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max_length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;    &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Meta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;        &lt;span class=&quot;n&quot;&gt;app_label&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;myappname&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AbstractTest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TestCase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test_my_test_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;assertTrue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MyTestModel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;foo&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+&lt;p&gt;Oh, and I almost forgot&amp;#8230; if you use &lt;a href=&quot;http://south.readthedocs.org/en/latest/index.html&quot;&gt;South&lt;/a&gt;,
+this might not work, unless you set &lt;code&gt;SOUTH_TESTS_MIGRATE&lt;/code&gt; to &lt;code&gt;False&lt;/code&gt; in your settings file.&lt;/p&gt;
+
+&lt;p&gt;Comments and corrections welcome!&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Peanut Allergy, a personal clinical review</title>
+    <link href="http://www.kurup.org/blog/2013/01/21/peanut-allergy-a-personal-clinical-review"/>
+    <updated>2013-01-21T07:49:22-05:00</updated>
+    <id>id:/blog/2013/01/21/peanut-allergy-a-personal-clinical-review</id>
+   <category scheme="http://www.kurup.org" term="family" />
+   <category scheme="http://www.kurup.org" term="medicine" />
+   
+    <content type="html">&lt;h2&gt;A Vignette&lt;/h2&gt;
+
+&lt;p&gt;A 22-month-old previously healthy girl was brought to the emergency
+room in respiratory distress. She had been well until the day of
+presentation. Shortly after disembarking from an airline flight, she
+developed cough with one episode of emesis. En route to the emergency
+room, her breathing became labored and she developed hives. She was
+diagnosed as having an allergic reaction and treated aggressively with
+IV methylprednisolone, IV diphenhydramine, inhaled albuterol, and
+oxygen. Mechanical ventilation was not required and her symptoms
+improved rapidly. She was monitored in the emergency room for an
+extended period and discharged in stable condition with a prescription
+for diphenhydramine and methylprednisolone solutions. No specific
+allergen was identified. She was seen by a pediatric allergist where
+she was found to have a 6 mm response to peanut on skin prick testing,
+and a peanut-specific IgE level of 52 kU/L. She was diagnosed as
+having severe peanut allergy and avoidance was strongly recommended.&lt;/p&gt;
+
+&lt;h2&gt;Discussion&lt;/h2&gt;
+
+&lt;p&gt;Peanut allergy affects between 0.4 and 2.0% of children. Prevalence
+has been increasing in recent years, but the reason for this increase
+is not well understood. If reactions are identified immediately,
+treatment is usually effective. Despite this, about 200 people die
+each year from peanut reactions. Biphasic reactions, in which the
+initial reaction subsides, but then recurs within a few hours, are
+common. The second portion of a biphasic reaction is often less
+treatable. Because of this risk, patients should be monitored for at
+least 4 hours after a reaction. Patients who successfully treat their
+own reactions with subcutaneous epinephrine should still seek medical
+attention, again to monitor for biphasic reactions.&lt;/p&gt;
+
+&lt;p&gt;The gold standard for diagnosis is a double blind placebo controlled
+food challenge (DBPCFC), but this is rarely done. A diagnosis can
+usually be reliably made with clinical history, skin prick testing and
+a peanut-specific IgE blood test (psIgE). A skin prick test involves
+pricking the skin with a needle that is exposed to peanut extract and
+measuring the allergic rash that develops. The psIgE blood test
+measures the amount of antibody against peanut proteins. The higher it
+is, the more allergic the patient is. A positive skin test or psIgE is
+not sufficient for the diagnosis. Some type of reaction to peanuts is
+required (either spontaneous, or via monitored food challenge).&lt;/p&gt;
+
+&lt;p&gt;Peanut allergy was previously felt to be permanent, but recent
+evidence documents that 20% of children outgrow their allergy. More
+than 60% of patients with an psIgE level of less than 5 passed a food
+challenge. IgE levels correlate inversely with likelihood of
+resolution, but this correlation is by no means perfect. Some patients
+with undetectable psIgE levels will fail a challenge, while some
+patients with very high psIgE levels will pass. One expert recommends
+waiting until the age of 4 to consider a challenge, and to use a
+cutoff psIgE level of less than 5 kU/L in most patients. Recurrence
+of peanut allergy after resolution is rare, but is associated with the
+lack of regular peanut intake after resolution of the allergy.&lt;/p&gt;
+
+&lt;p&gt;Controversy exists regarding risk factors for developing peanut
+allergy. The AAP initially recommended that peanut not be introduced
+early in a child&amp;#8217;s life, but rescinded that advice given the lack of
+evidence behind it. This leaves a void for parents as there is no
+recommendation to withold or introduce peanuts to toddlers. It is also
+not clear if maternal peanut intake during pregnancy or breast feeding
+increases the risk of developing peanut allergy in children. Studies
+have been conflicting, so more definitive studies are underway. No
+evidence-based advice can be given one way or the other to pregnant or
+breastfeeding women, but at the minimum, there is no good evidence to
+support avoiding peanuts.&lt;/p&gt;
+
+&lt;p&gt;The mainstay of treatment is education. Parents should be taught not
+only how to identify peanuts in foods, but to identify situations
+which are high-risk for exposure to peanuts. Avoidance of buffets,
+ice-cream parlors, and bakeries is recommended because the risk of
+cross-contamination in those setting is high. Religious reading of
+food labels is important. Patients who are allergic to peanuts are
+often also allergic to tree nuts, despite the dissimilarity in those
+food types. Highly refined peanut oil is usually &lt;em&gt;NOT&lt;/em&gt; a risk, but
+cold-pressed peanut oil is not safe.&lt;/p&gt;
+
+&lt;p&gt;Most importantly, an epi-pen should be carried at all times and extra
+doses should be left at daycare facilities and schools. All caregivers
+should be comfortable giving an epi-pen injection and this should be
+provided at the first sign of a systemic allergic reaction. Waiting to
+give diphenhydramine or other therapies a &amp;#8220;chance to work&amp;#8221; can be
+dangerous. Follow a &lt;a href=&quot;http://www.foodallergy.org/files/media/food-allergy-action-plan/FAAP.pdf&quot;&gt;Food Allergy Action
+Plan&lt;/a&gt;
+Over 80% of people who died from allergic reactions were not given
+appropriate instructions on how to prevent future reactions. Most
+mortality occurs because of late treatment. If you take one thing away
+from this long post, keep an epi-pen handy and use it liberally.&lt;/p&gt;
+
+&lt;p&gt;Trials are underway investigating various oral-based immunotherapies,
+but none are strongly recommended at this point. Injection
+immunotherapy has not been found to be useful.&lt;/p&gt;
+
+&lt;h2&gt;Personal Comment&lt;/h2&gt;
+
+&lt;p&gt;So, the 22 month old above is Anika and she gave us the scare of our
+life a couple years ago. The scary part now is that we never saw her
+actually eat a peanut, so we&amp;#8217;re especially vigilant now. Fortunately,
+Anika seems to understand the importance of avoiding peanuts. When she
+was diagnosed, I did some research but never documented my notes. She
+recently had another allergist appointment, so I reviewed those notes
+and any new data. I figured I should write up my notes so I wouldn&amp;#8217;t
+have to review this again from scratch every year. I didn&amp;#8217;t intend it
+to come out so &amp;#8216;medical-speaky&amp;#8217;, but there it is. Anika and Kavi are
+sitting next to me as I write this and they want to give some
+information to you, too.&lt;/p&gt;
+
+&lt;p&gt;Kavi says:&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;&amp;#8220;Always ask at the restaurant if things have peanuts and make foods
+at home that do not have peanuts. Always check if there are peanuts in
+every food you eat.&amp;#8221;&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;Anika says:&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;&amp;#8220;We might have to go to the doctor if we eat peanuts. If I eat
+peanuts by accident, my teacher will give me a Happy-Pen (epi-pen).&amp;#8221;&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h2&gt;References&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Sampson HA. Peanut Allergy. N Engl J Med, 2002;346;1294-8.
+http://www.nejm.org/doi/full/10.1056/NEJMcp012667&lt;/li&gt;
+&lt;li&gt;Fleischer DM, et. al. The natural progression of peanut allergy:
+Resolution and the possibility of recurrence. J Allergy Clin
+Immunol, 2003;112;183-9.
+http://www.jacionline.org/article/S0091-6749(03)01251-X/abstract&lt;/li&gt;
+&lt;li&gt;O&amp;#8217;B Hourihane J. Peanut Allergy. Pediatr Clin N Am, 2011;58;445-57.
+http://www.pediatric.theclinics.com/article/S0031-3955(11)00006-X/abstract&lt;/li&gt;
+&lt;li&gt;Rinaldi M, et. al. Peanut allergy diagnoses among children
+residing in Olmstead County, Minnesota. J Allergy Clin Immunol, 2012:130:945-50.&lt;/li&gt;
+&lt;li&gt;Burks AW. Early peanut consumption: postpone or promote? J Allergy
+Clin Immunol. 2009:123:417-423.
+http://www.jacionline.org/article/S0091-6749(08)02436-6/fulltext&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h2&gt;RSS URL:&lt;/h2&gt;
+
+&lt;p&gt;Here&amp;#8217;s a
+&lt;a href=&quot;http://eutils.ncbi.nlm.nih.gov/entrez/eutils/erss.cgi?rss_guid=1t7jLQ&#8211;MCbUSbgzXRNqEMLPWIMWlZiqoEMdLvUTNUIFZ-UsA4&quot;&gt;medline feed URL&lt;/a&gt;
+that I monitor which should show new studies or reviews related to
+this topic.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Priorities and GTD</title>
+    <link href="http://www.kurup.org/blog/2013/01/17/priorities-and-gtd"/>
+    <updated>2013-01-17T13:38:07-05:00</updated>
+    <id>id:/blog/2013/01/17/priorities-and-gtd</id>
+   <category scheme="http://www.kurup.org" term="gtd" />
+   
+    <content type="html">&lt;p&gt;Pre-GTD task management systems recommended that you assign a priority
+to each task. When looking at a list of tasks, you then choose the
+ones with the highest priority. David Allen (author of GTD) includes
+&amp;#8216;priority&amp;#8217; as one of the things that you should consider when you are
+deciding what to do, but only after you have considered context, time
+available, and energy available. Which makes sense. As Merlin Mann
+says, it doesn&amp;#8217;t matter if mowing your lawn is your highest priority
+when you&amp;#8217;re sitting in an airplane. Only if you&amp;#8217;re in the right
+context with the right amount of time and the right amount of energy,
+should you consider which of the remaining available tasks is highest
+priority.&lt;/p&gt;
+
+&lt;p&gt;The risk, though, is that there are so many little &amp;#8216;easy&amp;#8217; tasks that I
+could do instead of important, &amp;#8216;hard&amp;#8217; tasks. I&amp;#8217;m also really good at
+convincing myself that I don&amp;#8217;t have the energy available to do harder
+tasks when I really should. So when I get back into GTD, I process all
+the things hiding in the back of my brain which leads to the creation
+of lots of simple tasks. Google this, buy that, throw away the other
+thing. But the two things that I really want to be doing more are
+writing and programming. Both of those take blocks of uninterrupted
+time and effort, so I end up subconsciously shying away from them. I
+actually feel better about it, too, because now I have all these other
+tasks that I can do instead. So, I feel productive, even when ignoring
+the more important things that I should be doing. I&amp;#8217;m moving more
+efficiently, but in the wrong direction.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;ve avoided that a little bit this time by doing a little bit of
+prioritization each night before I go to bed. I look through my todo
+list and pick about 3-5 things that I want to get done the next day. I
+tag those with the &amp;#8216;today&amp;#8217; tag and then the next morning I look at
+that list and start working on those things before doing anything
+else. I&amp;#8217;ve heard this
+&lt;a href=&quot;http://gettingresults.com/wiki/The_Rule_of_3&quot;&gt;trick&lt;/a&gt; from a lot of
+people before, so I don&amp;#8217;t remember who I heard it from first.&lt;/p&gt;
+
+&lt;p&gt;So far it&amp;#8217;s been effective for me. The problem always starts again
+though when I go back on service, because then I can only really focus
+on one thing and that is getting my work done at the hospital. We&amp;#8217;ll
+see if I can somehow figure out a way to get at least one non-work
+thing done on each of those days.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>GTD again?</title>
+    <link href="http://www.kurup.org/blog/2013/01/16/gtd-again"/>
+    <updated>2013-01-16T09:27:03-05:00</updated>
+    <id>id:/blog/2013/01/16/gtd-again</id>
+   <category scheme="http://www.kurup.org" term="gtd" />
+   
+    <content type="html">&lt;p&gt;Thanks to
+&lt;a href=&quot;http://5by5.tv/b2w/95&quot;&gt;Merlin Mann&amp;#8217;s recent series of podcasts on GTD&lt;/a&gt;,
+I&amp;#8217;m getting back on the GTD wagon (for about the 100th time). I read
+&lt;a href=&quot;http://www.davidco.com/&quot;&gt;Getting Things Done&lt;/a&gt; in 2002 and have been
+trying to implement it ever since. I&amp;#8217;ve had periods where I followed
+it religiously for a month at a time, but it&amp;#8217;s never completely stuck.
+From what I hear, this is normal and I accept it now. This won&amp;#8217;t be
+the last time that I restart GTD. Even when I&amp;#8217;m not actively using
+GTD, I think in GTD terms, thinking about next actions and projects
+and ruthlessly placing projects on the backburner. I just have trouble
+sticking with the entire GTD workflow, especially the ubiquitous
+capture (I trust my brain too much) and the weekly reviews (they just
+seem too painful). I&amp;#8217;ve used every online and offline tool in the
+book, too. Despite not doing so great with GTD, I&amp;#8217;d say my life is an
+overwhelming success.&lt;/p&gt;
+
+&lt;p&gt;So why try again? Each time I have gotten back on the bandwagon, I&amp;#8217;ve
+had a surge in productivity. I wrote more. I made some clear decisions
+on issues that I had been procrastinating on. I wouldn&amp;#8217;t be surprised
+if each of my major life improvements over the past 10 years was
+associated with a time where I got back on the GTD wagon. I can&amp;#8217;t
+prove that, because I don&amp;#8217;t keep enough details, but I always feel
+better and think clearer when I&amp;#8217;m on GTD.&lt;/p&gt;
+
+&lt;p&gt;But, I&amp;#8217;ve failed so many times&amp;#8230; what kind of hubris makes me think
+I&amp;#8217;ll get it this time?
+&lt;a href=&quot;http://www.quotationspage.com/quote/36285.html&quot;&gt;&amp;#8220;Fall down seven times, get up eight.&amp;#8221;&lt;/a&gt;
+Parenthood has taught this to me. Of course we don&amp;#8217;t expect our kids
+to learn each skill the first time they try. We expect that walking
+and reading and writing and bike-riding will take time, multiple
+efforts, and multiple failures. But eventually they will get it. Yet,
+with each failure, kids get upset (to varying degrees). The answer at
+that point is not to tell them to give up. Yet, that&amp;#8217;s what I do to
+myself. So, I&amp;#8217;m going to treat myself like a kid and let myself fail,
+understanding that each failure will get me closer to that one time
+where I will succeed.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Writing paralysis</title>
+    <link href="http://www.kurup.org/blog/2013/01/15/writing-paralysis"/>
+    <updated>2013-01-15T14:45:09-05:00</updated>
+    <id>id:/blog/2013/01/15/writing-paralysis</id>
+   <category scheme="http://www.kurup.org" term="instrospection" />
+   <category scheme="http://www.kurup.org" term="writing" />
+   
+    <content type="html">&lt;p&gt;I think twitter and facebook stunt my writing. The more that I read
+tweets, the more self-conscious I get when I write. Not that my
+writing is all that original, but I still feel that it is something
+that comes from me. I worry so much about presenting ideas of others
+as my own without even remembering that I had seen the ideas before.
+In the old days, the things that I read were long form. Books,
+articles, maybe blog posts. They each left an impression on me, maybe
+good, maybe bad, but I had a sense where they were coming from. When I
+wrote I could reliably say where the inspiration for my idea had come
+from. Now with twitter, I see all these ideas and thoughts, some of
+which are interesting, but few of which leave a lasting impression on
+me. So now I have this fear that the things that I am considering my
+own ideas are actually the ideas of others, improperly attributed. Of
+course, that&amp;#8217;s silly. No idea is original, but it&amp;#8217;s just serious
+enough to stifle my writing. Because, as a writer, I am the
+scaredy-cat of all scaredy-cats and any criticism of my writing bites
+deep to the heart. I also know that this is something that I just need
+to get over. You cannot express ideas without inviting criticism.
+I also don&amp;#8217;t just want to let criticism fall off me. I want to learn
+from critics. But saying all that doesn&amp;#8217;t necessarily make it any
+easier. Even writing this post, I feel like a fraud. I&amp;#8217;ve said that
+I&amp;#8217;m a writer a couple times up there, but what evidence do I have to
+support that claim? Most of my blog posts are so simple or technical
+or repetitive. Nothing that would strike me as an &amp;#8216;original idea&amp;#8217;.
+This whole post makes it seem like I am more important or better than
+I really am.&lt;/p&gt;
+
+&lt;p&gt;What is my point with all this? I want to be able to write. I know
+that there are people out there who could benefit from things in my
+brain (maybe not a lot). I know that there are people out there who
+can help me (in ways that I can&amp;#8217;t even expect). So, I want to write
+and I want it to be freely flowing and I don&amp;#8217;t want to force myself to
+feel that what I am writing is useful or authoritative or perfect. I
+apologize to you, Vinod, my biggest critic. I know that you are
+cringing inside because you&amp;#8217;re thinking that anyone who reads this
+will think that you are so full of yourself for even considering
+yourself a writer. But, this is my first step in letting my guard down
+to get this blog flowing. Because I do believe that writing is healthy
+and will make me a better person.&lt;/p&gt;
+
+&lt;p&gt;In addition to committing to blogging more frequently, I&amp;#8217;m also going
+to try a twitter hiatus for a week and see what happens.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Steal My Web App Idea</title>
+    <link href="http://www.kurup.org/blog/2013/01/09/steal-my-web-app-idea"/>
+    <updated>2013-01-09T22:00:01-05:00</updated>
+    <id>id:/blog/2013/01/09/steal-my-web-app-idea</id>
+   <category scheme="http://www.kurup.org" term="idea" />
+   <category scheme="http://www.kurup.org" term="web" />
+   
+    <content type="html">&lt;p&gt;Now that we have 3 kids, I&amp;#8217;m always internally comparing one to the
+other. Sure that&amp;#8217;s not healthy and will probably breed resentment in
+them during their teenage years, but what&amp;#8217;s a bad parent to do?&lt;/p&gt;
+
+&lt;p&gt;I need an app that takes 2 kids&amp;#8217; birthdays and then shows me what day
+it was when the older kid was the age that the younger kid is now.
+Wow, that&amp;#8217;s a confusing sentence. In simpler terms, if I have a
+3-year-old and a 1-year-old, then the app would show me the day that
+the 3-year-old was 1.&lt;/p&gt;
+
+&lt;p&gt;Then, I want the app to take that date and go through all of my
+personal files (photos, notes, twitter stream, facebook stream, etc.)
+and show me what was happening in our life around that day.&lt;/p&gt;
+
+&lt;p&gt;In short, it would show a snapshot of what our life was like when the
+older kid was the age that the younger kid is now. I&amp;#8217;d call it
+WhenIWasYourAge or something catchy like that.&lt;/p&gt;
+
+&lt;p&gt;Seems simple enough to build, but I don&amp;#8217;t see myself getting to it
+anytime soon. Smart people say to set your ideas free and if they love
+you they&amp;#8217;ll come back. (Wait, I think I&amp;#8217;m mixing metaphors here).&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>How to change the rear tire on a 12 inch bicycle</title>
+    <link href="http://www.kurup.org/blog/2012/12/30/how-to-change-the-rear-tire-on-a-12-inch-bicycle"/>
+    <updated>2012-12-30T15:00:40-05:00</updated>
+    <id>id:/blog/2012/12/30/how-to-change-the-rear-tire-on-a-12-inch-bicycle</id>
+   <category scheme="http://www.kurup.org" term="howto" />
+   
+    <content type="html">&lt;p&gt;I&amp;#8217;m not the handiest guy in the world, so I&amp;#8217;m pretty proud that I was
+able to fix a flat tire on Kavi&amp;#8217;s 12&amp;#8221; bicycle.&lt;/p&gt;
+
+&lt;p&gt;DISCLAIMER: I have almost no idea what I&amp;#8217;m doing. Follow my
+instructions at your peril.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;ve fixed flats before, but it&amp;#8217;s been a long time. Fixing it on such
+a tiny bike was a lot harder than I thought. The manual makes it seem
+so simple. &amp;#8220;Remove the wheel, take the tube out, patch the tube and
+then replace the tube and tire.&amp;#8221; Right&amp;#8230; I got stuck at step 1.
+Removing the wheel isn&amp;#8217;t straightforward. Most of the videos available
+online focus on adult-sized bikes which have quick-release tires. You
+pull a release lever back and then pull the tire off. Kids bikes have
+bolts instead of quick-release levers. You have to loosen the bolts,
+but you don&amp;#8217;t have to take the bolts completely off. You also have to
+take off the plastic chain guard that prevents kids from rubbing their
+legs against the chain. Finally, there&amp;#8217;s this little metal piece that
+attaches the wheel to the frame. I think it&amp;#8217;s there for the
+pedal-brake to work. In any case, you have to take that off. Once the
+wheel is loosened, you have to unhook the wheel from the chain. This
+is also easier in big bikes which have multiple gears, making it
+possible to place the chain in a position to easily get it off the
+wheel. In a kid&amp;#8217;s bike, it&amp;#8217;s harder. Once I loosened the bolts on both
+sides of the wheel, I pushed the wheel a little forward, which
+loosened the chain and made it easy to release from the chain.&lt;/p&gt;
+
+&lt;p&gt;The next difficulty was getting the tube out of the tire. All the
+videos make this seem so easy. Place a tire lever in the tire to pull
+it over the rim. Put another tire lever in and slide it around the rim
+to get the rest of the tire out. Kavi&amp;#8217;s tires are so tight that this
+was impossible. I could get the first tire lever in, but when I put
+the second tire lever in, it was completely immovable. There was no
+way that I was going to be able to slide it anywhere. I finally found
+a website where they recommended using a third tire lever. Put the
+first two in a few inches apart. Then put the third one in another
+inch away from the second one. Finally remove the middle one and move
+it an inch past the third one. In this way, I was able to get the tire
+off eventually.&lt;/p&gt;
+
+&lt;p&gt;I then got the tube out and found the leak. I placed a patch on it,
+but when I reinflated the tire, the leaking air just pushed it&amp;#8217;s way
+through the patch. I tried roughing up the area with the roughing
+tool, but that didn&amp;#8217;t help. Finally, I resorted to the layman&amp;#8217;s
+favorite tool: duct tape. I placed the patch, then wrapped it with
+duct tape. It&amp;#8217;s held together for a few months now.&lt;/p&gt;
+
+&lt;p&gt;Hopefully Kavi will graduate to the next size bike before my handiwork
+breaks down. On another note, Kavi was easily able to pick up the
+basics of riding a bike by following the
+&lt;a href=&quot;http://www.rei.com/learn/expert-advice/teach-child-to-ride-a-bike.html&quot;&gt;REI guide&lt;/a&gt;.
+I took off the training wheels and the pedals, which allowed him to
+get the feeling of balancing the bike without having to keep his feet
+on the pedals. Once he got that part, it was relatively easy for him
+to balance with the pedals on. He also proved to be a much tougher kid
+than I was. Everytime he fell, he got right back on.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>NSBrief gets the best guests</title>
+    <link href="http://www.kurup.org/blog/2012/11/05/nsbrief-gets-the-best-guests"/>
+    <updated>2012-11-05T10:38:09-05:00</updated>
+    <id>id:/blog/2012/11/05/nsbrief-gets-the-best-guests</id>
+   <category scheme="http://www.kurup.org" term="openacs" />
+   <category scheme="http://www.kurup.org" term="programming" />
+   
+    <content type="html">&lt;p&gt;I&amp;#8217;m not an OS X programmer, but I&amp;#8217;ve really enjoyed 2 recent episodes
+of the &lt;a href=&quot;http://nsbrief.com/&quot;&gt;NSBrief&lt;/a&gt; podcast. First was &lt;a href=&quot;http://nsbrief.com/59-mark-dalrymple&quot;&gt;Mark
+Dalrymple&amp;#8217;s interview&lt;/a&gt;. Here was
+my 140 character description:&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p&gt;So much geeky fun in @&lt;a href=&quot;https://twitter.com/borkware&quot;&gt;borkware&lt;/a&gt;&amp;#8217;s interview. AOLserver, dtrace, OpenDoc, MPW, need I go on? &lt;a href=&quot;http://t.co/JWPPvfaa&quot; title=&quot;http://nsbrief.com/59-mark-dalrymple&quot;&gt;nsbrief.com/59-mark-dalrym…&lt;/a&gt;&lt;/p&gt;&amp;mdash; Vinod Kurup (@vkurup) &lt;a href=&quot;https://twitter.com/vkurup/status/235907385997262848&quot; data-datetime=&quot;2012-08-16T01:14:38+00:00&quot;&gt;August 16, 2012&lt;/a&gt;&lt;/blockquote&gt;
+
+
+&lt;script src=&quot;http://www.kurup.org//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Today, I listened to
+&lt;a href=&quot;http://nsbrief.com/62-mark-aufflick&quot;&gt;Mark Aufflick&amp;#8217;s interview&lt;/a&gt; where
+he talks eloquently about starting your own business. I love the
+perspective he had on his first business and how shutting it down gave
+him the necessary (though painful) experience to make his current
+business work. He also talked about the importance of computing
+history especially given the availability of interesting subjects. He
+ended with great advice on the importance of professionalism.
+Paraphrased: &amp;#8220;Make sure your team is the most professional side of any
+relationship.&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;I know &lt;a href=&quot;http://borkware.com&quot;&gt;Mark&lt;/a&gt; and
+&lt;a href=&quot;http://mark.aufflick.com/&quot;&gt;Mark&lt;/a&gt; from the
+&lt;a href=&quot;http://openacs.org&quot;&gt;OpenACS&lt;/a&gt; glory days and it&amp;#8217;s great to hear how
+well they&amp;#8217;re doing. Computing history was a prominent part of both
+talks. I think this is important. Old ideas are always new again. Some
+of the ideas that these pioneers had were only limited by the
+horsepower we had to work with at the time. Now thanks to Moore&amp;#8217;s law,
+those limitations are gone, so we should re-investigate those ideas.
+Or maybe we&amp;#8217;re all just getting old and like to talk about the
+good-old-days. :-) It&amp;#8217;s nice to see that they both mentioned the
+OpenACS period of their programming lives as important. It certainly
+was for me. It was also great to hear Mark Aufflick&amp;#8217;s voice for the
+first time, even though I feel like he&amp;#8217;s been a friend for many years.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Emacs for Python Programming</title>
+    <link href="http://www.kurup.org/blog/2012/10/24/emacs-for-python-programming"/>
+    <updated>2012-10-24T16:45:49-04:00</updated>
+    <id>id:/blog/2012/10/24/emacs-for-python-programming</id>
+   <category scheme="http://www.kurup.org" term="emacs" />
+   <category scheme="http://www.kurup.org" term="programming" />
+   <category scheme="http://www.kurup.org" term="python" />
+   
+    <content type="html">&lt;p&gt;(Note: See the bottom of this post for updates)&lt;/p&gt;
+
+&lt;p&gt;I was honored to to give my
+&lt;a href=&quot;https://speakerdeck.com/vkurup/emacs-for-python-programming&quot;&gt;&amp;#8220;Emacs for Python Programming&amp;#8221;&lt;/a&gt;
+talk at the inaugural &lt;a href=&quot;http://pycarolinas.org&quot;&gt;PyCarolinas&lt;/a&gt;
+conference. The conference was a huge success in every way, thanks to
+the efforts of &lt;a href=&quot;http://www.ironfroggy.com/&quot;&gt;Calvin Spealman&lt;/a&gt;, et. al.
+I promised that I would post my Emacs setup, so here it is.&lt;/p&gt;
+
+&lt;h2&gt;Step 0: Prerequisites&lt;/h2&gt;
+
+&lt;p&gt;This may work with other setups, but here&amp;#8217;s what I tested:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Linux&lt;/li&gt;
+&lt;li&gt;Emacs version 24&lt;/li&gt;
+&lt;li&gt;python 2.7 or 3.3&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pypi.python.org/pypi/pip&quot;&gt;pip&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.virtualenv.org/&quot;&gt;virtualenv&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://virtualenvwrapper.readthedocs.org/&quot;&gt;virtualenvwrapper&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;git&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;Step 1: Clear out any previous customization&lt;/h2&gt;
+
+&lt;p&gt;As evidenced by the numerous blog posts documenting how to set this
+up, it&amp;#8217;s not straightforward. I recommend starting from scratch to
+make sure everything is set up properly. Once you have it working,
+then you can customize it. Make sure to start these commands in your
+home directory.&lt;/p&gt;
+
+&lt;figure class=&#8217;code&#8217;&gt; &lt;div class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line-number&#8217;&gt;1&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;2&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;bash&#8217;&gt;&lt;span class=&#8217;line&#8217;&gt;vinod:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mkdir old-emacs
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;vinod:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mv .emacs .emacs.d old-emacs/
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+&lt;h2&gt;Step 2: Set up initial Emacs configuration&lt;/h2&gt;
+
+&lt;p&gt;Create an empty &lt;code&gt;.emacs.d&lt;/code&gt; directory and a subdirectory named with your
+username. My username is &lt;code&gt;vinod&lt;/code&gt;, so we&amp;#8217;ll create a directory
+structure called &lt;code&gt;.emacs.d/vinod/&lt;/code&gt;. The emacs-starter-kit tells emacs
+to automatically load any elisp files from that special directory, so
+you&amp;#8217;ll always have a place to drop custom elisp files.&lt;/p&gt;
+
+&lt;figure class=&#8217;code&#8217;&gt; &lt;div class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line-number&#8217;&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;bash&#8217;&gt;&lt;span class=&#8217;line&#8217;&gt;vinod:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mkdir -p ~/.emacs.d/&lt;span class=&quot;nv&quot;&gt;$USER&lt;/span&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+&lt;p&gt;Create a file named &lt;code&gt;.emacs.d/init.el&lt;/code&gt; with the following contents:&lt;/p&gt;
+
+&lt;figure class=&#8217;code&#8217;&gt;&lt;figcaption&gt;&lt;span&gt;my-init.el&lt;/span&gt;&lt;a href=&#8217;https://gist.github.com/3948955&#8217;&gt;link&lt;/a&gt;&lt;/figcaption&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line-number&#8217;&gt;1&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;2&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;3&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;4&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;5&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;6&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;7&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;8&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;9&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;10&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;11&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;12&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;13&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;14&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;15&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;16&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;17&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;18&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;19&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;20&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;21&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;22&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;23&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;24&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;25&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;26&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;27&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;28&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;29&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;30&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;31&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;32&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;33&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;34&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;35&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;36&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;37&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;38&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;39&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;40&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;41&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;42&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;43&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;44&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;45&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;46&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;47&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;48&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;49&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;50&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;51&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;52&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;53&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;54&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;55&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;56&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;57&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;58&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;59&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;60&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;61&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;62&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;63&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;64&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;65&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;66&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;67&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;68&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;69&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;70&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;71&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;72&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;73&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;74&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;75&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;76&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;77&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;78&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;79&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;80&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;81&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;82&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;83&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;84&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;85&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;86&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;scm&#8217;&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;&amp;#39;package&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;add-to-list&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;&amp;#39;package-archives&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;marmalade&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;http://marmalade-repo.org/packages/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;add-to-list&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;&amp;#39;package-archives&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;melpa&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;http://melpa.milkbox.net/packages/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;package-initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;not &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;package-archive-contents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;package-refresh-contents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;defvar&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;my-packages&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;starter-kit&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;                      &lt;span class=&quot;nv&quot;&gt;starter-kit-bindings&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;                      &lt;span class=&quot;nv&quot;&gt;starter-kit-js&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;                      &lt;span class=&quot;nv&quot;&gt;autopair&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;                      &lt;span class=&quot;nv&quot;&gt;yasnippet&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;                      &lt;span class=&quot;nv&quot;&gt;auto-complete&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;                      &lt;span class=&quot;nv&quot;&gt;fuzzy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  &lt;span class=&quot;s&quot;&gt;&amp;quot;A list of packages to ensure are installed at launch.&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;dolist&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;my-packages&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;not &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;package-installed-p&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;package-install&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;c1&quot;&gt;;; autopair and yas in all modes&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;autopair-global-mode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;yas-global-mode&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;c1&quot;&gt;;; autocomplete&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;&amp;#39;auto-complete-config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setq&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;ac-dictionary-files&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;list &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;concat&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;user-emacs-directory&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;.dict&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ac-config-default&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;c1&quot;&gt;;; hack to fix ac-sources after pycomplete.el breaks it&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;add-hook&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;&amp;#39;python-mode-hook&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;          &lt;span class=&quot;o&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;             &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setq&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;ac-sources&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ac-source-pycomplete&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;                                &lt;span class=&quot;nv&quot;&gt;ac-source-abbrev&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;                                &lt;span class=&quot;nv&quot;&gt;ac-source-dictionary&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;                                &lt;span class=&quot;nv&quot;&gt;ac-source-words-in-same-mode-buffers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))))&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;c1&quot;&gt;;; Set up python-mode&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setq&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;py-install-directory&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;concat&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;esk-user-dir&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;/python-mode.el-6.0.12/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;add-to-list&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;&amp;#39;load-path&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;py-install-directory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;c1&quot;&gt;;; this will show method signatures while typing&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setq&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;py-set-complete-keymap-p&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;&amp;#39;python-mode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;c1&quot;&gt;;; activate the virtualenv where Pymacs is located&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;virtualenv-workon&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;default/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;defun&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;load-pycomplete&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  &lt;span class=&quot;s&quot;&gt;&amp;quot;Load and initialize pycomplete.&amp;quot;&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;interactive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;let* &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;pyshell&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;py-choose-shell&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;         &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;getenv&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;PYTHONPATH&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setenv&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;PYTHONPATH&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;concat&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;                          &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;expand-file-name&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;py-install-directory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;completion&amp;quot;&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;                          &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;concat&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;path-separator&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))))&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;py-install-directory-check&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;        &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;progn&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;          &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setenv&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;PYMACS_PYTHON&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;string-match&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;IP&amp;quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;pyshell&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;                                      &lt;span class=&quot;s&quot;&gt;&amp;quot;python&amp;quot;&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;                                    &lt;span class=&quot;nv&quot;&gt;pyshell&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;          &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;autoload&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;&amp;#39;pymacs-apply&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;pymacs&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;          &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;autoload&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;&amp;#39;pymacs-call&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;pymacs&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;          &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;autoload&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;&amp;#39;pymacs-eval&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;pymacs&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;          &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;autoload&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;&amp;#39;pymacs-exec&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;pymacs&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;          &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;autoload&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;&amp;#39;pymacs-load&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;pymacs&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;          &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;load &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;concat&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;py-install-directory&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;completion/pycomplete.el&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;nil&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;          &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;add-hook&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;&amp;#39;python-mode-hook&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;&amp;#39;py-complete-initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;      &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;`py-install-directory&amp;#39; not set, see INSTALL&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))))&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;eval-after-load&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;&amp;#39;pymacs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;load-pycomplete&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;c1&quot;&gt;;; pyflakes flymake integration&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;c1&quot;&gt;;; http://stackoverflow.com/a/1257306/347942&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;load &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;flymake&amp;quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;defun&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;flymake-pyflakes-init&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;let* &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;temp-file&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;flymake-init-create-temp-buffer-copy&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;                       &lt;span class=&quot;ss&quot;&gt;&amp;#39;flymake-create-temp-inplace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;           &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;local-file&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;file-relative-name&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;                        &lt;span class=&quot;nv&quot;&gt;temp-file&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;                        &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;file-name-directory&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;buffer-file-name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))))&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;      &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;list &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;pycheckers&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;list &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;local-file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))))&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;add-to-list&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;&amp;#39;flymake-allowed-file-name-masks&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;               &lt;span class=&quot;o&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&#92;.py&#92;&amp;#39;&amp;quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;flymake-pyflakes-init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;add-hook&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;&amp;#39;python-mode-hook&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;&amp;#39;flymake-mode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;c1&quot;&gt;;; menu bar is useful when getting started&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;menu-bar-mode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setq-default&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;default-tab-width&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+&lt;h2&gt;Step 3: Create a python virtualenv&lt;/h2&gt;
+
+&lt;p&gt;We&amp;#8217;ll keep all the python-side customization in a virtualenv named
+&lt;code&gt;default&lt;/code&gt;. It&amp;#8217;s important that the name you choose is the same as the
+name in the &lt;code&gt;(virtualenv-workon)&lt;/code&gt; command in line 45 of Step 2.&lt;/p&gt;
+
+&lt;figure class=&#8217;code&#8217;&gt; &lt;div class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line-number&#8217;&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;bash&#8217;&gt;&lt;span class=&#8217;line&#8217;&gt;vinod:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mkvirtualenv -p python2 default
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+&lt;p&gt;After it does its thing, your shell prompt should change, indicating
+that your new virtualenv is activated&lt;/p&gt;
+
+&lt;figure class=&#8217;code&#8217;&gt; &lt;div class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line-number&#8217;&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;bash&#8217;&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;vinod:~&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+&lt;h2&gt;Step 4: Install Pymacs&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://pymacs.progiciels-bpi.ca/index.html&quot;&gt;Pymacs&lt;/a&gt; is a really cool
+piece of software that sets up a 2 way communication between Emacs and
+Python, allowing you to control Emacs with python commands rather than
+elisp commands. It requires a python piece (&lt;code&gt;Pymacs.py&lt;/code&gt;) and an Emacs
+piece (&lt;code&gt;pymacs.el&lt;/code&gt;). Unfortunately, they&amp;#8217;re not installable via &lt;code&gt;pip&lt;/code&gt;
+or &lt;code&gt;package.el&lt;/code&gt;, but installation is easy enough.&lt;/p&gt;
+
+&lt;figure class=&#8217;code&#8217;&gt; &lt;div class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line-number&#8217;&gt;1&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;2&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;3&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;4&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;5&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;6&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;7&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;8&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;9&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;10&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;11&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;12&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;13&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;bash&#8217;&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;vinod:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mkdir src
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;vinod:~/src&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;src
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;vinod:~/src&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git clone git://github.com/pinard/Pymacs.git
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;vinod:~/src&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;Pymacs
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;c&quot;&gt;# check to make sure tests pass&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;vinod:~/src/Pymacs&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;make check
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;c&quot;&gt;# install it (Be sure you&amp;#39;re inside your virtualenv!)&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;vinod:~/src/Pymacs&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;make install
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;c&quot;&gt;# install the emacs extension&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;vinod:~/src/Pymacs&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;cp pymacs.el ~/.emacs.d/&lt;span class=&quot;nv&quot;&gt;$USER&lt;/span&gt;/
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+&lt;h2&gt;Step 5: Install other python packages&lt;/h2&gt;
+
+&lt;p&gt;These helper packages are easier to install:&lt;/p&gt;
+
+&lt;figure class=&#8217;code&#8217;&gt; &lt;div class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line-number&#8217;&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;bash&#8217;&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;vinod:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;pip install pyflakes pep8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+&lt;p&gt;The pyflakes and pep8 packages check your code as you type using
+Emacs&amp;#8217; flymake mode. Now, deactivate your virtualenv.&lt;/p&gt;
+
+&lt;figure class=&#8217;code&#8217;&gt; &lt;div class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line-number&#8217;&gt;1&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;2&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;bash&#8217;&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;vinod:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;deactivate
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;vinod:~&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+&lt;h2&gt;Step 6: Install pycheckers&lt;/h2&gt;
+
+&lt;p&gt;Flymake is the part of Emacs that checks your code for errors on the
+fly. It calls a shell script called &lt;code&gt;pycheckers&lt;/code&gt;, so you need to have
+a script by that name in your shell&amp;#8217;s &lt;code&gt;PATH&lt;/code&gt;. Here&amp;#8217;s mine
+(&lt;code&gt;~/bin/pycheckers&lt;/code&gt;):&lt;/p&gt;
+
+&lt;figure class=&#8217;code&#8217;&gt;&lt;figcaption&gt;&lt;span&gt;pycheckers.sh&lt;/span&gt;&lt;a href=&#8217;https://gist.github.com/3948973&#8217;&gt;link&lt;/a&gt;&lt;/figcaption&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line-number&#8217;&gt;1&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;2&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;3&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;4&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;5&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;sh&#8217;&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;pyflakes &lt;span class=&quot;s2&quot;&gt;&amp;quot;$1&amp;quot;&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;pep8 &#8211;repeat &lt;span class=&quot;s2&quot;&gt;&amp;quot;$1&amp;quot;&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+&lt;h2&gt;Step 7: Install python-mode.el&lt;/h2&gt;
+
+&lt;p&gt;As I mentioned in my talk, there are multiple Python modes available,
+but I recommend using the one named python-mode.el, which is developed
+at
+&lt;a href=&quot;http://launchpad.net/python-mode&quot;&gt;http://launchpad.net/python-mode&lt;/a&gt;.
+It does periodically get uploaded to
+&lt;a href=&quot;http://marmalade-repo.org/packages/python-mode&quot;&gt;Marmalade&lt;/a&gt;, but the
+auto-completion using pycomplete doesn&amp;#8217;t work well on the version that
+is there now (6.0.10), so I recommend that you manually download and
+install the latest stable version (6.0.12). I&amp;#8217;ll update this post once
+a stable working version gets uploaded to
+&lt;a href=&quot;http://marmalade-repo.org/&quot;&gt;Marmalade&lt;/a&gt; or
+&lt;a href=&quot;http://melpa.milkbox.net/&quot;&gt;Melpa&lt;/a&gt;.&lt;/p&gt;
+
+&lt;figure class=&#8217;code&#8217;&gt; &lt;div class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line-number&#8217;&gt;1&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;2&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;bash&#8217;&gt;&lt;span class=&#8217;line&#8217;&gt;vinod:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/.emacs.d/&lt;span class=&quot;nv&quot;&gt;$USER&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;vinod:~/.emacs.d/vinod&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;curl -L https://launchpad.net/python-mode/trunk/6.0.12/+download/python-mode.el-6.0.12.tar.gz | tar xz
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+&lt;h2&gt;Step 8: Test it all out&lt;/h2&gt;
+
+&lt;p&gt;Launch emacs and open a python file named &lt;code&gt;test.py&lt;/code&gt;. Type the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import os
+os.path.jo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Wait at this point. You should see auto-completion of &lt;code&gt;os.path.join&lt;/code&gt;
+followed shortly by a yellow popup showing documentation of that method.
+Hitting return should accept the completion. Then type &lt;code&gt;(&lt;/code&gt; and you
+should see the method signature in the minibuffer.&lt;/p&gt;
+
+&lt;p&gt;Move the cursor over any letter in &lt;code&gt;join&lt;/code&gt;. Hit &amp;#8216;F1&amp;#8217;. A window should
+popup with the docstring for &lt;code&gt;os.path.join&lt;/code&gt;. Hit &amp;#8216;F2&amp;#8217;. A new window
+should be opened with the code for &lt;code&gt;os.path.join&lt;/code&gt;. Hit &amp;#8216;F3&amp;#8217;. You&amp;#8217;ll be
+prompted to enter the name of any python command, and Emacs will show
+you the docstring.&lt;/p&gt;
+
+&lt;p&gt;Type the string &amp;#8216;blah&amp;#8217; and hit return. The string should be
+highlighted in pink and if you mouseover it, the minibuffer will say
+&lt;code&gt;undefined name &#8216;blah&#8217;&lt;/code&gt;. That&amp;#8217;s flymake working for you.&lt;/p&gt;
+
+&lt;p&gt;Hit &lt;code&gt;C-c C-c&lt;/code&gt; and the buffer should be sent to a Python interpreter and
+you&amp;#8217;ll be dropped in the REPL after the code has been loaded. Any
+errors in the code will be reported.&lt;/p&gt;
+
+&lt;p&gt;If all of this works, then CONGRATULATIONS!!! If not, let me know and
+I&amp;#8217;ll see if I can help debug.&lt;/p&gt;
+
+&lt;h2&gt;Step 9: Customize&lt;/h2&gt;
+
+&lt;p&gt;All of this is customizable in hundreds of ways. Try &lt;code&gt;M-x
+customize-group RET python-mode RET&lt;/code&gt; to see how.&lt;/p&gt;
+
+&lt;h2&gt;Step 10: How to create a new python project&lt;/h2&gt;
+
+&lt;p&gt;Whenever you want to create a new Python project, you have do the
+following:&lt;/p&gt;
+
+&lt;h3&gt;Create a new virtualenv&lt;/h3&gt;
+
+&lt;figure class=&#8217;code&#8217;&gt; &lt;div class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line-number&#8217;&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;bash&#8217;&gt;&lt;span class=&#8217;line&#8217;&gt;vinod:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mkvirtualenv newproject
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+&lt;h3&gt;Install pymacs into that virtualenv&lt;/h3&gt;
+
+&lt;figure class=&#8217;code&#8217;&gt; &lt;div class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line-number&#8217;&gt;1&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;2&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;bash&#8217;&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;newproject&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;vinod:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/src/Pymacs
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;newproject&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;vinod:~/src/Pymacs&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;make install
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+&lt;h3&gt;Install the other pip modules&lt;/h3&gt;
+
+&lt;figure class=&#8217;code&#8217;&gt; &lt;div class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line-number&#8217;&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;bash&#8217;&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;newproject&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;vinod:~/src/Pymacs&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;pip install pyflakes pep8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+&lt;h3&gt;Switch to that virtualenv in emacs&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;M-x virtualenv-workon RET newproject/ RET
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Issues&lt;/h2&gt;
+
+&lt;h3&gt;Changing virtualenvs doesn&amp;#8217;t restart Pymacs&lt;/h3&gt;
+
+&lt;p&gt;For the most part, this won&amp;#8217;t affect much, but if you move from a
+Python2 project to a Python3 project, you may have problems. The
+workaround is to call &lt;code&gt;M-x pymacs-terminate-services&lt;/code&gt;, then &lt;code&gt;M-x
+virtualenv-workon&lt;/code&gt; to change your virtualenv, and then finally
+&lt;code&gt;M-x load-pycomplete&lt;/code&gt; to restart pymacs and pycomplete.&lt;/p&gt;
+
+&lt;h3&gt;Latest stable version of python-mode.el isn&amp;#8217;t on Melpa&lt;/h3&gt;
+
+&lt;p&gt;I&amp;#8217;d much prefer to just load python-mode using the built-in Emacs
+package manager.&lt;/p&gt;
+
+&lt;h3&gt;Pymacs installation is harder than it needs to be&lt;/h3&gt;
+
+&lt;p&gt;I wish Pymacs could be installed by a 2 step process&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;pip install Pymacs&lt;/li&gt;
+&lt;li&gt;M-x package-install RET pymacs RET&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h3&gt;Which pycheckers to use?&lt;/h3&gt;
+
+&lt;p&gt;My script uses pep8 and pyflakes. There are a lot of other options out
+there and I do not know which is best. See
+&lt;a href=&quot;http://stackoverflow.com/questions/1428872/pylint-pychecker-or-pyflakes&quot;&gt;this post&lt;/a&gt;
+for more details.&lt;/p&gt;
+
+&lt;h3&gt;Not using ropemacs any more&lt;/h3&gt;
+
+&lt;p&gt;In my talk, I used ropemacs. In this setup, I have decided against it.
+I was mostly using it for code-completion and documentation lookup,
+but I like pycomplete.el better for those purposes. It&amp;#8217;s included in
+python-mode and it shows method signatures as you type. Ropemacs does
+have other features such as project management (easily jumping to
+files in the same project), and refactoring (changing variable names
+throughout project). I haven&amp;#8217;t used those, so I decided not to install
+ropemacs.&lt;/p&gt;
+
+&lt;h3&gt;Project management not included&lt;/h3&gt;
+
+&lt;p&gt;I haven&amp;#8217;t yet decided which package to use for this. I&amp;#8217;ll probably try
+projectile, but there are many other options, some lightweight
+(ropemacs, eproject, pony-mode) and some heavyweight (ecb, CEDET).&lt;/p&gt;
+
+&lt;h2&gt;References&lt;/h2&gt;
+
+&lt;p&gt;I gleaned knowledge from all of the following, in no particular order.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://slacy.com/blog/2011/03/pymacs-ropemacs-and-virtualenv-all-at-the-same-time/&quot;&gt;Using Pymacs and virtualenv together (slacy.com)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.yilmazhuseyin.com/blog/dev/emacs-setup-python-development/&quot;&gt;Using Ropemacs for autocompletion (yilmazhuseyin.com)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/2855378/ropemacs-usage-tutorial/2858148#2858148&quot;&gt;How to use Rope to automatically change virtualenv for you&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://almostobsolete.net/rope-and-virtualenv.html&quot;&gt;Ropemacs and virtualenv (almostobsolete.net)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.rwdev.eu/articles/emacspyeng&quot;&gt;The post that turned me on to pycomplete.el (rwdev.eu)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://hide1713.wordpress.com/2009/01/30/setup-perfect-python-environment-in-emacs/&quot;&gt;Perfect Python Environment (2009)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.masteringemacs.org/articles/2010/10/04/beginners-guide-to-emacs/&quot;&gt;Lot&amp;#8217;s of great &amp;#8216;advanced-beginner&amp;#8217; emacs tips&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.cou929.nu/setting-up-python-environment-on-emacs&quot;&gt;Using python.el rather than python-mode.el&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pedrokroger.net/2010/07/configuring-emacs-as-a-python-ide-2/&quot;&gt;Using IPython, pylookup and more (pedrokroger.net)&lt;/a&gt; - I need to look into this post some more.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://emacswiki.org/emacs/PythonProgrammingInEmacs&quot;&gt;EmacsWiki Python Page&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.saltycrane.com/blog/2010/05/my-emacs-python-environment/&quot;&gt;Python.el, ropemacs, and a little django tip at the end&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/aculich/virtualenv.el&quot;&gt;Virtualenv.el (something similar is included in python-mode.el&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/pdee/pdee&quot;&gt;Python Development Environment&lt;/a&gt; -
+Looks promising, just wish there was some documentation on how to
+use it.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://borkware.com/rants/emacs-dev/&quot;&gt;Emacs for Cocoa Development&lt;/a&gt; - OK, not at all related to python, but some great insight from an Emacs (and all-around) wizard. Don&amp;#8217;t miss the ranting at the end of the page.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://jesselegg.com/archives/2010/02/25/emacs-python-programmers-part-1/&quot;&gt;Python.el basics&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://sunnyeves.blogspot.com/2011/04/debugging-python-on-emacs-ide.html&quot;&gt;Using PDB in Emacs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/EnigmaCurry/emacs&quot;&gt;Ryan McGuire&amp;#8217;s .emacs.d&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.enigmacurry.com/2009/01/21/autocompleteel-python-code-completion-in-emacs/&quot;&gt;AutoComplete for Python (enigmacurry.com)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.enigmacurry.com/2008/05/09/emacs-as-a-powerful-python-ide/&quot;&gt;The original Python IDE post (enigmacurry.com)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;Updates&lt;/h2&gt;
+
+&lt;h4&gt;2012-10-27&lt;/h4&gt;
+
+&lt;p&gt;Thanks to &lt;a href=&quot;https://twitter.com/danpoirier&quot;&gt;@danpoirier&lt;/a&gt; and
+&lt;a href=&quot;http://twitter.com/gregnewman&quot;&gt;@gregnewman&lt;/a&gt; for testing. I initially
+recommended using the master branch of python-mode.el, but now I
+recommend using the latest stable release (as of now) which is version
+6.0.12 to avoid problems loading Pymacs. There&amp;#8217;s a bug on 6.0.12 with
+&lt;code&gt;virtualenv-workon&lt;/code&gt; that requires you to put a trailing slash after
+the name of your virtualenv, so I&amp;#8217;ve updated the &lt;code&gt;init.el&lt;/code&gt; file above
+to account for those changes.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Emacs Autocomplete stumbles on yasnippet</title>
+    <link href="http://www.kurup.org/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet"/>
+    <updated>2012-10-15T13:02:18-04:00</updated>
+    <id>id:/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet</id>
+   <category scheme="http://www.kurup.org" term="emacs" />
+   <category scheme="http://www.kurup.org" term="programming" />
+   
+    <content type="html">&lt;p&gt;&lt;a href=&quot;http://cx4a.org/software/auto-complete/&quot;&gt;Autocomplete Mode&lt;/a&gt; is an
+Emacs mode that tries to guess what word you&amp;#8217;re typing and provide
+auto-completion. Recently, it started failing in simple scenarios.&lt;/p&gt;
+
+&lt;p&gt;It can use various &amp;#8216;sources&amp;#8217; to try to figure out what you&amp;#8217;re about to
+type. The simplest source is &lt;code&gt;ac-source-dictionary&lt;/code&gt; which is a simple
+list of words. If you start typing any of those words, it will try to
+autocomplete them for you. Normally, you&amp;#8217;d put those words in a file,
+with each word on a separate line, but for testing purposes, you can
+also add them manually using an elisp function. Here&amp;#8217;s the test that
+failed for me:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(add-to-list &#8216;ac-user-dictionary &quot;foobar@example.com&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That adds the email address to the dictionary. Then, typing &amp;#8216;foo&amp;#8217; in
+any buffer, should offer to autocomplete the entire email address.
+Unfortunately, it wasn&amp;#8217;t working.&lt;/p&gt;
+
+&lt;p&gt;To debug, I typed &amp;#8216;foo&amp;#8217; and then did &lt;code&gt;M-x auto-complete&lt;/code&gt;, which forces
+auto-complete to look for a completion. This resulted in an error in
+the Minibuffer:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ac-yasnippet-candidates: Symbol&#8217;s function definition is void: yas/current-snippet-table
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This led me to check which &amp;#8216;sources&amp;#8217; autocomplete was trying to use:
+&lt;code&gt;C-h v ac-sources&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(ac-source-features ac-source-functions ac-source-yasnippet
+ ac-source-variables ac-source-symbols ac-source-abbrev
+ ac-source-dictionary ac-source-words-in-same-mode-buffers)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So, autocomplete is looking through each one of those sources, trying
+to find possible words I might be typing. The third one is called
+&lt;code&gt;ac-source-yasnippet&lt;/code&gt;, which seems to be where my error is coming
+from.&lt;/p&gt;
+
+&lt;p&gt;So, I looked into the yasnippet source code and found that, indeed,
+there was no function named &lt;code&gt;yas/current-snippet-table&lt;/code&gt;. That function
+has been renamed to &lt;code&gt;yas&#8211;get-snippets-table&lt;/code&gt; in version 0.8.0, but
+autocomplete is still relying on the old function name. (RANT: Don&amp;#8217;t
+rename functions that others might be using without providing some
+kind of alias, at least temporarily) I looked at the code for
+&lt;a href=&quot;https://github.com/auto-complete/auto-complete&quot;&gt;autosnippet on github&lt;/a&gt;
+and noted that the latest version has been fixed to use the new code,
+but it hasn&amp;#8217;t yet been released on MELPA. Until it is, the quick
+solution is to remove &lt;code&gt;ac-source-yasnippet&lt;/code&gt; from &lt;code&gt;ac-sources&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(delq &#8216;ac-source-yasnippet ac-sources)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then typing &amp;#8216;foo&amp;#8217; autocompletes to &amp;#8216;foobar@example.com&amp;#8217;.&lt;/p&gt;
+
+&lt;p&gt;It seems that autocomplete should be more forgiving of errors in any
+specific &amp;#8216;source&amp;#8217;, passing it up to use other sources. Alternatively,
+it should fail loudly when there&amp;#8217;s an error, so that I can know to fix
+or remove the offending &amp;#8216;source&amp;#8217;.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>I&#8217;ve gone to the dark side</title>
+    <link href="http://www.kurup.org/blog/2012/10/14/ive-gone-to-the-dark-side"/>
+    <updated>2012-10-14T16:09:54-04:00</updated>
+    <id>id:/blog/2012/10/14/ive-gone-to-the-dark-side</id>
+   <category scheme="http://www.kurup.org" term="computers" />
+   
+    <content type="html">&lt;p&gt;I was a huge Apple fan growing up and IBM was Apple&amp;#8217;s enemy. Buying an
+IBM computer would have been unthinkable.&lt;/p&gt;
+
+&lt;p&gt;Well, the unthinkable has happened. Of course IBM doesn&amp;#8217;t make laptops
+anymore, but their computers live on under the Lenovo name. I am the
+proud owner of a new &lt;a href=&quot;http://shop.lenovo.com/us/laptops/thinkpad/t-series/t420s&quot;&gt;Lenovo Thinkpad
+T420S&lt;/a&gt;. I
+love this computer. It&amp;#8217;s an ugly black boxy thing, but it&amp;#8217;s light (4
+lbs), quiet and speedy. And the keyboard is just pure awesome. That&amp;#8217;s
+the main reason that I bought the T420S as opposed to the current T430
+line. The new line has the chicklet keyboard that is being used on all
+laptops these days. The T420 is the last one with the old-fashioned
+clicky keyboard, which I love.&lt;/p&gt;
+
+&lt;p&gt;I also feel very lucky to get the deal that I got. I bought it from
+&lt;a href=&quot;http://outlet.lenovo.com&quot;&gt;Lenovo&amp;#8217;s Outlet store&lt;/a&gt;, which had about
+thirty T420s&amp;#8217;s in stock when I was shopping. This one was about half
+the price of the others, by my estimation. It&amp;#8217;s so underpriced that
+I&amp;#8217;m wondering if I&amp;#8217;m missing an obvious flaw, but I don&amp;#8217;t see it.
+(Please let me know if you do!)&lt;/p&gt;
+
+&lt;p&gt;Here&amp;#8217;s a comparison between the specs of my computer compared to one
+that was available at the Outlet store on October 4th, 2012:&lt;/p&gt;
+
+&lt;table border=&quot;1&quot;&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td&gt;Mine&lt;/td&gt;
+&lt;td&gt;Other one&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Part Number&lt;/td&gt;
+&lt;td&gt;417153U&lt;/td&gt;
+&lt;td&gt;4170CTO&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Processor&lt;/td&gt;
+&lt;td&gt;Core i5-2540&lt;/td&gt;
+&lt;td&gt;Core i5-2540&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;OS&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Windows 7 Pro&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Windows 7 Home&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Graphics&lt;/td&gt;
+&lt;td&gt;Intel HD3000&lt;/td&gt;
+&lt;td&gt;Intel HD3000&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Memory&lt;/td&gt;
+&lt;td&gt;4 GB&lt;/td&gt;
+&lt;td&gt;&lt;b&gt;8 GB&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Display&lt;/td&gt;
+&lt;td&gt;14&amp;#8221; 1600x900 HD+&lt;/td&gt;
+&lt;td&gt;14&amp;#8221; 1600x900 HD+&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;HD&lt;/td&gt;
+&lt;td&gt;128GB SSD&lt;/td&gt;
+&lt;td&gt;128GB SSD&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Optical&lt;/td&gt;
+&lt;td&gt;DVD recordable&lt;/td&gt;
+&lt;td&gt;DVD recordable&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Battery&lt;/td&gt;
+&lt;td&gt;6-cell&lt;/td&gt;
+&lt;td&gt;6-cell&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Network&lt;/td&gt;
+&lt;td&gt;Intel Centrino Advanced&lt;/td&gt;
+&lt;td&gt;Not specified&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Bluetooth&lt;/td&gt;
+&lt;td&gt;V3.0&lt;/td&gt;
+&lt;td&gt;Not specified&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Fingerprint reader&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Price&lt;/td&gt;
+&lt;td class=&quot;big&quot;&gt;&lt;b&gt;$ 663.72&lt;/b&gt;&lt;/td&gt;
+&lt;td&gt;&lt;b&gt;$ 1,355.39&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+
+&lt;p&gt;The RAM is better on the other model, but Windows 7 Professional is an
+upgrade on my model. I don&amp;#8217;t really understand why mine was so cheap,
+but I&amp;#8217;m pretty happy about it!&lt;/p&gt;
+
+&lt;p&gt;I added another 4G of RAM, moved Windows to a VirtualBox image and
+installed Arch Linux with Xmonad. It takes about 10 seconds to get
+from the BIOS screen to a working computer. I&amp;#8217;ll post some info on my
+setup in a future post.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Avik Arrives!</title>
+    <link href="http://www.kurup.org/blog/2012/09/04/avik-arrives"/>
+    <updated>2012-09-04T08:30:25-04:00</updated>
+    <id>id:/blog/2012/09/04/avik-arrives</id>
+   <category scheme="http://www.kurup.org" term="family" />
+   
+    <content type="html">&lt;p&gt;Anika, Kavi, Mala and I are so proud to announce the birth of healthy, happy baby boy!&lt;/p&gt;
+
+&lt;p&gt;His name is Avik Puri Kurup and he was born at 11:01 PM on September
+3rd, 2012. He is 6lbs, 12oz and about 19 inches long.&lt;/p&gt;
+
+&lt;p&gt;A few pics:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://www.kurup.org/images/avik-1.jpg&quot; width=&quot;1024&quot; alt=&quot;Avik&quot; /&gt;&lt;br/&gt;
+&lt;img src=&quot;http://www.kurup.org/images/avik-2.jpg&quot; width=&quot;768&quot; height=&quot;1024&quot; alt=&quot;Avik&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And the obligatory pseudo-nostalgic photo:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://www.kurup.org/images/avik-3.jpg&quot; height=&quot;1024&quot; width=&quot;768&quot; alt=&quot;Avik&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Mom and Baby are doing great! Thanks for all the well wishes and support!&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Thoughts on Free Will</title>
+    <link href="http://www.kurup.org/blog/2012/08/21/thoughts-on-free-will"/>
+    <updated>2012-08-21T12:01:25-04:00</updated>
+    <id>id:/blog/2012/08/21/thoughts-on-free-will</id>
+   <category scheme="http://www.kurup.org" term="book-review" />
+   <category scheme="http://www.kurup.org" term="philosophy" />
+   
+    <content type="html">&lt;p&gt;Time for some pop philosophy. I&amp;#8217;ve never thought too deeply about the
+concept of free will. Of course we have free will! I chose to live my
+life a certain way. I could choose to live a different way. It is my
+free will to choose how I live. I&amp;#8217;ve never thought about it more
+deeply than that.&lt;/p&gt;
+
+&lt;p&gt;I recently read Walter Isaacson&amp;#8217;s biography of Einstein and I was
+forced to think more deeply about free will. The biography is
+excellent. It gives more depth to Einstein, who, despite his flaws, is
+still a heroic figure. One day, I&amp;#8217;ll do a proper review, but the piece
+that struck me the hardest was Einstein&amp;#8217;s views on free will. He
+didn&amp;#8217;t believe that free will existed, and not only that, he didn&amp;#8217;t
+even to seem to think that this was a controversial position. It
+appears that Isaacson didn&amp;#8217;t either, because he didn&amp;#8217;t spend much time
+on that part of Einstein&amp;#8217;s character. But, it seemed so strange to me,
+since I assumed that we all have free will.&lt;/p&gt;
+
+&lt;p&gt;So, I read Sam Harris&amp;#8217;s e-book
+&lt;a href=&quot;http://www.samharris.org/free-will&quot;&gt;Free Will&lt;/a&gt;, in which he concisely
+explains why free will is a myth. Take any conscious decision that you
+might make. Let&amp;#8217;s say you choose at this moment to go eat a pizza. Do
+you have the free will to make that choice? Well, you certainly can go
+eat pizza, but the question is if you had the free will to do it. What
+were the steps that led to making that choice. Somewhere in your
+brain, a certain set of neurons fired to trigger the idea in your mind
+to have a pizza. How did those neurons fire? Either there was a
+conscious decision to have that thought, or it was an unconscious
+decision that you didn&amp;#8217;t control. And if it was a conscious decision,
+then you can take that back a step further and ask how that decision
+occurred. Eventually, you will have to start at some unconscious (or
+subconscious) event which triggered the series of events which
+eventually led to your decision to have a pizza. No matter how far
+back you can track the conscious trail that led to a pizza forming in
+your mind, eventually you are left with an unconscious starting point.
+Certainly all of these thoughts are heavily influenced by your life
+experiences. If you&amp;#8217;ve never seen or heard of a pizza, there&amp;#8217;s a zero
+percent chance that you&amp;#8217;ll think of a eating a pizza. But all of those
+life experiences are themselves the result of conscious and
+unconscious decisions, all of which we ultimately have no specific
+control over.&lt;/p&gt;
+
+&lt;p&gt;Every thought you have is the only thought you could have at that
+moment. It is the result of all of the life experiences and thoughts
+that you have had up to that moment. If you consciously try to
+&amp;#8220;create&amp;#8221; an original thought, just to prove that you have free will,
+well&amp;#8230; you can&amp;#8217;t. Because that decision itself originated from
+somewhere in your subconscious, and is therefore something that you
+don&amp;#8217;t have conscious control over.&lt;/p&gt;
+
+&lt;p&gt;In addition to this theoretical rationalization against the concept of
+free will, Harris describes multiple studies from neuroscience
+which show that neurons fire in our subconscious well before we
+develop the urge to act. Examples:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://brain.oxfordjournals.org/content/106/3/623.short&quot;&gt;The famous Libet Experiment from 1983&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://onlinelibrary.wiley.com/doi/10.1111/j.1749-6632.2011.05994.x/full#ss4&quot;&gt;Decoding and predicting
+intentions&lt;/a&gt;.
+Skip to the the short section titled &amp;#8216;Implications for the free-will debate?&amp;#8217;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.sciencedirect.com/science/article/pii/S0896627310010822&quot;&gt;Internally Generated Preactivation of Single Neurons in Human
+Medial Frontal Cortex Predicts
+Volition&lt;/a&gt;.
+The neuroscience in this article is pretty deep. I only watched the
+video abstract.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Bottom line: I&amp;#8217;m convinced that I don&amp;#8217;t have the free will that I
+thought I did. The question is how this should affect my life. It
+could be depressing. If every thought of mine originates in a way that
+I don&amp;#8217;t control, then am I just being steered through life? It makes
+my accomplishments in life seem less &amp;#8220;worthy&amp;#8221;. On the other hand, it
+can be quite freeing. My path through life is determined. Perhaps I
+shouldn&amp;#8217;t be worrying so much about every decision, because I know
+that they&amp;#8217;re not really &amp;#8220;my&amp;#8221; decisions to make. It can also give you
+more empathy for others, knowing that they also have no will do
+anything but what they are doing.&lt;/p&gt;
+
+&lt;p&gt;It&amp;#8217;s still a confusing topic, because I &amp;#8220;feel&amp;#8221; like I have options in
+life and I &amp;#8220;feel&amp;#8221; like taking different options will change my life.
+That part is true. The part that isn&amp;#8217;t true is that I have any control
+over the range of available options, nor over the specific option that
+I choose. Even Harris seems to be a little conflicted here:&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;Losing a belief in free will has not made me fatalistic—in fact, it has increased my feelings of freedom. My hopes, fears, and neuroses seem less personal and indelible. There is no telling how much I might change in the future. Just as one wouldn’t draw a lasting conclusion about oneself on the basis of a brief experience of indigestion, one needn’t do so on the basis of how one has thought or behaved for vast stretches of time in the past. A creative change of inputs to the system—learning new skills, forming new relationships, adopting new habits of attention—may radically transform one’s life.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;The question is how do you accomplish a &amp;#8216;creative change of inputs&amp;#8217;,
+if you don&amp;#8217;t have the will to do so? I guess the idea is that while I
+don&amp;#8217;t have any control over the thoughts that arise in my brain, I do
+have perceived control over my decisions. With whatever power my
+conscious brain has, I can choose things that will improve my life,
+with the hope that exposure to new experiences will &amp;#8216;change the
+inputs&amp;#8217; to my subconscious brain. Ugh, just thinking about how this
+all works makes my brain hurt. I guess this is why I never studied
+philosophy before. :-)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.samharris.org/free-will&quot;&gt;Free Will&lt;/a&gt; is short and cheap and
+I highly recommend it.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Facebook is killing blogging</title>
+    <link href="http://www.kurup.org/blog/2012/08/19/facebook-is-killing-blogging"/>
+    <updated>2012-08-19T07:58:31-04:00</updated>
+    <id>id:/blog/2012/08/19/facebook-is-killing-blogging</id>
+   <category scheme="http://www.kurup.org" term="blog" />
+   
+    <content type="html">&lt;p&gt;Looks like August 18th was
+International-Prominent-Bloggers-Complain-About-Facebook-Killing-Blogging
+Day. I was just &lt;a href=&quot;http://www.kurup.org/blog/2012/08/03/blogging-again/&quot;&gt;two weeks too early&lt;/a&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Tim Bray: &lt;a href=&quot;http://www.tbray.org/ongoing/When/201x/2012/08/18/Blogodammerung&quot;&gt;Blogodammerung&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Scott Hanselman: &lt;a href=&quot;http://www.hanselman.com/blog/YourWordsAreWasted.aspx&quot;&gt;Your words are wasted&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Jon Udell: &lt;a href=&quot;http://blog.jonudell.net/2012/08/10/where-have-all-the-bloggers-gone/&quot;&gt;Where have all the bloggers gone?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;On a side note, I&amp;#8217;m really enjoying Scott Hanselman&amp;#8217;s podcast &lt;a href=&quot;http://thisdeveloperslife.com/&quot;&gt;This
+Developer&amp;#8217;s Life&lt;/a&gt;. It&amp;#8217;s an homage to
+the awesome &lt;a href=&quot;http://www.thisamericanlife.org&quot;&gt;This American Life&lt;/a&gt;, but
+focused on programming issues. They interview interesting programmers,
+but they carefully edit the interviews to focus on the parts that are
+the most interesting, interspersing them with music and effects. It&amp;#8217;s
+really well done.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>A great moment</title>
+    <link href="http://www.kurup.org/blog/2012/08/16/a-great-moment"/>
+    <updated>2012-08-16T10:24:34-04:00</updated>
+    <id>id:/blog/2012/08/16/a-great-moment</id>
+   <category scheme="http://www.kurup.org" term="fatherhood" />
+   <category scheme="http://www.kurup.org" term="happiness" />
+   
+    <content type="html">&lt;p&gt;I woke up, got ready and went downstairs. I am not a morning person. I
+try to do as little thinking as possible, because thinking eventually
+leads to the rational conclusion that I should just go back to bed. I
+get to the coffee machine, grab my plastic mug and start pouring.
+Suddenly, I&amp;#8217;m woken from my daze. I hear little footsteps pounding
+across the hallway above me. I look towards the bottom of the stairs
+and see a little figure race around the corner with a determined,
+slightly fearful look in her face. She&amp;#8217;s afraid that she&amp;#8217;s too late
+and that I&amp;#8217;ve already left for work. She spies me and I must be
+smiling because her face melts into the biggest, happiest smile and
+her pace quickens. We run to meet each other in a big hug. &amp;#8220;Daddy, can
+I watch the milk go in your coffee?&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;Moments like that are so joyous, and I have underestimated how much
+they mean to me. I want to capture them and never let them go.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>NASA Curiosity Lands</title>
+    <link href="http://www.kurup.org/blog/2012/08/07/nasa-curiosity-lands"/>
+    <updated>2012-08-07T15:17:43-04:00</updated>
+    <id>id:/blog/2012/08/07/nasa-curiosity-lands</id>
+   <category scheme="http://www.kurup.org" term="inspiring" />
+   <category scheme="http://www.kurup.org" term="science" />
+   
+    <content type="html">&lt;p&gt;Like the rest of the geek world, we&amp;#8217;ve been excited by Curiosity&amp;#8217;s
+successful trip to Mars. Here&amp;#8217;s a cool video which combines an
+animation of Curiosity&amp;#8217;s landing mixed with the real reactions of the
+astronauts that got it there. (Found on &lt;a href=&quot;http://thekidshouldseethis.com/post/28851131280&quot;&gt;thekidshouldseethis.com&lt;/a&gt;)&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot;
+src=&quot;http://www.youtube.com/embed/Ti_yre6dsa4&quot; frameborder=&quot;0&quot;
+allowfullscreen&gt;&lt;/iframe&gt;
+
+
+&lt;p&gt;I&amp;#8217;ve been disappointed that real space travel is unlikely to become a
+reality during my life. I honestly thought it would when I was a kid.
+But watching Curiosity gives me hope that we will be able to continue
+exploring our universe. This trip to Mars was much more of an
+achievement than the last one. Here&amp;#8217;s an animation of the last trip
+(2003 Mars Exploration). Note that the final landing was achieved by
+an air bag dropped roughly from high up in the air. Not much precision
+required there.&lt;/p&gt;
+
+&lt;iframe width=&quot;420&quot; height=&quot;315&quot;
+src=&quot;http://www.youtube.com/embed/-_9BYSDtwRc&quot; frameborder=&quot;0&quot;
+allowfullscreen&gt;&lt;/iframe&gt;
+
+
+&lt;p&gt;&lt;img class=&quot;right&quot; src=&quot;http://www.kurup.org/images/curiosity-size.jpg&quot; width=&quot;300&quot; height=&quot;200&quot; title=&quot;Curiosity is huge (NASA)&quot; &gt;&lt;/p&gt;
+
+&lt;p&gt;The Curiosity rover is too large for the airbag approach (See image at
+right comparing it to previous rovers), so an alternate system was
+devised using a sky crane which gently lowered the rover onto the
+Martian surface. Dropping an airbag seems much easier than gently
+landing a rover without damage. The real advance in our lifetime is
+that our machines are getting more intelligent. And the exciting thing
+is that I can actually participate in that type of exploration. I
+think I just convinced myself to &lt;a href=&quot;http://www.udacity.com/overview/Course/cs373/CourseRev/apr2012&quot;&gt;learn how to program a robotic
+car!&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Blogging Again</title>
+    <link href="http://www.kurup.org/blog/2012/08/03/blogging-again"/>
+    <updated>2012-08-03T14:50:25-04:00</updated>
+    <id>id:/blog/2012/08/03/blogging-again</id>
+   <category scheme="http://www.kurup.org" term="blog" />
+   <category scheme="http://www.kurup.org" term="writing" />
+   
+    <content type="html">&lt;p&gt;I&amp;#8217;m going to start blogging more. I know I&amp;#8217;ve said that before, so
+take it for what it&amp;#8217;s worth. I think there is value in blogging. I&amp;#8217;ve
+been thinking about my life a lot lately, trying to find what makes me
+tick. One of those things that gets me excited is programming. I
+started thinking about that and remembered this meme that had passed
+around the blog world a few years back. It was a list of questions
+related to how you got started programming. I remember it especially
+because I remember reading MarkD&amp;#8217;s version and thinking how similar it
+was to my own beginnings. Then, because I love going off on tangents,
+I googled for &amp;#8216;How I got started in programming&amp;#8217; to read other
+responses. Many of the posts I found were on abandoned blogs. And now,
+for the &amp;#8216;causal relationship not supported by data&amp;#8217; statement. This is
+because of Facebook and Twitter. OK, maybe it&amp;#8217;s just the natural decay
+of blogs. But I am concerned about the fact that most people write in
+forums that are controlled by other people rather in their own forum.
+That was one of the cool promises of the web. A little place of your
+own that you controlled. Facebook and Twitter and Google+ are all cool
+services, but the more time I spend on them, the less time I spend
+here. I&amp;#8217;m sure other people have written about this with more
+eloquence than I could, but the bottom line is that I want to keep
+writing. I want to learn more about myself, I want to teach others
+what little I know, and I want to learn from others. I&amp;#8217;ve been
+journalling a lot lately and that has been useful, but the act of
+hitting &amp;#8216;publish&amp;#8217; will make my writing better. That&amp;#8217;s what this blog
+is for and I&amp;#8217;m going to start using it again.&lt;/p&gt;
+
+&lt;p&gt;Maybe one of these days, I&amp;#8217;ll even put up my own answers to &amp;#8216;How I Got
+Started in Programming&amp;#8217;, but in the meantime, go read
+&lt;a href=&quot;http://borkwarellc.wordpress.com/2008/07/01/how-i-got-started-in-programming/&quot;&gt;MarkD&amp;#8217;s&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
+  
+</feed>

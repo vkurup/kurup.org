@@ -1,0 +1,677 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Vinod Kurup</title>
+  <meta name="author" content="Vinod Kurup">
+
+  
+  <meta name="description" content="I finished porting the homepage module from
+ACS to
+OpenACS. Actually, it had already been ported,
+but the ACS version changed substantially, so I &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.kurup.org/blog/page/28/">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/vkurup" rel="alternate" title="Vinod Kurup" type="application/atom+xml">
+  <!--Fonts from Google's Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Quattrocento' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+<meta name="verify-v1" content="7VLvj7jbZMA24/73SZ9uUEq3SeBuiX3+aSIBRtgH4jQ=" />
+<link rel="openid.server" href="http://www.myopenid.com/server" />
+<link rel="openid.delegate" href="http://vkurup.myopenid.com/" />
+<link rel="openid2.local_id" href="http://vkurup.myopenid.com/" />
+<link rel="openid2.provider" href="http://www.myopenid.com/server" />
+<meta http-equiv="X-XRDS-Location" content="http://www.myopenid.com/xrds?username=vkurup.myopenid.com" />
+
+<link href="/favicon.ico" rel="shortcut icon" />
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-79447-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Vinod Kurup</a></h1>
+  
+    <h2>Hospitalist/programmer in search of the meaning of life</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/vkurup" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.kurup.org" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul role=main-navigation>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/about.html">About Me</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/blog/categories">Categories</a></li>
+  <li><a href="/medicine">Medicine</a></li>
+  <li><a href="/running">Running</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2001/01/04/my-first-openacs-port">My First OpenACS Port</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2001-01-04T00:00:00-05:00" pubdate data-updated="true">Jan 4<span>th</span>, 2001</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I finished porting the homepage module from
+<a href="http://en.wikipedia.org/wiki/ArsDigita">ACS</a> to
+<a href="http://openacs.org/">OpenACS</a>. Actually, it had already been ported,
+but the ACS version changed substantially, so I guess I merged the new
+ACS version with the old OpenACS version. Anyway, it works! Here&#8217;s the
+file -> <a href="http://kurup.org/files/homepage.tar.gz">homepage.tar.gz</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2001/01/02/y2k1">Y2K1</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2001-01-02T00:00:00-05:00" pubdate data-updated="true">Jan 2<span>nd</span>, 2001</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I found a Y2K1 bug &#8230; well, not really, but I found and
+<a href="http://kurup.org/acs/watchdog">fixed</a> a minor problem in the <a href="http://openacs.org">OpenACS
+toolkit</a> that only occurs on the first of every
+year.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2000/12/10/wireless-on-linuxppc">Wireless on LinuxPPC</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2000-12-10T00:00:00-05:00" pubdate data-updated="true">Dec 10<span>th</span>, 2000</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;ve coaxed my wireless card to work on LinuxPPC. Read <a href="http://kurup.org/content/wireless.phtml">how I did
+it.</a> This link is now gone
+because it&#8217;s obsolete&#8230;. vinod.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2000/10/23/marathon">Marathon!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2000-10-23T00:00:00-04:00" pubdate data-updated="true">Oct 23<span>rd</span>, 2000</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>My cousin Deepu and I (plus about 30,000 or so other people) ran the
+<a href="http://www.chicagomarathon.com">Chicago Marathon</a>. Cross that off my
+life&#8217;s to-do list!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2000/09/06/gerry-amp-kim">Gerry &amp; Kim</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2000-09-06T00:00:00-04:00" pubdate data-updated="true">Sep 6<span>th</span>, 2000</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>My roommate Gerry has somehow tricked Kim into getting engaged! :-)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/1999/12/06/medicalrecordscom">medicalrecords.com</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="1999-12-06T00:00:00-05:00" pubdate data-updated="true">Dec 6<span>th</span>, 1999</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>An opportunity arose that I just couldn&#8217;t pass up. I&#8217;ve been offered a
+position with an internet startup company. The company is
+<a href="http://medicalrecords.com">medicalrecords.com</a> and is focused on
+providing a place for patients to store their own medical records.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/1999/12/06/back-to-mass">Back to Massachusetts</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="1999-12-06T00:00:00-05:00" pubdate data-updated="true">Dec 6<span>th</span>, 1999</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;ve started a new rotation in at a chronic rehab hospital in Waltham,
+Massachusetts. It&#8217;s definitely a different pace from any other work
+I&#8217;ve done before. I&#8217;ve been learning a lot about bed sores and tube
+feeding!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/1999/09/14/night-shifts">Night Shifts</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="1999-09-14T00:00:00-04:00" pubdate data-updated="true">Sep 14<span>th</span>, 1999</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Well, I&#8217;m gonna be here in Green Bay for a little while longer,
+probably until Thanksgiving. So far, I&#8217;ve been working mostly night
+shifts, bringing back vivid memories of &#8216;night float&#8217; during
+residency. Overall, I&#8217;m really enjoying it. Everyone&#8217;s really nice and
+welcoming. It&#8217;s quite a change from residency when you&#8217;re the low man
+on the totem pole. The patient population is more primary care
+oriented. I&#8217;ve seen one transplant patient so far, wheras I used to
+see almost one-a-day in residency. I couldn&#8217;t think of a better way to
+transition from residency into real-life&#8230;</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/1999/08/06/going-to-the-homeland">Going to the Homeland!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="1999-08-06T00:00:00-04:00" pubdate data-updated="true">Aug 6<span>th</span>, 1999</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I found out recently that I&#8217;ll be spending 3 weeks (maybe longer) in
+Green Bay, WI. I&#8217;ll be working as a hospitalist at St. Vincent&#8217;s
+Hospital (Prevea HealthCare). It&#8217;s a 580 bed hospital with 40 ICU beds
+and I&#8217;ll be doing 12 hour shifts - mostly day shifts, but a couple
+nights. It should be fun! I&#8217;m looking forward to being back in
+Wisconsin, especially Green Bay, for football season. Go PACKERS!!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/1999/07/15/waiting">Waiting</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="1999-07-15T00:00:00-04:00" pubdate data-updated="true">Jul 15<span>th</span>, 1999</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Still waiting to hear where my first assignment will be. Possibilities
+include a VA Hospital in Maine, a hospitalist practice in Green Bay,
+WI, a practice in Racine, WI, or an outpatient practice in
+Minnesota. Details to follow&#8230;</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/29/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/27/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/07/28/cbv-dynamic">Using dynamic queries in a CBV</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/23/some-emacs-posts">Some Emacs Posts</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/22/pygments-py3">Pygments on Arch Linux</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/21/django-test-models">How to create test models in Django</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/21/peanut-allergy-a-personal-clinical-review">Peanut Allergy, a personal clinical review</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/17/priorities-and-gtd">Priorities and GTD</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/16/gtd-again">GTD again?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/15/writing-paralysis">Writing paralysis</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/09/steal-my-web-app-idea">Steal My Web App Idea</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/30/how-to-change-the-rear-tire-on-a-12-inch-bicycle">How to change the rear tire on a 12 inch bicycle</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/05/nsbrief-gets-the-best-guests">NSBrief gets the best guests</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/24/emacs-for-python-programming">Emacs for Python Programming</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet">Emacs Autocomplete stumbles on yasnippet</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/14/ive-gone-to-the-dark-side">I&#8217;ve gone to the dark side</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/04/avik-arrives">Avik Arrives!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/21/thoughts-on-free-will">Thoughts on Free Will</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/19/facebook-is-killing-blogging">Facebook is killing blogging</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/16/a-great-moment">A great moment</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/07/nasa-curiosity-lands">NASA Curiosity Lands</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/03/blogging-again">Blogging Again</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("vkurup", 5, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/vkurup" class="twitter-follow-button" data-show-count="true">Follow @vkurup</a>
+  
+</section>
+
+
+<section>
+  <h1>My Pinboard</h1>
+  <ul id="pinboard_linkroll">Fetching linkroll&#8230;</ul>
+  <p><a href="http://pinboard.in/u:vkurup">My Pinboard Bookmarks &raquo;</a></p>
+</section>
+<script type="text/javascript">
+  var linkroll = 'pinboard_linkroll'; //id target for pinboard list
+  var pinboard_user = "vkurup"; //id target for pinboard list
+  var pinboard_count = 10; //id target for pinboard list
+  (function(){
+    var pinboardInit = document.createElement('script');
+    pinboardInit.type = 'text/javascript';
+    pinboardInit.async = true;
+    pinboardInit.src = '/javascripts/pinboard.js';
+    document.getElementsByTagName('head')[0].appendChild(pinboardInit);
+  })();
+</script>
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  <a rel="license"
+  href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Some rights
+  reserved</a> by <a rel="author" href="https://profiles.google.com/vvkurup/" title="View my Google Profile">Vinod Kurup</a> -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'vkurup';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

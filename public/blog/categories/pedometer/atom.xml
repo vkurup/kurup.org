@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: pedometer | Vinod Kurup]]></title>
+  <link href="http://www.kurup.org/blog/categories/pedometer/atom.xml" rel="self"/>
+  <link href="http://www.kurup.org/"/>
+  <updated>2015-08-08T22:40:46-04:00</updated>
+  <id>http://www.kurup.org/</id>
+  <author>
+    <name><![CDATA[Vinod Kurup]]></name>
+    <email><![CDATA[vinod@kurup.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Google Pedometer]]></title>
+    <link href="http://www.kurup.org/blog/2005/07/05/google-pedometer"/>
+    <updated>2005-07-05T00:00:00-04:00</updated>
+    <id>http://www.kurup.org/blog/2005/07/05/google-pedometer</id>
+    <content type="html"><![CDATA[<p>I admit it. As a runner, I'm obsessive about my mileage. It's not that I'm obsessive about running and getting my mileage in. That would be a good thing. Once I do go for a run, I'm obsessive about knowing exactly how far I've run.</p>
+
+<p>In high school, I'd finish my run and then promptly jump on my 10-speed bike which had an odometer, so I could measure how far I'd gone. In college, I got lazy and started using my car for the same purpose. Then someone invented the internet and surfing <a href="http://www.mapquest.com">MapQuest</a> became my routine post-run activity. I'd spend more time trying to find out how long my run was than I actually did running.</p>
+
+<p>During my training for the 2003 <a href="http://www.marinemarathon.com">Marine Corps Marathon</a>, I bought a <a href="http://www.timex.com/spd/products.html">Timex GPS watch</a> to calculate my mileage. I thought this would be the holy grail of running measurement, but unfortunately it was quite inaccurate in Manhattan. Everytime I ran through Battery Park and past Ground Zero, the miles would click off like I was a Kenyan marathoner. It once told me that I had run 3 miles in under 12 minutes.</p>
+
+<p>Over time, I've become a little less obsessive, to the point that I now estimate my mileage by dividing my run time by my perceived pace. So just as I'm shedding the last vestiges of obsessive-compulsive disorder, what do I find? <a href="http://www.gmap-pedometer.com/">Google Pedometer</a>. Someone took Google Maps and hacked it to allow people to measure distances between multiple points. Just double click on your starting point, click 'Start Recording' and then double click your way along your route as the miles accumulate at the top left. Very cool.</p>
+]]></content>
+  </entry>
+  
+</feed>

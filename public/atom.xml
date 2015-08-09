@@ -1,0 +1,1664 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Vinod Kurup]]></title>
+  <link href="http://www.kurup.org/atom.xml" rel="self"/>
+  <link href="http://www.kurup.org/"/>
+  <updated>2015-08-08T22:40:46-04:00</updated>
+  <id>http://www.kurup.org/</id>
+  <author>
+    <name><![CDATA[Vinod Kurup]]></name>
+    <email><![CDATA[vinod@kurup.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Using dynamic queries in a CBV]]></title>
+    <link href="http://www.kurup.org/blog/2014/07/28/cbv-dynamic"/>
+    <updated>2014-07-28T22:08:00-04:00</updated>
+    <id>http://www.kurup.org/blog/2014/07/28/cbv-dynamic</id>
+    <content type="html"><![CDATA[<p>Let&#8217;s play &#8216;Spot the bug&#8217;. We&#8217;re building a simple system that shows photos. Each photo has a
+<code>publish_date</code> and we should only show photos that have been published (i.e. their <code>publish_date</code> is
+in the past).</p>
+
+<figure class='code'><figcaption><span>models.py</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">class</span> <span class="nc">PhotoManager</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Manager</span><span class="p">):</span>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">live</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">as_of</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+</span><span class='line'>        <span class="k">if</span> <span class="n">as_of</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+</span><span class='line'>            <span class="n">as_of</span> <span class="o">=</span> <span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_query_set</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">publish_date__lte</span><span class="o">=</span><span class="n">as_of</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And the view to show those photos:</p>
+
+<figure class='code'><figcaption><span>views.py</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">class</span> <span class="nc">ShowPhotosView</span><span class="p">(</span><span class="n">ListView</span><span class="p">):</span>
+</span><span class='line'>    <span class="n">queryset</span> <span class="o">=</span> <span class="n">Hero</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">live</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Can you spot the bug? I sure didn&#8217;t&#8230; until the client complained that newly published photos never
+showed up on the site. Restarting the server fixed the problem temporarily. The newly published
+photos would show up, but then any photos published after the server restart again failed to
+display.</p>
+
+<p>The problem is that the <code>ShowPhotosView</code> class is instantiated when the server starts.
+<code>ShowPhotosView.queryset</code> gets set to the value returned by <code>Hero.objects.live()</code>. That, in turn, is a
+<code>QuerySet</code>, but it&#8217;s a <code>QuerySet</code> with <code>as_of</code> set to <code>timezone.now()</code> <em>WHEN THE SERVER STARTS UP</em>. That
+<code>as_of</code> value never gets updated, so newer photos never get captured in the query.</p>
+
+<p>There&#8217;s probably multiple ways to fix this, but an easy one is:</p>
+
+<figure class='code'><figcaption><span>views.py</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">class</span> <span class="nc">ShowPhotosView</span><span class="p">(</span><span class="n">ListView</span><span class="p">):</span>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">get_queryset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span class='line'>        <span class="k">return</span> <span class="n">Hero</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">live</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now, instead of the queryset being instantiated at server start-up, it&#8217;s instantiated only when
+<code>ShowPhotosView.get_queryset()</code> is called, which is when a request is made.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Some Emacs Posts]]></title>
+    <link href="http://www.kurup.org/blog/2014/07/23/some-emacs-posts"/>
+    <updated>2014-07-23T21:38:00-04:00</updated>
+    <id>http://www.kurup.org/blog/2014/07/23/some-emacs-posts</id>
+    <content type="html"><![CDATA[<p>A few cool Emacs posts have flown across my radar, so I&#8217;m noting them here for that time in the
+future when I have time to play with them.</p>
+
+<ul>
+<li><a href="http://endlessparentheses.com/manually-choose-a-fallback-font-for-unicode.html">Get unicode glyphs to show properly</a>. (╯°□°）╯︵ ┻━┻</li>
+<li><a href="http://jr0cket.co.uk/2013/10/create-cool-slides--Org-mode-Revealjs.html/">Creating slides with org-mode and Reveal.js</a>.
+Finally, a sane way to create a presentation :)</li>
+<li><a href="https://github.com/syohex/emacs-anzu">Anzu</a>: Improves incremental search. Anzu shows the number
+of matches found, and how many matches remain in the document.
+<img src="https://github.com/syohex/emacs-anzu/raw/master/image/anzu.gif"></li>
+<li><a href="http://from-the-cloud.com/en/emacs/2013/01/28_emacs-as-a-django-ide-with-python-djangoel.html">Emacs as a Django IDE</a>:
+I tried this out briefly, but didn&#8217;t end up sticking with it. It seemed too heavyweight.
+I&#8217;m probably just too used to my own workflow. I still think it&#8217;s an interesting idea and would
+like to try it again sometime.</li>
+<li><a href="http://emacsredux.com/blog/2014/07/22/travel-back-and-forward-in-git-history/">Travel back and forth in git history</a>:
+I&#8217;m addicted to <a href="http://www.emacswiki.org/emacs/Magit">magit mode</a>, to the point that the
+only git command I use manually nowadays is <code>git clone</code>. I do everything else in magit. Magit has
+a <code>magit-blame-mode</code> which shows when each line in a file was changed and by whom.
+<code>git-timemachine</code> seems to take that a step further by visiting each revision, one by
+one. I can think of a few times where that would have been useful.</li>
+<li><a href="https://github.com/omouse/emacs-sos">Search StackOverflow from inside Emacs</a>: Enough said.</li>
+<li><a href="https://github.com/skeeto/elfeed">Emacs RSS client</a>: Still using NewsBlur, but totally miss
+Google Reader. Maybe I need to try this one out.</li>
+<li><a href="http://sachachua.com/blog/series/read-lisp-tweak-emacs/">Sacha Chua&#8217;s minicourse on Elisp</a>: Have
+to read through this someday!</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Pygments on Arch Linux]]></title>
+    <link href="http://www.kurup.org/blog/2014/07/22/pygments-py3"/>
+    <updated>2014-07-22T21:16:00-04:00</updated>
+    <id>http://www.kurup.org/blog/2014/07/22/pygments-py3</id>
+    <content type="html"><![CDATA[<p>I wrote my first blog post in a little while (ok, ok&#8230; 18 months) yesterday and when I tried to
+generate the post, it failed. Silently failed, which is the worst kind of failure. I&#8217;m still not
+sure why it was silent, but I eventually was able to force it to show me an error message:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>/home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/pygments.rb-0.3.4/lib/pygments/popen.rb:354:in `rescue in get_header': Failed to get header. (MentosError)
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/pygments.rb-0.3.4/lib/pygments/popen.rb:335:in `get_header'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/pygments.rb-0.3.4/lib/pygments/popen.rb:232:in `block in mentos'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/1.9.1/timeout.rb:68:in `timeout'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/pygments.rb-0.3.4/lib/pygments/popen.rb:206:in `mentos'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/pygments.rb-0.3.4/lib/pygments/popen.rb:189:in `highlight'
+</span><span class='line'>  from /home/vinod/dev/kurup.org/plugins/pygments_code.rb:24:in `pygments'
+</span><span class='line'>  from /home/vinod/dev/kurup.org/plugins/pygments_code.rb:14:in `highlight'
+</span><span class='line'>  from /home/vinod/dev/kurup.org/plugins/backtick_code_block.rb:37:in `block in render_code_block'
+</span><span class='line'>  from /home/vinod/dev/kurup.org/plugins/backtick_code_block.rb:13:in `gsub'
+</span><span class='line'>  from /home/vinod/dev/kurup.org/plugins/backtick_code_block.rb:13:in `render_code_block'
+</span><span class='line'>  from /home/vinod/dev/kurup.org/plugins/octopress_filters.rb:12:in `pre_filter'
+</span><span class='line'>  from /home/vinod/dev/kurup.org/plugins/octopress_filters.rb:28:in `pre_render'
+</span><span class='line'>  from /home/vinod/dev/kurup.org/plugins/post_filters.rb:112:in `block in pre_render'
+</span><span class='line'>  from /home/vinod/dev/kurup.org/plugins/post_filters.rb:111:in `each'
+</span><span class='line'>  from /home/vinod/dev/kurup.org/plugins/post_filters.rb:111:in `pre_render'
+</span><span class='line'>  from /home/vinod/dev/kurup.org/plugins/post_filters.rb:166:in `do_layout'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/jekyll-0.12.0/lib/jekyll/post.rb:195:in `render'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/jekyll-0.12.0/lib/jekyll/site.rb:200:in `block in render'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/jekyll-0.12.0/lib/jekyll/site.rb:199:in `each'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/jekyll-0.12.0/lib/jekyll/site.rb:199:in `render'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/jekyll-0.12.0/lib/jekyll/site.rb:41:in `process'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/jekyll-0.12.0/bin/jekyll:264:in `&lt;top (required)&gt;'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/bin/jekyll:23:in `load'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/bin/jekyll:23:in `&lt;main&gt;'</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Professor Google tells me that this happens when you try to
+<a href="https://github.com/tmm1/pygments.rb/issues/45">run the pygments.rb library in a Python 3 environment</a>.
+(pygments.rb is a Ruby wrapper around the Python Pygments library). The fix is to run the code in a
+Python2 virtualenv. I guess the last time I updated my blog, Arch still had Python2 as the system
+default. No, I don&#8217;t want to check how long ago that was.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ mkvirtualenv -p `which python2` my_blog
+</span><span class='line'>(my_blog)$ bundle exec rake generate</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So now I&#8217;m running a Ruby command in a Ruby environment (rbenv) inside a Python 2 virtualenv. Maybe
+it&#8217;s time to switch blog tools again&#8230;</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[How to create test models in Django]]></title>
+    <link href="http://www.kurup.org/blog/2014/07/21/django-test-models"/>
+    <updated>2014-07-21T20:44:00-04:00</updated>
+    <id>http://www.kurup.org/blog/2014/07/21/django-test-models</id>
+    <content type="html"><![CDATA[<p>It&#8217;s occasionally useful to be able to create a Django model class in your unit test suite. Let&#8217;s
+say you&#8217;re building a library which creates an
+<a href="https://docs.djangoproject.com/en/dev/topics/db/models/#abstract-base-classes">abstract model</a>
+which your users will want to subclass. There&#8217;s no need for your library to subclass it, but your
+library should still test that you can create a subclass and test out its features. If you create
+that model in your <code>models.py</code> file, then Django will think that it is a real part of your library and
+load it whenever you (or your users) call <code>syncdb</code>. That&#8217;s bad.</p>
+
+<p>The <a href="https://code.djangoproject.com/ticket/7835#comment:24">solution</a> is to create it in a <code>tests.py</code>
+file within your Django app. If it&#8217;s not in <code>models.py</code>, Django won&#8217;t load it during <code>syncdb</code>.</p>
+
+<figure class='code'><figcaption><span>tests.py</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">django.test</span> <span class="kn">import</span> <span class="n">TestCase</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">MyAbstractModel</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">MyTestModel</span><span class="p">(</span><span class="n">MyAbstractModel</span><span class="p">):</span>
+</span><span class='line'>    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">AbstractTest</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">test_my_test_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span class='line'>        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">MyTestModel</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;foo&#39;</span><span class="p">))</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>A problem with this solution is that I rarely use a single <code>tests.py</code> file. Instead we use multiple
+test files collected in a tests package. If you try to create a model in <code>tests/test_foo.py</code>, then
+this approach fails because Django tries to create the model in an application named <code>tests</code>, but
+there is no such app in INSTALLED_APPS. The solution is to set <code>app_label</code> to the name of your app
+in an inner Meta class.</p>
+
+<figure class='code'><figcaption><span>tests/test_foo.py</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">django.test</span> <span class="kn">import</span> <span class="n">TestCase</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">from</span> <span class="nn">..models</span> <span class="kn">import</span> <span class="n">MyAbstractModel</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">MyTestModel</span><span class="p">(</span><span class="n">MyAbstractModel</span><span class="p">):</span>
+</span><span class='line'>    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+</span><span class='line'>        <span class="n">app_label</span> <span class="o">=</span> <span class="s">&#39;myappname&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">AbstractTest</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">test_my_test_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span class='line'>        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">MyTestModel</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;foo&#39;</span><span class="p">))</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Oh, and I almost forgot&#8230; if you use <a href="http://south.readthedocs.org/en/latest/index.html">South</a>,
+this might not work, unless you set <code>SOUTH_TESTS_MIGRATE</code> to <code>False</code> in your settings file.</p>
+
+<p>Comments and corrections welcome!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Peanut Allergy, a personal clinical review]]></title>
+    <link href="http://www.kurup.org/blog/2013/01/21/peanut-allergy-a-personal-clinical-review"/>
+    <updated>2013-01-21T07:49:22-05:00</updated>
+    <id>http://www.kurup.org/blog/2013/01/21/peanut-allergy-a-personal-clinical-review</id>
+    <content type="html"><![CDATA[<h2>A Vignette</h2>
+
+<p>A 22-month-old previously healthy girl was brought to the emergency
+room in respiratory distress. She had been well until the day of
+presentation. Shortly after disembarking from an airline flight, she
+developed cough with one episode of emesis. En route to the emergency
+room, her breathing became labored and she developed hives. She was
+diagnosed as having an allergic reaction and treated aggressively with
+IV methylprednisolone, IV diphenhydramine, inhaled albuterol, and
+oxygen. Mechanical ventilation was not required and her symptoms
+improved rapidly. She was monitored in the emergency room for an
+extended period and discharged in stable condition with a prescription
+for diphenhydramine and methylprednisolone solutions. No specific
+allergen was identified. She was seen by a pediatric allergist where
+she was found to have a 6 mm response to peanut on skin prick testing,
+and a peanut-specific IgE level of 52 kU/L. She was diagnosed as
+having severe peanut allergy and avoidance was strongly recommended.</p>
+
+<h2>Discussion</h2>
+
+<p>Peanut allergy affects between 0.4 and 2.0% of children. Prevalence
+has been increasing in recent years, but the reason for this increase
+is not well understood. If reactions are identified immediately,
+treatment is usually effective. Despite this, about 200 people die
+each year from peanut reactions. Biphasic reactions, in which the
+initial reaction subsides, but then recurs within a few hours, are
+common. The second portion of a biphasic reaction is often less
+treatable. Because of this risk, patients should be monitored for at
+least 4 hours after a reaction. Patients who successfully treat their
+own reactions with subcutaneous epinephrine should still seek medical
+attention, again to monitor for biphasic reactions.</p>
+
+<p>The gold standard for diagnosis is a double blind placebo controlled
+food challenge (DBPCFC), but this is rarely done. A diagnosis can
+usually be reliably made with clinical history, skin prick testing and
+a peanut-specific IgE blood test (psIgE). A skin prick test involves
+pricking the skin with a needle that is exposed to peanut extract and
+measuring the allergic rash that develops. The psIgE blood test
+measures the amount of antibody against peanut proteins. The higher it
+is, the more allergic the patient is. A positive skin test or psIgE is
+not sufficient for the diagnosis. Some type of reaction to peanuts is
+required (either spontaneous, or via monitored food challenge).</p>
+
+<p>Peanut allergy was previously felt to be permanent, but recent
+evidence documents that 20% of children outgrow their allergy. More
+than 60% of patients with an psIgE level of less than 5 passed a food
+challenge. IgE levels correlate inversely with likelihood of
+resolution, but this correlation is by no means perfect. Some patients
+with undetectable psIgE levels will fail a challenge, while some
+patients with very high psIgE levels will pass. One expert recommends
+waiting until the age of 4 to consider a challenge, and to use a
+cutoff psIgE level of less than 5 kU/L in most patients. Recurrence
+of peanut allergy after resolution is rare, but is associated with the
+lack of regular peanut intake after resolution of the allergy.</p>
+
+<p>Controversy exists regarding risk factors for developing peanut
+allergy. The AAP initially recommended that peanut not be introduced
+early in a child&#8217;s life, but rescinded that advice given the lack of
+evidence behind it. This leaves a void for parents as there is no
+recommendation to withold or introduce peanuts to toddlers. It is also
+not clear if maternal peanut intake during pregnancy or breast feeding
+increases the risk of developing peanut allergy in children. Studies
+have been conflicting, so more definitive studies are underway. No
+evidence-based advice can be given one way or the other to pregnant or
+breastfeeding women, but at the minimum, there is no good evidence to
+support avoiding peanuts.</p>
+
+<p>The mainstay of treatment is education. Parents should be taught not
+only how to identify peanuts in foods, but to identify situations
+which are high-risk for exposure to peanuts. Avoidance of buffets,
+ice-cream parlors, and bakeries is recommended because the risk of
+cross-contamination in those setting is high. Religious reading of
+food labels is important. Patients who are allergic to peanuts are
+often also allergic to tree nuts, despite the dissimilarity in those
+food types. Highly refined peanut oil is usually <em>NOT</em> a risk, but
+cold-pressed peanut oil is not safe.</p>
+
+<p>Most importantly, an epi-pen should be carried at all times and extra
+doses should be left at daycare facilities and schools. All caregivers
+should be comfortable giving an epi-pen injection and this should be
+provided at the first sign of a systemic allergic reaction. Waiting to
+give diphenhydramine or other therapies a &#8220;chance to work&#8221; can be
+dangerous. Follow a <a href="http://www.foodallergy.org/files/media/food-allergy-action-plan/FAAP.pdf">Food Allergy Action
+Plan</a>
+Over 80% of people who died from allergic reactions were not given
+appropriate instructions on how to prevent future reactions. Most
+mortality occurs because of late treatment. If you take one thing away
+from this long post, keep an epi-pen handy and use it liberally.</p>
+
+<p>Trials are underway investigating various oral-based immunotherapies,
+but none are strongly recommended at this point. Injection
+immunotherapy has not been found to be useful.</p>
+
+<h2>Personal Comment</h2>
+
+<p>So, the 22 month old above is Anika and she gave us the scare of our
+life a couple years ago. The scary part now is that we never saw her
+actually eat a peanut, so we&#8217;re especially vigilant now. Fortunately,
+Anika seems to understand the importance of avoiding peanuts. When she
+was diagnosed, I did some research but never documented my notes. She
+recently had another allergist appointment, so I reviewed those notes
+and any new data. I figured I should write up my notes so I wouldn&#8217;t
+have to review this again from scratch every year. I didn&#8217;t intend it
+to come out so &#8216;medical-speaky&#8217;, but there it is. Anika and Kavi are
+sitting next to me as I write this and they want to give some
+information to you, too.</p>
+
+<p>Kavi says:</p>
+
+<blockquote><p>&#8220;Always ask at the restaurant if things have peanuts and make foods
+at home that do not have peanuts. Always check if there are peanuts in
+every food you eat.&#8221;</p></blockquote>
+
+<p>Anika says:</p>
+
+<blockquote><p>&#8220;We might have to go to the doctor if we eat peanuts. If I eat
+peanuts by accident, my teacher will give me a Happy-Pen (epi-pen).&#8221;</p></blockquote>
+
+<h2>References</h2>
+
+<ol>
+<li>Sampson HA. Peanut Allergy. N Engl J Med, 2002;346;1294-8.
+http://www.nejm.org/doi/full/10.1056/NEJMcp012667</li>
+<li>Fleischer DM, et. al. The natural progression of peanut allergy:
+Resolution and the possibility of recurrence. J Allergy Clin
+Immunol, 2003;112;183-9.
+http://www.jacionline.org/article/S0091-6749(03)01251-X/abstract</li>
+<li>O&#8217;B Hourihane J. Peanut Allergy. Pediatr Clin N Am, 2011;58;445-57.
+http://www.pediatric.theclinics.com/article/S0031-3955(11)00006-X/abstract</li>
+<li>Rinaldi M, et. al. Peanut allergy diagnoses among children
+residing in Olmstead County, Minnesota. J Allergy Clin Immunol, 2012:130:945-50.</li>
+<li>Burks AW. Early peanut consumption: postpone or promote? J Allergy
+Clin Immunol. 2009:123:417-423.
+http://www.jacionline.org/article/S0091-6749(08)02436-6/fulltext</li>
+</ol>
+
+
+<h2>RSS URL:</h2>
+
+<p>Here&#8217;s a
+<a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/erss.cgi?rss_guid=1t7jLQ--MCbUSbgzXRNqEMLPWIMWlZiqoEMdLvUTNUIFZ-UsA4">medline feed URL</a>
+that I monitor which should show new studies or reviews related to
+this topic.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Priorities and GTD]]></title>
+    <link href="http://www.kurup.org/blog/2013/01/17/priorities-and-gtd"/>
+    <updated>2013-01-17T13:38:07-05:00</updated>
+    <id>http://www.kurup.org/blog/2013/01/17/priorities-and-gtd</id>
+    <content type="html"><![CDATA[<p>Pre-GTD task management systems recommended that you assign a priority
+to each task. When looking at a list of tasks, you then choose the
+ones with the highest priority. David Allen (author of GTD) includes
+&#8216;priority&#8217; as one of the things that you should consider when you are
+deciding what to do, but only after you have considered context, time
+available, and energy available. Which makes sense. As Merlin Mann
+says, it doesn&#8217;t matter if mowing your lawn is your highest priority
+when you&#8217;re sitting in an airplane. Only if you&#8217;re in the right
+context with the right amount of time and the right amount of energy,
+should you consider which of the remaining available tasks is highest
+priority.</p>
+
+<p>The risk, though, is that there are so many little &#8216;easy&#8217; tasks that I
+could do instead of important, &#8216;hard&#8217; tasks. I&#8217;m also really good at
+convincing myself that I don&#8217;t have the energy available to do harder
+tasks when I really should. So when I get back into GTD, I process all
+the things hiding in the back of my brain which leads to the creation
+of lots of simple tasks. Google this, buy that, throw away the other
+thing. But the two things that I really want to be doing more are
+writing and programming. Both of those take blocks of uninterrupted
+time and effort, so I end up subconsciously shying away from them. I
+actually feel better about it, too, because now I have all these other
+tasks that I can do instead. So, I feel productive, even when ignoring
+the more important things that I should be doing. I&#8217;m moving more
+efficiently, but in the wrong direction.</p>
+
+<p>I&#8217;ve avoided that a little bit this time by doing a little bit of
+prioritization each night before I go to bed. I look through my todo
+list and pick about 3-5 things that I want to get done the next day. I
+tag those with the &#8216;today&#8217; tag and then the next morning I look at
+that list and start working on those things before doing anything
+else. I&#8217;ve heard this
+<a href="http://gettingresults.com/wiki/The_Rule_of_3">trick</a> from a lot of
+people before, so I don&#8217;t remember who I heard it from first.</p>
+
+<p>So far it&#8217;s been effective for me. The problem always starts again
+though when I go back on service, because then I can only really focus
+on one thing and that is getting my work done at the hospital. We&#8217;ll
+see if I can somehow figure out a way to get at least one non-work
+thing done on each of those days.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[GTD again?]]></title>
+    <link href="http://www.kurup.org/blog/2013/01/16/gtd-again"/>
+    <updated>2013-01-16T09:27:03-05:00</updated>
+    <id>http://www.kurup.org/blog/2013/01/16/gtd-again</id>
+    <content type="html"><![CDATA[<p>Thanks to
+<a href="http://5by5.tv/b2w/95">Merlin Mann&#8217;s recent series of podcasts on GTD</a>,
+I&#8217;m getting back on the GTD wagon (for about the 100th time). I read
+<a href="http://www.davidco.com/">Getting Things Done</a> in 2002 and have been
+trying to implement it ever since. I&#8217;ve had periods where I followed
+it religiously for a month at a time, but it&#8217;s never completely stuck.
+From what I hear, this is normal and I accept it now. This won&#8217;t be
+the last time that I restart GTD. Even when I&#8217;m not actively using
+GTD, I think in GTD terms, thinking about next actions and projects
+and ruthlessly placing projects on the backburner. I just have trouble
+sticking with the entire GTD workflow, especially the ubiquitous
+capture (I trust my brain too much) and the weekly reviews (they just
+seem too painful). I&#8217;ve used every online and offline tool in the
+book, too. Despite not doing so great with GTD, I&#8217;d say my life is an
+overwhelming success.</p>
+
+<p>So why try again? Each time I have gotten back on the bandwagon, I&#8217;ve
+had a surge in productivity. I wrote more. I made some clear decisions
+on issues that I had been procrastinating on. I wouldn&#8217;t be surprised
+if each of my major life improvements over the past 10 years was
+associated with a time where I got back on the GTD wagon. I can&#8217;t
+prove that, because I don&#8217;t keep enough details, but I always feel
+better and think clearer when I&#8217;m on GTD.</p>
+
+<p>But, I&#8217;ve failed so many times&#8230; what kind of hubris makes me think
+I&#8217;ll get it this time?
+<a href="http://www.quotationspage.com/quote/36285.html">&#8220;Fall down seven times, get up eight.&#8221;</a>
+Parenthood has taught this to me. Of course we don&#8217;t expect our kids
+to learn each skill the first time they try. We expect that walking
+and reading and writing and bike-riding will take time, multiple
+efforts, and multiple failures. But eventually they will get it. Yet,
+with each failure, kids get upset (to varying degrees). The answer at
+that point is not to tell them to give up. Yet, that&#8217;s what I do to
+myself. So, I&#8217;m going to treat myself like a kid and let myself fail,
+understanding that each failure will get me closer to that one time
+where I will succeed.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Writing paralysis]]></title>
+    <link href="http://www.kurup.org/blog/2013/01/15/writing-paralysis"/>
+    <updated>2013-01-15T14:45:09-05:00</updated>
+    <id>http://www.kurup.org/blog/2013/01/15/writing-paralysis</id>
+    <content type="html"><![CDATA[<p>I think twitter and facebook stunt my writing. The more that I read
+tweets, the more self-conscious I get when I write. Not that my
+writing is all that original, but I still feel that it is something
+that comes from me. I worry so much about presenting ideas of others
+as my own without even remembering that I had seen the ideas before.
+In the old days, the things that I read were long form. Books,
+articles, maybe blog posts. They each left an impression on me, maybe
+good, maybe bad, but I had a sense where they were coming from. When I
+wrote I could reliably say where the inspiration for my idea had come
+from. Now with twitter, I see all these ideas and thoughts, some of
+which are interesting, but few of which leave a lasting impression on
+me. So now I have this fear that the things that I am considering my
+own ideas are actually the ideas of others, improperly attributed. Of
+course, that&#8217;s silly. No idea is original, but it&#8217;s just serious
+enough to stifle my writing. Because, as a writer, I am the
+scaredy-cat of all scaredy-cats and any criticism of my writing bites
+deep to the heart. I also know that this is something that I just need
+to get over. You cannot express ideas without inviting criticism.
+I also don&#8217;t just want to let criticism fall off me. I want to learn
+from critics. But saying all that doesn&#8217;t necessarily make it any
+easier. Even writing this post, I feel like a fraud. I&#8217;ve said that
+I&#8217;m a writer a couple times up there, but what evidence do I have to
+support that claim? Most of my blog posts are so simple or technical
+or repetitive. Nothing that would strike me as an &#8216;original idea&#8217;.
+This whole post makes it seem like I am more important or better than
+I really am.</p>
+
+<p>What is my point with all this? I want to be able to write. I know
+that there are people out there who could benefit from things in my
+brain (maybe not a lot). I know that there are people out there who
+can help me (in ways that I can&#8217;t even expect). So, I want to write
+and I want it to be freely flowing and I don&#8217;t want to force myself to
+feel that what I am writing is useful or authoritative or perfect. I
+apologize to you, Vinod, my biggest critic. I know that you are
+cringing inside because you&#8217;re thinking that anyone who reads this
+will think that you are so full of yourself for even considering
+yourself a writer. But, this is my first step in letting my guard down
+to get this blog flowing. Because I do believe that writing is healthy
+and will make me a better person.</p>
+
+<p>In addition to committing to blogging more frequently, I&#8217;m also going
+to try a twitter hiatus for a week and see what happens.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Steal My Web App Idea]]></title>
+    <link href="http://www.kurup.org/blog/2013/01/09/steal-my-web-app-idea"/>
+    <updated>2013-01-09T22:00:01-05:00</updated>
+    <id>http://www.kurup.org/blog/2013/01/09/steal-my-web-app-idea</id>
+    <content type="html"><![CDATA[<p>Now that we have 3 kids, I&#8217;m always internally comparing one to the
+other. Sure that&#8217;s not healthy and will probably breed resentment in
+them during their teenage years, but what&#8217;s a bad parent to do?</p>
+
+<p>I need an app that takes 2 kids&#8217; birthdays and then shows me what day
+it was when the older kid was the age that the younger kid is now.
+Wow, that&#8217;s a confusing sentence. In simpler terms, if I have a
+3-year-old and a 1-year-old, then the app would show me the day that
+the 3-year-old was 1.</p>
+
+<p>Then, I want the app to take that date and go through all of my
+personal files (photos, notes, twitter stream, facebook stream, etc.)
+and show me what was happening in our life around that day.</p>
+
+<p>In short, it would show a snapshot of what our life was like when the
+older kid was the age that the younger kid is now. I&#8217;d call it
+WhenIWasYourAge or something catchy like that.</p>
+
+<p>Seems simple enough to build, but I don&#8217;t see myself getting to it
+anytime soon. Smart people say to set your ideas free and if they love
+you they&#8217;ll come back. (Wait, I think I&#8217;m mixing metaphors here).</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[How to change the rear tire on a 12 inch bicycle]]></title>
+    <link href="http://www.kurup.org/blog/2012/12/30/how-to-change-the-rear-tire-on-a-12-inch-bicycle"/>
+    <updated>2012-12-30T15:00:40-05:00</updated>
+    <id>http://www.kurup.org/blog/2012/12/30/how-to-change-the-rear-tire-on-a-12-inch-bicycle</id>
+    <content type="html"><![CDATA[<p>I&#8217;m not the handiest guy in the world, so I&#8217;m pretty proud that I was
+able to fix a flat tire on Kavi&#8217;s 12&#8221; bicycle.</p>
+
+<p>DISCLAIMER: I have almost no idea what I&#8217;m doing. Follow my
+instructions at your peril.</p>
+
+<p>I&#8217;ve fixed flats before, but it&#8217;s been a long time. Fixing it on such
+a tiny bike was a lot harder than I thought. The manual makes it seem
+so simple. &#8220;Remove the wheel, take the tube out, patch the tube and
+then replace the tube and tire.&#8221; Right&#8230; I got stuck at step 1.
+Removing the wheel isn&#8217;t straightforward. Most of the videos available
+online focus on adult-sized bikes which have quick-release tires. You
+pull a release lever back and then pull the tire off. Kids bikes have
+bolts instead of quick-release levers. You have to loosen the bolts,
+but you don&#8217;t have to take the bolts completely off. You also have to
+take off the plastic chain guard that prevents kids from rubbing their
+legs against the chain. Finally, there&#8217;s this little metal piece that
+attaches the wheel to the frame. I think it&#8217;s there for the
+pedal-brake to work. In any case, you have to take that off. Once the
+wheel is loosened, you have to unhook the wheel from the chain. This
+is also easier in big bikes which have multiple gears, making it
+possible to place the chain in a position to easily get it off the
+wheel. In a kid&#8217;s bike, it&#8217;s harder. Once I loosened the bolts on both
+sides of the wheel, I pushed the wheel a little forward, which
+loosened the chain and made it easy to release from the chain.</p>
+
+<p>The next difficulty was getting the tube out of the tire. All the
+videos make this seem so easy. Place a tire lever in the tire to pull
+it over the rim. Put another tire lever in and slide it around the rim
+to get the rest of the tire out. Kavi&#8217;s tires are so tight that this
+was impossible. I could get the first tire lever in, but when I put
+the second tire lever in, it was completely immovable. There was no
+way that I was going to be able to slide it anywhere. I finally found
+a website where they recommended using a third tire lever. Put the
+first two in a few inches apart. Then put the third one in another
+inch away from the second one. Finally remove the middle one and move
+it an inch past the third one. In this way, I was able to get the tire
+off eventually.</p>
+
+<p>I then got the tube out and found the leak. I placed a patch on it,
+but when I reinflated the tire, the leaking air just pushed it&#8217;s way
+through the patch. I tried roughing up the area with the roughing
+tool, but that didn&#8217;t help. Finally, I resorted to the layman&#8217;s
+favorite tool: duct tape. I placed the patch, then wrapped it with
+duct tape. It&#8217;s held together for a few months now.</p>
+
+<p>Hopefully Kavi will graduate to the next size bike before my handiwork
+breaks down. On another note, Kavi was easily able to pick up the
+basics of riding a bike by following the
+<a href="http://www.rei.com/learn/expert-advice/teach-child-to-ride-a-bike.html">REI guide</a>.
+I took off the training wheels and the pedals, which allowed him to
+get the feeling of balancing the bike without having to keep his feet
+on the pedals. Once he got that part, it was relatively easy for him
+to balance with the pedals on. He also proved to be a much tougher kid
+than I was. Everytime he fell, he got right back on.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[NSBrief gets the best guests]]></title>
+    <link href="http://www.kurup.org/blog/2012/11/05/nsbrief-gets-the-best-guests"/>
+    <updated>2012-11-05T10:38:09-05:00</updated>
+    <id>http://www.kurup.org/blog/2012/11/05/nsbrief-gets-the-best-guests</id>
+    <content type="html"><![CDATA[<p>I&#8217;m not an OS X programmer, but I&#8217;ve really enjoyed 2 recent episodes
+of the <a href="http://nsbrief.com/">NSBrief</a> podcast. First was <a href="http://nsbrief.com/59-mark-dalrymple">Mark
+Dalrymple&#8217;s interview</a>. Here was
+my 140 character description:</p>
+
+<blockquote class="twitter-tweet"><p>So much geeky fun in @<a href="https://twitter.com/borkware">borkware</a>&#8217;s interview. AOLserver, dtrace, OpenDoc, MPW, need I go on? <a href="http://t.co/JWPPvfaa" title="http://nsbrief.com/59-mark-dalrymple">nsbrief.com/59-mark-dalrym…</a></p>&mdash; Vinod Kurup (@vkurup) <a href="https://twitter.com/vkurup/status/235907385997262848" data-datetime="2012-08-16T01:14:38+00:00">August 16, 2012</a></blockquote>
+
+
+<script src="http://www.kurup.org//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+<p>Today, I listened to
+<a href="http://nsbrief.com/62-mark-aufflick">Mark Aufflick&#8217;s interview</a> where
+he talks eloquently about starting your own business. I love the
+perspective he had on his first business and how shutting it down gave
+him the necessary (though painful) experience to make his current
+business work. He also talked about the importance of computing
+history especially given the availability of interesting subjects. He
+ended with great advice on the importance of professionalism.
+Paraphrased: &#8220;Make sure your team is the most professional side of any
+relationship.&#8221;</p>
+
+<p>I know <a href="http://borkware.com">Mark</a> and
+<a href="http://mark.aufflick.com/">Mark</a> from the
+<a href="http://openacs.org">OpenACS</a> glory days and it&#8217;s great to hear how
+well they&#8217;re doing. Computing history was a prominent part of both
+talks. I think this is important. Old ideas are always new again. Some
+of the ideas that these pioneers had were only limited by the
+horsepower we had to work with at the time. Now thanks to Moore&#8217;s law,
+those limitations are gone, so we should re-investigate those ideas.
+Or maybe we&#8217;re all just getting old and like to talk about the
+good-old-days. :-) It&#8217;s nice to see that they both mentioned the
+OpenACS period of their programming lives as important. It certainly
+was for me. It was also great to hear Mark Aufflick&#8217;s voice for the
+first time, even though I feel like he&#8217;s been a friend for many years.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Emacs for Python Programming]]></title>
+    <link href="http://www.kurup.org/blog/2012/10/24/emacs-for-python-programming"/>
+    <updated>2012-10-24T16:45:49-04:00</updated>
+    <id>http://www.kurup.org/blog/2012/10/24/emacs-for-python-programming</id>
+    <content type="html"><![CDATA[<p>(Note: See the bottom of this post for updates)</p>
+
+<p>I was honored to to give my
+<a href="https://speakerdeck.com/vkurup/emacs-for-python-programming">&#8220;Emacs for Python Programming&#8221;</a>
+talk at the inaugural <a href="http://pycarolinas.org">PyCarolinas</a>
+conference. The conference was a huge success in every way, thanks to
+the efforts of <a href="http://www.ironfroggy.com/">Calvin Spealman</a>, et. al.
+I promised that I would post my Emacs setup, so here it is.</p>
+
+<h2>Step 0: Prerequisites</h2>
+
+<p>This may work with other setups, but here&#8217;s what I tested:</p>
+
+<ul>
+<li>Linux</li>
+<li>Emacs version 24</li>
+<li>python 2.7 or 3.3</li>
+<li><a href="http://pypi.python.org/pypi/pip">pip</a></li>
+<li><a href="http://www.virtualenv.org/">virtualenv</a></li>
+<li><a href="http://virtualenvwrapper.readthedocs.org/">virtualenvwrapper</a></li>
+<li>git</li>
+</ul>
+
+
+<h2>Step 1: Clear out any previous customization</h2>
+
+<p>As evidenced by the numerous blog posts documenting how to set this
+up, it&#8217;s not straightforward. I recommend starting from scratch to
+make sure everything is set up properly. Once you have it working,
+then you can customize it. Make sure to start these commands in your
+home directory.</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>vinod:~<span class="nv">$ </span>mkdir old-emacs
+</span><span class='line'>vinod:~<span class="nv">$ </span>mv .emacs .emacs.d old-emacs/
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Step 2: Set up initial Emacs configuration</h2>
+
+<p>Create an empty <code>.emacs.d</code> directory and a subdirectory named with your
+username. My username is <code>vinod</code>, so we&#8217;ll create a directory
+structure called <code>.emacs.d/vinod/</code>. The emacs-starter-kit tells emacs
+to automatically load any elisp files from that special directory, so
+you&#8217;ll always have a place to drop custom elisp files.</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>vinod:~<span class="nv">$ </span>mkdir -p ~/.emacs.d/<span class="nv">$USER</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Create a file named <code>.emacs.d/init.el</code> with the following contents:</p>
+
+<figure class='code'><figcaption><span>my-init.el</span><a href='https://gist.github.com/3948955'>link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+</pre></td><td class='code'><pre><code class='scm'><span class='line'><span class="p">(</span><span class="nf">require</span> <span class="ss">&#39;package</span><span class="p">)</span>
+</span><span class='line'><span class="p">(</span><span class="nf">add-to-list</span> <span class="ss">&#39;package-archives</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;marmalade&quot;</span> <span class="o">.</span> <span class="s">&quot;http://marmalade-repo.org/packages/&quot;</span><span class="p">))</span>
+</span><span class='line'><span class="p">(</span><span class="nf">add-to-list</span> <span class="ss">&#39;package-archives</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;melpa&quot;</span> <span class="o">.</span> <span class="s">&quot;http://melpa.milkbox.net/packages/&quot;</span><span class="p">))</span>
+</span><span class='line'><span class="p">(</span><span class="nf">package-initialize</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="nf">when</span> <span class="p">(</span><span class="nb">not </span><span class="nv">package-archive-contents</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">(</span><span class="nf">package-refresh-contents</span><span class="p">))</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="nf">defvar</span> <span class="nv">my-packages</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">starter-kit</span>
+</span><span class='line'>                      <span class="nv">starter-kit-bindings</span>
+</span><span class='line'>                      <span class="nv">starter-kit-js</span>
+</span><span class='line'>                      <span class="nv">autopair</span>
+</span><span class='line'>                      <span class="nv">yasnippet</span>
+</span><span class='line'>                      <span class="nv">auto-complete</span>
+</span><span class='line'>                      <span class="nv">fuzzy</span><span class="p">)</span>
+</span><span class='line'>  <span class="s">&quot;A list of packages to ensure are installed at launch.&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="nf">dolist</span> <span class="p">(</span><span class="nf">p</span> <span class="nv">my-packages</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">(</span><span class="nf">when</span> <span class="p">(</span><span class="nb">not </span><span class="p">(</span><span class="nf">package-installed-p</span> <span class="nv">p</span><span class="p">))</span>
+</span><span class='line'>    <span class="p">(</span><span class="nf">package-install</span> <span class="nv">p</span><span class="p">)))</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">;; autopair and yas in all modes</span>
+</span><span class='line'><span class="p">(</span><span class="nf">autopair-global-mode</span><span class="p">)</span>
+</span><span class='line'><span class="p">(</span><span class="nf">yas-global-mode</span> <span class="mi">1</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">;; autocomplete</span>
+</span><span class='line'><span class="p">(</span><span class="nf">require</span> <span class="ss">&#39;auto-complete-config</span><span class="p">)</span>
+</span><span class='line'><span class="p">(</span><span class="nf">setq</span> <span class="nv">ac-dictionary-files</span> <span class="p">(</span><span class="nb">list </span><span class="p">(</span><span class="nf">concat</span> <span class="nv">user-emacs-directory</span> <span class="s">&quot;.dict&quot;</span><span class="p">)))</span>
+</span><span class='line'><span class="p">(</span><span class="nf">ac-config-default</span><span class="p">)</span>
+</span><span class='line'><span class="c1">;; hack to fix ac-sources after pycomplete.el breaks it</span>
+</span><span class='line'><span class="p">(</span><span class="nf">add-hook</span> <span class="ss">&#39;python-mode-hook</span>
+</span><span class='line'>          <span class="o">&#39;</span><span class="p">(</span><span class="k">lambda </span><span class="p">()</span>
+</span><span class='line'>             <span class="p">(</span><span class="nf">setq</span> <span class="nv">ac-sources</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">ac-source-pycomplete</span>
+</span><span class='line'>                                <span class="nv">ac-source-abbrev</span>
+</span><span class='line'>                                <span class="nv">ac-source-dictionary</span>
+</span><span class='line'>                                <span class="nv">ac-source-words-in-same-mode-buffers</span><span class="p">))))</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">;; Set up python-mode</span>
+</span><span class='line'><span class="p">(</span><span class="nf">setq</span> <span class="nv">py-install-directory</span> <span class="p">(</span><span class="nf">concat</span> <span class="nv">esk-user-dir</span> <span class="s">&quot;/python-mode.el-6.0.12/&quot;</span><span class="p">))</span>
+</span><span class='line'><span class="p">(</span><span class="nf">add-to-list</span> <span class="ss">&#39;load-path</span> <span class="nv">py-install-directory</span><span class="p">)</span>
+</span><span class='line'><span class="c1">;; this will show method signatures while typing</span>
+</span><span class='line'><span class="p">(</span><span class="nf">setq</span> <span class="nv">py-set-complete-keymap-p</span> <span class="nv">t</span><span class="p">)</span>
+</span><span class='line'><span class="p">(</span><span class="nf">require</span> <span class="ss">&#39;python-mode</span><span class="p">)</span>
+</span><span class='line'><span class="c1">;; activate the virtualenv where Pymacs is located</span>
+</span><span class='line'><span class="p">(</span><span class="nf">virtualenv-workon</span> <span class="s">&quot;default/&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="nf">defun</span> <span class="nv">load-pycomplete</span> <span class="p">()</span>
+</span><span class='line'>  <span class="s">&quot;Load and initialize pycomplete.&quot;</span>
+</span><span class='line'>  <span class="p">(</span><span class="nf">interactive</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">(</span><span class="k">let* </span><span class="p">((</span><span class="nf">pyshell</span> <span class="p">(</span><span class="nf">py-choose-shell</span><span class="p">))</span>
+</span><span class='line'>         <span class="p">(</span><span class="nf">path</span> <span class="p">(</span><span class="nf">getenv</span> <span class="s">&quot;PYTHONPATH&quot;</span><span class="p">)))</span>
+</span><span class='line'>    <span class="p">(</span><span class="nf">setenv</span> <span class="s">&quot;PYTHONPATH&quot;</span> <span class="p">(</span><span class="nf">concat</span>
+</span><span class='line'>                          <span class="p">(</span><span class="nf">expand-file-name</span> <span class="nv">py-install-directory</span><span class="p">)</span> <span class="s">&quot;completion&quot;</span>
+</span><span class='line'>                          <span class="p">(</span><span class="k">if </span><span class="nv">path</span> <span class="p">(</span><span class="nf">concat</span> <span class="nv">path-separator</span> <span class="nv">path</span><span class="p">))))</span>
+</span><span class='line'>    <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nf">py-install-directory-check</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">(</span><span class="nf">progn</span>
+</span><span class='line'>          <span class="p">(</span><span class="nf">setenv</span> <span class="s">&quot;PYMACS_PYTHON&quot;</span> <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nf">string-match</span> <span class="s">&quot;IP&quot;</span> <span class="nv">pyshell</span><span class="p">)</span>
+</span><span class='line'>                                      <span class="s">&quot;python&quot;</span>
+</span><span class='line'>                                    <span class="nv">pyshell</span><span class="p">))</span>
+</span><span class='line'>          <span class="p">(</span><span class="nf">autoload</span> <span class="ss">&#39;pymacs-apply</span> <span class="s">&quot;pymacs&quot;</span><span class="p">)</span>
+</span><span class='line'>          <span class="p">(</span><span class="nf">autoload</span> <span class="ss">&#39;pymacs-call</span> <span class="s">&quot;pymacs&quot;</span><span class="p">)</span>
+</span><span class='line'>          <span class="p">(</span><span class="nf">autoload</span> <span class="ss">&#39;pymacs-eval</span> <span class="s">&quot;pymacs&quot;</span><span class="p">)</span>
+</span><span class='line'>          <span class="p">(</span><span class="nf">autoload</span> <span class="ss">&#39;pymacs-exec</span> <span class="s">&quot;pymacs&quot;</span><span class="p">)</span>
+</span><span class='line'>          <span class="p">(</span><span class="nf">autoload</span> <span class="ss">&#39;pymacs-load</span> <span class="s">&quot;pymacs&quot;</span><span class="p">)</span>
+</span><span class='line'>          <span class="p">(</span><span class="nb">load </span><span class="p">(</span><span class="nf">concat</span> <span class="nv">py-install-directory</span> <span class="s">&quot;completion/pycomplete.el&quot;</span><span class="p">)</span> <span class="nv">nil</span> <span class="nv">t</span><span class="p">)</span>
+</span><span class='line'>          <span class="p">(</span><span class="nf">add-hook</span> <span class="ss">&#39;python-mode-hook</span> <span class="ss">&#39;py-complete-initialize</span><span class="p">))</span>
+</span><span class='line'>      <span class="p">(</span><span class="nf">error</span> <span class="s">&quot;`py-install-directory&#39; not set, see INSTALL&quot;</span><span class="p">))))</span>
+</span><span class='line'><span class="p">(</span><span class="nf">eval-after-load</span> <span class="ss">&#39;pymacs</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">load-pycomplete</span><span class="p">))</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">;; pyflakes flymake integration</span>
+</span><span class='line'><span class="c1">;; http://stackoverflow.com/a/1257306/347942</span>
+</span><span class='line'><span class="p">(</span><span class="nf">when</span> <span class="p">(</span><span class="nb">load </span><span class="s">&quot;flymake&quot;</span> <span class="nv">t</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">(</span><span class="nf">defun</span> <span class="nv">flymake-pyflakes-init</span> <span class="p">()</span>
+</span><span class='line'>    <span class="p">(</span><span class="k">let* </span><span class="p">((</span><span class="nf">temp-file</span> <span class="p">(</span><span class="nf">flymake-init-create-temp-buffer-copy</span>
+</span><span class='line'>                       <span class="ss">&#39;flymake-create-temp-inplace</span><span class="p">))</span>
+</span><span class='line'>           <span class="p">(</span><span class="nf">local-file</span> <span class="p">(</span><span class="nf">file-relative-name</span>
+</span><span class='line'>                        <span class="nv">temp-file</span>
+</span><span class='line'>                        <span class="p">(</span><span class="nf">file-name-directory</span> <span class="nv">buffer-file-name</span><span class="p">))))</span>
+</span><span class='line'>      <span class="p">(</span><span class="nb">list </span><span class="s">&quot;pycheckers&quot;</span> <span class="p">(</span><span class="nb">list </span><span class="nv">local-file</span><span class="p">))))</span>
+</span><span class='line'>  <span class="p">(</span><span class="nf">add-to-list</span> <span class="ss">&#39;flymake-allowed-file-name-masks</span>
+</span><span class='line'>               <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;\\.py\\&#39;&quot;</span> <span class="nv">flymake-pyflakes-init</span><span class="p">)))</span>
+</span><span class='line'><span class="p">(</span><span class="nf">add-hook</span> <span class="ss">&#39;python-mode-hook</span> <span class="ss">&#39;flymake-mode</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">;; menu bar is useful when getting started</span>
+</span><span class='line'><span class="p">(</span><span class="nf">menu-bar-mode</span><span class="p">)</span>
+</span><span class='line'><span class="p">(</span><span class="nf">setq-default</span> <span class="nv">default-tab-width</span> <span class="mi">4</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Step 3: Create a python virtualenv</h2>
+
+<p>We&#8217;ll keep all the python-side customization in a virtualenv named
+<code>default</code>. It&#8217;s important that the name you choose is the same as the
+name in the <code>(virtualenv-workon)</code> command in line 45 of Step 2.</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>vinod:~<span class="nv">$ </span>mkvirtualenv -p python2 default
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>After it does its thing, your shell prompt should change, indicating
+that your new virtualenv is activated</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="o">(</span>default<span class="o">)</span>vinod:~<span class="err">$</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Step 4: Install Pymacs</h2>
+
+<p><a href="http://pymacs.progiciels-bpi.ca/index.html">Pymacs</a> is a really cool
+piece of software that sets up a 2 way communication between Emacs and
+Python, allowing you to control Emacs with python commands rather than
+elisp commands. It requires a python piece (<code>Pymacs.py</code>) and an Emacs
+piece (<code>pymacs.el</code>). Unfortunately, they&#8217;re not installable via <code>pip</code>
+or <code>package.el</code>, but installation is easy enough.</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="o">(</span>default<span class="o">)</span>vinod:~<span class="nv">$ </span>mkdir src
+</span><span class='line'><span class="o">(</span>default<span class="o">)</span>vinod:~/src<span class="nv">$ </span><span class="nb">cd </span>src
+</span><span class='line'><span class="o">(</span>default<span class="o">)</span>vinod:~/src<span class="nv">$ </span>git clone git://github.com/pinard/Pymacs.git
+</span><span class='line'><span class="o">(</span>default<span class="o">)</span>vinod:~/src<span class="nv">$ </span><span class="nb">cd </span>Pymacs
+</span><span class='line'>
+</span><span class='line'><span class="c"># check to make sure tests pass</span>
+</span><span class='line'><span class="o">(</span>default<span class="o">)</span>vinod:~/src/Pymacs<span class="nv">$ </span>make check
+</span><span class='line'>
+</span><span class='line'><span class="c"># install it (Be sure you&#39;re inside your virtualenv!)</span>
+</span><span class='line'><span class="o">(</span>default<span class="o">)</span>vinod:~/src/Pymacs<span class="nv">$ </span>make install
+</span><span class='line'>
+</span><span class='line'><span class="c"># install the emacs extension</span>
+</span><span class='line'><span class="o">(</span>default<span class="o">)</span>vinod:~/src/Pymacs<span class="nv">$ </span>cp pymacs.el ~/.emacs.d/<span class="nv">$USER</span>/
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Step 5: Install other python packages</h2>
+
+<p>These helper packages are easier to install:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="o">(</span>default<span class="o">)</span>vinod:~<span class="nv">$ </span>pip install pyflakes pep8
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The pyflakes and pep8 packages check your code as you type using
+Emacs&#8217; flymake mode. Now, deactivate your virtualenv.</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="o">(</span>default<span class="o">)</span>vinod:~<span class="nv">$ </span>deactivate
+</span><span class='line'>vinod:~<span class="err">$</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Step 6: Install pycheckers</h2>
+
+<p>Flymake is the part of Emacs that checks your code for errors on the
+fly. It calls a shell script called <code>pycheckers</code>, so you need to have
+a script by that name in your shell&#8217;s <code>PATH</code>. Here&#8217;s mine
+(<code>~/bin/pycheckers</code>):</p>
+
+<figure class='code'><figcaption><span>pycheckers.sh</span><a href='https://gist.github.com/3948973'>link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="c">#!/bin/bash</span>
+</span><span class='line'>
+</span><span class='line'>pyflakes <span class="s2">&quot;$1&quot;</span>
+</span><span class='line'>pep8 --repeat <span class="s2">&quot;$1&quot;</span>
+</span><span class='line'><span class="nb">true</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Step 7: Install python-mode.el</h2>
+
+<p>As I mentioned in my talk, there are multiple Python modes available,
+but I recommend using the one named python-mode.el, which is developed
+at
+<a href="http://launchpad.net/python-mode">http://launchpad.net/python-mode</a>.
+It does periodically get uploaded to
+<a href="http://marmalade-repo.org/packages/python-mode">Marmalade</a>, but the
+auto-completion using pycomplete doesn&#8217;t work well on the version that
+is there now (6.0.10), so I recommend that you manually download and
+install the latest stable version (6.0.12). I&#8217;ll update this post once
+a stable working version gets uploaded to
+<a href="http://marmalade-repo.org/">Marmalade</a> or
+<a href="http://melpa.milkbox.net/">Melpa</a>.</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>vinod:~<span class="nv">$ </span><span class="nb">cd</span> ~/.emacs.d/<span class="nv">$USER</span>
+</span><span class='line'>vinod:~/.emacs.d/vinod<span class="nv">$ </span>curl -L https://launchpad.net/python-mode/trunk/6.0.12/+download/python-mode.el-6.0.12.tar.gz | tar xz
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Step 8: Test it all out</h2>
+
+<p>Launch emacs and open a python file named <code>test.py</code>. Type the following:</p>
+
+<pre><code>import os
+os.path.jo
+</code></pre>
+
+<p>Wait at this point. You should see auto-completion of <code>os.path.join</code>
+followed shortly by a yellow popup showing documentation of that method.
+Hitting return should accept the completion. Then type <code>(</code> and you
+should see the method signature in the minibuffer.</p>
+
+<p>Move the cursor over any letter in <code>join</code>. Hit &#8216;F1&#8217;. A window should
+popup with the docstring for <code>os.path.join</code>. Hit &#8216;F2&#8217;. A new window
+should be opened with the code for <code>os.path.join</code>. Hit &#8216;F3&#8217;. You&#8217;ll be
+prompted to enter the name of any python command, and Emacs will show
+you the docstring.</p>
+
+<p>Type the string &#8216;blah&#8217; and hit return. The string should be
+highlighted in pink and if you mouseover it, the minibuffer will say
+<code>undefined name 'blah'</code>. That&#8217;s flymake working for you.</p>
+
+<p>Hit <code>C-c C-c</code> and the buffer should be sent to a Python interpreter and
+you&#8217;ll be dropped in the REPL after the code has been loaded. Any
+errors in the code will be reported.</p>
+
+<p>If all of this works, then CONGRATULATIONS!!! If not, let me know and
+I&#8217;ll see if I can help debug.</p>
+
+<h2>Step 9: Customize</h2>
+
+<p>All of this is customizable in hundreds of ways. Try <code>M-x
+customize-group RET python-mode RET</code> to see how.</p>
+
+<h2>Step 10: How to create a new python project</h2>
+
+<p>Whenever you want to create a new Python project, you have do the
+following:</p>
+
+<h3>Create a new virtualenv</h3>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>vinod:~<span class="nv">$ </span>mkvirtualenv newproject
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Install pymacs into that virtualenv</h3>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="o">(</span>newproject<span class="o">)</span>vinod:~<span class="nv">$ </span><span class="nb">cd</span> ~/src/Pymacs
+</span><span class='line'><span class="o">(</span>newproject<span class="o">)</span>vinod:~/src/Pymacs<span class="nv">$ </span>make install
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Install the other pip modules</h3>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="o">(</span>newproject<span class="o">)</span>vinod:~/src/Pymacs<span class="nv">$ </span>pip install pyflakes pep8
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Switch to that virtualenv in emacs</h3>
+
+<pre><code>M-x virtualenv-workon RET newproject/ RET
+</code></pre>
+
+<h2>Issues</h2>
+
+<h3>Changing virtualenvs doesn&#8217;t restart Pymacs</h3>
+
+<p>For the most part, this won&#8217;t affect much, but if you move from a
+Python2 project to a Python3 project, you may have problems. The
+workaround is to call <code>M-x pymacs-terminate-services</code>, then <code>M-x
+virtualenv-workon</code> to change your virtualenv, and then finally
+<code>M-x load-pycomplete</code> to restart pymacs and pycomplete.</p>
+
+<h3>Latest stable version of python-mode.el isn&#8217;t on Melpa</h3>
+
+<p>I&#8217;d much prefer to just load python-mode using the built-in Emacs
+package manager.</p>
+
+<h3>Pymacs installation is harder than it needs to be</h3>
+
+<p>I wish Pymacs could be installed by a 2 step process</p>
+
+<ol>
+<li>pip install Pymacs</li>
+<li>M-x package-install RET pymacs RET</li>
+</ol>
+
+
+<h3>Which pycheckers to use?</h3>
+
+<p>My script uses pep8 and pyflakes. There are a lot of other options out
+there and I do not know which is best. See
+<a href="http://stackoverflow.com/questions/1428872/pylint-pychecker-or-pyflakes">this post</a>
+for more details.</p>
+
+<h3>Not using ropemacs any more</h3>
+
+<p>In my talk, I used ropemacs. In this setup, I have decided against it.
+I was mostly using it for code-completion and documentation lookup,
+but I like pycomplete.el better for those purposes. It&#8217;s included in
+python-mode and it shows method signatures as you type. Ropemacs does
+have other features such as project management (easily jumping to
+files in the same project), and refactoring (changing variable names
+throughout project). I haven&#8217;t used those, so I decided not to install
+ropemacs.</p>
+
+<h3>Project management not included</h3>
+
+<p>I haven&#8217;t yet decided which package to use for this. I&#8217;ll probably try
+projectile, but there are many other options, some lightweight
+(ropemacs, eproject, pony-mode) and some heavyweight (ecb, CEDET).</p>
+
+<h2>References</h2>
+
+<p>I gleaned knowledge from all of the following, in no particular order.</p>
+
+<ul>
+<li><a href="http://slacy.com/blog/2011/03/pymacs-ropemacs-and-virtualenv-all-at-the-same-time/">Using Pymacs and virtualenv together (slacy.com)</a></li>
+<li><a href="http://www.yilmazhuseyin.com/blog/dev/emacs-setup-python-development/">Using Ropemacs for autocompletion (yilmazhuseyin.com)</a></li>
+<li><a href="http://stackoverflow.com/questions/2855378/ropemacs-usage-tutorial/2858148#2858148">How to use Rope to automatically change virtualenv for you</a></li>
+<li><a href="http://almostobsolete.net/rope-and-virtualenv.html">Ropemacs and virtualenv (almostobsolete.net)</a></li>
+<li><a href="http://www.rwdev.eu/articles/emacspyeng">The post that turned me on to pycomplete.el (rwdev.eu)</a></li>
+<li><a href="http://hide1713.wordpress.com/2009/01/30/setup-perfect-python-environment-in-emacs/">Perfect Python Environment (2009)</a></li>
+<li><a href="http://www.masteringemacs.org/articles/2010/10/04/beginners-guide-to-emacs/">Lot&#8217;s of great &#8216;advanced-beginner&#8217; emacs tips</a></li>
+<li><a href="http://blog.cou929.nu/setting-up-python-environment-on-emacs">Using python.el rather than python-mode.el</a></li>
+<li><a href="http://pedrokroger.net/2010/07/configuring-emacs-as-a-python-ide-2/">Using IPython, pylookup and more (pedrokroger.net)</a> - I need to look into this post some more.</li>
+<li><a href="http://emacswiki.org/emacs/PythonProgrammingInEmacs">EmacsWiki Python Page</a></li>
+<li><a href="http://www.saltycrane.com/blog/2010/05/my-emacs-python-environment/">Python.el, ropemacs, and a little django tip at the end</a></li>
+<li><a href="https://github.com/aculich/virtualenv.el">Virtualenv.el (something similar is included in python-mode.el</a></li>
+<li><a href="https://github.com/pdee/pdee">Python Development Environment</a> -
+Looks promising, just wish there was some documentation on how to
+use it.</li>
+<li><a href="http://borkware.com/rants/emacs-dev/">Emacs for Cocoa Development</a> - OK, not at all related to python, but some great insight from an Emacs (and all-around) wizard. Don&#8217;t miss the ranting at the end of the page.</li>
+<li><a href="http://jesselegg.com/archives/2010/02/25/emacs-python-programmers-part-1/">Python.el basics</a></li>
+<li><a href="http://sunnyeves.blogspot.com/2011/04/debugging-python-on-emacs-ide.html">Using PDB in Emacs</a></li>
+<li><a href="https://github.com/EnigmaCurry/emacs">Ryan McGuire&#8217;s .emacs.d</a></li>
+<li><a href="http://www.enigmacurry.com/2009/01/21/autocompleteel-python-code-completion-in-emacs/">AutoComplete for Python (enigmacurry.com)</a></li>
+<li><a href="http://www.enigmacurry.com/2008/05/09/emacs-as-a-powerful-python-ide/">The original Python IDE post (enigmacurry.com)</a></li>
+</ul>
+
+
+<h2>Updates</h2>
+
+<h4>2012-10-27</h4>
+
+<p>Thanks to <a href="https://twitter.com/danpoirier">@danpoirier</a> and
+<a href="http://twitter.com/gregnewman">@gregnewman</a> for testing. I initially
+recommended using the master branch of python-mode.el, but now I
+recommend using the latest stable release (as of now) which is version
+6.0.12 to avoid problems loading Pymacs. There&#8217;s a bug on 6.0.12 with
+<code>virtualenv-workon</code> that requires you to put a trailing slash after
+the name of your virtualenv, so I&#8217;ve updated the <code>init.el</code> file above
+to account for those changes.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Emacs Autocomplete stumbles on yasnippet]]></title>
+    <link href="http://www.kurup.org/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet"/>
+    <updated>2012-10-15T13:02:18-04:00</updated>
+    <id>http://www.kurup.org/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet</id>
+    <content type="html"><![CDATA[<p><a href="http://cx4a.org/software/auto-complete/">Autocomplete Mode</a> is an
+Emacs mode that tries to guess what word you&#8217;re typing and provide
+auto-completion. Recently, it started failing in simple scenarios.</p>
+
+<p>It can use various &#8216;sources&#8217; to try to figure out what you&#8217;re about to
+type. The simplest source is <code>ac-source-dictionary</code> which is a simple
+list of words. If you start typing any of those words, it will try to
+autocomplete them for you. Normally, you&#8217;d put those words in a file,
+with each word on a separate line, but for testing purposes, you can
+also add them manually using an elisp function. Here&#8217;s the test that
+failed for me:</p>
+
+<pre><code>(add-to-list 'ac-user-dictionary "foobar@example.com")
+</code></pre>
+
+<p>That adds the email address to the dictionary. Then, typing &#8216;foo&#8217; in
+any buffer, should offer to autocomplete the entire email address.
+Unfortunately, it wasn&#8217;t working.</p>
+
+<p>To debug, I typed &#8216;foo&#8217; and then did <code>M-x auto-complete</code>, which forces
+auto-complete to look for a completion. This resulted in an error in
+the Minibuffer:</p>
+
+<pre><code>ac-yasnippet-candidates: Symbol's function definition is void: yas/current-snippet-table
+</code></pre>
+
+<p>This led me to check which &#8216;sources&#8217; autocomplete was trying to use:
+<code>C-h v ac-sources</code></p>
+
+<pre><code>(ac-source-features ac-source-functions ac-source-yasnippet
+ ac-source-variables ac-source-symbols ac-source-abbrev
+ ac-source-dictionary ac-source-words-in-same-mode-buffers)
+</code></pre>
+
+<p>So, autocomplete is looking through each one of those sources, trying
+to find possible words I might be typing. The third one is called
+<code>ac-source-yasnippet</code>, which seems to be where my error is coming
+from.</p>
+
+<p>So, I looked into the yasnippet source code and found that, indeed,
+there was no function named <code>yas/current-snippet-table</code>. That function
+has been renamed to <code>yas--get-snippets-table</code> in version 0.8.0, but
+autocomplete is still relying on the old function name. (RANT: Don&#8217;t
+rename functions that others might be using without providing some
+kind of alias, at least temporarily) I looked at the code for
+<a href="https://github.com/auto-complete/auto-complete">autosnippet on github</a>
+and noted that the latest version has been fixed to use the new code,
+but it hasn&#8217;t yet been released on MELPA. Until it is, the quick
+solution is to remove <code>ac-source-yasnippet</code> from <code>ac-sources</code>.</p>
+
+<pre><code>(delq 'ac-source-yasnippet ac-sources)
+</code></pre>
+
+<p>Then typing &#8216;foo&#8217; autocompletes to &#8216;foobar@example.com&#8217;.</p>
+
+<p>It seems that autocomplete should be more forgiving of errors in any
+specific &#8216;source&#8217;, passing it up to use other sources. Alternatively,
+it should fail loudly when there&#8217;s an error, so that I can know to fix
+or remove the offending &#8216;source&#8217;.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[I've gone to the dark side]]></title>
+    <link href="http://www.kurup.org/blog/2012/10/14/ive-gone-to-the-dark-side"/>
+    <updated>2012-10-14T16:09:54-04:00</updated>
+    <id>http://www.kurup.org/blog/2012/10/14/ive-gone-to-the-dark-side</id>
+    <content type="html"><![CDATA[<p>I was a huge Apple fan growing up and IBM was Apple&#8217;s enemy. Buying an
+IBM computer would have been unthinkable.</p>
+
+<p>Well, the unthinkable has happened. Of course IBM doesn&#8217;t make laptops
+anymore, but their computers live on under the Lenovo name. I am the
+proud owner of a new <a href="http://shop.lenovo.com/us/laptops/thinkpad/t-series/t420s">Lenovo Thinkpad
+T420S</a>. I
+love this computer. It&#8217;s an ugly black boxy thing, but it&#8217;s light (4
+lbs), quiet and speedy. And the keyboard is just pure awesome. That&#8217;s
+the main reason that I bought the T420S as opposed to the current T430
+line. The new line has the chicklet keyboard that is being used on all
+laptops these days. The T420 is the last one with the old-fashioned
+clicky keyboard, which I love.</p>
+
+<p>I also feel very lucky to get the deal that I got. I bought it from
+<a href="http://outlet.lenovo.com">Lenovo&#8217;s Outlet store</a>, which had about
+thirty T420s&#8217;s in stock when I was shopping. This one was about half
+the price of the others, by my estimation. It&#8217;s so underpriced that
+I&#8217;m wondering if I&#8217;m missing an obvious flaw, but I don&#8217;t see it.
+(Please let me know if you do!)</p>
+
+<p>Here&#8217;s a comparison between the specs of my computer compared to one
+that was available at the Outlet store on October 4th, 2012:</p>
+
+<table border="1">
+<tr>
+<td>&nbsp;</td>
+<td>Mine</td>
+<td>Other one</td>
+</tr>
+
+<tr>
+<td>Part Number</td>
+<td>417153U</td>
+<td>4170CTO</td>
+</tr>
+
+<tr>
+<td>Processor</td>
+<td>Core i5-2540</td>
+<td>Core i5-2540</td>
+</tr>
+
+<tr>
+<td>OS</td>
+<td><strong>Windows 7 Pro</strong></td>
+<td>Windows 7 Home</td>
+</tr>
+
+<tr>
+<td>Graphics</td>
+<td>Intel HD3000</td>
+<td>Intel HD3000</td>
+</tr>
+
+<tr>
+<td>Memory</td>
+<td>4 GB</td>
+<td><b>8 GB</b></td>
+</tr>
+
+<tr>
+<td>Display</td>
+<td>14&#8221; 1600x900 HD+</td>
+<td>14&#8221; 1600x900 HD+</td>
+</tr>
+
+<tr>
+<td>HD</td>
+<td>128GB SSD</td>
+<td>128GB SSD</td>
+</tr>
+
+<tr>
+<td>Optical</td>
+<td>DVD recordable</td>
+<td>DVD recordable</td>
+</tr>
+
+<tr>
+<td>Battery</td>
+<td>6-cell</td>
+<td>6-cell</td>
+</tr>
+
+<tr>
+<td>Network</td>
+<td>Intel Centrino Advanced</td>
+<td>Not specified</td>
+</tr>
+
+<tr>
+<td>Bluetooth</td>
+<td>V3.0</td>
+<td>Not specified</td>
+</tr>
+
+<tr>
+<td>Fingerprint reader</td>
+<td>No</td>
+<td>No</td>
+</tr>
+
+<tr>
+<td>Price</td>
+<td class="big"><b>$ 663.72</b></td>
+<td><b>$ 1,355.39</b></td>
+</tr>
+</table>
+
+
+<p>The RAM is better on the other model, but Windows 7 Professional is an
+upgrade on my model. I don&#8217;t really understand why mine was so cheap,
+but I&#8217;m pretty happy about it!</p>
+
+<p>I added another 4G of RAM, moved Windows to a VirtualBox image and
+installed Arch Linux with Xmonad. It takes about 10 seconds to get
+from the BIOS screen to a working computer. I&#8217;ll post some info on my
+setup in a future post.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Avik Arrives!]]></title>
+    <link href="http://www.kurup.org/blog/2012/09/04/avik-arrives"/>
+    <updated>2012-09-04T08:30:25-04:00</updated>
+    <id>http://www.kurup.org/blog/2012/09/04/avik-arrives</id>
+    <content type="html"><![CDATA[<p>Anika, Kavi, Mala and I are so proud to announce the birth of healthy, happy baby boy!</p>
+
+<p>His name is Avik Puri Kurup and he was born at 11:01 PM on September
+3rd, 2012. He is 6lbs, 12oz and about 19 inches long.</p>
+
+<p>A few pics:</p>
+
+<p><img src="http://www.kurup.org/images/avik-1.jpg" width="1024" alt="Avik" /><br/>
+<img src="http://www.kurup.org/images/avik-2.jpg" width="768" height="1024" alt="Avik" /></p>
+
+<p>And the obligatory pseudo-nostalgic photo:</p>
+
+<p><img src="http://www.kurup.org/images/avik-3.jpg" height="1024" width="768" alt="Avik" /></p>
+
+<p>Mom and Baby are doing great! Thanks for all the well wishes and support!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Thoughts on Free Will]]></title>
+    <link href="http://www.kurup.org/blog/2012/08/21/thoughts-on-free-will"/>
+    <updated>2012-08-21T12:01:25-04:00</updated>
+    <id>http://www.kurup.org/blog/2012/08/21/thoughts-on-free-will</id>
+    <content type="html"><![CDATA[<p>Time for some pop philosophy. I&#8217;ve never thought too deeply about the
+concept of free will. Of course we have free will! I chose to live my
+life a certain way. I could choose to live a different way. It is my
+free will to choose how I live. I&#8217;ve never thought about it more
+deeply than that.</p>
+
+<p>I recently read Walter Isaacson&#8217;s biography of Einstein and I was
+forced to think more deeply about free will. The biography is
+excellent. It gives more depth to Einstein, who, despite his flaws, is
+still a heroic figure. One day, I&#8217;ll do a proper review, but the piece
+that struck me the hardest was Einstein&#8217;s views on free will. He
+didn&#8217;t believe that free will existed, and not only that, he didn&#8217;t
+even to seem to think that this was a controversial position. It
+appears that Isaacson didn&#8217;t either, because he didn&#8217;t spend much time
+on that part of Einstein&#8217;s character. But, it seemed so strange to me,
+since I assumed that we all have free will.</p>
+
+<p>So, I read Sam Harris&#8217;s e-book
+<a href="http://www.samharris.org/free-will">Free Will</a>, in which he concisely
+explains why free will is a myth. Take any conscious decision that you
+might make. Let&#8217;s say you choose at this moment to go eat a pizza. Do
+you have the free will to make that choice? Well, you certainly can go
+eat pizza, but the question is if you had the free will to do it. What
+were the steps that led to making that choice. Somewhere in your
+brain, a certain set of neurons fired to trigger the idea in your mind
+to have a pizza. How did those neurons fire? Either there was a
+conscious decision to have that thought, or it was an unconscious
+decision that you didn&#8217;t control. And if it was a conscious decision,
+then you can take that back a step further and ask how that decision
+occurred. Eventually, you will have to start at some unconscious (or
+subconscious) event which triggered the series of events which
+eventually led to your decision to have a pizza. No matter how far
+back you can track the conscious trail that led to a pizza forming in
+your mind, eventually you are left with an unconscious starting point.
+Certainly all of these thoughts are heavily influenced by your life
+experiences. If you&#8217;ve never seen or heard of a pizza, there&#8217;s a zero
+percent chance that you&#8217;ll think of a eating a pizza. But all of those
+life experiences are themselves the result of conscious and
+unconscious decisions, all of which we ultimately have no specific
+control over.</p>
+
+<p>Every thought you have is the only thought you could have at that
+moment. It is the result of all of the life experiences and thoughts
+that you have had up to that moment. If you consciously try to
+&#8220;create&#8221; an original thought, just to prove that you have free will,
+well&#8230; you can&#8217;t. Because that decision itself originated from
+somewhere in your subconscious, and is therefore something that you
+don&#8217;t have conscious control over.</p>
+
+<p>In addition to this theoretical rationalization against the concept of
+free will, Harris describes multiple studies from neuroscience
+which show that neurons fire in our subconscious well before we
+develop the urge to act. Examples:</p>
+
+<ul>
+<li><a href="http://brain.oxfordjournals.org/content/106/3/623.short">The famous Libet Experiment from 1983</a></li>
+<li><a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1749-6632.2011.05994.x/full#ss4">Decoding and predicting
+intentions</a>.
+Skip to the the short section titled &#8216;Implications for the free-will debate?&#8217;</li>
+<li><a href="http://www.sciencedirect.com/science/article/pii/S0896627310010822">Internally Generated Preactivation of Single Neurons in Human
+Medial Frontal Cortex Predicts
+Volition</a>.
+The neuroscience in this article is pretty deep. I only watched the
+video abstract.</li>
+</ul>
+
+
+<p>Bottom line: I&#8217;m convinced that I don&#8217;t have the free will that I
+thought I did. The question is how this should affect my life. It
+could be depressing. If every thought of mine originates in a way that
+I don&#8217;t control, then am I just being steered through life? It makes
+my accomplishments in life seem less &#8220;worthy&#8221;. On the other hand, it
+can be quite freeing. My path through life is determined. Perhaps I
+shouldn&#8217;t be worrying so much about every decision, because I know
+that they&#8217;re not really &#8220;my&#8221; decisions to make. It can also give you
+more empathy for others, knowing that they also have no will do
+anything but what they are doing.</p>
+
+<p>It&#8217;s still a confusing topic, because I &#8220;feel&#8221; like I have options in
+life and I &#8220;feel&#8221; like taking different options will change my life.
+That part is true. The part that isn&#8217;t true is that I have any control
+over the range of available options, nor over the specific option that
+I choose. Even Harris seems to be a little conflicted here:</p>
+
+<blockquote><p>Losing a belief in free will has not made me fatalistic—in fact, it has increased my feelings of freedom. My hopes, fears, and neuroses seem less personal and indelible. There is no telling how much I might change in the future. Just as one wouldn’t draw a lasting conclusion about oneself on the basis of a brief experience of indigestion, one needn’t do so on the basis of how one has thought or behaved for vast stretches of time in the past. A creative change of inputs to the system—learning new skills, forming new relationships, adopting new habits of attention—may radically transform one’s life.</p></blockquote>
+
+<p>The question is how do you accomplish a &#8216;creative change of inputs&#8217;,
+if you don&#8217;t have the will to do so? I guess the idea is that while I
+don&#8217;t have any control over the thoughts that arise in my brain, I do
+have perceived control over my decisions. With whatever power my
+conscious brain has, I can choose things that will improve my life,
+with the hope that exposure to new experiences will &#8216;change the
+inputs&#8217; to my subconscious brain. Ugh, just thinking about how this
+all works makes my brain hurt. I guess this is why I never studied
+philosophy before. :-)</p>
+
+<p><a href="http://www.samharris.org/free-will">Free Will</a> is short and cheap and
+I highly recommend it.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Facebook is killing blogging]]></title>
+    <link href="http://www.kurup.org/blog/2012/08/19/facebook-is-killing-blogging"/>
+    <updated>2012-08-19T07:58:31-04:00</updated>
+    <id>http://www.kurup.org/blog/2012/08/19/facebook-is-killing-blogging</id>
+    <content type="html"><![CDATA[<p>Looks like August 18th was
+International-Prominent-Bloggers-Complain-About-Facebook-Killing-Blogging
+Day. I was just <a href="http://www.kurup.org/blog/2012/08/03/blogging-again/">two weeks too early</a>.</p>
+
+<ul>
+<li>Tim Bray: <a href="http://www.tbray.org/ongoing/When/201x/2012/08/18/Blogodammerung">Blogodammerung</a></li>
+<li>Scott Hanselman: <a href="http://www.hanselman.com/blog/YourWordsAreWasted.aspx">Your words are wasted</a></li>
+<li>Jon Udell: <a href="http://blog.jonudell.net/2012/08/10/where-have-all-the-bloggers-gone/">Where have all the bloggers gone?</a></li>
+</ul>
+
+
+<p>On a side note, I&#8217;m really enjoying Scott Hanselman&#8217;s podcast <a href="http://thisdeveloperslife.com/">This
+Developer&#8217;s Life</a>. It&#8217;s an homage to
+the awesome <a href="http://www.thisamericanlife.org">This American Life</a>, but
+focused on programming issues. They interview interesting programmers,
+but they carefully edit the interviews to focus on the parts that are
+the most interesting, interspersing them with music and effects. It&#8217;s
+really well done.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[A great moment]]></title>
+    <link href="http://www.kurup.org/blog/2012/08/16/a-great-moment"/>
+    <updated>2012-08-16T10:24:34-04:00</updated>
+    <id>http://www.kurup.org/blog/2012/08/16/a-great-moment</id>
+    <content type="html"><![CDATA[<p>I woke up, got ready and went downstairs. I am not a morning person. I
+try to do as little thinking as possible, because thinking eventually
+leads to the rational conclusion that I should just go back to bed. I
+get to the coffee machine, grab my plastic mug and start pouring.
+Suddenly, I&#8217;m woken from my daze. I hear little footsteps pounding
+across the hallway above me. I look towards the bottom of the stairs
+and see a little figure race around the corner with a determined,
+slightly fearful look in her face. She&#8217;s afraid that she&#8217;s too late
+and that I&#8217;ve already left for work. She spies me and I must be
+smiling because her face melts into the biggest, happiest smile and
+her pace quickens. We run to meet each other in a big hug. &#8220;Daddy, can
+I watch the milk go in your coffee?&#8221;</p>
+
+<p>Moments like that are so joyous, and I have underestimated how much
+they mean to me. I want to capture them and never let them go.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[NASA Curiosity Lands]]></title>
+    <link href="http://www.kurup.org/blog/2012/08/07/nasa-curiosity-lands"/>
+    <updated>2012-08-07T15:17:43-04:00</updated>
+    <id>http://www.kurup.org/blog/2012/08/07/nasa-curiosity-lands</id>
+    <content type="html"><![CDATA[<p>Like the rest of the geek world, we&#8217;ve been excited by Curiosity&#8217;s
+successful trip to Mars. Here&#8217;s a cool video which combines an
+animation of Curiosity&#8217;s landing mixed with the real reactions of the
+astronauts that got it there. (Found on <a href="http://thekidshouldseethis.com/post/28851131280">thekidshouldseethis.com</a>)</p>
+
+<iframe width="560" height="315"
+src="http://www.youtube.com/embed/Ti_yre6dsa4" frameborder="0"
+allowfullscreen></iframe>
+
+
+<p>I&#8217;ve been disappointed that real space travel is unlikely to become a
+reality during my life. I honestly thought it would when I was a kid.
+But watching Curiosity gives me hope that we will be able to continue
+exploring our universe. This trip to Mars was much more of an
+achievement than the last one. Here&#8217;s an animation of the last trip
+(2003 Mars Exploration). Note that the final landing was achieved by
+an air bag dropped roughly from high up in the air. Not much precision
+required there.</p>
+
+<iframe width="420" height="315"
+src="http://www.youtube.com/embed/-_9BYSDtwRc" frameborder="0"
+allowfullscreen></iframe>
+
+
+<p><img class="right" src="http://www.kurup.org/images/curiosity-size.jpg" width="300" height="200" title="Curiosity is huge (NASA)" ></p>
+
+<p>The Curiosity rover is too large for the airbag approach (See image at
+right comparing it to previous rovers), so an alternate system was
+devised using a sky crane which gently lowered the rover onto the
+Martian surface. Dropping an airbag seems much easier than gently
+landing a rover without damage. The real advance in our lifetime is
+that our machines are getting more intelligent. And the exciting thing
+is that I can actually participate in that type of exploration. I
+think I just convinced myself to <a href="http://www.udacity.com/overview/Course/cs373/CourseRev/apr2012">learn how to program a robotic
+car!</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Blogging Again]]></title>
+    <link href="http://www.kurup.org/blog/2012/08/03/blogging-again"/>
+    <updated>2012-08-03T14:50:25-04:00</updated>
+    <id>http://www.kurup.org/blog/2012/08/03/blogging-again</id>
+    <content type="html"><![CDATA[<p>I&#8217;m going to start blogging more. I know I&#8217;ve said that before, so
+take it for what it&#8217;s worth. I think there is value in blogging. I&#8217;ve
+been thinking about my life a lot lately, trying to find what makes me
+tick. One of those things that gets me excited is programming. I
+started thinking about that and remembered this meme that had passed
+around the blog world a few years back. It was a list of questions
+related to how you got started programming. I remember it especially
+because I remember reading MarkD&#8217;s version and thinking how similar it
+was to my own beginnings. Then, because I love going off on tangents,
+I googled for &#8216;How I got started in programming&#8217; to read other
+responses. Many of the posts I found were on abandoned blogs. And now,
+for the &#8216;causal relationship not supported by data&#8217; statement. This is
+because of Facebook and Twitter. OK, maybe it&#8217;s just the natural decay
+of blogs. But I am concerned about the fact that most people write in
+forums that are controlled by other people rather in their own forum.
+That was one of the cool promises of the web. A little place of your
+own that you controlled. Facebook and Twitter and Google+ are all cool
+services, but the more time I spend on them, the less time I spend
+here. I&#8217;m sure other people have written about this with more
+eloquence than I could, but the bottom line is that I want to keep
+writing. I want to learn more about myself, I want to teach others
+what little I know, and I want to learn from others. I&#8217;ve been
+journalling a lot lately and that has been useful, but the act of
+hitting &#8216;publish&#8217; will make my writing better. That&#8217;s what this blog
+is for and I&#8217;m going to start using it again.</p>
+
+<p>Maybe one of these days, I&#8217;ll even put up my own answers to &#8216;How I Got
+Started in Programming&#8217;, but in the meantime, go read
+<a href="http://borkwarellc.wordpress.com/2008/07/01/how-i-got-started-in-programming/">MarkD&#8217;s</a></p>
+]]></content>
+  </entry>
+  
+</feed>

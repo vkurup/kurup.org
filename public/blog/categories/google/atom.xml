@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: google | Vinod Kurup]]></title>
+  <link href="http://www.kurup.org/blog/categories/google/atom.xml" rel="self"/>
+  <link href="http://www.kurup.org/"/>
+  <updated>2015-08-08T22:40:46-04:00</updated>
+  <id>http://www.kurup.org/</id>
+  <author>
+    <name><![CDATA[Vinod Kurup]]></name>
+    <email><![CDATA[vinod@kurup.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Google, M.D.]]></title>
+    <link href="http://www.kurup.org/blog/2006/12/27/google-md"/>
+    <updated>2006-12-27T00:00:00-05:00</updated>
+    <id>http://www.kurup.org/blog/2006/12/27/google-md</id>
+    <content type="html"><![CDATA[<p>I remember telling people at a dinner party that I often entered symptoms into Google to help me diagnose patients. I remember them being apalled.</p>
+
+<p>Turns out that <a href="http://general-medicine.jwatch.org/cgi/content/full/2006/1226/1?q=etoc">Google is pretty accurate.</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[finance.google.com]]></title>
+    <link href="http://www.kurup.org/blog/2006/03/21/financegooglecom"/>
+    <updated>2006-03-21T00:00:00-05:00</updated>
+    <id>http://www.kurup.org/blog/2006/03/21/financegooglecom</id>
+    <content type="html"><![CDATA[<p><a href="http://googleblog.blogspot.com/2006/03/spring-is-season-for-love-and-data.html">Google just launched it's new financial website</a>, <a href="http://finance.google.com">finance.google.com</a>. It combines a lot of information in 1 page and the adjustable graph at the top of a stock's page is just WAY cool. You can focus in on any period of time and see news &amp; reports from that period. They've also added blog posts as a news source.</p>
+
+<p>It's the ideal place to get a quick snapshot of a stock. Lots of information in a very quick-loading page. The major missing item is dividend information. Hopefully it will be there soon.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Google Zeitgeist]]></title>
+    <link href="http://www.kurup.org/blog/2005/12/20/google-zeitgeist"/>
+    <updated>2005-12-20T00:00:00-05:00</updated>
+    <id>http://www.kurup.org/blog/2005/12/20/google-zeitgeist</id>
+    <content type="html"><![CDATA[<p>Every year, Google does an analysis of search queries over the past year. They call it the <a href="http://www.google.com/press/zeitgeist2005.html">Google Zeitgeist</a>. It's interesting to see how 'what we search for' is a very accurate historical record of our times. The Apple iPod takes up 4 of the top 10 searches on <a href="http://www.froogle.com">Froogle, Google's consumer search engine</a>.</p>
+
+<p>If you liked Zeitgeist, you can monitor <a href="http://www.google.com/intl/en/press/zeitgeist.html">weekly updates</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Google Ads only for googlers]]></title>
+    <link href="http://www.kurup.org/blog/2005/11/29/google-ads-only-for-googlers"/>
+    <updated>2005-11-29T00:00:00-05:00</updated>
+    <id>http://www.kurup.org/blog/2005/11/29/google-ads-only-for-googlers</id>
+    <content type="html"><![CDATA[<p>I saw this great idea over at this place called Raganwald. <a href="http://www.braithwaite-lee.com/weblog/2005/11/off-topic-raganadvertising.html">Only show ads to visitors who come in from search engines.</a> I really don't want friends and family to see ads, so this effectively shields them since they will probably come here by typing kurup.org in the address bar or using a bookmark.</p>
+
+<p>You're welcome :-)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Google Pedometer]]></title>
+    <link href="http://www.kurup.org/blog/2005/07/05/google-pedometer"/>
+    <updated>2005-07-05T00:00:00-04:00</updated>
+    <id>http://www.kurup.org/blog/2005/07/05/google-pedometer</id>
+    <content type="html"><![CDATA[<p>I admit it. As a runner, I'm obsessive about my mileage. It's not that I'm obsessive about running and getting my mileage in. That would be a good thing. Once I do go for a run, I'm obsessive about knowing exactly how far I've run.</p>
+
+<p>In high school, I'd finish my run and then promptly jump on my 10-speed bike which had an odometer, so I could measure how far I'd gone. In college, I got lazy and started using my car for the same purpose. Then someone invented the internet and surfing <a href="http://www.mapquest.com">MapQuest</a> became my routine post-run activity. I'd spend more time trying to find out how long my run was than I actually did running.</p>
+
+<p>During my training for the 2003 <a href="http://www.marinemarathon.com">Marine Corps Marathon</a>, I bought a <a href="http://www.timex.com/spd/products.html">Timex GPS watch</a> to calculate my mileage. I thought this would be the holy grail of running measurement, but unfortunately it was quite inaccurate in Manhattan. Everytime I ran through Battery Park and past Ground Zero, the miles would click off like I was a Kenyan marathoner. It once told me that I had run 3 miles in under 12 minutes.</p>
+
+<p>Over time, I've become a little less obsessive, to the point that I now estimate my mileage by dividing my run time by my perceived pace. So just as I'm shedding the last vestiges of obsessive-compulsive disorder, what do I find? <a href="http://www.gmap-pedometer.com/">Google Pedometer</a>. Someone took Google Maps and hacked it to allow people to measure distances between multiple points. Just double click on your starting point, click 'Start Recording' and then double click your way along your route as the miles accumulate at the top left. Very cool.</p>
+]]></content>
+  </entry>
+  
+</feed>

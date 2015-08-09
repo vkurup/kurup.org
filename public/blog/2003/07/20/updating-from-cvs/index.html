@@ -1,0 +1,419 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Updating from CVS - Vinod Kurup</title>
+  <meta name="author" content="Vinod Kurup">
+
+  
+  <meta name="description" content="Here&#8217;s the steps I take in order to update my site from the latest OpenACS CVS. All of this info comes from Andrew Piskorski&#8217;s great CVS &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.kurup.org/blog/2003/07/20/updating-from-cvs">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/vkurup" rel="alternate" title="Vinod Kurup" type="application/atom+xml">
+  <!--Fonts from Google's Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Quattrocento' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+<meta name="verify-v1" content="7VLvj7jbZMA24/73SZ9uUEq3SeBuiX3+aSIBRtgH4jQ=" />
+<link rel="openid.server" href="http://www.myopenid.com/server" />
+<link rel="openid.delegate" href="http://vkurup.myopenid.com/" />
+<link rel="openid2.local_id" href="http://vkurup.myopenid.com/" />
+<link rel="openid2.provider" href="http://www.myopenid.com/server" />
+<meta http-equiv="X-XRDS-Location" content="http://www.myopenid.com/xrds?username=vkurup.myopenid.com" />
+
+<link href="/favicon.ico" rel="shortcut icon" />
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-79447-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Vinod Kurup</a></h1>
+  
+    <h2>Hospitalist/programmer in search of the meaning of life</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/vkurup" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.kurup.org" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul role=main-navigation>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/about.html">About Me</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/blog/categories">Categories</a></li>
+  <li><a href="/medicine">Medicine</a></li>
+  <li><a href="/running">Running</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Updating From CVS</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-07-20T00:00:00-04:00" pubdate data-updated="true">Jul 20<span>th</span>, 2003</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Here&#8217;s the steps I take in order to update my site from the latest OpenACS CVS. All of this info comes from <a href="http://piskorski.com/docs/cvs-conventions.html">Andrew Piskorski&#8217;s great CVS page</a> or from pages listed in his document.</p>
+
+<ol>
+<li><p>Make sure that I&#8217;ve committed all the local changes that I&#8217;ve made.</p>
+
+<p> vinod:~$ cd web/kurup
+ vinod:~/web/kurup$ cvs commit -m &#8220;Fixed foo, bar and blah&#8221;</p></li>
+<li><p>Go into the directory containing my OpenACS CVS checkout and grab the latest sources. I&#8217;m using the <code>oacs-4-6</code> branch.</p>
+
+<p> vinod:~/web/kurup$ cd ~/web/openacs-4
+ vinod:~/web/openacs-4$ cvs update -r oacs-4-6</p></li>
+<li><p>Import the code into a vendor branch. My repository name is <code>kurup</code>. <code>OpenACS</code> is the vendor tag.</p>
+
+<p> vinod:~/web/openacs-4$ cvs -d /var/lib/cvs \</p>
+
+<pre><code>  import -m "importing latest OpenACS 4.6 branch" \
+  kurup OpenACS openacs-4-6-3-20030719 
+</code></pre></li>
+<li><p>This produces the usual CVS scroll and then a message like this:</p>
+
+<p> 7 conflicts created by this import. Use the following command to help the merge:
+ cvs -d /var/lib/cvs checkout -j&lt;prev_rel_tag&gt; \
+ jopenacs-4-6-3-20030719 kurup</p></li>
+<li><p>Follow the instructions just given above. This will checkout a full set of code into the <code>kurup</code> directory, while simultaneously merging the new imported code in.</p>
+
+<p> vinod@vkurup:~/web/openacs-4$ cd
+ vinod@vkurup:~$ mkdir tmp
+ vinod@vkurup:~$ cd tmp
+ vinod@vkurup:~/tmp$ cvs -d /var/lib/cvs checkout \</p>
+
+<pre><code>  -jOpenACS:yesterday \
+  jopenacs-4-6-3-20030719 kurup 
+</code></pre></li>
+<li><p>Go through and fix all the conflicts. This is the part that I sometimes find confusing. How to find the files that have conflicts? The command in instruction #3 above will list conflict files with a C in front of the filename. Check each file that has a C in front of it. This is why I like to do this process inside an emacs shell, so that I can look over the output as needed. For example, one piece of my listing looked like this:</p>
+
+<p> U kurup/packages/lars-blogger/www/blog-oracle.xql
+ U kurup/packages/lars-blogger/www/blog.adp
+ C kurup/packages/lars-blogger/www/blog.tcl
+ U kurup/packages/lars-blogger/www/calendar-oracle.xql</p></li>
+</ol>
+
+
+<p>So, I need to check ~/tmp/kurup/packages/lars-blogger/www/blog.tcl, look for conflict markers and resolve any conflicts. Do this for every file marked &#8216;C&#8217; in your listing.</p>
+
+<ol>
+<li><p>Commit my work.</p>
+
+<p> vinod:~/tmp$ cd kurup
+ vinod:~/tmp/kurup$ cvs commit \</p>
+
+<pre><code>  -m "merged with openacs-4-6-3-20030719, conflicts resolved" 
+</code></pre></li>
+<li><p>Blow away that tmp checkout</p>
+
+<p> vinod:~/tmp/kurup$ cd
+ vinod:~$ rm -r tmp</p></li>
+<li><p>Update my local checkout</p>
+
+<p> vinod:~$ cd web/kurup
+ vinod:~/web/kurup$ cvs update</p></li>
+<li><p>Restart my server.</p>
+
+<p>vinod:~$ svc -t /service/master</p></li>
+<li><p>Once the server is back up, I visit <code>http://kurup.org/acs-admin/apm</code> with my broswer and click on &#8216;Install Packages&#8217;. I look for any packages that are listed as &#8216;Upgrade&#8217;. Click on these packages and follow the instructions to perform any needed upgrades. This is always a touchy process because if the upgrade script errors out, your server may be left in an in-between state. Hope and pray liberally.</p></li>
+<li><p>Repeat as needed, maybe monthly, or whenever there&#8217;s a new feature/bugfix available that you need.</p></li>
+</ol>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Vinod Kurup</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-07-20T00:00:00-04:00" pubdate data-updated="true">Jul 20<span>th</span>, 2003</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/openacs/'>openacs</a>, <a class='category' href='/blog/categories/programming/'>programming</a>, <a class='category' href='/blog/categories/version-control/'>version-control</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.kurup.org/blog/2003/07/20/updating-from-cvs" data-via="vkurup" data-counturl="http://www.kurup.org/blog/2003/07/20/updating-from-cvs" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2003/07/20/aolserver-cgi-errors" title="Previous Post: AOLserver CGI errors">&laquo; AOLserver CGI errors</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2003/07/30/dont-get-sued" title="Next Post: Don't get sued">Don't get sued &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/07/28/cbv-dynamic">Using dynamic queries in a CBV</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/23/some-emacs-posts">Some Emacs Posts</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/22/pygments-py3">Pygments on Arch Linux</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/21/django-test-models">How to create test models in Django</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/21/peanut-allergy-a-personal-clinical-review">Peanut Allergy, a personal clinical review</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/17/priorities-and-gtd">Priorities and GTD</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/16/gtd-again">GTD again?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/15/writing-paralysis">Writing paralysis</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/09/steal-my-web-app-idea">Steal My Web App Idea</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/30/how-to-change-the-rear-tire-on-a-12-inch-bicycle">How to change the rear tire on a 12 inch bicycle</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/05/nsbrief-gets-the-best-guests">NSBrief gets the best guests</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/24/emacs-for-python-programming">Emacs for Python Programming</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet">Emacs Autocomplete stumbles on yasnippet</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/14/ive-gone-to-the-dark-side">I've gone to the dark side</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/04/avik-arrives">Avik Arrives!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/21/thoughts-on-free-will">Thoughts on Free Will</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/19/facebook-is-killing-blogging">Facebook is killing blogging</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/16/a-great-moment">A great moment</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/07/nasa-curiosity-lands">NASA Curiosity Lands</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/03/blogging-again">Blogging Again</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("vkurup", 5, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/vkurup" class="twitter-follow-button" data-show-count="true">Follow @vkurup</a>
+  
+</section>
+
+
+<section>
+  <h1>My Pinboard</h1>
+  <ul id="pinboard_linkroll">Fetching linkroll...</ul>
+  <p><a href="http://pinboard.in/u:vkurup">My Pinboard Bookmarks &raquo;</a></p>
+</section>
+<script type="text/javascript">
+  var linkroll = 'pinboard_linkroll'; //id target for pinboard list
+  var pinboard_user = "vkurup"; //id target for pinboard list
+  var pinboard_count = 10; //id target for pinboard list
+  (function(){
+    var pinboardInit = document.createElement('script');
+    pinboardInit.type = 'text/javascript';
+    pinboardInit.async = true;
+    pinboardInit.src = '/javascripts/pinboard.js';
+    document.getElementsByTagName('head')[0].appendChild(pinboardInit);
+  })();
+</script>
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  <a rel="license"
+  href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Some rights
+  reserved</a> by <a rel="author" href="https://profiles.google.com/vvkurup/" title="View my Google Profile">Vinod Kurup</a> -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'vkurup';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

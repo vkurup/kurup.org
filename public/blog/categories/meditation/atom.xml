@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: meditation | Vinod Kurup]]></title>
+  <link href="http://www.kurup.org/blog/categories/meditation/atom.xml" rel="self"/>
+  <link href="http://www.kurup.org/"/>
+  <updated>2015-08-08T22:40:46-04:00</updated>
+  <id>http://www.kurup.org/</id>
+  <author>
+    <name><![CDATA[Vinod Kurup]]></name>
+    <email><![CDATA[vinod@kurup.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Time is the most powerful force in the universe]]></title>
+    <link href="http://www.kurup.org/blog/2011/02/21/time-is-the-most-powerful-force-in-the-universe"/>
+    <updated>2011-02-21T14:23:43-05:00</updated>
+    <id>http://www.kurup.org/blog/2011/02/21/time-is-the-most-powerful-force-in-the-universe</id>
+    <content type="html"><![CDATA[<p>Thanks to Mala's inspiration, I've been running a lot more over the
+past month. Whenever I get into a good running rhythm, my mind starts
+to relax and I occasionally get bright ideas (believe it or
+not!). While I am running, these always seem Nobel Prize-worthy, but
+they seem to lose some of their glitter when the endorphins wear
+off. I still believe we could solve all the world's problems if
+everyone was a runner.</p>
+
+<p>On a recent run, I was thinking about how Einstein said that compound
+interest is the most powerful force in the universe. (<a href="http://www.snopes.com/quotes/einstein/interest.asp">Turns out he
+probably didn't say
+that</a>, but let's
+pretend someone did.) It occurred
+to me that really, it's <em>time</em> that is the most powerful
+force. Compound interest is a function of time and possibly may be the
+most efficient way to turn time into money, but <em>time</em> is what makes
+compound interest powerful. Compound interest over the course of 10
+days isn't very powerful. Any activity repeated over a long period of
+time can be a powerful force, even if each individual activity doesn't
+accomplish much.</p>
+
+<p>Spending a few minutes a day over the past few weeks
+has made a significant difference in my life. I've started a <strong>Habit</strong>
+spreadsheet to track some habits, specifically, brushing my teeth at
+night (wanted to start with something easy), writing, pushups,
+running and meditation. Each day's activity is miniscule, sometimes to
+the point of seeming pointless, but over just a few weeks, I've seen
+tangible benefits. I'm writing more and therefore learning more about
+myself. Sure, I've also written some really bad stuff, but I know if I
+continue these sessions, my life will improve because I will know more
+about what I really want out of life. That small amount of time,
+compounded over days, weeks and years will make such a huge
+difference. The kind of difference where, in a year from now, I'll be
+able to describe it better than "such a huge difference".</p>
+
+<p>I am probably in better shape than I've been in since college because
+I'm running, doing push-ups and playing more with the kids. I ran 40
+miles last week, which I haven't done since my marathon training
+days. It felt easy and most importantly it's been giving my mind some
+time to relax (and generate blog posts like this!) Finally, I'm
+meditating daily and while that has felt like the least useful of the
+new habits I'm forming, it is the habit that I think has the most
+overall potential to improve my life. Having more control over my
+thoughts and my mind will have positive implications for all parts of
+my life. My mind has just been very hard to settle down during my
+sessions so far. (Any tips for a beginning meditator would be
+appreciated!)</p>
+
+<p>I also started working on my website again and I found that I was able
+to pick up commands and bits of knowledge that I thought I had
+forgotten. Little pieces of web scripting and SQL just seemed to come
+back to me even though I haven't actively used them in a couple
+years. Since I had put in so much time learning them before, I picked
+them up with much less effort now. Same with running. I find it
+impossible to run on days that I am working, so I have to wait for my
+"stretches off" to run. It used to be really hard to get to a decent
+level when I had taken time off, but now I can take a week off and
+still run 5 miles without feeling bad. Maybe that's because I <a href="/blog/2009/09/22/running-slow/">run so
+slow</a>.</p>
+
+<p>When I think about the huge benefit I've gotten in a few weeks with
+such a small amount of daily commitments, I just can't wait to see
+what will happen in a few years! Thinking that far in the future used
+to seem ridiculous because I always wanted results <strong>now</strong>, but the
+older I get, the more I'm willing to wait. Paradoxically, stretching
+out my time-frame for results makes it more likely that I will see
+results sooner. When I was always trying to make things happen
+<strong>now</strong>, I would ignore the little self-improvement things in the name
+of efficiency. Now that I take the time to do those things, the
+benefits compound with time and I may end up seeing results even on
+the things that have nothing directly to do with the habits I'm
+performing daily.</p>
+
+<p>I also thought about how I've been trying to simplify my life and I
+wonder whether it was worth it. As a general rule, simplifying is a
+great idea. Try to drive less, spend less, eat less. Those are all
+good things. But I also found that I limited the time that I spent
+developing my website. I moved it from <a href="http://openacs.org">OpenACS</a>
+to a static template solution. There were steps in between, but each
+step since leaving OpenACS has been in the name of
+simplification. OpenACS (like all active free-software projects) was
+changing and I couldn't keep up with it while also being a dad and a
+doctor, so I thought it would be better to outsource
+(<a href="http://wordpress.org">Wordpress</a>) or simplify
+(<a href="http://github.com/mojombo/jekyll">Jekyll</a>/<a href="http://blogofile.com">Blogofile</a>). While
+that seems to make sense, it also means that I've spent less time on
+my website and one of the joys of my life became smaller. So, I am
+going to take a more active role in improving my website because I
+love doing it. I'm not going back to OpenACS, because I do think it
+was more complex than I needed. I've reimplemented google analytics
+and adsense because watching those numbers gave me some satisfaction.</p>
+
+<p>Final thought for the day. I've gotten so much accomplished over the
+past few weeks because I've become more physically and mentally
+active. I used fatherhood as an excuse to avoid running and self
+improvement. I said I didn't have time for it. That lack of activity
+just reflects poorly on everything else in life. I know that's too
+dramatic, because life truly has been good for all of us. But, I guess
+my lesson to new parents would be to make time for exercise and
+self-improvement. It will make you a better parent.</p>
+
+<p>Lessons from this run:</p>
+
+<ol>
+<li>Time is the most powerful force in the universe; using it to do
+meaningful things is <strong>never</strong> a waste.</li>
+<li>Don't simplify things that you enjoy doing!</li>
+<li>Take care of yourself first.</li>
+</ol>
+
+]]></content>
+  </entry>
+  
+</feed>

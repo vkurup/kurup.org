@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: pizza | Vinod Kurup]]></title>
+  <link href="http://www.kurup.org/blog/categories/pizza/atom.xml" rel="self"/>
+  <link href="http://www.kurup.org/"/>
+  <updated>2015-08-08T22:40:46-04:00</updated>
+  <id>http://www.kurup.org/</id>
+  <author>
+    <name><![CDATA[Vinod Kurup]]></name>
+    <email><![CDATA[vinod@kurup.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Louie and Ernie's]]></title>
+    <link href="http://www.kurup.org/blog/2006/05/04/louie-and-ernies"/>
+    <updated>2006-05-04T00:00:00-04:00</updated>
+    <id>http://www.kurup.org/blog/2006/05/04/louie-and-ernies</id>
+    <content type="html"><![CDATA[<p><img class="inset" src="http://www.kurup.org/images/pizza.jpg" alt="Pizza" /></p>
+
+<p>We treated ourselves to our favorite New York Pizza today - Louie and
+Ernie's. In my mind, it's the perfect pizza. The thin crust is crispy
+on the bottom, and chewy on the top. There's plenty of cheese and the
+sauce has some flavor. The only problem with this place is that it's
+nowhere near public transportation and they don't deliver. It's
+probably a good thing though, or we'd be eating this ALL the time.</p>
+]]></content>
+  </entry>
+  
+</feed>

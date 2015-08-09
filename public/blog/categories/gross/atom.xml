@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: gross | Vinod Kurup]]></title>
+  <link href="http://www.kurup.org/blog/categories/gross/atom.xml" rel="self"/>
+  <link href="http://www.kurup.org/"/>
+  <updated>2015-08-08T22:40:46-04:00</updated>
+  <id>http://www.kurup.org/</id>
+  <author>
+    <name><![CDATA[Vinod Kurup]]></name>
+    <email><![CDATA[vinod@kurup.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Ooohh... gross!]]></title>
+    <link href="http://www.kurup.org/blog/2009/06/30/ooohh-gross"/>
+    <updated>2009-06-30T00:00:00-04:00</updated>
+    <id>http://www.kurup.org/blog/2009/06/30/ooohh-gross</id>
+    <content type="html"><![CDATA[<p>In order to lose any remaining readers, I am very proud to announce that Kavi made a poopy in his potty. First time! It may well have been a lucky accident, but I'm happy about it. In other news, Anika is 1 week old and doing great.</p>
+]]></content>
+  </entry>
+  
+</feed>
