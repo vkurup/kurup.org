@@ -4,7 +4,7 @@
   <title><![CDATA[Category: writing | Vinod Kurup]]></title>
   <link href="http://www.kurup.org/blog/categories/writing/atom.xml" rel="self"/>
   <link href="http://www.kurup.org/"/>
-  <updated>2015-08-08T22:40:46-04:00</updated>
+  <updated>2016-04-07T22:17:08-04:00</updated>
   <id>http://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
@@ -110,7 +110,11 @@ that running is a metaphor for life. I've <a href="/blog/2003/10/28/the-wall-is-
 before with my cousins Dilu and
 Harish</a> before.</p>
 
-<p><blockquote><p>... two roads diverged in a wood, and I --<br/>I took the one less traveled by,<br/>And that has made all the difference.</p><footer><strong>Robert Frost</strong> <cite><a href='http://en.wikipedia.org/wiki/The_Road_Not_Taken_(poem)'>en.wikipedia.org/wiki/&hellip;</a></cite></footer></blockquote></p>
+<p>{% blockquote Robert Frost http://en.wikipedia.org/wiki/The_Road_Not_Taken_(poem) %}
+... two roads diverged in a wood, and I --
+I took the one less traveled by,
+And that has made all the difference.
+{% endblockquote %}</p>
 
 <p>While trail running, I have come to the realization that you never
 have to worry about the fork in the road, nor the decision associated

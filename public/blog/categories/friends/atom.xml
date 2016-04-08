@@ -4,7 +4,7 @@
   <title><![CDATA[Category: friends | Vinod Kurup]]></title>
   <link href="http://www.kurup.org/blog/categories/friends/atom.xml" rel="self"/>
   <link href="http://www.kurup.org/"/>
-  <updated>2015-08-08T22:40:46-04:00</updated>
+  <updated>2016-04-07T22:17:08-04:00</updated>
   <id>http://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
@@ -18,7 +18,7 @@
     <link href="http://www.kurup.org/blog/2011/09/06/surprise-im-40"/>
     <updated>2011-09-06T14:01:22-04:00</updated>
     <id>http://www.kurup.org/blog/2011/09/06/surprise-im-40</id>
-    <content type="html"><![CDATA[<p><img src="/images/vinod40-1.jpg" title="Vinod is surprised" ></p>
+    <content type="html"><![CDATA[<p>{% img /images/vinod40-1.jpg Vinod is surprised %}</p>
 
 <p>Have you ever been in one of those dreams where everything seems
 normal and then a flying car (or something equally crazy) comes out of
@@ -43,7 +43,7 @@ all my friends and family who could make it and to the ones who
 couldn't. If this is the culmination of 40 years on this earth, I
 can't wait for the next 40!</p>
 
-<p><img src="/images/vinod40-2.jpg" title="Vinod is 40" ></p>
+<p>{% img /images/vinod40-2.jpg Vinod is 40 %}</p>
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: testing | Vinod Kurup]]></title>
   <link href="http://www.kurup.org/blog/categories/testing/atom.xml" rel="self"/>
   <link href="http://www.kurup.org/"/>
-  <updated>2015-08-08T22:40:46-04:00</updated>
+  <updated>2016-04-07T22:17:08-04:00</updated>
   <id>http://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
@@ -24,13 +24,12 @@
 
 <p>Here is the relevant (edited) code:</p>
 
-<p><div>
-  <pre><code class='tcl'>set runner_id [db_nextval acs_object_id_seq]
+<p>{% highlight tcl %}
+set runner_id [db_nextval acs_object_id_seq]
 set ret_val [db_exec_plsql new_runner {}]
 permission::grant -party_id $user_id -object_id $runner_id -privilege admin
-permission::grant -party_id $user_id -object_id $runner_id -privilege write</code></pre>
-</div>
-</p>
+permission::grant -party_id $user_id -object_id $runner_id -privilege write
+{% endhighlight %}</p>
 
 <p>The error was happening in <code>permission::grant</code>. It was complaining that <code>$runner_id</code> wasn't a valid acs_object. What's going on? It looks like it should work. The problem is that I should be granting the permission on <code>ret_val</code>, not on <code>runner_id</code>. (Probably a bad choice of variable names). The first time a log is created, <code>db_exec_plsql</code> returns a value which happens to be the same as <code>runner_id</code>. The second time it's called, it returns a value which is <strong>different</strong> and <code>permission::grant</code> fails.</p>
 

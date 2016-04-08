@@ -9,7 +9,7 @@
   <meta name="author" content="Vinod Kurup">
 
   
-  <meta name="description" content="Open Letter to SCO. Loud Applause Comments from old site The Nigerian SCO Connection There is a great parody of the nigerian scam spam letter crossed &hellip;">
+  <meta name="description" content="Forget MTV. I want my OpenACS! So, I finally got around to install OpenACS on my Powerbook. Mostly, I just followed MarkD&#8217;s excellent &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -25,9 +25,9 @@
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <link href="http://feeds.feedburner.com/vkurup" rel="alternate" title="Vinod Kurup" type="application/atom+xml">
   <!--Fonts from Google's Web font directory at http://google.com/webfonts -->
-<link href='http://fonts.googleapis.com/css?family=Quattrocento' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Quattrocento' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Quattrocento+Sans' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
 
 <meta name="verify-v1" content="7VLvj7jbZMA24/73SZ9uUEq3SeBuiX3+aSIBRtgH4jQ=" />
 <link rel="openid.server" href="http://www.myopenid.com/server" />
@@ -89,6 +89,279 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2003/09/16/openacs-everywhere">OpenACS Everywhere</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-09-16T00:00:00-04:00" pubdate data-updated="true">Sep 16<span>th</span>, 2003</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Forget MTV. I want my <a href="http://openacs.org">OpenACS</a>! So, I finally got around to <a href="http://kurup.org/openacs/mac-install">install OpenACS on my Powerbook</a>. Mostly, I just followed <a href="http://borkware.com/rants/openacs/">MarkD&#8217;s excellent directions</a>, but I used <a href="http://www.tdom.org/">tDom</a> and <a href="http://aolserver.com/">AOLserver 4</a>, so there were a few differences.</p>
+
+<p><img src="http://kurup.org/images/oacs-screen.jpg" alt="OpenACS Screenshot" /></p>
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>OpenACS</b></p>
+<p>
+Vinod&#8230;what is the excitment about OpenACS? I went to the website,
+but couldn&#8217;t get a clear idea of what it&#8217;s differentiating features
+are. Are you running OpenACS for this website?
+</p>
+<address class="signature">
+<span class="author">Bhavesh Patel</span>
+<span class="date">2003-09-27 11:08:01</span>
+</address>
+</div>
+
+</div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2003/09/14/openacs-macosx">Another Mac OS X OpenACS Installation Guide</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-09-14T00:00:00-04:00" pubdate data-updated="true">Sep 14<span>th</span>, 2003</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Another Mac OS X OpenACS Installation Guide</h2>
+
+<p><a href="http://kurup.org" title="Vinod Kurup's site">by Vinod Kurup</a></p>
+
+<hr />
+
+<p>I installed OpenACS 5.0 on my PowerBook G4. Everyone should read <a href="http://borkware.com/rants/openacs/" title="MarkD's guide">MarkD&#8217;s
+guide</a> since it&#8217;s more comprehensive and explains a lot of the changes
+that I don&#8217;t explain. I used some different software versions which made my
+experience different enough to document.</p>
+
+<p>This is a quick and dirty document for people who have installed OpenACS
+4. If I haven&#8217;t been clear enough or if I&#8217;ve made mistakes, please let me
+know.</p>
+
+<p>Apparently, these instructions may also help you install OpenACS on FreeBSD
+- look at <a href="http://openacs.org/forums/message-view?message_id=136910" title="Andrei's instructions">Andrei&#8217;s instructions</a> if you&#8217;re doing that.</p>
+
+<h3>Software Versions</h3>
+
+<p>All of the AOLserver modules were obtained from CVS (2003-09-14).</p>
+
+<ul>
+<li>Postgresql 7.3.4</li>
+<li><a href="http://sourceforge.net/cvs/?group_id=3152" title="Aolserver">AOLserver 4.0b14</a>
+
+<ul>
+<li>nscache CVS</li>
+<li>nsrewrite CVS</li>
+<li>nssha1 CVS</li>
+<li>nspostgres CVS</li>
+<li><a href="http://www.tdom.org/#SECTid960" title="tDOM">tDom 0.78</a></li>
+</ul>
+</li>
+<li><a href="http://openacs.org/4/checkout" title="OpenACS CVS">OpenACS CVS</a></li>
+</ul>
+
+
+<h4>Install Postgresql</h4>
+
+<ol>
+<li><code>./configure</code> - fails on readline not being installed</li>
+<li><p>Install readline:</p>
+
+<pre><code> $ fink install readline
+</code></pre></li>
+<li><p>Configure</p>
+
+<pre><code> $ ./configure --with-includes=/sw/include --with-libs=/sw/lib
+</code></pre></li>
+<li><p>Compile</p>
+
+<pre><code> $ make
+ $ sudo make install
+</code></pre></li>
+<li><p>Create the database directory and give yourself permission over it.</p>
+
+<pre><code> $ sudo mkdir /usr/local/pgsql/data
+ $ sudo chown vinod.staff /usr/local/pgsql/data
+</code></pre></li>
+<li>change <code>$PATH</code>. Add <code>/usr/local/pgsql/bin</code> to the PATH variable in your <code>~/.profile</code></li>
+<li><p>I tried doing an initdb next and it worked, but then I got the following error when starting PG.</p>
+
+<pre><code> FATAL:  invalid value for option 'LC_TIME': 'en_US'
+</code></pre></li>
+<li><p>I found <a href="http://archives.postgresql.org/pgsql-novice/2003-01/msg00099.php" title="Tom Lane's answer">Tom Lane&#8217;s answer</a>:</p>
+
+<pre><code> $ /usr/local/pgsql/bin/initdb -D /usr/local/pgsql/data --no-locale
+</code></pre></li>
+<li><p>Start it.</p>
+
+<pre><code> $ pg_ctl -D /usr/local/pgsql/data -l /usr/local/pgsql/server.log start
+ $ createlang plpgsql template1
+ $ createdb openacs
+ $ createuser openacs
+ (Answer 'Y' twice)
+</code></pre></li>
+</ol>
+
+
+<h4>Install AOLserver</h4>
+
+<p>I&#8217;m going to use AOLserver 4. Previous versions of AOLserver came bundled
+with a customized version of TCL, but AOLserver 4 can use the standard TCL
+releases, as long as TCL was built with thread support. Mac OS X 10.2 comes
+with TCL 8.3.x, but without thread support. Fink currently has TCL 8.4.1,
+but also without thread support. So, the right solution is to download TCL
+and build it manually. But I had already downloaded Fink&#8217;s version, so I
+just manually edited the .info file that specifies how to build TCL and
+added <code>--enable-threads</code>. Of course, when the next version of TCL gets
+uploaded to the Fink repository, I&#8217;ll be screwed, but I&#8217;m too lazy to
+compile TCL again right now.</p>
+
+<ol>
+<li><p>Configure and Compile AOLserver</p>
+
+<pre><code> /usr/local/src/aolserver/aolserver$ ./configure --with-tcl=/sw/lib
+ /usr/local/src/aolserver/aolserver$ sudo make install
+</code></pre></li>
+<li><p>Install nscache and nsrewrite</p>
+
+<pre><code> /usr/local/src/aolserver/nscache$ sudo make install
+ /usr/local/src/aolserver/nsrewrite$ sudo make install
+</code></pre></li>
+<li><p>nssha1 doesn&#8217;t compile without editing nssha1.c. Comment out the
+following 2 lines (lines 139-140):</p>
+
+<pre><code>  // typedef unsigned int u_int32_t;
+  // typedef unsigned char u_int8_t;
+</code></pre></li>
+<li><p>Compile nssha1</p>
+
+<pre><code> /usr/local/src/aolserver/nssha1$ sudo make install
+</code></pre></li>
+<li><p>nspostgres doesn&#8217;t link outta the box. Add <code>-lnsdb</code> to the
+MODLIBS var in the Makefile:</p>
+
+<pre><code>  MODLIBS   = -L$(PGLIB) -lpq &lt;b&gt;-lnsdb&lt;/b&gt;
+</code></pre></li>
+<li><p>Compile nspostgres</p>
+
+<pre><code> /usr/local/src/aolserver/nspostgres$ sudo make install POSTGRES=/usr/local/pgsql ACS=1 
+</code></pre></li>
+</ol>
+
+
+<h4>Install tDom 0.78</h4>
+
+<ol>
+<li>Edit <code>/usr/local/src/tDOM-0.7.8/unix/CONFIG</code></li>
+<li><p>Uncomment the instructions meant for AOLserver 4, but edit it to look
+like this:</p>
+
+<pre><code>  ../configure --enable-threads --disable-tdomalloc \
+    --prefix=/usr/local/aolserver --with-tcl=/sw/lib
+</code></pre></li>
+<li>OpenACS 5 will notice that you&#8217;re using AOLserver 4 and will
+automatically call &#8216;package require tdom&#8217;. You shouldn&#8217;t have to do
+anything special to get tDOM working with OpenACS 5.</li>
+</ol>
+
+
+<h4>Get ready to start</h4>
+
+<ol>
+<li>Get OpenACS CVS.</li>
+<li>Edit config.tcl (a.k.a. nsd.tcl).
+
+<ol>
+<li>Change <code>server</code> to <code>openacs</code>.</li>
+<li>Set <code>serverroot</code> to wherever you put your OpenACS CVS</li>
+<li>The config.tcl file that comes with OpenACS 5 will properly load
+nsdb.so (and ignore libtdom.so) if you&#8217;re using AOLserver 4.</li>
+<li><p>Change the <code>stacksize</code> to <code>2048000</code>. If the number you choose is
+not divisible by 4096, then you get:</p>
+
+<pre><code>   \[15/Sep/2003:19:08:02\]\[1997.2684358124\]\[-main-\] Notice: PostgreSQL loaded.
+   nsthreads: pthread_attr_setstacksize failed in NsCreateThread: Invalid argument
+   Abort trap
+</code></pre></li>
+</ol>
+</li>
+<li><p>Set some permissions:</p>
+
+<pre><code> chmod 755 /usr/local/aolserver/log
+</code></pre></li>
+<li><p>Start it!</p>
+
+<pre><code> $ /usr/local/aolserver/bin/nsd -ft /web/openacs/etc/config.tcl
+</code></pre></li>
+</ol>
+
+
+<h4>Changelog</h4>
+
+<ul>
+<li>2004-01-23 - Pointed to Andrei&#8217;s FreeBSD document. Simplified instructions which are automatically taken care of by OpenACS 5</li>
+<li>2004-01-05 - Added fixes from <a href="http://xarg.net/" title="Jeff Davis">Jeff Davis</a>.</li>
+<li>2003-09-14 - Initial Revision</li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -465,117 +738,6 @@ of virus e-mails.
 
 
   <div class="entry-content"><p><a href="http://www.space.com/spacewatch/mars_preview_021108.html">Mars is closer than it will ever be</a> (in our lifetime, at least).</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2003/08/16/let-there-be-light">Let There Be Light!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2003-08-16T00:00:00-04:00" pubdate data-updated="true">Aug 16<span>th</span>, 2003</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>The power finally came back on at around 7:20 PM tonight. I was
-sitting on my futon trying as hard as I could not to sweat, when I
-heard a loud cheer from the courtyard and saw that the lights had gone
-on in the apartments outside my window.</p>
-
-<p>It&#8217;s been a weird couple of days. The power went out around 4:15 PM
-yesterday while I was looking up some labs in the preceptor&#8217;s
-room. The A/C had been on full-blast, so we all thought that it was
-just an overloaded circuit, but soon we got word that nearby buildings
-were affected and everyone went smoothly into disaster-mode. Take care
-of any urgent patient needs and encourage everyone else to go home. No
-staff leaves until we know what&#8217;s going on. Around 6:30, we got the
-word that whoever was within walking distance could go home, provided
-that they be back first thing in the morning. I figured 4 miles is
-walking-distance, so I left. From the 80&#8217;s to around 63rd St, 2nd
-Avenue was packed with cars trying in vain to get to the Queensboro
-bridge. Traffic lights were off, but it didn&#8217;t seem to matter since
-the cars weren&#8217;t moving anyway. Civilians were trying to direct
-traffic with varying success. The cars obeyed, but pedestrians were on
-their own schedule. From the Queensboro down to the 40&#8217;s, pedestrians
-replaced the cars and swarmed over the street.</p>
-
-<p>I got to my neighborhood around 8ish. Most of the local shops were out
-of flashlights and running low on water. I swear the people at the
-counter were just making up prices as they went along, but no one
-really seemed to care. After getting settled at home, I went for a
-short walk outside around 10PM. I was shocked at how dark New York was
-without any lights. You could clearly see the stars in the sky. It was
-dangerous to walk around without a flashlight because there would be
-people just sitting on the sidewalk waiting to be tripped over.</p>
-
-<p>But everything is back to normal now and the only casualty is my <a href="http://en.wikipedia.org/wiki/Uptime">uptime</a></p>
-
-<h1>Update:</h1>
-
-<ul>
-<li><a href="http://www.globalsecurity.org/eye/blackout_2003.htm">Satellite pics</a> via <a href="http://badgertronics.com/blog">Badgertronics</a></li>
-<li><a href="http://www.quicktopic.com/23/H/JwZLefNGAwM8/p-1.-1">Lots of more interesting stories</a> via <a href="http://boingboing.net/">BoingBoing</a></li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2003/08/16/happy-indian-independence-day">Happy Indian Independence Day</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2003-08-16T00:00:00-04:00" pubdate data-updated="true">Aug 16<span>th</span>, 2003</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Today is the 56th anniversary of <a href="http://en.wikipedia.org/wiki/India%27s_independence_movement">India&#8217;s Independence from Britain</a>. Interestingly, <a href="http://www.google.com/search?q=indian%20independence%20day">Google&#8217;s top results for &#8220;indian independence day&#8221;</a> are not very informative - mostly just greeting card sites.</p>
 </div>
   
   

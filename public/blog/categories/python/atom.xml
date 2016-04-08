@@ -4,7 +4,7 @@
   <title><![CDATA[Category: python | Vinod Kurup]]></title>
   <link href="http://www.kurup.org/blog/categories/python/atom.xml" rel="self"/>
   <link href="http://www.kurup.org/"/>
-  <updated>2015-08-08T22:40:46-04:00</updated>
+  <updated>2016-04-07T22:17:08-04:00</updated>
   <id>http://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
@@ -50,11 +50,10 @@ make sure everything is set up properly. Once you have it working,
 then you can customize it. Make sure to start these commands in your
 home directory.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>vinod:~<span class="nv">$ </span>mkdir old-emacs
-</span><span class='line'>vinod:~<span class="nv">$ </span>mv .emacs .emacs.d old-emacs/
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:bash %}
+vinod:~$ mkdir old-emacs
+vinod:~$ mv .emacs .emacs.d old-emacs/
+{% endcodeblock %}</p>
 
 <h2>Step 2: Set up initial Emacs configuration</h2>
 
@@ -64,9 +63,9 @@ structure called <code>.emacs.d/vinod/</code>. The emacs-starter-kit tells emacs
 to automatically load any elisp files from that special directory, so
 you'll always have a place to drop custom elisp files.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>vinod:~<span class="nv">$ </span>mkdir -p ~/.emacs.d/<span class="nv">$USER</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:bash %}
+vinod:~$ mkdir -p ~/.emacs.d/$USER
+{% endcodeblock %}</p>
 
 <p>Create a file named <code>.emacs.d/init.el</code> with the following contents:</p>
 
@@ -181,16 +180,16 @@ you'll always have a place to drop custom elisp files.</p>
 <code>default</code>. It's important that the name you choose is the same as the
 name in the <code>(virtualenv-workon)</code> command in line 45 of Step 2.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>vinod:~<span class="nv">$ </span>mkvirtualenv -p python2 default
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:bash %}
+vinod:~$ mkvirtualenv -p python2 default
+{% endcodeblock %}</p>
 
 <p>After it does its thing, your shell prompt should change, indicating
 that your new virtualenv is activated</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="o">(</span>default<span class="o">)</span>vinod:~<span class="err">$</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:bash %}
+(default)vinod:~$
+{% endcodeblock %}</p>
 
 <h2>Step 4: Install Pymacs</h2>
 
@@ -201,56 +200,40 @@ elisp commands. It requires a python piece (<code>Pymacs.py</code>) and an Emacs
 piece (<code>pymacs.el</code>). Unfortunately, they're not installable via <code>pip</code>
 or <code>package.el</code>, but installation is easy enough.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="o">(</span>default<span class="o">)</span>vinod:~<span class="nv">$ </span>mkdir src
-</span><span class='line'><span class="o">(</span>default<span class="o">)</span>vinod:~/src<span class="nv">$ </span><span class="nb">cd </span>src
-</span><span class='line'><span class="o">(</span>default<span class="o">)</span>vinod:~/src<span class="nv">$ </span>git clone git://github.com/pinard/Pymacs.git
-</span><span class='line'><span class="o">(</span>default<span class="o">)</span>vinod:~/src<span class="nv">$ </span><span class="nb">cd </span>Pymacs&lt;/p&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;h1&gt;check to make sure tests pass&lt;/h1&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;p&gt;<span class="o">(</span>default<span class="o">)</span>vinod:~/src/Pymacs<span class="nv">$ </span>make check&lt;/p&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;h1&gt;install it <span class="o">(</span>Be sure you<span class="err">&#39;</span>re inside your virtualenv!<span class="o">)</span>&lt;/h1&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;p&gt;<span class="o">(</span>default<span class="o">)</span>vinod:~/src/Pymacs<span class="nv">$ </span>make install&lt;/p&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;h1&gt;install the emacs extension&lt;/h1&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;p&gt;<span class="o">(</span>default<span class="o">)</span>vinod:~/src/Pymacs<span class="nv">$ </span>cp pymacs.el ~/.emacs.d/<span class="nv">$USER</span>/
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:bash %}
+(default)vinod:~$ mkdir src
+(default)vinod:~/src$ cd src
+(default)vinod:~/src$ git clone git://github.com/pinard/Pymacs.git
+(default)vinod:~/src$ cd Pymacs</p>
+
+<h1>check to make sure tests pass</h1>
+
+<p>(default)vinod:~/src/Pymacs$ make check</p>
+
+<h1>install it (Be sure you're inside your virtualenv!)</h1>
+
+<p>(default)vinod:~/src/Pymacs$ make install</p>
+
+<h1>install the emacs extension</h1>
+
+<p>(default)vinod:~/src/Pymacs$ cp pymacs.el ~/.emacs.d/$USER/
+{% endcodeblock %}</p>
 
 <h2>Step 5: Install other python packages</h2>
 
 <p>These helper packages are easier to install:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="o">(</span>default<span class="o">)</span>vinod:~<span class="nv">$ </span>pip install pyflakes pep8
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:bash %}
+(default)vinod:~$ pip install pyflakes pep8
+{% endcodeblock %}</p>
 
 <p>The pyflakes and pep8 packages check your code as you type using
 Emacs' flymake mode. Now, deactivate your virtualenv.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="o">(</span>default<span class="o">)</span>vinod:~<span class="nv">$ </span>deactivate
-</span><span class='line'>vinod:~<span class="err">$</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:bash %}
+(default)vinod:~$ deactivate
+vinod:~$
+{% endcodeblock %}</p>
 
 <h2>Step 6: Install pycheckers</h2>
 
@@ -283,11 +266,10 @@ a stable working version gets uploaded to
 <a href="http://marmalade-repo.org/">Marmalade</a> or
 <a href="http://melpa.milkbox.net/">Melpa</a>.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>vinod:~<span class="nv">$ </span><span class="nb">cd</span> ~/.emacs.d/<span class="nv">$USER</span>
-</span><span class='line'>vinod:~/.emacs.d/vinod<span class="nv">$ </span>curl -L https://launchpad.net/python-mode/trunk/6.0.12/+download/python-mode.el-6.0.12.tar.gz | tar xz
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:bash %}
+vinod:~$ cd ~/.emacs.d/$USER
+vinod:~/.emacs.d/vinod$ curl -L https://launchpad.net/python-mode/trunk/6.0.12/+download/python-mode.el-6.0.12.tar.gz | tar xz
+{% endcodeblock %}</p>
 
 <h2>Step 8: Test it all out</h2>
 
@@ -331,23 +313,22 @@ following:</p>
 
 <h3>Create a new virtualenv</h3>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>vinod:~<span class="nv">$ </span>mkvirtualenv newproject
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:bash %}
+vinod:~$ mkvirtualenv newproject
+{% endcodeblock %}</p>
 
 <h3>Install pymacs into that virtualenv</h3>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="o">(</span>newproject<span class="o">)</span>vinod:~<span class="nv">$ </span><span class="nb">cd</span> ~/src/Pymacs
-</span><span class='line'><span class="o">(</span>newproject<span class="o">)</span>vinod:~/src/Pymacs<span class="nv">$ </span>make install
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:bash %}
+(newproject)vinod:~$ cd ~/src/Pymacs
+(newproject)vinod:~/src/Pymacs$ make install
+{% endcodeblock %}</p>
 
 <h3>Install the other pip modules</h3>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="o">(</span>newproject<span class="o">)</span>vinod:~/src/Pymacs<span class="nv">$ </span>pip install pyflakes pep8
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:bash %}
+(newproject)vinod:~/src/Pymacs$ pip install pyflakes pep8
+{% endcodeblock %}</p>
 
 <h3>Switch to that virtualenv in emacs</h3>
 

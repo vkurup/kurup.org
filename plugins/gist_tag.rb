@@ -7,7 +7,7 @@
 
 require 'cgi'
 require 'digest/md5'
-require 'net/https'
+#require 'net/https'
 require 'uri'
 
 module Jekyll

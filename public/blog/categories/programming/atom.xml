@@ -4,7 +4,7 @@
   <title><![CDATA[Category: programming | Vinod Kurup]]></title>
   <link href="http://www.kurup.org/blog/categories/programming/atom.xml" rel="self"/>
   <link href="http://www.kurup.org/"/>
-  <updated>2015-08-08T22:40:46-04:00</updated>
+  <updated>2016-04-07T22:17:08-04:00</updated>
   <id>http://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
@@ -83,7 +83,7 @@ future when I have time to play with them.</p>
 Finally, a sane way to create a presentation :)</li>
 <li><a href="https://github.com/syohex/emacs-anzu">Anzu</a>: Improves incremental search. Anzu shows the number
 of matches found, and how many matches remain in the document.
-<img src="https://github.com/syohex/emacs-anzu/raw/master/image/anzu.gif"></li>
+{% img https://github.com/syohex/emacs-anzu/raw/master/image/anzu.gif %}</li>
 <li><a href="http://from-the-cloud.com/en/emacs/2013/01/28_emacs-as-a-django-ide-with-python-djangoel.html">Emacs as a Django IDE</a>:
 I tried this out briefly, but didn't end up sticking with it. It seemed too heavyweight.
 I'm probably just too used to my own workflow. I still think it's an interesting idea and would
