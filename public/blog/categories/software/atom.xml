@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: software | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/software/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/software/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Hit The Wall (a running log)]]></title>
-    <link href="http://www.kurup.org/blog/2006/04/21/hit-the-wall-a-running-log"/>
+    <link href="https://www.kurup.org/blog/2006/04/21/hit-the-wall-a-running-log"/>
     <updated>2006-04-21T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2006/04/21/hit-the-wall-a-running-log</id>
+    <id>https://www.kurup.org/blog/2006/04/21/hit-the-wall-a-running-log</id>
     <content type="html"><![CDATA[<p>I built a web application to keep track of my running a couple years
 ago. I really began using it in earnest during my training for the New
 York Marathon last year. I've been meaning to make it available for
@@ -83,9 +83,9 @@ which was 'Running Log".
   
   <entry>
     <title type="html"><![CDATA[Compiling OpenFTS on Mac OS X]]></title>
-    <link href="http://www.kurup.org/blog/2004/01/15/compiling-openfts-on-mac-os-x"/>
+    <link href="https://www.kurup.org/blog/2004/01/15/compiling-openfts-on-mac-os-x"/>
     <updated>2004-01-15T00:00:00-05:00</updated>
-    <id>http://www.kurup.org/blog/2004/01/15/compiling-openfts-on-mac-os-x</id>
+    <id>https://www.kurup.org/blog/2004/01/15/compiling-openfts-on-mac-os-x</id>
     <content type="html"><![CDATA[<p>It wasn't easy, but I finally got OpenFTS-0.3.2-tcl to compile on Mac OS X (10.2.8). I started by reading the excellent Mac OS X porting guides from <a href="http://fink.sourceforge.net/doc/porting/basics.php">Fink</a> and <a href="http://developer.apple.com/documentation/Porting/Conceptual/PortingUnix/intro/chapter_1_section_1.html">Apple</a>. Unfortunately, the OpenFTS Makefile and configure scripts aren't standard, so I had to muck around with things alot. Here's the diff:</p>
 
 <pre><code>diff -U 2 -rbB Search-OpenFTS-tcl-0.3.2/aolserver/Makefile  Search-OpenFTS-tcl-0.3.2-vk/aolserver/Makefile 
@@ -206,9 +206,9 @@ dir, but now that I retried it there, it went through smoothly :o)
   
   <entry>
     <title type="html"><![CDATA[Now running OpenACS 5]]></title>
-    <link href="http://www.kurup.org/blog/2004/01/09/now-running-openacs-5"/>
+    <link href="https://www.kurup.org/blog/2004/01/09/now-running-openacs-5"/>
     <updated>2004-01-09T00:00:00-05:00</updated>
-    <id>http://www.kurup.org/blog/2004/01/09/now-running-openacs-5</id>
+    <id>https://www.kurup.org/blog/2004/01/09/now-running-openacs-5</id>
     <content type="html"><![CDATA[<p>I upgraded to OpenACS 5 thanks to <a href="http://openacs.org/projects/openacs/5.0/upgrade-463-50">instructions from DaveB, et. al.</a> I had a <a href="http://openacs.org/forums/message-view?message_id=145889">few hitches with that process</a>, but the system seems to be working OK and is certainly zippier. I haven't tested everything out yet, so please holler if anything breaks.</p>
 ]]></content>
   </entry>

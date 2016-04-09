@@ -2,11 +2,11 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://www.kurup.org
+url: https://www.kurup.org
 title: Vinod Kurup
 subtitle: Hospitalist/programmer in search of the meaning of life
 author: Vinod Kurup
-simple_search: http://google.com/search
+simple_search: https://google.com/search
 description:
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: life | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/life/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/life/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Parenting Highs and Lows]]></title>
-    <link href="http://www.kurup.org/blog/2011/03/03/parenting-highs-and-lows"/>
+    <link href="https://www.kurup.org/blog/2011/03/03/parenting-highs-and-lows"/>
     <updated>2011-03-03T21:11:24-05:00</updated>
-    <id>http://www.kurup.org/blog/2011/03/03/parenting-highs-and-lows</id>
+    <id>https://www.kurup.org/blog/2011/03/03/parenting-highs-and-lows</id>
     <content type="html"><![CDATA[<p><em>Written a few weeks ago</em></p>
 
 <p>I came home late today, so Anika and Kavi had already eaten dinner and
@@ -95,9 +95,9 @@ people can take so much potential pain.</p>
   
   <entry>
     <title type="html"><![CDATA[I retract my previous tweet]]></title>
-    <link href="http://www.kurup.org/blog/2011/02/04/i-retract-my-previous-tweet"/>
+    <link href="https://www.kurup.org/blog/2011/02/04/i-retract-my-previous-tweet"/>
     <updated>2011-02-04T21:43:53-05:00</updated>
-    <id>http://www.kurup.org/blog/2011/02/04/i-retract-my-previous-tweet</id>
+    <id>https://www.kurup.org/blog/2011/02/04/i-retract-my-previous-tweet</id>
     <content type="html"><![CDATA[<p>I take it back. I was upset, OK? Never tweet when you're upset. I'm
 writing this blog post to make up for it. See, a whole blog post. That
 definitely outweighs a tweet, right?</p>
@@ -160,9 +160,9 @@ got in store for me.</p>
   
   <entry>
     <title type="html"><![CDATA[Happy New Year]]></title>
-    <link href="http://www.kurup.org/blog/2010/01/03/happy-new-year"/>
+    <link href="https://www.kurup.org/blog/2010/01/03/happy-new-year"/>
     <updated>2010-01-03T00:00:00-05:00</updated>
-    <id>http://www.kurup.org/blog/2010/01/03/happy-new-year</id>
+    <id>https://www.kurup.org/blog/2010/01/03/happy-new-year</id>
     <content type="html"><![CDATA[<p>This is going to be a great year. I was working on New Year's Eve. My shift
 was supposed to end at midnight, which meant that I would normally be home
 around 12:30 AM, but my colleague let me out early since the ER was
@@ -192,22 +192,22 @@ going to be a great year for me and my family.</p>
   
   <entry>
     <title type="html"><![CDATA[Soon there will be two]]></title>
-    <link href="http://www.kurup.org/blog/2008/12/17/soon-there-will-be-two"/>
+    <link href="https://www.kurup.org/blog/2008/12/17/soon-there-will-be-two"/>
     <updated>2008-12-17T00:00:00-05:00</updated>
-    <id>http://www.kurup.org/blog/2008/12/17/soon-there-will-be-two</id>
+    <id>https://www.kurup.org/blog/2008/12/17/soon-there-will-be-two</id>
     <content type="html"><![CDATA[<p>Kavi has been getting bored being surrounded by adults all the time. He is very happy to announce that a sibling is on its way. We're calling it blueberry. If things go on schedule, blueberry will be born sometime in June, so we'll have 2 June babies, a couple years apart.</p>
 
 <p>Pregnancy has been uneventful, unless you count those recurrent waves of nausea and vomiting that Mala's been experiencing. Hopefully that will get better as we move into the second trimester.</p>
 
-<p><a href="http://www.kurup.org/images/blueberry-12wks-best.jpg"><img title="blueberry-12wks-best" src="http://www.kurup.org/images/blueberry-12wks-best-300x202.jpg" alt="blueberry" width="300" height="202" /></a></p>
+<p><a href="https://www.kurup.org/images/blueberry-12wks-best.jpg"><img title="blueberry-12wks-best" src="https://www.kurup.org/images/blueberry-12wks-best-300x202.jpg" alt="blueberry" width="300" height="202" /></a></p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[I'm alive]]></title>
-    <link href="http://www.kurup.org/blog/2008/08/02/im-alive"/>
+    <link href="https://www.kurup.org/blog/2008/08/02/im-alive"/>
     <updated>2008-08-02T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2008/08/02/im-alive</id>
+    <id>https://www.kurup.org/blog/2008/08/02/im-alive</id>
     <content type="html"><![CDATA[<p>OK, I know it's been almost a year since I updated this blog, but rest assured that I'm still alive and kicking. The observant among you will notice that the design of the blog has changed. The even more observant will notice that huge swaths of content are now missing. Things like my photo albums, my running log, old comments, and Kavi's little site are now gone. They may make a reappearance someday, especially if I get prodded sufficiently. I have my old site running locally on my laptop, but I'm too lazy to bring it all back right now.</p>
 
 <p>If you're just interested in pics of Kavi (and I know that's most of you), go visit <a href="http://picasaweb.google.com/vvkurup">my Picasa photo album</a>.</p>

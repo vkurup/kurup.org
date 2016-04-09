@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: idea | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/idea/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/idea/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Steal My Web App Idea]]></title>
-    <link href="http://www.kurup.org/blog/2013/01/09/steal-my-web-app-idea"/>
+    <link href="https://www.kurup.org/blog/2013/01/09/steal-my-web-app-idea"/>
     <updated>2013-01-09T22:00:01-05:00</updated>
-    <id>http://www.kurup.org/blog/2013/01/09/steal-my-web-app-idea</id>
+    <id>https://www.kurup.org/blog/2013/01/09/steal-my-web-app-idea</id>
     <content type="html"><![CDATA[<p>Now that we have 3 kids, I'm always internally comparing one to the
 other. Sure that's not healthy and will probably breed resentment in
 them during their teenage years, but what's a bad parent to do?</p>

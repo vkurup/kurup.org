@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: postgresql | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/postgresql/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/postgresql/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,18 +15,18 @@
   
   <entry>
     <title type="html"><![CDATA[psql doesn't like tabs]]></title>
-    <link href="http://www.kurup.org/blog/2003/06/24/psql-doesnt-like-tabs"/>
+    <link href="https://www.kurup.org/blog/2003/06/24/psql-doesnt-like-tabs"/>
     <updated>2003-06-24T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2003/06/24/psql-doesnt-like-tabs</id>
+    <id>https://www.kurup.org/blog/2003/06/24/psql-doesnt-like-tabs</id>
     <content type="html"><![CDATA[<p>psql doesn't deal well with tabs. If you feed it a function that has tabs  in it, and then call that function, you'll often get this:  <code>ERROR:  parser: parse error at or near "for" at character 15</code>.  Thus, if you ever see this in your error log, it's time to <code>M-x untabify</code>.</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[PG 7.2 to 7.3]]></title>
-    <link href="http://www.kurup.org/blog/2003/06/24/pg-72-to-73"/>
+    <link href="https://www.kurup.org/blog/2003/06/24/pg-72-to-73"/>
     <updated>2003-06-24T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2003/06/24/pg-72-to-73</id>
+    <id>https://www.kurup.org/blog/2003/06/24/pg-72-to-73</id>
     <content type="html"><![CDATA[<p>Not all of OpenACS is Postgres 7.3 compliant yet. OpenACS 5 is compliant and the core packages in OpenACS 4.6 are compliant, but some non-core packages haven't been fixed yet. Noncompliant packages will complain:</p>
 
 <pre><code>[24/Jun/2003:15:21:36][26623.196621][-conn:kurup::4] Error:  Ns_PgExec: result status: 7 message: ERROR:  Function  pa_collection__new("unknown", "unknown", "unknown", timestamp with time zone,  "unknown", "unknown", "unknown") does not exist

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: blog | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/blog/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/blog/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Facebook is killing blogging]]></title>
-    <link href="http://www.kurup.org/blog/2012/08/19/facebook-is-killing-blogging"/>
+    <link href="https://www.kurup.org/blog/2012/08/19/facebook-is-killing-blogging"/>
     <updated>2012-08-19T07:58:31-04:00</updated>
-    <id>http://www.kurup.org/blog/2012/08/19/facebook-is-killing-blogging</id>
+    <id>https://www.kurup.org/blog/2012/08/19/facebook-is-killing-blogging</id>
     <content type="html"><![CDATA[<p>Looks like August 18th was
 International-Prominent-Bloggers-Complain-About-Facebook-Killing-Blogging
 Day. I was just <a href="http://www.kurup.org/blog/2012/08/03/blogging-again/">two weeks too early</a>.</p>
@@ -41,9 +41,9 @@ really well done.</p>
   
   <entry>
     <title type="html"><![CDATA[Blogging Again]]></title>
-    <link href="http://www.kurup.org/blog/2012/08/03/blogging-again"/>
+    <link href="https://www.kurup.org/blog/2012/08/03/blogging-again"/>
     <updated>2012-08-03T14:50:25-04:00</updated>
-    <id>http://www.kurup.org/blog/2012/08/03/blogging-again</id>
+    <id>https://www.kurup.org/blog/2012/08/03/blogging-again</id>
     <content type="html"><![CDATA[<p>I'm going to start blogging more. I know I've said that before, so
 take it for what it's worth. I think there is value in blogging. I've
 been thinking about my life a lot lately, trying to find what makes me
@@ -78,9 +78,9 @@ Started in Programming', but in the meantime, go read
   
   <entry>
     <title type="html"><![CDATA[Switching to Octopress]]></title>
-    <link href="http://www.kurup.org/blog/2011/08/14/switching-to-octopress"/>
+    <link href="https://www.kurup.org/blog/2011/08/14/switching-to-octopress"/>
     <updated>2011-08-14T13:06:04-04:00</updated>
-    <id>http://www.kurup.org/blog/2011/08/14/switching-to-octopress</id>
+    <id>https://www.kurup.org/blog/2011/08/14/switching-to-octopress</id>
     <content type="html"><![CDATA[<p>You may have noticed that I've rearranged the furniture a little. It's
 been almost 2 years since I last redesigned my blog, so I'm way
 overdue for a pointless redesign. I'm now using
@@ -98,9 +98,9 @@ taking bets on how long this design lasts.</p>
   
   <entry>
     <title type="html"><![CDATA[My Anti-Writing Cycle]]></title>
-    <link href="http://www.kurup.org/blog/2010/07/27/my-anti-writing-cycle"/>
+    <link href="https://www.kurup.org/blog/2010/07/27/my-anti-writing-cycle"/>
     <updated>2010-07-27T21:30:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2010/07/27/writers-block</id>
+    <id>https://www.kurup.org/blog/2010/07/27/writers-block</id>
     <content type="html"><![CDATA[<p>I blogged daily for a 6 day stretch a couple weeks ago, which is the
 longest continuous stretch I've ever done. It was stimulating and stressful
 at the same time. I haven't heard from the Pulitzer committee about any of
@@ -138,9 +138,9 @@ cares.</p>
   
   <entry>
     <title type="html"><![CDATA[Bye Bye Wordpress]]></title>
-    <link href="http://www.kurup.org/blog/2009/09/19/bye-bye-wordpress"/>
+    <link href="https://www.kurup.org/blog/2009/09/19/bye-bye-wordpress"/>
     <updated>2009-09-19T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2009/09/19/bye-bye-wordpress</id>
+    <id>https://www.kurup.org/blog/2009/09/19/bye-bye-wordpress</id>
     <content type="html"><![CDATA[<p>This site has undergone another transformation. I've ditched <a href="http://wordpress.org">Wordpress</a> and am now using a tool called <a href="http://github.com/mojombo/jekyll">Jekyll</a>. It's a program that runs on my laptop and generates static files from a bunch of templates. I then upload the static files to my server. Wordpress, like any dynamic software, has security risks. Especially since it's such a popular blog app, it's always under attack. I don't have the time or interest to keep up with updates, especially since my blogging is so low-profile. It's just something I do for fun.</p>
 
 <p>Static files have none of those security risks. There are a lot of static file generators out there, but I chose Jekyll because it seemed intuitive and it's run by the <a href="http://github.com">GitHub</a> folks. I've started using git and GitHub and am impressed by their power so far.</p>

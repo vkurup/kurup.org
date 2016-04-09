@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: wireless | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/wireless/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/wireless/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Setting up WEP]]></title>
-    <link href="http://www.kurup.org/blog/2003/07/16/setting-up-wep"/>
+    <link href="https://www.kurup.org/blog/2003/07/16/setting-up-wep"/>
     <updated>2003-07-16T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2003/07/16/setting-up-wep</id>
+    <id>https://www.kurup.org/blog/2003/07/16/setting-up-wep</id>
     <content type="html"><![CDATA[<p>How to set up WEP encryption:</p>
 
 <ul>
@@ -51,9 +51,9 @@
   
   <entry>
     <title type="html"><![CDATA[Wireless on LinuxPPC]]></title>
-    <link href="http://www.kurup.org/blog/2000/12/10/wireless-on-linuxppc"/>
+    <link href="https://www.kurup.org/blog/2000/12/10/wireless-on-linuxppc"/>
     <updated>2000-12-10T00:00:00-05:00</updated>
-    <id>http://www.kurup.org/blog/2000/12/10/wireless-on-linuxppc</id>
+    <id>https://www.kurup.org/blog/2000/12/10/wireless-on-linuxppc</id>
     <content type="html"><![CDATA[<p>I've coaxed my wireless card to work on LinuxPPC. Read <a href="http://kurup.org/content/wireless.phtml">how I did
 it.</a> This link is now gone
 because it's obsolete.... vinod.</p>

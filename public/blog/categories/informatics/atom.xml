@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: informatics | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/informatics/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/informatics/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Starting again]]></title>
-    <link href="http://www.kurup.org/blog/2008/12/13/starting-again"/>
+    <link href="https://www.kurup.org/blog/2008/12/13/starting-again"/>
     <updated>2008-12-13T00:00:00-05:00</updated>
-    <id>http://www.kurup.org/blog/2008/12/13/starting-again</id>
+    <id>https://www.kurup.org/blog/2008/12/13/starting-again</id>
     <content type="html"><![CDATA[<p>For the remaining 2 readers of kurup.org (one of them being me), let me apologize for the lack of posts here over the past couple years. I have always meant to write more, but most of my writing seems to consist of apologies for not writing, short bursts of writing, and then long stretches of inactivity. We are nearing the end of a long stretch of inactivity now, so it's time for the apologies.</p>
 
 <p>A part of my apprehension has always been that someone will read my writing and laugh at how ridiculous I am. How could I possibly take myself seriously? Yes, I am quite self conscious. But, I figure that now that I've posted just about nothing for the past year, anyone left here is going to be pretty forgiving of what I write.</p>
@@ -34,9 +34,9 @@
   
   <entry>
     <title type="html"><![CDATA[Is Primary Care Dying?]]></title>
-    <link href="http://www.kurup.org/blog/2006/09/09/is-primary-care-dying"/>
+    <link href="https://www.kurup.org/blog/2006/09/09/is-primary-care-dying"/>
     <updated>2006-09-09T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2006/09/09/is-primary-care-dying</id>
+    <id>https://www.kurup.org/blog/2006/09/09/is-primary-care-dying</id>
     <content type="html"><![CDATA[<p><a href="http://kurup.org/dave/blog/2006/09/07/primary-care-medicine-perspective">Dave referenced an interesting article</a> in the NEJM titled <a href="http://content.nejm.org/cgi/content/full/355/9/861">"Primary Care -- Will it Survive?"</a> These two quotes summarize the problem:</p>
 
 <blockquote><p>A 2006 report from the Center for Studying Health System Change reveals that from 1995 to 2003, inflation-adjusted income decreased by 7.1 percent for all physicians and by 10.2 percent for primary care physicians.</p></blockquote>

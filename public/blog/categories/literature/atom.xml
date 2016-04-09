@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: literature | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/literature/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/literature/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Literature delivered to your inbox]]></title>
-    <link href="http://www.kurup.org/blog/2007/03/19/literature-delivered-to-your-inbox"/>
+    <link href="https://www.kurup.org/blog/2007/03/19/literature-delivered-to-your-inbox"/>
     <updated>2007-03-19T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2007/03/19/literature-delivered-to-your-inbox</id>
+    <id>https://www.kurup.org/blog/2007/03/19/literature-delivered-to-your-inbox</id>
     <content type="html"><![CDATA[<p><a href="http://dailylit.com">DailyLit.com</a> is an interesting service that takes classic books and chops them up in to bite-sized pieces that you can read in just a few minutes. It then emails you one piece at a time until you finish the book. You can customize how often you get the emails.</p>
 
 <p>I just finished "The Art of Money Getting", by P.T. Barnum. It has a lot of practical advice, and predates (by 100 years) a lot of what you see these days in self-help books. There are a lot of gems in here, but this is one of my favorite quotes:</p>

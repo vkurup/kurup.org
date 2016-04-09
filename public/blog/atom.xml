@@ -2,23 +2,23 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title>Vinod Kurup</title>
-  <link href="http://www.kurup.org/blog/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org"/>
-  <updated>2016-04-07T22:18:10-04:00</updated>
+  <link href="https://www.kurup.org/blog/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
   <generator uri="http://github.com/mojombo/jekyll">Jekyll</generator>
-  <id>http://www.kurup.org/blog/atom.xml</id>
+  <id>https://www.kurup.org/blog/atom.xml</id>
   <author>
     <name>Vinod Kurup</name>
     
       <email>vinod@kurup.com</email>
     
-    <uri>http://www.kurup.org</uri>
+    <uri>https://www.kurup.org</uri>
   </author>
 
   
   <entry>
     <title>Using dynamic queries in a CBV</title>
-    <link href="http://www.kurup.org/blog/2014/07/28/cbv-dynamic"/>
+    <link href="https://www.kurup.org/blog/2014/07/28/cbv-dynamic"/>
     <updated>2014-07-28T22:08:00-04:00</updated>
     <id>id:/blog/2014/07/28/cbv-dynamic</id>
    <category scheme="http://www.kurup.org" term="django" />
@@ -78,7 +78,7 @@ display.&lt;/p&gt;
   
   <entry>
     <title>Some Emacs Posts</title>
-    <link href="http://www.kurup.org/blog/2014/07/23/some-emacs-posts"/>
+    <link href="https://www.kurup.org/blog/2014/07/23/some-emacs-posts"/>
     <updated>2014-07-23T21:38:00-04:00</updated>
     <id>id:/blog/2014/07/23/some-emacs-posts</id>
    <category scheme="http://www.kurup.org" term="emacs" />
@@ -116,7 +116,7 @@ to read through this someday!&lt;/li&gt;
   
   <entry>
     <title>Pygments on Arch Linux</title>
-    <link href="http://www.kurup.org/blog/2014/07/22/pygments-py3"/>
+    <link href="https://www.kurup.org/blog/2014/07/22/pygments-py3"/>
     <updated>2014-07-22T21:16:00-04:00</updated>
     <id>id:/blog/2014/07/22/pygments-py3</id>
    <category scheme="http://www.kurup.org" term="programming" />
@@ -196,7 +196,7 @@ it&amp;#8217;s time to switch blog tools again&amp;#8230;&lt;/p&gt;
   
   <entry>
     <title>How to create test models in Django</title>
-    <link href="http://www.kurup.org/blog/2014/07/21/django-test-models"/>
+    <link href="https://www.kurup.org/blog/2014/07/21/django-test-models"/>
     <updated>2014-07-21T20:44:00-04:00</updated>
     <id>id:/blog/2014/07/21/django-test-models</id>
    <category scheme="http://www.kurup.org" term="django" />
@@ -284,7 +284,7 @@ this might not work, unless you set &lt;code&gt;SOUTH_TESTS_MIGRATE&lt;/code&gt;
   
   <entry>
     <title>Peanut Allergy, a personal clinical review</title>
-    <link href="http://www.kurup.org/blog/2013/01/21/peanut-allergy-a-personal-clinical-review"/>
+    <link href="https://www.kurup.org/blog/2013/01/21/peanut-allergy-a-personal-clinical-review"/>
     <updated>2013-01-21T07:49:22-05:00</updated>
     <id>id:/blog/2013/01/21/peanut-allergy-a-personal-clinical-review</id>
    <category scheme="http://www.kurup.org" term="family" />
@@ -438,7 +438,7 @@ this topic.&lt;/p&gt;
   
   <entry>
     <title>Priorities and GTD</title>
-    <link href="http://www.kurup.org/blog/2013/01/17/priorities-and-gtd"/>
+    <link href="https://www.kurup.org/blog/2013/01/17/priorities-and-gtd"/>
     <updated>2013-01-17T13:38:07-05:00</updated>
     <id>id:/blog/2013/01/17/priorities-and-gtd</id>
    <category scheme="http://www.kurup.org" term="gtd" />
@@ -488,7 +488,7 @@ thing done on each of those days.&lt;/p&gt;
   
   <entry>
     <title>GTD again?</title>
-    <link href="http://www.kurup.org/blog/2013/01/16/gtd-again"/>
+    <link href="https://www.kurup.org/blog/2013/01/16/gtd-again"/>
     <updated>2013-01-16T09:27:03-05:00</updated>
     <id>id:/blog/2013/01/16/gtd-again</id>
    <category scheme="http://www.kurup.org" term="gtd" />
@@ -534,7 +534,7 @@ where I will succeed.&lt;/p&gt;
   
   <entry>
     <title>Writing paralysis</title>
-    <link href="http://www.kurup.org/blog/2013/01/15/writing-paralysis"/>
+    <link href="https://www.kurup.org/blog/2013/01/15/writing-paralysis"/>
     <updated>2013-01-15T14:45:09-05:00</updated>
     <id>id:/blog/2013/01/15/writing-paralysis</id>
    <category scheme="http://www.kurup.org" term="instrospection" />
@@ -587,7 +587,7 @@ to try a twitter hiatus for a week and see what happens.&lt;/p&gt;
   
   <entry>
     <title>Steal My Web App Idea</title>
-    <link href="http://www.kurup.org/blog/2013/01/09/steal-my-web-app-idea"/>
+    <link href="https://www.kurup.org/blog/2013/01/09/steal-my-web-app-idea"/>
     <updated>2013-01-09T22:00:01-05:00</updated>
     <id>id:/blog/2013/01/09/steal-my-web-app-idea</id>
    <category scheme="http://www.kurup.org" term="idea" />
@@ -619,7 +619,7 @@ you they&amp;#8217;ll come back. (Wait, I think I&amp;#8217;m mixing metaphors h
   
   <entry>
     <title>How to change the rear tire on a 12 inch bicycle</title>
-    <link href="http://www.kurup.org/blog/2012/12/30/how-to-change-the-rear-tire-on-a-12-inch-bicycle"/>
+    <link href="https://www.kurup.org/blog/2012/12/30/how-to-change-the-rear-tire-on-a-12-inch-bicycle"/>
     <updated>2012-12-30T15:00:40-05:00</updated>
     <id>id:/blog/2012/12/30/how-to-change-the-rear-tire-on-a-12-inch-bicycle</id>
    <category scheme="http://www.kurup.org" term="howto" />
@@ -684,7 +684,7 @@ than I was. Everytime he fell, he got right back on.&lt;/p&gt;
   
   <entry>
     <title>NSBrief gets the best guests</title>
-    <link href="http://www.kurup.org/blog/2012/11/05/nsbrief-gets-the-best-guests"/>
+    <link href="https://www.kurup.org/blog/2012/11/05/nsbrief-gets-the-best-guests"/>
     <updated>2012-11-05T10:38:09-05:00</updated>
     <id>id:/blog/2012/11/05/nsbrief-gets-the-best-guests</id>
    <category scheme="http://www.kurup.org" term="openacs" />
@@ -698,7 +698,7 @@ my 140 character description:&lt;/p&gt;
 &lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p&gt;So much geeky fun in @&lt;a href=&quot;https://twitter.com/borkware&quot;&gt;borkware&lt;/a&gt;&amp;#8217;s interview. AOLserver, dtrace, OpenDoc, MPW, need I go on? &lt;a href=&quot;http://t.co/JWPPvfaa&quot; title=&quot;http://nsbrief.com/59-mark-dalrymple&quot;&gt;nsbrief.com/59-mark-dalrym…&lt;/a&gt;&lt;/p&gt;&amp;mdash; Vinod Kurup (@vkurup) &lt;a href=&quot;https://twitter.com/vkurup/status/235907385997262848&quot; data-datetime=&quot;2012-08-16T01:14:38+00:00&quot;&gt;August 16, 2012&lt;/a&gt;&lt;/blockquote&gt;
 
 
-&lt;script src=&quot;http://www.kurup.org//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://www.kurup.org//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Today, I listened to
@@ -730,7 +730,7 @@ first time, even though I feel like he&amp;#8217;s been a friend for many years.
   
   <entry>
     <title>Emacs for Python Programming</title>
-    <link href="http://www.kurup.org/blog/2012/10/24/emacs-for-python-programming"/>
+    <link href="https://www.kurup.org/blog/2012/10/24/emacs-for-python-programming"/>
     <updated>2012-10-24T16:45:49-04:00</updated>
     <id>id:/blog/2012/10/24/emacs-for-python-programming</id>
    <category scheme="http://www.kurup.org" term="emacs" />
@@ -1247,7 +1247,7 @@ to account for those changes.&lt;/p&gt;
   
   <entry>
     <title>Emacs Autocomplete stumbles on yasnippet</title>
-    <link href="http://www.kurup.org/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet"/>
+    <link href="https://www.kurup.org/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet"/>
     <updated>2012-10-15T13:02:18-04:00</updated>
     <id>id:/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet</id>
    <category scheme="http://www.kurup.org" term="emacs" />
@@ -1317,7 +1317,7 @@ or remove the offending &amp;#8216;source&amp;#8217;.&lt;/p&gt;
   
   <entry>
     <title>I&#8217;ve gone to the dark side</title>
-    <link href="http://www.kurup.org/blog/2012/10/14/ive-gone-to-the-dark-side"/>
+    <link href="https://www.kurup.org/blog/2012/10/14/ive-gone-to-the-dark-side"/>
     <updated>2012-10-14T16:09:54-04:00</updated>
     <id>id:/blog/2012/10/14/ive-gone-to-the-dark-side</id>
    <category scheme="http://www.kurup.org" term="computers" />
@@ -1446,7 +1446,7 @@ setup in a future post.&lt;/p&gt;
   
   <entry>
     <title>Avik Arrives!</title>
-    <link href="http://www.kurup.org/blog/2012/09/04/avik-arrives"/>
+    <link href="https://www.kurup.org/blog/2012/09/04/avik-arrives"/>
     <updated>2012-09-04T08:30:25-04:00</updated>
     <id>id:/blog/2012/09/04/avik-arrives</id>
    <category scheme="http://www.kurup.org" term="family" />
@@ -1458,12 +1458,12 @@ setup in a future post.&lt;/p&gt;
 
 &lt;p&gt;A few pics:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://www.kurup.org/images/avik-1.jpg&quot; width=&quot;1024&quot; alt=&quot;Avik&quot; /&gt;&lt;br/&gt;
-&lt;img src=&quot;http://www.kurup.org/images/avik-2.jpg&quot; width=&quot;768&quot; height=&quot;1024&quot; alt=&quot;Avik&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kurup.org/images/avik-1.jpg&quot; width=&quot;1024&quot; alt=&quot;Avik&quot; /&gt;&lt;br/&gt;
+&lt;img src=&quot;https://www.kurup.org/images/avik-2.jpg&quot; width=&quot;768&quot; height=&quot;1024&quot; alt=&quot;Avik&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;And the obligatory pseudo-nostalgic photo:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://www.kurup.org/images/avik-3.jpg&quot; height=&quot;1024&quot; width=&quot;768&quot; alt=&quot;Avik&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kurup.org/images/avik-3.jpg&quot; height=&quot;1024&quot; width=&quot;768&quot; alt=&quot;Avik&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Mom and Baby are doing great! Thanks for all the well wishes and support!&lt;/p&gt;
 </content>
@@ -1471,7 +1471,7 @@ setup in a future post.&lt;/p&gt;
   
   <entry>
     <title>Thoughts on Free Will</title>
-    <link href="http://www.kurup.org/blog/2012/08/21/thoughts-on-free-will"/>
+    <link href="https://www.kurup.org/blog/2012/08/21/thoughts-on-free-will"/>
     <updated>2012-08-21T12:01:25-04:00</updated>
     <id>id:/blog/2012/08/21/thoughts-on-free-will</id>
    <category scheme="http://www.kurup.org" term="book-review" />
@@ -1580,7 +1580,7 @@ I highly recommend it.&lt;/p&gt;
   
   <entry>
     <title>Facebook is killing blogging</title>
-    <link href="http://www.kurup.org/blog/2012/08/19/facebook-is-killing-blogging"/>
+    <link href="https://www.kurup.org/blog/2012/08/19/facebook-is-killing-blogging"/>
     <updated>2012-08-19T07:58:31-04:00</updated>
     <id>id:/blog/2012/08/19/facebook-is-killing-blogging</id>
    <category scheme="http://www.kurup.org" term="blog" />
@@ -1608,7 +1608,7 @@ really well done.&lt;/p&gt;
   
   <entry>
     <title>A great moment</title>
-    <link href="http://www.kurup.org/blog/2012/08/16/a-great-moment"/>
+    <link href="https://www.kurup.org/blog/2012/08/16/a-great-moment"/>
     <updated>2012-08-16T10:24:34-04:00</updated>
     <id>id:/blog/2012/08/16/a-great-moment</id>
    <category scheme="http://www.kurup.org" term="fatherhood" />
@@ -1634,7 +1634,7 @@ they mean to me. I want to capture them and never let them go.&lt;/p&gt;
   
   <entry>
     <title>NASA Curiosity Lands</title>
-    <link href="http://www.kurup.org/blog/2012/08/07/nasa-curiosity-lands"/>
+    <link href="https://www.kurup.org/blog/2012/08/07/nasa-curiosity-lands"/>
     <updated>2012-08-07T15:17:43-04:00</updated>
     <id>id:/blog/2012/08/07/nasa-curiosity-lands</id>
    <category scheme="http://www.kurup.org" term="inspiring" />
@@ -1664,7 +1664,7 @@ src=&quot;http://www.youtube.com/embed/-_9BYSDtwRc&quot; frameborder=&quot;0&quo
 allowfullscreen&gt;&lt;/iframe&gt;
 
 
-&lt;p&gt;&lt;img class=&quot;right&quot; src=&quot;http://www.kurup.org/images/curiosity-size.jpg&quot; width=&quot;300&quot; height=&quot;200&quot; title=&quot;Curiosity is huge (NASA)&quot; &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;right&quot; src=&quot;https://www.kurup.org/images/curiosity-size.jpg&quot; width=&quot;300&quot; height=&quot;200&quot; title=&quot;Curiosity is huge (NASA)&quot; &gt;&lt;/p&gt;
 
 &lt;p&gt;The Curiosity rover is too large for the airbag approach (See image at
 right comparing it to previous rovers), so an alternate system was
@@ -1680,7 +1680,7 @@ car!&lt;/a&gt;&lt;/p&gt;
   
   <entry>
     <title>Blogging Again</title>
-    <link href="http://www.kurup.org/blog/2012/08/03/blogging-again"/>
+    <link href="https://www.kurup.org/blog/2012/08/03/blogging-again"/>
     <updated>2012-08-03T14:50:25-04:00</updated>
     <id>id:/blog/2012/08/03/blogging-again</id>
    <category scheme="http://www.kurup.org" term="blog" />

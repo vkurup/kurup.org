@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: eff | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/eff/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/eff/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Don't get sued]]></title>
-    <link href="http://www.kurup.org/blog/2003/07/30/dont-get-sued"/>
+    <link href="https://www.kurup.org/blog/2003/07/30/dont-get-sued"/>
     <updated>2003-07-30T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2003/07/30/dont-get-sued</id>
+    <id>https://www.kurup.org/blog/2003/07/30/dont-get-sued</id>
     <content type="html"><![CDATA[<p>The topic of music sharing and its legality came up during our annual cousins trip in Seattle. Here's an important article on <a href="http://www.eff.org/IP/P2P/howto-notgetsued.php">How Not to Get Sued by the RIAA</a>. The most important thing is the last line in the article:</p>
 
 <blockquote><p><a href="https://secure.eff.org/">Join EFF</a> and support our efforts to protect file-sharing.</p></blockquote>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: motivation | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/motivation/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/motivation/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Advice on writing]]></title>
-    <link href="http://www.kurup.org/blog/2010/11/04/writing-marshall"/>
+    <link href="https://www.kurup.org/blog/2010/11/04/writing-marshall"/>
     <updated>2010-11-04T07:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2010/11/04/writing-marshall</id>
+    <id>https://www.kurup.org/blog/2010/11/04/writing-marshall</id>
     <content type="html"><![CDATA[<p>I just found this <a href="http://www.sebastianmarshall.com/?p=195">great article on
 writing</a> by Sebastian
 Marshall. His basic advice boils down to "just do it!", but he makes
@@ -52,9 +52,9 @@ it can't hurt to keep trying.</p>
   
   <entry>
     <title type="html"><![CDATA[Running slow]]></title>
-    <link href="http://www.kurup.org/blog/2009/09/22/running-slow"/>
+    <link href="https://www.kurup.org/blog/2009/09/22/running-slow"/>
     <updated>2009-09-22T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2009/09/22/running-slow</id>
+    <id>https://www.kurup.org/blog/2009/09/22/running-slow</id>
     <content type="html"><![CDATA[<p>I've been a runner for a long time. I started running in junior high
 school, so I could be on the track team. I've had a few long stretches
 where I didn't run, but for most of the past 25 years, I've been a runner.</p>
@@ -150,9 +150,9 @@ try running in the Bronx :-)</p>
   
   <entry>
     <title type="html"><![CDATA[Flow]]></title>
-    <link href="http://www.kurup.org/blog/2009/07/23/flow"/>
+    <link href="https://www.kurup.org/blog/2009/07/23/flow"/>
     <updated>2009-07-23T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2009/07/23/flow</id>
+    <id>https://www.kurup.org/blog/2009/07/23/flow</id>
     <content type="html"><![CDATA[<p><em>I've found some old journal entries lying around my hard drive. I'm sure that these were meant to be cleaned up and edited before being spewed on the Internet, but in keeping with my newfound obsession with <a href="/blog/2009/02/04/imperfection">Imperfection</a>, I now present them to you, my dear reader(s). Here is the first one, a review of the book, <a href="http://www.amazon.com/gp/product/0060920432?ie=UTF8&amp;tag=vinodkurupshomep&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=0060920432">Flow: The Psychology of Optimal Experience</a><img src="http://www.assoc-amazon.com/e/ir?t=vinodkurupshomep&l=as2&o=1&a=0060920432" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></em></p>
 
 <p><strong>Bronx, NY, April 9th, 2007</strong></p>
@@ -229,9 +229,9 @@ aware of themselves as separate from the actions they are performing."
   
   <entry>
     <title type="html"><![CDATA[Imperfection]]></title>
-    <link href="http://www.kurup.org/blog/2009/02/04/imperfection"/>
+    <link href="https://www.kurup.org/blog/2009/02/04/imperfection"/>
     <updated>2009-02-04T00:00:00-05:00</updated>
-    <id>http://www.kurup.org/blog/2009/02/04/imperfection</id>
+    <id>https://www.kurup.org/blog/2009/02/04/imperfection</id>
     <content type="html"><![CDATA[<p>I've had a lot of great plans which I've never fulfilled. Don't get me wrong. My life is beyond great and I see it getting better every day. There just happen to be a lot of things that I've planned to do which I have not done.</p>
 
 <p>I planned to create a web-based running log. I actually did do this and used it for a long time, but I never did build in enough features to make it worthwhile for others to use. Or even enough to make it exciting for me to use.</p>

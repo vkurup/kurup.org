@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: writing | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/writing/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/writing/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Writing paralysis]]></title>
-    <link href="http://www.kurup.org/blog/2013/01/15/writing-paralysis"/>
+    <link href="https://www.kurup.org/blog/2013/01/15/writing-paralysis"/>
     <updated>2013-01-15T14:45:09-05:00</updated>
-    <id>http://www.kurup.org/blog/2013/01/15/writing-paralysis</id>
+    <id>https://www.kurup.org/blog/2013/01/15/writing-paralysis</id>
     <content type="html"><![CDATA[<p>I think twitter and facebook stunt my writing. The more that I read
 tweets, the more self-conscious I get when I write. Not that my
 writing is all that original, but I still feel that it is something
@@ -65,9 +65,9 @@ to try a twitter hiatus for a week and see what happens.</p>
   
   <entry>
     <title type="html"><![CDATA[Blogging Again]]></title>
-    <link href="http://www.kurup.org/blog/2012/08/03/blogging-again"/>
+    <link href="https://www.kurup.org/blog/2012/08/03/blogging-again"/>
     <updated>2012-08-03T14:50:25-04:00</updated>
-    <id>http://www.kurup.org/blog/2012/08/03/blogging-again</id>
+    <id>https://www.kurup.org/blog/2012/08/03/blogging-again</id>
     <content type="html"><![CDATA[<p>I'm going to start blogging more. I know I've said that before, so
 take it for what it's worth. I think there is value in blogging. I've
 been thinking about my life a lot lately, trying to find what makes me
@@ -102,19 +102,15 @@ Started in Programming', but in the meantime, go read
   
   <entry>
     <title type="html"><![CDATA[Running as a metaphor for life]]></title>
-    <link href="http://www.kurup.org/blog/2011/08/09/running-as-a-metaphor-for-life"/>
+    <link href="https://www.kurup.org/blog/2011/08/09/running-as-a-metaphor-for-life"/>
     <updated>2011-08-09T20:41:02-04:00</updated>
-    <id>http://www.kurup.org/blog/2011/08/09/running-as-a-metaphor-for-life</id>
+    <id>https://www.kurup.org/blog/2011/08/09/running-as-a-metaphor-for-life</id>
     <content type="html"><![CDATA[<p>I was thinking the other day, on a run, of course, about the many ways
 that running is a metaphor for life. I've <a href="/blog/2003/10/28/the-wall-is-not-a-myth/">discussed some of this
 before with my cousins Dilu and
 Harish</a> before.</p>
 
-<p>{% blockquote Robert Frost http://en.wikipedia.org/wiki/The_Road_Not_Taken_(poem) %}
-... two roads diverged in a wood, and I --
-I took the one less traveled by,
-And that has made all the difference.
-{% endblockquote %}</p>
+<p><blockquote><p>... two roads diverged in a wood, and I --<br/>I took the one less traveled by,<br/>And that has made all the difference.</p><footer><strong>Robert Frost</strong> <cite><a href='http://en.wikipedia.org/wiki/The_Road_Not_Taken_(poem)'>en.wikipedia.org/wiki/&hellip;</a></cite></footer></blockquote></p>
 
 <p>While trail running, I have come to the realization that you never
 have to worry about the fork in the road, nor the decision associated
@@ -169,9 +165,9 @@ fails, accept that maybe you'll do better next time.</p>
   
   <entry>
     <title type="html"><![CDATA[Advice on writing]]></title>
-    <link href="http://www.kurup.org/blog/2010/11/04/writing-marshall"/>
+    <link href="https://www.kurup.org/blog/2010/11/04/writing-marshall"/>
     <updated>2010-11-04T07:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2010/11/04/writing-marshall</id>
+    <id>https://www.kurup.org/blog/2010/11/04/writing-marshall</id>
     <content type="html"><![CDATA[<p>I just found this <a href="http://www.sebastianmarshall.com/?p=195">great article on
 writing</a> by Sebastian
 Marshall. His basic advice boils down to "just do it!", but he makes
@@ -206,9 +202,9 @@ it can't hurt to keep trying.</p>
   
   <entry>
     <title type="html"><![CDATA[My Anti-Writing Cycle]]></title>
-    <link href="http://www.kurup.org/blog/2010/07/27/my-anti-writing-cycle"/>
+    <link href="https://www.kurup.org/blog/2010/07/27/my-anti-writing-cycle"/>
     <updated>2010-07-27T21:30:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2010/07/27/writers-block</id>
+    <id>https://www.kurup.org/blog/2010/07/27/writers-block</id>
     <content type="html"><![CDATA[<p>I blogged daily for a 6 day stretch a couple weeks ago, which is the
 longest continuous stretch I've ever done. It was stimulating and stressful
 at the same time. I haven't heard from the Pulitzer committee about any of

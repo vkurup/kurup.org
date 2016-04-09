@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: daemontools | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/daemontools/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/daemontools/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[me vs. daemontools]]></title>
-    <link href="http://www.kurup.org/blog/2003/06/29/me-vs-daemontools"/>
+    <link href="https://www.kurup.org/blog/2003/06/29/me-vs-daemontools"/>
     <updated>2003-06-29T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2003/06/29/me-vs-daemontools</id>
+    <id>https://www.kurup.org/blog/2003/06/29/me-vs-daemontools</id>
     <content type="html"><![CDATA[<p>I have a love/hate relationship with <a href="http://cr.yp.to/daemontools.html">daemontools</a>. It's powerful way to manage services (like web servers and mail servers), but it sometimes doesn't act the way I expect it to.</p>
 
 <p>Today, I tried to set up <a href="http://cr.yp.to/qmail.html">qmail-pop3d</a>. I set up a directory called <code>/var/qmail/supervise/qmail-pop3d</code> and put a file named 'run' inside it. This contained:</p>

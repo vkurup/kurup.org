@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: mac-os-x | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/mac-os-x/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/mac-os-x/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Open PDFs in Preview by default]]></title>
-    <link href="http://www.kurup.org/blog/2005/02/12/open-pdfs-in-preview-by-default"/>
+    <link href="https://www.kurup.org/blog/2005/02/12/open-pdfs-in-preview-by-default"/>
     <updated>2005-02-12T00:00:00-05:00</updated>
-    <id>http://www.kurup.org/blog/2005/02/12/open-pdfs-in-preview-by-default</id>
+    <id>https://www.kurup.org/blog/2005/02/12/open-pdfs-in-preview-by-default</id>
     <content type="html"><![CDATA[<p>Adobe Acrobat takes forever to load (with "forever" being defined as 4-5 seconds), so I wanted all my PDFs to open in Preview, by default. The thread above explains how to do it.</p>
 
 <ol>
@@ -32,18 +32,18 @@
   
   <entry>
     <title type="html"><![CDATA[iAppleStore]]></title>
-    <link href="http://www.kurup.org/blog/2004/03/28/iapplestore"/>
+    <link href="https://www.kurup.org/blog/2004/03/28/iapplestore"/>
     <updated>2004-03-28T00:00:00-05:00</updated>
-    <id>http://www.kurup.org/blog/2004/03/28/iapplestore</id>
+    <id>https://www.kurup.org/blog/2004/03/28/iapplestore</id>
     <content type="html"><![CDATA[<p>I caught the tail-end of a free presentation on <a href="http://www.apple.com/ilife/">iLife</a> at the <a href="http://www.apple.com/retail/soho/">Apple Store in SoHo</a> this afternoon. iMovie has been sitting around unused on my computer for too long. Inspired by how easy the instructor made it seem, I finally got around to launching iMovie and creating this montage of our <a href="http://kurup.org/files/telluride.mov">Telluride trip (5.0 MB)</a>.</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Don't use "Archive and Install"]]></title>
-    <link href="http://www.kurup.org/blog/2004/03/08/dont-use-archive-and-install"/>
+    <link href="https://www.kurup.org/blog/2004/03/08/dont-use-archive-and-install"/>
     <updated>2004-03-08T00:00:00-05:00</updated>
-    <id>http://www.kurup.org/blog/2004/03/08/dont-use-archive-and-install</id>
+    <id>https://www.kurup.org/blog/2004/03/08/dont-use-archive-and-install</id>
     <content type="html"><![CDATA[<p>Thanks to the fine folks at <a href="http://badgertronics.com/blog">badgertronics</a>, I was able to upgrade my Powerbook to Panther free-of-charge. I initially did an "Archive and Install" upgrade, as recommended by the upgrade guide at <a href="http://www.tidbits.com/takecontrol/#upgrading">TidBITS</a> (easily worth the measly $5, IMHO). But soon after the install, I noticed that my system seemed a lot slower. I couldn't pinpoint a specific problem, but things just seemed sluggish. I definitely noticed that DNS seemed to be broken. I was moved to act when I noticed that my IMAP client (<a href="http://gopher.quux.org:70/devel/offlineimap">offlineimap</a>) took 15 minutes to sync 48 IMAP Maildirs between my Mac and my server. According to the offlineimap docs, syncing 50 Maildir folders should take around 3 seconds. Hmmm.... that seems a little wrong.</p>
 
 <p>I searched the Internet but was unable to find a specific fix for this problem. A few posters intimated that doing a fresh "Erase and Install" of Mac OS X 10.3 was better than using the "Archive and Install" option. So, this weekend, I backed up my HD using <a href="http://www.bombich.com/software/ccc.html">Carbon Copy Cloner</a>, erased my HD, and did a fresh install of Mac OS X Panther.</p>
@@ -54,9 +54,9 @@
   
   <entry>
     <title type="html"><![CDATA[darwinports]]></title>
-    <link href="http://www.kurup.org/blog/2004/03/08/darwinports"/>
+    <link href="https://www.kurup.org/blog/2004/03/08/darwinports"/>
     <updated>2004-03-08T00:00:00-05:00</updated>
-    <id>http://www.kurup.org/blog/2004/03/08/darwinports</id>
+    <id>https://www.kurup.org/blog/2004/03/08/darwinports</id>
     <content type="html"><![CDATA[<p>In the process of installing Panther from scratch, I decided to use <a href="http://darwinports.opendarwin.org/">DarwinPorts</a>. It's a packaging system for the abundant UNIX <a href="http://www.fsf.org/">free software</a> available on Mac OS X. I had previously used <a href="http://fink.sf.net">Fink</a> which, while being an admirable project, seemed a little opaque to me. I never quite knew where data was being installed and which locations were being searched to see if prerequisites were present. Darwinports seems to be a little better at finding programs/libraries that are already installed. I freely admit my ignorance in this matter, though. It may simply be that I understand Darwinports better than I did Fink, but that, in itself is an important criteria.</p>
 
 <p>Here are the ports that I currently have installed:</p>
@@ -289,9 +289,9 @@ directories.
   
   <entry>
     <title type="html"><![CDATA[Compiling OpenFTS on Mac OS X]]></title>
-    <link href="http://www.kurup.org/blog/2004/01/15/compiling-openfts-on-mac-os-x"/>
+    <link href="https://www.kurup.org/blog/2004/01/15/compiling-openfts-on-mac-os-x"/>
     <updated>2004-01-15T00:00:00-05:00</updated>
-    <id>http://www.kurup.org/blog/2004/01/15/compiling-openfts-on-mac-os-x</id>
+    <id>https://www.kurup.org/blog/2004/01/15/compiling-openfts-on-mac-os-x</id>
     <content type="html"><![CDATA[<p>It wasn't easy, but I finally got OpenFTS-0.3.2-tcl to compile on Mac OS X (10.2.8). I started by reading the excellent Mac OS X porting guides from <a href="http://fink.sourceforge.net/doc/porting/basics.php">Fink</a> and <a href="http://developer.apple.com/documentation/Porting/Conceptual/PortingUnix/intro/chapter_1_section_1.html">Apple</a>. Unfortunately, the OpenFTS Makefile and configure scripts aren't standard, so I had to muck around with things alot. Here's the diff:</p>
 
 <pre><code>diff -U 2 -rbB Search-OpenFTS-tcl-0.3.2/aolserver/Makefile  Search-OpenFTS-tcl-0.3.2-vk/aolserver/Makefile 

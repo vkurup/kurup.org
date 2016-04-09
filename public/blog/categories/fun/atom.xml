@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: fun | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/fun/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/fun/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Mr. Songflower Man]]></title>
-    <link href="http://www.kurup.org/blog/2006/01/12/mr-songflower-man"/>
+    <link href="https://www.kurup.org/blog/2006/01/12/mr-songflower-man"/>
     <updated>2006-01-12T00:00:00-05:00</updated>
-    <id>http://www.kurup.org/blog/2006/01/12/mr-songflower-man</id>
+    <id>https://www.kurup.org/blog/2006/01/12/mr-songflower-man</id>
     <content type="html"><![CDATA[<p>This story about <a href="http://www.npr.org/templates/story/story.php?storyId=5148079">a creative music teacher in Syracuse, NY</a> made me smile out loud.</p>
 ]]></content>
   </entry>

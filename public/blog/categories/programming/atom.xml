@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: programming | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/programming/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/programming/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Using dynamic queries in a CBV]]></title>
-    <link href="http://www.kurup.org/blog/2014/07/28/cbv-dynamic"/>
+    <link href="https://www.kurup.org/blog/2014/07/28/cbv-dynamic"/>
     <updated>2014-07-28T22:08:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2014/07/28/cbv-dynamic</id>
+    <id>https://www.kurup.org/blog/2014/07/28/cbv-dynamic</id>
     <content type="html"><![CDATA[<p>Let's play 'Spot the bug'. We're building a simple system that shows photos. Each photo has a
 <code>publish_date</code> and we should only show photos that have been published (i.e. their <code>publish_date</code> is
 in the past).</p>
@@ -71,9 +71,9 @@ class ShowPhotosView(ListView):</p>
   
   <entry>
     <title type="html"><![CDATA[Some Emacs Posts]]></title>
-    <link href="http://www.kurup.org/blog/2014/07/23/some-emacs-posts"/>
+    <link href="https://www.kurup.org/blog/2014/07/23/some-emacs-posts"/>
     <updated>2014-07-23T21:38:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2014/07/23/some-emacs-posts</id>
+    <id>https://www.kurup.org/blog/2014/07/23/some-emacs-posts</id>
     <content type="html"><![CDATA[<p>A few cool Emacs posts have flown across my radar, so I'm noting them here for that time in the
 future when I have time to play with them.</p>
 
@@ -83,7 +83,7 @@ future when I have time to play with them.</p>
 Finally, a sane way to create a presentation :)</li>
 <li><a href="https://github.com/syohex/emacs-anzu">Anzu</a>: Improves incremental search. Anzu shows the number
 of matches found, and how many matches remain in the document.
-{% img https://github.com/syohex/emacs-anzu/raw/master/image/anzu.gif %}</li>
+<img src="https://github.com/syohex/emacs-anzu/raw/master/image/anzu.gif"></li>
 <li><a href="http://from-the-cloud.com/en/emacs/2013/01/28_emacs-as-a-django-ide-with-python-djangoel.html">Emacs as a Django IDE</a>:
 I tried this out briefly, but didn't end up sticking with it. It seemed too heavyweight.
 I'm probably just too used to my own workflow. I still think it's an interesting idea and would
@@ -106,9 +106,9 @@ to read through this someday!</li>
   
   <entry>
     <title type="html"><![CDATA[Pygments on Arch Linux]]></title>
-    <link href="http://www.kurup.org/blog/2014/07/22/pygments-py3"/>
+    <link href="https://www.kurup.org/blog/2014/07/22/pygments-py3"/>
     <updated>2014-07-22T21:16:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2014/07/22/pygments-py3</id>
+    <id>https://www.kurup.org/blog/2014/07/22/pygments-py3</id>
     <content type="html"><![CDATA[<p>I wrote my first blog post in a little while (ok, ok... 18 months) yesterday and when I tried to
 generate the post, it failed. Silently failed, which is the worst kind of failure. I'm still not
 sure why it was silent, but I eventually was able to force it to show me an error message:</p>
@@ -162,9 +162,9 @@ it's time to switch blog tools again...</p>
   
   <entry>
     <title type="html"><![CDATA[How to create test models in Django]]></title>
-    <link href="http://www.kurup.org/blog/2014/07/21/django-test-models"/>
+    <link href="https://www.kurup.org/blog/2014/07/21/django-test-models"/>
     <updated>2014-07-21T20:44:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2014/07/21/django-test-models</id>
+    <id>https://www.kurup.org/blog/2014/07/21/django-test-models</id>
     <content type="html"><![CDATA[<p>It's occasionally useful to be able to create a Django model class in your unit test suite. Let's
 say you're building a library which creates an
 <a href="https://docs.djangoproject.com/en/dev/topics/db/models/#abstract-base-classes">abstract model</a>
@@ -232,9 +232,9 @@ this might not work, unless you set <code>SOUTH_TESTS_MIGRATE</code> to <code>Fa
   
   <entry>
     <title type="html"><![CDATA[NSBrief gets the best guests]]></title>
-    <link href="http://www.kurup.org/blog/2012/11/05/nsbrief-gets-the-best-guests"/>
+    <link href="https://www.kurup.org/blog/2012/11/05/nsbrief-gets-the-best-guests"/>
     <updated>2012-11-05T10:38:09-05:00</updated>
-    <id>http://www.kurup.org/blog/2012/11/05/nsbrief-gets-the-best-guests</id>
+    <id>https://www.kurup.org/blog/2012/11/05/nsbrief-gets-the-best-guests</id>
     <content type="html"><![CDATA[<p>I'm not an OS X programmer, but I've really enjoyed 2 recent episodes
 of the <a href="http://nsbrief.com/">NSBrief</a> podcast. First was <a href="http://nsbrief.com/59-mark-dalrymple">Mark
 Dalrymple's interview</a>. Here was
@@ -243,7 +243,7 @@ my 140 character description:</p>
 <blockquote class="twitter-tweet"><p>So much geeky fun in @<a href="https://twitter.com/borkware">borkware</a>'s interview. AOLserver, dtrace, OpenDoc, MPW, need I go on? <a href="http://t.co/JWPPvfaa" title="http://nsbrief.com/59-mark-dalrymple">nsbrief.com/59-mark-dalrym…</a></p>&mdash; Vinod Kurup (@vkurup) <a href="https://twitter.com/vkurup/status/235907385997262848" data-datetime="2012-08-16T01:14:38+00:00">August 16, 2012</a></blockquote>
 
 
-<script src="http://www.kurup.org//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script src="https://www.kurup.org//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
 <p>Today, I listened to

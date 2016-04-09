@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: grand-canyon | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/grand-canyon/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/grand-canyon/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,18 +15,18 @@
   
   <entry>
     <title type="html"><![CDATA[More Grand Canyon]]></title>
-    <link href="http://www.kurup.org/blog/2002/08/26/more-grand-canyon"/>
+    <link href="https://www.kurup.org/blog/2002/08/26/more-grand-canyon"/>
     <updated>2002-08-26T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2002/08/26/more-grand-canyon</id>
+    <id>https://www.kurup.org/blog/2002/08/26/more-grand-canyon</id>
     <content type="html"><![CDATA[<p>Manu sent me the pics that he took during our <a href="http://kurup.org/photo/album?album_id=5317&amp;amp;page=6">Grand Canyon trip</a>. Thanks Manu!</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Grand Canyon Update]]></title>
-    <link href="http://www.kurup.org/blog/2002/07/22/grand-canyon-update"/>
+    <link href="https://www.kurup.org/blog/2002/07/22/grand-canyon-update"/>
     <updated>2002-07-22T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2002/07/22/grand-canyon-update</id>
+    <id>https://www.kurup.org/blog/2002/07/22/grand-canyon-update</id>
     <content type="html"><![CDATA[<p>I found some more pictures from the Phoenix trip, so <a href="http://kurup.org/photo/album?album_id=5317">check 'em
 out</a> again! And <a href="/images/no-sit-on-indians.jpg">please
 don't touch or sit on the
@@ -36,9 +36,9 @@ Indians</a>.</p>
   
   <entry>
     <title type="html"><![CDATA[Pics]]></title>
-    <link href="http://www.kurup.org/blog/2002/07/14/pics"/>
+    <link href="https://www.kurup.org/blog/2002/07/14/pics"/>
     <updated>2002-07-14T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2002/07/14/pics</id>
+    <id>https://www.kurup.org/blog/2002/07/14/pics</id>
     <content type="html"><![CDATA[<p>Geoff organized a
 <a href="http://kurup.org/photo/album?album_id=5320">mini-residency-reunion</a>
 back in June and somehow scammed Joyce and Howard into hosting it :-)</p>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: web | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/web/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/web/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Steal My Web App Idea]]></title>
-    <link href="http://www.kurup.org/blog/2013/01/09/steal-my-web-app-idea"/>
+    <link href="https://www.kurup.org/blog/2013/01/09/steal-my-web-app-idea"/>
     <updated>2013-01-09T22:00:01-05:00</updated>
-    <id>http://www.kurup.org/blog/2013/01/09/steal-my-web-app-idea</id>
+    <id>https://www.kurup.org/blog/2013/01/09/steal-my-web-app-idea</id>
     <content type="html"><![CDATA[<p>Now that we have 3 kids, I'm always internally comparing one to the
 other. Sure that's not healthy and will probably breed resentment in
 them during their teenage years, but what's a bad parent to do?</p>
@@ -44,9 +44,9 @@ you they'll come back. (Wait, I think I'm mixing metaphors here).</p>
   
   <entry>
     <title type="html"><![CDATA[Letter Sweep]]></title>
-    <link href="http://www.kurup.org/blog/2011/03/04/letter-sweep"/>
+    <link href="https://www.kurup.org/blog/2011/03/04/letter-sweep"/>
     <updated>2011-03-04T06:23:58-05:00</updated>
-    <id>http://www.kurup.org/blog/2011/03/04/letter-sweep</id>
+    <id>https://www.kurup.org/blog/2011/03/04/letter-sweep</id>
     <content type="html"><![CDATA[<p><a href="http://www.tbray.org/ongoing/When/201x/2011/03/03/ABC">Tim Bray posted the links that his browser
 displays</a> when
 he types each letter of the alphabet. Here's mine:</p>
@@ -135,9 +135,9 @@ world. Plus I think there are some other videos there...</p>
   
   <entry>
     <title type="html"><![CDATA[HTML5 Up and Running]]></title>
-    <link href="http://www.kurup.org/blog/2010/08/25/html5-up-and-running"/>
+    <link href="https://www.kurup.org/blog/2010/08/25/html5-up-and-running"/>
     <updated>2010-08-25T14:53:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2010/08/25/html5-up-and-running</id>
+    <id>https://www.kurup.org/blog/2010/08/25/html5-up-and-running</id>
     <content type="html"><![CDATA[<p>I preordered Mark Pilgrim's <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027">HTML5, Up and Running</a> from Amazon back in
 March. It's available for free as <a href="http://diveintohtml5.org/">Dive into
 HTML5</a>. I've been a fan of Mark's <a href="http://diveintomark.org">writing</a>
@@ -180,9 +180,9 @@ an acknowledgment of that fact.</p>
   
   <entry>
     <title type="html"><![CDATA[Prettier permalinks]]></title>
-    <link href="http://www.kurup.org/blog/2006/03/28/prettier-permalinks"/>
+    <link href="https://www.kurup.org/blog/2006/03/28/prettier-permalinks"/>
     <updated>2006-03-28T00:00:00-05:00</updated>
-    <id>http://www.kurup.org/blog/2006/03/28/prettier-permalinks</id>
+    <id>https://www.kurup.org/blog/2006/03/28/prettier-permalinks</id>
     <content type="html"><![CDATA[<p>Permalink stands for 'permanent link'. When you create a blog post, it gets added to the top of your blog, pushing older entries down. Eventually, posts get pushed off the front page, so it's important that you have a way to refer to old blog posts. A permalink is the link that will always point to a specific post.</p>
 
 <p>OpenACS (lars-blogger) permalinks look like this:</p>
@@ -251,9 +251,9 @@ blog</a> and beg for your code :-)
   
   <entry>
     <title type="html"><![CDATA[Tag Cloud]]></title>
-    <link href="http://www.kurup.org/blog/2006/03/01/tag-cloud"/>
+    <link href="https://www.kurup.org/blog/2006/03/01/tag-cloud"/>
     <updated>2006-03-01T00:00:00-05:00</updated>
-    <id>http://www.kurup.org/blog/2006/03/01/tag-cloud</id>
+    <id>https://www.kurup.org/blog/2006/03/01/tag-cloud</id>
     <content type="html"><![CDATA[<p>And now I have a pretty tag cloud on the side of my blog (that I pretty much stole from <a href="http://del.icio.us">del.icio.us</a>)</p>
 ]]></content>
   </entry>

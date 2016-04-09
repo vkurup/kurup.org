@@ -9,9 +9,8 @@
   <meta name="author" content="Vinod Kurup">
 
   
-  <meta name="description" content="Steve Yegge is one of my favorite bloggers. I read &#8220;You Should Write
-Blogs&#8221; a
-long time ago and it is one of the main reasons that I &hellip;">
+  <meta name="description" content="Kavi&#8217;s bedroom - 8PM DADDY and KAVI are lying next to each other in KAVI&#8217;s bed doing their
+bedtime ritual. They have finished singing a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +19,7 @@ long time ago and it is one of the main reasons that I &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.kurup.org/blog/page/8/">
+  <link rel="canonical" href="https://www.kurup.org/blog/page/8/">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="/javascripts/ender.js"></script>
@@ -70,7 +69,7 @@ long time ago and it is one of the main reasons that I &hellip;">
   
 </ul>
   
-<form action="http://google.com/search" method="get">
+<form action="https://google.com/search" method="get">
   <fieldset role="search">
     <input type="hidden" name="q" value="site:www.kurup.org" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
@@ -91,174 +90,6 @@ long time ago and it is one of the main reasons that I &hellip;">
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/07/17/getting-some-clojure">Getting Some Clojure</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-07-17T19:55:00-04:00" pubdate data-updated="true">Jul 17<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Steve Yegge is one of my favorite bloggers. I read <a href="http://sites.google.com/site/steveyegge2/you-should-write-blogs">&#8220;You Should Write
-Blogs&#8221;</a> a
-long time ago and it is one of the main reasons that I still try to keep
-this blog going at all. He recently took a blogging hiatus and in his
-<a href="http://steve-yegge.blogspot.com/2010/07/blogger-finger.html">return post</a>,
-he left a little hint that he was interested in a programming language
-called <a href="http://clojure.org">clojure</a>.</p>
-
-<p>My programming skills have been rusting away (Darn those patients, always
-getting sick and stuff!), so I&#8217;ve been looking for a little
-inspiration. I&#8217;m hoping that clojure is it. I&#8217;ve always wanted to learn
-lisp. I know a little elisp and scheme, but I&#8217;ve never gotten comfortable
-with them. Clojure compiles code that runs on a JVM (java virtual
-machine). This gives you a lot of the &#8220;power&#8221; of java, namely the extensive
-libraries and the widespread platforms on which it will run. But instead of
-having to write java, you get to write in a dynamic, lisp-like language. At
-least that&#8217;s how I understand it.</p>
-
-<p>Specifically, I hope that I&#8217;ll eventually be able to create applications
-that run on android phones, which is a java environment. Smartphones are
-clearly going to be a huge part of the future, if not <strong>the way</strong> of the
-future. I don&#8217;t see myself ever buying an iPhone and Mala already has a
-Droid Eris that I&#8217;d be able to play with if I needed. (Didn&#8217;t tell you
-that, did I Mala?) So&#8230; Android it is.</p>
-
-<p>Starting today, I&#8217;m going to start reading about clojure and taking notes
-(and maybe even posting them!). I&#8217;ve never been very good about taking
-notes, ever in my life. But, I clearly <a href="http://sachachua.com/blog/2010/03/how-to-brain-dump-what-you-know/">need to learn</a>.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/07/16/inotify">Inotify</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-07-16T21:01:00-04:00" pubdate data-updated="true">Jul 16<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://inotify.aiken.cz/">incron</a> seems to be a pretty neat tool. It&#8217;s
-cron-for-file-activities. <a href="http://en.wikipedia.org/wiki/Cron">Cron</a> is a
-common unix tool that allows you to run any command at a specified
-time. It&#8217;s immensely useful for running anything that you want to occur on
-a regular basis: backups, daily reminder emails, downloading podcasts,
-etc. If you&#8217;ve used unix to any significant extent, you&#8217;ve used cron.</p>
-
-<p>incron takes that cron metaphor and applies it to file activity. You
-specify which files you want to watch, and then you specify which activities
-you are interested in. If incron notices any of those activities occurring
-on your files, it launches the command that you specified. Activities could
-include creating a new file, modifying a file, accessing a file, among
-multiple other possibilities. incron takes advantage of the inotify system
-built into recent linux kernels, which supposedly is more efficient than
-previous ways of doing this same thing.</p>
-
-<p>incron seemed to be just what I wanted. I wanted to watch a specific
-directory and launch a tool to rebuild my website if any of those files
-changed. The problem is that incron doesn&#8217;t work recursively on
-directories. You have to specify each directory, the activities on that
-directory, and the command to launch. If you create new directories, you
-have to tell incron about them specifically. This ruins the benefit of the
-tool for me. It seems the developer has been planning to implement
-recursive watching for the past 4 years ago, but hasn&#8217;t done it yet. If it
-hasn&#8217;t happened in 4 years, it&#8217;s probably not going to happen soon.</p>
-
-<p>But, I found a perfectly usable way to get what I
-want. <a href="http://wiki.github.com/rvoicilas/inotify-tools/">inotify-tools</a>
-includes a program called <code>inotifywait</code>. It takes a file or directory name
-and listens for specific activities that you are interested in. It
-basically waits until it sees one of those activities and then returns
-control back to you. So, you can something like (pseudocode):</p>
-
-<pre><code>while (inotifywait /home/vinod/web/kurup.org):
-    # triggered
-    rebuild my server
-</code></pre>
-
-<p><code>inotifywait</code> waits for my activities. If it finds one, it returns TRUE and
-my server gets rebuilt, and then the while loop restarts. Best of all,
-<code>inotifywait</code> can work recursively on a directory. Which brings me to my
-<code>watch-rebuild.sh</code> script which watches my web source files for changes,
-and rebuilds the web generated files on demand. It also pops up a little
-GNOME notification using <code>notify-send</code>:</p>
-
-<p>$$code(lang=bash)</p>
-
-<pre><code>#!/bin/bash
-
-BLOGOFILE='/usr/local/bin/blogofile'
-BLOGDIR='/home/vinod/web/kurup.org'
-
-# requires libnotify-bin for notify-osd notification
-# requires inotify-tools
-while LINE=$(inotifywait -rq --timefmt '%F %R' --format '%T %e %f' \
-      -e close_write -e move -e delete "$BLOGDIR");
-do
-        echo -n "Rebuilding $LINE ..."
-        $BLOGOFILE -s $BLOGDIR build
-        echo "done"
-        notify-send -u low "Rebuild Done" "Watching again"
-done
-</code></pre>
-
-<p>$$/code</p>
-
-<p><code>-r</code> = recursive<br/>
-<code>-q</code> = be quiet<br/>
-<code>--timefmt</code> &amp; <code>--format</code> = what we want to display on the command line<br/>
-<code>-e</code> = each of the individual events that we are interested in</p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -943,6 +774,148 @@ ln -s /usr/local/share/vinod-mozilla/.mozilla /home/vinod/.mozilla
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/08/12/running-is-good-for-your-knees">Running Is Good for Your Knees</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-08-12T00:00:00-04:00" pubdate data-updated="true">Aug 12<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>At the minimum, there is <a href="http://well.blogs.nytimes.com/2009/08/11/phys-ed-can-running-actually-help-your-knees/?emc=eta1">no evidence that it is bad for your knees</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/07/23/flow">Flow</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-07-23T00:00:00-04:00" pubdate data-updated="true">Jul 23<span>rd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><em>I&#8217;ve found some old journal entries lying around my hard drive. I&#8217;m sure that these were meant to be cleaned up and edited before being spewed on the Internet, but in keeping with my newfound obsession with <a href="/blog/2009/02/04/imperfection">Imperfection</a>, I now present them to you, my dear reader(s). Here is the first one, a review of the book, <a href="http://www.amazon.com/gp/product/0060920432?ie=UTF8&amp;tag=vinodkurupshomep&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=0060920432">Flow: The Psychology of Optimal Experience</a><img src="http://www.assoc-amazon.com/e/ir?t=vinodkurupshomep&l=as2&o=1&a=0060920432" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></em></p>
+
+<p><strong>Bronx, NY, April 9th, 2007</strong></p>
+
+<p>I finished &#8220;Flow, The Psychology of Optimal Experience&#8221; by Mihaly Csikszenthmihalyi on the subway ride into work today. I enjoyed the book. It&#8217;s about creating optimal experience in your life. &#8220;Optimal Experience&#8221; is the feeling you get when you&#8217;re doing something challenging and interesting and time just flows by you without you realizing it.</p>
+
+<p>Our quality of life is directly related to how often we obtain &#8220;optimal experience&#8221;. Things that we normally associate with a high quality of life are not necessarily correlated with subjective happiness. Got money, power, and health? You&#8217;re just as likely to be unhappy than if you don&#8217;t have them. So, how can we achieve optimal experience? It&#8217;s about being in control of your consiciousness. Deciding what things give you challenge, what things interest you &#8230; and then pursue them.</p>
+
+<p>Our natural tendency is to think that we want more leisure time and that more leisure time will make us happier. He debunks this by showing that people are just as happy when they are at work as when at leisure. Often happier. Most lesiure activities simply allow us to veg out instead of encouraging us to actively use our consciousness. They are a way to avoid letting our consciousness focus on the stressors in our life. If we were to let our mind go, without providing it any outside stimulus, the first thing we would focus on is our anxieties. Things that we are worried about. The solution is to <strong>actively</strong> force our consciousness to think about other things, perhaps solutions to those anxieties, or other things that would make us happy. That&#8217;s hard. It&#8217;s easier to turn on the TV and let the stimuli flow in, so that our mind is occupied and can&#8217;t wander off to those dark anxieties. But that only stunts our growth. Learning to be able to face our anxieties and know that we can overcome them (through repeat example) is the way towards a more happy existence.</p>
+
+<p>How does this book affect me? It was written in 1990 and I&#8217;ve seen it referred to often. It makes me want to focus more on meditation and yoga. This is the second book that I&#8217;ve read recently that recommended control of consciousness as an important objective. The other one was <a href="http://www.gutenberg.org/etext/2274">How to live on 24 hours a day</a>, written at the turn of the century.</p>
+
+<p>I want to structure activites so as to give myself some challenge.</p>
+
+<p><strong>Most importantly</strong>, I want to be able to give my children the easiest path to optimal experience possible. This means giving them unconditional love, constant challenges and the ability to <strong>make and learn from mistakes</strong>.</p>
+
+<p>Here are a few pertinent excerpts from the book:</p>
+
+<blockquote><p>p2. &#8220;People who learn to control inner experience will be able to determine the quality of their lives, which is as close as any of us can come to happy.&#8221;</p>
+
+<p>p6. &#8220;The optimal state of inner experience is one in which there is order in consciousness. This happens when psychic energy &#8211; or attention &#8211; is invested in realistic goals, and when skills match the opportunities for action.&#8221;</p></blockquote>
+
+<p>The Elements of Enjoyment:
+ - A Challenging activity that requires skills
+ - The merging of action and awareness</p>
+
+<blockquote><p>When all a person&#8217;s relevant skills are needed to cope with the
+challenges of a situation, that person&#8217;s attentions is completely
+absorbed by the activity. There is no excess psychic energy left over
+to process any information but what the activity offers. All the
+attention is concentrated on the relevant stimuli. As a result, one of
+the most universal and distinctive features of optimal experience
+takes place: people become so involved in what they are doing that
+they activity becomes spontaneous, almost automatic; they stop being
+aware of themselves as separate from the actions they are performing.&#8221;
+(p. 53)</p></blockquote>
+
+<ul>
+<li>clear goals and feedback</li>
+<li>concentration on the task at hand</li>
+<li>sense of exercising control in difficult situations</li>
+<li>loss of self consciousness</li>
+</ul>
+
+
+<blockquote><p>p83. &#8220;For example, TV watching, the single most often pursued leisure activity in the United States today, leads to the flow condition very rarely. In fact, working people achieve the flow experience &#8211; deep concentration, high and balanced challenges and skills, a sense of control and satisfaction &#8211; about four times as often on their jobs, proportionately, as they do when they are watching television.&#8221;</p></blockquote>
+
+<p>Promoting optimal experience in teenagers:
+1. Clarity - teens know what their parents expect of them
+2. Centering - teens perceive that their parents are interested in what they are doing in the present, rather than being preoccupied about the future
+3. Choice - teens feel they have a variety of choices, including breaking parental rules as long as they are willing to deal with consequences
+4. Commitment - teens feel comfortable enough to set aside defenses and become unselfconsciously involved in whatever they are interested in
+5. Challenge - parents provide increasingly complex opportunites for action</p>
+
+<blockquote><p>p119. &#8220;Without training, and without an object in the external world that demands attention, people are unable to focus their thoughts for more than a few minutes at a time.&#8221;</p>
+
+<p>&#8220;We don&#8217;t usually notice how little control we have over the mind, because habits channel psychic energy so well that thoughts seem to follow each other by themselves without a hitch. After sleeping we regain consciousness in the morning when the alarm rings, and then walk to the bathroom and brush our teeth. The social roles culture prescribes then take care of shaping our minds for us, and we generally place ourselves on automatic pilot till the end of the day, when it is time again to lose consciousness in sleep. But when we are left alone, with no demands on attention, the basic disorder of the mind reveals itself. With nothing to do, it begins to follow random patterns, usually stopping to consider something painful or disturbing. Unless a person knows how to give order to his or her thoughts, attention will be attracted to whatever is most problematic at the moment: it will focus on some real or imaginary pain, on recent grudges or long-term frustrations.&#8221;</p>
+
+<p>p133. &#8220;Having a record of the past can make a great contribution to the quality of life. It frees us from the tyranny of the present, and makes it possible for consciousness to revisit former times.&#8221;</p>
+
+<p>p139. &#8220;In philosophy as in other disciplines there comes a point where a person is ready to pass from the status of passive consumer to that of active producer. &#8230; But if one records ideas in response to an inner challenge to express clearly the major questions by which one feels confronted, and tried to sketch out answers that will help make sense of one&#8217;s experiences, then the amateur philosopher will have learned to derive enjoyment from one of the most difficult and rewarding tasks of life.&#8221;</p>
+
+<p>p179. &#8220;In other words, accepting limitations is liberating. For example, by making up one&#8217;s mind to invest psychic energy exlussively in a monogamous marriage, regardless of any problems, obstacles, or more attractive options that may come along later, one is freed of the constant pressure of trying to maximize emotional returns.&#8221;</p>
+
+<p>p180. &#8220;For such goals to result in interactions that will help increase the complexity of its members, the family must be both differentiated and integrated. Differentiation means that each person is encouraged to develop his or her unique traits, maximize personal skills, set individual goals. Integration, in contrast, guarantees that what happens to one person will affect all others. If a child is proud of what she accomplished in school, the rest of the family will pay attention and will be proud of her, too. If the mother is tired and depressed, the family will try to help and cheer her up. In an integrated family, each person&#8217;s goals matter to all others.&#8221;</p></blockquote>
+
+<p>How to get Optimal Experience?
+1. set goals
+2. become immersed in the activity
+3. pay attention to what is happening
+4. learning to enjoy immediate experience</p>
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/9/">&larr; Older</a>
@@ -1104,7 +1077,7 @@ ln -s /usr/local/share/vinod-mozilla/.mozilla /home/vinod/.mozilla
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      dsq.src = 'https://' + disqus_shortname + '.disqus.com/' + disqus_script;
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
 </script>
@@ -1120,7 +1093,7 @@ ln -s /usr/local/share/vinod-mozilla/.mozilla /home/vinod/.mozilla
       var twitterWidgets = document.createElement('script');
       twitterWidgets.type = 'text/javascript';
       twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
       document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
     })();
   </script>

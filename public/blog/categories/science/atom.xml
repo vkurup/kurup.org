@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: science | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/science/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/science/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[NASA Curiosity Lands]]></title>
-    <link href="http://www.kurup.org/blog/2012/08/07/nasa-curiosity-lands"/>
+    <link href="https://www.kurup.org/blog/2012/08/07/nasa-curiosity-lands"/>
     <updated>2012-08-07T15:17:43-04:00</updated>
-    <id>http://www.kurup.org/blog/2012/08/07/nasa-curiosity-lands</id>
+    <id>https://www.kurup.org/blog/2012/08/07/nasa-curiosity-lands</id>
     <content type="html"><![CDATA[<p>Like the rest of the geek world, we've been excited by Curiosity's
 successful trip to Mars. Here's a cool video which combines an
 animation of Curiosity's landing mixed with the real reactions of the
@@ -42,7 +42,7 @@ src="http://www.youtube.com/embed/-_9BYSDtwRc" frameborder="0"
 allowfullscreen></iframe>
 
 
-<p>{% img right /images/curiosity-size.jpg 300 200 Curiosity is huge (NASA) %}</p>
+<p><img class="right" src="/images/curiosity-size.jpg" width="300" height="200" title="Curiosity is huge (NASA)" ></p>
 
 <p>The Curiosity rover is too large for the airbag approach (See image at
 right comparing it to previous rovers), so an alternate system was
@@ -58,18 +58,18 @@ car!</a></p>
   
   <entry>
     <title type="html"><![CDATA[Vision restored]]></title>
-    <link href="http://www.kurup.org/blog/2003/09/02/vision-restored"/>
+    <link href="https://www.kurup.org/blog/2003/09/02/vision-restored"/>
     <updated>2003-09-02T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2003/09/02/vision-restored</id>
+    <id>https://www.kurup.org/blog/2003/09/02/vision-restored</id>
     <content type="html"><![CDATA[<p>Read this <a href="http://www.guardian.co.uk/g2/story/0,3604,1029268,00.html">journal of a guy who had his sight restored after 43 years of blindness</a>. via <a href="http://badgertronics.com/blog">Badgertronics</a></p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Heads up!]]></title>
-    <link href="http://www.kurup.org/blog/2003/08/17/heads-up"/>
+    <link href="https://www.kurup.org/blog/2003/08/17/heads-up"/>
     <updated>2003-08-17T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2003/08/17/heads-up</id>
+    <id>https://www.kurup.org/blog/2003/08/17/heads-up</id>
     <content type="html"><![CDATA[<p><a href="http://www.space.com/spacewatch/mars_preview_021108.html">Mars is closer than it will ever be</a> (in our lifetime, at least).</p>
 ]]></content>
   </entry>

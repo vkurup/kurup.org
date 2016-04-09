@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: create | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/create/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/create/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Imperfection]]></title>
-    <link href="http://www.kurup.org/blog/2009/02/04/imperfection"/>
+    <link href="https://www.kurup.org/blog/2009/02/04/imperfection"/>
     <updated>2009-02-04T00:00:00-05:00</updated>
-    <id>http://www.kurup.org/blog/2009/02/04/imperfection</id>
+    <id>https://www.kurup.org/blog/2009/02/04/imperfection</id>
     <content type="html"><![CDATA[<p>I've had a lot of great plans which I've never fulfilled. Don't get me wrong. My life is beyond great and I see it getting better every day. There just happen to be a lot of things that I've planned to do which I have not done.</p>
 
 <p>I planned to create a web-based running log. I actually did do this and used it for a long time, but I never did build in enough features to make it worthwhile for others to use. Or even enough to make it exciting for me to use.</p>

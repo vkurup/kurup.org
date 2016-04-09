@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:10-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Using dynamic queries in a CBV]]></title>
-    <link href="http://www.kurup.org/blog/2014/07/28/cbv-dynamic"/>
+    <link href="https://www.kurup.org/blog/2014/07/28/cbv-dynamic"/>
     <updated>2014-07-28T22:08:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2014/07/28/cbv-dynamic</id>
+    <id>https://www.kurup.org/blog/2014/07/28/cbv-dynamic</id>
     <content type="html"><![CDATA[<p>Let&#8217;s play &#8216;Spot the bug&#8217;. We&#8217;re building a simple system that shows photos. Each photo has a
 <code>publish_date</code> and we should only show photos that have been published (i.e. their <code>publish_date</code> is
 in the past).</p>
@@ -72,9 +72,9 @@ display.</p>
   
   <entry>
     <title type="html"><![CDATA[Some Emacs Posts]]></title>
-    <link href="http://www.kurup.org/blog/2014/07/23/some-emacs-posts"/>
+    <link href="https://www.kurup.org/blog/2014/07/23/some-emacs-posts"/>
     <updated>2014-07-23T21:38:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2014/07/23/some-emacs-posts</id>
+    <id>https://www.kurup.org/blog/2014/07/23/some-emacs-posts</id>
     <content type="html"><![CDATA[<p>A few cool Emacs posts have flown across my radar, so I&#8217;m noting them here for that time in the
 future when I have time to play with them.</p>
 
@@ -107,9 +107,9 @@ to read through this someday!</li>
   
   <entry>
     <title type="html"><![CDATA[Pygments on Arch Linux]]></title>
-    <link href="http://www.kurup.org/blog/2014/07/22/pygments-py3"/>
+    <link href="https://www.kurup.org/blog/2014/07/22/pygments-py3"/>
     <updated>2014-07-22T21:16:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2014/07/22/pygments-py3</id>
+    <id>https://www.kurup.org/blog/2014/07/22/pygments-py3</id>
     <content type="html"><![CDATA[<p>I wrote my first blog post in a little while (ok, ok&#8230; 18 months) yesterday and when I tried to
 generate the post, it failed. Silently failed, which is the worst kind of failure. I&#8217;m still not
 sure why it was silent, but I eventually was able to force it to show me an error message:</p>
@@ -185,9 +185,9 @@ it&#8217;s time to switch blog tools again&#8230;</p>
   
   <entry>
     <title type="html"><![CDATA[How to create test models in Django]]></title>
-    <link href="http://www.kurup.org/blog/2014/07/21/django-test-models"/>
+    <link href="https://www.kurup.org/blog/2014/07/21/django-test-models"/>
     <updated>2014-07-21T20:44:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2014/07/21/django-test-models</id>
+    <id>https://www.kurup.org/blog/2014/07/21/django-test-models</id>
     <content type="html"><![CDATA[<p>It&#8217;s occasionally useful to be able to create a Django model class in your unit test suite. Let&#8217;s
 say you&#8217;re building a library which creates an
 <a href="https://docs.djangoproject.com/en/dev/topics/db/models/#abstract-base-classes">abstract model</a>
@@ -270,9 +270,9 @@ this might not work, unless you set <code>SOUTH_TESTS_MIGRATE</code> to <code>Fa
   
   <entry>
     <title type="html"><![CDATA[Peanut Allergy, a personal clinical review]]></title>
-    <link href="http://www.kurup.org/blog/2013/01/21/peanut-allergy-a-personal-clinical-review"/>
+    <link href="https://www.kurup.org/blog/2013/01/21/peanut-allergy-a-personal-clinical-review"/>
     <updated>2013-01-21T07:49:22-05:00</updated>
-    <id>http://www.kurup.org/blog/2013/01/21/peanut-allergy-a-personal-clinical-review</id>
+    <id>https://www.kurup.org/blog/2013/01/21/peanut-allergy-a-personal-clinical-review</id>
     <content type="html"><![CDATA[<h2>A Vignette</h2>
 
 <p>A 22-month-old previously healthy girl was brought to the emergency
@@ -421,9 +421,9 @@ this topic.</p>
   
   <entry>
     <title type="html"><![CDATA[Priorities and GTD]]></title>
-    <link href="http://www.kurup.org/blog/2013/01/17/priorities-and-gtd"/>
+    <link href="https://www.kurup.org/blog/2013/01/17/priorities-and-gtd"/>
     <updated>2013-01-17T13:38:07-05:00</updated>
-    <id>http://www.kurup.org/blog/2013/01/17/priorities-and-gtd</id>
+    <id>https://www.kurup.org/blog/2013/01/17/priorities-and-gtd</id>
     <content type="html"><![CDATA[<p>Pre-GTD task management systems recommended that you assign a priority
 to each task. When looking at a list of tasks, you then choose the
 ones with the highest priority. David Allen (author of GTD) includes
@@ -469,9 +469,9 @@ thing done on each of those days.</p>
   
   <entry>
     <title type="html"><![CDATA[GTD again?]]></title>
-    <link href="http://www.kurup.org/blog/2013/01/16/gtd-again"/>
+    <link href="https://www.kurup.org/blog/2013/01/16/gtd-again"/>
     <updated>2013-01-16T09:27:03-05:00</updated>
-    <id>http://www.kurup.org/blog/2013/01/16/gtd-again</id>
+    <id>https://www.kurup.org/blog/2013/01/16/gtd-again</id>
     <content type="html"><![CDATA[<p>Thanks to
 <a href="http://5by5.tv/b2w/95">Merlin Mann&#8217;s recent series of podcasts on GTD</a>,
 I&#8217;m getting back on the GTD wagon (for about the 100th time). I read
@@ -513,9 +513,9 @@ where I will succeed.</p>
   
   <entry>
     <title type="html"><![CDATA[Writing paralysis]]></title>
-    <link href="http://www.kurup.org/blog/2013/01/15/writing-paralysis"/>
+    <link href="https://www.kurup.org/blog/2013/01/15/writing-paralysis"/>
     <updated>2013-01-15T14:45:09-05:00</updated>
-    <id>http://www.kurup.org/blog/2013/01/15/writing-paralysis</id>
+    <id>https://www.kurup.org/blog/2013/01/15/writing-paralysis</id>
     <content type="html"><![CDATA[<p>I think twitter and facebook stunt my writing. The more that I read
 tweets, the more self-conscious I get when I write. Not that my
 writing is all that original, but I still feel that it is something
@@ -563,9 +563,9 @@ to try a twitter hiatus for a week and see what happens.</p>
   
   <entry>
     <title type="html"><![CDATA[Steal My Web App Idea]]></title>
-    <link href="http://www.kurup.org/blog/2013/01/09/steal-my-web-app-idea"/>
+    <link href="https://www.kurup.org/blog/2013/01/09/steal-my-web-app-idea"/>
     <updated>2013-01-09T22:00:01-05:00</updated>
-    <id>http://www.kurup.org/blog/2013/01/09/steal-my-web-app-idea</id>
+    <id>https://www.kurup.org/blog/2013/01/09/steal-my-web-app-idea</id>
     <content type="html"><![CDATA[<p>Now that we have 3 kids, I&#8217;m always internally comparing one to the
 other. Sure that&#8217;s not healthy and will probably breed resentment in
 them during their teenage years, but what&#8217;s a bad parent to do?</p>
@@ -592,9 +592,9 @@ you they&#8217;ll come back. (Wait, I think I&#8217;m mixing metaphors here).</p
   
   <entry>
     <title type="html"><![CDATA[How to change the rear tire on a 12 inch bicycle]]></title>
-    <link href="http://www.kurup.org/blog/2012/12/30/how-to-change-the-rear-tire-on-a-12-inch-bicycle"/>
+    <link href="https://www.kurup.org/blog/2012/12/30/how-to-change-the-rear-tire-on-a-12-inch-bicycle"/>
     <updated>2012-12-30T15:00:40-05:00</updated>
-    <id>http://www.kurup.org/blog/2012/12/30/how-to-change-the-rear-tire-on-a-12-inch-bicycle</id>
+    <id>https://www.kurup.org/blog/2012/12/30/how-to-change-the-rear-tire-on-a-12-inch-bicycle</id>
     <content type="html"><![CDATA[<p>I&#8217;m not the handiest guy in the world, so I&#8217;m pretty proud that I was
 able to fix a flat tire on Kavi&#8217;s 12&#8221; bicycle.</p>
 
@@ -655,9 +655,9 @@ than I was. Everytime he fell, he got right back on.</p>
   
   <entry>
     <title type="html"><![CDATA[NSBrief gets the best guests]]></title>
-    <link href="http://www.kurup.org/blog/2012/11/05/nsbrief-gets-the-best-guests"/>
+    <link href="https://www.kurup.org/blog/2012/11/05/nsbrief-gets-the-best-guests"/>
     <updated>2012-11-05T10:38:09-05:00</updated>
-    <id>http://www.kurup.org/blog/2012/11/05/nsbrief-gets-the-best-guests</id>
+    <id>https://www.kurup.org/blog/2012/11/05/nsbrief-gets-the-best-guests</id>
     <content type="html"><![CDATA[<p>I&#8217;m not an OS X programmer, but I&#8217;ve really enjoyed 2 recent episodes
 of the <a href="http://nsbrief.com/">NSBrief</a> podcast. First was <a href="http://nsbrief.com/59-mark-dalrymple">Mark
 Dalrymple&#8217;s interview</a>. Here was
@@ -666,7 +666,7 @@ my 140 character description:</p>
 <blockquote class="twitter-tweet"><p>So much geeky fun in @<a href="https://twitter.com/borkware">borkware</a>&#8217;s interview. AOLserver, dtrace, OpenDoc, MPW, need I go on? <a href="http://t.co/JWPPvfaa" title="http://nsbrief.com/59-mark-dalrymple">nsbrief.com/59-mark-dalrym…</a></p>&mdash; Vinod Kurup (@vkurup) <a href="https://twitter.com/vkurup/status/235907385997262848" data-datetime="2012-08-16T01:14:38+00:00">August 16, 2012</a></blockquote>
 
 
-<script src="http://www.kurup.org//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script src="https://www.kurup.org//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
 <p>Today, I listened to
@@ -698,9 +698,9 @@ first time, even though I feel like he&#8217;s been a friend for many years.</p>
   
   <entry>
     <title type="html"><![CDATA[Emacs for Python Programming]]></title>
-    <link href="http://www.kurup.org/blog/2012/10/24/emacs-for-python-programming"/>
+    <link href="https://www.kurup.org/blog/2012/10/24/emacs-for-python-programming"/>
     <updated>2012-10-24T16:45:49-04:00</updated>
-    <id>http://www.kurup.org/blog/2012/10/24/emacs-for-python-programming</id>
+    <id>https://www.kurup.org/blog/2012/10/24/emacs-for-python-programming</id>
     <content type="html"><![CDATA[<p>(Note: See the bottom of this post for updates)</p>
 
 <p>I was honored to to give my
@@ -1211,9 +1211,9 @@ to account for those changes.</p>
   
   <entry>
     <title type="html"><![CDATA[Emacs Autocomplete stumbles on yasnippet]]></title>
-    <link href="http://www.kurup.org/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet"/>
+    <link href="https://www.kurup.org/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet"/>
     <updated>2012-10-15T13:02:18-04:00</updated>
-    <id>http://www.kurup.org/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet</id>
+    <id>https://www.kurup.org/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet</id>
     <content type="html"><![CDATA[<p><a href="http://cx4a.org/software/auto-complete/">Autocomplete Mode</a> is an
 Emacs mode that tries to guess what word you&#8217;re typing and provide
 auto-completion. Recently, it started failing in simple scenarios.</p>
@@ -1278,9 +1278,9 @@ or remove the offending &#8216;source&#8217;.</p>
   
   <entry>
     <title type="html"><![CDATA[I've gone to the dark side]]></title>
-    <link href="http://www.kurup.org/blog/2012/10/14/ive-gone-to-the-dark-side"/>
+    <link href="https://www.kurup.org/blog/2012/10/14/ive-gone-to-the-dark-side"/>
     <updated>2012-10-14T16:09:54-04:00</updated>
-    <id>http://www.kurup.org/blog/2012/10/14/ive-gone-to-the-dark-side</id>
+    <id>https://www.kurup.org/blog/2012/10/14/ive-gone-to-the-dark-side</id>
     <content type="html"><![CDATA[<p>I was a huge Apple fan growing up and IBM was Apple&#8217;s enemy. Buying an
 IBM computer would have been unthinkable.</p>
 
@@ -1405,9 +1405,9 @@ setup in a future post.</p>
   
   <entry>
     <title type="html"><![CDATA[Avik Arrives!]]></title>
-    <link href="http://www.kurup.org/blog/2012/09/04/avik-arrives"/>
+    <link href="https://www.kurup.org/blog/2012/09/04/avik-arrives"/>
     <updated>2012-09-04T08:30:25-04:00</updated>
-    <id>http://www.kurup.org/blog/2012/09/04/avik-arrives</id>
+    <id>https://www.kurup.org/blog/2012/09/04/avik-arrives</id>
     <content type="html"><![CDATA[<p>Anika, Kavi, Mala and I are so proud to announce the birth of healthy, happy baby boy!</p>
 
 <p>His name is Avik Puri Kurup and he was born at 11:01 PM on September
@@ -1415,12 +1415,12 @@ setup in a future post.</p>
 
 <p>A few pics:</p>
 
-<p><img src="http://www.kurup.org/images/avik-1.jpg" width="1024" alt="Avik" /><br/>
-<img src="http://www.kurup.org/images/avik-2.jpg" width="768" height="1024" alt="Avik" /></p>
+<p><img src="https://www.kurup.org/images/avik-1.jpg" width="1024" alt="Avik" /><br/>
+<img src="https://www.kurup.org/images/avik-2.jpg" width="768" height="1024" alt="Avik" /></p>
 
 <p>And the obligatory pseudo-nostalgic photo:</p>
 
-<p><img src="http://www.kurup.org/images/avik-3.jpg" height="1024" width="768" alt="Avik" /></p>
+<p><img src="https://www.kurup.org/images/avik-3.jpg" height="1024" width="768" alt="Avik" /></p>
 
 <p>Mom and Baby are doing great! Thanks for all the well wishes and support!</p>
 ]]></content>
@@ -1428,9 +1428,9 @@ setup in a future post.</p>
   
   <entry>
     <title type="html"><![CDATA[Thoughts on Free Will]]></title>
-    <link href="http://www.kurup.org/blog/2012/08/21/thoughts-on-free-will"/>
+    <link href="https://www.kurup.org/blog/2012/08/21/thoughts-on-free-will"/>
     <updated>2012-08-21T12:01:25-04:00</updated>
-    <id>http://www.kurup.org/blog/2012/08/21/thoughts-on-free-will</id>
+    <id>https://www.kurup.org/blog/2012/08/21/thoughts-on-free-will</id>
     <content type="html"><![CDATA[<p>Time for some pop philosophy. I&#8217;ve never thought too deeply about the
 concept of free will. Of course we have free will! I chose to live my
 life a certain way. I could choose to live a different way. It is my
@@ -1534,9 +1534,9 @@ I highly recommend it.</p>
   
   <entry>
     <title type="html"><![CDATA[Facebook is killing blogging]]></title>
-    <link href="http://www.kurup.org/blog/2012/08/19/facebook-is-killing-blogging"/>
+    <link href="https://www.kurup.org/blog/2012/08/19/facebook-is-killing-blogging"/>
     <updated>2012-08-19T07:58:31-04:00</updated>
-    <id>http://www.kurup.org/blog/2012/08/19/facebook-is-killing-blogging</id>
+    <id>https://www.kurup.org/blog/2012/08/19/facebook-is-killing-blogging</id>
     <content type="html"><![CDATA[<p>Looks like August 18th was
 International-Prominent-Bloggers-Complain-About-Facebook-Killing-Blogging
 Day. I was just <a href="http://www.kurup.org/blog/2012/08/03/blogging-again/">two weeks too early</a>.</p>
@@ -1560,9 +1560,9 @@ really well done.</p>
   
   <entry>
     <title type="html"><![CDATA[A great moment]]></title>
-    <link href="http://www.kurup.org/blog/2012/08/16/a-great-moment"/>
+    <link href="https://www.kurup.org/blog/2012/08/16/a-great-moment"/>
     <updated>2012-08-16T10:24:34-04:00</updated>
-    <id>http://www.kurup.org/blog/2012/08/16/a-great-moment</id>
+    <id>https://www.kurup.org/blog/2012/08/16/a-great-moment</id>
     <content type="html"><![CDATA[<p>I woke up, got ready and went downstairs. I am not a morning person. I
 try to do as little thinking as possible, because thinking eventually
 leads to the rational conclusion that I should just go back to bed. I
@@ -1583,9 +1583,9 @@ they mean to me. I want to capture them and never let them go.</p>
   
   <entry>
     <title type="html"><![CDATA[NASA Curiosity Lands]]></title>
-    <link href="http://www.kurup.org/blog/2012/08/07/nasa-curiosity-lands"/>
+    <link href="https://www.kurup.org/blog/2012/08/07/nasa-curiosity-lands"/>
     <updated>2012-08-07T15:17:43-04:00</updated>
-    <id>http://www.kurup.org/blog/2012/08/07/nasa-curiosity-lands</id>
+    <id>https://www.kurup.org/blog/2012/08/07/nasa-curiosity-lands</id>
     <content type="html"><![CDATA[<p>Like the rest of the geek world, we&#8217;ve been excited by Curiosity&#8217;s
 successful trip to Mars. Here&#8217;s a cool video which combines an
 animation of Curiosity&#8217;s landing mixed with the real reactions of the
@@ -1610,7 +1610,7 @@ src="http://www.youtube.com/embed/-_9BYSDtwRc" frameborder="0"
 allowfullscreen></iframe>
 
 
-<p><img class="right" src="http://www.kurup.org/images/curiosity-size.jpg" width="300" height="200" title="Curiosity is huge (NASA)" ></p>
+<p><img class="right" src="https://www.kurup.org/images/curiosity-size.jpg" width="300" height="200" title="Curiosity is huge (NASA)" ></p>
 
 <p>The Curiosity rover is too large for the airbag approach (See image at
 right comparing it to previous rovers), so an alternate system was
@@ -1626,9 +1626,9 @@ car!</a></p>
   
   <entry>
     <title type="html"><![CDATA[Blogging Again]]></title>
-    <link href="http://www.kurup.org/blog/2012/08/03/blogging-again"/>
+    <link href="https://www.kurup.org/blog/2012/08/03/blogging-again"/>
     <updated>2012-08-03T14:50:25-04:00</updated>
-    <id>http://www.kurup.org/blog/2012/08/03/blogging-again</id>
+    <id>https://www.kurup.org/blog/2012/08/03/blogging-again</id>
     <content type="html"><![CDATA[<p>I&#8217;m going to start blogging more. I know I&#8217;ve said that before, so
 take it for what it&#8217;s worth. I think there is value in blogging. I&#8217;ve
 been thinking about my life a lot lately, trying to find what makes me

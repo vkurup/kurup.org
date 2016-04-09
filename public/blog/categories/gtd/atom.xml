@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: gtd | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/gtd/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/gtd/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Priorities and GTD]]></title>
-    <link href="http://www.kurup.org/blog/2013/01/17/priorities-and-gtd"/>
+    <link href="https://www.kurup.org/blog/2013/01/17/priorities-and-gtd"/>
     <updated>2013-01-17T13:38:07-05:00</updated>
-    <id>http://www.kurup.org/blog/2013/01/17/priorities-and-gtd</id>
+    <id>https://www.kurup.org/blog/2013/01/17/priorities-and-gtd</id>
     <content type="html"><![CDATA[<p>Pre-GTD task management systems recommended that you assign a priority
 to each task. When looking at a list of tasks, you then choose the
 ones with the highest priority. David Allen (author of GTD) includes
@@ -63,9 +63,9 @@ thing done on each of those days.</p>
   
   <entry>
     <title type="html"><![CDATA[GTD again?]]></title>
-    <link href="http://www.kurup.org/blog/2013/01/16/gtd-again"/>
+    <link href="https://www.kurup.org/blog/2013/01/16/gtd-again"/>
     <updated>2013-01-16T09:27:03-05:00</updated>
-    <id>http://www.kurup.org/blog/2013/01/16/gtd-again</id>
+    <id>https://www.kurup.org/blog/2013/01/16/gtd-again</id>
     <content type="html"><![CDATA[<p>Thanks to
 <a href="http://5by5.tv/b2w/95">Merlin Mann's recent series of podcasts on GTD</a>,
 I'm getting back on the GTD wagon (for about the 100th time). I read

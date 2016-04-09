@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: tcl | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/tcl/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/tcl/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Working with collections]]></title>
-    <link href="http://www.kurup.org/blog/2006/09/25/working-with-collections"/>
+    <link href="https://www.kurup.org/blog/2006/09/25/working-with-collections"/>
     <updated>2006-09-25T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2006/09/25/working-with-collections</id>
+    <id>https://www.kurup.org/blog/2006/09/25/working-with-collections</id>
     <content type="html"><![CDATA[<p>Steve Yegge wrote about the <a href="http://steve.yegge.googlepages.com/ruby-tour">expressiveness of
 Ruby</a> as compared to
 Java. He used this simple problem as an example:</p>
@@ -30,35 +30,36 @@ in LOCs, but in the overall simplicity of dealing with collections of
 data. Still, I wanted to see how Tcl would deal with the same
 problem. Here's the simplest version I could come up with:</p>
 
-<p>{% highlight tcl %}
-set f [open /usr/share/dict/words r]
+<p><div>
+  <pre><code class='tcl'>set f [open /usr/share/dict/words r]
 set words [read -nonewline $f]
 close $f
-set qwords [lsearch -all -inline [split $words \n] {[Qq]*}]</p>
+set qwords [lsearch -all -inline [split $words \n] {[Qq]*}]&lt;/p&gt;
 
-<p>proc compare_length {a b} {</p>
+&lt;p&gt;proc compare_length {a b} {&lt;/p&gt;
 
-<pre><code>if { [string length $a] &lt;= [string length $b] } {
+&lt;pre&gt;&lt;code&gt;if { [string length $a] &amp;lt;= [string length $b] } {
     return -1
 } else {
     return 1 
 } 
-</code></pre>
+&lt;/code&gt;&lt;/pre&gt;
 
-<p>}</p>
+&lt;p&gt;}&lt;/p&gt;
 
-<p>set sorted_qwords [lsort -command compare_length [lsort $qwords]]
-set max -1 foreach qword $sorted_qwords {</p>
+&lt;p&gt;set sorted_qwords [lsort -command compare_length [lsort $qwords]]
+set max -1 foreach qword $sorted_qwords {&lt;/p&gt;
 
-<pre><code>if { [string length $qword] &gt; $max } {
+&lt;pre&gt;&lt;code&gt;if { [string length $qword] &amp;gt; $max } {
     set max [string length $qword]
-    puts "Words of length $max:"
+    puts &quot;Words of length $max:&quot;
 }
-puts "  $qword"
-</code></pre>
+puts &quot;  $qword&quot;
+&lt;/code&gt;&lt;/pre&gt;
 
-<p>}
-{% endhighlight %}</p>
+&lt;p&gt;}</code></pre>
+</div>
+</p>
 
 <p>About 19 lines and pretty simple to write and read. Can this be
 improved?</p>
@@ -180,21 +181,22 @@ the going has been difficult. It's definitely a different mindset.
   
   <entry>
     <title type="html"><![CDATA[Automated Testing Rules]]></title>
-    <link href="http://www.kurup.org/blog/2006/05/16/automated-testing-rules"/>
+    <link href="https://www.kurup.org/blog/2006/05/16/automated-testing-rules"/>
     <updated>2006-05-16T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2006/05/16/automated-testing-rules</id>
+    <id>https://www.kurup.org/blog/2006/05/16/automated-testing-rules</id>
     <content type="html"><![CDATA[<p>Automated testing is a good thing. For my running log application, I have a proc that creates a new log for a user, called rl::runner::new. If you happen to call it for a user who already has a log, it returns the already created log. When I created the proc way back when, I also created an automated test to make sure that creation worked and that redundant calls returned the orignal log.</p>
 
 <p>Over time, I added some code to make sure that users are given proper permissions on their log. Anytime you make a change, you should run your tests, but of course, I didn't :-) Well, today I did and my test now failed.</p>
 
 <p>Here is the relevant (edited) code:</p>
 
-<p>{% highlight tcl %}
-set runner_id [db_nextval acs_object_id_seq]
+<p><div>
+  <pre><code class='tcl'>set runner_id [db_nextval acs_object_id_seq]
 set ret_val [db_exec_plsql new_runner {}]
 permission::grant -party_id $user_id -object_id $runner_id -privilege admin
-permission::grant -party_id $user_id -object_id $runner_id -privilege write
-{% endhighlight %}</p>
+permission::grant -party_id $user_id -object_id $runner_id -privilege write</code></pre>
+</div>
+</p>
 
 <p>The error was happening in <code>permission::grant</code>. It was complaining that <code>$runner_id</code> wasn't a valid acs_object. What's going on? It looks like it should work. The problem is that I should be granting the permission on <code>ret_val</code>, not on <code>runner_id</code>. (Probably a bad choice of variable names). The first time a log is created, <code>db_exec_plsql</code> returns a value which happens to be the same as <code>runner_id</code>. The second time it's called, it returns a value which is <strong>different</strong> and <code>permission::grant</code> fails.</p>
 
@@ -235,34 +237,37 @@ in the test, you can discover a better design :)
   
   <entry>
     <title type="html"><![CDATA[New Features coming in Tcl 8.5]]></title>
-    <link href="http://www.kurup.org/blog/2006/05/14/new-features-coming-in-tcl-85"/>
+    <link href="https://www.kurup.org/blog/2006/05/14/new-features-coming-in-tcl-85"/>
     <updated>2006-05-14T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2006/05/14/new-features-coming-in-tcl-85</id>
+    <id>https://www.kurup.org/blog/2006/05/14/new-features-coming-in-tcl-85</id>
     <content type="html"><![CDATA[<p>I was looking at the <a href="http://www.tcl.tk/man/tcl8.4/TclCmd/split.htm">Tcl 8.4 man page for 'split'</a> and saw this example code:</p>
 
-<p>{% highlight tcl %}</p>
+<p><div>
+  <pre><code class='tcl'>&lt;/p&gt;
 
-<h2>Split into fields on colons</h2>
+&lt;h2&gt;Split into fields on colons&lt;/h2&gt;
 
-<p>set fields [split $rec ":"]</p>
+&lt;p&gt;set fields [split $rec &quot;:&quot;]&lt;/p&gt;
 
-<h2>Assign fields to variables and print some out...</h2>
+&lt;h2&gt;Assign fields to variables and print some out...&lt;/h2&gt;
 
-<p>lassign $fields userName password uid grp longName homeDir shell
-{% endhighlight %}</p>
+&lt;p&gt;lassign $fields userName password uid grp longName homeDir shell</code></pre>
+</div>
+</p>
 
 <p>It shows how to split a string using ':' as the delimiter. The interesting part is the 'lassign' statement. I'd never seen that before. I've always done something annoying like this:</p>
 
-<p>{% highlight tcl %}
-set fields [split $rec ":"]
+<p><div>
+  <pre><code class='tcl'>set fields [split $rec &quot;:&quot;]
 set userName [lindex $fields 0]
 set password [lindex $fields 1]
 set uid [lindex $fields 2]
 set grp [lindex $fields 3]
 set longName [lindex $fields 4]
 set homeDir [lindex $fields 5]
-set shell [lindex $fields 6]
-{% endhighlight %}</p>
+set shell [lindex $fields 6]</code></pre>
+</div>
+</p>
 
 <p>How could I have overlooked 'lassign' all these years? After berating my idiocy for a few minutes, I tried 'lassign' out and Tcl replied 'invalid command name' . Turns out I'm not as stupid as I thought. :-) 'lassign' is new in Tcl 8.5 (but seems to have snuck in the backdoor of the 8.4 docs). I decided to see what else was <a href="http://www.tcl.tk/software/tcltk/8.5.html">coming in 8.5</a>.</p>
 
@@ -346,9 +351,9 @@ little-known functions in the OpenACS API
   
   <entry>
     <title type="html"><![CDATA[Hit The Wall (a running log)]]></title>
-    <link href="http://www.kurup.org/blog/2006/04/21/hit-the-wall-a-running-log"/>
+    <link href="https://www.kurup.org/blog/2006/04/21/hit-the-wall-a-running-log"/>
     <updated>2006-04-21T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2006/04/21/hit-the-wall-a-running-log</id>
+    <id>https://www.kurup.org/blog/2006/04/21/hit-the-wall-a-running-log</id>
     <content type="html"><![CDATA[<p>I built a web application to keep track of my running a couple years
 ago. I really began using it in earnest during my training for the New
 York Marathon last year. I've been meaning to make it available for
@@ -414,9 +419,9 @@ which was 'Running Log".
   
   <entry>
     <title type="html"><![CDATA[Tcl, a short introduction]]></title>
-    <link href="http://www.kurup.org/blog/2006/03/09/tcl-a-short-introduction"/>
+    <link href="https://www.kurup.org/blog/2006/03/09/tcl-a-short-introduction"/>
     <updated>2006-03-09T00:00:00-05:00</updated>
-    <id>http://www.kurup.org/blog/2006/03/09/tcl-a-short-introduction</id>
+    <id>https://www.kurup.org/blog/2006/03/09/tcl-a-short-introduction</id>
     <content type="html"><![CDATA[<p>The scripting language used in most of <a href="http://openacs.org">OpenACS</a> is <a href="http://tcl.tk">Tcl</a>. It doesn't receive a lot of press. When people talk about scripting languages, they mean Perl or Python (and now Ruby). Tcl is not considered in the same category, but it should be. I'm not smart enough to explain why, but Salvatore Sanfilippo is and has written a <a href="http://antirez.com/articoli/tclmisunderstood.html">gentle introduction to both the basic and powerful features of Tcl</a>.</p>
 ]]></content>
   </entry>

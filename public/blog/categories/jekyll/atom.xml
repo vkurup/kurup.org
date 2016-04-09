@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: jekyll | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/jekyll/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/jekyll/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Bye Bye Wordpress]]></title>
-    <link href="http://www.kurup.org/blog/2009/09/19/bye-bye-wordpress"/>
+    <link href="https://www.kurup.org/blog/2009/09/19/bye-bye-wordpress"/>
     <updated>2009-09-19T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2009/09/19/bye-bye-wordpress</id>
+    <id>https://www.kurup.org/blog/2009/09/19/bye-bye-wordpress</id>
     <content type="html"><![CDATA[<p>This site has undergone another transformation. I've ditched <a href="http://wordpress.org">Wordpress</a> and am now using a tool called <a href="http://github.com/mojombo/jekyll">Jekyll</a>. It's a program that runs on my laptop and generates static files from a bunch of templates. I then upload the static files to my server. Wordpress, like any dynamic software, has security risks. Especially since it's such a popular blog app, it's always under attack. I don't have the time or interest to keep up with updates, especially since my blogging is so low-profile. It's just something I do for fun.</p>
 
 <p>Static files have none of those security risks. There are a lot of static file generators out there, but I chose Jekyll because it seemed intuitive and it's run by the <a href="http://github.com">GitHub</a> folks. I've started using git and GitHub and am impressed by their power so far.</p>

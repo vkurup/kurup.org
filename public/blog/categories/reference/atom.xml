@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: reference | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/reference/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/reference/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Hospitalist Handbook]]></title>
-    <link href="http://www.kurup.org/blog/2005/08/22/hospitalist-handbook"/>
+    <link href="https://www.kurup.org/blog/2005/08/22/hospitalist-handbook"/>
     <updated>2005-08-22T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2005/08/22/hospitalist-handbook</id>
+    <id>https://www.kurup.org/blog/2005/08/22/hospitalist-handbook</id>
     <content type="html"><![CDATA[<p>If you're looking for a clear, concise handbook for Hospitalist Medicine, check out the <a href="http://medicine.ucsf.edu/education/resed/handbook/index.html">UCSF Hospitalist Handbook</a>, available free online. I'm not sure it's up-to-date (the copyright notice states 2002), but it still seems relevant and useful. And I'm not just saying that because my cousin Deepu Nair wrote the <a href="http://medicine.ucsf.edu/education/resed/handbook/HospH2002_C1.htm">Night Calls</a> section.</p>
 
 <div id="comment-box">

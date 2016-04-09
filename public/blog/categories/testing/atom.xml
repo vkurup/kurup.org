@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: testing | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/testing/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/testing/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,21 +15,22 @@
   
   <entry>
     <title type="html"><![CDATA[Automated Testing Rules]]></title>
-    <link href="http://www.kurup.org/blog/2006/05/16/automated-testing-rules"/>
+    <link href="https://www.kurup.org/blog/2006/05/16/automated-testing-rules"/>
     <updated>2006-05-16T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2006/05/16/automated-testing-rules</id>
+    <id>https://www.kurup.org/blog/2006/05/16/automated-testing-rules</id>
     <content type="html"><![CDATA[<p>Automated testing is a good thing. For my running log application, I have a proc that creates a new log for a user, called rl::runner::new. If you happen to call it for a user who already has a log, it returns the already created log. When I created the proc way back when, I also created an automated test to make sure that creation worked and that redundant calls returned the orignal log.</p>
 
 <p>Over time, I added some code to make sure that users are given proper permissions on their log. Anytime you make a change, you should run your tests, but of course, I didn't :-) Well, today I did and my test now failed.</p>
 
 <p>Here is the relevant (edited) code:</p>
 
-<p>{% highlight tcl %}
-set runner_id [db_nextval acs_object_id_seq]
+<p><div>
+  <pre><code class='tcl'>set runner_id [db_nextval acs_object_id_seq]
 set ret_val [db_exec_plsql new_runner {}]
 permission::grant -party_id $user_id -object_id $runner_id -privilege admin
-permission::grant -party_id $user_id -object_id $runner_id -privilege write
-{% endhighlight %}</p>
+permission::grant -party_id $user_id -object_id $runner_id -privilege write</code></pre>
+</div>
+</p>
 
 <p>The error was happening in <code>permission::grant</code>. It was complaining that <code>$runner_id</code> wasn't a valid acs_object. What's going on? It looks like it should work. The problem is that I should be granting the permission on <code>ret_val</code>, not on <code>runner_id</code>. (Probably a bad choice of variable names). The first time a log is created, <code>db_exec_plsql</code> returns a value which happens to be the same as <code>runner_id</code>. The second time it's called, it returns a value which is <strong>different</strong> and <code>permission::grant</code> fails.</p>
 

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: do-not-call | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/do-not-call/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/do-not-call/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Do Not Call]]></title>
-    <link href="http://www.kurup.org/blog/2003/06/29/do-not-call"/>
+    <link href="https://www.kurup.org/blog/2003/06/29/do-not-call"/>
     <updated>2003-06-29T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2003/06/29/do-not-call</id>
+    <id>https://www.kurup.org/blog/2003/06/29/do-not-call</id>
     <content type="html"><![CDATA[<p>I'm going to sign up for the <a href="http://donotcall.gov/">National Do-Not-Call Registry</a>, but I'm not sure that it's going to reduce the number of calls I get. Look at the <a href="http://www.ftc.gov/bcp/conline/pubs/alerts/dncalrt.htm#Exceptions">exemption list</a>:</p>
 
 <blockquote><p>Exempt businesses include:

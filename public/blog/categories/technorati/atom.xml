@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: technorati | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/technorati/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/technorati/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[My blog is tagged]]></title>
-    <link href="http://www.kurup.org/blog/2006/02/27/my-blog-is-tagged"/>
+    <link href="https://www.kurup.org/blog/2006/02/27/my-blog-is-tagged"/>
     <updated>2006-02-27T00:00:00-05:00</updated>
-    <id>http://www.kurup.org/blog/2006/02/27/my-blog-is-tagged</id>
+    <id>https://www.kurup.org/blog/2006/02/27/my-blog-is-tagged</id>
     <content type="html"><![CDATA[<p>I'm finally getting around to moving my blog into the Web 1.5 world. (2.0 minus javascript). I scrapped the categories system and created a super-simple tags package. So, now I can tag posts and <a href="http://technorati.com">technorati</a> can find them. OpenACS barely lights up on technorati. Compare <a href="http://technorati.com/tag/rails">RubyOnRails</a> (20 mentions per day) with <a href="http://technorati.com/tag/openacs">OpenACS</a> (1 mention in the past month!). I know Rails is popular, but is OpenACS completely dead? I don't think so.</p>
 ]]></content>
   </entry>

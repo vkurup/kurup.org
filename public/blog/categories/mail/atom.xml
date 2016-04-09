@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: mail | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/mail/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/mail/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[More Mail Woes]]></title>
-    <link href="http://www.kurup.org/blog/2003/07/05/more-mail-woes"/>
+    <link href="https://www.kurup.org/blog/2003/07/05/more-mail-woes"/>
     <updated>2003-07-05T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2003/07/05/more-mail-woes</id>
+    <id>https://www.kurup.org/blog/2003/07/05/more-mail-woes</id>
     <content type="html"><![CDATA[<p>I spent most of this afternoon struggling with a mail issue and I didn't find it documented well anywhere else, so I'm going to write about it here in the hopes that it might help someone else.</p>
 
 <p><strong>What I was trying to do:</strong> Setup qmail + vpopmail + courier imap for imap and pop3d</p>
@@ -82,9 +82,9 @@ Harry
   
   <entry>
     <title type="html"><![CDATA[compiling vpopmail]]></title>
-    <link href="http://www.kurup.org/blog/2003/06/28/compiling-vpopmail"/>
+    <link href="https://www.kurup.org/blog/2003/06/28/compiling-vpopmail"/>
     <updated>2003-06-28T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2003/06/28/compiling-vpopmail</id>
+    <id>https://www.kurup.org/blog/2003/06/28/compiling-vpopmail</id>
     <content type="html"><![CDATA[<p>I'm setting up <a href="http://inter7.com/vpopmail.html">vpopmail</a> 5.2.1 - a POP3 email manager for qmail, but it won't compile out of the box.</p>
 
 <pre><code>gcc -I. -Icdb -g -O2 -Wall -c vconvert.c 

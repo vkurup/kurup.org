@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: computers | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/computers/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/computers/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[I've gone to the dark side]]></title>
-    <link href="http://www.kurup.org/blog/2012/10/14/ive-gone-to-the-dark-side"/>
+    <link href="https://www.kurup.org/blog/2012/10/14/ive-gone-to-the-dark-side"/>
     <updated>2012-10-14T16:09:54-04:00</updated>
-    <id>http://www.kurup.org/blog/2012/10/14/ive-gone-to-the-dark-side</id>
+    <id>https://www.kurup.org/blog/2012/10/14/ive-gone-to-the-dark-side</id>
     <content type="html"><![CDATA[<p>I was a huge Apple fan growing up and IBM was Apple's enemy. Buying an
 IBM computer would have been unthinkable.</p>
 
@@ -142,9 +142,9 @@ setup in a future post.</p>
   
   <entry>
     <title type="html"><![CDATA[My Computers]]></title>
-    <link href="http://www.kurup.org/blog/2003/04/02/my-computers"/>
+    <link href="https://www.kurup.org/blog/2003/04/02/my-computers"/>
     <updated>2003-04-02T00:00:00-05:00</updated>
-    <id>http://www.kurup.org/blog/2003/04/02/my-computers</id>
+    <id>https://www.kurup.org/blog/2003/04/02/my-computers</id>
     <content type="html"><![CDATA[<p>My introduction to computers came when I was about 6 or 7 years old - I
 can't quite remember exactly when... Venu Mammen (my uncle) brought home a
 terminal from work. It looked like a typewriter, but it had 2
@@ -158,7 +158,7 @@ endless maze without really ever getting anywhere. I always sucked at
 adventure games... Despite this failure, I was hooked on computers.</p>
 
 <div style="float:right;">
-<img src="http://www.kurup.org/images/zx80.gif" height="188" width="380" alt=" [Sinclair ZX-80] " />
+<img src="https://www.kurup.org/images/zx80.gif" height="188" width="380" alt=" [Sinclair ZX-80] " />
 </div>
 
 
@@ -174,7 +174,7 @@ expecting it to speak, "Guess a number from 1 to 100." No luck, though -
 programming apparently was a bit more complicated.</p>
 
 <div style="float:left;">
-<img src="http://www.kurup.org/images/iie.gif" height="135" width="200" alt=" [Apple IIe] " />
+<img src="https://www.kurup.org/images/iie.gif" height="135" width="200" alt=" [Apple IIe] " />
 </div>
 
 
@@ -190,7 +190,7 @@ again...</p>
 <p>My dad bought a Mac Plus for work when it came out and he let me play on it. I couldn't believe what I was seeing. No command line interface. A little arrow that moved in response to my movements on a "mouse". Folders that you could move around. I was in heaven! I perused all the manuals that came with it trying to learn as much as I could about this new beast. Around this time, my dad asked me to help him computerize the medical testing that his lab does. I fooled around with HyperCard for about a week and wrote my first Macintosh program.</p>
 
 <div style="float:right;">
-<img src="http://www.kurup.org/images/classicii.gif" height="167" width="200" alt=" [Mac Classic II] " />
+<img src="https://www.kurup.org/images/classicii.gif" height="167" width="200" alt=" [Mac Classic II] " />
 </div>
 
 
@@ -204,21 +204,21 @@ sell it (especially since I'd probably only get $20 for it). I finally
 donated it to Goodwill in June of 1999.</p>
 
 <div style="float:left;">
-<img src="http://www.kurup.org/images/pcenter.jpg" height="195" width="310" alt=" [PowerCenter] " />
+<img src="https://www.kurup.org/images/pcenter.jpg" height="195" width="310" alt=" [PowerCenter] " />
 </div>
 
 
 <p>In February 1997, I decided I needed a new computer. Apple was in the middle of their worst year financially - losing over $1 billion. And unfortunately, their line of computers was a reflection of their financial incompetence. Despite this, I still liked the Mac OS platform, so I investigated the Mac Clones which were much more technically sound. I bought a Power Computing PowerCenter 150 MHz PowerPC 604 with 48 MB RAM, 2 gig HD. So far, this has been an ideal computer and I see it being usable for at least another couple years. (and perhaps even longer, now that I've installed Linux on it!)</p>
 
 <div style="float:right;">
-<img src="http://www.kurup.org/images/powerbook.gif" height="189" width="225" alt=" [PowerBook G3 Series] " />
+<img src="https://www.kurup.org/images/powerbook.gif" height="189" width="225" alt=" [PowerBook G3 Series] " />
 </div>
 
 
 <p>I spent most of 1999 travelling around the country (see my <a href="work.phtml">Work</a> page), so I decided I needed a laptop...ok, ok... I <b>wanted</b> a laptop. So, I donated my PowerCenter to my roommate, <a href="imagetable/gerry2.phtml">Gerry</a>, and bought a used PowerBook on <a href="http://www.ebay.com/">eBay</a>. It's a Wallstreet 2 - 266 MHz PowerPC  G3, 192 MB, 4 gig HD, and a DVD. I bought this in July 1999 and it was everything I could have imagined. I've extracted all my CD's into MP3 format and I bought Virtual Game Station, so I could play Playstation games. This computer is now a complete entertainment system - and it only weighs 8 lbs! Now that I have 192 megabytes of RAM, it's hard to believe that our original ZX80 had only 1 kilobyte of RAM! And even my Classic II had a only a 80 megabyte hard drive! That's less than half the amount of <b>RAM</b> I have now... The way things are going, this computer should last at least a few weeks!</p>
 
 <div style="float:left;">
-<img src="http://www.kurup.org/images/emac.jpg" height="255" width="254" alt=" [eMac] " />
+<img src="https://www.kurup.org/images/emac.jpg" height="255" width="254" alt=" [eMac] " />
 </div>
 
 
@@ -228,10 +228,10 @@ a cheap AMD-K6 processor and put together a little Linux playground. After tryin
 <a href="http://debian.org">Debian GNU/Linux</a> and it's provided me a
 wide-open window into the world of <a href="http://fsf.org">Free Software</a>
 (I'm <a href="http://member.fsf.org">associate member</a> #1088). I'm not
-coming back :-). <a href="http://www.fsf.org/register_form?referrer=1088"><img src="http://www.kurup.org/images/fsf-member.png" alt="[FSF Associate Member]" width="88" height="31" /></a></p>
+coming back :-). <a href="http://www.fsf.org/register_form?referrer=1088"><img src="https://www.kurup.org/images/fsf-member.png" alt="[FSF Associate Member]" width="88" height="31" /></a></p>
 
 <div style="float:right;">
-<img src="http://www.kurup.org/images/pg4_12.jpg" height="157" width="215" alt=" [Powerbook 12] " />
+<img src="https://www.kurup.org/images/pg4_12.jpg" height="157" width="215" alt=" [Powerbook 12] " />
 </div>
 
 
@@ -253,9 +253,9 @@ don't-make-me-think usability of the Mac.</p>
   
   <entry>
     <title type="html"><![CDATA[R.I.P.]]></title>
-    <link href="http://www.kurup.org/blog/2002/09/22/rip"/>
+    <link href="https://www.kurup.org/blog/2002/09/22/rip"/>
     <updated>2002-09-22T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2002/09/22/rip</id>
+    <id>https://www.kurup.org/blog/2002/09/22/rip</id>
     <content type="html"><![CDATA[<p>Bad news! My Powerbook G3 went kaput yesterday. After a day or so of
 troubleshooting, I'm blaming it on a dead Power Management Unit. I
 bought it used in 1999 and have been using it <em>heavily</em> since. It's

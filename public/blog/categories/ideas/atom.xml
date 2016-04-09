@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: ideas | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/ideas/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/ideas/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[How long will it take Gerry to find this post?]]></title>
-    <link href="http://www.kurup.org/blog/2006/04/16/how-long-will-it-take-gerry-to-find-this-post"/>
+    <link href="https://www.kurup.org/blog/2006/04/16/how-long-will-it-take-gerry-to-find-this-post"/>
     <updated>2006-04-16T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2006/04/16/how-long-will-it-take-gerry-to-find-this-post</id>
+    <id>https://www.kurup.org/blog/2006/04/16/how-long-will-it-take-gerry-to-find-this-post</id>
     <content type="html"><![CDATA[<p>So, I just talked with one of my best friends and learned that he <strong>still</strong> doesn't read my blog. Devastating! We had an interesting conversation about how the value of 'The Great Idea' can be overrated and I wanted to point him to this <a href="http://paulgraham.com/ideas.html">great essay about the same topic by Paul Graham</a>. Let's see how long it takes him to find it.</p>
 
 <p>I enjoy most of <a href="http://paulgraham.com/articles.html">Paul Graham's writings</a>. He writes about startups and software, aimed at the high school/college age geek. His writings would have been invaluable when I was in high school. Of course, he was probably in high school at the time. :-)</p>

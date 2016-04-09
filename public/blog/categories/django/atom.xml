@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: django | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/django/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/django/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Using dynamic queries in a CBV]]></title>
-    <link href="http://www.kurup.org/blog/2014/07/28/cbv-dynamic"/>
+    <link href="https://www.kurup.org/blog/2014/07/28/cbv-dynamic"/>
     <updated>2014-07-28T22:08:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2014/07/28/cbv-dynamic</id>
+    <id>https://www.kurup.org/blog/2014/07/28/cbv-dynamic</id>
     <content type="html"><![CDATA[<p>Let's play 'Spot the bug'. We're building a simple system that shows photos. Each photo has a
 <code>publish_date</code> and we should only show photos that have been published (i.e. their <code>publish_date</code> is
 in the past).</p>
@@ -71,9 +71,9 @@ class ShowPhotosView(ListView):</p>
   
   <entry>
     <title type="html"><![CDATA[How to create test models in Django]]></title>
-    <link href="http://www.kurup.org/blog/2014/07/21/django-test-models"/>
+    <link href="https://www.kurup.org/blog/2014/07/21/django-test-models"/>
     <updated>2014-07-21T20:44:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2014/07/21/django-test-models</id>
+    <id>https://www.kurup.org/blog/2014/07/21/django-test-models</id>
     <content type="html"><![CDATA[<p>It's occasionally useful to be able to create a Django model class in your unit test suite. Let's
 say you're building a library which creates an
 <a href="https://docs.djangoproject.com/en/dev/topics/db/models/#abstract-base-classes">abstract model</a>

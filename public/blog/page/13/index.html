@@ -9,7 +9,7 @@
   <meta name="author" content="Vinod Kurup">
 
   
-  <meta name="description" content="Automated testing is a good thing. For my running log application, I have a proc that creates a new log for a user, called rl::runner::new. If you &hellip;">
+  <meta name="description" content="I sold 3 stocks (OUTL, MRINA.PK and KBALB) and bought 5 (RSC, JAX, EEI, KEYN and STS). Sold stocks Purchased Total Return Reason for sell Outlook &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.kurup.org/blog/page/13/">
+  <link rel="canonical" href="https://www.kurup.org/blog/page/13/">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="/javascripts/ender.js"></script>
@@ -68,7 +68,7 @@
   
 </ul>
   
-<form action="http://google.com/search" method="get">
+<form action="https://google.com/search" method="get">
   <fieldset role="search">
     <input type="hidden" name="q" value="site:www.kurup.org" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
@@ -89,225 +89,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2006/05/16/automated-testing-rules">Automated Testing Rules</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2006-05-16T00:00:00-04:00" pubdate data-updated="true">May 16<span>th</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Automated testing is a good thing. For my running log application, I have a proc that creates a new log for a user, called rl::runner::new. If you happen to call it for a user who already has a log, it returns the already created log. When I created the proc way back when, I also created an automated test to make sure that creation worked and that redundant calls returned the orignal log.</p>
-
-<p>Over time, I added some code to make sure that users are given proper permissions on their log. Anytime you make a change, you should run your tests, but of course, I didn&#8217;t :-) Well, today I did and my test now failed.</p>
-
-<p>Here is the relevant (edited) code:</p>
-
-<div>
-  <pre><code class='tcl'>set runner_id [db_nextval acs_object_id_seq] 
-set ret_val [db_exec_plsql new_runner {}]
-permission::grant -party_id $user_id -object_id $runner_id -privilege admin
-permission::grant -party_id $user_id -object_id $runner_id -privilege write</code></pre>
-</div>
-
-
-<p>The error was happening in <code>permission::grant</code>. It was complaining that <code>$runner_id</code> wasn&#8217;t a valid acs_object. What&#8217;s going on? It looks like it should work. The problem is that I should be granting the permission on <code>ret_val</code>, not on <code>runner_id</code>. (Probably a bad choice of variable names). The first time a log is created, <code>db_exec_plsql</code> returns a value which happens to be the same as <code>runner_id</code>. The second time it&#8217;s called, it returns a value which is <strong>different</strong> and <code>permission::grant</code> fails.</p>
-
-<p>I would never have caught this error until I tried to call <code>rl::runner::new</code> the second time on the same user. Which would make it one of those very difficult to track bugs. Automated testing saved me a lot of annoying debugging.</p>
-
-<p>That said, I wish OpenACS&#8217;s testing facilities were better. I worked on a couple other bugs today and I&#8217;m trying really hard to write tests to expose bugs before fixing them, but it&#8217;s really a strain. Especially when you need to do a combination of black box and white box testing. I&#8217;d like to make testing easier in OpenACS, but I&#8217;m not sure if I have the brainpower :-)</p>
-
-<div id="comment-box">
-<h2>Comments from old site</h2>
-
-<div class="one-comment">
-<p><b>Improving Testing</b></p>
-<p>
-Vinod,
-</p>
-<p>
-There is definitely room for improvement. You can specify test
-dependency, I think, so you can create a test package environment,
-then run several tests using that setup. I haven&#8217;t tried that yet, but
-it should help.
-</p>
-<p>
-Anothing thing to keep in mind is that testing can expose places in
-your code that might need to be decoupled. That is one of the
-advantages of testing, by thinking of how to run the code is isolation
-in the test, you can discover a better design :)
-</p>
-<address class="signature">
-<span class="author">Dave Bauer</span>
-<span class="date">2006-05-17 07:27:51</span>
-</address>
-</div>
-
-</div>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2006/05/14/new-features-coming-in-tcl-85">New Features Coming in Tcl 8.5</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2006-05-14T00:00:00-04:00" pubdate data-updated="true">May 14<span>th</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I was looking at the <a href="http://www.tcl.tk/man/tcl8.4/TclCmd/split.htm">Tcl 8.4 man page for &#8216;split&#8217;</a> and saw this example code:</p>
-
-<div>
-  <pre><code class='tcl'>## Split into fields on colons
-set fields [split $rec &quot;:&quot;]
-## Assign fields to variables and print some out...
-lassign $fields userName password uid grp longName homeDir shell</code></pre>
-</div>
-
-
-<p>It shows how to split a string using &#8216;:&#8217; as the delimiter. The interesting part is the &#8216;lassign&#8217; statement. I&#8217;d never seen that before. I&#8217;ve always done something annoying like this:</p>
-
-<div>
-  <pre><code class='tcl'>set fields [split $rec &quot;:&quot;]
-set userName [lindex $fields 0]
-set password [lindex $fields 1]
-set uid [lindex $fields 2]
-set grp [lindex $fields 3]
-set longName [lindex $fields 4]
-set homeDir [lindex $fields 5]
-set shell [lindex $fields 6]</code></pre>
-</div>
-
-
-<p>How could I have overlooked &#8216;lassign&#8217; all these years? After berating my idiocy for a few minutes, I tried &#8216;lassign&#8217; out and Tcl replied &#8216;invalid command name&#8217; . Turns out I&#8217;m not as stupid as I thought. :-) &#8216;lassign&#8217; is new in Tcl 8.5 (but seems to have snuck in the backdoor of the 8.4 docs). I decided to see what else was <a href="http://www.tcl.tk/software/tcltk/8.5.html">coming in 8.5</a>.</p>
-
-<ul>
-<li>Dictionaries. These are associative arrays which reportedly are better than Tcl arrays, but I&#8217;m not sure why.</li>
-<li>** as an exponentiation operator</li>
-<li>Instead of doing: <code>if {[lsearch -exact $list $item] != -1}</code>, the new &#8216;in&#8217; operator lets you do <code>if {$item in $list}</code>. There&#8217;s also a &#8216;ni&#8217; operator for &#8216;not in&#8217;.</li>
-<li>Plenty of other stuff, none of which really caught my eye.</li>
-</ul>
-
-
-<p>Tcl 8.5 is still alpha, so I&#8217;m sticking with 8.4 (and my annoying
-code) for the moment.</p>
-
-<div id="comment-box">
-<h2>Comments from old site</h2>
-
-<div class="one-comment">
-<p><b>What about this</b></p>
-<p>
-Or just do
-</p>
-
-<pre><code>
-foreach {userName password uid grp longName homeDir shell} [lrange fields 0 6] {break}
-# We do an lrange here, otherwise values would be set wrong
-# in case someone accidentally supplies a list with too many elements,
-# because then the foreach loop would run more than once
-</code></pre>
-<p>
-I just learned the lrange trick yesterday :)
-</p>
-<p>
-I got caught by the over-optimistic 8.4 docs as well. lassign remove
-the risk where you need to use the lrange call.
-</p>
-<address class="signature">
-<span class="author">Dave Bauer</span>
-<span class="date">2006-05-14 19:56:49</span>
-</address>
-</div>
-
-<div class="my-comment">
-<p><b>Much better</b></p>
-<p>
-The lrange trick is cleaner than my code. Thanks Dave!
-</p>
-<address class="signature">
-<span class="author">Vinod Kurup</span>
-<span class="date">2006-05-15 20:42:37</span>
-</address>
-</div>
-
-<div class="one-comment">
-<p><b>Look also at OpenACS API</b></p>
-<p>
-The &#8216;util_unlist&#8217; API is the exact equivalent of &#8216;lassign&#8217;.
-</p>
-<address class="signature">
-<span class="author">Anonymous</span>
-<span class="date">2006-07-05 02:30:37</span>
-</address>
-</div>
-
-<div class="my-comment">
-<p><b>Thanks</b></p>
-<p>
-Thanks - I didn&#8217;t know about util_unlist. There are so many cool
-little-known functions in the OpenACS API
-</p>
-<address class="signature">
-<span class="author">Vinod Kurup</span>
-<span class="date">2006-07-05 14:42:46</span>
-</address>
-</div>
-
-</div>
-
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -786,6 +567,151 @@ blog</a> and beg for your code :-)
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2006/03/18/brooklyn-half-marathon">Brooklyn Half Marathon</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-03-18T00:00:00-05:00" pubdate data-updated="true">Mar 18<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>It was cold out there today. I was wearing a long sleeve shirt, long pants, a headband and gloves, and I was still cold. I doubted whether I&#8217;d be able to break 2 hours, like I&#8217;d hoped. A mile into the race I was sure I wouldn&#8217;t be able to do it. It felt like I was just running in place. As usual though, I eventually warmed up and felt pretty good.</p>
+
+<p>I planned to take the first 5 miles real easy and I came through in 47:28. Not bad. I wanted to do the next 5 miles in 45 minutes. I came through in 45:41. Not  bad. Finally, I wanted to really pick it up the last 5K (3.1 miles). I came through in 26:43, about 8:30 pace. Again, not bad. The last 3 miles seemed like it was all hills. Even the finish was on a hill! I finally saw the finish line, checked my watch and saw 1:59:13, and promptly took off like a crazy person.</p>
+
+<p>Final tally: 1:59:52!</p>
+
+<p>This is the first time I ran Brooklyn and I really liked it. We started on the boardwalk at Coney Island and ran along the beach for about 3 miles. Then, there was a long straight road stretch for about 5-6 miles and we finally finished with a few loops inside Prospect Park. They just need to flatten out some of those hills&#8230;</p>
+
+<p>Half marathons this year:</p>
+
+<ul>
+<li>Jan 28: 2:21:30 (10:48 pace) Manhattan</li>
+<li>Mar 18: 1:59:52 (9:09 pace) Brooklyn</li>
+</ul>
+
+
+<p>Scheduled:</p>
+
+<ul>
+<li>Jul 9: Bronx</li>
+<li>Aug 27: New York City</li>
+<li>Oct 1: Grete&#8217;s Gallop</li>
+<li>Oct 15: Staten Island</li>
+</ul>
+
+
+<p><a href="http://derekrose.com/wp/?p=864">Read more race reports at Derek Rose&#8217;s blog.</a></p>
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>good job</b></p>
+<p>
+Hey, looks like you made substantial headway since Manhattan half,
+that&#8217;s great.  Nice race report.  And don&#8217;t worry about the hills; the
+more you run them, the less high they seem.  (I&#8217;m lying of course!)
+that&#8217;s my home training ground, so they seem like predictable friends
+to me&#8230;
+</p>
+<p>
+see you at Bronx Half I hope.
+</p>
+<address class="signature">
+<span class="author">Anonymous</span>
+<span class="date">2006-03-18 23:55:01</span>
+</address>
+</div>
+
+<div class="my-comment">
+<p><b>Thanks</b></p>
+<p>
+Lucky you - It must be nice to train in Prospect Park. I love the
+Bronx, but I haven&#8217;t found a dependable course yet. I&#8217;m a mile away
+from Van Cortlandt park, but it doesn&#8217;t have any runner-friendly loops
+like Prospect Park or Central Park. But it does have hills - I guess I
+should work there a bit more, huh?
+</p>
+<p>
+My Manhattan time is misleading because I didn&#8217;t train at all for
+it. I was expecting the Manhattan half to be in August like it was
+last year, so I was slacking off in my running :-)
+</p>
+<p>
+How&#8217;d you do? See ya at the Bronx!
+</p>
+<address class="signature">
+<span class="author">Vinod Kurup</span>
+<span class="date">2006-03-19 08:22:50</span>
+</address>
+</div>
+
+</div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2006/03/09/tcl-a-short-introduction">Tcl, a Short Introduction</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-03-09T00:00:00-05:00" pubdate data-updated="true">Mar 9<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The scripting language used in most of <a href="http://openacs.org">OpenACS</a> is <a href="http://tcl.tk">Tcl</a>. It doesn&#8217;t receive a lot of press. When people talk about scripting languages, they mean Perl or Python (and now Ruby). Tcl is not considered in the same category, but it should be. I&#8217;m not smart enough to explain why, but Salvatore Sanfilippo is and has written a <a href="http://antirez.com/articoli/tclmisunderstood.html">gentle introduction to both the basic and powerful features of Tcl</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/14/">&larr; Older</a>
@@ -947,7 +873,7 @@ blog</a> and beg for your code :-)
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      dsq.src = 'https://' + disqus_shortname + '.disqus.com/' + disqus_script;
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
 </script>
@@ -963,7 +889,7 @@ blog</a> and beg for your code :-)
       var twitterWidgets = document.createElement('script');
       twitterWidgets.type = 'text/javascript';
       twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
       document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
     })();
   </script>

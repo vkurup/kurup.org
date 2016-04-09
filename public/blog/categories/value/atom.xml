@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: value | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/value/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/value/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[SBGI]]></title>
-    <link href="http://www.kurup.org/blog/2005/08/07/sbgi"/>
+    <link href="https://www.kurup.org/blog/2005/08/07/sbgi"/>
     <updated>2005-08-07T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2005/08/07/sbgi</id>
+    <id>https://www.kurup.org/blog/2005/08/07/sbgi</id>
     <content type="html"><![CDATA[<p><a href="http://kurup.org/blog/2005/08/01/quarterly-sells">Andy asked</a>:</p>
 
 <blockquote><p>Hey Vin, what do you think of SBG (Sinclair Broadcast Group) Its the company that owns Channels 18 and 24(my employer). Andy</p></blockquote>

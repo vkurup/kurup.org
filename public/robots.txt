@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /files
 
-Sitemap: http://www.kurup.org/sitemap.xml
+Sitemap: https://www.kurup.org/sitemap.xml

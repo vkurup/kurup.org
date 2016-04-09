@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: boston | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/boston/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/boston/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Boston with little kids]]></title>
-    <link href="http://www.kurup.org/blog/2011/06/30/boston-with-little-kids"/>
+    <link href="https://www.kurup.org/blog/2011/06/30/boston-with-little-kids"/>
     <updated>2011-06-30T11:50:22-04:00</updated>
-    <id>http://www.kurup.org/blog/2011/06/30/boston-with-little-kids</id>
+    <id>https://www.kurup.org/blog/2011/06/30/boston-with-little-kids</id>
     <content type="html"><![CDATA[<p>I'm sorry, but I just can't believe it's been almost 10 years since I
 left Boston. Mala had a meeting there and we love to take advantage of
 our employers' generosity <a href="Makes">^1</a>, so I TrippedIt <a href="Is">^2</a> back to Boston for

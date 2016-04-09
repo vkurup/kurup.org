@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: magazine | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/magazine/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/magazine/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Doc on Board]]></title>
-    <link href="http://www.kurup.org/blog/2006/06/12/doc-on-board"/>
+    <link href="https://www.kurup.org/blog/2006/06/12/doc-on-board"/>
     <updated>2006-06-12T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2006/06/12/doc-on-board</id>
+    <id>https://www.kurup.org/blog/2006/06/12/doc-on-board</id>
     <content type="html"><![CDATA[<p>Stop what you're doing and go buy the July 2006 issue of <a href="http://www.runnersworld.com">Runner's World</a>. Flip to page 49 and read the fine article by Scott Douglas on things a runner should discuss with their physician.</p>
 
 <p>Yep, the "Vinod Kurup" quoted is yours truly! I'm really grateful to Scott for using me as a source and thus making my dream of being in Runner's World come true. :)</p>

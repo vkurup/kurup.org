@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: car | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/car/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/car/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[I retract my previous tweet]]></title>
-    <link href="http://www.kurup.org/blog/2011/02/04/i-retract-my-previous-tweet"/>
+    <link href="https://www.kurup.org/blog/2011/02/04/i-retract-my-previous-tweet"/>
     <updated>2011-02-04T21:43:53-05:00</updated>
-    <id>http://www.kurup.org/blog/2011/02/04/i-retract-my-previous-tweet</id>
+    <id>https://www.kurup.org/blog/2011/02/04/i-retract-my-previous-tweet</id>
     <content type="html"><![CDATA[<p>I take it back. I was upset, OK? Never tweet when you're upset. I'm
 writing this blog post to make up for it. See, a whole blog post. That
 definitely outweighs a tweet, right?</p>

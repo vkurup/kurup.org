@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: bork | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/bork/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/bork/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Core Mac OS X and UNIX Programming]]></title>
-    <link href="http://www.kurup.org/blog/2003/07/02/core-mac-os-x-and-unix-programming"/>
+    <link href="https://www.kurup.org/blog/2003/07/02/core-mac-os-x-and-unix-programming"/>
     <updated>2003-07-02T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2003/07/02/core-mac-os-x-and-unix-programming</id>
+    <id>https://www.kurup.org/blog/2003/07/02/core-mac-os-x-and-unix-programming</id>
     <content type="html"><![CDATA[<p>Not only has <a href="http://badgertronics.com/blog">MarkD</a> produced a <a href="http://borkware.com/corebook/">book</a>, but he's made <a href="http://slashdot.org/article.pl?sid=03/07/01/1636204">SlashDot</a> as well. Guess it's about time to retire now...</p>
 
 <p>I'm going to get it eventually, but I'm still working my way through
@@ -28,9 +28,9 @@ X</a></p>
   
   <entry>
     <title type="html"><![CDATA[Bork!!!!]]></title>
-    <link href="http://www.kurup.org/blog/2002/08/03/bork"/>
+    <link href="https://www.kurup.org/blog/2002/08/03/bork"/>
     <updated>2002-08-03T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2002/08/03/bork</id>
+    <id>https://www.kurup.org/blog/2002/08/03/bork</id>
     <content type="html"><![CDATA[<p>I'm on the <a href="http://www.kurup.org/images/med-bork-team.jpg">Bork Team</a> - no relation to <a href="http://badgertronics.com/blog">Bork Log</a> or <a href="http://borkware.com">Borkware</a>, of course... :-)</p>
 ]]></content>
   </entry>

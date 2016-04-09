@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: math | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/math/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/math/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[On Factoring Large Numbers]]></title>
-    <link href="http://www.kurup.org/blog/2011/11/29/factoring-large-numbers"/>
+    <link href="https://www.kurup.org/blog/2011/11/29/factoring-large-numbers"/>
     <updated>2011-11-29T21:59:20-05:00</updated>
-    <id>http://www.kurup.org/blog/2011/11/29/factoring-large-numbers</id>
+    <id>https://www.kurup.org/blog/2011/11/29/factoring-large-numbers</id>
     <content type="html"><![CDATA[<p>I wonder how many of my blog posts are based on stories from <a href="http://www.thisamericanlife.org">This
 American Life</a>. Probably not
 enough. Every time I start to listen to a show, I'm certain that I'm

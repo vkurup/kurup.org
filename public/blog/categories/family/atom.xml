@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: family | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/family/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/family/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Peanut Allergy, a personal clinical review]]></title>
-    <link href="http://www.kurup.org/blog/2013/01/21/peanut-allergy-a-personal-clinical-review"/>
+    <link href="https://www.kurup.org/blog/2013/01/21/peanut-allergy-a-personal-clinical-review"/>
     <updated>2013-01-21T07:49:22-05:00</updated>
-    <id>http://www.kurup.org/blog/2013/01/21/peanut-allergy-a-personal-clinical-review</id>
+    <id>https://www.kurup.org/blog/2013/01/21/peanut-allergy-a-personal-clinical-review</id>
     <content type="html"><![CDATA[<h2>A Vignette</h2>
 
 <p>A 22-month-old previously healthy girl was brought to the emergency
@@ -166,9 +166,9 @@ this topic.</p>
   
   <entry>
     <title type="html"><![CDATA[Avik Arrives!]]></title>
-    <link href="http://www.kurup.org/blog/2012/09/04/avik-arrives"/>
+    <link href="https://www.kurup.org/blog/2012/09/04/avik-arrives"/>
     <updated>2012-09-04T08:30:25-04:00</updated>
-    <id>http://www.kurup.org/blog/2012/09/04/avik-arrives</id>
+    <id>https://www.kurup.org/blog/2012/09/04/avik-arrives</id>
     <content type="html"><![CDATA[<p>Anika, Kavi, Mala and I are so proud to announce the birth of healthy, happy baby boy!</p>
 
 <p>His name is Avik Puri Kurup and he was born at 11:01 PM on September
@@ -176,12 +176,12 @@ this topic.</p>
 
 <p>A few pics:</p>
 
-<p><img src="http://www.kurup.org/images/avik-1.jpg" width="1024" alt="Avik" /><br/>
-<img src="http://www.kurup.org/images/avik-2.jpg" width="768" height="1024" alt="Avik" /></p>
+<p><img src="https://www.kurup.org/images/avik-1.jpg" width="1024" alt="Avik" /><br/>
+<img src="https://www.kurup.org/images/avik-2.jpg" width="768" height="1024" alt="Avik" /></p>
 
 <p>And the obligatory pseudo-nostalgic photo:</p>
 
-<p><img src="http://www.kurup.org/images/avik-3.jpg" height="1024" width="768" alt="Avik" /></p>
+<p><img src="https://www.kurup.org/images/avik-3.jpg" height="1024" width="768" alt="Avik" /></p>
 
 <p>Mom and Baby are doing great! Thanks for all the well wishes and support!</p>
 ]]></content>
@@ -189,10 +189,10 @@ this topic.</p>
   
   <entry>
     <title type="html"><![CDATA[Surprise, I'm 40!]]></title>
-    <link href="http://www.kurup.org/blog/2011/09/06/surprise-im-40"/>
+    <link href="https://www.kurup.org/blog/2011/09/06/surprise-im-40"/>
     <updated>2011-09-06T14:01:22-04:00</updated>
-    <id>http://www.kurup.org/blog/2011/09/06/surprise-im-40</id>
-    <content type="html"><![CDATA[<p>{% img /images/vinod40-1.jpg Vinod is surprised %}</p>
+    <id>https://www.kurup.org/blog/2011/09/06/surprise-im-40</id>
+    <content type="html"><![CDATA[<p><img src="/images/vinod40-1.jpg" title="Vinod is surprised" ></p>
 
 <p>Have you ever been in one of those dreams where everything seems
 normal and then a flying car (or something equally crazy) comes out of
@@ -217,15 +217,15 @@ all my friends and family who could make it and to the ones who
 couldn't. If this is the culmination of 40 years on this earth, I
 can't wait for the next 40!</p>
 
-<p>{% img /images/vinod40-2.jpg Vinod is 40 %}</p>
+<p><img src="/images/vinod40-2.jpg" title="Vinod is 40" ></p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Daivame Kaithozham]]></title>
-    <link href="http://www.kurup.org/blog/2011/07/20/daivame"/>
+    <link href="https://www.kurup.org/blog/2011/07/20/daivame"/>
     <updated>2011-07-20T19:15:29-04:00</updated>
-    <id>http://www.kurup.org/blog/2011/07/20/daivame</id>
+    <id>https://www.kurup.org/blog/2011/07/20/daivame</id>
     <content type="html"><![CDATA[<p>Ever since I was a boy, I have been singing a song called 'Daivame
 Kaithozham', which is pronounced 'Dave-O-May Kie-Tho-Ram'. My parents
 taught it to me when I was about 5 years old, so I learned it by
@@ -286,9 +286,9 @@ force you believe in, I think it's a nice simple prayer.</p>
   
   <entry>
     <title type="html"><![CDATA[Boston with little kids]]></title>
-    <link href="http://www.kurup.org/blog/2011/06/30/boston-with-little-kids"/>
+    <link href="https://www.kurup.org/blog/2011/06/30/boston-with-little-kids"/>
     <updated>2011-06-30T11:50:22-04:00</updated>
-    <id>http://www.kurup.org/blog/2011/06/30/boston-with-little-kids</id>
+    <id>https://www.kurup.org/blog/2011/06/30/boston-with-little-kids</id>
     <content type="html"><![CDATA[<p>I'm sorry, but I just can't believe it's been almost 10 years since I
 left Boston. Mala had a meeting there and we love to take advantage of
 our employers' generosity <a href="Makes">^1</a>, so I TrippedIt <a href="Is">^2</a> back to Boston for

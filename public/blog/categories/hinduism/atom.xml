@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: hinduism | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/hinduism/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/hinduism/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Harinamakirtanam]]></title>
-    <link href="http://www.kurup.org/blog/2004/09/21/harinamakirtanam"/>
+    <link href="https://www.kurup.org/blog/2004/09/21/harinamakirtanam"/>
     <updated>2004-09-21T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2004/09/21/harinamakirtanam</id>
+    <id>https://www.kurup.org/blog/2004/09/21/harinamakirtanam</id>
     <content type="html"><![CDATA[<p>My Dad's <a href="http://www.hinduonnet.com/br/2004/09/14/stories/2004091400061200.htm">book got reviewed in the Hindu</a> (one of India's national newspapers).</p>
 ]]></content>
   </entry>

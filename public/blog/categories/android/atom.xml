@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: android | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/android/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/android/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[ClojureScript and PhoneGap]]></title>
-    <link href="http://www.kurup.org/blog/2011/11/12/clojurescript-and-phonegap"/>
+    <link href="https://www.kurup.org/blog/2011/11/12/clojurescript-and-phonegap"/>
     <updated>2011-11-12T21:39:34-05:00</updated>
-    <id>http://www.kurup.org/blog/2011/11/12/clojurescript-and-phonegap</id>
+    <id>https://www.kurup.org/blog/2011/11/12/clojurescript-and-phonegap</id>
     <content type="html"><![CDATA[<p><a href="http://phonegap.com">Phonegap</a> is a tool that allows you to develop
 apps in HTML5 + javascript and makes it easy to deploy them to
 multiple mobile platforms, including Android and iOS.</p>
@@ -120,31 +120,53 @@ prefix, the compiler would assume you meant a call in the local
 
 <p>Here's the HTML file (in <code>HelloPhoneGap/assets/www/</code>):</p>
 
-<p>{% codeblock lang:html %}
-&lt;!DOCTYPE HTML>
-<html>
-  <head></p>
-
-<pre><code>&lt;title&gt;BMI calculator&lt;/title&gt;
-&lt;script type="text/javascript" charset="utf-8" src="phonegap-1.0.0.js"&gt;&lt;/script&gt;
-&lt;script type="text/javascript" charset="utf-8" src="bmi.js"&gt;&lt;/script&gt;
-</code></pre>
-
-<p>  </head>
-  <body></p>
-
-<pre><code>&lt;h1&gt;BMI calculator&lt;/h1&gt;
-
-&lt;form&gt;
-  Height: &lt;input name="f" size="2"&gt; ft. &lt;input name="i" size="2"&gt; in. &lt;br&gt;
-  Weight: &lt;input name="l" size="2"&gt; lbs.&lt;br&gt;
-  &lt;input type="button" value="Calculate BMI" onclick="bmi.displaybmi(this.form)"&gt;
-&lt;/form&gt;
-</code></pre>
-
-<p>   </body>
-</html>
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="ni">&amp;lt;</span>!DOCTYPE HTML&gt;
+</span><span class='line'><span class="nt">&lt;html&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;head&gt;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;pre&gt;&lt;code&gt;</span><span class="ni">&amp;lt;</span>title<span class="ni">&amp;gt;</span>BMI calculator<span class="ni">&amp;lt;</span>/title<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="ni">&amp;lt;</span>script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot; src=&quot;phonegap-1.0.0.js&quot;<span class="ni">&amp;gt;&amp;lt;</span>/script<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="ni">&amp;lt;</span>script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot; src=&quot;bmi.js&quot;<span class="ni">&amp;gt;&amp;lt;</span>/script<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="nt">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;p&gt;</span>  <span class="nt">&lt;/head&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;body&gt;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;pre&gt;&lt;code&gt;</span><span class="ni">&amp;lt;</span>h1<span class="ni">&amp;gt;</span>BMI calculator<span class="ni">&amp;lt;</span>/h1<span class="ni">&amp;gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="ni">&amp;lt;</span>form<span class="ni">&amp;gt;</span>
+</span><span class='line'>  Height: <span class="ni">&amp;lt;</span>input name=&quot;f&quot; size=&quot;2&quot;<span class="ni">&amp;gt;</span> ft. <span class="ni">&amp;lt;</span>input name=&quot;i&quot; size=&quot;2&quot;<span class="ni">&amp;gt;</span> in. <span class="ni">&amp;lt;</span>br<span class="ni">&amp;gt;</span>
+</span><span class='line'>  Weight: <span class="ni">&amp;lt;</span>input name=&quot;l&quot; size=&quot;2&quot;<span class="ni">&amp;gt;</span> lbs.<span class="ni">&amp;lt;</span>br<span class="ni">&amp;gt;</span>
+</span><span class='line'>  <span class="ni">&amp;lt;</span>input type=&quot;button&quot; value=&quot;Calculate BMI&quot; onclick=&quot;bmi.displaybmi(this.form)&quot;<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="ni">&amp;lt;</span>/form<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="nt">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;p&gt;</span>   <span class="nt">&lt;/body&gt;</span>
+</span><span class='line'><span class="nt">&lt;/html&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>Now compile the CLJS and move the compiled JS file to
 <code>HelloPhoneGap/assets/www/</code></p>
@@ -162,7 +184,7 @@ production.</p>
 send it to the emulator (<code>C-c C-c i</code> in emacs). You should now have a
 simple BMI calculator working on Android.</p>
 
-<p>{% img /images/bmi.png BMI Android Screenshot %}</p>
+<p><img src="/images/bmi.png" title="BMI Android Screenshot" ></p>
 
 <h3>Next steps</h3>
 
@@ -178,9 +200,9 @@ provide.</p>
   
   <entry>
     <title type="html"><![CDATA[Doggcatcher]]></title>
-    <link href="http://www.kurup.org/blog/2011/05/23/doggcatcher"/>
+    <link href="https://www.kurup.org/blog/2011/05/23/doggcatcher"/>
     <updated>2011-05-23T21:51:46-04:00</updated>
-    <id>http://www.kurup.org/blog/2011/05/23/doggcatcher</id>
+    <id>https://www.kurup.org/blog/2011/05/23/doggcatcher</id>
     <content type="html"><![CDATA[<p>I talked yesterday about how I didn't like the Google Listen podcast
 client. I did a little Googling and found a nice solution (somewhat
 ironic, in an Alanis Morrissette kinda way):
@@ -202,9 +224,9 @@ right back at the same place that I left off when I quit.</p>
   
   <entry>
     <title type="html"><![CDATA[Google Listen doesn't rock]]></title>
-    <link href="http://www.kurup.org/blog/2011/05/22/google-listen-doesnt-rock"/>
+    <link href="https://www.kurup.org/blog/2011/05/22/google-listen-doesnt-rock"/>
     <updated>2011-05-22T20:51:03-04:00</updated>
-    <id>http://www.kurup.org/blog/2011/05/22/google-listen-doesnt-rock</id>
+    <id>https://www.kurup.org/blog/2011/05/22/google-listen-doesnt-rock</id>
     <content type="html"><![CDATA[<p>In the years I've been listening to podcasts, I've only found 2
 podcast clients that I've really liked: iTunes (back around 2005-2007)
 and a bash script that I wrote which simply copied files downloaded by
@@ -246,9 +268,9 @@ might take a while. Maybe this should be my first Android project?</p>
   
   <entry>
     <title type="html"><![CDATA[Android ResourcesNotFoundException]]></title>
-    <link href="http://www.kurup.org/blog/2011/05/16/android-resourcesnotfoundexception"/>
+    <link href="https://www.kurup.org/blog/2011/05/16/android-resourcesnotfoundexception"/>
     <updated>2011-05-16T20:44:12-04:00</updated>
-    <id>http://www.kurup.org/blog/2011/05/16/android-resourcesnotfoundexception</id>
+    <id>https://www.kurup.org/blog/2011/05/16/android-resourcesnotfoundexception</id>
     <content type="html"><![CDATA[<p>If you see this error:</p>
 
 <pre><code>E/AndroidRuntime(  457): android.content.res.Resources$NotFoundException:
@@ -264,10 +286,10 @@ clear the error.</p>
   
   <entry>
     <title type="html"><![CDATA[Learning Android Review]]></title>
-    <link href="http://www.kurup.org/blog/2011/05/08/learning-android-review"/>
+    <link href="https://www.kurup.org/blog/2011/05/08/learning-android-review"/>
     <updated>2011-05-08T22:10:19-04:00</updated>
-    <id>http://www.kurup.org/blog/2011/05/08/learning-android-review</id>
-    <content type="html"><![CDATA[<p><a href="http://amzn.to/m8SK61"><img class="inset right" src="http://www.kurup.org/images/learning-android.jpg" /></a></p>
+    <id>https://www.kurup.org/blog/2011/05/08/learning-android-review</id>
+    <content type="html"><![CDATA[<p><a href="http://amzn.to/m8SK61"><img class="inset right" src="https://www.kurup.org/images/learning-android.jpg" /></a></p>
 
 <p>I recently finished reading <a href="http://amzn.to/m8SK61">Learning
 Android</a>. I have a Droid X, Mala has a Droid

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: html | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/html/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/html/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[HTML5 Up and Running]]></title>
-    <link href="http://www.kurup.org/blog/2010/08/25/html5-up-and-running"/>
+    <link href="https://www.kurup.org/blog/2010/08/25/html5-up-and-running"/>
     <updated>2010-08-25T14:53:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2010/08/25/html5-up-and-running</id>
+    <id>https://www.kurup.org/blog/2010/08/25/html5-up-and-running</id>
     <content type="html"><![CDATA[<p>I preordered Mark Pilgrim's <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027">HTML5, Up and Running</a> from Amazon back in
 March. It's available for free as <a href="http://diveintohtml5.org/">Dive into
 HTML5</a>. I've been a fan of Mark's <a href="http://diveintomark.org">writing</a>

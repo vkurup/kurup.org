@@ -9,9 +9,8 @@
   <meta name="author" content="Vinod Kurup">
 
   
-  <meta name="description" content="I found out how to rotate video today. I often take video with my
-Canon SD870, but I mistakenly take it in portrait mode. I don&#8217;t
-realize this &hellip;">
+  <meta name="description" content="I used to be a primary care physician, but switched to being a hospitalist
+in 2007. I loved parts about being a PCP, namely the relationship that I &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +19,7 @@ realize this &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.kurup.org/blog/page/7/">
+  <link rel="canonical" href="https://www.kurup.org/blog/page/7/">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="/javascripts/ender.js"></script>
@@ -70,7 +69,7 @@ realize this &hellip;">
   
 </ul>
   
-<form action="http://google.com/search" method="get">
+<form action="https://google.com/search" method="get">
   <fieldset role="search">
     <input type="hidden" name="q" value="site:www.kurup.org" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
@@ -91,149 +90,6 @@ realize this &hellip;">
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/09/16/rotate-video">Rotating Videos</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-09-16T09:09:00-04:00" pubdate data-updated="true">Sep 16<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I found out how to rotate video today. I often take video with my
-Canon SD870, but I mistakenly take it in portrait mode. I don&#8217;t
-realize this until I&#8217;m editing the video and then I have to decide if
-I want to subject my adoring youtube fans to the torture of having to
-turn their heads sideways to see how cute Kavi and Anika are.</p>
-
-<p>I found <a href="http://www.hanselman.com/blog/HowToRotateAnAVIOrMPEGFileTakenInPortrait.aspx">this
-link</a>
-which gives the <code>mencoder</code> command to rotate the video. Unfortunately,
-it didn&#8217;t work with the AVI files that my Canon SD870 create. I think
-this camera creates slightly corrupt AVI files. I say &#8220;slightly&#8221;
-because they&#8217;re still viewable, but mplayer always reports the total
-time as &#8220;0:00&#8221;, even while the elapsed time marches along
-correctly. Well, today, I found a way to fix the AVI files.</p>
-
-<pre><code>mencoder -ovc copy -oac copy input.avi -o output.avi
-</code></pre>
-
-<p>This just creates a new AVI, copying the video and audio from the
-original. Now, mplayer reports the correct total time. Then, to rotate
-the video:</p>
-
-<pre><code>mencoder -ovc lavc -lavcopts vcodec=mjpeg -vf rotate=1 \
-         -oac copy output.avi -o rotated.avi
-</code></pre>
-
-<p>And here&#8217;s your reward for reading along:</p>
-
-<object width="480" height="385"><param name="movie"
-value="http://www.youtube.com/v/QIC21_XaAJ0?fs=1&amp;hl=en_US"></param><param
-name="allowFullScreen" value="true"></param><param
-name="allowscriptaccess" value="always"></param><embed
-src="http://www.youtube.com/v/QIC21_XaAJ0?fs=1&amp;hl=en_US"
-type="application/x-shockwave-flash" allowscriptaccess="always"
-allowfullscreen="true" width="480" height="385"></embed></object>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/08/25/html5-up-and-running">HTML5 Up and Running</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-08-25T14:53:00-04:00" pubdate data-updated="true">Aug 25<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I preordered Mark Pilgrim&#8217;s <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027">HTML5, Up and Running</a> from Amazon back in
-March. It&#8217;s available for free as <a href="http://diveintohtml5.org/">Dive into
-HTML5</a>. I&#8217;ve been a fan of Mark&#8217;s <a href="http://diveintomark.org">writing</a>
-for a while, so buying the book was a way to thank him &#8220;with a
-buck&#8221;. Interestingly, the online book and paper book are not
-identical. For starters, the titles are different. In addition, the
-beautiful fonts and cutesy images of the online version are gone. The
-paper book is your run-of-the-mill O&#8217;Reilly book. I&#8217;m not sure if
-it&#8217;ll make much of a difference in my enjoyment, but we&#8217;ll see.</p>
-
-<p>As I said, I preordered the book in March, so I had no idea when it
-would be finished and delivered. It showed up on my doorstep this
-morning, on my birthday! We&#8217;re on our way to NYC tomorrow for our
-first trip back there since we moved to North Carolina in 2007, so I
-know have some light pleasure reading. Perfect Timing!</p>
-
-<p>I&#8217;ve only read the first chapter so far, but I think I&#8217;m going to love
-it. I&#8217;ve done a lot of web programming in my life, but only maintain
-my own sites now. I&#8217;m reading this book like a programmer might read a
-book on astronomy&#8230; purely for the love of it. The first chapter goes
-into the details of how the <code>IMG</code> tag was invented. Marc Andreessen
-mentioned it on a mailing list back in 1993, and after some back and
-forth, shipped it in Mosaic, an early browser. Because it shipped and
-because it was popular, it got included in the HTML standards.</p>
-
-<p>I still remember when Mosaic came out. I got my first email address in
-1992 (vkurup@macc.wisc.edu) and somehow was on a mailing list
-announcing the impending release of Mosaic. I remember the text of the
-email basically saying that &#8220;This will change the world.&#8221; Once I saw
-it, I thought it was cool, but way over-hyped. Who is going to want to
-wait for pictures to download over a 14.4K modem? Ridiculous. This is
-why you should not take my advice about new trends.</p>
-
-<p>Anyway, the point of the <code>IMG</code> example is to show that HTML standards
-have never been &#8220;pure&#8221;, but have always been influenced by the
-implementers and the users of the web. The way it should be. HTML5 is
-an acknowledgment of that fact.</p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -925,6 +781,174 @@ has pointed to me to a few options. I&#8217;ll probably read one of these next:<
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/07/17/getting-some-clojure">Getting Some Clojure</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-07-17T19:55:00-04:00" pubdate data-updated="true">Jul 17<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Steve Yegge is one of my favorite bloggers. I read <a href="http://sites.google.com/site/steveyegge2/you-should-write-blogs">&#8220;You Should Write
+Blogs&#8221;</a> a
+long time ago and it is one of the main reasons that I still try to keep
+this blog going at all. He recently took a blogging hiatus and in his
+<a href="http://steve-yegge.blogspot.com/2010/07/blogger-finger.html">return post</a>,
+he left a little hint that he was interested in a programming language
+called <a href="http://clojure.org">clojure</a>.</p>
+
+<p>My programming skills have been rusting away (Darn those patients, always
+getting sick and stuff!), so I&#8217;ve been looking for a little
+inspiration. I&#8217;m hoping that clojure is it. I&#8217;ve always wanted to learn
+lisp. I know a little elisp and scheme, but I&#8217;ve never gotten comfortable
+with them. Clojure compiles code that runs on a JVM (java virtual
+machine). This gives you a lot of the &#8220;power&#8221; of java, namely the extensive
+libraries and the widespread platforms on which it will run. But instead of
+having to write java, you get to write in a dynamic, lisp-like language. At
+least that&#8217;s how I understand it.</p>
+
+<p>Specifically, I hope that I&#8217;ll eventually be able to create applications
+that run on android phones, which is a java environment. Smartphones are
+clearly going to be a huge part of the future, if not <strong>the way</strong> of the
+future. I don&#8217;t see myself ever buying an iPhone and Mala already has a
+Droid Eris that I&#8217;d be able to play with if I needed. (Didn&#8217;t tell you
+that, did I Mala?) So&#8230; Android it is.</p>
+
+<p>Starting today, I&#8217;m going to start reading about clojure and taking notes
+(and maybe even posting them!). I&#8217;ve never been very good about taking
+notes, ever in my life. But, I clearly <a href="http://sachachua.com/blog/2010/03/how-to-brain-dump-what-you-know/">need to learn</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/07/16/inotify">Inotify</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-07-16T21:01:00-04:00" pubdate data-updated="true">Jul 16<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://inotify.aiken.cz/">incron</a> seems to be a pretty neat tool. It&#8217;s
+cron-for-file-activities. <a href="http://en.wikipedia.org/wiki/Cron">Cron</a> is a
+common unix tool that allows you to run any command at a specified
+time. It&#8217;s immensely useful for running anything that you want to occur on
+a regular basis: backups, daily reminder emails, downloading podcasts,
+etc. If you&#8217;ve used unix to any significant extent, you&#8217;ve used cron.</p>
+
+<p>incron takes that cron metaphor and applies it to file activity. You
+specify which files you want to watch, and then you specify which activities
+you are interested in. If incron notices any of those activities occurring
+on your files, it launches the command that you specified. Activities could
+include creating a new file, modifying a file, accessing a file, among
+multiple other possibilities. incron takes advantage of the inotify system
+built into recent linux kernels, which supposedly is more efficient than
+previous ways of doing this same thing.</p>
+
+<p>incron seemed to be just what I wanted. I wanted to watch a specific
+directory and launch a tool to rebuild my website if any of those files
+changed. The problem is that incron doesn&#8217;t work recursively on
+directories. You have to specify each directory, the activities on that
+directory, and the command to launch. If you create new directories, you
+have to tell incron about them specifically. This ruins the benefit of the
+tool for me. It seems the developer has been planning to implement
+recursive watching for the past 4 years ago, but hasn&#8217;t done it yet. If it
+hasn&#8217;t happened in 4 years, it&#8217;s probably not going to happen soon.</p>
+
+<p>But, I found a perfectly usable way to get what I
+want. <a href="http://wiki.github.com/rvoicilas/inotify-tools/">inotify-tools</a>
+includes a program called <code>inotifywait</code>. It takes a file or directory name
+and listens for specific activities that you are interested in. It
+basically waits until it sees one of those activities and then returns
+control back to you. So, you can something like (pseudocode):</p>
+
+<pre><code>while (inotifywait /home/vinod/web/kurup.org):
+    # triggered
+    rebuild my server
+</code></pre>
+
+<p><code>inotifywait</code> waits for my activities. If it finds one, it returns TRUE and
+my server gets rebuilt, and then the while loop restarts. Best of all,
+<code>inotifywait</code> can work recursively on a directory. Which brings me to my
+<code>watch-rebuild.sh</code> script which watches my web source files for changes,
+and rebuilds the web generated files on demand. It also pops up a little
+GNOME notification using <code>notify-send</code>:</p>
+
+<p>$$code(lang=bash)</p>
+
+<pre><code>#!/bin/bash
+
+BLOGOFILE='/usr/local/bin/blogofile'
+BLOGDIR='/home/vinod/web/kurup.org'
+
+# requires libnotify-bin for notify-osd notification
+# requires inotify-tools
+while LINE=$(inotifywait -rq --timefmt '%F %R' --format '%T %e %f' \
+      -e close_write -e move -e delete "$BLOGDIR");
+do
+        echo -n "Rebuilding $LINE ..."
+        $BLOGOFILE -s $BLOGDIR build
+        echo "done"
+        notify-send -u low "Rebuild Done" "Watching again"
+done
+</code></pre>
+
+<p>$$/code</p>
+
+<p><code>-r</code> = recursive<br/>
+<code>-q</code> = be quiet<br/>
+<code>--timefmt</code> &amp; <code>--format</code> = what we want to display on the command line<br/>
+<code>-e</code> = each of the individual events that we are interested in</p>
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/8/">&larr; Older</a>
@@ -1086,7 +1110,7 @@ has pointed to me to a few options. I&#8217;ll probably read one of these next:<
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      dsq.src = 'https://' + disqus_shortname + '.disqus.com/' + disqus_script;
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
 </script>
@@ -1102,7 +1126,7 @@ has pointed to me to a few options. I&#8217;ll probably read one of these next:<
       var twitterWidgets = document.createElement('script');
       twitterWidgets.type = 'text/javascript';
       twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
       document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
     })();
   </script>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: darwinports | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/darwinports/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/darwinports/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,18 +15,18 @@
   
   <entry>
     <title type="html"><![CDATA[OpenACS via Darwinports]]></title>
-    <link href="http://www.kurup.org/blog/2005/08/03/openacs-via-darwinports"/>
+    <link href="https://www.kurup.org/blog/2005/08/03/openacs-via-darwinports"/>
     <updated>2005-08-03T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2005/08/03/openacs-via-darwinports</id>
+    <id>https://www.kurup.org/blog/2005/08/03/openacs-via-darwinports</id>
     <content type="html"><![CDATA[<p>I've <a href="http://kurup.org/blog/2004/03/08/darwinports">mentioned Darwinports before</a>. I've finally gotten around to (minimally) documenting my <a href="http://kurup.org/blog/2004/01/10/openacs-darwinports">Darwinports OpenACS installation</a>. It's not quite 1-click installation, but it's getting closer.</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[darwinports]]></title>
-    <link href="http://www.kurup.org/blog/2004/03/08/darwinports"/>
+    <link href="https://www.kurup.org/blog/2004/03/08/darwinports"/>
     <updated>2004-03-08T00:00:00-05:00</updated>
-    <id>http://www.kurup.org/blog/2004/03/08/darwinports</id>
+    <id>https://www.kurup.org/blog/2004/03/08/darwinports</id>
     <content type="html"><![CDATA[<p>In the process of installing Panther from scratch, I decided to use <a href="http://darwinports.opendarwin.org/">DarwinPorts</a>. It's a packaging system for the abundant UNIX <a href="http://www.fsf.org/">free software</a> available on Mac OS X. I had previously used <a href="http://fink.sf.net">Fink</a> which, while being an admirable project, seemed a little opaque to me. I never quite knew where data was being installed and which locations were being searched to see if prerequisites were present. Darwinports seems to be a little better at finding programs/libraries that are already installed. I freely admit my ignorance in this matter, though. It may simply be that I understand Darwinports better than I did Fink, but that, in itself is an important criteria.</p>
 
 <p>Here are the ports that I currently have installed:</p>

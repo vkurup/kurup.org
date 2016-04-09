@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: running | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/running/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/running/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Getting through the start of a run]]></title>
-    <link href="http://www.kurup.org/blog/2011/08/11/getting-through-the-start-of-a-run"/>
+    <link href="https://www.kurup.org/blog/2011/08/11/getting-through-the-start-of-a-run"/>
     <updated>2011-08-11T12:06:06-04:00</updated>
-    <id>http://www.kurup.org/blog/2011/08/11/getting-through-the-start-of-a-run</id>
+    <id>https://www.kurup.org/blog/2011/08/11/getting-through-the-start-of-a-run</id>
     <content type="html"><![CDATA[<p>I love running. Wait, that's a lie. I love running after I've finished
 my run. I also love it during those periods where I get my runner's
 high, usually around the 30 minute mark, but often it happens multiple
@@ -73,8 +73,8 @@ consider it my meditation practice, since I suck at real
 meditation. Finally, it's a safety issue. When running in the woods,
 you never know what kind of creature will attack:</p>
 
-<p>{% img /images/deer.jpg Deer %}
-{% img /images/turtle.jpg Turtle %}</p>
+<p><img src="/images/deer.jpg" title="Deer" >
+<img src="/images/turtle.jpg" title="Turtle" ></p>
 
 <p>Take my advice for what it's worth... running advice from a part-time
 runner who is slower than molasses. I'd love to hear any other running
@@ -84,19 +84,15 @@ tricks you have!</p>
   
   <entry>
     <title type="html"><![CDATA[Running as a metaphor for life]]></title>
-    <link href="http://www.kurup.org/blog/2011/08/09/running-as-a-metaphor-for-life"/>
+    <link href="https://www.kurup.org/blog/2011/08/09/running-as-a-metaphor-for-life"/>
     <updated>2011-08-09T20:41:02-04:00</updated>
-    <id>http://www.kurup.org/blog/2011/08/09/running-as-a-metaphor-for-life</id>
+    <id>https://www.kurup.org/blog/2011/08/09/running-as-a-metaphor-for-life</id>
     <content type="html"><![CDATA[<p>I was thinking the other day, on a run, of course, about the many ways
 that running is a metaphor for life. I've <a href="/blog/2003/10/28/the-wall-is-not-a-myth/">discussed some of this
 before with my cousins Dilu and
 Harish</a> before.</p>
 
-<p>{% blockquote Robert Frost http://en.wikipedia.org/wiki/The_Road_Not_Taken_(poem) %}
-... two roads diverged in a wood, and I --
-I took the one less traveled by,
-And that has made all the difference.
-{% endblockquote %}</p>
+<p><blockquote><p>... two roads diverged in a wood, and I --<br/>I took the one less traveled by,<br/>And that has made all the difference.</p><footer><strong>Robert Frost</strong> <cite><a href='http://en.wikipedia.org/wiki/The_Road_Not_Taken_(poem)'>en.wikipedia.org/wiki/&hellip;</a></cite></footer></blockquote></p>
 
 <p>While trail running, I have come to the realization that you never
 have to worry about the fork in the road, nor the decision associated
@@ -151,9 +147,9 @@ fails, accept that maybe you'll do better next time.</p>
   
   <entry>
     <title type="html"><![CDATA[Philosopher's Way Trail Run]]></title>
-    <link href="http://www.kurup.org/blog/2011/05/07/philosophers-way-trail-run"/>
+    <link href="https://www.kurup.org/blog/2011/05/07/philosophers-way-trail-run"/>
     <updated>2011-05-07T20:44:27-04:00</updated>
-    <id>http://www.kurup.org/blog/2011/05/07/philosophers-way-trail-run</id>
+    <id>https://www.kurup.org/blog/2011/05/07/philosophers-way-trail-run</id>
     <content type="html"><![CDATA[<p>I ran the 15K <a href="http://www.trailheads.org/pwtr/">Philosopher's Way Trail
 Run</a> today. It's on the eastern end
 of Carolina North Forest. I've been running a lot on the western end
@@ -193,9 +189,9 @@ so <a href="http://www.dailymile.com/people/vkurup">follow me</a> there!</p>
   
   <entry>
     <title type="html"><![CDATA[Time is the most powerful force in the universe]]></title>
-    <link href="http://www.kurup.org/blog/2011/02/21/time-is-the-most-powerful-force-in-the-universe"/>
+    <link href="https://www.kurup.org/blog/2011/02/21/time-is-the-most-powerful-force-in-the-universe"/>
     <updated>2011-02-21T14:23:43-05:00</updated>
-    <id>http://www.kurup.org/blog/2011/02/21/time-is-the-most-powerful-force-in-the-universe</id>
+    <id>https://www.kurup.org/blog/2011/02/21/time-is-the-most-powerful-force-in-the-universe</id>
     <content type="html"><![CDATA[<p>Thanks to Mala's inspiration, I've been running a lot more over the
 past month. Whenever I get into a good running rhythm, my mind starts
 to relax and I occasionally get bright ideas (believe it or
@@ -311,9 +307,9 @@ meaningful things is <strong>never</strong> a waste.</li>
   
   <entry>
     <title type="html"><![CDATA[Found the Carolina North trail]]></title>
-    <link href="http://www.kurup.org/blog/2009/10/09/found-the-carolina-north-trail"/>
+    <link href="https://www.kurup.org/blog/2009/10/09/found-the-carolina-north-trail"/>
     <updated>2009-10-09T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2009/10/09/found-the-carolina-north-trail</id>
+    <id>https://www.kurup.org/blog/2009/10/09/found-the-carolina-north-trail</id>
     <content type="html"><![CDATA[<p>When Mala and I started looking for homes, we listed on a yellow notepad
 all the things that were important to us. Like most little notes in my
 life, it got lost. I found it a few days after we moved into our home and

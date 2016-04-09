@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: ipod | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/ipod/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/ipod/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Google Zeitgeist]]></title>
-    <link href="http://www.kurup.org/blog/2005/12/20/google-zeitgeist"/>
+    <link href="https://www.kurup.org/blog/2005/12/20/google-zeitgeist"/>
     <updated>2005-12-20T00:00:00-05:00</updated>
-    <id>http://www.kurup.org/blog/2005/12/20/google-zeitgeist</id>
+    <id>https://www.kurup.org/blog/2005/12/20/google-zeitgeist</id>
     <content type="html"><![CDATA[<p>Every year, Google does an analysis of search queries over the past year. They call it the <a href="http://www.google.com/press/zeitgeist2005.html">Google Zeitgeist</a>. It's interesting to see how 'what we search for' is a very accurate historical record of our times. The Apple iPod takes up 4 of the top 10 searches on <a href="http://www.froogle.com">Froogle, Google's consumer search engine</a>.</p>
 
 <p>If you liked Zeitgeist, you can monitor <a href="http://www.google.com/intl/en/press/zeitgeist.html">weekly updates</a>.</p>
@@ -26,9 +26,9 @@
   
   <entry>
     <title type="html"><![CDATA[R.I.P.]]></title>
-    <link href="http://www.kurup.org/blog/2002/09/22/rip"/>
+    <link href="https://www.kurup.org/blog/2002/09/22/rip"/>
     <updated>2002-09-22T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2002/09/22/rip</id>
+    <id>https://www.kurup.org/blog/2002/09/22/rip</id>
     <content type="html"><![CDATA[<p>Bad news! My Powerbook G3 went kaput yesterday. After a day or so of
 troubleshooting, I'm blaming it on a dead Power Management Unit. I
 bought it used in 1999 and have been using it <em>heavily</em> since. It's

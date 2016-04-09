@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: medicine | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/medicine/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/medicine/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Peanut Allergy, a personal clinical review]]></title>
-    <link href="http://www.kurup.org/blog/2013/01/21/peanut-allergy-a-personal-clinical-review"/>
+    <link href="https://www.kurup.org/blog/2013/01/21/peanut-allergy-a-personal-clinical-review"/>
     <updated>2013-01-21T07:49:22-05:00</updated>
-    <id>http://www.kurup.org/blog/2013/01/21/peanut-allergy-a-personal-clinical-review</id>
+    <id>https://www.kurup.org/blog/2013/01/21/peanut-allergy-a-personal-clinical-review</id>
     <content type="html"><![CDATA[<h2>A Vignette</h2>
 
 <p>A 22-month-old previously healthy girl was brought to the emergency
@@ -165,180 +165,10 @@ this topic.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Hospitalist Heaven]]></title>
-    <link href="http://www.kurup.org/blog/2011/08/17/hospitalist-heaven"/>
-    <updated>2011-08-17T21:41:09-04:00</updated>
-    <id>http://www.kurup.org/blog/2011/08/17/hospitalist-heaven</id>
-    <content type="html"><![CDATA[<p>Whenever things get too busy in the hospital, morale drops. I
-<a href="/blog/2011/08/06/when-i-get-too-busy">complained about that</a> a little
-while ago. Now I have a little good news to report. Administration has
-been planning to add another line to the schedule because of the
-increased volume. They asked a few of the hospitalists (I wasn't
-involved) to come together to figure out the best way to use that
-additional line. Instead of just adding another rounder or another
-admitter, we're going to have a flex-admitter. Yeah, they just made
-that word up. The flex-admitter will be scheduled to work from 7AM to
-4PM doing just admissions and holding the painful 9050 pager. (That's
-the pager that gets all the calls from the ER, consults, and outside
-hospitals). At 3PM, the flex-admitter hands over the 9050 pager to the
-evening admitter, and ties up loose ends in order to be able to get
-out by 4 (as long as it's not too busy). They then come in the next
-day and start their rounding shifts, which means that they get to keep
-taking care of the patients they just admitted. Yay for continuity!</p>
-
-<p>The flex part comes in when it gets busy. Right now, when it gets
-busy, we don't have a lot of options. We try to find people to come in
-on their off-days, or find moonlighters, but that is difficult and
-expensive. Now, if the census rises above a certain number
-(tentatively 15 patients per doc), then the flex-admitter will
-automatically switch from an admitter to a rounder. They'll still come
-in at 7AM, but will be assigned 10 patients and will be responsible
-for the 9050 pager until noon. After that, they can focus on rounding
-on their patients with a goal of getting out by 7PM. This is similar
-to how our Day 1 currently functions, so it's doable. They've also
-recommended changes in the way the 9050 pager is handed off, so the
-overnight person holds the 9050 pager for a shorter period of
-time. It's key to make our night shifts more palatable so we can hold
-on to our valuable nocturnist and hopefully hire a few more.</p>
-
-<p>We'll have to see how this works in practice, but I see this change as
-improving continuity, making night shifts better, making the first day
-shift better, and making our responsiveness to high census better, all
-of which should help overall morale. I love that the decision-making
-power for these changes was given to hospitalists in the trenches,
-rather than made from above by administration.</p>
-
-<p>We're hiring hospitalists, nocturnists and PA's, so if you're
-interested in working with super-intelligent docs (and me), in a
-<a href="http://www.durhamregional.org">great community hospital</a> where you
-can actually make changes in the way healthcare is delivered, while
-having the backing of an academic giant (Duke) in the background,
-contact me and I'll put you in touch with the people in charge.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[When I Get Too Busy]]></title>
-    <link href="http://www.kurup.org/blog/2011/08/06/when-i-get-too-busy"/>
-    <updated>2011-08-06T19:48:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2011/08/06/when-i-get-too-busy</id>
-    <content type="html"><![CDATA[<p>I've been writing a lot lately (<a href="http://750words.com">750 words a day</a>
-for the last 85 days, to be precise), but most of it is for my own
-purposes. I want to be a better writer and I know that writing every
-day is the first step in that process. Sharing that writing with the
-world is also important, but that's a lot scarier to me. I'm trying to
-let go of my inhibitions knowing that my 3 readers will not judge me
-harshly, but it's still difficult. Today I'm sharing something that I
-wrote a while back...</p>
-
-<hr />
-
-<p>Work was rough today. It is so hard to walk into a census of 18
-patients on Day 1 and feel like you are doing any good. Near the end
-of the day, I'm just going through the motions and not really properly
-diagnosing or listening to patients. That's not quite true. I always
-try to listen. It is the one thing that I do well. I can listen and
-hear things that other people never hear. I am pretty good at
-understanding what someone is really concerned about. Sometimes I
-don't want to know. Like the drug abuser who is concerned that she
-isn't getting enough pain meds, but presents it as a failing of the
-nurses or the doctors who have taken care of her before. I know what
-she wants, but I don't want to give it to her and if she's not even
-going to be honest about it, then I'm not going to go digging to try
-to figure it out. But overall, I am good at listening.</p>
-
-<p>I lose other skills on days like today. I don't think as much. I don't
-try to figure out why the patient with improving foot wounds and
-improving peri-rectal abscesses has a rising white count. Something
-else is going on, but I haven't figured it out. So I end up falling
-back on the plan that the previous providers put into place, without
-really taking the time to investigate what might be going on.</p>
-
-<p>I lose the skill of diligence. When I come in on day 1 and have 12
-patients, I take the time to investigate and document each of their
-active diagnoses and I at least pay lip service to the nonactive
-ones. I make sure that I've addressed commonly overlooked items like
-DVT prophylaxis, code status, smoking cessation, PQRI measures and
-living situation. They are easy to overlook because they don't present
-themselves as active problems in most cases (i.e. code status) or they
-are handled by other services (like nursing or pharmacy), so I feel
-like I can drop the ball on them and know that they will be
-addressed. But when things aren't busy, I take the time to cross each
-T and dot each I. I definitely don't do that when I walk into 18
-patients.</p>
-
-<p>It's at times like this that I realize what a failing I am as a
-doctor. The doctors that I looked up to in medical school and
-residency would never accept what I do now. They would never leave the
-hospital just because it was getting late and they wanted to see their
-family. They would stay late and sacrifice in order to make sure that
-everything was done. I can honestly say that I don't think I'm putting
-patients in harm's way by practicing the way I do, but I know I could
-do better. I just know if I did better, I would not be able to keep
-working this job. I feel burned out as it is, and more time away from
-my family would just make that so much less bearable.</p>
-
-<p>On the flip side, I know that I do many good things that other
-hospitalists don't do well. I keep track of how patients do after I
-discharge them. When I'm feeling really energetic, I contact them, but
-at a minimum, I add them to a list in eBrowser so that I can keep
-track of how they do. I also relish spending time with patients and
-families. It's without question my favorite part of the job. I try my
-best not to let my stress level shine through when I'm with
-patients. I make a point of slowing down and talking in a
-conversational tone and language, even on the busiest days. I don't
-answer my phone or respond to pages once I've started talking with a
-patient unless it is clearly an emergency. And if I do leave, then I
-apologize. I encourage patients to ask questions and contact me
-whenever they have questions, though I encourage them to write their
-questions down and consolidate family questions for efficiency
-purposes. But if a new family member comes in after I've talked to
-everyone else and they have questions, I try to come back and talk to
-them. I know that this particular situation annoys the heck out of
-physicians, but I can understand how it happens in the real world, so
-I try to accomodate. I have a good sense of sick and not-sick, even if
-I'm not the most skilled diagnostician. I also have a good sense of
-what to expect in a given situation. I think those are things born of
-experience and it allows me to take care of patients better. I guess
-I'm saying all this to make myself feel better. To tell anyone reading
-this that I'm not really a slacker. Which means I'm being defensive,
-which tells me that I shouldn't have to be defensive. I should just be
-doing what I'm supposed to be doing so that I don't have to make
-excuses for myself. OK, fine. Let's address the diligency part. What
-are the things that I should be addressing in every patient that is in
-the hospital?</p>
-
-<hr />
-
-<p>Here is a checklist that I started using in all my patients after
-writing that little rant. It's helped me focus on the little things
-and more than a couple colleagues have started to use something
-similar after seeing mine.</p>
-
-<ul>
-<li>PCP</li>
-<li>Disposition: Home/HH/ALF/SNF/DRI, estimated LOS</li>
-<li>DVT prophylaxis</li>
-<li>Smoking</li>
-<li>PQRI: CHF/MI/Pneumonia/Stroke</li>
-<li>Primary family contact: Contacted today?</li>
-<li>Code status</li>
-<li>Goals of care</li>
-<li>Tubes/lines: What's installed, how do the sites look?</li>
-<li>Bowels: Last moved?</li>
-<li>Activity: Can they walk?</li>
-<li>Reviewed meds?</li>
-<li>Pending labs?</li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
     <title type="html"><![CDATA[SHM 2011]]></title>
-    <link href="http://www.kurup.org/blog/2011/05/13/shm-2011"/>
+    <link href="https://www.kurup.org/blog/2011/05/13/shm-2011"/>
     <updated>2011-05-13T05:35:21-04:00</updated>
-    <id>http://www.kurup.org/blog/2011/05/13/shm-2011</id>
+    <id>https://www.kurup.org/blog/2011/05/13/shm-2011</id>
     <content type="html"><![CDATA[<p>Here are some (unorganized) thoughts about my experience at the
 Society of Hospital Medicine (SHM) 2011 conference in Dallas, TX.</p>
 
@@ -543,9 +373,9 @@ You lie!</p>
   
   <entry>
     <title type="html"><![CDATA[Medical Student Oral Presentations]]></title>
-    <link href="http://www.kurup.org/blog/2011/02/18/medical-student-oral-presentations"/>
+    <link href="https://www.kurup.org/blog/2011/02/18/medical-student-oral-presentations"/>
     <updated>2011-02-18T14:57:09-05:00</updated>
-    <id>http://www.kurup.org/blog/2011/02/18/medical-student-oral-presentations</id>
+    <id>https://www.kurup.org/blog/2011/02/18/medical-student-oral-presentations</id>
     <content type="html"><![CDATA[<p>I enjoyed
 <a href="http://twitter.com/FutureDocs/status/38428516961751040">@FutureDocs</a>'
 <a href="http://futuredocsblog.com/2010/10/20/preparing-for-attending-rounds-some-things-don%E2%80%99t-change/">guide to medical student oral
@@ -690,6 +520,88 @@ how patient is doing today.</p>
 <blockquote><p>Problem 1: aspiration pneumonia, she's on D3 of Zosyn and we will continue to followup cultures. Overall she seems improved, but we'll have to continue to monitor her mental status and oxygenation for further improvement. Problem 2: Altered mental status: This is almost certainly due to her pneumonia, but if it does not improve by tomorrow, we may consider other etiologies. At that point, repeat labs, EKG, and head CT may be indicated.  ... Problem 53: Disposition ...</p></blockquote>
 
 <p>Be prepared to answer questions if you have been appropiately brief!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Dr. Watson]]></title>
+    <link href="https://www.kurup.org/blog/2011/02/17/dr.-watson"/>
+    <updated>2011-02-17T19:18:18-05:00</updated>
+    <id>https://www.kurup.org/blog/2011/02/17/dr.-watson</id>
+    <content type="html"><![CDATA[<p>All I could think of while watching the news about the supercomputer
+<a href="http://www-943.ibm.com/innovation/us/watson/">Watson</a> beating humans
+at Jeopardy was how this could be used in medicine. Looks like <a href="http://www.scientificamerican.com/blog/post.cfm?id=paging-dr-watson-ibm-to-apply-jeopa-2011-02-17">I'm
+not
+alone</a>.</p>
+
+<p>Time to start looking for a new job?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Aspirin for everyone]]></title>
+    <link href="https://www.kurup.org/blog/2011/02/16/aspirin-for-everyone"/>
+    <updated>2011-02-16T21:17:23-05:00</updated>
+    <id>https://www.kurup.org/blog/2011/02/16/aspirin-for-everyone</id>
+    <content type="html"><![CDATA[<p>Aspirin is one of those wonder drugs - simple, cheap and effective
+versus so many deadly diseases. We know that aspirin prevents heart
+attacks and strokes, especially if you've had one before. There is
+also some data that it prevents colon cancers, but it was thought that
+this effect was only seen when using high doses of aspirin. The
+downside of aspirin is that it increases your risk of bleeding,
+especially gastrointestinal bleeding (usually from stomach
+ulcers). Using <em>high</em> doses of aspirin tends to increase the bleeding
+risk so much that it offsets any benefits.</p>
+
+<p>When someone has had a stroke or heart attack, using aspirin is a
+no-brainer (<a href="http://en.wikipedia.org/wiki/Coronary_artery_disease#Secondary_prevention">secondary
+prevention</a>). The
+question is when to start aspirin in patients who have never had a bad
+event (<a href="http://www.enotes.com/public-health-encyclopedia/primary-prevention">primary
+prevention</a>). We
+used to be much more liberal about recommending aspirin for primary
+prevention, but there haven't been many studies which have supported
+the practice. The current guidelines state to consider starting
+aspirin for primary prevention in men at age 45 and women at age 55,
+if their risk of vascular disease outweighs their risk of
+gastrointestinal bleeding. That's a wishy-washy way of saying "Leave
+it up to your gut." (No pun intended)</p>
+
+<p>I decided to write about this because I saw a recent <a href="http://www.ncbi.nlm.nih.gov/pubmed/21144578?dopt=Abstract">study showing
+decreased deaths from cancer in aspirin
+users</a>,
+even at <strong>low</strong> doses. Overall cancer rates were 20% lower and
+gastrointestinal cancer rates were 35% lower than in people who didn't
+use aspirin. These data come from 2 meta-analyses of retrospective
+studies, which tend to be a relatively weak type of study. Prospective
+studies are much better, but these numbers strike me as significant.</p>
+
+<p>Given this new data, I would strongly favor using aspirin in most
+people once they hit those age cutoffs (45 &amp; 55), which for me is
+pretty soon. Calculate your <a href="http://hp2010.nhlbihin.net/atpiii/calculator.asp">cardiovascular
+risk</a>. If your risk
+is any more than 10% or so, I would recommend taking an aspirin daily,
+possibly even if it's lower. The reasons that I would recommend not
+taking an aspirin are if you have frequent stomach ulcers, previous
+severe bleeding, or if you're taking blood thinners or high doses of
+NSAIDs (ibuprofen, naproxen). Here's a nice <a href="http://www.ahrq.gov/clinic/cvd/aspprovider.htm">fact
+sheet</a> that summarizes
+what I've just rambled about (Wish I had seen that before I wrote all
+this!)</p>
+
+<p>Disclaimer: Don't take medical advice from the internet. Show this to
+your doctor so they can tell you what a quack I am.</p>
+
+<p>References:</p>
+
+<ul>
+<li><a href="http://general-medicine.jwatch.org/cgi/content/full/2011/113/2">Journal Watch
+reference</a></li>
+<li><a href="http://guidelines.gov/content.aspx?id=14243#Section420">USPSTF Aspirin guideline</a></li>
+<li><a href="http://circ.ahajournals.org/cgi/content/full/121/24/2694">2010 AHA revision of their Aspirin
+guideline</a></li>
+</ul>
+
 ]]></content>
   </entry>
   

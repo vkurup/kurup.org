@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: book-review | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/book-review/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/book-review/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Thoughts on Free Will]]></title>
-    <link href="http://www.kurup.org/blog/2012/08/21/thoughts-on-free-will"/>
+    <link href="https://www.kurup.org/blog/2012/08/21/thoughts-on-free-will"/>
     <updated>2012-08-21T12:01:25-04:00</updated>
-    <id>http://www.kurup.org/blog/2012/08/21/thoughts-on-free-will</id>
+    <id>https://www.kurup.org/blog/2012/08/21/thoughts-on-free-will</id>
     <content type="html"><![CDATA[<p>Time for some pop philosophy. I've never thought too deeply about the
 concept of free will. Of course we have free will! I chose to live my
 life a certain way. I could choose to live a different way. It is my
@@ -121,12 +121,12 @@ I highly recommend it.</p>
   
   <entry>
     <title type="html"><![CDATA[Why We Get Fat Review]]></title>
-    <link href="http://www.kurup.org/blog/2011/08/12/why-we-get-fat-review"/>
+    <link href="https://www.kurup.org/blog/2011/08/12/why-we-get-fat-review"/>
     <updated>2011-08-12T12:44:31-04:00</updated>
-    <id>http://www.kurup.org/blog/2011/08/12/why-we-get-fat-review</id>
+    <id>https://www.kurup.org/blog/2011/08/12/why-we-get-fat-review</id>
     <content type="html"><![CDATA[<p>Dear patients,</p>
 
-<p>{% img right /images/whywegetfat.jpg Why We Get Fat %}
+<p><img class="right" src="/images/whywegetfat.jpg" title="Why We Get Fat" >
 I am sorry. I have been giving you bad dietary advice. In medical
 school we learned that fat in your diet causes fat to accumulate in
 your arteries, causing heart attacks and strokes, so I told you to eat
@@ -170,13 +170,13 @@ are successful in decreasing the calories that you eat, your body will
 naturally decrease the calories that you burn. The variables are
 dependent on each other.</p>
 
-<p>{% pullquote %}
+<p><span class='pullquote-right' data-pullquote='The villain is carbs.'>
 This leads to the next question: Why do we get obese? If it's not a
 simple matter of eating more calories than we expend, then why do we
 get fat? The culprit is insulin. Insulin causes the cells of our body
 to deposit fat. Insulin, in turn, is released whenever there is
 glucose in our system, which is preferentially caused by carbohydrate
-intake. {" The villain is carbs. "} Taubes goes into great detail about
+intake. The villain is carbs. Taubes goes into great detail about
 the workings of the endocrine system, explaining why insulin is such a
 powerful factor in causing fat deposition. It also explains the
 phenomenon of why people who have plenty of fat still get so
@@ -187,7 +187,7 @@ starts again. Reading these chapters took me back to my med school
 physiology courses. I learned all of this in med school, but we were
 never taught to connect these well accepted facts with the things that
 we were being taught in our dietary lectures.
-{% endpullquote%}</p>
+</span></p>
 
 <p>Eliminating carbs from our diet without restricting any other nutrient
 will stop the fat deposition process, which in turn will decrease our
@@ -259,9 +259,9 @@ read this book.</p>
   
   <entry>
     <title type="html"><![CDATA[Anything You Want Review]]></title>
-    <link href="http://www.kurup.org/blog/2011/07/04/anything-you-want-review"/>
+    <link href="https://www.kurup.org/blog/2011/07/04/anything-you-want-review"/>
     <updated>2011-07-04T21:12:11-04:00</updated>
-    <id>http://www.kurup.org/blog/2011/07/04/anything-you-want-review</id>
+    <id>https://www.kurup.org/blog/2011/07/04/anything-you-want-review</id>
     <content type="html"><![CDATA[<p><a href="http://t.co/rdADtHa"><img class="inset right" src="http://ws.assoc-amazon.com/widgets/q?_encoding=UTF8&Format=_SL160_&ASIN=1936719118&MarketPlace=US&ID=AsinImage&WS=1&tag=vinodkurupshomep&ServiceVersion=20070822" ></a>
 <img src="http://www.assoc-amazon.com/e/ir?t=&l=as2&o=1&a=1936719118&camp=217145&creative=399373" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
 
@@ -376,10 +376,10 @@ version on my Android tablet for $7.99) and it's inspirational. I
   
   <entry>
     <title type="html"><![CDATA[Learning Android Review]]></title>
-    <link href="http://www.kurup.org/blog/2011/05/08/learning-android-review"/>
+    <link href="https://www.kurup.org/blog/2011/05/08/learning-android-review"/>
     <updated>2011-05-08T22:10:19-04:00</updated>
-    <id>http://www.kurup.org/blog/2011/05/08/learning-android-review</id>
-    <content type="html"><![CDATA[<p><a href="http://amzn.to/m8SK61"><img class="inset right" src="http://www.kurup.org/images/learning-android.jpg" /></a></p>
+    <id>https://www.kurup.org/blog/2011/05/08/learning-android-review</id>
+    <content type="html"><![CDATA[<p><a href="http://amzn.to/m8SK61"><img class="inset right" src="https://www.kurup.org/images/learning-android.jpg" /></a></p>
 
 <p>I recently finished reading <a href="http://amzn.to/m8SK61">Learning
 Android</a>. I have a Droid X, Mala has a Droid
@@ -455,9 +455,9 @@ entertaining one.</p>
   
   <entry>
     <title type="html"><![CDATA[Growing a Business]]></title>
-    <link href="http://www.kurup.org/blog/2010/11/07/growing-a-business"/>
+    <link href="https://www.kurup.org/blog/2010/11/07/growing-a-business"/>
     <updated>2010-11-07T20:31:19-05:00</updated>
-    <id>http://www.kurup.org/blog/2010/11/07/growing-a-business</id>
+    <id>https://www.kurup.org/blog/2010/11/07/growing-a-business</id>
     <content type="html"><![CDATA[<p>I read this book in 2005, but never posted this review. So here it
 is...</p>
 

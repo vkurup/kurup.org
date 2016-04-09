@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: pedometer | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/pedometer/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/pedometer/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Google Pedometer]]></title>
-    <link href="http://www.kurup.org/blog/2005/07/05/google-pedometer"/>
+    <link href="https://www.kurup.org/blog/2005/07/05/google-pedometer"/>
     <updated>2005-07-05T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2005/07/05/google-pedometer</id>
+    <id>https://www.kurup.org/blog/2005/07/05/google-pedometer</id>
     <content type="html"><![CDATA[<p>I admit it. As a runner, I'm obsessive about my mileage. It's not that I'm obsessive about running and getting my mileage in. That would be a good thing. Once I do go for a run, I'm obsessive about knowing exactly how far I've run.</p>
 
 <p>In high school, I'd finish my run and then promptly jump on my 10-speed bike which had an odometer, so I could measure how far I'd gone. In college, I got lazy and started using my car for the same purpose. Then someone invented the internet and surfing <a href="http://www.mapquest.com">MapQuest</a> became my routine post-run activity. I'd spend more time trying to find out how long my run was than I actually did running.</p>

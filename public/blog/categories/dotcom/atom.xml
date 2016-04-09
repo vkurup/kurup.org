@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: dotcom | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/dotcom/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/dotcom/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Bunch of stuff]]></title>
-    <link href="http://www.kurup.org/blog/2001/05/26/bunch-of-stuff"/>
+    <link href="https://www.kurup.org/blog/2001/05/26/bunch-of-stuff"/>
     <updated>2001-05-26T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2001/05/26/bunch-of-stuff</id>
+    <id>https://www.kurup.org/blog/2001/05/26/bunch-of-stuff</id>
     <content type="html"><![CDATA[<p>Life has been moving too quickly for me to document my menial
 existence. Check back again soon when my existence is not so menial!
 In the meantime, here's a Cliff Note's version (may Cliff rest in
@@ -42,9 +42,9 @@ peace) of the past 5 months (in no particular order).</p>
   
   <entry>
     <title type="html"><![CDATA[medicalrecords.com]]></title>
-    <link href="http://www.kurup.org/blog/1999/12/06/medicalrecordscom"/>
+    <link href="https://www.kurup.org/blog/1999/12/06/medicalrecordscom"/>
     <updated>1999-12-06T00:00:00-05:00</updated>
-    <id>http://www.kurup.org/blog/1999/12/06/medicalrecordscom</id>
+    <id>https://www.kurup.org/blog/1999/12/06/medicalrecordscom</id>
     <content type="html"><![CDATA[<p>An opportunity arose that I just couldn't pass up. I've been offered a
 position with an internet startup company. The company is
 <a href="http://medicalrecords.com">medicalrecords.com</a> and is focused on

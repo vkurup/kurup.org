@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: obesity | Vinod Kurup]]></title>
-  <link href="http://www.kurup.org/blog/categories/obesity/atom.xml" rel="self"/>
-  <link href="http://www.kurup.org/"/>
-  <updated>2016-04-07T22:18:39-04:00</updated>
-  <id>http://www.kurup.org/</id>
+  <link href="https://www.kurup.org/blog/categories/obesity/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2016-04-08T21:58:40-04:00</updated>
+  <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
     <email><![CDATA[vinod@kurup.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Health at every size]]></title>
-    <link href="http://www.kurup.org/blog/2006/10/23/health-at-every-size"/>
+    <link href="https://www.kurup.org/blog/2006/10/23/health-at-every-size"/>
     <updated>2006-10-23T00:00:00-04:00</updated>
-    <id>http://www.kurup.org/blog/2006/10/23/health-at-every-size</id>
+    <id>https://www.kurup.org/blog/2006/10/23/health-at-every-size</id>
     <content type="html"><![CDATA[<p>I read this article on <a href="http://www.medscape.com/viewarticle/506299">"Health at Every Size"</a> back in July 2005, took some notes and then put it in my "To Blog About" Folder. In the "I'll get to it ... eventually" category, here are my notes from 16 months ago:</p>
 
 <hr />
