@@ -9,7 +9,9 @@
   <meta name="author" content="Vinod Kurup">
 
   
-  <meta name="description" content="Ugh&#8230; I woke up this morning with a nagging pain in my right knee. It kinda improved through the day, so I wasn&#8217;t too worried about it, &hellip;">
+  <meta name="description" content="How to set up WEP encryption: SMC Barricade Basestation
+Airport Extreme Wireless Card
+Mac OS X 10.2.6 Note that if things don&#8217;t go 100% right, &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -89,6 +91,69 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2003/07/16/setting-up-wep">Setting Up WEP</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-07-16T00:00:00-04:00" pubdate data-updated="true">Jul 16<span>th</span>, 2003</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>How to set up WEP encryption:</p>
+
+<ul>
+<li>SMC Barricade Basestation</li>
+<li>Airport Extreme Wireless Card</li>
+<li>Mac OS X 10.2.6</li>
+</ul>
+
+
+<p>Note that if things don&#8217;t go 100% right, you may lock yourself out of your wireless network. Be sure you know how to get back in before you follow any of these instructions.</p>
+
+<ol>
+<li>Set up non-encrypted transmission first. Make sure you can connect to your basestation and surf on the internet.</li>
+<li>Visit your basestation&#8217;s URL - default is http://198.168.123.254</li>
+<li>Log in (You <strong>have</strong> changed the password so it&#8217;s not &#8216;admin&#8217;, right?)</li>
+<li>Click on Wireless.</li>
+<li>Create a Network ID (SSID). I&#8217;ve read that <a href="http://www.whiterabbits.com/MacNetJournal/stories/2002/03/20/aWeekofWireless.html">leaving it at &#8216;default&#8217; sometimes causes problems</a>, so change it.</li>
+<li>Check the &#8216;Enable IEEE 128 bit Shared Key security&#8217; radio button</li>
+<li>Now we need to enter a key. This should be a 26 digit Hex code. Simply go to the <a href="http://www.warewolflabs.com/portfolio/programming/wepskg/wepskg.html">magic WEP Strong Key Generator</a>. Click on &#8216;generate 128 bit key&#8217; and scroll down to see your new key. Pick the one labeled HEX. Enter this value as &#8216;WEP Key 1&#8217;. Keep this key visible somewhere, since you&#8217;ll need to feed it to your Mac so you can login.</li>
+<li>Click &#8216;Save&#8217; and then &#8216;Reboot&#8217; your wireless router.</li>
+<li>OK, now you&#8217;re locked out of your basestation. Let&#8217;s get back in.</li>
+<li>Click on the Airport Icon in the menubar. Choose &#8216;Turn Airport Off&#8217;. Wait a few seconds and then click &#8216;Turn Airport On&#8217;.</li>
+<li>Wait a few seconds for your Mac to recognize your network. Then, click on the Airport icon again and choose your Network-ID. A password box should pop up.</li>
+<li>Click the drop-down menu and choose &#8216;128 bit Key&#8217; and then re-enter your 26-digit HEX key. And no, copy and paste won&#8217;t work - you need to enter it digit by digit. Check the &#8216;Keychain&#8217; box so that you don&#8217;t have to re-enter that hideous key each time.</li>
+</ol>
+
+
+<p>Enjoy your new encrypted network!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -623,56 +688,6 @@ You may need to add explicit typecasts
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2003/06/23/karate">Karate?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2003-06-23T00:00:00-04:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2003</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I had dinner with a friend of mine whom I hadn&#8217;t seen in a few
-months. Turned out that she had been mugged in the lobby of her
-apartment in Hell&#8217;s Kitchen, so she&#8217;s spent the last few months moving
-to a safer neighborhood and dealing with all the pain that goes along
-with that. How sobering. Thanks to self-defense classes that she took
-in college, she was able to ultimately fight off her attacker by
-pushing him away just long enough for her to scream for help.</p>
-
-<blockquote><p>You can&#8217;t scream when he&#8217;s pressed up against you.</p></blockquote>
-
-<p>The bastard actually impersonated a police officer in order to get
-access to her building. Her one piece of advice for me (or anyone) -
-&#8220;Learn some self defense,&#8221; and blowing away any myths I might have
-believed, &#8220;Men are targets as often as women because they tend to have
-more money on hand.&#8221;</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/26/">&larr; Older</a>
@@ -688,6 +703,10 @@ more money on hand.&#8221;</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/05/29/renaissance-man">Renaissance Man</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/07/28/cbv-dynamic">Using dynamic queries in a CBV</a>
@@ -763,10 +782,6 @@ more money on hand.&#8221;</p>
     
       <li class="post">
         <a href="/blog/2012/08/07/nasa-curiosity-lands">NASA Curiosity Lands</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/03/blogging-again">Blogging Again</a>
       </li>
     
   </ul>

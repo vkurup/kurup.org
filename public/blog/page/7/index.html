@@ -9,8 +9,9 @@
   <meta name="author" content="Vinod Kurup">
 
   
-  <meta name="description" content="I used to be a primary care physician, but switched to being a hospitalist
-in 2007. I loved parts about being a PCP, namely the relationship that I &hellip;">
+  <meta name="description" content="I preordered Mark Pilgrim&#8217;s HTML5, Up and Running from Amazon back in
+March. It&#8217;s available for free as Dive into
+HTML5. I&#8217;ve been &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -90,6 +91,78 @@ in 2007. I loved parts about being a PCP, namely the relationship that I &hellip
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/08/25/html5-up-and-running">HTML5 Up and Running</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-08-25T14:53:00-04:00" pubdate data-updated="true">Aug 25<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I preordered Mark Pilgrim&#8217;s <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027">HTML5, Up and Running</a> from Amazon back in
+March. It&#8217;s available for free as <a href="http://diveintohtml5.org/">Dive into
+HTML5</a>. I&#8217;ve been a fan of Mark&#8217;s <a href="http://diveintomark.org">writing</a>
+for a while, so buying the book was a way to thank him &#8220;with a
+buck&#8221;. Interestingly, the online book and paper book are not
+identical. For starters, the titles are different. In addition, the
+beautiful fonts and cutesy images of the online version are gone. The
+paper book is your run-of-the-mill O&#8217;Reilly book. I&#8217;m not sure if
+it&#8217;ll make much of a difference in my enjoyment, but we&#8217;ll see.</p>
+
+<p>As I said, I preordered the book in March, so I had no idea when it
+would be finished and delivered. It showed up on my doorstep this
+morning, on my birthday! We&#8217;re on our way to NYC tomorrow for our
+first trip back there since we moved to North Carolina in 2007, so I
+know have some light pleasure reading. Perfect Timing!</p>
+
+<p>I&#8217;ve only read the first chapter so far, but I think I&#8217;m going to love
+it. I&#8217;ve done a lot of web programming in my life, but only maintain
+my own sites now. I&#8217;m reading this book like a programmer might read a
+book on astronomy&#8230; purely for the love of it. The first chapter goes
+into the details of how the <code>IMG</code> tag was invented. Marc Andreessen
+mentioned it on a mailing list back in 1993, and after some back and
+forth, shipped it in Mosaic, an early browser. Because it shipped and
+because it was popular, it got included in the HTML standards.</p>
+
+<p>I still remember when Mosaic came out. I got my first email address in
+1992 (vkurup@macc.wisc.edu) and somehow was on a mailing list
+announcing the impending release of Mosaic. I remember the text of the
+email basically saying that &#8220;This will change the world.&#8221; Once I saw
+it, I thought it was cool, but way over-hyped. Who is going to want to
+wait for pictures to download over a 14.4K modem? Ridiculous. This is
+why you should not take my advice about new trends.</p>
+
+<p>Anyway, the point of the <code>IMG</code> example is to show that HTML standards
+have never been &#8220;pure&#8221;, but have always been influenced by the
+implementers and the users of the web. The way it should be. HTML5 is
+an acknowledgment of that fact.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -844,111 +917,6 @@ notes, ever in my life. But, I clearly <a href="http://sachachua.com/blog/2010/0
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/07/16/inotify">Inotify</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-07-16T21:01:00-04:00" pubdate data-updated="true">Jul 16<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://inotify.aiken.cz/">incron</a> seems to be a pretty neat tool. It&#8217;s
-cron-for-file-activities. <a href="http://en.wikipedia.org/wiki/Cron">Cron</a> is a
-common unix tool that allows you to run any command at a specified
-time. It&#8217;s immensely useful for running anything that you want to occur on
-a regular basis: backups, daily reminder emails, downloading podcasts,
-etc. If you&#8217;ve used unix to any significant extent, you&#8217;ve used cron.</p>
-
-<p>incron takes that cron metaphor and applies it to file activity. You
-specify which files you want to watch, and then you specify which activities
-you are interested in. If incron notices any of those activities occurring
-on your files, it launches the command that you specified. Activities could
-include creating a new file, modifying a file, accessing a file, among
-multiple other possibilities. incron takes advantage of the inotify system
-built into recent linux kernels, which supposedly is more efficient than
-previous ways of doing this same thing.</p>
-
-<p>incron seemed to be just what I wanted. I wanted to watch a specific
-directory and launch a tool to rebuild my website if any of those files
-changed. The problem is that incron doesn&#8217;t work recursively on
-directories. You have to specify each directory, the activities on that
-directory, and the command to launch. If you create new directories, you
-have to tell incron about them specifically. This ruins the benefit of the
-tool for me. It seems the developer has been planning to implement
-recursive watching for the past 4 years ago, but hasn&#8217;t done it yet. If it
-hasn&#8217;t happened in 4 years, it&#8217;s probably not going to happen soon.</p>
-
-<p>But, I found a perfectly usable way to get what I
-want. <a href="http://wiki.github.com/rvoicilas/inotify-tools/">inotify-tools</a>
-includes a program called <code>inotifywait</code>. It takes a file or directory name
-and listens for specific activities that you are interested in. It
-basically waits until it sees one of those activities and then returns
-control back to you. So, you can something like (pseudocode):</p>
-
-<pre><code>while (inotifywait /home/vinod/web/kurup.org):
-    # triggered
-    rebuild my server
-</code></pre>
-
-<p><code>inotifywait</code> waits for my activities. If it finds one, it returns TRUE and
-my server gets rebuilt, and then the while loop restarts. Best of all,
-<code>inotifywait</code> can work recursively on a directory. Which brings me to my
-<code>watch-rebuild.sh</code> script which watches my web source files for changes,
-and rebuilds the web generated files on demand. It also pops up a little
-GNOME notification using <code>notify-send</code>:</p>
-
-<p>$$code(lang=bash)</p>
-
-<pre><code>#!/bin/bash
-
-BLOGOFILE='/usr/local/bin/blogofile'
-BLOGDIR='/home/vinod/web/kurup.org'
-
-# requires libnotify-bin for notify-osd notification
-# requires inotify-tools
-while LINE=$(inotifywait -rq --timefmt '%F %R' --format '%T %e %f' \
-      -e close_write -e move -e delete "$BLOGDIR");
-do
-        echo -n "Rebuilding $LINE ..."
-        $BLOGOFILE -s $BLOGDIR build
-        echo "done"
-        notify-send -u low "Rebuild Done" "Watching again"
-done
-</code></pre>
-
-<p>$$/code</p>
-
-<p><code>-r</code> = recursive<br/>
-<code>-q</code> = be quiet<br/>
-<code>--timefmt</code> &amp; <code>--format</code> = what we want to display on the command line<br/>
-<code>-e</code> = each of the individual events that we are interested in</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/8/">&larr; Older</a>
@@ -964,6 +932,10 @@ done
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/05/29/renaissance-man">Renaissance Man</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/07/28/cbv-dynamic">Using dynamic queries in a CBV</a>
@@ -1039,10 +1011,6 @@ done
     
       <li class="post">
         <a href="/blog/2012/08/07/nasa-curiosity-lands">NASA Curiosity Lands</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/03/blogging-again">Blogging Again</a>
       </li>
     
   </ul>

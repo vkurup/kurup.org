@@ -9,8 +9,8 @@
   <meta name="author" content="Vinod Kurup">
 
   
-  <meta name="description" content="Here are some (unorganized) thoughts about my experience at the
-Society of Hospital Medicine (SHM) 2011 conference in Dallas, TX. Opening Plenary The &hellip;">
+  <meta name="description" content="If you see this error: E/AndroidRuntime( 457): android.content.res.Resources$NotFoundException:
+File Yamba1 from xml type layout resource ID # &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -90,6 +90,51 @@ Society of Hospital Medicine (SHM) 2011 conference in Dallas, TX. Opening Plenar
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/05/16/android-resourcesnotfoundexception">Android ResourcesNotFoundException</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-05-16T20:44:12-04:00" pubdate data-updated="true">May 16<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>If you see this error:</p>
+
+<pre><code>E/AndroidRuntime(  457): android.content.res.Resources$NotFoundException:
+File Yamba1 from xml type layout resource ID #0x7f060000
+</code></pre>
+
+<p>&#8230; try deleting the <code>bin/</code> and <code>gen/</code> directories in your app. It should
+clear the error.</p>
+
+<p>Reference: <a href="http://code.google.com/p/android/issues/detail?id=2726#c6">http://code.google.com/p/android/issues/detail?id=2726#c6</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1199,48 +1244,6 @@ how patient is doing today.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/02/17/dr.-watson">Dr. Watson</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-02-17T19:18:18-05:00" pubdate data-updated="true">Feb 17<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>All I could think of while watching the news about the supercomputer
-<a href="http://www-943.ibm.com/innovation/us/watson/">Watson</a> beating humans
-at Jeopardy was how this could be used in medicine. Looks like <a href="http://www.scientificamerican.com/blog/post.cfm?id=paging-dr-watson-ibm-to-apply-jeopa-2011-02-17">I&#8217;m
-not
-alone</a>.</p>
-
-<p>Time to start looking for a new job?</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/6/">&larr; Older</a>
@@ -1256,6 +1259,10 @@ alone</a>.</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/05/29/renaissance-man">Renaissance Man</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/07/28/cbv-dynamic">Using dynamic queries in a CBV</a>
@@ -1331,10 +1338,6 @@ alone</a>.</p>
     
       <li class="post">
         <a href="/blog/2012/08/07/nasa-curiosity-lands">NASA Curiosity Lands</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/03/blogging-again">Blogging Again</a>
       </li>
     
   </ul>

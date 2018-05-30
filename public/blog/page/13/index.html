@@ -9,7 +9,8 @@
   <meta name="author" content="Vinod Kurup">
 
   
-  <meta name="description" content="I sold 3 stocks (OUTL, MRINA.PK and KBALB) and bought 5 (RSC, JAX, EEI, KEYN and STS). Sold stocks Purchased Total Return Reason for sell Outlook &hellip;">
+  <meta name="description" content="I was looking at the Tcl 8.4 man page for &#8216;split&#8217; and saw this example code: ## Split into fields on colons
+set fields [split $rec &quot &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -89,6 +90,142 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2006/05/14/new-features-coming-in-tcl-85">New Features Coming in Tcl 8.5</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-05-14T00:00:00-04:00" pubdate data-updated="true">May 14<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I was looking at the <a href="http://www.tcl.tk/man/tcl8.4/TclCmd/split.htm">Tcl 8.4 man page for &#8216;split&#8217;</a> and saw this example code:</p>
+
+<div>
+  <pre><code class='tcl'>## Split into fields on colons
+set fields [split $rec &quot;:&quot;]
+## Assign fields to variables and print some out...
+lassign $fields userName password uid grp longName homeDir shell</code></pre>
+</div>
+
+
+<p>It shows how to split a string using &#8216;:&#8217; as the delimiter. The interesting part is the &#8216;lassign&#8217; statement. I&#8217;d never seen that before. I&#8217;ve always done something annoying like this:</p>
+
+<div>
+  <pre><code class='tcl'>set fields [split $rec &quot;:&quot;]
+set userName [lindex $fields 0]
+set password [lindex $fields 1]
+set uid [lindex $fields 2]
+set grp [lindex $fields 3]
+set longName [lindex $fields 4]
+set homeDir [lindex $fields 5]
+set shell [lindex $fields 6]</code></pre>
+</div>
+
+
+<p>How could I have overlooked &#8216;lassign&#8217; all these years? After berating my idiocy for a few minutes, I tried &#8216;lassign&#8217; out and Tcl replied &#8216;invalid command name&#8217; . Turns out I&#8217;m not as stupid as I thought. :-) &#8216;lassign&#8217; is new in Tcl 8.5 (but seems to have snuck in the backdoor of the 8.4 docs). I decided to see what else was <a href="http://www.tcl.tk/software/tcltk/8.5.html">coming in 8.5</a>.</p>
+
+<ul>
+<li>Dictionaries. These are associative arrays which reportedly are better than Tcl arrays, but I&#8217;m not sure why.</li>
+<li>** as an exponentiation operator</li>
+<li>Instead of doing: <code>if {[lsearch -exact $list $item] != -1}</code>, the new &#8216;in&#8217; operator lets you do <code>if {$item in $list}</code>. There&#8217;s also a &#8216;ni&#8217; operator for &#8216;not in&#8217;.</li>
+<li>Plenty of other stuff, none of which really caught my eye.</li>
+</ul>
+
+
+<p>Tcl 8.5 is still alpha, so I&#8217;m sticking with 8.4 (and my annoying
+code) for the moment.</p>
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>What about this</b></p>
+<p>
+Or just do
+</p>
+
+<pre><code>
+foreach {userName password uid grp longName homeDir shell} [lrange fields 0 6] {break}
+# We do an lrange here, otherwise values would be set wrong
+# in case someone accidentally supplies a list with too many elements,
+# because then the foreach loop would run more than once
+</code></pre>
+<p>
+I just learned the lrange trick yesterday :)
+</p>
+<p>
+I got caught by the over-optimistic 8.4 docs as well. lassign remove
+the risk where you need to use the lrange call.
+</p>
+<address class="signature">
+<span class="author">Dave Bauer</span>
+<span class="date">2006-05-14 19:56:49</span>
+</address>
+</div>
+
+<div class="my-comment">
+<p><b>Much better</b></p>
+<p>
+The lrange trick is cleaner than my code. Thanks Dave!
+</p>
+<address class="signature">
+<span class="author">Vinod Kurup</span>
+<span class="date">2006-05-15 20:42:37</span>
+</address>
+</div>
+
+<div class="one-comment">
+<p><b>Look also at OpenACS API</b></p>
+<p>
+The &#8216;util_unlist&#8217; API is the exact equivalent of &#8216;lassign&#8217;.
+</p>
+<address class="signature">
+<span class="author">Anonymous</span>
+<span class="date">2006-07-05 02:30:37</span>
+</address>
+</div>
+
+<div class="my-comment">
+<p><b>Thanks</b></p>
+<p>
+Thanks - I didn&#8217;t know about util_unlist. There are so many cool
+little-known functions in the OpenACS API
+</p>
+<address class="signature">
+<span class="author">Vinod Kurup</span>
+<span class="date">2006-07-05 14:42:46</span>
+</address>
+</div>
+
+</div>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -676,42 +813,6 @@ How&#8217;d you do? See ya at the Bronx!
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2006/03/09/tcl-a-short-introduction">Tcl, a Short Introduction</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2006-03-09T00:00:00-05:00" pubdate data-updated="true">Mar 9<span>th</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>The scripting language used in most of <a href="http://openacs.org">OpenACS</a> is <a href="http://tcl.tk">Tcl</a>. It doesn&#8217;t receive a lot of press. When people talk about scripting languages, they mean Perl or Python (and now Ruby). Tcl is not considered in the same category, but it should be. I&#8217;m not smart enough to explain why, but Salvatore Sanfilippo is and has written a <a href="http://antirez.com/articoli/tclmisunderstood.html">gentle introduction to both the basic and powerful features of Tcl</a>.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/14/">&larr; Older</a>
@@ -727,6 +828,10 @@ How&#8217;d you do? See ya at the Bronx!
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/05/29/renaissance-man">Renaissance Man</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/07/28/cbv-dynamic">Using dynamic queries in a CBV</a>
@@ -802,10 +907,6 @@ How&#8217;d you do? See ya at the Bronx!
     
       <li class="post">
         <a href="/blog/2012/08/07/nasa-curiosity-lands">NASA Curiosity Lands</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/03/blogging-again">Blogging Again</a>
       </li>
     
   </ul>

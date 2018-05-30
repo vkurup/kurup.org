@@ -9,9 +9,7 @@
   <meta name="author" content="Vinod Kurup">
 
   
-  <meta name="description" content="Can you believe that it&#8217;s been a year since we got
-married? Me neither. For our wedding, Mike
-and Ellie gave us a generous gift certificate to &hellip;">
+  <meta name="description" content="This is one of the most amazing things I&#8217;ve ever seen. An autistic man takes a 45 minute helicopter ride over Rome and recreates what he sees &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -91,6 +89,69 @@ and Ellie gave us a generous gift certificate to &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2006/09/09/beautiful-mind">Beautiful Mind</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-09-09T00:00:00-04:00" pubdate data-updated="true">Sep 9<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://youtube.com/watch?v=0TibQ_1zH3U">This is one of the most amazing things I&#8217;ve ever seen.</a> An autistic man takes a 45 minute helicopter ride over Rome and recreates what he sees with near perfect accuracy on paper. <a href="http://xenmate.blogspot.com/2006/05/human-camera.html">More information about him</a></p>
+
+<p>This guy&#8217;s brain is structurally the same as mine, yet its capabilities make my brain seem like it&#8217;s broken. It&#8217;s not unreasonable to think that my brain could have the same capability if it were exposed to the proper conditions. I have no idea what those conditions are, or else I&#8217;d be able to cure autism. But seeing feats like this show me that there is so much that we don&#8217;t know about our brains and their function. And that&#8217;s kinda exciting.</p>
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>Wiltshire&#8217;s remarkable talent</b></p>
+<p>
+This is mind blowing :)
+</p>
+<p>
+The first message sent by telegraph (see
+http://memory.loc.gov/ammem/today/may24.html ) seems an apt
+description: What hath God wrought?
+</p>
+<p>
+Thanks for pointing this out, Vinod.
+</p>
+<address class="signature">
+<span class="author">Prem Thomas</span>
+<span class="date">2006-10-03 13:53:48</span>
+</address>
+</div>
+
+</div>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -710,142 +771,6 @@ in the test, you can discover a better design :)
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2006/05/14/new-features-coming-in-tcl-85">New Features Coming in Tcl 8.5</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2006-05-14T00:00:00-04:00" pubdate data-updated="true">May 14<span>th</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I was looking at the <a href="http://www.tcl.tk/man/tcl8.4/TclCmd/split.htm">Tcl 8.4 man page for &#8216;split&#8217;</a> and saw this example code:</p>
-
-<div>
-  <pre><code class='tcl'>## Split into fields on colons
-set fields [split $rec &quot;:&quot;]
-## Assign fields to variables and print some out...
-lassign $fields userName password uid grp longName homeDir shell</code></pre>
-</div>
-
-
-<p>It shows how to split a string using &#8216;:&#8217; as the delimiter. The interesting part is the &#8216;lassign&#8217; statement. I&#8217;d never seen that before. I&#8217;ve always done something annoying like this:</p>
-
-<div>
-  <pre><code class='tcl'>set fields [split $rec &quot;:&quot;]
-set userName [lindex $fields 0]
-set password [lindex $fields 1]
-set uid [lindex $fields 2]
-set grp [lindex $fields 3]
-set longName [lindex $fields 4]
-set homeDir [lindex $fields 5]
-set shell [lindex $fields 6]</code></pre>
-</div>
-
-
-<p>How could I have overlooked &#8216;lassign&#8217; all these years? After berating my idiocy for a few minutes, I tried &#8216;lassign&#8217; out and Tcl replied &#8216;invalid command name&#8217; . Turns out I&#8217;m not as stupid as I thought. :-) &#8216;lassign&#8217; is new in Tcl 8.5 (but seems to have snuck in the backdoor of the 8.4 docs). I decided to see what else was <a href="http://www.tcl.tk/software/tcltk/8.5.html">coming in 8.5</a>.</p>
-
-<ul>
-<li>Dictionaries. These are associative arrays which reportedly are better than Tcl arrays, but I&#8217;m not sure why.</li>
-<li>** as an exponentiation operator</li>
-<li>Instead of doing: <code>if {[lsearch -exact $list $item] != -1}</code>, the new &#8216;in&#8217; operator lets you do <code>if {$item in $list}</code>. There&#8217;s also a &#8216;ni&#8217; operator for &#8216;not in&#8217;.</li>
-<li>Plenty of other stuff, none of which really caught my eye.</li>
-</ul>
-
-
-<p>Tcl 8.5 is still alpha, so I&#8217;m sticking with 8.4 (and my annoying
-code) for the moment.</p>
-
-<div id="comment-box">
-<h2>Comments from old site</h2>
-
-<div class="one-comment">
-<p><b>What about this</b></p>
-<p>
-Or just do
-</p>
-
-<pre><code>
-foreach {userName password uid grp longName homeDir shell} [lrange fields 0 6] {break}
-# We do an lrange here, otherwise values would be set wrong
-# in case someone accidentally supplies a list with too many elements,
-# because then the foreach loop would run more than once
-</code></pre>
-<p>
-I just learned the lrange trick yesterday :)
-</p>
-<p>
-I got caught by the over-optimistic 8.4 docs as well. lassign remove
-the risk where you need to use the lrange call.
-</p>
-<address class="signature">
-<span class="author">Dave Bauer</span>
-<span class="date">2006-05-14 19:56:49</span>
-</address>
-</div>
-
-<div class="my-comment">
-<p><b>Much better</b></p>
-<p>
-The lrange trick is cleaner than my code. Thanks Dave!
-</p>
-<address class="signature">
-<span class="author">Vinod Kurup</span>
-<span class="date">2006-05-15 20:42:37</span>
-</address>
-</div>
-
-<div class="one-comment">
-<p><b>Look also at OpenACS API</b></p>
-<p>
-The &#8216;util_unlist&#8217; API is the exact equivalent of &#8216;lassign&#8217;.
-</p>
-<address class="signature">
-<span class="author">Anonymous</span>
-<span class="date">2006-07-05 02:30:37</span>
-</address>
-</div>
-
-<div class="my-comment">
-<p><b>Thanks</b></p>
-<p>
-Thanks - I didn&#8217;t know about util_unlist. There are so many cool
-little-known functions in the OpenACS API
-</p>
-<address class="signature">
-<span class="author">Vinod Kurup</span>
-<span class="date">2006-07-05 14:42:46</span>
-</address>
-</div>
-
-</div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/13/">&larr; Older</a>
@@ -861,6 +786,10 @@ little-known functions in the OpenACS API
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/05/29/renaissance-man">Renaissance Man</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/07/28/cbv-dynamic">Using dynamic queries in a CBV</a>
@@ -936,10 +865,6 @@ little-known functions in the OpenACS API
     
       <li class="post">
         <a href="/blog/2012/08/07/nasa-curiosity-lands">NASA Curiosity Lands</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/03/blogging-again">Blogging Again</a>
       </li>
     
   </ul>

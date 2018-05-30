@@ -4,7 +4,7 @@
   <title>Vinod Kurup</title>
   <link href="https://www.kurup.org/blog/atom.xml" rel="self"/>
   <link href="https://www.kurup.org"/>
-  <updated>2016-04-08T21:58:40-04:00</updated>
+  <updated>2018-05-29T21:34:55-04:00</updated>
   <generator uri="http://github.com/mojombo/jekyll">Jekyll</generator>
   <id>https://www.kurup.org/blog/atom.xml</id>
   <author>
@@ -15,6 +15,38 @@
     <uri>https://www.kurup.org</uri>
   </author>
 
+  
+  <entry>
+    <title>Renaissance Man</title>
+    <link href="https://www.kurup.org/blog/2018/05/29/renaissance-man"/>
+    <updated>2018-05-29T21:05:00-04:00</updated>
+    <id>id:/blog/2018/05/29/renaissance-man</id>
+   
+    <content type="html">&lt;p&gt;I love this
+&lt;a href=&quot;https://austinkleon.com/2018/05/29/wearing-many-hats/&quot;&gt;post by Austin Kleon&lt;/a&gt;.
+As someone who has found very few things that I don&amp;#8217;t find intriguing in some
+way, it is nice to know that there are others like me and that maybe there&amp;#8217;s
+nothing wrong with that. I love being a doctor and I love being a programmer,
+and I love honing both of those crafts.&lt;/p&gt;
+
+&lt;p&gt;He also links to a
+&lt;a href=&quot;https://www.nytimes.com/2012/01/22/education/edlife/renaissance-man.html&quot;&gt;2012 New York Times article about a UCLA sophomore&lt;/a&gt;
+who spends 1 hour each day learning something new, mainly by taking online
+courses from other universities or watching how-to videos on YouTube. We live in
+a golden age, don&amp;#8217;t we? I mean, sure, people will look back at our period of
+history and cringe quite a bit, but the idea that I can search just about any
+term, and find information about it on Wikipedia, and probably find a course on
+it by an actual college professor&amp;#8230;. it&amp;#8217;s just mind boggling. I&amp;#8217;m lucky as it
+is, but I often think about if I was a kid growing up in this era. I&amp;#8217;d be
+overwhelmed, sure, but I would totally be taking online courses left and right.&lt;/p&gt;
+
+&lt;p&gt;Actually, even if I weren&amp;#8217;t a kid. I just googled the subject of that NYT
+article and found his twitter account. His
+&lt;a href=&quot;https://twitter.com/_TheDancingFox_/status/686341754262429696&quot;&gt;most recent post&lt;/a&gt;
+is from 2016 but links to a YouTube series from UCLA on the history of India. I
+am TOTALLY watching that.&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
     <title>Using dynamic queries in a CBV</title>
@@ -1675,46 +1707,6 @@ that our machines are getting more intelligent. And the exciting thing
 is that I can actually participate in that type of exploration. I
 think I just convinced myself to &lt;a href=&quot;http://www.udacity.com/overview/Course/cs373/CourseRev/apr2012&quot;&gt;learn how to program a robotic
 car!&lt;/a&gt;&lt;/p&gt;
-</content>
-  </entry>
-  
-  <entry>
-    <title>Blogging Again</title>
-    <link href="https://www.kurup.org/blog/2012/08/03/blogging-again"/>
-    <updated>2012-08-03T14:50:25-04:00</updated>
-    <id>id:/blog/2012/08/03/blogging-again</id>
-   <category scheme="http://www.kurup.org" term="blog" />
-   <category scheme="http://www.kurup.org" term="writing" />
-   
-    <content type="html">&lt;p&gt;I&amp;#8217;m going to start blogging more. I know I&amp;#8217;ve said that before, so
-take it for what it&amp;#8217;s worth. I think there is value in blogging. I&amp;#8217;ve
-been thinking about my life a lot lately, trying to find what makes me
-tick. One of those things that gets me excited is programming. I
-started thinking about that and remembered this meme that had passed
-around the blog world a few years back. It was a list of questions
-related to how you got started programming. I remember it especially
-because I remember reading MarkD&amp;#8217;s version and thinking how similar it
-was to my own beginnings. Then, because I love going off on tangents,
-I googled for &amp;#8216;How I got started in programming&amp;#8217; to read other
-responses. Many of the posts I found were on abandoned blogs. And now,
-for the &amp;#8216;causal relationship not supported by data&amp;#8217; statement. This is
-because of Facebook and Twitter. OK, maybe it&amp;#8217;s just the natural decay
-of blogs. But I am concerned about the fact that most people write in
-forums that are controlled by other people rather in their own forum.
-That was one of the cool promises of the web. A little place of your
-own that you controlled. Facebook and Twitter and Google+ are all cool
-services, but the more time I spend on them, the less time I spend
-here. I&amp;#8217;m sure other people have written about this with more
-eloquence than I could, but the bottom line is that I want to keep
-writing. I want to learn more about myself, I want to teach others
-what little I know, and I want to learn from others. I&amp;#8217;ve been
-journalling a lot lately and that has been useful, but the act of
-hitting &amp;#8216;publish&amp;#8217; will make my writing better. That&amp;#8217;s what this blog
-is for and I&amp;#8217;m going to start using it again.&lt;/p&gt;
-
-&lt;p&gt;Maybe one of these days, I&amp;#8217;ll even put up my own answers to &amp;#8216;How I Got
-Started in Programming&amp;#8217;, but in the meantime, go read
-&lt;a href=&quot;http://borkwarellc.wordpress.com/2008/07/01/how-i-got-started-in-programming/&quot;&gt;MarkD&amp;#8217;s&lt;/a&gt;&lt;/p&gt;
 </content>
   </entry>
   
