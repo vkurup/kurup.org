@@ -1,0 +1,8 @@
+{
+  "name": "vinod jekyll generation",
+  "scripts": {
+    "dokku": {
+      "predeploy": "bundle exec rake generate",
+    }
+  },
+}
