@@ -4,7 +4,7 @@
   <title>Vinod Kurup</title>
   <link href="https://www.kurup.org/blog/atom.xml" rel="self"/>
   <link href="https://www.kurup.org"/>
-  <updated>2018-05-29T21:34:55-04:00</updated>
+  <updated>2018-05-30T21:57:14-04:00</updated>
   <generator uri="http://github.com/mojombo/jekyll">Jekyll</generator>
   <id>https://www.kurup.org/blog/atom.xml</id>
   <author>
@@ -15,6 +15,91 @@
     <uri>https://www.kurup.org</uri>
   </author>
 
+  
+  <entry>
+    <title>Autovacuum not running</title>
+    <link href="https://www.kurup.org/blog/2018/05/30/autovacuum-fail"/>
+    <updated>2018-05-30T21:26:00-04:00</updated>
+    <id>id:/blog/2018/05/30/autovacuum-fail</id>
+   <category scheme="http://www.kurup.org" term="postgresql" />
+   <category scheme="http://www.kurup.org" term="programming" />
+   
+    <content type="html">&lt;p&gt;OK, this is a debug session in progress, so don&amp;#8217;t expect a nice solution at the end. We&amp;#8217;re working
+on a project that does analysis of some public voter registration data. The DB is hosted on Amazon
+RDS and I&amp;#8217;ve been perplexed by how poorly queries are performing there, despite the tables only have
+about 10 million rows. Simple queries are taking many minutes, which is orders of magnitude slower
+than my laptop.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://mlavin.org/&quot;&gt;Mark&lt;/a&gt; suggested running &amp;#8216;VACUUM ANALYZE&amp;#8217;, which I didn&amp;#8217;t think would help
+because my understanding was that the autovacuum process in PostgreSQL would be taking care of that
+on a regular basis. These queries had been slow for days with no recent inserts or updates, so
+certainly autovacuum should have caught up to them by now. But, I tried it anyway and lo and behold:&lt;/p&gt;
+
+&lt;figure class=&#8217;code&#8217;&gt;&lt;figcaption&gt;&lt;span&gt;&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line-number&#8217;&gt;1&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;2&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;3&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;4&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;5&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;6&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;7&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;8&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;9&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;10&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;11&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;12&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;13&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;14&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;15&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;sql&#8217;&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;voter_ncvoter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  &lt;span class=&quot;k&quot;&gt;count&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;c1&quot;&gt;&#8212;&#8212;&#8212;-&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt; &lt;span class=&quot;mi&quot;&gt;12336571&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;n&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;315777&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;051&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ms&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;vacuum&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;analyze&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;k&quot;&gt;VACUUM&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;n&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;11377035&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;096&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ms&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;voter_ncvoter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;  &lt;span class=&quot;k&quot;&gt;count&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;c1&quot;&gt;&#8212;&#8212;&#8212;-&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt; &lt;span class=&quot;mi&quot;&gt;12336571&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;n&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4300&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;107&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ms&lt;/span&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+&lt;p&gt;Woah, that worked! Sure, it took 3+ hours to run ANALYZE, but wow. So, why isn&amp;#8217;t autovacuum
+automatically doing this for us. (I mean it has the phrase &amp;#8216;auto&amp;#8217; in its name!!!)&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;ve found this great article on &lt;a href=&quot;https://blog.2ndquadrant.com/autovacuum-tuning-basics/&quot;&gt;autovacuum
+basics&lt;/a&gt; which led me to do this query:&lt;/p&gt;
+
+&lt;figure class=&#8217;code&#8217;&gt;&lt;figcaption&gt;&lt;span&gt;&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line-number&#8217;&gt;1&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;2&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;3&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;4&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;5&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;6&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;7&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;8&lt;/span&gt;
+&lt;span class=&#8217;line-number&#8217;&gt;9&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;sql&#8217;&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;relname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n_live_tup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;last_autoanalyze&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pg_stat_all_tables&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;relname&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;like&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;voter_%&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;       &lt;span class=&quot;n&quot;&gt;relname&lt;/span&gt;       &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n_live_tup&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;       &lt;span class=&quot;n&quot;&gt;last_autoanalyze&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;c1&quot;&gt;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt; &lt;span class=&quot;n&quot;&gt;voter_changetracker&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;306689271&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2018&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;05&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;05&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;04&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;59&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;08&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;503876&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;00&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt; &lt;span class=&quot;n&quot;&gt;voter_filetracker&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;         &lt;span class=&quot;mi&quot;&gt;41&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2018&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;05&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;02&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;47&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;802633&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;00&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt; &lt;span class=&quot;n&quot;&gt;voter_ncvhis&lt;/span&gt;        &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;          &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt; &lt;span class=&quot;n&quot;&gt;voter_ncvoter&lt;/span&gt;       &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;   &lt;span class=&quot;mi&quot;&gt;12336616&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2018&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;05&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;06&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;073426&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;00&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt; &lt;span class=&quot;n&quot;&gt;voter_badlinerange&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;        &lt;span class=&quot;mi&quot;&gt;404&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2018&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;04&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;05&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;44&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;39&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;949193&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;00&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#8217;line&#8217;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;rows&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+&lt;p&gt;So those 2 large tables haven&amp;#8217;t been ANALYZEd in weeks, despite the fact that we import a 10 million
+row CSV once every week. This is the end of my debugging road, for now. Hopefully, I&amp;#8217;ll figure out
+what&amp;#8217;s going on.&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
     <title>Renaissance Man</title>
@@ -1661,52 +1746,6 @@ I watch the milk go in your coffee?&amp;#8221;&lt;/p&gt;
 
 &lt;p&gt;Moments like that are so joyous, and I have underestimated how much
 they mean to me. I want to capture them and never let them go.&lt;/p&gt;
-</content>
-  </entry>
-  
-  <entry>
-    <title>NASA Curiosity Lands</title>
-    <link href="https://www.kurup.org/blog/2012/08/07/nasa-curiosity-lands"/>
-    <updated>2012-08-07T15:17:43-04:00</updated>
-    <id>id:/blog/2012/08/07/nasa-curiosity-lands</id>
-   <category scheme="http://www.kurup.org" term="inspiring" />
-   <category scheme="http://www.kurup.org" term="science" />
-   
-    <content type="html">&lt;p&gt;Like the rest of the geek world, we&amp;#8217;ve been excited by Curiosity&amp;#8217;s
-successful trip to Mars. Here&amp;#8217;s a cool video which combines an
-animation of Curiosity&amp;#8217;s landing mixed with the real reactions of the
-astronauts that got it there. (Found on &lt;a href=&quot;http://thekidshouldseethis.com/post/28851131280&quot;&gt;thekidshouldseethis.com&lt;/a&gt;)&lt;/p&gt;
-
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot;
-src=&quot;http://www.youtube.com/embed/Ti_yre6dsa4&quot; frameborder=&quot;0&quot;
-allowfullscreen&gt;&lt;/iframe&gt;
-
-
-&lt;p&gt;I&amp;#8217;ve been disappointed that real space travel is unlikely to become a
-reality during my life. I honestly thought it would when I was a kid.
-But watching Curiosity gives me hope that we will be able to continue
-exploring our universe. This trip to Mars was much more of an
-achievement than the last one. Here&amp;#8217;s an animation of the last trip
-(2003 Mars Exploration). Note that the final landing was achieved by
-an air bag dropped roughly from high up in the air. Not much precision
-required there.&lt;/p&gt;
-
-&lt;iframe width=&quot;420&quot; height=&quot;315&quot;
-src=&quot;http://www.youtube.com/embed/-_9BYSDtwRc&quot; frameborder=&quot;0&quot;
-allowfullscreen&gt;&lt;/iframe&gt;
-
-
-&lt;p&gt;&lt;img class=&quot;right&quot; src=&quot;https://www.kurup.org/images/curiosity-size.jpg&quot; width=&quot;300&quot; height=&quot;200&quot; title=&quot;Curiosity is huge (NASA)&quot; &gt;&lt;/p&gt;
-
-&lt;p&gt;The Curiosity rover is too large for the airbag approach (See image at
-right comparing it to previous rovers), so an alternate system was
-devised using a sky crane which gently lowered the rover onto the
-Martian surface. Dropping an airbag seems much easier than gently
-landing a rover without damage. The real advance in our lifetime is
-that our machines are getting more intelligent. And the exciting thing
-is that I can actually participate in that type of exploration. I
-think I just convinced myself to &lt;a href=&quot;http://www.udacity.com/overview/Course/cs373/CourseRev/apr2012&quot;&gt;learn how to program a robotic
-car!&lt;/a&gt;&lt;/p&gt;
 </content>
   </entry>
   

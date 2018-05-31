@@ -9,8 +9,7 @@
   <meta name="author" content="Vinod Kurup">
 
   
-  <meta name="description" content="I was looking at the Tcl 8.4 man page for &#8216;split&#8217; and saw this example code: ## Split into fields on colons
-set fields [split $rec &quot &hellip;">
+  <meta name="description" content="Automated testing is a good thing. For my running log application, I have a proc that creates a new log for a user, called rl::runner::new. If you &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -90,6 +89,89 @@ set fields [split $rec &quot &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2006/05/16/automated-testing-rules">Automated Testing Rules</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-05-16T00:00:00-04:00" pubdate data-updated="true">May 16<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Automated testing is a good thing. For my running log application, I have a proc that creates a new log for a user, called rl::runner::new. If you happen to call it for a user who already has a log, it returns the already created log. When I created the proc way back when, I also created an automated test to make sure that creation worked and that redundant calls returned the orignal log.</p>
+
+<p>Over time, I added some code to make sure that users are given proper permissions on their log. Anytime you make a change, you should run your tests, but of course, I didn&#8217;t :-) Well, today I did and my test now failed.</p>
+
+<p>Here is the relevant (edited) code:</p>
+
+<div>
+  <pre><code class='tcl'>set runner_id [db_nextval acs_object_id_seq] 
+set ret_val [db_exec_plsql new_runner {}]
+permission::grant -party_id $user_id -object_id $runner_id -privilege admin
+permission::grant -party_id $user_id -object_id $runner_id -privilege write</code></pre>
+</div>
+
+
+<p>The error was happening in <code>permission::grant</code>. It was complaining that <code>$runner_id</code> wasn&#8217;t a valid acs_object. What&#8217;s going on? It looks like it should work. The problem is that I should be granting the permission on <code>ret_val</code>, not on <code>runner_id</code>. (Probably a bad choice of variable names). The first time a log is created, <code>db_exec_plsql</code> returns a value which happens to be the same as <code>runner_id</code>. The second time it&#8217;s called, it returns a value which is <strong>different</strong> and <code>permission::grant</code> fails.</p>
+
+<p>I would never have caught this error until I tried to call <code>rl::runner::new</code> the second time on the same user. Which would make it one of those very difficult to track bugs. Automated testing saved me a lot of annoying debugging.</p>
+
+<p>That said, I wish OpenACS&#8217;s testing facilities were better. I worked on a couple other bugs today and I&#8217;m trying really hard to write tests to expose bugs before fixing them, but it&#8217;s really a strain. Especially when you need to do a combination of black box and white box testing. I&#8217;d like to make testing easier in OpenACS, but I&#8217;m not sure if I have the brainpower :-)</p>
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>Improving Testing</b></p>
+<p>
+Vinod,
+</p>
+<p>
+There is definitely room for improvement. You can specify test
+dependency, I think, so you can create a test package environment,
+then run several tests using that setup. I haven&#8217;t tried that yet, but
+it should help.
+</p>
+<p>
+Anothing thing to keep in mind is that testing can expose places in
+your code that might need to be decoupled. That is one of the
+advantages of testing, by thinking of how to run the code is isolation
+in the test, you can discover a better design :)
+</p>
+<address class="signature">
+<span class="author">Dave Bauer</span>
+<span class="date">2006-05-17 07:27:51</span>
+</address>
+</div>
+
+</div>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -704,115 +786,6 @@ blog</a> and beg for your code :-)
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2006/03/18/brooklyn-half-marathon">Brooklyn Half Marathon</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2006-03-18T00:00:00-05:00" pubdate data-updated="true">Mar 18<span>th</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>It was cold out there today. I was wearing a long sleeve shirt, long pants, a headband and gloves, and I was still cold. I doubted whether I&#8217;d be able to break 2 hours, like I&#8217;d hoped. A mile into the race I was sure I wouldn&#8217;t be able to do it. It felt like I was just running in place. As usual though, I eventually warmed up and felt pretty good.</p>
-
-<p>I planned to take the first 5 miles real easy and I came through in 47:28. Not bad. I wanted to do the next 5 miles in 45 minutes. I came through in 45:41. Not  bad. Finally, I wanted to really pick it up the last 5K (3.1 miles). I came through in 26:43, about 8:30 pace. Again, not bad. The last 3 miles seemed like it was all hills. Even the finish was on a hill! I finally saw the finish line, checked my watch and saw 1:59:13, and promptly took off like a crazy person.</p>
-
-<p>Final tally: 1:59:52!</p>
-
-<p>This is the first time I ran Brooklyn and I really liked it. We started on the boardwalk at Coney Island and ran along the beach for about 3 miles. Then, there was a long straight road stretch for about 5-6 miles and we finally finished with a few loops inside Prospect Park. They just need to flatten out some of those hills&#8230;</p>
-
-<p>Half marathons this year:</p>
-
-<ul>
-<li>Jan 28: 2:21:30 (10:48 pace) Manhattan</li>
-<li>Mar 18: 1:59:52 (9:09 pace) Brooklyn</li>
-</ul>
-
-
-<p>Scheduled:</p>
-
-<ul>
-<li>Jul 9: Bronx</li>
-<li>Aug 27: New York City</li>
-<li>Oct 1: Grete&#8217;s Gallop</li>
-<li>Oct 15: Staten Island</li>
-</ul>
-
-
-<p><a href="http://derekrose.com/wp/?p=864">Read more race reports at Derek Rose&#8217;s blog.</a></p>
-
-<div id="comment-box">
-<h2>Comments from old site</h2>
-
-<div class="one-comment">
-<p><b>good job</b></p>
-<p>
-Hey, looks like you made substantial headway since Manhattan half,
-that&#8217;s great.  Nice race report.  And don&#8217;t worry about the hills; the
-more you run them, the less high they seem.  (I&#8217;m lying of course!)
-that&#8217;s my home training ground, so they seem like predictable friends
-to me&#8230;
-</p>
-<p>
-see you at Bronx Half I hope.
-</p>
-<address class="signature">
-<span class="author">Anonymous</span>
-<span class="date">2006-03-18 23:55:01</span>
-</address>
-</div>
-
-<div class="my-comment">
-<p><b>Thanks</b></p>
-<p>
-Lucky you - It must be nice to train in Prospect Park. I love the
-Bronx, but I haven&#8217;t found a dependable course yet. I&#8217;m a mile away
-from Van Cortlandt park, but it doesn&#8217;t have any runner-friendly loops
-like Prospect Park or Central Park. But it does have hills - I guess I
-should work there a bit more, huh?
-</p>
-<p>
-My Manhattan time is misleading because I didn&#8217;t train at all for
-it. I was expecting the Manhattan half to be in August like it was
-last year, so I was slacking off in my running :-)
-</p>
-<p>
-How&#8217;d you do? See ya at the Bronx!
-</p>
-<address class="signature">
-<span class="author">Vinod Kurup</span>
-<span class="date">2006-03-19 08:22:50</span>
-</address>
-</div>
-
-</div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/14/">&larr; Older</a>
@@ -828,6 +801,10 @@ How&#8217;d you do? See ya at the Bronx!
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/05/30/autovacuum-fail">Autovacuum not running</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2018/05/29/renaissance-man">Renaissance Man</a>
@@ -903,10 +880,6 @@ How&#8217;d you do? See ya at the Bronx!
     
       <li class="post">
         <a href="/blog/2012/08/16/a-great-moment">A great moment</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/07/nasa-curiosity-lands">NASA Curiosity Lands</a>
       </li>
     
   </ul>

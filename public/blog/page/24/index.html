@@ -9,7 +9,9 @@
   <meta name="author" content="Vinod Kurup">
 
   
-  <meta name="description" content="Today is the 56th anniversary of India&#8217;s Independence from Britain. Interestingly, Google&#8217;s top results for &#8220;indian independence &hellip;">
+  <meta name="description" content="The power finally came back on at around 7:20 PM tonight. I was
+sitting on my futon trying as hard as I could not to sweat, when I
+heard a loud cheer &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -89,6 +91,81 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2003/08/16/let-there-be-light">Let There Be Light!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-08-16T00:00:00-04:00" pubdate data-updated="true">Aug 16<span>th</span>, 2003</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The power finally came back on at around 7:20 PM tonight. I was
+sitting on my futon trying as hard as I could not to sweat, when I
+heard a loud cheer from the courtyard and saw that the lights had gone
+on in the apartments outside my window.</p>
+
+<p>It&#8217;s been a weird couple of days. The power went out around 4:15 PM
+yesterday while I was looking up some labs in the preceptor&#8217;s
+room. The A/C had been on full-blast, so we all thought that it was
+just an overloaded circuit, but soon we got word that nearby buildings
+were affected and everyone went smoothly into disaster-mode. Take care
+of any urgent patient needs and encourage everyone else to go home. No
+staff leaves until we know what&#8217;s going on. Around 6:30, we got the
+word that whoever was within walking distance could go home, provided
+that they be back first thing in the morning. I figured 4 miles is
+walking-distance, so I left. From the 80&#8217;s to around 63rd St, 2nd
+Avenue was packed with cars trying in vain to get to the Queensboro
+bridge. Traffic lights were off, but it didn&#8217;t seem to matter since
+the cars weren&#8217;t moving anyway. Civilians were trying to direct
+traffic with varying success. The cars obeyed, but pedestrians were on
+their own schedule. From the Queensboro down to the 40&#8217;s, pedestrians
+replaced the cars and swarmed over the street.</p>
+
+<p>I got to my neighborhood around 8ish. Most of the local shops were out
+of flashlights and running low on water. I swear the people at the
+counter were just making up prices as they went along, but no one
+really seemed to care. After getting settled at home, I went for a
+short walk outside around 10PM. I was shocked at how dark New York was
+without any lights. You could clearly see the stars in the sky. It was
+dangerous to walk around without a flashlight because there would be
+people just sitting on the sidewalk waiting to be tripped over.</p>
+
+<p>But everything is back to normal now and the only casualty is my <a href="http://en.wikipedia.org/wiki/Uptime">uptime</a></p>
+
+<h1>Update:</h1>
+
+<ul>
+<li><a href="http://www.globalsecurity.org/eye/blackout_2003.htm">Satellite pics</a> via <a href="http://badgertronics.com/blog">Badgertronics</a></li>
+<li><a href="http://www.quicktopic.com/23/H/JwZLefNGAwM8/p-1.-1">Lots of more interesting stories</a> via <a href="http://boingboing.net/">BoingBoing</a></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -629,69 +706,6 @@ even come with a procedure report :-)
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2003/07/20/aolserver-cgi-errors">AOLserver CGI Errors</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2003-07-20T00:00:00-04:00" pubdate data-updated="true">Jul 20<span>th</span>, 2003</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Scenario: You&#8217;re trying to run a CGI program under AOLserver and you see this in your error log:</p>
-
-<pre><code>19/Jul/2003:00:00:23     Error: exec /home/vinod/cgi-bin/mt: execve() failed: Permission denied
-19/Jul/2003:00:00:23     Error: waitpid(-3) failed: No child processes
-19/Jul/2003:00:00:23     Error: nscgi: wait for /home/vinod/cgi-bin/mt failed: No child processes
-</code></pre>
-
-<p>I&#8217;m trying to run <code>/home/vinod/cgi-bin/mt/mt.cgi</code>. Why isn&#8217;t this working? Because I need to tell AOLserver about each and every directory which might contain CGI programs.</p>
-
-<p>So I need to change my <code>nsd.tcl</code> from:</p>
-
-<pre><code>ns_section "ns/server/${server}/module/nscgi"
-ns_param   map "GET  /cgi-bin /home/${user_account}/cgi-bin/" 
-ns_param   map "POST /cgi-bin /home/${user_account}/cgi-bin/" 
-ns_param   Interps CGIinterps
-</code></pre>
-
-<p>to</p>
-
-<pre><code>ns_section "ns/server/${server}/module/nscgi"
-ns_param   map "GET  /cgi-bin /home/${user_account}/cgi-bin/"
-ns_param   map "POST /cgi-bin /home/${user_account}/cgi-bin/"
-ns_param   map "GET  /cgi-bin/mt /home/${user_account}/cgi-bin/mt" 
-ns_param   map "POST /cgi-bin/mt /home/${user_account}/cgi-bin/mt" 
-ns_param   Interps CGIinterps
-</code></pre>
-
-<p>Problem solved. Further reading: <a href="http://jongriffin.com/static/consultant/nscgi">http://jongriffin.com/static/consultant/nscgi</a> -  sure wish I had read that before I started messing with ns_cgi.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/25/">&larr; Older</a>
@@ -707,6 +721,10 @@ ns_param   Interps CGIinterps
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/05/30/autovacuum-fail">Autovacuum not running</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2018/05/29/renaissance-man">Renaissance Man</a>
@@ -782,10 +800,6 @@ ns_param   Interps CGIinterps
     
       <li class="post">
         <a href="/blog/2012/08/16/a-great-moment">A great moment</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/07/nasa-curiosity-lands">NASA Curiosity Lands</a>
       </li>
     
   </ul>

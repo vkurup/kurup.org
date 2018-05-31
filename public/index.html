@@ -9,10 +9,8 @@
   <meta name="author" content="Vinod Kurup">
 
   
-  <meta name="description" content="I love this
-post by Austin Kleon.
-As someone who has found very few things that I don&#8217;t find intriguing in some
-way, it is nice to know that &hellip;">
+  <meta name="description" content="OK, this is a debug session in progress, so don&#8217;t expect a nice solution at the end. We&#8217;re working
+on a project that does analysis of &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -92,6 +90,115 @@ way, it is nice to know that &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2018/05/30/autovacuum-fail">Autovacuum Not Running</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2018-05-30T21:26:00-04:00" pubdate data-updated="true">May 30<span>th</span>, 2018</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>OK, this is a debug session in progress, so don&#8217;t expect a nice solution at the end. We&#8217;re working
+on a project that does analysis of some public voter registration data. The DB is hosted on Amazon
+RDS and I&#8217;ve been perplexed by how poorly queries are performing there, despite the tables only have
+about 10 million rows. Simple queries are taking many minutes, which is orders of magnitude slower
+than my laptop.</p>
+
+<p><a href="http://mlavin.org/">Mark</a> suggested running &#8216;VACUUM ANALYZE&#8217;, which I didn&#8217;t think would help
+because my understanding was that the autovacuum process in PostgreSQL would be taking care of that
+on a regular basis. These queries had been slow for days with no recent inserts or updates, so
+certainly autovacuum should have caught up to them by now. But, I tried it anyway and lo and behold:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="n">db</span><span class="o">=&gt;</span> <span class="k">select</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">from</span> <span class="n">voter_ncvoter</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">count</span>
+</span><span class='line'><span class="c1">----------</span>
+</span><span class='line'> <span class="mi">12336571</span>
+</span><span class='line'><span class="p">(</span><span class="mi">1</span> <span class="k">row</span><span class="p">)</span>
+</span><span class='line'><span class="n">Time</span><span class="p">:</span> <span class="mi">315777</span><span class="p">.</span><span class="mi">051</span> <span class="n">ms</span>
+</span><span class='line'><span class="n">db</span><span class="o">=&gt;</span> <span class="k">vacuum</span> <span class="k">analyze</span><span class="p">;</span>
+</span><span class='line'><span class="k">VACUUM</span>
+</span><span class='line'><span class="n">Time</span><span class="p">:</span> <span class="mi">11377035</span><span class="p">.</span><span class="mi">096</span> <span class="n">ms</span>
+</span><span class='line'><span class="n">db</span><span class="o">=&gt;</span> <span class="k">select</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">from</span> <span class="n">voter_ncvoter</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">count</span>
+</span><span class='line'><span class="c1">----------</span>
+</span><span class='line'> <span class="mi">12336571</span>
+</span><span class='line'><span class="p">(</span><span class="mi">1</span> <span class="k">row</span><span class="p">)</span>
+</span><span class='line'><span class="n">Time</span><span class="p">:</span> <span class="mi">4300</span><span class="p">.</span><span class="mi">107</span> <span class="n">ms</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Woah, that worked! Sure, it took 3+ hours to run ANALYZE, but wow. So, why isn&#8217;t autovacuum
+automatically doing this for us. (I mean it has the phrase &#8216;auto&#8217; in its name!!!)</p>
+
+<p>I&#8217;ve found this great article on <a href="https://blog.2ndquadrant.com/autovacuum-tuning-basics/">autovacuum
+basics</a> which led me to do this query:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="n">db</span><span class="o">=&gt;</span> <span class="k">select</span> <span class="n">relname</span><span class="p">,</span> <span class="n">n_live_tup</span><span class="p">,</span> <span class="n">last_autoanalyze</span> <span class="k">from</span> <span class="n">pg_stat_all_tables</span> <span class="k">where</span> <span class="n">relname</span> <span class="k">like</span> <span class="s1">&#39;voter_%&#39;</span><span class="p">;</span>
+</span><span class='line'>       <span class="n">relname</span>       <span class="o">|</span> <span class="n">n_live_tup</span> <span class="o">|</span>       <span class="n">last_autoanalyze</span>
+</span><span class='line'><span class="c1">---------------------+------------+------------+-------------------------------</span>
+</span><span class='line'> <span class="n">voter_changetracker</span> <span class="o">|</span>  <span class="mi">306689271</span> <span class="o">|</span> <span class="mi">2018</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">05</span> <span class="mi">04</span><span class="p">:</span><span class="mi">59</span><span class="p">:</span><span class="mi">08</span><span class="p">.</span><span class="mi">503876</span><span class="o">+</span><span class="mi">00</span>
+</span><span class='line'> <span class="n">voter_filetracker</span>   <span class="o">|</span>         <span class="mi">41</span> <span class="o">|</span> <span class="mi">2018</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">13</span> <span class="mi">02</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">47</span><span class="p">.</span><span class="mi">802633</span><span class="o">+</span><span class="mi">00</span>
+</span><span class='line'> <span class="n">voter_ncvhis</span>        <span class="o">|</span>          <span class="mi">0</span> <span class="o">|</span>
+</span><span class='line'> <span class="n">voter_ncvoter</span>       <span class="o">|</span>   <span class="mi">12336616</span> <span class="o">|</span> <span class="mi">2018</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">06</span> <span class="mi">13</span><span class="p">:</span><span class="mi">20</span><span class="p">:</span><span class="mi">30</span><span class="p">.</span><span class="mi">073426</span><span class="o">+</span><span class="mi">00</span>
+</span><span class='line'> <span class="n">voter_badlinerange</span>  <span class="o">|</span>        <span class="mi">404</span> <span class="o">|</span> <span class="mi">2018</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">10</span> <span class="mi">05</span><span class="p">:</span><span class="mi">44</span><span class="p">:</span><span class="mi">39</span><span class="p">.</span><span class="mi">949193</span><span class="o">+</span><span class="mi">00</span>
+</span><span class='line'><span class="p">(</span><span class="mi">5</span> <span class="k">rows</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So those 2 large tables haven&#8217;t been ANALYZEd in weeks, despite the fact that we import a 10 million
+row CSV once every week. This is the end of my debugging road, for now. Hopefully, I&#8217;ll figure out
+what&#8217;s going on.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -915,62 +1022,6 @@ to try a twitter hiatus for a week and see what happens.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/01/09/steal-my-web-app-idea">Steal My Web App Idea</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-01-09T22:00:01-05:00" pubdate data-updated="true">Jan 9<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Now that we have 3 kids, I&#8217;m always internally comparing one to the
-other. Sure that&#8217;s not healthy and will probably breed resentment in
-them during their teenage years, but what&#8217;s a bad parent to do?</p>
-
-<p>I need an app that takes 2 kids&#8217; birthdays and then shows me what day
-it was when the older kid was the age that the younger kid is now.
-Wow, that&#8217;s a confusing sentence. In simpler terms, if I have a
-3-year-old and a 1-year-old, then the app would show me the day that
-the 3-year-old was 1.</p>
-
-<p>Then, I want the app to take that date and go through all of my
-personal files (photos, notes, twitter stream, facebook stream, etc.)
-and show me what was happening in our life around that day.</p>
-
-<p>In short, it would show a snapshot of what our life was like when the
-older kid was the age that the younger kid is now. I&#8217;d call it
-WhenIWasYourAge or something catchy like that.</p>
-
-<p>Seems simple enough to build, but I don&#8217;t see myself getting to it
-anytime soon. Smart people say to set your ideas free and if they love
-you they&#8217;ll come back. (Wait, I think I&#8217;m mixing metaphors here).</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -984,6 +1035,10 @@ you they&#8217;ll come back. (Wait, I think I&#8217;m mixing metaphors here).</p
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/05/30/autovacuum-fail">Autovacuum not running</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2018/05/29/renaissance-man">Renaissance Man</a>
@@ -1059,10 +1114,6 @@ you they&#8217;ll come back. (Wait, I think I&#8217;m mixing metaphors here).</p
     
       <li class="post">
         <a href="/blog/2012/08/16/a-great-moment">A great moment</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/07/nasa-curiosity-lands">NASA Curiosity Lands</a>
       </li>
     
   </ul>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: programming | Vinod Kurup]]></title>
   <link href="https://www.kurup.org/blog/categories/programming/atom.xml" rel="self"/>
   <link href="https://www.kurup.org/"/>
-  <updated>2018-05-29T21:34:55-04:00</updated>
+  <updated>2018-05-30T21:57:14-04:00</updated>
   <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
@@ -12,6 +12,69 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Autovacuum not running]]></title>
+    <link href="https://www.kurup.org/blog/2018/05/30/autovacuum-fail"/>
+    <updated>2018-05-30T21:26:00-04:00</updated>
+    <id>https://www.kurup.org/blog/2018/05/30/autovacuum-fail</id>
+    <content type="html"><![CDATA[<p>OK, this is a debug session in progress, so don't expect a nice solution at the end. We're working
+on a project that does analysis of some public voter registration data. The DB is hosted on Amazon
+RDS and I've been perplexed by how poorly queries are performing there, despite the tables only have
+about 10 million rows. Simple queries are taking many minutes, which is orders of magnitude slower
+than my laptop.</p>
+
+<p><a href="http://mlavin.org/">Mark</a> suggested running 'VACUUM ANALYZE', which I didn't think would help
+because my understanding was that the autovacuum process in PostgreSQL would be taking care of that
+on a regular basis. These queries had been slow for days with no recent inserts or updates, so
+certainly autovacuum should have caught up to them by now. But, I tried it anyway and lo and behold:</p>
+
+<p>```sql
+db=> select count(*) from voter_ncvoter;</p>
+
+<h2>  count</h2>
+
+<p> 12336571
+(1 row)
+Time: 315777.051 ms
+db=> vacuum analyze;
+VACUUM
+Time: 11377035.096 ms
+db=> select count(*) from voter_ncvoter;</p>
+
+<h2>  count</h2>
+
+<p> 12336571
+(1 row)
+Time: 4300.107 ms
+```</p>
+
+<p>Woah, that worked! Sure, it took 3+ hours to run ANALYZE, but wow. So, why isn't autovacuum
+automatically doing this for us. (I mean it has the phrase 'auto' in its name!!!)</p>
+
+<p>I've found this great article on <a href="https://blog.2ndquadrant.com/autovacuum-tuning-basics/">autovacuum
+basics</a> which led me to do this query:</p>
+
+<p>```sql
+db=> select relname, n_live_tup, last_autoanalyze from pg_stat_all_tables where relname like 'voter_%';</p>
+
+<pre><code>   relname       | n_live_tup |       last_autoanalyze
+</code></pre>
+
+<p>---------------------+------------+------------+-------------------------------
+ voter_changetracker |  306689271 | 2018-05-05 04:59:08.503876+00
+ voter_filetracker   |         41 | 2018-05-13 02:00:47.802633+00
+ voter_ncvhis        |          0 |
+ voter_ncvoter       |   12336616 | 2018-05-06 13:20:30.073426+00
+ voter_badlinerange  |        404 | 2018-04-10 05:44:39.949193+00
+(5 rows)
+```</p>
+
+<p>So those 2 large tables haven't been ANALYZEd in weeks, despite the fact that we import a 10 million
+row CSV once every week. This is the end of my debugging road, for now. Hopefully, I'll figure out
+what's going on.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Using dynamic queries in a CBV]]></title>
@@ -227,49 +290,6 @@ class Meta:
 this might not work, unless you set <code>SOUTH_TESTS_MIGRATE</code> to <code>False</code> in your settings file.</p>
 
 <p>Comments and corrections welcome!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[NSBrief gets the best guests]]></title>
-    <link href="https://www.kurup.org/blog/2012/11/05/nsbrief-gets-the-best-guests"/>
-    <updated>2012-11-05T10:38:09-05:00</updated>
-    <id>https://www.kurup.org/blog/2012/11/05/nsbrief-gets-the-best-guests</id>
-    <content type="html"><![CDATA[<p>I'm not an OS X programmer, but I've really enjoyed 2 recent episodes
-of the <a href="http://nsbrief.com/">NSBrief</a> podcast. First was <a href="http://nsbrief.com/59-mark-dalrymple">Mark
-Dalrymple's interview</a>. Here was
-my 140 character description:</p>
-
-<blockquote class="twitter-tweet"><p>So much geeky fun in @<a href="https://twitter.com/borkware">borkware</a>'s interview. AOLserver, dtrace, OpenDoc, MPW, need I go on? <a href="http://t.co/JWPPvfaa" title="http://nsbrief.com/59-mark-dalrymple">nsbrief.com/59-mark-dalrym…</a></p>&mdash; Vinod Kurup (@vkurup) <a href="https://twitter.com/vkurup/status/235907385997262848" data-datetime="2012-08-16T01:14:38+00:00">August 16, 2012</a></blockquote>
-
-
-<script src="https://www.kurup.org//platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-
-<p>Today, I listened to
-<a href="http://nsbrief.com/62-mark-aufflick">Mark Aufflick's interview</a> where
-he talks eloquently about starting your own business. I love the
-perspective he had on his first business and how shutting it down gave
-him the necessary (though painful) experience to make his current
-business work. He also talked about the importance of computing
-history especially given the availability of interesting subjects. He
-ended with great advice on the importance of professionalism.
-Paraphrased: "Make sure your team is the most professional side of any
-relationship."</p>
-
-<p>I know <a href="http://borkware.com">Mark</a> and
-<a href="http://mark.aufflick.com/">Mark</a> from the
-<a href="http://openacs.org">OpenACS</a> glory days and it's great to hear how
-well they're doing. Computing history was a prominent part of both
-talks. I think this is important. Old ideas are always new again. Some
-of the ideas that these pioneers had were only limited by the
-horsepower we had to work with at the time. Now thanks to Moore's law,
-those limitations are gone, so we should re-investigate those ideas.
-Or maybe we're all just getting old and like to talk about the
-good-old-days. :-) It's nice to see that they both mentioned the
-OpenACS period of their programming lives as important. It certainly
-was for me. It was also great to hear Mark Aufflick's voice for the
-first time, even though I feel like he's been a friend for many years.</p>
 ]]></content>
   </entry>
   

@@ -9,9 +9,9 @@
   <meta name="author" content="Vinod Kurup">
 
   
-  <meta name="description" content="I preordered Mark Pilgrim&#8217;s HTML5, Up and Running from Amazon back in
-March. It&#8217;s available for free as Dive into
-HTML5. I&#8217;ve been &hellip;">
+  <meta name="description" content="I found out how to rotate video today. I often take video with my
+Canon SD870, but I mistakenly take it in portrait mode. I don&#8217;t
+realize this &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -91,6 +91,77 @@ HTML5. I&#8217;ve been &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/09/16/rotate-video">Rotating Videos</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-09-16T09:09:00-04:00" pubdate data-updated="true">Sep 16<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I found out how to rotate video today. I often take video with my
+Canon SD870, but I mistakenly take it in portrait mode. I don&#8217;t
+realize this until I&#8217;m editing the video and then I have to decide if
+I want to subject my adoring youtube fans to the torture of having to
+turn their heads sideways to see how cute Kavi and Anika are.</p>
+
+<p>I found <a href="http://www.hanselman.com/blog/HowToRotateAnAVIOrMPEGFileTakenInPortrait.aspx">this
+link</a>
+which gives the <code>mencoder</code> command to rotate the video. Unfortunately,
+it didn&#8217;t work with the AVI files that my Canon SD870 create. I think
+this camera creates slightly corrupt AVI files. I say &#8220;slightly&#8221;
+because they&#8217;re still viewable, but mplayer always reports the total
+time as &#8220;0:00&#8221;, even while the elapsed time marches along
+correctly. Well, today, I found a way to fix the AVI files.</p>
+
+<pre><code>mencoder -ovc copy -oac copy input.avi -o output.avi
+</code></pre>
+
+<p>This just creates a new AVI, copying the video and audio from the
+original. Now, mplayer reports the correct total time. Then, to rotate
+the video:</p>
+
+<pre><code>mencoder -ovc lavc -lavcopts vcodec=mjpeg -vf rotate=1 \
+         -oac copy output.avi -o rotated.avi
+</code></pre>
+
+<p>And here&#8217;s your reward for reading along:</p>
+
+<object width="480" height="385"><param name="movie"
+value="http://www.youtube.com/v/QIC21_XaAJ0?fs=1&amp;hl=en_US"></param><param
+name="allowFullScreen" value="true"></param><param
+name="allowscriptaccess" value="always"></param><embed
+src="http://www.youtube.com/v/QIC21_XaAJ0?fs=1&amp;hl=en_US"
+type="application/x-shockwave-flash" allowscriptaccess="always"
+allowfullscreen="true" width="480" height="385"></embed></object>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -854,69 +925,6 @@ has pointed to me to a few options. I&#8217;ll probably read one of these next:<
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/07/17/getting-some-clojure">Getting Some Clojure</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-07-17T19:55:00-04:00" pubdate data-updated="true">Jul 17<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Steve Yegge is one of my favorite bloggers. I read <a href="http://sites.google.com/site/steveyegge2/you-should-write-blogs">&#8220;You Should Write
-Blogs&#8221;</a> a
-long time ago and it is one of the main reasons that I still try to keep
-this blog going at all. He recently took a blogging hiatus and in his
-<a href="http://steve-yegge.blogspot.com/2010/07/blogger-finger.html">return post</a>,
-he left a little hint that he was interested in a programming language
-called <a href="http://clojure.org">clojure</a>.</p>
-
-<p>My programming skills have been rusting away (Darn those patients, always
-getting sick and stuff!), so I&#8217;ve been looking for a little
-inspiration. I&#8217;m hoping that clojure is it. I&#8217;ve always wanted to learn
-lisp. I know a little elisp and scheme, but I&#8217;ve never gotten comfortable
-with them. Clojure compiles code that runs on a JVM (java virtual
-machine). This gives you a lot of the &#8220;power&#8221; of java, namely the extensive
-libraries and the widespread platforms on which it will run. But instead of
-having to write java, you get to write in a dynamic, lisp-like language. At
-least that&#8217;s how I understand it.</p>
-
-<p>Specifically, I hope that I&#8217;ll eventually be able to create applications
-that run on android phones, which is a java environment. Smartphones are
-clearly going to be a huge part of the future, if not <strong>the way</strong> of the
-future. I don&#8217;t see myself ever buying an iPhone and Mala already has a
-Droid Eris that I&#8217;d be able to play with if I needed. (Didn&#8217;t tell you
-that, did I Mala?) So&#8230; Android it is.</p>
-
-<p>Starting today, I&#8217;m going to start reading about clojure and taking notes
-(and maybe even posting them!). I&#8217;ve never been very good about taking
-notes, ever in my life. But, I clearly <a href="http://sachachua.com/blog/2010/03/how-to-brain-dump-what-you-know/">need to learn</a>.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/8/">&larr; Older</a>
@@ -932,6 +940,10 @@ notes, ever in my life. But, I clearly <a href="http://sachachua.com/blog/2010/0
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/05/30/autovacuum-fail">Autovacuum not running</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2018/05/29/renaissance-man">Renaissance Man</a>
@@ -1007,10 +1019,6 @@ notes, ever in my life. But, I clearly <a href="http://sachachua.com/blog/2010/0
     
       <li class="post">
         <a href="/blog/2012/08/16/a-great-moment">A great moment</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/07/nasa-curiosity-lands">NASA Curiosity Lands</a>
       </li>
     
   </ul>
