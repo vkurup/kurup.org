@@ -4,7 +4,7 @@
   <title>Vinod Kurup</title>
   <link href="https://www.kurup.org/blog/atom.xml" rel="self"/>
   <link href="https://www.kurup.org"/>
-  <updated>2018-05-30T21:57:14-04:00</updated>
+  <updated>2018-05-31T20:09:28-04:00</updated>
   <generator uri="http://github.com/mojombo/jekyll">Jekyll</generator>
   <id>https://www.kurup.org/blog/atom.xml</id>
   <author>
@@ -15,6 +15,42 @@
     <uri>https://www.kurup.org</uri>
   </author>
 
+  
+  <entry>
+    <title>History of Indian Civilization</title>
+    <link href="https://www.kurup.org/blog/2018/05/31/indian-civilization"/>
+    <updated>2018-05-31T20:00:00-04:00</updated>
+    <id>id:/blog/2018/05/31/indian-civilization</id>
+   <category scheme="http://www.kurup.org" term="education" />
+   <category scheme="http://www.kurup.org" term="india" />
+   
+    <content type="html">&lt;p&gt;I briefly mentioned finding the 2012 UCLA lecture series,
+&amp;#8221;&lt;a href=&quot;https://www.youtube.com/watch?v=93JMjX1XECo&amp;amp;list=PLy3KRgc0HE8B4neta_B8LPM0G9UWy-Cqe&quot;&gt;History of Indian Civilization&lt;/a&gt;&amp;#8221;,
+a &lt;a href=&quot;https://www.kurup.org/blog/2018/05/29/renaissance-man&quot;&gt;couple days ago&lt;/a&gt;. I&amp;#8217;m about halfway through
+and have found it thorougly illuminating. I learned a lot about India growing
+up, but never in a formal way, so it&amp;#8217;s nice to have someone as skilled as Vinay
+Lal connect all the loose threads into a coherent history. One of the things
+that surprises me is that aside from the fact that classes are being streamed
+over the internet, there is nothing different than the lectures I skipped (I
+mean religiously attended!) about 20 years ago. It&amp;#8217;s a large auditorium of
+students watching a very charismatic, knowledgeable speaker pacing at the front
+of the class, occasionally making mostly-legible markings on a chalkboard. Not
+that there&amp;#8217;s anything wrong with that. I learned a lot back in college and I&amp;#8217;m
+enjoying these lectures immensely. It just seems strange that so little has
+changed in the university clasroom (at least this one from 2012) when so much
+has changed in the world at large.&lt;/p&gt;
+
+&lt;p&gt;Actually, I find it reassuring that little has changed, at least in some
+classes. There was a time when the ability to download the audio of any
+university class was absolutely new. For me, that was around 2002 or so. I
+listened to CS61A (UC Berkley&amp;#8217;s intro to CS course) and a few other similar
+courses back then. The limitations of internet bandwidth and storage made
+anything more than audio difficult back then. But now with those barriers
+crushed, I was afraid that everything would be &amp;#8220;multimedia&amp;#8221;, and not amenable to
+listening while I commute to work. So, it&amp;#8217;s reassuring to find that audio-only
+dissemination of knowledge is still a thing.&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
     <title>Autovacuum not running</title>
@@ -1720,32 +1756,6 @@ focused on programming issues. They interview interesting programmers,
 but they carefully edit the interviews to focus on the parts that are
 the most interesting, interspersing them with music and effects. It&amp;#8217;s
 really well done.&lt;/p&gt;
-</content>
-  </entry>
-  
-  <entry>
-    <title>A great moment</title>
-    <link href="https://www.kurup.org/blog/2012/08/16/a-great-moment"/>
-    <updated>2012-08-16T10:24:34-04:00</updated>
-    <id>id:/blog/2012/08/16/a-great-moment</id>
-   <category scheme="http://www.kurup.org" term="fatherhood" />
-   <category scheme="http://www.kurup.org" term="happiness" />
-   
-    <content type="html">&lt;p&gt;I woke up, got ready and went downstairs. I am not a morning person. I
-try to do as little thinking as possible, because thinking eventually
-leads to the rational conclusion that I should just go back to bed. I
-get to the coffee machine, grab my plastic mug and start pouring.
-Suddenly, I&amp;#8217;m woken from my daze. I hear little footsteps pounding
-across the hallway above me. I look towards the bottom of the stairs
-and see a little figure race around the corner with a determined,
-slightly fearful look in her face. She&amp;#8217;s afraid that she&amp;#8217;s too late
-and that I&amp;#8217;ve already left for work. She spies me and I must be
-smiling because her face melts into the biggest, happiest smile and
-her pace quickens. We run to meet each other in a big hug. &amp;#8220;Daddy, can
-I watch the milk go in your coffee?&amp;#8221;&lt;/p&gt;
-
-&lt;p&gt;Moments like that are so joyous, and I have underestimated how much
-they mean to me. I want to capture them and never let them go.&lt;/p&gt;
 </content>
   </entry>
   

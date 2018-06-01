@@ -4,7 +4,7 @@
   <title><![CDATA[Category: india | Vinod Kurup]]></title>
   <link href="https://www.kurup.org/blog/categories/india/atom.xml" rel="self"/>
   <link href="https://www.kurup.org/"/>
-  <updated>2018-05-30T21:57:14-04:00</updated>
+  <updated>2018-05-31T20:09:28-04:00</updated>
   <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
@@ -12,6 +12,39 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[History of Indian Civilization]]></title>
+    <link href="https://www.kurup.org/blog/2018/05/31/indian-civilization"/>
+    <updated>2018-05-31T20:00:00-04:00</updated>
+    <id>https://www.kurup.org/blog/2018/05/31/indian-civilization</id>
+    <content type="html"><![CDATA[<p>I briefly mentioned finding the 2012 UCLA lecture series,
+"<a href="https://www.youtube.com/watch?v=93JMjX1XECo&amp;list=PLy3KRgc0HE8B4neta_B8LPM0G9UWy-Cqe">History of Indian Civilization</a>",
+a <a href="/blog/2018/05/29/renaissance-man">couple days ago</a>. I'm about halfway through
+and have found it thorougly illuminating. I learned a lot about India growing
+up, but never in a formal way, so it's nice to have someone as skilled as Vinay
+Lal connect all the loose threads into a coherent history. One of the things
+that surprises me is that aside from the fact that classes are being streamed
+over the internet, there is nothing different than the lectures I skipped (I
+mean religiously attended!) about 20 years ago. It's a large auditorium of
+students watching a very charismatic, knowledgeable speaker pacing at the front
+of the class, occasionally making mostly-legible markings on a chalkboard. Not
+that there's anything wrong with that. I learned a lot back in college and I'm
+enjoying these lectures immensely. It just seems strange that so little has
+changed in the university clasroom (at least this one from 2012) when so much
+has changed in the world at large.</p>
+
+<p>Actually, I find it reassuring that little has changed, at least in some
+classes. There was a time when the ability to download the audio of any
+university class was absolutely new. For me, that was around 2002 or so. I
+listened to CS61A (UC Berkley's intro to CS course) and a few other similar
+courses back then. The limitations of internet bandwidth and storage made
+anything more than audio difficult back then. But now with those barriers
+crushed, I was afraid that everything would be "multimedia", and not amenable to
+listening while I commute to work. So, it's reassuring to find that audio-only
+dissemination of knowledge is still a thing.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[India Trip 2006]]></title>
@@ -63,15 +96,6 @@
     <updated>2004-05-13T00:00:00-04:00</updated>
     <id>https://www.kurup.org/blog/2004/05/13/indian-elections</id>
     <content type="html"><![CDATA[<p>India offshores the prime ministership (link broken).</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Happy Indian Independence Day]]></title>
-    <link href="https://www.kurup.org/blog/2003/08/16/happy-indian-independence-day"/>
-    <updated>2003-08-16T00:00:00-04:00</updated>
-    <id>https://www.kurup.org/blog/2003/08/16/happy-indian-independence-day</id>
-    <content type="html"><![CDATA[<p>Today is the 56th anniversary of <a href="http://en.wikipedia.org/wiki/India%27s_independence_movement">India's Independence from Britain</a>. Interestingly, <a href="http://www.google.com/search?q=indian%20independence%20day">Google's top results for "indian independence day"</a> are not very informative - mostly just greeting card sites.</p>
 ]]></content>
   </entry>
   

@@ -9,7 +9,7 @@
   <meta name="author" content="Vinod Kurup">
 
   
-  <meta name="description" content="Not all of OpenACS is Postgres 7.3 compliant yet. OpenACS 5 is compliant and the core packages in OpenACS 4.6 are compliant, but some non-core &hellip;">
+  <meta name="description" content="psql doesn&#8217;t deal well with tabs. If you feed it a function that has tabs in it, and then call that function, you&#8217;ll often get this: &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -89,6 +89,42 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2003/06/24/psql-doesnt-like-tabs">Psql Doesn&#8217;t Like Tabs</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-06-24T00:00:00-04:00" pubdate data-updated="true">Jun 24<span>th</span>, 2003</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>psql doesn&#8217;t deal well with tabs. If you feed it a function that has tabs  in it, and then call that function, you&#8217;ll often get this:  <code>ERROR:  parser: parse error at or near "for" at character 15</code>.  Thus, if you ever see this in your error log, it&#8217;s time to <code>M-x untabify</code>.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -616,44 +652,6 @@ gotta <em>use</em> the software before you figure out where it needs fixin&#8217
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2002/11/28/wedding-video">Wedding Video</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2002-11-28T00:00:00-05:00" pubdate data-updated="true">Nov 28<span>th</span>, 2002</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>If you&#8217;ll scroll down a bit, back to June 28th, 2001, you&#8217;ll see that I promised &#8216;Video&#8217; of the wedding of Gerry and Kim. Go ahead, scroll&#8230; I&#8217;ll wait.</p>
-
-<p>Back? OK&#8230; I actually said &#8216;Video at 11&#8217;, but I didn&#8217;t specify exactly when &#8216;11&#8217; was. Well&#8230; it&#8217;s now!!!! OK, so it&#8217;s not exactly video, but it&#8217;s a <a href="http://kurup.org/files/gerry-kim-wedding.mov">slideshow of the festivities</a> (4.6 Mb).</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/27/">&larr; Older</a>
@@ -669,6 +667,10 @@ gotta <em>use</em> the software before you figure out where it needs fixin&#8217
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/05/31/indian-civilization">History of Indian Civilization</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2018/05/30/autovacuum-fail">Autovacuum not running</a>
@@ -744,10 +746,6 @@ gotta <em>use</em> the software before you figure out where it needs fixin&#8217
     
       <li class="post">
         <a href="/blog/2012/08/19/facebook-is-killing-blogging">Facebook is killing blogging</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/16/a-great-moment">A great moment</a>
       </li>
     
   </ul>

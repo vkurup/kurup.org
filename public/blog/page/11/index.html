@@ -9,7 +9,7 @@
   <meta name="author" content="Vinod Kurup">
 
   
-  <meta name="description" content="DailyLit.com is an interesting service that takes classic books and chops them up in to bite-sized pieces that you can read in just a few minutes. It &hellip;">
+  <meta name="description" content="If you go on adventure trips, you should read &#8220;Deep Survival&#8221;, by Laurence Gonzales. I finished it on my marathon subway rides yesterday &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -89,6 +89,48 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/04/15/deep-survival">Deep Survival</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-04-15T00:00:00-04:00" pubdate data-updated="true">Apr 15<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.amazon.com/gp/product/0393326152?ie=UTF8&amp;tag=vinodkurupshomep&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0393326152"><img class="floatRight" src="http://kurup.org/images/deep_survival.jpg"></a><img src="http://www.assoc-amazon.com/e/ir?t=vinodkurupshomep&l=as2&o=1&a=0393326152" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />  If you go on adventure trips, you should read <a href="http://www.amazon.com/gp/product/0393326152?ie=UTF8&amp;tag=vinodkurupshomep&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0393326152">&#8220;Deep Survival&#8221;</a>, by Laurence Gonzales. I finished it on my marathon subway rides yesterday. It&#8217;s partly a voyeuristic look into how people do or don&#8217;t survive when bad things happen. This part is pure storytelling and who doesn&#8217;t love a good story? At times, the outdoorsy jargon made it hard for me to follow what exactly was going on, but on the whole I was sucked in, turning pages to see what happened to our poor characters.</p>
+
+<p>The other part is an analysis of why one person survives and another seemingly more equipped, more experienced person succumbs. There is, of course, no hard answer and luck is a huge component, but some common characteristics do emerge. Survivors tend to remain calm, come to terms with their likely mortality, yet continue to strive against it by adapting to their new situations as best as possible. On the other hand, &#8220;The Rambo types are the first to go.&#8221;</p>
+
+<p>Parts of Deep Survival made me wonder if I should ever go hiking in the woods ever again. His description of seemingly innocent trips gone horribly bad can scare you. But (and the author makes this clear), this is NOT the point. Life is about enjoying beauty and constantly extending your abilities. It&#8217;s just critical to understand that nature is not a supervised playground and that there are always real dangers, no matter how <em>simple</em> the excursion. Knowing that fact, being properly outfitted and prepared, and most importantly, being aware of your surroundings and instincts will decrease your risk. And with risk managed properly, the reward-to-risk ratio of immersing yourself in nature <strong>easily</strong> beats out staying secure in your daily life, which is by no means risk-free either.</p>
+
+<p>So check out Deep Survival if you like a good story and if you want to learn a little more about what gives you the best chances of surviving a bad event.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -698,193 +740,6 @@ luck with your development toward HAES.  It is worth it!
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2006/09/25/working-with-collections">Working With Collections</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2006-09-25T00:00:00-04:00" pubdate data-updated="true">Sep 25<span>th</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Steve Yegge wrote about the <a href="http://steve.yegge.googlepages.com/ruby-tour">expressiveness of
-Ruby</a> as compared to
-Java. He used this simple problem as an example:</p>
-
-<blockquote><p>How about if we write a program that will print out all the words in the dictionary starting with the letter &#8216;Q&#8217; (case-insensitive), grouped by increasing length, and sorted alphabetically within each group.</p></blockquote>
-
-<p>The Ruby version was about 12 lines of code and Java version about
-43. Of course, the point of the exercise wasn&#8217;t simply the difference
-in LOCs, but in the overall simplicity of dealing with collections of
-data. Still, I wanted to see how Tcl would deal with the same
-problem. Here&#8217;s the simplest version I could come up with:</p>
-
-<div>
-  <pre><code class='tcl'>set f [open /usr/share/dict/words r]
-set words [read -nonewline $f]
-close $f
-set qwords [lsearch -all -inline [split $words \n] {[Qq]*}]
-
-proc compare_length {a b} {
-    if { [string length $a] &lt;= [string length $b] } {
-        return -1
-    } else {
-        return 1 
-    } 
-}
-
-set sorted_qwords [lsort -command compare_length [lsort $qwords]]
-set max -1 foreach qword $sorted_qwords {
-    if { [string length $qword] &gt; $max } {
-        set max [string length $qword]
-        puts &quot;Words of length $max:&quot;
-    }
-    puts &quot;  $qword&quot;
-}</code></pre>
-</div>
-
-
-<p>About 19 lines and pretty simple to write and read. Can this be
-improved?</p>
-
-<div id="comment-box">
-
-<h2>Comments from old site</h2>
-
-<div class="one-comment">
-
-<p><b>Meditations on programming languages</b></p>
-
-<p>
-I like Paul Graham&#8217;s essays on this subject.
-</p>
-
-<p>Have you seen this http://paulgraham.com/fix.html or this http://paulgraham.com/icad.html?
-</p>
-
-<address class="signature">
-<span class="author">Prem Thomas</span>
-<span class="date">2006-10-03 14:13:23</span>
-</address>
-</div>
-
-<div class="one-comment">
-
-<p><b>Tcl functional programming (And the example in Perl)</b></p>
-
-<p>
-I don&#8217;t do as much tcl programming as I used to, but I do do a lot of
-Perl and some Ruby.
-</p>
-
-<p>
-One thing I have really picked up from the Perl community is a love of
-using functional programming when it makes sense (which is quite a
-bit). If you want to get into functional programming in tcl there are
-quite a few good resources on the tcl.tk wiki, but there&#8217;s also a
-fantastic functional tcl package in openacs that every openacs
-programmer should make themselves familiar with:
-</p>
-
-<p>
-<a href ="http://openacs.org/api-doc/procs-file-view?version_id=358343&path=packages/acs-tcl/tcl/ad-functional-procs.tcl">[ACS Tcl 5.2.0 : ad-functional-procs.tcl</a> - full lambda functions (with no memory leaks, although a bit of memory usage)
-</p>
-
-<p>
-Now, onto the fun part! I thought I&#8217;d take on the Q word example in
-Perl. Here&#8217;s a reasonable way to do it in Perl:
-</p>
-
-<pre>
-use strict;
-open W, '/usr/share/dict/words' or die $!;
-my @words = &lt;W&gt;;
-chomp @words;
-close W;
-
-my $max = 0;
-for my $word (sort {length $a &lt;=> length $b} sort grep { /^q/i } @words) {
-    if (length $word > $max) {
-        $max = length $word;
-        print "Words of length $max:\n"
-    }
-
-    print "$word\n";
-}
-</pre>
-
-<p>
-And here&#8217;s the pathological way :)
-</p>
-
-<pre>
-open W, '/usr/share/dict/words';
-    
-length > $max ? print 'Words of length ' . (($max = length) -1) . ":\n$_" : print
-
-for sort {length $a &lt;=&gt; length $b} sort grep { /^q/i } &lt;W&gt;;
-</pre>
-
-<address class="signature">
-<span class="author">Mark Aufflick</span>
-<span class="date">2006-11-26 21:49:24</span>
-</address>
-</div>
-
-<div class="my-comment">
-
-<p><b>More stuff to learn</b></p>
-
-<p>
-Thanks Prem for the amusing comments about languages. I still have the
-&#8220;Revenge of the Nerds&#8221; on my to-read list.
-</p>
-
-<p>
-Mark, that is one scary looking snippet of Perl. :) Thanks for the
-links to the functional programming procs in OpenACS. I had never seen
-those. Do you know of any code that uses them?
-</p>
-
-<p>
-I&#8217;ve been meaning to learn some more about functional programming, but
-the going has been difficult. It&#8217;s definitely a different mindset.
-</p>
-
-<address class="signature">
-<span class="author">Vinod Kurup</span>
-<span class="date">2006-12-14 16:34:02</span>
-</address>
-</div>
-
-</div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/12/">&larr; Older</a>
@@ -900,6 +755,10 @@ the going has been difficult. It&#8217;s definitely a different mindset.
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/05/31/indian-civilization">History of Indian Civilization</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2018/05/30/autovacuum-fail">Autovacuum not running</a>
@@ -975,10 +834,6 @@ the going has been difficult. It&#8217;s definitely a different mindset.
     
       <li class="post">
         <a href="/blog/2012/08/19/facebook-is-killing-blogging">Facebook is killing blogging</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/16/a-great-moment">A great moment</a>
       </li>
     
   </ul>

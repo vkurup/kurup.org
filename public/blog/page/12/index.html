@@ -9,7 +9,9 @@
   <meta name="author" content="Vinod Kurup">
 
   
-  <meta name="description" content="Dave referenced an interesting article in the NEJM titled &#8220;Primary Care &#8211; Will it Survive?&#8221; These two quotes summarize the problem &hellip;">
+  <meta name="description" content="Steve Yegge wrote about the expressiveness of
+Ruby as compared to
+Java. He used this simple problem as an example: How about if we write a program &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -89,6 +91,193 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2006/09/25/working-with-collections">Working With Collections</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-09-25T00:00:00-04:00" pubdate data-updated="true">Sep 25<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Steve Yegge wrote about the <a href="http://steve.yegge.googlepages.com/ruby-tour">expressiveness of
+Ruby</a> as compared to
+Java. He used this simple problem as an example:</p>
+
+<blockquote><p>How about if we write a program that will print out all the words in the dictionary starting with the letter &#8216;Q&#8217; (case-insensitive), grouped by increasing length, and sorted alphabetically within each group.</p></blockquote>
+
+<p>The Ruby version was about 12 lines of code and Java version about
+43. Of course, the point of the exercise wasn&#8217;t simply the difference
+in LOCs, but in the overall simplicity of dealing with collections of
+data. Still, I wanted to see how Tcl would deal with the same
+problem. Here&#8217;s the simplest version I could come up with:</p>
+
+<div>
+  <pre><code class='tcl'>set f [open /usr/share/dict/words r]
+set words [read -nonewline $f]
+close $f
+set qwords [lsearch -all -inline [split $words \n] {[Qq]*}]
+
+proc compare_length {a b} {
+    if { [string length $a] &lt;= [string length $b] } {
+        return -1
+    } else {
+        return 1 
+    } 
+}
+
+set sorted_qwords [lsort -command compare_length [lsort $qwords]]
+set max -1 foreach qword $sorted_qwords {
+    if { [string length $qword] &gt; $max } {
+        set max [string length $qword]
+        puts &quot;Words of length $max:&quot;
+    }
+    puts &quot;  $qword&quot;
+}</code></pre>
+</div>
+
+
+<p>About 19 lines and pretty simple to write and read. Can this be
+improved?</p>
+
+<div id="comment-box">
+
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+
+<p><b>Meditations on programming languages</b></p>
+
+<p>
+I like Paul Graham&#8217;s essays on this subject.
+</p>
+
+<p>Have you seen this http://paulgraham.com/fix.html or this http://paulgraham.com/icad.html?
+</p>
+
+<address class="signature">
+<span class="author">Prem Thomas</span>
+<span class="date">2006-10-03 14:13:23</span>
+</address>
+</div>
+
+<div class="one-comment">
+
+<p><b>Tcl functional programming (And the example in Perl)</b></p>
+
+<p>
+I don&#8217;t do as much tcl programming as I used to, but I do do a lot of
+Perl and some Ruby.
+</p>
+
+<p>
+One thing I have really picked up from the Perl community is a love of
+using functional programming when it makes sense (which is quite a
+bit). If you want to get into functional programming in tcl there are
+quite a few good resources on the tcl.tk wiki, but there&#8217;s also a
+fantastic functional tcl package in openacs that every openacs
+programmer should make themselves familiar with:
+</p>
+
+<p>
+<a href ="http://openacs.org/api-doc/procs-file-view?version_id=358343&path=packages/acs-tcl/tcl/ad-functional-procs.tcl">[ACS Tcl 5.2.0 : ad-functional-procs.tcl</a> - full lambda functions (with no memory leaks, although a bit of memory usage)
+</p>
+
+<p>
+Now, onto the fun part! I thought I&#8217;d take on the Q word example in
+Perl. Here&#8217;s a reasonable way to do it in Perl:
+</p>
+
+<pre>
+use strict;
+open W, '/usr/share/dict/words' or die $!;
+my @words = &lt;W&gt;;
+chomp @words;
+close W;
+
+my $max = 0;
+for my $word (sort {length $a &lt;=> length $b} sort grep { /^q/i } @words) {
+    if (length $word > $max) {
+        $max = length $word;
+        print "Words of length $max:\n"
+    }
+
+    print "$word\n";
+}
+</pre>
+
+<p>
+And here&#8217;s the pathological way :)
+</p>
+
+<pre>
+open W, '/usr/share/dict/words';
+    
+length > $max ? print 'Words of length ' . (($max = length) -1) . ":\n$_" : print
+
+for sort {length $a &lt;=&gt; length $b} sort grep { /^q/i } &lt;W&gt;;
+</pre>
+
+<address class="signature">
+<span class="author">Mark Aufflick</span>
+<span class="date">2006-11-26 21:49:24</span>
+</address>
+</div>
+
+<div class="my-comment">
+
+<p><b>More stuff to learn</b></p>
+
+<p>
+Thanks Prem for the amusing comments about languages. I still have the
+&#8220;Revenge of the Nerds&#8221; on my to-read list.
+</p>
+
+<p>
+Mark, that is one scary looking snippet of Perl. :) Thanks for the
+links to the functional programming procs in OpenACS. I had never seen
+those. Do you know of any code that uses them?
+</p>
+
+<p>
+I&#8217;ve been meaning to learn some more about functional programming, but
+the going has been difficult. It&#8217;s definitely a different mindset.
+</p>
+
+<address class="signature">
+<span class="author">Vinod Kurup</span>
+<span class="date">2006-12-14 16:34:02</span>
+</address>
+</div>
+
+</div>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -768,66 +957,6 @@ really ever read all of Walden? ;)
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2006/06/12/doc-on-board">Doc on Board</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2006-06-12T00:00:00-04:00" pubdate data-updated="true">Jun 12<span>th</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Stop what you&#8217;re doing and go buy the July 2006 issue of <a href="http://www.runnersworld.com">Runner&#8217;s World</a>. Flip to page 49 and read the fine article by Scott Douglas on things a runner should discuss with their physician.</p>
-
-<p>Yep, the &#8220;Vinod Kurup&#8221; quoted is yours truly! I&#8217;m really grateful to Scott for using me as a source and thus making my dream of being in Runner&#8217;s World come true. :)</p>
-
-<p>Here&#8217;s the <a href="http://www.runnersworld.com/article/0,5033,s6-78-0-0-9823,00.html">online version of the article</a>, but go check out the magazine because it&#8217;s, you know, much cooler.</p>
-
-<p>Also check out <a href="http://www.scottdouglas.biz">Scott&#8217;s site</a> for more
-interesting articles about running.</p>
-
-<div id="comment-box">
-<h2>Comments from old site</h2>
-
-<div class="one-comment">
-<p><b>Dr. Kurup</b></p>
-<p>
-You are freaking amazing!
-</p>
-<address class="signature">
-<span class="author">Unregistered Visitor</span>
-<span class="date">2006-07-09 17:05:45</span>
-</address>
-</div>
-
-</div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/13/">&larr; Older</a>
@@ -843,6 +972,10 @@ You are freaking amazing!
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/05/31/indian-civilization">History of Indian Civilization</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2018/05/30/autovacuum-fail">Autovacuum not running</a>
@@ -918,10 +1051,6 @@ You are freaking amazing!
     
       <li class="post">
         <a href="/blog/2012/08/19/facebook-is-killing-blogging">Facebook is killing blogging</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/16/a-great-moment">A great moment</a>
       </li>
     
   </ul>

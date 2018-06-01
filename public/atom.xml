@@ -4,7 +4,7 @@
   <title><![CDATA[Vinod Kurup]]></title>
   <link href="https://www.kurup.org/atom.xml" rel="self"/>
   <link href="https://www.kurup.org/"/>
-  <updated>2018-05-30T21:57:14-04:00</updated>
+  <updated>2018-05-31T20:09:28-04:00</updated>
   <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
@@ -12,6 +12,39 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[History of Indian Civilization]]></title>
+    <link href="https://www.kurup.org/blog/2018/05/31/indian-civilization"/>
+    <updated>2018-05-31T20:00:00-04:00</updated>
+    <id>https://www.kurup.org/blog/2018/05/31/indian-civilization</id>
+    <content type="html"><![CDATA[<p>I briefly mentioned finding the 2012 UCLA lecture series,
+&#8221;<a href="https://www.youtube.com/watch?v=93JMjX1XECo&amp;list=PLy3KRgc0HE8B4neta_B8LPM0G9UWy-Cqe">History of Indian Civilization</a>&#8221;,
+a <a href="https://www.kurup.org/blog/2018/05/29/renaissance-man">couple days ago</a>. I&#8217;m about halfway through
+and have found it thorougly illuminating. I learned a lot about India growing
+up, but never in a formal way, so it&#8217;s nice to have someone as skilled as Vinay
+Lal connect all the loose threads into a coherent history. One of the things
+that surprises me is that aside from the fact that classes are being streamed
+over the internet, there is nothing different than the lectures I skipped (I
+mean religiously attended!) about 20 years ago. It&#8217;s a large auditorium of
+students watching a very charismatic, knowledgeable speaker pacing at the front
+of the class, occasionally making mostly-legible markings on a chalkboard. Not
+that there&#8217;s anything wrong with that. I learned a lot back in college and I&#8217;m
+enjoying these lectures immensely. It just seems strange that so little has
+changed in the university clasroom (at least this one from 2012) when so much
+has changed in the world at large.</p>
+
+<p>Actually, I find it reassuring that little has changed, at least in some
+classes. There was a time when the ability to download the audio of any
+university class was absolutely new. For me, that was around 2002 or so. I
+listened to CS61A (UC Berkley&#8217;s intro to CS course) and a few other similar
+courses back then. The limitations of internet bandwidth and storage made
+anything more than audio difficult back then. But now with those barriers
+crushed, I was afraid that everything would be &#8220;multimedia&#8221;, and not amenable to
+listening while I commute to work. So, it&#8217;s reassuring to find that audio-only
+dissemination of knowledge is still a thing.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Autovacuum not running]]></title>
@@ -1668,29 +1701,6 @@ focused on programming issues. They interview interesting programmers,
 but they carefully edit the interviews to focus on the parts that are
 the most interesting, interspersing them with music and effects. It&#8217;s
 really well done.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[A great moment]]></title>
-    <link href="https://www.kurup.org/blog/2012/08/16/a-great-moment"/>
-    <updated>2012-08-16T10:24:34-04:00</updated>
-    <id>https://www.kurup.org/blog/2012/08/16/a-great-moment</id>
-    <content type="html"><![CDATA[<p>I woke up, got ready and went downstairs. I am not a morning person. I
-try to do as little thinking as possible, because thinking eventually
-leads to the rational conclusion that I should just go back to bed. I
-get to the coffee machine, grab my plastic mug and start pouring.
-Suddenly, I&#8217;m woken from my daze. I hear little footsteps pounding
-across the hallway above me. I look towards the bottom of the stairs
-and see a little figure race around the corner with a determined,
-slightly fearful look in her face. She&#8217;s afraid that she&#8217;s too late
-and that I&#8217;ve already left for work. She spies me and I must be
-smiling because her face melts into the biggest, happiest smile and
-her pace quickens. We run to meet each other in a big hug. &#8220;Daddy, can
-I watch the milk go in your coffee?&#8221;</p>
-
-<p>Moments like that are so joyous, and I have underestimated how much
-they mean to me. I want to capture them and never let them go.</p>
 ]]></content>
   </entry>
   

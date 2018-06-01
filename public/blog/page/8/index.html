@@ -9,9 +9,8 @@
   <meta name="author" content="Vinod Kurup">
 
   
-  <meta name="description" content="Steve Yegge is one of my favorite bloggers. I read &#8220;You Should Write
-Blogs&#8221; a
-long time ago and it is one of the main reasons that I &hellip;">
+  <meta name="description" content="As mentioned yesterday, I&#8217;m teaching myself clojure. I started by trying to
+install it. vinod@ike$ aptitude install clojure Ubuntu has packaged &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -91,6 +90,102 @@ long time ago and it is one of the main reasons that I &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/07/18/first-steps-with-clojure">First Steps With Clojure</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-07-18T16:29:00-04:00" pubdate data-updated="true">Jul 18<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>As mentioned yesterday, I&#8217;m teaching myself clojure. I started by trying to
+install it.</p>
+
+<pre><code>vinod@ike$ aptitude install clojure
+</code></pre>
+
+<p>Ubuntu has packaged version 1.0.0 of clojure. I always default to the
+OS-installed version of programs, just for ease of maintenance. The current
+stable version of clojure is 1.1 and it appears that 1.2 is in beta. I have
+no idea what has been changed in 1.1 or 1.2, but I&#8217;m going to try to get
+along using 1.0.0 and update only if I need to for a specific reason.</p>
+
+<p>I then read through the
+<a href="http://www.moxleystratton.com/article/clojure/for-non-lisp-programmers">tutorial for non-lisp programmers</a>,
+which succinctly describes the basics of the language.<a href="I">^1</a> Everything in
+lisp is either an atom or a list. Atoms include numbers, booleans, strings,
+symbols, keywords and the nil value. Lists (delimited by parentheses <code>()</code>)
+are the basic data structure, but include representations such as vectors
+(delimited by square brackets <code>[]</code>) and maps (delimited by curly brackets
+<code>{}</code>). Clojure programs are themselves simply lists, which leads to the
+power of lisp-like languages because code and data are interchangeable.</p>
+
+<p>You use <code>def</code> to create variables and <code>defn</code> to create functions. The
+language includes loops and conditional statements, just like any other
+useful language. Only <code>false</code> and <code>nil</code> are <em>false</em> in clojure; zero (0),
+and the empty string (&#8220;&#8221;) are <em>true</em>, unlike a lot of languages.</p>
+
+<p>The interesting part is the integration with Java. To instantiate a java
+object, simply call <code>new</code>:</p>
+
+<pre><code>user=&gt; (new java.util.Date)
+#&lt;Date Sun Jul 18 16:20:54 EDT 2010&gt;
+</code></pre>
+
+<p>To call object methods or get instance/class variables, use the dot &#8220;.&#8221;
+method.</p>
+
+<pre><code>user=&gt; (. (new java.util.Date) (toString))
+"Sun Jul 18 16:24:09 EDT 2010"
+
+user=&gt; (. Integer MAX_VALUE)
+2147483647
+</code></pre>
+
+<p>The article contains this interesting quote:</p>
+
+<blockquote><p>Sequences are in a sense, the core of idiomatic Clojure
+programming. Understand sequences and the forms that work with them, and
+you will have cleared one of the biggest hurdles in writing significant
+Clojure programs.</p></blockquote>
+
+<p>So, add that to my to-do list. Where to go next? A
+<a href="http://stackoverflow.com/questions/599519/which-tutorial-on-clojure-is-best">StackOverflow thread</a>
+has pointed to me to a few options. I&#8217;ll probably read one of these next:</p>
+
+<ul>
+<li><a href="http://en.wikibooks.org/wiki/Learning_Clojure">http://en.wikibooks.org/wiki/Learning_Clojure</a></li>
+<li><a href="http://github.com/relevance/labrepl">http://github.com/relevance/labrepl</a></li>
+<li><a href="http://java.ociweb.com/mark/clojure/article.html">http://java.ociweb.com/mark/clojure/article.html</a></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -901,48 +996,6 @@ ln -s /usr/local/share/vinod-mozilla/.mozilla /home/vinod/.mozilla
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/09/19/bye-bye-wordpress">Bye Bye Wordpress</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-09-19T00:00:00-04:00" pubdate data-updated="true">Sep 19<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This site has undergone another transformation. I&#8217;ve ditched <a href="http://wordpress.org">Wordpress</a> and am now using a tool called <a href="http://github.com/mojombo/jekyll">Jekyll</a>. It&#8217;s a program that runs on my laptop and generates static files from a bunch of templates. I then upload the static files to my server. Wordpress, like any dynamic software, has security risks. Especially since it&#8217;s such a popular blog app, it&#8217;s always under attack. I don&#8217;t have the time or interest to keep up with updates, especially since my blogging is so low-profile. It&#8217;s just something I do for fun.</p>
-
-<p>Static files have none of those security risks. There are a lot of static file generators out there, but I chose Jekyll because it seemed intuitive and it&#8217;s run by the <a href="http://github.com">GitHub</a> folks. I&#8217;ve started using git and GitHub and am impressed by their power so far.</p>
-
-<p>This takes me full circle to my post-geocities days when I was generating static pages using <a href="http://frontier.userland.com/">Userland Frontier</a>. This still doesn&#8217;t feel as satisfying as that did, but maybe that&#8217;s only because it was such a new thing back then. I must admit that writing posts in emacs sure does feel nice.</p>
-
-<p>Anyway, the design is completely ripped off from <a href="http://mark.reid.name">Mark Reid</a>. My design skills suck, and his rock. Of course, I am a tweaker, so I&#8217;ll probably end up ruining his beauty at some point.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/9/">&larr; Older</a>
@@ -958,6 +1011,10 @@ ln -s /usr/local/share/vinod-mozilla/.mozilla /home/vinod/.mozilla
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/05/31/indian-civilization">History of Indian Civilization</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2018/05/30/autovacuum-fail">Autovacuum not running</a>
@@ -1033,10 +1090,6 @@ ln -s /usr/local/share/vinod-mozilla/.mozilla /home/vinod/.mozilla
     
       <li class="post">
         <a href="/blog/2012/08/19/facebook-is-killing-blogging">Facebook is killing blogging</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/16/a-great-moment">A great moment</a>
       </li>
     
   </ul>
