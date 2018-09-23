@@ -4,7 +4,7 @@
   <title><![CDATA[Category: health | Vinod Kurup]]></title>
   <link href="https://www.kurup.org/blog/categories/health/atom.xml" rel="self"/>
   <link href="https://www.kurup.org/"/>
-  <updated>2018-05-31T20:09:28-04:00</updated>
+  <updated>2018-09-22T21:30:24-04:00</updated>
   <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
@@ -324,7 +324,7 @@ height="300" width="400" /></a>
     <id>https://www.kurup.org/blog/2011/08/12/why-we-get-fat-review</id>
     <content type="html"><![CDATA[<p>Dear patients,</p>
 
-<p><img class="right" src="/images/whywegetfat.jpg" title="Why We Get Fat" >
+<p>{% img right /images/whywegetfat.jpg Why We Get Fat %}
 I am sorry. I have been giving you bad dietary advice. In medical
 school we learned that fat in your diet causes fat to accumulate in
 your arteries, causing heart attacks and strokes, so I told you to eat
@@ -368,13 +368,13 @@ are successful in decreasing the calories that you eat, your body will
 naturally decrease the calories that you burn. The variables are
 dependent on each other.</p>
 
-<p><span class='pullquote-right' data-pullquote='The villain is carbs.'>
+<p>{% pullquote %}
 This leads to the next question: Why do we get obese? If it's not a
 simple matter of eating more calories than we expend, then why do we
 get fat? The culprit is insulin. Insulin causes the cells of our body
 to deposit fat. Insulin, in turn, is released whenever there is
 glucose in our system, which is preferentially caused by carbohydrate
-intake. The villain is carbs. Taubes goes into great detail about
+intake. {" The villain is carbs. "} Taubes goes into great detail about
 the workings of the endocrine system, explaining why insulin is such a
 powerful factor in causing fat deposition. It also explains the
 phenomenon of why people who have plenty of fat still get so
@@ -385,7 +385,7 @@ starts again. Reading these chapters took me back to my med school
 physiology courses. I learned all of this in med school, but we were
 never taught to connect these well accepted facts with the things that
 we were being taught in our dietary lectures.
-</span></p>
+{% endpullquote%}</p>
 
 <p>Eliminating carbs from our diet without restricting any other nutrient
 will stop the fat deposition process, which in turn will decrease our

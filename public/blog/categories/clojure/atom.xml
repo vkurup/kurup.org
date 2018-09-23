@@ -4,7 +4,7 @@
   <title><![CDATA[Category: clojure | Vinod Kurup]]></title>
   <link href="https://www.kurup.org/blog/categories/clojure/atom.xml" rel="self"/>
   <link href="https://www.kurup.org/"/>
-  <updated>2018-05-31T20:09:28-04:00</updated>
+  <updated>2018-09-22T21:30:24-04:00</updated>
   <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
@@ -290,53 +290,31 @@ prefix, the compiler would assume you meant a call in the local
 
 <p>Here's the HTML file (in <code>HelloPhoneGap/assets/www/</code>):</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="ni">&amp;lt;</span>!DOCTYPE HTML&gt;
-</span><span class='line'><span class="nt">&lt;html&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;head&gt;&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;pre&gt;&lt;code&gt;</span><span class="ni">&amp;lt;</span>title<span class="ni">&amp;gt;</span>BMI calculator<span class="ni">&amp;lt;</span>/title<span class="ni">&amp;gt;</span>
-</span><span class='line'><span class="ni">&amp;lt;</span>script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot; src=&quot;phonegap-1.0.0.js&quot;<span class="ni">&amp;gt;&amp;lt;</span>/script<span class="ni">&amp;gt;</span>
-</span><span class='line'><span class="ni">&amp;lt;</span>script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot; src=&quot;bmi.js&quot;<span class="ni">&amp;gt;&amp;lt;</span>/script<span class="ni">&amp;gt;</span>
-</span><span class='line'><span class="nt">&lt;/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;p&gt;</span>  <span class="nt">&lt;/head&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;body&gt;&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;pre&gt;&lt;code&gt;</span><span class="ni">&amp;lt;</span>h1<span class="ni">&amp;gt;</span>BMI calculator<span class="ni">&amp;lt;</span>/h1<span class="ni">&amp;gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="ni">&amp;lt;</span>form<span class="ni">&amp;gt;</span>
-</span><span class='line'>  Height: <span class="ni">&amp;lt;</span>input name=&quot;f&quot; size=&quot;2&quot;<span class="ni">&amp;gt;</span> ft. <span class="ni">&amp;lt;</span>input name=&quot;i&quot; size=&quot;2&quot;<span class="ni">&amp;gt;</span> in. <span class="ni">&amp;lt;</span>br<span class="ni">&amp;gt;</span>
-</span><span class='line'>  Weight: <span class="ni">&amp;lt;</span>input name=&quot;l&quot; size=&quot;2&quot;<span class="ni">&amp;gt;</span> lbs.<span class="ni">&amp;lt;</span>br<span class="ni">&amp;gt;</span>
-</span><span class='line'>  <span class="ni">&amp;lt;</span>input type=&quot;button&quot; value=&quot;Calculate BMI&quot; onclick=&quot;bmi.displaybmi(this.form)&quot;<span class="ni">&amp;gt;</span>
-</span><span class='line'><span class="ni">&amp;lt;</span>/form<span class="ni">&amp;gt;</span>
-</span><span class='line'><span class="nt">&lt;/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;p&gt;</span>   <span class="nt">&lt;/body&gt;</span>
-</span><span class='line'><span class="nt">&lt;/html&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:html %}
+&lt;!DOCTYPE HTML>
+<html>
+  <head></p>
+
+<pre><code>&lt;title&gt;BMI calculator&lt;/title&gt;
+&lt;script type="text/javascript" charset="utf-8" src="phonegap-1.0.0.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" charset="utf-8" src="bmi.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>  </head>
+  <body></p>
+
+<pre><code>&lt;h1&gt;BMI calculator&lt;/h1&gt;
+
+&lt;form&gt;
+  Height: &lt;input name="f" size="2"&gt; ft. &lt;input name="i" size="2"&gt; in. &lt;br&gt;
+  Weight: &lt;input name="l" size="2"&gt; lbs.&lt;br&gt;
+  &lt;input type="button" value="Calculate BMI" onclick="bmi.displaybmi(this.form)"&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>   </body>
+</html>
+{% endcodeblock %}</p>
 
 <p>Now compile the CLJS and move the compiled JS file to
 <code>HelloPhoneGap/assets/www/</code></p>
@@ -354,7 +332,7 @@ production.</p>
 send it to the emulator (<code>C-c C-c i</code> in emacs). You should now have a
 simple BMI calculator working on Android.</p>
 
-<p><img src="/images/bmi.png" title="BMI Android Screenshot" ></p>
+<p>{% img /images/bmi.png BMI Android Screenshot %}</p>
 
 <h3>Next steps</h3>
 

@@ -9,7 +9,7 @@
   <meta name="author" content="Vinod Kurup">
 
   
-  <meta name="description" content="In the process of installing Panther from scratch, I decided to use DarwinPorts. It&#8217;s a packaging system for the abundant UNIX free software &hellip;">
+  <meta name="description" content="Thanks to the fine folks at badgertronics, I was able to upgrade my Powerbook to Panther free-of-charge. I initially did an &#8220;Archive and &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -89,6 +89,46 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2004/03/08/dont-use-archive-and-install">Don&#8217;t Use &#8220;Archive and Install&#8221;</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-03-08T00:00:00-05:00" pubdate data-updated="true">Mar 8<span>th</span>, 2004</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Thanks to the fine folks at <a href="http://badgertronics.com/blog">badgertronics</a>, I was able to upgrade my Powerbook to Panther free-of-charge. I initially did an &#8220;Archive and Install&#8221; upgrade, as recommended by the upgrade guide at <a href="http://www.tidbits.com/takecontrol/#upgrading">TidBITS</a> (easily worth the measly $5, IMHO). But soon after the install, I noticed that my system seemed a lot slower. I couldn&#8217;t pinpoint a specific problem, but things just seemed sluggish. I definitely noticed that DNS seemed to be broken. I was moved to act when I noticed that my IMAP client (<a href="http://gopher.quux.org:70/devel/offlineimap">offlineimap</a>) took 15 minutes to sync 48 IMAP Maildirs between my Mac and my server. According to the offlineimap docs, syncing 50 Maildir folders should take around 3 seconds. Hmmm&#8230;. that seems a little wrong.</p>
+
+<p>I searched the Internet but was unable to find a specific fix for this problem. A few posters intimated that doing a fresh &#8220;Erase and Install&#8221; of Mac OS X 10.3 was better than using the &#8220;Archive and Install&#8221; option. So, this weekend, I backed up my HD using <a href="http://www.bombich.com/software/ccc.html">Carbon Copy Cloner</a>, erased my HD, and did a fresh install of Mac OS X Panther.</p>
+
+<p>As expected, everything is quick and zippy again. A sync of my IMAP folders takes 15 seconds now, as opposed to 15 <em>minutes</em>. While I&#8217;m happy with the result, I wish I could figure out why the &#8220;Archive and Install&#8221; option resulted in such a poor outcome.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1220,75 +1260,6 @@ the appropriate machine, and life should be good.
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2003/12/11/errata-for-quick-calculus">Errata for Quick Calculus</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2003-12-11T00:00:00-05:00" pubdate data-updated="true">Dec 11<span>th</span>, 2003</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I just read <a href="http://www.amazon.com/exec/obidos/ASIN/0471827223/vinodkurupshomep">Quick Calculus: A Self-Teaching Guide, 2nd Edition</a> by Daniel Kleppner and Norman Ramsey. I found a few errors, but couldn&#8217;t find an errata listing online, so I&#8217;m documenting them here for future reference.</p>
-
-<ol>
-<li><p>Page 107, Frame 206. The quotient rule as it&#8217;s initially expressed is incorrect. The correct version is stated at the bottom of the page and also on page 102, Frame 194.</p></li>
-<li><p>Page 173, Frame 330. None of the options listed are correct. The correct answer is 15</p></li>
-<li>Page 187, Frame 355. The initial expression of Simpson&#8217;s rule is confusing. It should be: <blockquote> <p> &int;<sub>A</sub><sup>B</sup> y dx = 2/6 &Delta; (y<sub>0</sub> + 4y<sub>1</sub> + y<sub>2</sub> + <span style="color: #ff0000;">y<sub>2</sub> +</span> 4y<sub>3</sub> + y<sub>4</sub> + &#8230; + y<sub>N-2</sub> + 4y<sub>N-1</sub> + y<sub>N</sub>) </p> </blockquote></li>
-</ol>
-
-
-<p>Errors in technical books annoy me because I spend way too much time trying to figure out why I&#8217;m mixed up. Not having a published errata online annoys me even more. See <a href="http://borkware.com/corebook/errata">Mark&#8217;s book</a> for an errata page done right.</p>
-
-<p>All ranting aside, Quick Calculus is an ideal resource if you&#8217;re looking to brush up on the basics of Calculus. It&#8217;s short and interactive, yet it doesn&#8217;t sugarcoat the material.</p>
-
-<div id="comment-box">
-<h2>Comments from old site</h2>
-
-<div class="one-comment">
-<p><b>Thanks, I was thinking about getting Quick Calculus one of these days</b></p>
-<p>
-I read Pratical Algebra, another in this series. I am currently not
-reading Geomery and Trigonomtry for Calculus, also in the series. I
-really wish I had paid more attenion back when I took all these math
-courses. That said, if you need to relearn math, those books work
-well. I suspect the bits of Calculus I learned are still in my brain
-somewhere, and just need to be put back together.
-</p>
-<address class="signature">
-<span class="author">Dave Bauer</span>
-<span class="date">2003-12-10 22:35:20</span>
-</address>
-</div>
-
-</div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/22/">&larr; Older</a>
@@ -1304,6 +1275,10 @@ somewhere, and just need to be put back together.
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/09/22/starting-a-garden">Starting a garden</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2018/05/31/indian-civilization">History of Indian Civilization</a>
@@ -1379,10 +1354,6 @@ somewhere, and just need to be put back together.
     
       <li class="post">
         <a href="/blog/2012/08/21/thoughts-on-free-will">Thoughts on Free Will</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/19/facebook-is-killing-blogging">Facebook is killing blogging</a>
       </li>
     
   </ul>

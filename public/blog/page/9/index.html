@@ -9,7 +9,9 @@
   <meta name="author" content="Vinod Kurup">
 
   
-  <meta name="description" content="This site has undergone another transformation. I&#8217;ve ditched Wordpress and am now using a tool called Jekyll. It&#8217;s a program that runs on &hellip;">
+  <meta name="description" content="I&#8217;m too weak to lug around my monstrous 7 pound laptop, so I bought a
+netbook. It&#8217;s an eeepc
+1000 and I love it. I use it for everything &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -89,6 +91,67 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/09/21/speed-up-firefox-on-eeepc">Speed Up Firefox on Eeepc</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-09-21T00:00:00-04:00" pubdate data-updated="true">Sep 21<span>st</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;m too weak to lug around my monstrous 7 pound laptop, so I bought a
+<a href="http://eeepc.asus.com/global/product1000.html">netbook</a>. It&#8217;s an eeepc
+1000 and I love it. I use it for everything, except for processing the
+kids&#8217; videos and photos. I still use the desktop for that.</p>
+
+<p>The major issue that I&#8217;ve had with it is that firefox seemed so slow. I
+tried other browsers, some which seemed faster, but I missed my firefox
+extensions. I googled and found that <a href="http://wiki.debian.org/DebianEeePC/TipsAndTricks#SpeedupsluggishIceweasel.2BAC8-Firefox3">others had the same
+issue</a>. There
+are 2 flash hard drives in the eeepc. The first is 8GB and contains the
+root filesystem. The second is 32GB and contains the <code>/home</code>
+partition. Apparently the 8GB drive is <strong>significantly</strong> faster than the
+32GB one. So the OS performs excellently since it&#8217;s on the 8GB drive,
+anything that requires a lot of disk access from the 32GB drive slows
+down. Firefox&#8217;s <code>.mozilla</code> configuration folder is mounted there by
+default.</p>
+
+<p>Moving the <code>.mozilla</code> folder to the 8GB drive has made web browsing speedy
+again. Here&#8217;s how I did it. I&#8217;m the only user on my system, so if you have
+multiple users, this will only fix the issue for one user.</p>
+
+<pre><code>sudo mkdir /usr/local/share/vinod-mozilla
+sudo chown vinod /usr/local/share/vinod-mozilla
+mv /home/vinod/.mozilla /usr/local/share/vinod-mozilla/
+ln -s /usr/local/share/vinod-mozilla/.mozilla /home/vinod/.mozilla
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -547,46 +610,6 @@ home. (Well&#8230; 3 miles long).</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2008/12/17/soon-there-will-be-two">Soon There Will Be Two</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-12-17T00:00:00-05:00" pubdate data-updated="true">Dec 17<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Kavi has been getting bored being surrounded by adults all the time. He is very happy to announce that a sibling is on its way. We&#8217;re calling it blueberry. If things go on schedule, blueberry will be born sometime in June, so we&#8217;ll have 2 June babies, a couple years apart.</p>
-
-<p>Pregnancy has been uneventful, unless you count those recurrent waves of nausea and vomiting that Mala&#8217;s been experiencing. Hopefully that will get better as we move into the second trimester.</p>
-
-<p><a href="/images/blueberry-12wks-best.jpg"><img title="blueberry-12wks-best" src="/images/blueberry-12wks-best-300x202.jpg" alt="blueberry" width="300" height="202" /></a></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/10/">&larr; Older</a>
@@ -602,6 +625,10 @@ home. (Well&#8230; 3 miles long).</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/09/22/starting-a-garden">Starting a garden</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2018/05/31/indian-civilization">History of Indian Civilization</a>
@@ -677,10 +704,6 @@ home. (Well&#8230; 3 miles long).</p>
     
       <li class="post">
         <a href="/blog/2012/08/21/thoughts-on-free-will">Thoughts on Free Will</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/19/facebook-is-killing-blogging">Facebook is killing blogging</a>
       </li>
     
   </ul>

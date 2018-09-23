@@ -9,7 +9,7 @@
   <meta name="author" content="Vinod Kurup">
 
   
-  <meta name="description" content="Stop what you&#8217;re doing and go buy the July 2006 issue of Runner&#8217;s World. Flip to page 49 and read the fine article by Scott Douglas on &hellip;">
+  <meta name="description" content="Blair Corp, a company in my portfolio, announced second quarter earnings today. They were disappointing, but not as disappointing as reported by &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -89,6 +89,54 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2006/07/24/bizjournal-inaccuracy">Bizjournal Inaccuracy</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-07-24T00:00:00-04:00" pubdate data-updated="true">Jul 24<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Blair Corp, a company in my portfolio, announced second quarter earnings today. They were disappointing, but not as disappointing as reported by <a href="http://www.bizjournals.com">bizjournals</a>.</p>
+
+<p><a href="http://biz.yahoo.com/bizj/060724/1320068.html">&#8220;Blair Corp. swings to loss&#8221;</a> is the title of the article. While dramatic, it&#8217;s completely wrong.</p>
+
+<blockquote><p>Blair Corp., a catalog clothing retailer and direct marketer, reported a loss in the second quarter as sales fell nearly 5 percent.</p></blockquote>
+
+<p>False. They reported a profit of $233,000 in the second quarter.</p>
+
+<blockquote><p>Blair said its second-quarter results were negatively impacted by the sale of its credit portfolio and last August&#8217;s stock buyback of 4.4 million shares.</p></blockquote>
+
+<p>Not true. The buyback doesn&#8217;t affect the operating results. If anything, they made the reported results look <strong>better</strong> than they really are. The stock buyback reduced the amount of outstanding shares by about one-half, so the reported earnings-per-share (EPS) results are about twice what they would have been without the buyback.</p>
+
+<p>None of this is to deny the fact that Blair&#8217;s results were terrible and that the stock price has been even worse. I&#8217;m a little appeased by the fact that web sales increased by about 18% versus last quarter. Perhaps a few smart minds will start pursing the web angle as the wave of the future!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -710,104 +758,6 @@ Well the guilt trip worked!!  I will try and log in early and often!!
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2006/03/28/prettier-permalinks">Prettier Permalinks</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2006-03-28T00:00:00-05:00" pubdate data-updated="true">Mar 28<span>th</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Permalink stands for &#8216;permanent link&#8217;. When you create a blog post, it gets added to the top of your blog, pushing older entries down. Eventually, posts get pushed off the front page, so it&#8217;s important that you have a way to refer to old blog posts. A permalink is the link that will always point to a specific post.</p>
-
-<p>OpenACS (lars-blogger) permalinks look like this:</p>
-
-<pre><code>http://kurup.org/blog/one-entry?entry_id=58950
-</code></pre>
-
-<p>This works and it&#8217;s really easy to code, but it doesn&#8217;t give much information about the content or date of the post.</p>
-
-<p>A lot of other blog packages use permalinks which look like this:</p>
-
-<pre><code>http://kurup.org/blog/2006/03/01/tag-cloud
-</code></pre>
-
-<p>It&#8217;s easy to tell how old the post is, and what it might be about. More importantly, it seems that search engines give URLs like this more weight. So, I&#8217;ve gone ahead and made the changes on my blog. Enjoy!</p>
-
-<p>For the OpenACS geeks, here&#8217;s <a href="http://kurup.org/acs/blog_permalink">the changes that I made</a>. It won&#8217;t necessarily apply cleanly against OpenACS, but it will give you an idea of what to change. It includes an automated test to assure you that both the old and new permalinks work.</p>
-
-<div id="comment-box">
-<h2>Comments from old site</h2>
-
-<div class="one-comment">
-<p><b>Just don&#8217;t use the same title twice in one day</b></p>
-<p>
-You&#8217;ll end up with ambiguous urls. The util_text_to_url proc can
-disambiguate a list of urls for you, and then you&#8217;d need to store the
-new url in the db.
-</p>
-<p>
-That would also avoid the whole list/loop shenanegins. It would also
-be easy to write a little script to go through your existing db and
-create the urls for existing blog entries.
-</p>
-<p>
-But that might be considered hard work ;)
-</p>
-<address class="signature">
-<span class="author">Mark Aufflick</span>
-<span class="date">2006-05-05 07:11:24</span>
-</address>
-</div>
-
-<div class="my-comment">
-<p><b>Excellent point</b></p>
-<p>
-I thought about that briefly while I wrote this, but figured, &#8220;What
-are the chances that I&#8217;d write 2 posts in the same day with the same
-title?&#8221; In other words, I took the easy way out.
-</p>
-<p>
-But adding the permalink to the DB does sound like the right thing to
-do, so I&#8217;ll work on it or head over to <a
-href="http://mark.aufflick.com/blog/2006/05/05/friendly-blog-links">your
-blog</a> and beg for your code :-)
-</p>
-<address class="signature">
-<span class="author">Vinod Kurup</span>
-<span class="date">2006-05-05 16:35:41</span>
-</address>
-</div>
-
-</div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/14/">&larr; Older</a>
@@ -823,6 +773,10 @@ blog</a> and beg for your code :-)
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/09/22/starting-a-garden">Starting a garden</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2018/05/31/indian-civilization">History of Indian Civilization</a>
@@ -898,10 +852,6 @@ blog</a> and beg for your code :-)
     
       <li class="post">
         <a href="/blog/2012/08/21/thoughts-on-free-will">Thoughts on Free Will</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/19/facebook-is-killing-blogging">Facebook is killing blogging</a>
       </li>
     
   </ul>

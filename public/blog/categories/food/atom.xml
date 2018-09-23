@@ -4,7 +4,7 @@
   <title><![CDATA[Category: food | Vinod Kurup]]></title>
   <link href="https://www.kurup.org/blog/categories/food/atom.xml" rel="self"/>
   <link href="https://www.kurup.org/"/>
-  <updated>2018-05-31T20:09:28-04:00</updated>
+  <updated>2018-09-22T21:30:24-04:00</updated>
   <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
@@ -18,7 +18,7 @@
     <link href="https://www.kurup.org/blog/2011/08/16/malas-bolognese"/>
     <updated>2011-08-16T20:51:09-04:00</updated>
     <id>https://www.kurup.org/blog/2011/08/16/malas-bolognese</id>
-    <content type="html"><![CDATA[<p><img src="/images/pasta.jpg" title="Mala's Bolognese" ></p>
+    <content type="html"><![CDATA[<p>{% img /images/pasta.jpg Mala's Bolognese %}</p>
 
 <p>I have just had the most amazing Italian meal that I've had outside of
 Roberto's in the Bronx. Mala made fresh homemade Pappardelle and a

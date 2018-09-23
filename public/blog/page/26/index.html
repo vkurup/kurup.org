@@ -9,7 +9,7 @@
   <meta name="author" content="Vinod Kurup">
 
   
-  <meta name="description" content="psql doesn&#8217;t deal well with tabs. If you feed it a function that has tabs in it, and then call that function, you&#8217;ll often get this: &hellip;">
+  <meta name="description" content="I&#8217;m setting up vpopmail 5.2.1 - a POP3 email manager for qmail, but it won&#8217;t compile out of the box. gcc -I. -Icdb -g -O2 -Wall -c &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -89,6 +89,78 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2003/06/28/compiling-vpopmail">Compiling Vpopmail</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-06-28T00:00:00-04:00" pubdate data-updated="true">Jun 28<span>th</span>, 2003</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;m setting up <a href="http://inter7.com/vpopmail.html">vpopmail</a> 5.2.1 - a POP3 email manager for qmail, but it won&#8217;t compile out of the box.</p>
+
+<pre><code>gcc -I. -Icdb -g -O2 -Wall -c vconvert.c 
+In file included from vconvert.c:35: vmysql.h:53:22: missing terminating " character 
+vmysql.h:60:35: missing terminating " character 
+make[2]: *** [vconvert.o] Error 1 
+make[2]: Leaving directory `/usr/local/src/vpopmail-5.2.1' 
+make[1]: *** [all-recursive] Error 1 
+make[1]: Leaving directory `/usr/local/src/vpopmail-5.2.1' 
+make: *** [all-recursive-am] Error 2 
+</code></pre>
+
+<p>Whenever <code>make</code> gives you an error, look for the first error you can find. Any errors after that often fix themselves once you fix the first error.  The relevant code is here, (vmysql.h, starting at line 42):</p>
+
+<pre><code>42: #ifdef CLEAR_PASS 
+43: #define TABLE_LAYOUT "pw_name char(32) not null, \ 
+44: pw_domain char(64) not NULL, \ 
+45: pw_passwd char(40), \ 
+46: pw_uid int, pw_gid int, \ 
+47: pw_gecos char(48), \ 
+48: pw_dir char(160), \ 
+49: pw_shell char(20), \ 
+50: pw_clear_passwd char(16), \ 
+51: primary key (pw_name, pw_domain ) " 
+52: #else 
+53: #define TABLE_LAYOUT "pw_name char(32) not null, \ 
+54: pw_domain char(64) not null, 
+55: pw_passwd char(40), \ 
+56: pw_uid int, pw_gid int, \ 
+57: pw_gecos char(48), \ 
+58: pw_dir char(160), 
+59: pw_shell char(20), \ 
+60: primary key (pw_name, pw_domain ) " 
+61: #endif
+</code></pre>
+
+<p>Looking around line 53, I see that line 54 and line 58 are missing backslashes - adding &#8216;em back in fixes the error. The interesting thing to me is that version 5.2.1 has been out for over a year and, according to <a href="http://www.mail-archive.com/vchkpw@inter7.com/msg12238.html">an email on the vpopmail list</a>, this error still persists in more recent versions. How come this bug hasn&#8217;t bitten anyone else? I suppose it&#8217;s because the install docs recommend setting CLEAR_PASS (see line 42), which would cause the compiler to miss the bug. Or maybe I&#8217;m just lucky</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -594,64 +666,6 @@ modified it to allow multiple drips and configurable block sizes.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2003/01/07/gerry-and-kim-the-website">Gerry and Kim - the Website</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2003-01-07T00:00:00-05:00" pubdate data-updated="true">Jan 7<span>th</span>, 2003</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I finally finished <a href="http://cherayil.kurup.org">Gerry and Kim&#8217;s wedding
-site</a>. The HTTP address is temporary. I had
-made a promise to Kim back in September that I would finish it, but
-that I needed a deadline. My brain seems to refuse to work without a
-deadline. Anyway, she said, &#8220;end of the year&#8221; and sure enough, it went
-live on 12/31/2002. It&#8217;s running on <a href="http://openacs.org">OpenACS 4</a>
-(CVS HEAD 12/25/2002), using an Open Source CSS stylesheet from
-<a href="http://www.w3.org">http://w3.org</a>. All comments welcome.</p>
-
-<p>Developing this site using a comprehensive framework like OpenACS was
-certainly overkill. I started by using
-<a href="http://www.phpnuke.org/">PHPNuke</a>,
-<a href="http://phpwebsite.appstate.edu/">phpwebsite</a> and then
-<a href="http://www.movabletype.org/">MovableType</a>. All of them would have
-been fine (as would my old favorite, Frontier). The thing is, none of
-these worked exactly as I want them out-of-the-box and I&#8217;d much rather
-customize OpenACS for my needs than wade through PHP or
-Perl. MovableType was the exception in this group as it worked exactly
-as advertised, but it&#8217;s advertised as weblog software, which is not
-what I was building. I also wanted to test out OpenACS 4 since I&#8217;ve
-spent so much of my free time working on it. Like <a href="http://xarg.net/blog/one-entry?entry%5fid=19296">Jeff
-said</a>, you actually
-gotta <em>use</em> the software before you figure out where it needs fixin&#8217;.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/27/">&larr; Older</a>
@@ -667,6 +681,10 @@ gotta <em>use</em> the software before you figure out where it needs fixin&#8217
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/09/22/starting-a-garden">Starting a garden</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2018/05/31/indian-civilization">History of Indian Civilization</a>
@@ -742,10 +760,6 @@ gotta <em>use</em> the software before you figure out where it needs fixin&#8217
     
       <li class="post">
         <a href="/blog/2012/08/21/thoughts-on-free-will">Thoughts on Free Will</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/19/facebook-is-killing-blogging">Facebook is killing blogging</a>
       </li>
     
   </ul>

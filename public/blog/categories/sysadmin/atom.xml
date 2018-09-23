@@ -4,7 +4,7 @@
   <title><![CDATA[Category: sysadmin | Vinod Kurup]]></title>
   <link href="https://www.kurup.org/blog/categories/sysadmin/atom.xml" rel="self"/>
   <link href="https://www.kurup.org/"/>
-  <updated>2018-05-31T20:09:28-04:00</updated>
+  <updated>2018-09-22T21:30:24-04:00</updated>
   <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
@@ -46,80 +46,36 @@ driver</a>.</p>
 
 <p>Mine was named <code>download.php</code>, but it's really a tar file:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>extract.sh </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>vinod@ike:~ <span class="nv">$ </span>mkdir <span class="nb">test</span>
-</span><span class='line'>vinod@ike:~ <span class="nv">$ </span>mv download.php <span class="nb">test</span>/driver.tar
-</span><span class='line'>vinod@ike:~ <span class="nv">$ </span><span class="nb">cd test</span>/
-</span><span class='line'>vinod@ike:~/test <span class="nv">$ </span>tar xf driver.tar
-</span><span class='line'>vinod@ike:~/test <span class="nv">$ </span>mv 2010_07_16_RT2860_Linux_STA_v2.4.0.0 driver
-</span><span class='line'>vinod@ike:~/test <span class="nv">$ </span><span class="nb">cd </span>driver
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock extract.sh %}
+vinod@ike:~ $ mkdir test
+vinod@ike:~ $ mv download.php test/driver.tar
+vinod@ike:~ $ cd test/
+vinod@ike:~/test $ tar xf driver.tar
+vinod@ike:~/test $ mv 2010_07_16_RT2860_Linux_STA_v2.4.0.0 driver
+vinod@ike:~/test $ cd driver
+{% endcodeblock %}</p>
 
 <h3>Step 3: Apply patch</h3>
 
-<p><div><script src='https://gist.github.com/1205291.js?file=driver.patch'></script>
-<noscript><pre><code>diff -urbB old/common/cmm_wpa.c new/common/cmm_wpa.c
---- old/common/cmm_wpa.c	2010-07-08 07:40:24.000000000 -0400
-+++ new/common/cmm_wpa.c	2011-08-30 18:27:46.856572005 -0400
-@@ -2420,7 +2420,7 @@
- 	UCHAR		PrimaryRsnie;			
- 	BOOLEAN		bMixCipher = FALSE;	// indicate the pairwise and group cipher are different
- 	UCHAR		p_offset;		
--	WPA_MIX_PAIR_CIPHER		FlexibleCipher = MIX_CIPHER_NOTUSE;	// it provide the more flexible cipher combination in WPA-WPA2 and TKIPAES mode
-+	WPA_MIX_PAIR_CIPHER		FlexibleCipher = WPA_TKIPAES_WPA2_TKIPAES;
- 		
- 	rsnielen_cur_p = NULL;
- 	rsnielen_ex_cur_p = NULL;
-diff -urbB old/os/linux/config.mk new/os/linux/config.mk
---- old/os/linux/config.mk	2010-07-09 04:58:09.000000000 -0400
-+++ new/os/linux/config.mk	2011-08-30 18:23:52.120572001 -0400
-@@ -8,10 +8,10 @@
- HAS_XLINK=n
- 
- # Support Wpa_Supplicant
--HAS_WPA_SUPPLICANT=n
-+HAS_WPA_SUPPLICANT=y
- 
- # Support Native WpaSupplicant for Network Maganger
--HAS_NATIVE_WPA_SUPPLICANT_SUPPORT=n
-+HAS_NATIVE_WPA_SUPPLICANT_SUPPORT=y
- 
- #Support Net interface block while Tx-Sw queue full
- HAS_BLOCK_NET_IF=n
-</code></pre></noscript></div>
-</p>
+<p>{% gist 1205291 driver.patch %}</p>
 
 <h3>Step 4: Backup old driver</h3>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>backup.sh </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>vinod@ike~/test/driver/ <span class="nv">$ </span>sudo ifconfig wlan0 down
-</span><span class='line'>vinod@ike~/test/driver/ <span class="nv">$ </span>sudo rmmod rt2860sta
-</span><span class='line'>vinod@ike~/test/driver/ <span class="nv">$ </span>mkdir backup
-</span><span class='line'>vinod@ike~/test/driver/ <span class="nv">$ </span>sudo mv /etc/Wireless/RT2860STA backup/
-</span><span class='line'>vinod@ike~/test/driver/ <span class="nv">$ </span>sudo mv /lib/modules/2.6.35-30-generic/kernel/drivers/staging/rt2860/rt2860sta.ko backup/
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock backup.sh %}
+vinod@ike~/test/driver/ $ sudo ifconfig wlan0 down
+vinod@ike~/test/driver/ $ sudo rmmod rt2860sta
+vinod@ike~/test/driver/ $ mkdir backup
+vinod@ike~/test/driver/ $ sudo mv /etc/Wireless/RT2860STA backup/
+vinod@ike~/test/driver/ $ sudo mv /lib/modules/2.6.35-30-generic/kernel/drivers/staging/rt2860/rt2860sta.ko backup/
+{% endcodeblock %}</p>
 
 <h3>Step 5: Install and activate new driver</h3>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>build.sh </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>vinod@ike:~/test/driver <span class="nv">$ </span>sudo make install
-</span><span class='line'>vinod@ike:~/test/driver <span class="nv">$ </span>sudo depmod -a
-</span><span class='line'>vinod@ike:~/test/driver <span class="nv">$ </span>sudo modprobe rt2860sta
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock build.sh %}
+vinod@ike:~/test/driver $ sudo make install
+vinod@ike:~/test/driver $ sudo depmod -a
+vinod@ike:~/test/driver $ sudo modprobe rt2860sta
+{% endcodeblock %}</p>
 
 <h3>Step 6: Fix problems with hibernation</h3>
 

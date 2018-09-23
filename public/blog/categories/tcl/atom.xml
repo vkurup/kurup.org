@@ -4,7 +4,7 @@
   <title><![CDATA[Category: tcl | Vinod Kurup]]></title>
   <link href="https://www.kurup.org/blog/categories/tcl/atom.xml" rel="self"/>
   <link href="https://www.kurup.org/"/>
-  <updated>2018-05-31T20:09:28-04:00</updated>
+  <updated>2018-09-22T21:30:24-04:00</updated>
   <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
@@ -30,36 +30,35 @@ in LOCs, but in the overall simplicity of dealing with collections of
 data. Still, I wanted to see how Tcl would deal with the same
 problem. Here's the simplest version I could come up with:</p>
 
-<p><div>
-  <pre><code class='tcl'>set f [open /usr/share/dict/words r]
+<p>{% highlight tcl %}
+set f [open /usr/share/dict/words r]
 set words [read -nonewline $f]
 close $f
-set qwords [lsearch -all -inline [split $words \n] {[Qq]*}]&lt;/p&gt;
+set qwords [lsearch -all -inline [split $words \n] {[Qq]*}]</p>
 
-&lt;p&gt;proc compare_length {a b} {&lt;/p&gt;
+<p>proc compare_length {a b} {</p>
 
-&lt;pre&gt;&lt;code&gt;if { [string length $a] &amp;lt;= [string length $b] } {
+<pre><code>if { [string length $a] &lt;= [string length $b] } {
     return -1
 } else {
     return 1 
 } 
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;p&gt;}&lt;/p&gt;
+<p>}</p>
 
-&lt;p&gt;set sorted_qwords [lsort -command compare_length [lsort $qwords]]
-set max -1 foreach qword $sorted_qwords {&lt;/p&gt;
+<p>set sorted_qwords [lsort -command compare_length [lsort $qwords]]
+set max -1 foreach qword $sorted_qwords {</p>
 
-&lt;pre&gt;&lt;code&gt;if { [string length $qword] &amp;gt; $max } {
+<pre><code>if { [string length $qword] &gt; $max } {
     set max [string length $qword]
-    puts &quot;Words of length $max:&quot;
+    puts "Words of length $max:"
 }
-puts &quot;  $qword&quot;
-&lt;/code&gt;&lt;/pre&gt;
+puts "  $qword"
+</code></pre>
 
-&lt;p&gt;}</code></pre>
-</div>
-</p>
+<p>}
+{% endhighlight %}</p>
 
 <p>About 19 lines and pretty simple to write and read. Can this be
 improved?</p>
@@ -190,13 +189,12 @@ the going has been difficult. It's definitely a different mindset.
 
 <p>Here is the relevant (edited) code:</p>
 
-<p><div>
-  <pre><code class='tcl'>set runner_id [db_nextval acs_object_id_seq]
+<p>{% highlight tcl %}
+set runner_id [db_nextval acs_object_id_seq]
 set ret_val [db_exec_plsql new_runner {}]
 permission::grant -party_id $user_id -object_id $runner_id -privilege admin
-permission::grant -party_id $user_id -object_id $runner_id -privilege write</code></pre>
-</div>
-</p>
+permission::grant -party_id $user_id -object_id $runner_id -privilege write
+{% endhighlight %}</p>
 
 <p>The error was happening in <code>permission::grant</code>. It was complaining that <code>$runner_id</code> wasn't a valid acs_object. What's going on? It looks like it should work. The problem is that I should be granting the permission on <code>ret_val</code>, not on <code>runner_id</code>. (Probably a bad choice of variable names). The first time a log is created, <code>db_exec_plsql</code> returns a value which happens to be the same as <code>runner_id</code>. The second time it's called, it returns a value which is <strong>different</strong> and <code>permission::grant</code> fails.</p>
 
@@ -242,32 +240,29 @@ in the test, you can discover a better design :)
     <id>https://www.kurup.org/blog/2006/05/14/new-features-coming-in-tcl-85</id>
     <content type="html"><![CDATA[<p>I was looking at the <a href="http://www.tcl.tk/man/tcl8.4/TclCmd/split.htm">Tcl 8.4 man page for 'split'</a> and saw this example code:</p>
 
-<p><div>
-  <pre><code class='tcl'>&lt;/p&gt;
+<p>{% highlight tcl %}</p>
 
-&lt;h2&gt;Split into fields on colons&lt;/h2&gt;
+<h2>Split into fields on colons</h2>
 
-&lt;p&gt;set fields [split $rec &quot;:&quot;]&lt;/p&gt;
+<p>set fields [split $rec ":"]</p>
 
-&lt;h2&gt;Assign fields to variables and print some out...&lt;/h2&gt;
+<h2>Assign fields to variables and print some out...</h2>
 
-&lt;p&gt;lassign $fields userName password uid grp longName homeDir shell</code></pre>
-</div>
-</p>
+<p>lassign $fields userName password uid grp longName homeDir shell
+{% endhighlight %}</p>
 
 <p>It shows how to split a string using ':' as the delimiter. The interesting part is the 'lassign' statement. I'd never seen that before. I've always done something annoying like this:</p>
 
-<p><div>
-  <pre><code class='tcl'>set fields [split $rec &quot;:&quot;]
+<p>{% highlight tcl %}
+set fields [split $rec ":"]
 set userName [lindex $fields 0]
 set password [lindex $fields 1]
 set uid [lindex $fields 2]
 set grp [lindex $fields 3]
 set longName [lindex $fields 4]
 set homeDir [lindex $fields 5]
-set shell [lindex $fields 6]</code></pre>
-</div>
-</p>
+set shell [lindex $fields 6]
+{% endhighlight %}</p>
 
 <p>How could I have overlooked 'lassign' all these years? After berating my idiocy for a few minutes, I tried 'lassign' out and Tcl replied 'invalid command name' . Turns out I'm not as stupid as I thought. :-) 'lassign' is new in Tcl 8.5 (but seems to have snuck in the backdoor of the 8.4 docs). I decided to see what else was <a href="http://www.tcl.tk/software/tcltk/8.5.html">coming in 8.5</a>.</p>
 

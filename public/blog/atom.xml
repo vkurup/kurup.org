@@ -4,7 +4,7 @@
   <title>Vinod Kurup</title>
   <link href="https://www.kurup.org/blog/atom.xml" rel="self"/>
   <link href="https://www.kurup.org"/>
-  <updated>2018-05-31T20:09:28-04:00</updated>
+  <updated>2018-09-22T21:30:04-04:00</updated>
   <generator uri="http://github.com/mojombo/jekyll">Jekyll</generator>
   <id>https://www.kurup.org/blog/atom.xml</id>
   <author>
@@ -15,6 +15,45 @@
     <uri>https://www.kurup.org</uri>
   </author>
 
+  
+  <entry>
+    <title>Starting a garden</title>
+    <link href="https://www.kurup.org/blog/2018/09/22/starting-a-garden"/>
+    <updated>2018-09-22T20:50:53-04:00</updated>
+    <id>id:/blog/2018/09/22/starting-a-garden</id>
+   <category scheme="http://www.kurup.org" term="family" />
+   <category scheme="http://www.kurup.org" term="garden" />
+   
+    <content type="html">&lt;p&gt;I&amp;#8217;m going to be a gardener. Yup, just decided. Well, re-decided, I guess, since we already have a
+garden. It&amp;#8217;s a strip of dirt on the side of our house and we&amp;#8217;ve been trying to grow vegetables the
+past couple years. But it has some problems. It&amp;#8217;s way out of the way, so it&amp;#8217;s a pain to check on it
+(since I&amp;#8217;m lazy). The ground just underneath the topsoil is hard clay. It&amp;#8217;s shaded most of the day
+either by our house, or by the beautiful forest surrounding our house. And I haven&amp;#8217;t figured out a
+way to keep the deer from eating the few vegetables that we are able to grow in there. And even
+despite all those problems we&amp;#8217;ve been able to grow some zucchini, okra, tomatoes and basil, which
+has been super exciting, and makes us want more! Here&amp;#8217;s a photo of the harvest that greeted us when
+we returned from a week-long trip to visit my parents in Dallas this summer:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.kurup.org/images/august-harvest.jpg&quot; title=&quot;August Harvest&quot; &gt;&lt;/p&gt;
+
+&lt;p&gt;But, in general, things end up getting eaten by the deer or overrun by weeds, so we&amp;#8217;re trying a new
+approach now, based on the book, &lt;a href=&quot;https://amzn.to/2NzBVSg&quot;&gt;Square Foot Gardening&lt;/a&gt;. Kavi and Anika
+helped me build this raised bed, which is itself a huge accomplishment given how not-handy I am.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.kurup.org/images/our-little-garden.jpg&quot; title=&quot;Our Little Garden&quot; &gt;&lt;/p&gt;
+
+&lt;p&gt;This was my first time using a drill since shop class in high school! We&amp;#8217;re going to try using a
+&lt;a href=&quot;http://vomitingchicken.com/deer-fencing-cheap-and-easy-and-effective/&quot;&gt;fishing line fence&lt;/a&gt; to keep
+the deer away. I&amp;#8217;m not very optimistic about that, but fingers-crossed! We can also see the garden
+from our living room, so maybe I can just shoo them away any time they saunter by. The garden is
+looking quite pathetic because we bought some seedlings from the Carrboro Farmer&amp;#8217;s Market but then
+all our garden plans got sidetracked by Hurricane Florence (which fortunately treated us very
+kindly, all things considered). So, the seedlings wilted away in our screen porch before we finally
+got a chance to plant them this week. We&amp;#8217;re hoping there&amp;#8217;s still some life left in them. Anyway, our
+expectations are low, especially given how late in the summer we&amp;#8217;re starting, but it would be nice
+to get one head of lettuce or something to grow. I&amp;#8217;ll be sure to let you know!&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
     <title>History of Indian Civilization</title>
@@ -1728,34 +1767,6 @@ philosophy before. :-)&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://www.samharris.org/free-will&quot;&gt;Free Will&lt;/a&gt; is short and cheap and
 I highly recommend it.&lt;/p&gt;
-</content>
-  </entry>
-  
-  <entry>
-    <title>Facebook is killing blogging</title>
-    <link href="https://www.kurup.org/blog/2012/08/19/facebook-is-killing-blogging"/>
-    <updated>2012-08-19T07:58:31-04:00</updated>
-    <id>id:/blog/2012/08/19/facebook-is-killing-blogging</id>
-   <category scheme="http://www.kurup.org" term="blog" />
-   
-    <content type="html">&lt;p&gt;Looks like August 18th was
-International-Prominent-Bloggers-Complain-About-Facebook-Killing-Blogging
-Day. I was just &lt;a href=&quot;http://www.kurup.org/blog/2012/08/03/blogging-again/&quot;&gt;two weeks too early&lt;/a&gt;.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Tim Bray: &lt;a href=&quot;http://www.tbray.org/ongoing/When/201x/2012/08/18/Blogodammerung&quot;&gt;Blogodammerung&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Scott Hanselman: &lt;a href=&quot;http://www.hanselman.com/blog/YourWordsAreWasted.aspx&quot;&gt;Your words are wasted&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Jon Udell: &lt;a href=&quot;http://blog.jonudell.net/2012/08/10/where-have-all-the-bloggers-gone/&quot;&gt;Where have all the bloggers gone?&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;On a side note, I&amp;#8217;m really enjoying Scott Hanselman&amp;#8217;s podcast &lt;a href=&quot;http://thisdeveloperslife.com/&quot;&gt;This
-Developer&amp;#8217;s Life&lt;/a&gt;. It&amp;#8217;s an homage to
-the awesome &lt;a href=&quot;http://www.thisamericanlife.org&quot;&gt;This American Life&lt;/a&gt;, but
-focused on programming issues. They interview interesting programmers,
-but they carefully edit the interviews to focus on the parts that are
-the most interesting, interspersing them with music and effects. It&amp;#8217;s
-really well done.&lt;/p&gt;
 </content>
   </entry>
   
