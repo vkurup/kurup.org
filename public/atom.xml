@@ -4,7 +4,7 @@
   <title><![CDATA[Vinod Kurup]]></title>
   <link href="https://www.kurup.org/atom.xml" rel="self"/>
   <link href="https://www.kurup.org/"/>
-  <updated>2018-09-22T21:30:04-04:00</updated>
+  <updated>2018-12-02T21:53:49-05:00</updated>
   <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
@@ -12,6 +12,94 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[My Nest Journey]]></title>
+    <link href="https://www.kurup.org/blog/2018/12/02/nest-journey"/>
+    <updated>2018-12-02T23:33:53-05:00</updated>
+    <id>https://www.kurup.org/blog/2018/12/02/nest-journey</id>
+    <content type="html"><![CDATA[<p>I got 2 <a href="https://amzn.to/2zE10T1">Nest E thermostats</a> because Duke Energy was having a sale around
+Black Friday. I didn&#8217;t have any strong motivation to have a Nest. The idea of a smart home is cool,
+but most &#8216;smart&#8217; things nowadays have ended up being more work than benefit. Anyway, for $75 each, I
+thought it was worth a try. We have 2 thermostats so I decided to install the upstairs thermostat
+first. The process started off smooth and easy. I like that they provide a back plate, which I
+didn&#8217;t even notice until my trusty assistant, Kavi, pointed it out. My existing Honeywell thermostat
+is rectangular and if I just put the small circular Nest in its place, there would be a big chunk of
+unpainted real estate on the wall. Having the back plate prevented this from being a &#8216;replace
+thermostat, and learn how to patch and paint the wall&#8217; project. The online <a href="https://nest.com/support/article/How-to-tell-if-your-heating-and-cooling-system-will-work-with-the-Nest-Thermostat#works/?mode=guide">Nest compatibility
+checker</a>
+and the paper instruction manual (which includes stickers to label the existing wires) are also nice
+touches. That all gave me the (misguided?) confidence that even I could do this. A study confidence
+which lasted until I flipped the circuit breaker back on and &#8230;. nothing happened. According to the
+manual, the Nest was supposed to turn on, say Hi, and then walk me through the set up process. But
+it remained dead as a doorknob. I pulled it off the wall and plugged it in via USB (a nice
+troubleshooting feauture). It turned on and then when I placed it back on the wall, it complained
+that it was not getting enough power from the R wire. The error code was E195. When I looked at the
+&#8216;Technical Info&#8217;, it reported that the R wire was only providing 2-3 volts, while it needed 24. I
+chatted up Nest support, which took about 30 minutes to connect on a Friday night. The
+representative was responsive and useful. They eventually recommended trying to disconnect the C
+(common) wire. For a reason I still can&#8217;t explain, this brought the voltage on the R wire from 2-3
+volts up to 35 volts, and my Nest was working.</p>
+
+<p>Having tasted the sweet nectar of success, I then tried to swap my second Nest in for my downstairs
+thermostat. I made a huge mistake here. It had been easy to identify the circuit breaker for my
+upstairs furnance because it was labelled, &#8220;Up Furnace&#8221;. But there was nothing labelling the
+downstairs furnace. I switched off the circuit breaker that I thought was responsible for the
+downstairs HVAC, but in hindsight, I think I got the wrong one (and since it was warm out and the
+heater wasn&#8217;t running, I didn&#8217;t notice because nothing was running in the first place). Anyway, I
+walked through the rest of the instructions and again got to the point where the Nest was supposed
+to power on, but it didn&#8217;t. So I powered it on via USB and placed it back on the wall.
+Unfortunately, this time I was getting only 0.01 volts from the R line. Still, I was hoping that the
+&#8216;disconnect the C wire&#8217; trick would work again. Unfortunately, disconnecting the C wire did nothing.
+I walked through things with Customer Service chat. Again, they were helpful (rather than just
+spouting cookbook-type basic info), but in the end, they didn&#8217;t have a recommendation that would fix
+things. They suggested that I get a voltmeter and test the voltage output at the various wires. I do
+not have a voltmeter and felt that I was getting in over my head, so instead I put in some calls to
+HVAC service companies, but since it was the weekend and this wasn&#8217;t urgent, I was resigned to
+having no heat over the weekend. I watched a few Youtube videos of HVAC repairs, some of which were
+quite entertaining. Eventually, I tried to reconnect my old Honeywell thermostat and was surprised
+and intrigued when this ALSO failed. It made me think that I messed something up somehow. The only
+thing I could think of was that since I hit the wrong circuit breaker, there was live current in the
+wires. While moving them from the Honeywell to the Nest, perhaps I touched 2 wires together causing
+the system to short circuit. I don&#8217;t remember noticing a spark or anything, but that was my best
+guess. I eventually watched enough videos to give myself confidence that I could open up the HVAC
+and find the electrical panel. I did that successfully (after turning off the CORRECT circuit
+breaker, and also pulling out the pull out switch next to the furnace). After cleaning out a ton of
+cobwebs, I found the LED light on the electrical panel was off (even after connecting the circuits
+temporarily). I searched the panel and found a 3-amp E fuse (like the kind I&#8217;ve seen in automobile
+fuseboxes). I pulled it out and sure enough, it was blown. It looked like the &#8216;bad fuse&#8217; in this
+<a href="https://www.yourmechanic.com/article/how-to-check-fuses-by-rocco-lovetere">photo</a>. Off to Home
+Depot, I purchased 2 replacements for 3 dollars, and then replaced the busted fuse with the new one.
+I flipped the circuit breaker and put the pull-in switch back in. The first encouraging sign was
+that the red LED light on the electrical panel turned on. I went inside and, joy of joys, the Nest
+was booting up and showed 35V via the R wire. So, I guess the bottom line is that I need to be more
+careful when I&#8217;m at the circuit breaker box.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Composting]]></title>
+    <link href="https://www.kurup.org/blog/2018/09/23/composting"/>
+    <updated>2018-09-23T20:50:53-04:00</updated>
+    <id>https://www.kurup.org/blog/2018/09/23/composting</id>
+    <content type="html"><![CDATA[<p>Guess what, we&#8217;re composting now! I told you was <a href="https://www.kurup.org/blog/2018/09/22/starting-a-garden">going to be a
+gardener</a>, so now you know I&#8217;m serious. For oh so many years,
+every Friday, we&#8217;d haul the garbage and recycling out and I&#8217;d think to myself, &#8220;Wow, we&#8217;d have like no
+garbage at all if we were composting.&#8221; It&#8217;s only taken a few years of thinking that, week in and
+week out, to get me to try. Actually, that&#8217;s not even true. It was still way down on my future to-do
+list until I got a cheap copy of <a href="https://amzn.to/2xyqbWb">&#8220;The Complete Idiot&#8217;s Guide to
+Composting&#8221;</a>. Thank you, <a href="https://www.bookbub.com/welcome">BookBub</a>! (As if
+I needed any other incentive to buy and read more books). But honestly, the book was excellent in
+that it made me think that yes, even I could compost. So shortly after finishing it, I headed down
+to the Orange County Solid Waste Center and purchased an <a href="https://www.earthmachine.com/contact.php">Earth Machine compost
+bin</a> for fifty bucks, and made the kids set it up near the
+screen porch. We&#8217;ve been throwing all our copious kitchen scraps for the past 2 weeks. So far, all
+that has happened is that a bunch of fruit flies think we&#8217;re awesome neighbors and seem to have
+moved in for the long haul. But I&#8217;m hoping that some composting starts happening soon. It&#8217;s supposed
+to be easy as pie, but I&#8217;m secretly worried that I&#8217;m missing something, oh, like maybe skills or
+talent. But our garbage bin sure is lighter!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Starting a garden]]></title>
@@ -1582,135 +1670,6 @@ but I&#8217;m pretty happy about it!</p>
 installed Arch Linux with Xmonad. It takes about 10 seconds to get
 from the BIOS screen to a working computer. I&#8217;ll post some info on my
 setup in a future post.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Avik Arrives!]]></title>
-    <link href="https://www.kurup.org/blog/2012/09/04/avik-arrives"/>
-    <updated>2012-09-04T08:30:25-04:00</updated>
-    <id>https://www.kurup.org/blog/2012/09/04/avik-arrives</id>
-    <content type="html"><![CDATA[<p>Anika, Kavi, Mala and I are so proud to announce the birth of healthy, happy baby boy!</p>
-
-<p>His name is Avik Puri Kurup and he was born at 11:01 PM on September
-3rd, 2012. He is 6lbs, 12oz and about 19 inches long.</p>
-
-<p>A few pics:</p>
-
-<p><img src="https://www.kurup.org/images/avik-1.jpg" width="1024" alt="Avik" /><br/>
-<img src="https://www.kurup.org/images/avik-2.jpg" width="768" height="1024" alt="Avik" /></p>
-
-<p>And the obligatory pseudo-nostalgic photo:</p>
-
-<p><img src="https://www.kurup.org/images/avik-3.jpg" height="1024" width="768" alt="Avik" /></p>
-
-<p>Mom and Baby are doing great! Thanks for all the well wishes and support!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Thoughts on Free Will]]></title>
-    <link href="https://www.kurup.org/blog/2012/08/21/thoughts-on-free-will"/>
-    <updated>2012-08-21T12:01:25-04:00</updated>
-    <id>https://www.kurup.org/blog/2012/08/21/thoughts-on-free-will</id>
-    <content type="html"><![CDATA[<p>Time for some pop philosophy. I&#8217;ve never thought too deeply about the
-concept of free will. Of course we have free will! I chose to live my
-life a certain way. I could choose to live a different way. It is my
-free will to choose how I live. I&#8217;ve never thought about it more
-deeply than that.</p>
-
-<p>I recently read Walter Isaacson&#8217;s biography of Einstein and I was
-forced to think more deeply about free will. The biography is
-excellent. It gives more depth to Einstein, who, despite his flaws, is
-still a heroic figure. One day, I&#8217;ll do a proper review, but the piece
-that struck me the hardest was Einstein&#8217;s views on free will. He
-didn&#8217;t believe that free will existed, and not only that, he didn&#8217;t
-even to seem to think that this was a controversial position. It
-appears that Isaacson didn&#8217;t either, because he didn&#8217;t spend much time
-on that part of Einstein&#8217;s character. But, it seemed so strange to me,
-since I assumed that we all have free will.</p>
-
-<p>So, I read Sam Harris&#8217;s e-book
-<a href="http://www.samharris.org/free-will">Free Will</a>, in which he concisely
-explains why free will is a myth. Take any conscious decision that you
-might make. Let&#8217;s say you choose at this moment to go eat a pizza. Do
-you have the free will to make that choice? Well, you certainly can go
-eat pizza, but the question is if you had the free will to do it. What
-were the steps that led to making that choice. Somewhere in your
-brain, a certain set of neurons fired to trigger the idea in your mind
-to have a pizza. How did those neurons fire? Either there was a
-conscious decision to have that thought, or it was an unconscious
-decision that you didn&#8217;t control. And if it was a conscious decision,
-then you can take that back a step further and ask how that decision
-occurred. Eventually, you will have to start at some unconscious (or
-subconscious) event which triggered the series of events which
-eventually led to your decision to have a pizza. No matter how far
-back you can track the conscious trail that led to a pizza forming in
-your mind, eventually you are left with an unconscious starting point.
-Certainly all of these thoughts are heavily influenced by your life
-experiences. If you&#8217;ve never seen or heard of a pizza, there&#8217;s a zero
-percent chance that you&#8217;ll think of a eating a pizza. But all of those
-life experiences are themselves the result of conscious and
-unconscious decisions, all of which we ultimately have no specific
-control over.</p>
-
-<p>Every thought you have is the only thought you could have at that
-moment. It is the result of all of the life experiences and thoughts
-that you have had up to that moment. If you consciously try to
-&#8220;create&#8221; an original thought, just to prove that you have free will,
-well&#8230; you can&#8217;t. Because that decision itself originated from
-somewhere in your subconscious, and is therefore something that you
-don&#8217;t have conscious control over.</p>
-
-<p>In addition to this theoretical rationalization against the concept of
-free will, Harris describes multiple studies from neuroscience
-which show that neurons fire in our subconscious well before we
-develop the urge to act. Examples:</p>
-
-<ul>
-<li><a href="http://brain.oxfordjournals.org/content/106/3/623.short">The famous Libet Experiment from 1983</a></li>
-<li><a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1749-6632.2011.05994.x/full#ss4">Decoding and predicting
-intentions</a>.
-Skip to the the short section titled &#8216;Implications for the free-will debate?&#8217;</li>
-<li><a href="http://www.sciencedirect.com/science/article/pii/S0896627310010822">Internally Generated Preactivation of Single Neurons in Human
-Medial Frontal Cortex Predicts
-Volition</a>.
-The neuroscience in this article is pretty deep. I only watched the
-video abstract.</li>
-</ul>
-
-
-<p>Bottom line: I&#8217;m convinced that I don&#8217;t have the free will that I
-thought I did. The question is how this should affect my life. It
-could be depressing. If every thought of mine originates in a way that
-I don&#8217;t control, then am I just being steered through life? It makes
-my accomplishments in life seem less &#8220;worthy&#8221;. On the other hand, it
-can be quite freeing. My path through life is determined. Perhaps I
-shouldn&#8217;t be worrying so much about every decision, because I know
-that they&#8217;re not really &#8220;my&#8221; decisions to make. It can also give you
-more empathy for others, knowing that they also have no will do
-anything but what they are doing.</p>
-
-<p>It&#8217;s still a confusing topic, because I &#8220;feel&#8221; like I have options in
-life and I &#8220;feel&#8221; like taking different options will change my life.
-That part is true. The part that isn&#8217;t true is that I have any control
-over the range of available options, nor over the specific option that
-I choose. Even Harris seems to be a little conflicted here:</p>
-
-<blockquote><p>Losing a belief in free will has not made me fatalistic—in fact, it has increased my feelings of freedom. My hopes, fears, and neuroses seem less personal and indelible. There is no telling how much I might change in the future. Just as one wouldn’t draw a lasting conclusion about oneself on the basis of a brief experience of indigestion, one needn’t do so on the basis of how one has thought or behaved for vast stretches of time in the past. A creative change of inputs to the system—learning new skills, forming new relationships, adopting new habits of attention—may radically transform one’s life.</p></blockquote>
-
-<p>The question is how do you accomplish a &#8216;creative change of inputs&#8217;,
-if you don&#8217;t have the will to do so? I guess the idea is that while I
-don&#8217;t have any control over the thoughts that arise in my brain, I do
-have perceived control over my decisions. With whatever power my
-conscious brain has, I can choose things that will improve my life,
-with the hope that exposure to new experiences will &#8216;change the
-inputs&#8217; to my subconscious brain. Ugh, just thinking about how this
-all works makes my brain hurt. I guess this is why I never studied
-philosophy before. :-)</p>
-
-<p><a href="http://www.samharris.org/free-will">Free Will</a> is short and cheap and
-I highly recommend it.</p>
 ]]></content>
   </entry>
   

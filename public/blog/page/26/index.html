@@ -9,7 +9,7 @@
   <meta name="author" content="Vinod Kurup">
 
   
-  <meta name="description" content="I&#8217;m setting up vpopmail 5.2.1 - a POP3 email manager for qmail, but it won&#8217;t compile out of the box. gcc -I. -Icdb -g -O2 -Wall -c &hellip;">
+  <meta name="description" content="I have a love/hate relationship with daemontools. It&#8217;s powerful way to manage services (like web servers and mail servers), but it sometimes &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -89,6 +89,180 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2003/06/29/me-vs-daemontools">Me vs. Daemontools</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-06-29T00:00:00-04:00" pubdate data-updated="true">Jun 29<span>th</span>, 2003</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I have a love/hate relationship with <a href="http://cr.yp.to/daemontools.html">daemontools</a>. It&#8217;s powerful way to manage services (like web servers and mail servers), but it sometimes doesn&#8217;t act the way I expect it to.</p>
+
+<p>Today, I tried to set up <a href="http://cr.yp.to/qmail.html">qmail-pop3d</a>. I set up a directory called <code>/var/qmail/supervise/qmail-pop3d</code> and put a file named &#8216;run&#8217; inside it. This contained:</p>
+
+<pre><code>#!/bin/sh
+PATH=/var/qmail/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin
+export PATH
+
+tcpserver -H -R 0 pop-3 
+/var/qmail/bin/qmail-popup vkurup.acornhosting.net 
+/home/vpopmail/bin/vchkpw /var/qmail/bin/qmail-pop3d Maildir &amp;
+</code></pre>
+
+<p>Then I connected the run script to my /service directory</p>
+
+<pre><code># ln -s /var/qmail/supervise/qmail-pop3d /service
+</code></pre>
+
+<p>Then I checked to see if it was running:</p>
+
+<pre><code># svstat /service/qmail-pop3d
+/service/qmail-pop3d: up (pid 13524) 0 seconds
+</code></pre>
+
+<p>Hmmm&#8230; up 0 seconds. That&#8217;s not right - it should be at least 5 or 6 seconds (I can&#8217;t type <strong>that</strong> fast). That usually means that the service is repeatedly failing and restarting itself.</p>
+
+<p>ps shows that qmail-pop3d is running, but trying to connect to port 110 doesn&#8217;t work:</p>
+
+<pre><code>$ telnet localhost 110
+Trying 127.0.0.1...
+telnet: Unable to connect to remote host: Connection timed out
+</code></pre>
+
+<p>And now I&#8217;m stuck. Nothing is getting logged to the qmail-pop3d logs. After some headbanging, I do another <code>ps -ax</code> and this time notice a process called readproctitle:</p>
+
+<pre><code>11919 ?        S      0:05 readproctitle service errors: ...lready used?tcpserve
+r: fatal: unable to bind: address already used?tcpserver: fatal: unable to bind:
+ address already used?tcpserver: fatal: unable to bind: address already used?tcp
+server: fatal: unable to bind: address already used?tcpserver: fatal: unable to 
+bind: address already used?tcpserver: fatal: unable to bind: address already use
+d?tcpserver: fatal: unable to bind: address already used?
+</code></pre>
+
+<p>What&#8217;s that? I look it up and find that <a href="http://cr.yp.to/daemontools/readproctitle.html">readproctitle</a> is a kind of scrolling-log for daemontools which shows up when you run <code>ps</code>. So, it looks like <code>qmail-pop3d</code> failing because it&#8217;s trying to bind port 110 even though it&#8217;s already been bound. So this makes me thing that <code>qmail-pop3d</code> isn&#8217;t failing, but that it&#8217;s running over and over again. And then I look back at my run script and look at that pesky little &#8216;&amp;&#8217; at the end. Doh! That tells the process to detach once it starts. It starts normally, then detaches. Once it detaches, daemontools thinks it&#8217;s down, so it tries to start it again. (At least that&#8217;s the way I understand it). Getting rid of the &#8216;&amp;&#8217; and adding &#8216;exec&#8217; to the beginning fixes it and everything works now.</p>
+
+<p>Me: 1 Daemontools: 2123</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2003/06/29/do-not-call">Do Not Call</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-06-29T00:00:00-04:00" pubdate data-updated="true">Jun 29<span>th</span>, 2003</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;m going to sign up for the <a href="http://donotcall.gov/">National Do-Not-Call Registry</a>, but I&#8217;m not sure that it&#8217;s going to reduce the number of calls I get. Look at the <a href="http://www.ftc.gov/bcp/conline/pubs/alerts/dncalrt.htm#Exceptions">exemption list</a>:</p>
+
+<blockquote><p>Exempt businesses include:
+- long-distance phone companies
+- airlines
+- banks and credit unions; and
+- the business of insurance, to the extent that it is regulated by state law.</p>
+
+<p>However, many telemarketing calls are placed by professional telemarketing companies, and even if the company whose goods or services are being sold is exempt, the telemarketing company may be covered.</p>
+
+<p>You may still receive calls from political organizations, charities, telephone surveyors or companies with which you have an existing business relationship.</p></blockquote>
+
+<p>The list of telemarketers who don&#8217;t fit into the exemption list seems kinda small to me&#8230;</p>
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>Get tele-zapper</b></p>
+<p>
+Hey Vin, you want to get rid of telemarketing calls get a tele-zapper
+they work great. They&#8217;re like thirty bucks and easy to hook up. I used
+to get around 10 -15 calls a week and now I might get one every 3
+months, and what&#8217;s great is that if its a telemarketer on the line its
+just silent on the line like there&#8217;s nobody there so you don&#8217;t have to
+talk to them. It then zaps your phone number out of there system.
+</p>
+<address class="signature">
+<span class="author">Andy Drout</span>
+<span class="date">2003-07-25 16:35:19</span>
+</address>
+</div>
+
+
+<div class="my-comment">
+<p><b>Telezapper</b></p>
+<p>
+Hey Andy!
+</p>
+
+<p>
+Thanks for the note - I had never heard about the <a
+href="http://www.telezapper.com/default.asp">TeleZapper</a>
+before. Does it actually emit a audible tone to anyone that calls you?
+</p>
+
+<p>
+I&#8217;m trying to solve my telemarketer problem by never being home to
+answer the phone :-)
+</p>
+<address class="signature">
+<span class="author">Vinod Kurup</span>
+<span class="date">30 July 2003 01:13:02</span>
+</address>
+</div>
+
+</div>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -585,87 +759,6 @@ nice pictures you added.thanks.rajatrajaji
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2003/02/20/borkdrip">BorkDrip!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2003-02-20T00:00:00-05:00" pubdate data-updated="true">Feb 20<span>th</span>, 2003</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Got Mac OS X? Want a cool screensaver? I stole this from
-<a href="http://badgertronics.com/blog">MarkD</a> over at
-<a href="http://borkware.com/products/borkware-drip/">BorkWare</a> and then
-modified it to allow multiple drips and configurable block sizes.</p>
-
-<ul>
-<li>Get the <a href="http://kurup.org/files/Borkware_Drip.saver.sit">ScreenSaver</a>  (expand archive and put it in &#8220;~/Library/Screen Savers&#8221;).</li>
-<li>Get the <a href="http://kurup.org/files/borkware-drip-vkurup-11.tar.gz">source code</a>.</li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2003/02/01/snow">Snow!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2003-02-01T00:00:00-05:00" pubdate data-updated="true">Feb 1<span>st</span>, 2003</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>It&#8217;s <a href="http://kurup.org/photo/album?album_id=5325">snowing in NYC</a>. Really hard.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/27/">&larr; Older</a>
@@ -681,6 +774,14 @@ modified it to allow multiple drips and configurable block sizes.</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/12/02/nest-journey">My Nest Journey</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/09/23/composting">Composting</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2018/09/22/starting-a-garden">Starting a garden</a>
@@ -752,14 +853,6 @@ modified it to allow multiple drips and configurable block sizes.</p>
     
       <li class="post">
         <a href="/blog/2012/10/14/ive-gone-to-the-dark-side">I&#8217;ve gone to the dark side</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/09/04/avik-arrives">Avik Arrives!</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/21/thoughts-on-free-will">Thoughts on Free Will</a>
       </li>
     
   </ul>

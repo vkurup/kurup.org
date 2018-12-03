@@ -9,8 +9,8 @@
   <meta name="author" content="Vinod Kurup">
 
   
-  <meta name="description" content="If you asked me a few years ago, I would have said you absolutely can&#8217;t
-time the stock market. The 2008 crash hurt enough to make me review my &hellip;">
+  <meta name="description" content="I blogged daily for a 6 day stretch a couple weeks ago, which is the
+longest continuous stretch I&#8217;ve ever done. It was stimulating and &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -90,6 +90,158 @@ time the stock market. The 2008 crash hurt enough to make me review my &hellip;"
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/07/27/my-anti-writing-cycle">My Anti-Writing Cycle</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-07-27T21:30:00-04:00" pubdate data-updated="true">Jul 27<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I blogged daily for a 6 day stretch a couple weeks ago, which is the
+longest continuous stretch I&#8217;ve ever done. It was stimulating and stressful
+at the same time. I haven&#8217;t heard from the Pulitzer committee about any of
+the posts yet, but it&#8217;s not the quality that matters. Writing is more about
+the process than the product, and I know from experience that writing helps
+me think. And while most of the posts were written for my own benefit, I
+really enjoyed the response that I got from family and friends about
+<a href="/blog/2010/07/15/playdoh">Playdoh</a>. I think I&#8217;ve read that post 100 times
+and I still laugh out loud at the end of it. That&#8217;s the post that started
+the stretch off. As soon as I had put Kavi to bed, I knew that I wanted to
+share that story. I wrote it down quickly, so I wouldn&#8217;t forget it. That
+writing process stimulated me to want to write more, so I made it an
+internal goal to write a post daily.</p>
+
+<p>Then I had two night shifts and the streak was broken. I&#8217;ve had a few days
+off, but I still haven&#8217;t written anything. I&#8217;m still learning clojure, but
+I fear writing about something that I know nothing about. Even though I&#8217;ve
+heard others say that this is the best time to write about a topic. I&#8217;ve
+also constructed a vicious cycle in my head. I want to learn clojure. I
+want to write about what I learn. I start doing so, but then I skip a day
+or so. Now, when I have free time, I think about learning clojure, but then
+I also think about the fact that I should write about it. And since I&#8217;m
+already behind, I don&#8217;t want to get further behind, so maybe I shouldn&#8217;t
+read that interesting tutorial until I&#8217;ve caught up on writing about what
+I&#8217;ve learned. Next thing I know, I&#8217;m monitoring Twitter streams
+second-by-second for <a href="http://imgur.com">imgur</a> links.</p>
+
+<p>I&#8217;m hoping that writing about my mental blocks will help me overcome
+them. I plan to write more frequently, mostly for my own benefit, but I&#8217;m
+not going to let it get in the way of learning cool, interesting stuff. If
+my writing is disjointed, so be it. I can fill in the gaps later if anyone
+cares.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/07/20/kino">My Video Editing Process</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-07-20T20:51:00-04:00" pubdate data-updated="true">Jul 20<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I use <a href="http://www.kinodv.org/">kino</a> to edit the
+<a href="http://youtube.com/vkurup1">videos that we take of the kids</a>. I haven&#8217;t
+found a Linux program which was as nice as iMovie was on the Mac, but kino
+is pretty good. It&#8217;s easy to splice and reconnect video clips together. It
+has nice special effects, though my needs are pretty simple. It&#8217;s able to
+export in plenty of formats, possibly too many, for my simple mind. But,
+I&#8217;ve figured it out and have a stable process for getting video from camera
+to youtube.</p>
+
+<p>I have 3 camcorders - a <a href="http://www.theflip.com/">Flip</a>, my Canon digital
+camera, and a Panasonic DVD camcorder. I can just copy the AVI files
+directly off the Flip and the Canon&#8217;s SD card. The Panasonic records all of
+the video clips into a single file with a .VRO extension. I found a great
+utility called <a href="http://www.pixelbeat.org/programs/dvd-vr/">dvd-vr</a>, which
+reads that file and splits it into individual AVI files. Once I have a
+directory full of AVI files from the various camcorders, I use
+<a href="http://www.gnu.org/software/emacs/">emacs</a> to rename them consistently. I
+open up 2 buffers: an editable dired buffer (<code>wdired-change-to-wdired-mode</code>)
+of the movies directory, and a shell buffer in that same directory. I run a
+macro which takes the first file in the directory, plays it via an mplayer
+command in the shell buffer and then renames the file using the
+date/timestamp of the file. The macro leaves the cursor in a spot where I
+can enter a brief description of the video and then run the macro again to
+do the next video. It works pretty well. I then batch convert them to DV
+format, which is what Kino accepts. Finally, I launch Kino and edit the
+files, add titles, export them to AVI again, and then upload them to
+youtube.</p>
+
+<p>I did this today and ran into a problem with kino. The video played at
+breakneck speed and there was no audio. Google helped me figure out that
+this was a problem between PulseAudio and kino. Kino is no longer actively
+developed. The lead developer considers it stable and finished and he&#8217;s
+moved on to other endeavors, which is perfectly understandable. He&#8217;s
+however, taken the time to describe
+<a href="http://www.kinodv.org/article/view/173/1/13/">a workaround</a>. He recommends
+running <code>padsp kino</code> which routes all audio requests from kino to
+pulseaudio. This worked, but the audio had a lot of feedback. I found an
+even better
+<a href="http://ubuntuforums.org/showpost.php?p=8367831&amp;postcount=7">workaround on the ubuntu forums</a>. Use
+<code>pasuspender kino</code>, which suspends all PulseAudio activity, gives kino
+direct access to audio devices, and then resumes PulseAudio once kino has
+quit. This worked with perfect audio quality, though of course, audio from
+any other program gets muted completely.</p>
+
+<p>I am still on the lookout for a better video editing solution on
+Linux. Eventually, I&#8217;d like to make DVDs of the hundreds of little clips
+that I have. They don&#8217;t need to be fancy, but I would like to have some
+basic menus and they need to work on standard DVD players. I&#8217;ve started
+doing a little research on this, so will post once I&#8217;ve tried some things
+out.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -869,201 +1021,6 @@ in this brain of mine, if you want more :-)</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/09/26/growing-up-too-fast">Growing Up Too Fast</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-09-26T00:00:00-04:00" pubdate data-updated="true">Sep 26<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I love watching Kavi&#8217;s expressions. We took the kids to the <a href="http://www.ncmls.org/">Museum of Life
-and Science</a> for a birthday party today. He&#8217;s been
-there plenty of times, mostly with Mala. I&#8217;ve been there a few times with
-him. It&#8217;s one of his (and I guess every kid&#8217;s) favorite places. Each time
-we go, it&#8217;s a vastly different experience. Everything seems new to him. His
-eyes light up with wonder and amazement at the exhibits.</p>
-
-<p>We were late for the party, so Mala took Anika ahead of us while Kavi
-dawdled in the front exhibits. Ahead of us was a large skeleton of a
-dinosaur&#8217;s head. I know that he has seen this before, but, it was as if
-he&#8217;d noticed it for the first time today. And it was scary. Not too scary,
-mind you. He wasn&#8217;t crying or anything. He just was very cautious about
-getting too close to it. But, there was no way to avoid it, since the party
-room (with the cake!) was just past the dinosaur. He held my hand tightly
-and asked what it was. I told him and he repeated it, &#8220;Dinosaur?&#8221;. His eyes
-were wide open, but focused on the T-Rex&#8217;s head. His right hand clenched my
-left and when I tried to walk past it, he pulled me back. Still no crying
-or complaining, just &#8230; concern. So I took my time and talked to him about
-the dinosaur and the other exhibits nearby. Eventually, he mustered up the
-courage to walk around the back of the dinosaur and towards the party
-room. Later, after the cake and festivities, we made our way back to the
-other exhibits. This time, he pointed out the dinosaur, still in a
-concerned voice, but made no effort to shy away or slow down. Now, he
-noticed other things that he had missed before &#8211; cool astronauts uniforms
-and a glass elevator slowly ascending. When he saw each of these things,
-his face turned into the embodiment of wonder. Eyes wide open, jaw slightly
-ajar. I love seeing him experience life like this, so fully.</p>
-
-<p>I write this because I know that I&#8217;m otherwise going to forget them. I had
-the distinct feeling this afternoon, while watching him, that he was
-growing up in front of my eyes. That these expressions of wonderment would
-soon be replaced by the apathy of young adulthood. I know, I know&#8230; he&#8217;s
-only 2, but everyone keeps telling me that he will be grown and with kids
-of his own before I know it! I hope not and if so, I hope not <em>too soon</em>. I
-want to make sure that I remember these moments, simply for their own sake.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/09/22/running-slow">Running Slow</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-09-22T00:00:00-04:00" pubdate data-updated="true">Sep 22<span>nd</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I&#8217;ve been a runner for a long time. I started running in junior high
-school, so I could be on the track team. I&#8217;ve had a few long stretches
-where I didn&#8217;t run, but for most of the past 25 years, I&#8217;ve been a runner.</p>
-
-<p>It wasn&#8217;t until the 2005 New York Marathon though, that I really felt like
-a runner. I had already run 2 marathons, but I had walked a lot in both of
-them. I ran the entire NYC Marathon from beginning to end. That, to me, was
-a <strong>huge</strong> deal. Before 2004, I don&#8217;t think I would ever have believed that
-I could do that. I don&#8217;t necessarily think that using walk breaks makes you
-any less of a runner. But, <strong>for me</strong>, using walk breaks was a crutch. I&#8217;d
-gotten to the point that running 3, 4 or even 5 miles was easy. I dreaded
-anything longer than that. If I was planning a 9 mile run, I would start
-doing math in my head around mile 3. &#8220;OK, I&#8217;ve done 3 miles, now I just
-need to do that again&#8230; and then again&#8230;&#8221; And that&#8217;s where I would defeat
-myself. I mean, I was already tired at mile 3! How was I going to do that
-same distance <em>twice</em> more?</p>
-
-<p>Sometime around 2004, that changed. I was working at Metropolitan Hospital,
-which is on 96th street and 1st avenue in NYC. I had decided to run the NYC
-Marathon in 2005, but I wasn&#8217;t training enough. After the subway ride home
-from work, I would be drained, and going out for a run at 6 or 7 PM was
-just too much to even think about. I&#8217;m so glad that I had made the decision
-to run the marathon. I hadn&#8217;t even signed up - it was way too early - but
-that decision in my brain was firm. I knew that I had to find a way to
-train. Running in the morning was an option, but if you know me, then you
-know that it wasn&#8217;t. :-) Ironically, I&#8217;m now up before 5AM every day these
-days because of my 2 precious little ones. But, back in those bachelor
-days, mornings didn&#8217;t exist.</p>
-
-<p>I decided to make running part of my daily commute. I would take the subway
-to work and then run home after work. I was living on 22nd St and 3rd
-Avenue, so it was a 5 mile run along the East River. Living in NYC was so
-convenient in that way. I never had to worry about leaving a car at work or
-figuring out what to do if I couldn&#8217;t run all the way home. The subway was
-always there. I started out by running every couple days, then every other
-day, and then, as many days as I could. It was great for training and for
-my peace of mind. There&#8217;s no better way to release the stress of a workday
-than a long, easy run. I got much faster during the summer of 2004, and in
-September, I ran the Staten Island Half Marathon in 1:41:56, which is much
-faster than I ever dreamed was possible at that time.</p>
-
-<p>But getting <em>faster</em> is not the point of this article. Running <em>longer</em> is.</p>
-
-<p>The other thing that happened that summer was that I met and fell in love
-with Mala. By the next spring, we had decided to move in together, and we
-were both living in her tiny little apartment in the Bronx. At first, this
-curbed my running a bit. But, eventually, I came to the same conclusions
-that I had made the year before. I <strong>had</strong> to run and the only feasible way
-was after work. But, the commute was now 8 miles instead of 5. And instead
-of a leisurely jog along the East River, I now had a somewhat exhausting
-urban trek through some shady neighborhoods. I never had any real problems,
-but I always felt a little fear during parts of my run. Every once in a
-while a teenager would see me running and shout something at me, or run
-along with me for a few steps. But, it always seemed playful, so I never
-felt too threatened. Running with a backpack through the South Bronx
-probably made me the craziest thing in the neighborhood, so I didn&#8217;t need
-to worry :-) Anyway, the point is that my run was now longer and subway
-stops were fewer and further between. In addition, I had all that fear, so
-I felt that I needed to conserve energy in case, you know&#8230; I needed to
-<strong>sprint!</strong></p>
-
-<p>So, I ended up running a lot <strong>slower</strong>. Even though I was pretty sure I
-could make it 8 miles, I started a lot slower and didn&#8217;t start speeding up
-until I was within a mile or two of home. And I don&#8217;t mean just a little
-slower. I would run so slow that I felt people were thinking, &#8220;Why doesn&#8217;t
-he just walk?&#8221;. That was tough for me. As much as I hate to admit it, I do
-think about what other people think, and the last thing I want anyone to
-think is that I&#8217;m a slow runner. But, I purposefully shed those superficial
-inhibitions in the name of survival. I would slow WAY down. This eventually
-served two purposes. The most important immediate purpose was that it
-allowed to me to get home safely each night. The more lasting purpose was
-that it gave me the confidence that I can always <em>build up energy</em> by
-slowing down. No matter how tired I was, if I slowed down enough, I would
-build up energy again. I know it makes sense, but I didn&#8217;t believe it until
-I tried it. And I guess I thought I <em>had</em> tried it before, but the problem
-was my ego. I had never let myself really slow enough to the point that it
-was valuable. Slowing down was the best thing I ever did as a runner.</p>
-
-<p>So, that&#8217;s how I was able to run the NYC marathon without stopping in
-2005. Now, even when I haven&#8217;t been training regularly, I know that I can
-run 10+ miles on any given day. Just by slowing down. They won&#8217;t be the
-fastest 10 miles I&#8217;ve run, but it&#8217;s such a great feeling to know that I can
-do it. It gives me freedom in my runs, too. I know I can take any hill,
-just by slowing down. I can speed up at any point in my run, just by
-slowing down before and afterwards.</p>
-
-<p>So, if you&#8217;ve gotten to the point that you can run 3 miles comfortably, but
-couldn&#8217;t dream of running 10 or 20, slow way down. So slow that you feel
-like a fraud. See if that doesn&#8217;t let you run longer. And if that fails,
-try running in the Bronx :-)</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/9/">&larr; Older</a>
@@ -1079,6 +1036,14 @@ try running in the Bronx :-)</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/12/02/nest-journey">My Nest Journey</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/09/23/composting">Composting</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2018/09/22/starting-a-garden">Starting a garden</a>
@@ -1150,14 +1115,6 @@ try running in the Bronx :-)</p>
     
       <li class="post">
         <a href="/blog/2012/10/14/ive-gone-to-the-dark-side">I&#8217;ve gone to the dark side</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/09/04/avik-arrives">Avik Arrives!</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/21/thoughts-on-free-will">Thoughts on Free Will</a>
       </li>
     
   </ul>
