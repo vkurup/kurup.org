@@ -9,8 +9,8 @@
   <meta name="author" content="Vinod Kurup">
 
   
-  <meta name="description" content="A Vignette A 22-month-old previously healthy girl was brought to the emergency
-room in respiratory distress. She had been well until the day of &hellip;">
+  <meta name="description" content="It&#8217;s occasionally useful to be able to create a Django model class in your unit test suite. Let&#8217;s
+say you&#8217;re building a library &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -90,6 +90,118 @@ room in respiratory distress. She had been well until the day of &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/07/21/django-test-models">How to Create Test Models in Django</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-21T20:44:00-04:00" pubdate data-updated="true">Jul 21<span>st</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>It&#8217;s occasionally useful to be able to create a Django model class in your unit test suite. Let&#8217;s
+say you&#8217;re building a library which creates an
+<a href="https://docs.djangoproject.com/en/dev/topics/db/models/#abstract-base-classes">abstract model</a>
+which your users will want to subclass. There&#8217;s no need for your library to subclass it, but your
+library should still test that you can create a subclass and test out its features. If you create
+that model in your <code>models.py</code> file, then Django will think that it is a real part of your library and
+load it whenever you (or your users) call <code>syncdb</code>. That&#8217;s bad.</p>
+
+<p>The <a href="https://code.djangoproject.com/ticket/7835#comment:24">solution</a> is to create it in a <code>tests.py</code>
+file within your Django app. If it&#8217;s not in <code>models.py</code>, Django won&#8217;t load it during <code>syncdb</code>.</p>
+
+<figure class='code'><figcaption><span>tests.py</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">django.test</span> <span class="kn">import</span> <span class="n">TestCase</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">MyAbstractModel</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">MyTestModel</span><span class="p">(</span><span class="n">MyAbstractModel</span><span class="p">):</span>
+</span><span class='line'>    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">AbstractTest</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">test_my_test_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span class='line'>        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">MyTestModel</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;foo&#39;</span><span class="p">))</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>A problem with this solution is that I rarely use a single <code>tests.py</code> file. Instead we use multiple
+test files collected in a tests package. If you try to create a model in <code>tests/test_foo.py</code>, then
+this approach fails because Django tries to create the model in an application named <code>tests</code>, but
+there is no such app in INSTALLED_APPS. The solution is to set <code>app_label</code> to the name of your app
+in an inner Meta class.</p>
+
+<figure class='code'><figcaption><span>tests/test_foo.py</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">django.test</span> <span class="kn">import</span> <span class="n">TestCase</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">from</span> <span class="nn">..models</span> <span class="kn">import</span> <span class="n">MyAbstractModel</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">MyTestModel</span><span class="p">(</span><span class="n">MyAbstractModel</span><span class="p">):</span>
+</span><span class='line'>    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+</span><span class='line'>        <span class="n">app_label</span> <span class="o">=</span> <span class="s">&#39;myappname&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">AbstractTest</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">test_my_test_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span class='line'>        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">MyTestModel</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;foo&#39;</span><span class="p">))</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Oh, and I almost forgot&#8230; if you use <a href="http://south.readthedocs.org/en/latest/index.html">South</a>,
+this might not work, unless you set <code>SOUTH_TESTS_MIGRATE</code> to <code>False</code> in your settings file.</p>
+
+<p>Comments and corrections welcome!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1342,160 +1454,6 @@ or remove the offending &#8216;source&#8217;.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/10/14/ive-gone-to-the-dark-side">I&#8217;ve Gone to the Dark Side</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-10-14T16:09:54-04:00" pubdate data-updated="true">Oct 14<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I was a huge Apple fan growing up and IBM was Apple&#8217;s enemy. Buying an
-IBM computer would have been unthinkable.</p>
-
-<p>Well, the unthinkable has happened. Of course IBM doesn&#8217;t make laptops
-anymore, but their computers live on under the Lenovo name. I am the
-proud owner of a new <a href="http://shop.lenovo.com/us/laptops/thinkpad/t-series/t420s">Lenovo Thinkpad
-T420S</a>. I
-love this computer. It&#8217;s an ugly black boxy thing, but it&#8217;s light (4
-lbs), quiet and speedy. And the keyboard is just pure awesome. That&#8217;s
-the main reason that I bought the T420S as opposed to the current T430
-line. The new line has the chicklet keyboard that is being used on all
-laptops these days. The T420 is the last one with the old-fashioned
-clicky keyboard, which I love.</p>
-
-<p>I also feel very lucky to get the deal that I got. I bought it from
-<a href="http://outlet.lenovo.com">Lenovo&#8217;s Outlet store</a>, which had about
-thirty T420s&#8217;s in stock when I was shopping. This one was about half
-the price of the others, by my estimation. It&#8217;s so underpriced that
-I&#8217;m wondering if I&#8217;m missing an obvious flaw, but I don&#8217;t see it.
-(Please let me know if you do!)</p>
-
-<p>Here&#8217;s a comparison between the specs of my computer compared to one
-that was available at the Outlet store on October 4th, 2012:</p>
-
-<table border="1">
-<tr>
-<td>&nbsp;</td>
-<td>Mine</td>
-<td>Other one</td>
-</tr>
-
-<tr>
-<td>Part Number</td>
-<td>417153U</td>
-<td>4170CTO</td>
-</tr>
-
-<tr>
-<td>Processor</td>
-<td>Core i5-2540</td>
-<td>Core i5-2540</td>
-</tr>
-
-<tr>
-<td>OS</td>
-<td><strong>Windows 7 Pro</strong></td>
-<td>Windows 7 Home</td>
-</tr>
-
-<tr>
-<td>Graphics</td>
-<td>Intel HD3000</td>
-<td>Intel HD3000</td>
-</tr>
-
-<tr>
-<td>Memory</td>
-<td>4 GB</td>
-<td><b>8 GB</b></td>
-</tr>
-
-<tr>
-<td>Display</td>
-<td>14&#8221; 1600x900 HD+</td>
-<td>14&#8221; 1600x900 HD+</td>
-</tr>
-
-<tr>
-<td>HD</td>
-<td>128GB SSD</td>
-<td>128GB SSD</td>
-</tr>
-
-<tr>
-<td>Optical</td>
-<td>DVD recordable</td>
-<td>DVD recordable</td>
-</tr>
-
-<tr>
-<td>Battery</td>
-<td>6-cell</td>
-<td>6-cell</td>
-</tr>
-
-<tr>
-<td>Network</td>
-<td>Intel Centrino Advanced</td>
-<td>Not specified</td>
-</tr>
-
-<tr>
-<td>Bluetooth</td>
-<td>V3.0</td>
-<td>Not specified</td>
-</tr>
-
-<tr>
-<td>Fingerprint reader</td>
-<td>No</td>
-<td>No</td>
-</tr>
-
-<tr>
-<td>Price</td>
-<td class="big"><b>$ 663.72</b></td>
-<td><b>$ 1,355.39</b></td>
-</tr>
-</table>
-
-
-<p>The RAM is better on the other model, but Windows 7 Professional is an
-upgrade on my model. I don&#8217;t really understand why mine was so cheap,
-but I&#8217;m pretty happy about it!</p>
-
-<p>I added another 4G of RAM, moved Windows to a VirtualBox image and
-installed Arch Linux with Xmonad. It takes about 10 seconds to get
-from the BIOS screen to a working computer. I&#8217;ll post some info on my
-setup in a future post.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -1511,6 +1469,10 @@ setup in a future post.</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/12/20/triangle-race-series">Triangle Race Series</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2018/12/02/nest-journey">My Nest Journey</a>
@@ -1586,10 +1548,6 @@ setup in a future post.</p>
     
       <li class="post">
         <a href="/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet">Emacs Autocomplete stumbles on yasnippet</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/10/14/ive-gone-to-the-dark-side">I&#8217;ve gone to the dark side</a>
       </li>
     
   </ul>

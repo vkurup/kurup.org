@@ -4,7 +4,7 @@
   <title>Vinod Kurup</title>
   <link href="https://www.kurup.org/blog/atom.xml" rel="self"/>
   <link href="https://www.kurup.org"/>
-  <updated>2018-12-02T21:53:49-05:00</updated>
+  <updated>2018-12-20T20:41:32-05:00</updated>
   <generator uri="http://github.com/mojombo/jekyll">Jekyll</generator>
   <id>https://www.kurup.org/blog/atom.xml</id>
   <author>
@@ -15,6 +15,33 @@
     <uri>https://www.kurup.org</uri>
   </author>
 
+  
+  <entry>
+    <title>Triangle Race Series</title>
+    <link href="https://www.kurup.org/blog/2018/12/20/triangle-race-series"/>
+    <updated>2018-12-20T20:27:53-05:00</updated>
+    <id>id:/blog/2018/12/20/triangle-race-series</id>
+   <category scheme="http://www.kurup.org" term="family" />
+   <category scheme="http://www.kurup.org" term="running" />
+   
+    <content type="html">&lt;p&gt;When we made our 2018 goals last year, Kavi, Anika and I all had some running-related goals. I don&amp;#8217;t
+remember offhand exactly what each of our goals were, but I think we all wanted to run more races,
+because well, races are fun! I somehow stumbled on the &lt;a href=&quot;http://www.precisionrace.com/triangle-race-series2/&quot;&gt;Triangle Race
+Series&lt;/a&gt;. It&amp;#8217;s a series of a couple dozen races
+throughout the year around the Triangle, so we signed up for a few. They keep standings based on
+participation and placement. You get 5 points for running a race, and more if you place in your
+age/gender division. We ran about 4 or 5 of the races. I hadn&amp;#8217;t really thought about the series at
+all recently since I injured my right Achilles in July and haven&amp;#8217;t run at all since then. Getting
+old really is a bummer. Anyways, I checked the website today and they have posted the &lt;a href=&quot;http://www.precisionrace.com/s/Series_Rank_Report_Race25_Cash_v9_2Races-xzxt.pdf&quot;&gt;final 2018
+results&lt;/a&gt;. I got
+6th place in my &amp;#8220;not-quite-old-fogey&amp;#8221; division! Not bad, huh? Yeah, I know&amp;#8230; it&amp;#8217;s mostly a
+participation award, but still, I&amp;#8217;m proud. But wait! That&amp;#8217;s not even the best part. I&amp;#8217;m even more
+proud of Kavi and Anika. They are both in the 0-19 age group, so get to compete against teenagers.
+Kavi got 3rd place in the male 0-19 division, and Anika got 1st place in the female 0-19 division!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.kurup.org/images/oak-city-mile-2018.jpg&quot; title=&quot;Oak City Mile 2018&quot; &gt;&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
     <title>My Nest Journey</title>
@@ -1597,135 +1624,6 @@ solution is to remove &lt;code&gt;ac-source-yasnippet&lt;/code&gt; from &lt;code
 specific &amp;#8216;source&amp;#8217;, passing it up to use other sources. Alternatively,
 it should fail loudly when there&amp;#8217;s an error, so that I can know to fix
 or remove the offending &amp;#8216;source&amp;#8217;.&lt;/p&gt;
-</content>
-  </entry>
-  
-  <entry>
-    <title>I&#8217;ve gone to the dark side</title>
-    <link href="https://www.kurup.org/blog/2012/10/14/ive-gone-to-the-dark-side"/>
-    <updated>2012-10-14T16:09:54-04:00</updated>
-    <id>id:/blog/2012/10/14/ive-gone-to-the-dark-side</id>
-   <category scheme="http://www.kurup.org" term="computers" />
-   
-    <content type="html">&lt;p&gt;I was a huge Apple fan growing up and IBM was Apple&amp;#8217;s enemy. Buying an
-IBM computer would have been unthinkable.&lt;/p&gt;
-
-&lt;p&gt;Well, the unthinkable has happened. Of course IBM doesn&amp;#8217;t make laptops
-anymore, but their computers live on under the Lenovo name. I am the
-proud owner of a new &lt;a href=&quot;http://shop.lenovo.com/us/laptops/thinkpad/t-series/t420s&quot;&gt;Lenovo Thinkpad
-T420S&lt;/a&gt;. I
-love this computer. It&amp;#8217;s an ugly black boxy thing, but it&amp;#8217;s light (4
-lbs), quiet and speedy. And the keyboard is just pure awesome. That&amp;#8217;s
-the main reason that I bought the T420S as opposed to the current T430
-line. The new line has the chicklet keyboard that is being used on all
-laptops these days. The T420 is the last one with the old-fashioned
-clicky keyboard, which I love.&lt;/p&gt;
-
-&lt;p&gt;I also feel very lucky to get the deal that I got. I bought it from
-&lt;a href=&quot;http://outlet.lenovo.com&quot;&gt;Lenovo&amp;#8217;s Outlet store&lt;/a&gt;, which had about
-thirty T420s&amp;#8217;s in stock when I was shopping. This one was about half
-the price of the others, by my estimation. It&amp;#8217;s so underpriced that
-I&amp;#8217;m wondering if I&amp;#8217;m missing an obvious flaw, but I don&amp;#8217;t see it.
-(Please let me know if you do!)&lt;/p&gt;
-
-&lt;p&gt;Here&amp;#8217;s a comparison between the specs of my computer compared to one
-that was available at the Outlet store on October 4th, 2012:&lt;/p&gt;
-
-&lt;table border=&quot;1&quot;&gt;
-&lt;tr&gt;
-&lt;td&gt;&amp;nbsp;&lt;/td&gt;
-&lt;td&gt;Mine&lt;/td&gt;
-&lt;td&gt;Other one&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Part Number&lt;/td&gt;
-&lt;td&gt;417153U&lt;/td&gt;
-&lt;td&gt;4170CTO&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Processor&lt;/td&gt;
-&lt;td&gt;Core i5-2540&lt;/td&gt;
-&lt;td&gt;Core i5-2540&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;OS&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;Windows 7 Pro&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;Windows 7 Home&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Graphics&lt;/td&gt;
-&lt;td&gt;Intel HD3000&lt;/td&gt;
-&lt;td&gt;Intel HD3000&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Memory&lt;/td&gt;
-&lt;td&gt;4 GB&lt;/td&gt;
-&lt;td&gt;&lt;b&gt;8 GB&lt;/b&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Display&lt;/td&gt;
-&lt;td&gt;14&amp;#8221; 1600x900 HD+&lt;/td&gt;
-&lt;td&gt;14&amp;#8221; 1600x900 HD+&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;HD&lt;/td&gt;
-&lt;td&gt;128GB SSD&lt;/td&gt;
-&lt;td&gt;128GB SSD&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Optical&lt;/td&gt;
-&lt;td&gt;DVD recordable&lt;/td&gt;
-&lt;td&gt;DVD recordable&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Battery&lt;/td&gt;
-&lt;td&gt;6-cell&lt;/td&gt;
-&lt;td&gt;6-cell&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Network&lt;/td&gt;
-&lt;td&gt;Intel Centrino Advanced&lt;/td&gt;
-&lt;td&gt;Not specified&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Bluetooth&lt;/td&gt;
-&lt;td&gt;V3.0&lt;/td&gt;
-&lt;td&gt;Not specified&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Fingerprint reader&lt;/td&gt;
-&lt;td&gt;No&lt;/td&gt;
-&lt;td&gt;No&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Price&lt;/td&gt;
-&lt;td class=&quot;big&quot;&gt;&lt;b&gt;$ 663.72&lt;/b&gt;&lt;/td&gt;
-&lt;td&gt;&lt;b&gt;$ 1,355.39&lt;/b&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-
-
-&lt;p&gt;The RAM is better on the other model, but Windows 7 Professional is an
-upgrade on my model. I don&amp;#8217;t really understand why mine was so cheap,
-but I&amp;#8217;m pretty happy about it!&lt;/p&gt;
-
-&lt;p&gt;I added another 4G of RAM, moved Windows to a VirtualBox image and
-installed Arch Linux with Xmonad. It takes about 10 seconds to get
-from the BIOS screen to a working computer. I&amp;#8217;ll post some info on my
-setup in a future post.&lt;/p&gt;
 </content>
   </entry>
   
