@@ -9,7 +9,7 @@
   <meta name="author" content="Vinod Kurup">
 
   
-  <meta name="description" content="I ran 2 more half-marathons in the past couple weeks. I ran Greta&#8217;s Great Gallop on October 3rd in Central Park and then ran the Staten Island &hellip;">
+  <meta name="description" content="Word to the wise. MSIE5 (Mac) doesn&#8217;t like: &amp;lt;script type="blah" src="blah" /&amp;gt; It only likes: &amp;lt;script type="blah" src="blah &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -89,6 +89,52 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2005/01/04/script-tag-on-msie">SCRIPT Tag on MSIE</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-01-04T00:00:00-05:00" pubdate data-updated="true">Jan 4<span>th</span>, 2005</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Word to the wise. MSIE5 (Mac) doesn&#8217;t like:</p>
+
+<pre><code> &amp;lt;script type="blah" src="blah" /&amp;gt; 
+</code></pre>
+
+<p>It only likes:</p>
+
+<pre><code> &amp;lt;script type="blah" src="blah&amp;gt;&amp;lt;/script&amp;gt;
+</code></pre>
+
+<p>It&#8217;s quite stubborn. If you try the first example, it will refuse to show any of your page.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -705,44 +751,6 @@ Cool! Don&#8217;t worry about outdoing me. I&#8217;m sure that someday the rapid
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2004/03/29/dan-bern">Dan Bern</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2004-03-29T00:00:00-05:00" pubdate data-updated="true">Mar 29<span>th</span>, 2004</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.danbern.com/">Dan Bern</a> has quickly become one of my favorite musicians. I saw him a while back at the (now defunct) <a href="http://www.bottomlinecabaret.com/">Bottom Line</a> and then again tonight at Joe&#8217;s Pub (within spitting distance!). He&#8217;s been compared to Bob Dylan, although, unlike Dylan, I can understand what he&#8217;s saying. His music is simple and catchy, and the lyrics can go from hilarious to poignant in one song.</p>
-
-<p>He played a couple songs tonight that I haven&#8217;t been able to find on CDs anywhere - one called <a href="http://www.dylanchords.com/others/dan_bern_one_more_light.htm">&#8220;One More Light&#8221;</a> and one about 9/11. Hopefully they&#8217;ll be on the &#8220;new album&#8221; &#8482;</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/21/">&larr; Older</a>
@@ -758,6 +766,10 @@ Cool! Don&#8217;t worry about outdoing me. I&#8217;m sure that someday the rapid
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2019/04/08/avik-730">Avik 7:30</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2018/12/20/triangle-race-series">Triangle Race Series</a>
@@ -833,10 +845,6 @@ Cool! Don&#8217;t worry about outdoing me. I&#8217;m sure that someday the rapid
     
       <li class="post">
         <a href="/blog/2012/10/24/emacs-for-python-programming">Emacs for Python Programming</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet">Emacs Autocomplete stumbles on yasnippet</a>
       </li>
     
   </ul>

@@ -9,8 +9,8 @@
   <meta name="author" content="Vinod Kurup">
 
   
-  <meta name="description" content="It&#8217;s occasionally useful to be able to create a Django model class in your unit test suite. Let&#8217;s
-say you&#8217;re building a library &hellip;">
+  <meta name="description" content="I wrote my first blog post in a little while (ok, ok&#8230; 18 months) yesterday and when I tried to
+generate the post, it failed. Silently failed, &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -90,6 +90,111 @@ say you&#8217;re building a library &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/07/22/pygments-py3">Pygments on Arch Linux</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-22T21:16:00-04:00" pubdate data-updated="true">Jul 22<span>nd</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I wrote my first blog post in a little while (ok, ok&#8230; 18 months) yesterday and when I tried to
+generate the post, it failed. Silently failed, which is the worst kind of failure. I&#8217;m still not
+sure why it was silent, but I eventually was able to force it to show me an error message:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>/home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/pygments.rb-0.3.4/lib/pygments/popen.rb:354:in `rescue in get_header': Failed to get header. (MentosError)
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/pygments.rb-0.3.4/lib/pygments/popen.rb:335:in `get_header'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/pygments.rb-0.3.4/lib/pygments/popen.rb:232:in `block in mentos'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/1.9.1/timeout.rb:68:in `timeout'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/pygments.rb-0.3.4/lib/pygments/popen.rb:206:in `mentos'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/pygments.rb-0.3.4/lib/pygments/popen.rb:189:in `highlight'
+</span><span class='line'>  from /home/vinod/dev/kurup.org/plugins/pygments_code.rb:24:in `pygments'
+</span><span class='line'>  from /home/vinod/dev/kurup.org/plugins/pygments_code.rb:14:in `highlight'
+</span><span class='line'>  from /home/vinod/dev/kurup.org/plugins/backtick_code_block.rb:37:in `block in render_code_block'
+</span><span class='line'>  from /home/vinod/dev/kurup.org/plugins/backtick_code_block.rb:13:in `gsub'
+</span><span class='line'>  from /home/vinod/dev/kurup.org/plugins/backtick_code_block.rb:13:in `render_code_block'
+</span><span class='line'>  from /home/vinod/dev/kurup.org/plugins/octopress_filters.rb:12:in `pre_filter'
+</span><span class='line'>  from /home/vinod/dev/kurup.org/plugins/octopress_filters.rb:28:in `pre_render'
+</span><span class='line'>  from /home/vinod/dev/kurup.org/plugins/post_filters.rb:112:in `block in pre_render'
+</span><span class='line'>  from /home/vinod/dev/kurup.org/plugins/post_filters.rb:111:in `each'
+</span><span class='line'>  from /home/vinod/dev/kurup.org/plugins/post_filters.rb:111:in `pre_render'
+</span><span class='line'>  from /home/vinod/dev/kurup.org/plugins/post_filters.rb:166:in `do_layout'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/jekyll-0.12.0/lib/jekyll/post.rb:195:in `render'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/jekyll-0.12.0/lib/jekyll/site.rb:200:in `block in render'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/jekyll-0.12.0/lib/jekyll/site.rb:199:in `each'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/jekyll-0.12.0/lib/jekyll/site.rb:199:in `render'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/jekyll-0.12.0/lib/jekyll/site.rb:41:in `process'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/jekyll-0.12.0/bin/jekyll:264:in `&lt;top (required)&gt;'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/bin/jekyll:23:in `load'
+</span><span class='line'>  from /home/vinod/.rbenv/versions/1.9.3-p286/bin/jekyll:23:in `&lt;main&gt;'</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Professor Google tells me that this happens when you try to
+<a href="https://github.com/tmm1/pygments.rb/issues/45">run the pygments.rb library in a Python 3 environment</a>.
+(pygments.rb is a Ruby wrapper around the Python Pygments library). The fix is to run the code in a
+Python2 virtualenv. I guess the last time I updated my blog, Arch still had Python2 as the system
+default. No, I don&#8217;t want to check how long ago that was.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ mkvirtualenv -p `which python2` my_blog
+</span><span class='line'>(my_blog)$ bundle exec rake generate</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So now I&#8217;m running a Ruby command in a Ruby environment (rbenv) inside a Python 2 virtualenv. Maybe
+it&#8217;s time to switch blog tools again&#8230;</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1360,100 +1465,6 @@ to account for those changes.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet">Emacs Autocomplete Stumbles on Yasnippet</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-10-15T13:02:18-04:00" pubdate data-updated="true">Oct 15<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://cx4a.org/software/auto-complete/">Autocomplete Mode</a> is an
-Emacs mode that tries to guess what word you&#8217;re typing and provide
-auto-completion. Recently, it started failing in simple scenarios.</p>
-
-<p>It can use various &#8216;sources&#8217; to try to figure out what you&#8217;re about to
-type. The simplest source is <code>ac-source-dictionary</code> which is a simple
-list of words. If you start typing any of those words, it will try to
-autocomplete them for you. Normally, you&#8217;d put those words in a file,
-with each word on a separate line, but for testing purposes, you can
-also add them manually using an elisp function. Here&#8217;s the test that
-failed for me:</p>
-
-<pre><code>(add-to-list 'ac-user-dictionary "foobar@example.com")
-</code></pre>
-
-<p>That adds the email address to the dictionary. Then, typing &#8216;foo&#8217; in
-any buffer, should offer to autocomplete the entire email address.
-Unfortunately, it wasn&#8217;t working.</p>
-
-<p>To debug, I typed &#8216;foo&#8217; and then did <code>M-x auto-complete</code>, which forces
-auto-complete to look for a completion. This resulted in an error in
-the Minibuffer:</p>
-
-<pre><code>ac-yasnippet-candidates: Symbol's function definition is void: yas/current-snippet-table
-</code></pre>
-
-<p>This led me to check which &#8216;sources&#8217; autocomplete was trying to use:
-<code>C-h v ac-sources</code></p>
-
-<pre><code>(ac-source-features ac-source-functions ac-source-yasnippet
- ac-source-variables ac-source-symbols ac-source-abbrev
- ac-source-dictionary ac-source-words-in-same-mode-buffers)
-</code></pre>
-
-<p>So, autocomplete is looking through each one of those sources, trying
-to find possible words I might be typing. The third one is called
-<code>ac-source-yasnippet</code>, which seems to be where my error is coming
-from.</p>
-
-<p>So, I looked into the yasnippet source code and found that, indeed,
-there was no function named <code>yas/current-snippet-table</code>. That function
-has been renamed to <code>yas--get-snippets-table</code> in version 0.8.0, but
-autocomplete is still relying on the old function name. (RANT: Don&#8217;t
-rename functions that others might be using without providing some
-kind of alias, at least temporarily) I looked at the code for
-<a href="https://github.com/auto-complete/auto-complete">autosnippet on github</a>
-and noted that the latest version has been fixed to use the new code,
-but it hasn&#8217;t yet been released on MELPA. Until it is, the quick
-solution is to remove <code>ac-source-yasnippet</code> from <code>ac-sources</code>.</p>
-
-<pre><code>(delq 'ac-source-yasnippet ac-sources)
-</code></pre>
-
-<p>Then typing &#8216;foo&#8217; autocompletes to &#8216;foobar@example.com&#8217;.</p>
-
-<p>It seems that autocomplete should be more forgiving of errors in any
-specific &#8216;source&#8217;, passing it up to use other sources. Alternatively,
-it should fail loudly when there&#8217;s an error, so that I can know to fix
-or remove the offending &#8216;source&#8217;.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -1469,6 +1480,10 @@ or remove the offending &#8216;source&#8217;.</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2019/04/08/avik-730">Avik 7:30</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2018/12/20/triangle-race-series">Triangle Race Series</a>
@@ -1544,10 +1559,6 @@ or remove the offending &#8216;source&#8217;.</p>
     
       <li class="post">
         <a href="/blog/2012/10/24/emacs-for-python-programming">Emacs for Python Programming</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet">Emacs Autocomplete stumbles on yasnippet</a>
       </li>
     
   </ul>

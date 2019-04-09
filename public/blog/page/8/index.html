@@ -9,7 +9,9 @@
   <meta name="author" content="Vinod Kurup">
 
   
-  <meta name="description" content="My last night shift was a little less busy than most, so I forced myself to pick something about each patient I admitted and look it up. I tend to do &hellip;">
+  <meta name="description" content="I use bluetooth to transfer podcasts from my laptop to my Palm Centro. A
+Palm Centro is like an iPhone or a Droid, except less smart-like and
+more &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -89,6 +91,112 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/08/02/fixing-bluetooth-on-ubuntu">Ubuntu Bluetooth Workaround</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-08-02T21:40:00-04:00" pubdate data-updated="true">Aug 2<span>nd</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I use bluetooth to transfer podcasts from my laptop to my Palm Centro. A
+Palm Centro is like an iPhone or a Droid, except less <strong>smart</strong>-like and
+more <strong>phone</strong>-like. This worked beautifully but broke when I upgraded to
+<a href="http://www.ubuntu.com/desktop/get-ubuntu/download">Ubuntu</a> 10.04 (Lucid
+Lynx). There are 2 bugs involved. First, the bluetooth daemon
+(<code>/usr/sbin/bluetoothd</code>) never gets started. Second, there&#8217;s no easy way to
+start the file transfer daemon automatically (<code>/usr/bin/dund</code>). This used
+to work automatically, but now it doesn&#8217;t. I&#8217;ve tried to fiddle with <code>udev</code>
+rules, but have been unsuccessful. I&#8217;ve reported the 2 bugs, but haven&#8217;t
+had any response
+yet. <a href="https://bugs.launchpad.net/ubuntu/+source/bluez/+bug/589464">(bluetoothd bug)</a>
+<a href="https://bugs.launchpad.net/ubuntu/+source/bluez/+bug/559538">(dund bug)</a></p>
+
+<p>My workaround is a shell script which starts those those daemons if they
+are not running:</p>
+
+<h4>vk-bluetooth-start.sh</h4>
+
+<pre><code>#!/bin/bash
+
+BLUETOOTH='bluetoothd'
+DUN='dund'
+
+# first start bluetoothd
+if ps ax | grep -v grep | grep $BLUETOOTH &gt; /dev/null
+then
+    echo "$BLUETOOTH is running."
+else
+    echo -n "Starting $BLUETOOTH..."
+    /usr/bin/sudo /usr/sbin/bluetoothd -u &amp;&gt; /dev/null
+    echo "done."
+fi
+
+# then start dund
+if ps ax | grep -v grep | grep $DUN &gt; /dev/null
+then
+    echo "$DUN is running."
+else
+    echo -n "Starting $DUN..."
+    /usr/bin/sudo /usr/bin/dund --listen --persist --msdun call centro
+    echo "done."
+fi
+</code></pre>
+
+<p>And here&#8217;s my script which transfers the files to my phone. It uses
+<a href="http://packages.ubuntu.com/lucid/pilot-link">pilot-link</a>, which I had to
+compile from source due to a
+<a href="https://bugs.launchpad.net/ubuntu/+source/pilot-link/+bug/592916">bug in the way that the Ubuntu version addresses large SD cards</a>. This
+should be fixed in the next version of Ubuntu.</p>
+
+<h4>vk-transfer-podcasts.sh</h4>
+
+<pre><code>#!/bin/bash
+
+output=$(pilot-xfer -p net:any -D /Kingston/AUDIO -i *.mp3 2&gt;&amp;1)
+errors=$(echo $output | grep -c "ERROR:")
+
+if [ $errors -gt 0 ] ; then
+    echo "failure (count: $errors)"
+    echo $output
+else
+    echo -n "success, removing files from laptop..."
+    /bin/rm -I $HOME/*.mp3
+    echo "done."
+fi
+</code></pre>
+
+<p>If you&#8217;re wondering why I use a slow protocol like bluetooth to transfer
+large files to an SD card, rather than just ejecting the SD card and
+inserting it into the laptop, well&#8230; you haven&#8217;t tried to access the SD
+card on a Palm Centro. #paininthe&amp;<sup>@!</sup></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -849,78 +957,6 @@ going to be a great year for me and my family.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/10/09/found-the-carolina-north-trail">Found the Carolina North Trail</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-10-09T00:00:00-04:00" pubdate data-updated="true">Oct 9<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>When Mala and I started looking for homes, we listed on a yellow notepad
-all the things that were important to us. Like most little notes in my
-life, it got lost. I found it a few days after we moved into our home and
-was pleasantly surprised that we had gotten everything on our list, except
-a lake view. Not bad, and there&#8217;s a lake about a half mile from our
-door. One of the things on that list that we &#8220;kinda&#8221; got was &#8220;running
-trails nearby&#8221;. I say &#8220;kinda&#8221; because there is a trail which is just behind
-the back of our property, but I wouldn&#8217;t call it a running trail. It is a
-paved trail which runs behind the houses in our neighborhood and extends
-about 1 mile in total length. It is mostly through woods or along the lake,
-so it&#8217;s nice, but it&#8217;s not a running trail. A running trail is not
-paved. More importantly, a running trail goes for miles and miles, so that
-you can feel like you are away from (sub)urban life.</p>
-
-<p>So this was one of those things on our &#8220;list&#8221; that I would say we checked
-off, but, not really, you know?</p>
-
-<p>I <a href="http://twitter.com/vkurup/status/4533018776">went for a run</a> recently
-and I can now say with certainty that this is my dream house. That paved
-running trail which I had been so ambivalent about eventually ends at a
-main road. And that&#8217;s where I thought it ended. On Thursday, I crossed the
-road and found a little mowed path which takes you to the local high
-school. And then you take a right and WOW! A huge forest with a 10 foot
-wide rock and dirt trail opens up in front of you. I started down this
-trail, expecting it to end at someone&#8217;s private property, but it kept going
-and going and going. It ran next to a bubbling stream with water clear
-enough to see the river&#8217;s bottom. There were countless little paths snaking
-away from the main one. I just kept running and it just got more and more
-beautiful. I wish I had brought my camera. It felt like a religious
-experience. I couldn&#8217;t believe that this beautiful, seemingly endless trail
-- the type of trail that I would have driven miles to get to in the past -
-was in my backyard. I ended up running 11 miles, which is longer than I
-have run since moving to North Carolina. I can&#8217;t wait to run there
-again. This is just another example of how I am the luckiest man in the
-world. I always wanted to live in a house near trails like this, but didn&#8217;t
-think it was possible, so I settled for a little &#8220;running trail&#8221;. Just my
-luck, it turns out to be the trail of my dreams :-)</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/9/">&larr; Older</a>
@@ -936,6 +972,10 @@ luck, it turns out to be the trail of my dreams :-)</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2019/04/08/avik-730">Avik 7:30</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2018/12/20/triangle-race-series">Triangle Race Series</a>
@@ -1011,10 +1051,6 @@ luck, it turns out to be the trail of my dreams :-)</p>
     
       <li class="post">
         <a href="/blog/2012/10/24/emacs-for-python-programming">Emacs for Python Programming</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet">Emacs Autocomplete stumbles on yasnippet</a>
       </li>
     
   </ul>

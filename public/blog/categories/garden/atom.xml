@@ -4,7 +4,7 @@
   <title><![CDATA[Category: garden | Vinod Kurup]]></title>
   <link href="https://www.kurup.org/blog/categories/garden/atom.xml" rel="self"/>
   <link href="https://www.kurup.org/"/>
-  <updated>2018-12-20T20:41:53-05:00</updated>
+  <updated>2019-04-08T21:26:42-04:00</updated>
   <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
@@ -52,13 +52,13 @@ despite all those problems we've been able to grow some zucchini, okra, tomatoes
 has been super exciting, and makes us want more! Here's a photo of the harvest that greeted us when
 we returned from a week-long trip to visit my parents in Dallas this summer:</p>
 
-<p>{% img /images/august-harvest.jpg August Harvest %}</p>
+<p><img src="/images/august-harvest.jpg" title="August Harvest" ></p>
 
 <p>But, in general, things end up getting eaten by the deer or overrun by weeds, so we're trying a new
 approach now, based on the book, <a href="https://amzn.to/2NzBVSg">Square Foot Gardening</a>. Kavi and Anika
 helped me build this raised bed, which is itself a huge accomplishment given how not-handy I am.</p>
 
-<p>{% img /images/our-little-garden.jpg Our Little Garden %}</p>
+<p><img src="/images/our-little-garden.jpg" title="Our Little Garden" ></p>
 
 <p>This was my first time using a drill since shop class in high school! We're going to try using a
 <a href="http://vomitingchicken.com/deer-fencing-cheap-and-easy-and-effective/">fishing line fence</a> to keep

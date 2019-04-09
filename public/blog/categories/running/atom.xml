@@ -4,7 +4,7 @@
   <title><![CDATA[Category: running | Vinod Kurup]]></title>
   <link href="https://www.kurup.org/blog/categories/running/atom.xml" rel="self"/>
   <link href="https://www.kurup.org/"/>
-  <updated>2018-12-20T20:41:53-05:00</updated>
+  <updated>2019-04-08T21:26:42-04:00</updated>
   <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
@@ -33,7 +33,7 @@ participation award, but still, I'm proud. But wait! That's not even the best pa
 proud of Kavi and Anika. They are both in the 0-19 age group, so get to compete against teenagers.
 Kavi got 3rd place in the male 0-19 division, and Anika got 1st place in the female 0-19 division!</p>
 
-<p>{% img /images/oak-city-mile-2018.jpg Oak City Mile 2018 %}</p>
+<p><img src="/images/oak-city-mile-2018.jpg" title="Oak City Mile 2018" ></p>
 ]]></content>
   </entry>
   
@@ -97,8 +97,8 @@ consider it my meditation practice, since I suck at real
 meditation. Finally, it's a safety issue. When running in the woods,
 you never know what kind of creature will attack:</p>
 
-<p>{% img /images/deer.jpg Deer %}
-{% img /images/turtle.jpg Turtle %}</p>
+<p><img src="/images/deer.jpg" title="Deer" >
+<img src="/images/turtle.jpg" title="Turtle" ></p>
 
 <p>Take my advice for what it's worth... running advice from a part-time
 runner who is slower than molasses. I'd love to hear any other running
@@ -116,11 +116,7 @@ that running is a metaphor for life. I've <a href="/blog/2003/10/28/the-wall-is-
 before with my cousins Dilu and
 Harish</a> before.</p>
 
-<p>{% blockquote Robert Frost http://en.wikipedia.org/wiki/The_Road_Not_Taken_(poem) %}
-... two roads diverged in a wood, and I --
-I took the one less traveled by,
-And that has made all the difference.
-{% endblockquote %}</p>
+<p><blockquote><p>... two roads diverged in a wood, and I --<br/>I took the one less traveled by,<br/>And that has made all the difference.</p><footer><strong>Robert Frost</strong> <cite><a href='http://en.wikipedia.org/wiki/The_Road_Not_Taken_(poem)'>en.wikipedia.org/wiki/&hellip;</a></cite></footer></blockquote></p>
 
 <p>While trail running, I have come to the realization that you never
 have to worry about the fork in the road, nor the decision associated

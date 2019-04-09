@@ -4,7 +4,7 @@
   <title><![CDATA[Vinod Kurup]]></title>
   <link href="https://www.kurup.org/atom.xml" rel="self"/>
   <link href="https://www.kurup.org/"/>
-  <updated>2018-12-20T20:41:32-05:00</updated>
+  <updated>2019-04-08T21:26:42-04:00</updated>
   <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
@@ -12,6 +12,39 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Avik 7:30]]></title>
+    <link href="https://www.kurup.org/blog/2019/04/08/avik-730"/>
+    <updated>2019-04-08T21:19:53-04:00</updated>
+    <id>https://www.kurup.org/blog/2019/04/08/avik-730</id>
+    <content type="html"><![CDATA[<p>&#8220;Here it comes!&#8221; His eyes light up.<br/>
+Slurps one last sip from his small cup.</p>
+
+<p>Then bounding from the kitchen table,<br/>
+Fast as lighting, he is able</p>
+
+<p>To trash his scraps and stow his dishes.<br/>
+He yells to Mom, &#8220;It was delicious!&#8221;</p>
+
+<p>One more breath then on the couch he lands.<br/>
+&#8220;What&#8217;s up?&#8221; says Mom. Dad shrugs his hands.</p>
+
+<p>Big brother also has no idea.<br/>
+Big sister sighs, &#8220;He&#8217;s a weird one I fear.&#8221;</p>
+
+<p>We gather round to be sure he&#8217;s fine.<br/>
+Eyes glued to his wrist, &#8220;It&#8217;s 7:29!&#8221;</p>
+
+<p>And then the beeping fills the room.<br/>
+The smile confirms he&#8217;s over the moon.</p>
+
+<p>The source of this happiness, on his arm,<br/>
+His brand new watch, and a 7:30 alarm.</p>
+
+<p>(A real-life story, barely embellished)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Triangle Race Series]]></title>
@@ -1500,73 +1533,6 @@ recommend using the latest stable release (as of now) which is version
 <code>virtualenv-workon</code> that requires you to put a trailing slash after
 the name of your virtualenv, so I&#8217;ve updated the <code>init.el</code> file above
 to account for those changes.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Emacs Autocomplete stumbles on yasnippet]]></title>
-    <link href="https://www.kurup.org/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet"/>
-    <updated>2012-10-15T13:02:18-04:00</updated>
-    <id>https://www.kurup.org/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet</id>
-    <content type="html"><![CDATA[<p><a href="http://cx4a.org/software/auto-complete/">Autocomplete Mode</a> is an
-Emacs mode that tries to guess what word you&#8217;re typing and provide
-auto-completion. Recently, it started failing in simple scenarios.</p>
-
-<p>It can use various &#8216;sources&#8217; to try to figure out what you&#8217;re about to
-type. The simplest source is <code>ac-source-dictionary</code> which is a simple
-list of words. If you start typing any of those words, it will try to
-autocomplete them for you. Normally, you&#8217;d put those words in a file,
-with each word on a separate line, but for testing purposes, you can
-also add them manually using an elisp function. Here&#8217;s the test that
-failed for me:</p>
-
-<pre><code>(add-to-list 'ac-user-dictionary "foobar@example.com")
-</code></pre>
-
-<p>That adds the email address to the dictionary. Then, typing &#8216;foo&#8217; in
-any buffer, should offer to autocomplete the entire email address.
-Unfortunately, it wasn&#8217;t working.</p>
-
-<p>To debug, I typed &#8216;foo&#8217; and then did <code>M-x auto-complete</code>, which forces
-auto-complete to look for a completion. This resulted in an error in
-the Minibuffer:</p>
-
-<pre><code>ac-yasnippet-candidates: Symbol's function definition is void: yas/current-snippet-table
-</code></pre>
-
-<p>This led me to check which &#8216;sources&#8217; autocomplete was trying to use:
-<code>C-h v ac-sources</code></p>
-
-<pre><code>(ac-source-features ac-source-functions ac-source-yasnippet
- ac-source-variables ac-source-symbols ac-source-abbrev
- ac-source-dictionary ac-source-words-in-same-mode-buffers)
-</code></pre>
-
-<p>So, autocomplete is looking through each one of those sources, trying
-to find possible words I might be typing. The third one is called
-<code>ac-source-yasnippet</code>, which seems to be where my error is coming
-from.</p>
-
-<p>So, I looked into the yasnippet source code and found that, indeed,
-there was no function named <code>yas/current-snippet-table</code>. That function
-has been renamed to <code>yas--get-snippets-table</code> in version 0.8.0, but
-autocomplete is still relying on the old function name. (RANT: Don&#8217;t
-rename functions that others might be using without providing some
-kind of alias, at least temporarily) I looked at the code for
-<a href="https://github.com/auto-complete/auto-complete">autosnippet on github</a>
-and noted that the latest version has been fixed to use the new code,
-but it hasn&#8217;t yet been released on MELPA. Until it is, the quick
-solution is to remove <code>ac-source-yasnippet</code> from <code>ac-sources</code>.</p>
-
-<pre><code>(delq 'ac-source-yasnippet ac-sources)
-</code></pre>
-
-<p>Then typing &#8216;foo&#8217; autocompletes to &#8216;foobar@example.com&#8217;.</p>
-
-<p>It seems that autocomplete should be more forgiving of errors in any
-specific &#8216;source&#8217;, passing it up to use other sources. Alternatively,
-it should fail loudly when there&#8217;s an error, so that I can know to fix
-or remove the offending &#8216;source&#8217;.</p>
 ]]></content>
   </entry>
   

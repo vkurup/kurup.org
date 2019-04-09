@@ -4,7 +4,7 @@
   <title><![CDATA[Category: video | Vinod Kurup]]></title>
   <link href="https://www.kurup.org/blog/categories/video/atom.xml" rel="self"/>
   <link href="https://www.kurup.org/"/>
-  <updated>2018-12-20T20:41:53-05:00</updated>
+  <updated>2019-04-08T21:26:42-04:00</updated>
   <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
@@ -29,9 +29,7 @@ working with at the time.) I loved OS X for a while, especially on my
 by it. I wanted to be able to configure more. When the hard drive on
 that Powerbook died, I decided to move to all linux.</p>
 
-<p>{% blockquote February 13th, 2009 http://twitter.com/#!/vkurup/status/1207289044 %}
-vkurup: trying to visualize life without a mac
-{% endblockquote %}</p>
+<p><blockquote><p>vkurup: trying to visualize life without a mac</p><footer><strong>February 13th, 2009</strong> <cite><a href='http://twitter.com/#!/vkurup/status/1207289044'>twitter.com/#!/vkurup/status/&hellip;</a></cite></footer></blockquote></p>
 
 <p>I am happy and productive, but I am occasionally jealous of Mac OS X. I set
 up a Mac Airbook for my mother-in-law a few months ago and ... can I
@@ -72,7 +70,7 @@ packaged in Ubuntu 10.10, but 1.3 offered some other nice features,
 like exporting directly to Youtube, so I downloaded the
 <a href="http://www.openshot.org/ppa/">PPA</a> and installed 1.3.</p>
 
-<p>{% img /images/openshot.png Openshot Main Window %}</p>
+<p><img src="/images/openshot.png" title="Openshot Main Window" ></p>
 
 <p>What a breath of fresh air! It was so easy to import clips. It was so
 easy to place clips on the timeline. It was easy to splice and add

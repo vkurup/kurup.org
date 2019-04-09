@@ -4,7 +4,7 @@
   <title>Vinod Kurup</title>
   <link href="https://www.kurup.org/blog/atom.xml" rel="self"/>
   <link href="https://www.kurup.org"/>
-  <updated>2018-12-20T20:41:32-05:00</updated>
+  <updated>2019-04-08T21:26:42-04:00</updated>
   <generator uri="http://github.com/mojombo/jekyll">Jekyll</generator>
   <id>https://www.kurup.org/blog/atom.xml</id>
   <author>
@@ -15,6 +15,42 @@
     <uri>https://www.kurup.org</uri>
   </author>
 
+  
+  <entry>
+    <title>Avik 7:30</title>
+    <link href="https://www.kurup.org/blog/2019/04/08/avik-730"/>
+    <updated>2019-04-08T21:19:53-04:00</updated>
+    <id>id:/blog/2019/04/08/avik-730</id>
+   <category scheme="http://www.kurup.org" term="family" />
+   <category scheme="http://www.kurup.org" term="poetry" />
+   
+    <content type="html">&lt;p&gt;&amp;#8220;Here it comes!&amp;#8221; His eyes light up.&lt;br/&gt;
+Slurps one last sip from his small cup.&lt;/p&gt;
+
+&lt;p&gt;Then bounding from the kitchen table,&lt;br/&gt;
+Fast as lighting, he is able&lt;/p&gt;
+
+&lt;p&gt;To trash his scraps and stow his dishes.&lt;br/&gt;
+He yells to Mom, &amp;#8220;It was delicious!&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;One more breath then on the couch he lands.&lt;br/&gt;
+&amp;#8220;What&amp;#8217;s up?&amp;#8221; says Mom. Dad shrugs his hands.&lt;/p&gt;
+
+&lt;p&gt;Big brother also has no idea.&lt;br/&gt;
+Big sister sighs, &amp;#8220;He&amp;#8217;s a weird one I fear.&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;We gather round to be sure he&amp;#8217;s fine.&lt;br/&gt;
+Eyes glued to his wrist, &amp;#8220;It&amp;#8217;s 7:29!&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;And then the beeping fills the room.&lt;br/&gt;
+The smile confirms he&amp;#8217;s over the moon.&lt;/p&gt;
+
+&lt;p&gt;The source of this happiness, on his arm,&lt;br/&gt;
+His brand new watch, and a 7:30 alarm.&lt;/p&gt;
+
+&lt;p&gt;(A real-life story, barely embellished)&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
     <title>Triangle Race Series</title>
@@ -1554,76 +1590,6 @@ recommend using the latest stable release (as of now) which is version
 &lt;code&gt;virtualenv-workon&lt;/code&gt; that requires you to put a trailing slash after
 the name of your virtualenv, so I&amp;#8217;ve updated the &lt;code&gt;init.el&lt;/code&gt; file above
 to account for those changes.&lt;/p&gt;
-</content>
-  </entry>
-  
-  <entry>
-    <title>Emacs Autocomplete stumbles on yasnippet</title>
-    <link href="https://www.kurup.org/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet"/>
-    <updated>2012-10-15T13:02:18-04:00</updated>
-    <id>id:/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet</id>
-   <category scheme="http://www.kurup.org" term="emacs" />
-   <category scheme="http://www.kurup.org" term="programming" />
-   
-    <content type="html">&lt;p&gt;&lt;a href=&quot;http://cx4a.org/software/auto-complete/&quot;&gt;Autocomplete Mode&lt;/a&gt; is an
-Emacs mode that tries to guess what word you&amp;#8217;re typing and provide
-auto-completion. Recently, it started failing in simple scenarios.&lt;/p&gt;
-
-&lt;p&gt;It can use various &amp;#8216;sources&amp;#8217; to try to figure out what you&amp;#8217;re about to
-type. The simplest source is &lt;code&gt;ac-source-dictionary&lt;/code&gt; which is a simple
-list of words. If you start typing any of those words, it will try to
-autocomplete them for you. Normally, you&amp;#8217;d put those words in a file,
-with each word on a separate line, but for testing purposes, you can
-also add them manually using an elisp function. Here&amp;#8217;s the test that
-failed for me:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(add-to-list &#8216;ac-user-dictionary &quot;foobar@example.com&quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;That adds the email address to the dictionary. Then, typing &amp;#8216;foo&amp;#8217; in
-any buffer, should offer to autocomplete the entire email address.
-Unfortunately, it wasn&amp;#8217;t working.&lt;/p&gt;
-
-&lt;p&gt;To debug, I typed &amp;#8216;foo&amp;#8217; and then did &lt;code&gt;M-x auto-complete&lt;/code&gt;, which forces
-auto-complete to look for a completion. This resulted in an error in
-the Minibuffer:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;ac-yasnippet-candidates: Symbol&#8217;s function definition is void: yas/current-snippet-table
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This led me to check which &amp;#8216;sources&amp;#8217; autocomplete was trying to use:
-&lt;code&gt;C-h v ac-sources&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(ac-source-features ac-source-functions ac-source-yasnippet
- ac-source-variables ac-source-symbols ac-source-abbrev
- ac-source-dictionary ac-source-words-in-same-mode-buffers)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;So, autocomplete is looking through each one of those sources, trying
-to find possible words I might be typing. The third one is called
-&lt;code&gt;ac-source-yasnippet&lt;/code&gt;, which seems to be where my error is coming
-from.&lt;/p&gt;
-
-&lt;p&gt;So, I looked into the yasnippet source code and found that, indeed,
-there was no function named &lt;code&gt;yas/current-snippet-table&lt;/code&gt;. That function
-has been renamed to &lt;code&gt;yas&#8211;get-snippets-table&lt;/code&gt; in version 0.8.0, but
-autocomplete is still relying on the old function name. (RANT: Don&amp;#8217;t
-rename functions that others might be using without providing some
-kind of alias, at least temporarily) I looked at the code for
-&lt;a href=&quot;https://github.com/auto-complete/auto-complete&quot;&gt;autosnippet on github&lt;/a&gt;
-and noted that the latest version has been fixed to use the new code,
-but it hasn&amp;#8217;t yet been released on MELPA. Until it is, the quick
-solution is to remove &lt;code&gt;ac-source-yasnippet&lt;/code&gt; from &lt;code&gt;ac-sources&lt;/code&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(delq &#8216;ac-source-yasnippet ac-sources)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then typing &amp;#8216;foo&amp;#8217; autocompletes to &amp;#8216;foobar@example.com&amp;#8217;.&lt;/p&gt;
-
-&lt;p&gt;It seems that autocomplete should be more forgiving of errors in any
-specific &amp;#8216;source&amp;#8217;, passing it up to use other sources. Alternatively,
-it should fail loudly when there&amp;#8217;s an error, so that I can know to fix
-or remove the offending &amp;#8216;source&amp;#8217;.&lt;/p&gt;
 </content>
   </entry>
   

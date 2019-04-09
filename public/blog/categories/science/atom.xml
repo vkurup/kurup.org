@@ -4,7 +4,7 @@
   <title><![CDATA[Category: science | Vinod Kurup]]></title>
   <link href="https://www.kurup.org/blog/categories/science/atom.xml" rel="self"/>
   <link href="https://www.kurup.org/"/>
-  <updated>2018-12-20T20:41:53-05:00</updated>
+  <updated>2019-04-08T21:26:42-04:00</updated>
   <id>https://www.kurup.org/</id>
   <author>
     <name><![CDATA[Vinod Kurup]]></name>
@@ -42,7 +42,7 @@ src="http://www.youtube.com/embed/-_9BYSDtwRc" frameborder="0"
 allowfullscreen></iframe>
 
 
-<p>{% img right /images/curiosity-size.jpg 300 200 Curiosity is huge (NASA) %}</p>
+<p><img class="right" src="/images/curiosity-size.jpg" width="300" height="200" title="Curiosity is huge (NASA)" ></p>
 
 <p>The Curiosity rover is too large for the airbag approach (See image at
 right comparing it to previous rovers), so an alternate system was

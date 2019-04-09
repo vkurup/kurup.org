@@ -9,8 +9,9 @@
   <meta name="author" content="Vinod Kurup">
 
   
-  <meta name="description" content="I was a huge Apple fan growing up and IBM was Apple&#8217;s enemy. Buying an
-IBM computer would have been unthinkable. Well, the unthinkable has &hellip;">
+  <meta name="description" content="Autocomplete Mode is an
+Emacs mode that tries to guess what word you&#8217;re typing and provide
+auto-completion. Recently, it started failing in &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -90,6 +91,100 @@ IBM computer would have been unthinkable. Well, the unthinkable has &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet">Emacs Autocomplete Stumbles on Yasnippet</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-15T13:02:18-04:00" pubdate data-updated="true">Oct 15<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://cx4a.org/software/auto-complete/">Autocomplete Mode</a> is an
+Emacs mode that tries to guess what word you&#8217;re typing and provide
+auto-completion. Recently, it started failing in simple scenarios.</p>
+
+<p>It can use various &#8216;sources&#8217; to try to figure out what you&#8217;re about to
+type. The simplest source is <code>ac-source-dictionary</code> which is a simple
+list of words. If you start typing any of those words, it will try to
+autocomplete them for you. Normally, you&#8217;d put those words in a file,
+with each word on a separate line, but for testing purposes, you can
+also add them manually using an elisp function. Here&#8217;s the test that
+failed for me:</p>
+
+<pre><code>(add-to-list 'ac-user-dictionary "foobar@example.com")
+</code></pre>
+
+<p>That adds the email address to the dictionary. Then, typing &#8216;foo&#8217; in
+any buffer, should offer to autocomplete the entire email address.
+Unfortunately, it wasn&#8217;t working.</p>
+
+<p>To debug, I typed &#8216;foo&#8217; and then did <code>M-x auto-complete</code>, which forces
+auto-complete to look for a completion. This resulted in an error in
+the Minibuffer:</p>
+
+<pre><code>ac-yasnippet-candidates: Symbol's function definition is void: yas/current-snippet-table
+</code></pre>
+
+<p>This led me to check which &#8216;sources&#8217; autocomplete was trying to use:
+<code>C-h v ac-sources</code></p>
+
+<pre><code>(ac-source-features ac-source-functions ac-source-yasnippet
+ ac-source-variables ac-source-symbols ac-source-abbrev
+ ac-source-dictionary ac-source-words-in-same-mode-buffers)
+</code></pre>
+
+<p>So, autocomplete is looking through each one of those sources, trying
+to find possible words I might be typing. The third one is called
+<code>ac-source-yasnippet</code>, which seems to be where my error is coming
+from.</p>
+
+<p>So, I looked into the yasnippet source code and found that, indeed,
+there was no function named <code>yas/current-snippet-table</code>. That function
+has been renamed to <code>yas--get-snippets-table</code> in version 0.8.0, but
+autocomplete is still relying on the old function name. (RANT: Don&#8217;t
+rename functions that others might be using without providing some
+kind of alias, at least temporarily) I looked at the code for
+<a href="https://github.com/auto-complete/auto-complete">autosnippet on github</a>
+and noted that the latest version has been fixed to use the new code,
+but it hasn&#8217;t yet been released on MELPA. Until it is, the quick
+solution is to remove <code>ac-source-yasnippet</code> from <code>ac-sources</code>.</p>
+
+<pre><code>(delq 'ac-source-yasnippet ac-sources)
+</code></pre>
+
+<p>Then typing &#8216;foo&#8217; autocompletes to &#8216;foobar@example.com&#8217;.</p>
+
+<p>It seems that autocomplete should be more forgiving of errors in any
+specific &#8216;source&#8217;, passing it up to use other sources. Alternatively,
+it should fail loudly when there&#8217;s an error, so that I can know to fix
+or remove the offending &#8216;source&#8217;.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1078,177 +1173,6 @@ provide.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/09/08/fixing-wireless-on-eeepc">Fixing Wireless on eeePC</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-09-08T21:58:48-04:00" pubdate data-updated="true">Sep 8<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I have an ASUS eeePC 1000, running Ubuntu 10.10. Wireless worked
-flawlessly at home, which is where I use it 99% of the time. On our
-most recent trip, however, it wasn&#8217;t working. It couldn&#8217;t connect to a
-WPA-secured network. Here are the relevant error messages:</p>
-
-<pre><code>NetworkManager[770]: &lt;warn&gt; Activation (wlan0/wireless): association took too long.
-NetworkManager[770]: &lt;warn&gt; (wlan0): link timed out.
-NetworkManager[770]: &lt;warn&gt; Activation (wlan0) failed for access point (linksys)
-NetworkManager[770]: &lt;warn&gt; Activation (wlan0) failed.
-NetworkManager[770]: &lt;info&gt; (wlan0): deactivating device (reason: 0).
-</code></pre>
-
-<p>After a little googling on my phone, I found out that <a href="http://www.ctbarker.info/2010/05/ubuntu-1004-wireless-chipsets-and-wpa.html">others had this
-problem with the rt2860sta wireless
-driver</a>. Fortunately,
-there is a solution, which involved downloading the source code for
-the latest driver, modifying it a bit and rebuilding the driver. Here
-are the instructions:</p>
-
-<h3>Step 1: Download the driver</h3>
-
-<p>Download the <a href="http://www.ralinktech.com/license_us.php?n=2&amp;p=0&amp;t=U0wyRnpjMlYwY3k4eU1ERXdMekEzTHpFMkwyUnZkMjVzYjJGa05qZ3hPRFUwTmpBd05DNWllakk5UFQweU1ERXdYekEzWHpFMlgxSlVNamcyTUY5TWFXNTFlRjlUVkVGZmRqSXVOQzR3TGpBdWRHRnlD">latest rt2860sta
-driver</a>.</p>
-
-<h3>Step 2: Rename and extract the downloaded file</h3>
-
-<p>Mine was named <code>download.php</code>, but it&#8217;s really a tar file:</p>
-
-<figure class='code'><figcaption><span>extract.sh </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>vinod@ike:~ <span class="nv">$ </span>mkdir <span class="nb">test</span>
-</span><span class='line'>vinod@ike:~ <span class="nv">$ </span>mv download.php <span class="nb">test</span>/driver.tar
-</span><span class='line'>vinod@ike:~ <span class="nv">$ </span><span class="nb">cd test</span>/
-</span><span class='line'>vinod@ike:~/test <span class="nv">$ </span>tar xf driver.tar
-</span><span class='line'>vinod@ike:~/test <span class="nv">$ </span>mv 2010_07_16_RT2860_Linux_STA_v2.4.0.0 driver
-</span><span class='line'>vinod@ike:~/test <span class="nv">$ </span><span class="nb">cd </span>driver
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>Step 3: Apply patch</h3>
-
-<div><script src='https://gist.github.com/1205291.js?file=driver.patch'></script>
-<noscript><pre><code>diff -urbB old/common/cmm_wpa.c new/common/cmm_wpa.c
---- old/common/cmm_wpa.c    2010-07-08 07:40:24.000000000 -0400
-+++ new/common/cmm_wpa.c    2011-08-30 18:27:46.856572005 -0400
-@@ -2420,7 +2420,7 @@
-    UCHAR       PrimaryRsnie;           
-    BOOLEAN     bMixCipher = FALSE; // indicate the pairwise and group cipher are different
-    UCHAR       p_offset;       
--   WPA_MIX_PAIR_CIPHER     FlexibleCipher = MIX_CIPHER_NOTUSE; // it provide the more flexible cipher combination in WPA-WPA2 and TKIPAES mode
-+   WPA_MIX_PAIR_CIPHER     FlexibleCipher = WPA_TKIPAES_WPA2_TKIPAES;
-        
-    rsnielen_cur_p = NULL;
-    rsnielen_ex_cur_p = NULL;
-diff -urbB old/os/linux/config.mk new/os/linux/config.mk
---- old/os/linux/config.mk  2010-07-09 04:58:09.000000000 -0400
-+++ new/os/linux/config.mk  2011-08-30 18:23:52.120572001 -0400
-@@ -8,10 +8,10 @@
- HAS_XLINK=n
- 
- # Support Wpa_Supplicant
--HAS_WPA_SUPPLICANT=n
-+HAS_WPA_SUPPLICANT=y
- 
- # Support Native WpaSupplicant for Network Maganger
--HAS_NATIVE_WPA_SUPPLICANT_SUPPORT=n
-+HAS_NATIVE_WPA_SUPPLICANT_SUPPORT=y
- 
- #Support Net interface block while Tx-Sw queue full
- HAS_BLOCK_NET_IF=n
-</code></pre></noscript></div>
-
-
-<h3>Step 4: Backup old driver</h3>
-
-<figure class='code'><figcaption><span>backup.sh </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>vinod@ike~/test/driver/ <span class="nv">$ </span>sudo ifconfig wlan0 down
-</span><span class='line'>vinod@ike~/test/driver/ <span class="nv">$ </span>sudo rmmod rt2860sta
-</span><span class='line'>vinod@ike~/test/driver/ <span class="nv">$ </span>mkdir backup
-</span><span class='line'>vinod@ike~/test/driver/ <span class="nv">$ </span>sudo mv /etc/Wireless/RT2860STA backup/
-</span><span class='line'>vinod@ike~/test/driver/ <span class="nv">$ </span>sudo mv /lib/modules/2.6.35-30-generic/kernel/drivers/staging/rt2860/rt2860sta.ko backup/
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>Step 5: Install and activate new driver</h3>
-
-<figure class='code'><figcaption><span>build.sh </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>vinod@ike:~/test/driver <span class="nv">$ </span>sudo make install
-</span><span class='line'>vinod@ike:~/test/driver <span class="nv">$ </span>sudo depmod -a
-</span><span class='line'>vinod@ike:~/test/driver <span class="nv">$ </span>sudo modprobe rt2860sta
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>Step 6: Fix problems with hibernation</h3>
-
-<p>A separate problem is that wireless has been flaky when the computer
-wakes from hibernation, but <a href="http://www.twentyways.com/2010/11/19/fixing-wireless-issues-with-asus-eeepc-1000he-running-ubuntu-10-10/">it&#8217;s also
-fixable</a>.</p>
-
-<p>Add the following lines to <code>/etc/modprobe.d/blacklist.conf</code>:</p>
-
-<pre><code>blacklist rt2800pci
-blacklist rt2800lib
-blacklist rt2x00usb
-blacklist rt2x00pci
-blacklist rt2x00lib
-</code></pre>
-
-<p>Create a new file called <code>/etc/pm/config.d/unload_wireless</code> with the following line:</p>
-
-<pre><code>SUSPEND_MODULES="rt2860sta"
-</code></pre>
-
-<p>Reboot and you should have WPA-compatible, hibernatable wireless.</p>
-
-<h3>References:</h3>
-
-<ol>
-<li><a href="http://www.ctbarker.info/2010/05/ubuntu-1004-wireless-chipsets-and-wpa.html">rt2860sta driver installation</a></li>
-<li><a href="http://www.twentyways.com/2010/11/19/fixing-wireless-issues-with-asus-eeepc-1000he-running-ubuntu-10-10/">Proper hibernation</a></li>
-<li><a href="http://ubuntuforums.org/showthread.php?t=1476007">Ubuntu Forums thread</a></li>
-</ol>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/4/">&larr; Older</a>
@@ -1264,6 +1188,10 @@ blacklist rt2x00lib
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2019/04/08/avik-730">Avik 7:30</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2018/12/20/triangle-race-series">Triangle Race Series</a>
@@ -1339,10 +1267,6 @@ blacklist rt2x00lib
     
       <li class="post">
         <a href="/blog/2012/10/24/emacs-for-python-programming">Emacs for Python Programming</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet">Emacs Autocomplete stumbles on yasnippet</a>
       </li>
     
   </ul>

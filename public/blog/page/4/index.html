@@ -9,9 +9,9 @@
   <meta name="author" content="Vinod Kurup">
 
   
-  <meta name="description" content="Have you ever been in one of those dreams where everything seems
-normal and then a flying car (or something equally crazy) comes out of
-nowhere? I&# &hellip;">
+  <meta name="description" content="I have an ASUS eeePC 1000, running Ubuntu 10.10. Wireless worked
+flawlessly at home, which is where I use it 99% of the time. On our
+most recent trip &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -91,6 +91,177 @@ nowhere? I&# &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/09/08/fixing-wireless-on-eeepc">Fixing Wireless on eeePC</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-08T21:58:48-04:00" pubdate data-updated="true">Sep 8<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I have an ASUS eeePC 1000, running Ubuntu 10.10. Wireless worked
+flawlessly at home, which is where I use it 99% of the time. On our
+most recent trip, however, it wasn&#8217;t working. It couldn&#8217;t connect to a
+WPA-secured network. Here are the relevant error messages:</p>
+
+<pre><code>NetworkManager[770]: &lt;warn&gt; Activation (wlan0/wireless): association took too long.
+NetworkManager[770]: &lt;warn&gt; (wlan0): link timed out.
+NetworkManager[770]: &lt;warn&gt; Activation (wlan0) failed for access point (linksys)
+NetworkManager[770]: &lt;warn&gt; Activation (wlan0) failed.
+NetworkManager[770]: &lt;info&gt; (wlan0): deactivating device (reason: 0).
+</code></pre>
+
+<p>After a little googling on my phone, I found out that <a href="http://www.ctbarker.info/2010/05/ubuntu-1004-wireless-chipsets-and-wpa.html">others had this
+problem with the rt2860sta wireless
+driver</a>. Fortunately,
+there is a solution, which involved downloading the source code for
+the latest driver, modifying it a bit and rebuilding the driver. Here
+are the instructions:</p>
+
+<h3>Step 1: Download the driver</h3>
+
+<p>Download the <a href="http://www.ralinktech.com/license_us.php?n=2&amp;p=0&amp;t=U0wyRnpjMlYwY3k4eU1ERXdMekEzTHpFMkwyUnZkMjVzYjJGa05qZ3hPRFUwTmpBd05DNWllakk5UFQweU1ERXdYekEzWHpFMlgxSlVNamcyTUY5TWFXNTFlRjlUVkVGZmRqSXVOQzR3TGpBdWRHRnlD">latest rt2860sta
+driver</a>.</p>
+
+<h3>Step 2: Rename and extract the downloaded file</h3>
+
+<p>Mine was named <code>download.php</code>, but it&#8217;s really a tar file:</p>
+
+<figure class='code'><figcaption><span>extract.sh </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>vinod@ike:~ <span class="nv">$ </span>mkdir <span class="nb">test</span>
+</span><span class='line'>vinod@ike:~ <span class="nv">$ </span>mv download.php <span class="nb">test</span>/driver.tar
+</span><span class='line'>vinod@ike:~ <span class="nv">$ </span><span class="nb">cd test</span>/
+</span><span class='line'>vinod@ike:~/test <span class="nv">$ </span>tar xf driver.tar
+</span><span class='line'>vinod@ike:~/test <span class="nv">$ </span>mv 2010_07_16_RT2860_Linux_STA_v2.4.0.0 driver
+</span><span class='line'>vinod@ike:~/test <span class="nv">$ </span><span class="nb">cd </span>driver
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Step 3: Apply patch</h3>
+
+<div><script src='https://gist.github.com/1205291.js?file=driver.patch'></script>
+<noscript><pre><code>diff -urbB old/common/cmm_wpa.c new/common/cmm_wpa.c
+--- old/common/cmm_wpa.c    2010-07-08 07:40:24.000000000 -0400
++++ new/common/cmm_wpa.c    2011-08-30 18:27:46.856572005 -0400
+@@ -2420,7 +2420,7 @@
+    UCHAR       PrimaryRsnie;           
+    BOOLEAN     bMixCipher = FALSE; // indicate the pairwise and group cipher are different
+    UCHAR       p_offset;       
+-   WPA_MIX_PAIR_CIPHER     FlexibleCipher = MIX_CIPHER_NOTUSE; // it provide the more flexible cipher combination in WPA-WPA2 and TKIPAES mode
++   WPA_MIX_PAIR_CIPHER     FlexibleCipher = WPA_TKIPAES_WPA2_TKIPAES;
+        
+    rsnielen_cur_p = NULL;
+    rsnielen_ex_cur_p = NULL;
+diff -urbB old/os/linux/config.mk new/os/linux/config.mk
+--- old/os/linux/config.mk  2010-07-09 04:58:09.000000000 -0400
++++ new/os/linux/config.mk  2011-08-30 18:23:52.120572001 -0400
+@@ -8,10 +8,10 @@
+ HAS_XLINK=n
+ 
+ # Support Wpa_Supplicant
+-HAS_WPA_SUPPLICANT=n
++HAS_WPA_SUPPLICANT=y
+ 
+ # Support Native WpaSupplicant for Network Maganger
+-HAS_NATIVE_WPA_SUPPLICANT_SUPPORT=n
++HAS_NATIVE_WPA_SUPPLICANT_SUPPORT=y
+ 
+ #Support Net interface block while Tx-Sw queue full
+ HAS_BLOCK_NET_IF=n
+</code></pre></noscript></div>
+
+
+<h3>Step 4: Backup old driver</h3>
+
+<figure class='code'><figcaption><span>backup.sh </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>vinod@ike~/test/driver/ <span class="nv">$ </span>sudo ifconfig wlan0 down
+</span><span class='line'>vinod@ike~/test/driver/ <span class="nv">$ </span>sudo rmmod rt2860sta
+</span><span class='line'>vinod@ike~/test/driver/ <span class="nv">$ </span>mkdir backup
+</span><span class='line'>vinod@ike~/test/driver/ <span class="nv">$ </span>sudo mv /etc/Wireless/RT2860STA backup/
+</span><span class='line'>vinod@ike~/test/driver/ <span class="nv">$ </span>sudo mv /lib/modules/2.6.35-30-generic/kernel/drivers/staging/rt2860/rt2860sta.ko backup/
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Step 5: Install and activate new driver</h3>
+
+<figure class='code'><figcaption><span>build.sh </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>vinod@ike:~/test/driver <span class="nv">$ </span>sudo make install
+</span><span class='line'>vinod@ike:~/test/driver <span class="nv">$ </span>sudo depmod -a
+</span><span class='line'>vinod@ike:~/test/driver <span class="nv">$ </span>sudo modprobe rt2860sta
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Step 6: Fix problems with hibernation</h3>
+
+<p>A separate problem is that wireless has been flaky when the computer
+wakes from hibernation, but <a href="http://www.twentyways.com/2010/11/19/fixing-wireless-issues-with-asus-eeepc-1000he-running-ubuntu-10-10/">it&#8217;s also
+fixable</a>.</p>
+
+<p>Add the following lines to <code>/etc/modprobe.d/blacklist.conf</code>:</p>
+
+<pre><code>blacklist rt2800pci
+blacklist rt2800lib
+blacklist rt2x00usb
+blacklist rt2x00pci
+blacklist rt2x00lib
+</code></pre>
+
+<p>Create a new file called <code>/etc/pm/config.d/unload_wireless</code> with the following line:</p>
+
+<pre><code>SUSPEND_MODULES="rt2860sta"
+</code></pre>
+
+<p>Reboot and you should have WPA-compatible, hibernatable wireless.</p>
+
+<h3>References:</h3>
+
+<ol>
+<li><a href="http://www.ctbarker.info/2010/05/ubuntu-1004-wireless-chipsets-and-wpa.html">rt2860sta driver installation</a></li>
+<li><a href="http://www.twentyways.com/2010/11/19/fixing-wireless-issues-with-asus-eeepc-1000he-running-ubuntu-10-10/">Proper hibernation</a></li>
+<li><a href="http://ubuntuforums.org/showthread.php?t=1476007">Ubuntu Forums thread</a></li>
+</ol>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1100,96 +1271,6 @@ fails, accept that maybe you&#8217;ll do better next time.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/07/20/daivame">Daivame Kaithozham</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-07-20T19:15:29-04:00" pubdate data-updated="true">Jul 20<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Ever since I was a boy, I have been singing a song called &#8216;Daivame
-Kaithozham&#8217;, which is pronounced &#8216;Dave-O-May Kie-Tho-Ram&#8217;. My parents
-taught it to me when I was about 5 years old, so I learned it by
-learning the syllables in the song. I know bits and pieces of
-Malayalam, but not enough to know what the words of the song
-mean. Whenever I&#8217;m feeling stressed, I sing it under my breath and it
-makes me feel better. Kavi wasn&#8217;t the best sleeper as a baby, so we
-spent a lot of time singing him back to sleep. Daivame Kaithozham was
-one of my standbys and he has heard it literally thousands of
-times. Even now, I sing it to him and Anika almost daily, though he
-has requested that I cut it down to weekly. (He likes Laurie Berkner&#8217;s
-&#8220;Moon, moon, moon&#8221; better. Oh well.) Both Anika and Kavi have heard it
-enough that they can mimic me singing it, though they don&#8217;t know the
-words&#8230;  mostly just the rhythm. But, it&#8217;s the cutest thing in the
-world to see Anika pick up her doll, put it on the floor and start
-singing &#8220;Daivame&#8230;&#8221;</p>
-
-<p>Anyway, I finally (after 30 something years) asked my parents what the
-song means, so here is the translation. I&#8217;m not the most religious
-person in the world, but if you replace God with whatever supernatural
-force you believe in, I think it&#8217;s a nice simple prayer.</p>
-
-<h2>Daivame Kaithozham</h2>
-
-<p>   Daivame kaithozham kelkumarakanam <br />
-   Pavamamenne nee kakkumarakanam <br />
-   Ennullil bhaktiyundakumarakanam <br />
-   Ninne jnanennume kanumarakanam <br /></p>
-
-<p>   Nervazhikkenne nee kondupoyeedanam <br />
-   Nervarum sankadam bhasmamayeedanam <br />
-   Dushtasamsargam varatheyayeedanam <br />
-   Shishtarayullavar thozharayeedanam <br /></p>
-
-<p>   Nalla karyangalil premamundakanam <br />
-   Nalla vakkothuvan thraniyundakanam <br />
-   Kruthyangal cheyyuvan sradhayundakanam <br />
-   Satyam paranjeedan saktiyundakana <br /></p>
-
-<h2>Translated</h2>
-
-<p>   O’Almighty God my humble salutation, may you kindly listen to my prayers <br />
-   May you always protect this poor innocent one from all my sufferings. <br />
-   May my devotion to you flourish in my heart without any interruptions <br />
-   May I always visualize your eternal divine form within and without. <br /></p>
-
-<p>   O’ God lead me through the right path  <br />
-   Annihilate all obstructions facing me  <br />
-   And protect me from evil interactions <br />
-   Provide me with serene and sober friends. <br /></p>
-
-<p>   May I always impart compassion and love to all <br />
-   O’ Lord provide me courage to talk only good words <br />
-   May I be provided with the right convictions to do my duties <br />
-   And give me your blessed strength to tell always the truth alone. <br /></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/5/">&larr; Older</a>
@@ -1205,6 +1286,10 @@ force you believe in, I think it&#8217;s a nice simple prayer.</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2019/04/08/avik-730">Avik 7:30</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2018/12/20/triangle-race-series">Triangle Race Series</a>
@@ -1280,10 +1365,6 @@ force you believe in, I think it&#8217;s a nice simple prayer.</p>
     
       <li class="post">
         <a href="/blog/2012/10/24/emacs-for-python-programming">Emacs for Python Programming</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet">Emacs Autocomplete stumbles on yasnippet</a>
       </li>
     
   </ul>

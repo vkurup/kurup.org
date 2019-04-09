@@ -9,7 +9,7 @@
   <meta name="author" content="Vinod Kurup">
 
   
-  <meta name="description" content="It was pouring, monsoon-style here in NYC today, but I went running anyway. When it&#8217;s raining, no one else is out, so I get the path to myself &hellip;">
+  <meta name="description" content="An article in the NY Times claims that &#8216;6 degrees of separation&#8217; is an exaggeration. They tested it by asking people to forward emails to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -89,6 +89,46 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2003/08/13/6-degrees">6 Degrees?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-08-13T00:00:00-04:00" pubdate data-updated="true">Aug 13<span>th</span>, 2003</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>An article in the NY Times claims that <a href="http://www.nytimes.com/2003/08/12/science/12MAIL.html">&#8216;6 degrees of separation&#8217; is an exaggeration</a>. They tested it by asking people to forward emails to people that they knew in hopes that the chain would eventually lead to 1 of the researchers&#8217; destinations. I know that I delete any chain mail that I get, so I&#8217;m not sure that the study&#8217;s results are valid.</p>
+
+<p>Let me provide an anecdotal rebuttal. I went to <a href="http://www.archana-subhasis.us/">Subha and Archana&#8217;s wedding</a> in Chicago last weekend and I&#8217;m guessing there were 400 people there. I met about 20 people whom I hadn&#8217;t met before. Of those, 2 had links to me through people who had nothing to do with the wedding. One was a cousin of Sushil, my good buddy from Boston. The other one is a little more convoluted. My cousin Deepu was the inspiration for the name of a musical group when he was at Wash U in St. Louis. Deepu has since moved on to San Fran, so the group has changed its name. A person I met at the wedding is currently a member of that group and has always wanted to meet the infamous Deepu, whose name is plastered over the other members&#8217; instruments.</p>
+
+<p>Now, does being connected through a band&#8217;s name count as a degree of separation?</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -667,100 +707,6 @@ ns_param   Interps CGIinterps
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2003/07/05/more-mail-woes">More Mail Woes</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2003-07-05T00:00:00-04:00" pubdate data-updated="true">Jul 5<span>th</span>, 2003</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I spent most of this afternoon struggling with a mail issue and I didn&#8217;t find it documented well anywhere else, so I&#8217;m going to write about it here in the hopes that it might help someone else.</p>
-
-<p><strong>What I was trying to do:</strong> Setup qmail + vpopmail + courier imap for imap and pop3d</p>
-
-<p><strong>Problem I was having:</strong> For some users, checking POP3 mail would work for a while (about 5 minutes), but then would fail:</p>
-
-<pre><code>      Jul  5 00:30:34 vkurup pop3d: LOGIN FAILED, ip=[::ffff:68.173.27.35]
-      Jul  5 00:30:34 vkurup pop3d: Disconnected, ip=[::ffff:68.173.27.35]
-</code></pre>
-
-<p>The failure would only happen for users who had vpopmail accounts <strong>and</strong> shell accounts. Users who have only vpopmail accounts were fine.</p>
-
-<p>Eventually, after much searching, I found this <a href="http://bluedot.net/mail/archive/read.php?f=2&amp;amp;i=10881&amp;amp;t=10880">message</a> which advised to configure courier-imap with <code>--without-authdaemon</code>. This solved my problem.</p>
-
-<p>According to the author of courier-imap, <a href="http://sourceforge.net/mailarchive/forum.php?thread_id=2388144&amp;amp;forum_id=33081">this problem is solved in newer versions of vpopmail</a>, but he mentions version 5.3.38 and I could only find version 5.3.20, so I didn&#8217;t try that fix.</p>
-
-<div id="comment-box">
-<h2>Comments from old site</h2>
-
-<div class="one-comment">
-<p><b>THANK YOU</b></p>
-<p>
-Thank you very much - it solved my problem !!!
-</p>
-<p>
-pop3d was causing me serious grief, it just gave error message &#8220;pop3d: LOGIN FAILED&#8221;. It&#8217;s supposed to authenticate to MySQL - but according to MySQL&#8217;s log, there&#8217;s no query to the mail database.
-</p>
-
-<p>
-Turned out I created a username in the mail database that&#8217;s the same as a user in the system, as you said.
-</p>
-
-<p>
-So I created another user - lo, pop3d now queries to MySQL !!
-</p>
-
-<p>
-Funny thing is I&#8217;ve looked around the Internet for hours, and your blog is the only place that mention it&#8230;. unbelieveable.
-</p>
-
-<p>
-Again, many thanks !!
-</p>
-
-<p>
-cheers,
-</p>
-
-<p>
-Harry
-</p>
-<address class="signature">
-<span class="author">Harry Sufehmi</span>
-<span class="date">2004-08-24 08:02:40</span>
-</address>
-</div>
-
-</div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/26/">&larr; Older</a>
@@ -776,6 +722,10 @@ Harry
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2019/04/08/avik-730">Avik 7:30</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2018/12/20/triangle-race-series">Triangle Race Series</a>
@@ -851,10 +801,6 @@ Harry
     
       <li class="post">
         <a href="/blog/2012/10/24/emacs-for-python-programming">Emacs for Python Programming</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet">Emacs Autocomplete stumbles on yasnippet</a>
       </li>
     
   </ul>
