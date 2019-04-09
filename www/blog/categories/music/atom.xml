@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: music | Vinod Kurup]]></title>
+  <link href="https://www.kurup.org/blog/categories/music/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2019-04-09T07:01:33-04:00</updated>
+  <id>https://www.kurup.org/</id>
+  <author>
+    <name><![CDATA[Vinod Kurup]]></name>
+    <email><![CDATA[vinod@kurup.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[clamz to the rescue]]></title>
+    <link href="https://www.kurup.org/blog/2009/07/04/clamz-to-the-rescue"/>
+    <updated>2009-07-04T00:00:00-04:00</updated>
+    <id>https://www.kurup.org/blog/2009/07/04/clamz-to-the-rescue</id>
+    <content type="html"><![CDATA[<p><a href="http://kottke.org/09/05/99-classical-mp3s-for-8">Kottke</a> linked to some great deals on <a href="http://www.amazon.com/gp/product/B001U1J2S4?ie=UTF8&amp;tag=vinodkurupshomep&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=B001U1J2S4">classical music at amazon</a><img src="http://www.assoc-amazon.com/e/ir?t=vinodkurupshomep&l=as2&o=1&a=B001U1J2S4" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />. In order to download them, you need to have the amazon mp3 downloader installed. They now offer a Debian (linux) version, but I couldn't get it working. It's meant for an older version of Debian, but it doesn't recognize the newer versions of the libraries installed on my system. I thought about doing some fancy apt-getting to try to get the right versions, but just thinking about that made my head throb. Then I heard about <a href="http://code.google.com/p/clamz/">clamz</a>, an open source project to replicate the amazon mp3 downloader. I installed the library packages they recommended (libgcrypt11-dev, libcurl4-openssl-dev, and libexpat1-dev) and then installed it.</p>
+
+<p>I'm always a little leary to install packages from source, because then they're not managed by the package manager (apt-get). It becomes more of a tedious process to keep them updated or to uninstall them. To partially workaround that problem, I use a program called <a href="http://www.asic-linux.com.mx/~izto/checkinstall/">checkinstall</a>. It basically creates a package for any program that you want to install from source. So, instead of :</p>
+
+<pre><code>./configure
+make
+sudo make install
+</code></pre>
+
+<p>you do:</p>
+
+<pre><code>./configure
+make
+sudo checkinstall
+</code></pre>
+
+<p>It then creates a .deb and installs it. It asks you for some basic info about the program, but guesses as much as it can and does a decent job. I haven't delved into anything more involved than that, but there are ways to document dependencies which would allow it to be even more integrated into the package management system.</p>
+
+<p>Anyway, it installed perfectly and within seconds I was downloading the music that I had purchased.</p>
+
+<pre><code>vinod@ike:~/Music $ clamz "Desktop/The 99 Most Essential Mozart Masterpieces.amz"
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Mr. Songflower Man]]></title>
+    <link href="https://www.kurup.org/blog/2006/01/12/mr-songflower-man"/>
+    <updated>2006-01-12T00:00:00-05:00</updated>
+    <id>https://www.kurup.org/blog/2006/01/12/mr-songflower-man</id>
+    <content type="html"><![CDATA[<p>This story about <a href="http://www.npr.org/templates/story/story.php?storyId=5148079">a creative music teacher in Syracuse, NY</a> made me smile out loud.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Dan Bern]]></title>
+    <link href="https://www.kurup.org/blog/2004/03/29/dan-bern"/>
+    <updated>2004-03-29T00:00:00-05:00</updated>
+    <id>https://www.kurup.org/blog/2004/03/29/dan-bern</id>
+    <content type="html"><![CDATA[<p><a href="http://www.danbern.com/">Dan Bern</a> has quickly become one of my favorite musicians. I saw him a while back at the (now defunct) <a href="http://www.bottomlinecabaret.com/">Bottom Line</a> and then again tonight at Joe's Pub (within spitting distance!). He's been compared to Bob Dylan, although, unlike Dylan, I can understand what he's saying. His music is simple and catchy, and the lyrics can go from hilarious to poignant in one song.</p>
+
+<p>He played a couple songs tonight that I haven't been able to find on CDs anywhere - one called <a href="http://www.dylanchords.com/others/dan_bern_one_more_light.htm">"One More Light"</a> and one about 9/11. Hopefully they'll be on the "new album" &#8482;</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Legal Music Download]]></title>
+    <link href="https://www.kurup.org/blog/2003/09/05/legal-music-download"/>
+    <updated>2003-09-05T00:00:00-04:00</updated>
+    <id>https://www.kurup.org/blog/2003/09/05/legal-music-download</id>
+    <content type="html"><![CDATA[<p><a href="http://www.kuro5hin.org/story/2003/9/5/05113/70314">Legal Music Downloads</a> and some great background information. I'm gonna give <a href="http://irate.sf.net">iRATE</a> a try.</p>
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>Directory of Legal Music Downloads</b></p>
+<p>
+Check out this site for a comprehensive listing of legal music download sites.<br />
+<a
+href="http://www.downloadmusicmart.com/legalmusicdownloads.asp">Directory
+of Legal Music Downloads</a>
+</p>
+<address class="signature">
+<span class="author">Joel Erenberg</span>
+<span class="date">2004-04-11 19:18:06</span>
+</address>
+</div>
+
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Don't get sued]]></title>
+    <link href="https://www.kurup.org/blog/2003/07/30/dont-get-sued"/>
+    <updated>2003-07-30T00:00:00-04:00</updated>
+    <id>https://www.kurup.org/blog/2003/07/30/dont-get-sued</id>
+    <content type="html"><![CDATA[<p>The topic of music sharing and its legality came up during our annual cousins trip in Seattle. Here's an important article on <a href="http://www.eff.org/IP/P2P/howto-notgetsued.php">How Not to Get Sued by the RIAA</a>. The most important thing is the last line in the article:</p>
+
+<blockquote><p><a href="https://secure.eff.org/">Join EFF</a> and support our efforts to protect file-sharing.</p></blockquote>
+
+<p>I don't use P2P music-sharing apps anymore. While I love the idea of being able to access an unending library of music, I don't like the idea of getting it for free. What? Sure, call me strange, but I like the idea of an artist getting a benefit for entertaining me - something that will encourage them to make even more great music. I tend to buy music at the <a href="http://www.apple.com/itunes/">Apple Music Store</a> or directly from the artists if possible (e.g. <a href="http://www.livephish.com/">Phish</a>). In both cases, the artists get much more of the proceeds than they do through other channels.</p>
+
+<p>Now, I also copy new stuff from friends and family (Thanks Dave and Deepu!), but I don't feel too guilty about it because they always introduce me to things I would never have heard otherwise and if I hear something I like, I'd usually go buy more of it. RIAA's current actions (link broken), if they're doing anything, are making me more reluctant to buy music through normal channels. Why should I support an industry that seems to care neither about the artists nor the customers. Music sharing will help artists and it certainly provides us with more variety than the RIAA and its cohorts are providing. We just need to work on ways to improve the flow of money and music between listeners and artists. The <a href="http://www.eff.org/share/compensation.php">EFF is working on this</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>

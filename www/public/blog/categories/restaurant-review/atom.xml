@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: restaurant-review | Vinod Kurup]]></title>
+  <link href="https://www.kurup.org/blog/categories/restaurant-review/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2019-04-09T08:22:17-04:00</updated>
+  <id>https://www.kurup.org/</id>
+  <author>
+    <name><![CDATA[Vinod Kurup]]></name>
+    <email><![CDATA[vinod@kurup.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Louie and Ernie's]]></title>
+    <link href="https://www.kurup.org/blog/2006/05/04/louie-and-ernies"/>
+    <updated>2006-05-04T00:00:00-04:00</updated>
+    <id>https://www.kurup.org/blog/2006/05/04/louie-and-ernies</id>
+    <content type="html"><![CDATA[<p><img class="inset" src="https://www.kurup.org/images/pizza.jpg" alt="Pizza" /></p>
+
+<p>We treated ourselves to our favorite New York Pizza today - Louie and
+Ernie's. In my mind, it's the perfect pizza. The thin crust is crispy
+on the bottom, and chewy on the top. There's plenty of cheese and the
+sauce has some flavor. The only problem with this place is that it's
+nowhere near public transportation and they don't deliver. It's
+probably a good thing though, or we'd be eating this ALL the time.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Restaurant Review: BLT Fish Shack]]></title>
+    <link href="https://www.kurup.org/blog/2005/11/29/restaurant-review-blt-fish-shack"/>
+    <updated>2005-11-29T00:00:00-05:00</updated>
+    <id>https://www.kurup.org/blog/2005/11/29/restaurant-review-blt-fish-shack</id>
+    <content type="html"><![CDATA[<p>It looks like a fish shack, but the service is much more attentive. We had clam chowder and crabcakes as appetizers, then the fish &amp; chips and BLT tuna sandwich as entrees. The tuna was seared just on the edges. It was mixed with bacon, hard-boiled eggs, and avocado on fresh chewy bread. Mala says, "Best Tuna Fish sandwich ever," and I can't argue. All of the fried stuff was delicious and not too greasy. It's more expensive than any other place with "Shack" in the title, but the food is good enough to make it worth it. Great beer list as well.</p>
+]]></content>
+  </entry>
+  
+</feed>

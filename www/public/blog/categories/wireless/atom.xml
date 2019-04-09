@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: wireless | Vinod Kurup]]></title>
+  <link href="https://www.kurup.org/blog/categories/wireless/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2019-04-09T08:22:17-04:00</updated>
+  <id>https://www.kurup.org/</id>
+  <author>
+    <name><![CDATA[Vinod Kurup]]></name>
+    <email><![CDATA[vinod@kurup.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Setting up WEP]]></title>
+    <link href="https://www.kurup.org/blog/2003/07/16/setting-up-wep"/>
+    <updated>2003-07-16T00:00:00-04:00</updated>
+    <id>https://www.kurup.org/blog/2003/07/16/setting-up-wep</id>
+    <content type="html"><![CDATA[<p>How to set up WEP encryption:</p>
+
+<ul>
+<li>SMC Barricade Basestation</li>
+<li>Airport Extreme Wireless Card</li>
+<li>Mac OS X 10.2.6</li>
+</ul>
+
+
+<p>Note that if things don't go 100% right, you may lock yourself out of your wireless network. Be sure you know how to get back in before you follow any of these instructions.</p>
+
+<ol>
+<li>Set up non-encrypted transmission first. Make sure you can connect to your basestation and surf on the internet.</li>
+<li>Visit your basestation's URL - default is http://198.168.123.254</li>
+<li>Log in (You <strong>have</strong> changed the password so it's not 'admin', right?)</li>
+<li>Click on Wireless.</li>
+<li>Create a Network ID (SSID). I've read that <a href="http://www.whiterabbits.com/MacNetJournal/stories/2002/03/20/aWeekofWireless.html">leaving it at 'default' sometimes causes problems</a>, so change it.</li>
+<li>Check the 'Enable IEEE 128 bit Shared Key security' radio button</li>
+<li>Now we need to enter a key. This should be a 26 digit Hex code. Simply go to the <a href="http://www.warewolflabs.com/portfolio/programming/wepskg/wepskg.html">magic WEP Strong Key Generator</a>. Click on 'generate 128 bit key' and scroll down to see your new key. Pick the one labeled HEX. Enter this value as 'WEP Key 1'. Keep this key visible somewhere, since you'll need to feed it to your Mac so you can login.</li>
+<li>Click 'Save' and then 'Reboot' your wireless router.</li>
+<li>OK, now you're locked out of your basestation. Let's get back in.</li>
+<li>Click on the Airport Icon in the menubar. Choose 'Turn Airport Off'. Wait a few seconds and then click 'Turn Airport On'.</li>
+<li>Wait a few seconds for your Mac to recognize your network. Then, click on the Airport icon again and choose your Network-ID. A password box should pop up.</li>
+<li>Click the drop-down menu and choose '128 bit Key' and then re-enter your 26-digit HEX key. And no, copy and paste won't work - you need to enter it digit by digit. Check the 'Keychain' box so that you don't have to re-enter that hideous key each time.</li>
+</ol>
+
+
+<p>Enjoy your new encrypted network!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Wireless on LinuxPPC]]></title>
+    <link href="https://www.kurup.org/blog/2000/12/10/wireless-on-linuxppc"/>
+    <updated>2000-12-10T00:00:00-05:00</updated>
+    <id>https://www.kurup.org/blog/2000/12/10/wireless-on-linuxppc</id>
+    <content type="html"><![CDATA[<p>I've coaxed my wireless card to work on LinuxPPC. Read <a href="http://kurup.org/content/wireless.phtml">how I did
+it.</a> This link is now gone
+because it's obsolete.... vinod.</p>
+]]></content>
+  </entry>
+  
+</feed>

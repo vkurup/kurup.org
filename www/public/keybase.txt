@@ -1,0 +1,66 @@
+I hereby claim:
+
+  * I am an admin of http://www.kurup.org
+  * I am vkurup (https://keybase.io/vkurup) on keybase.
+  * I have a public key with fingerprint 01AC F6AB EA98 0D16 5777  C37D DA8E 3DB4 6683 2BC1
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "client": {
+            "name": "keybase.io node.js client",
+            "version": "0.5.1"
+        },
+        "key": {
+            "fingerprint": "01acf6abea980d165777c37dda8e3db466832bc1",
+            "host": "keybase.io",
+            "key_id": "DA8E3DB466832BC1",
+            "uid": "d57d980dd8ae2debcdc7174a8698e000",
+            "username": "vkurup"
+        },
+        "merkle_root": {
+            "ctime": 1411843191,
+            "hash": "c98cee3476086c1438867dd1a8a0deaf66e5f6d5ba991f589b748d73eb17ac5c331c4e4dc27e3b31202e1a4fab58fa0a1f2fbe118b1a1095281a4c021e0e45bd",
+            "seqno": 63690
+        },
+        "service": {
+            "hostname": "www.kurup.org",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1411843406,
+    "expire_in": 157680000,
+    "prev": "290419c20d2f33a74bd7eb78dfc159b18988e8b555ea334c6acae27561680744",
+    "seqno": 7,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v2
+
+owFVkr9rFUEQxy8xERSVpLeIB2KRcOzc/n5oYYxiIzYpbOSxP+ZeziR3z7t7L4bw
+KhsRFMHCRjSNWtiIBKy1tbWQ/AGClf+Cu8+Iptvd+cx35juzz86eSGYXD59eOSge
+Ln+e+frTJuuX5tf3Ulv73bS3l7qtEqsuniqzjWkv3cRda1rMynqpqj1m99qlI2Yl
+HWPTlnUVKJLxDNLJSsRjclFWA2yGTRm1UgLGFcJYNFoRD4JLKR2V3huF1FsmhKK5
+dRAkN+q2O1Y1nWr2Sx9e166q63Rt9Q+/ei3yo2nAc+mjtFcGc4/WeSdBMqOEVkgI
+iWCLzZGl8eaoGQ1jt9vYbG5hv6nrqWXXlREABqAYBQ2hH9NuhBSnlUOkTAqihANG
+lRKhfzDKEI+mEAJ5ITy3RmsouNJWMuUlRQvSOO4oBceQeZdLpJZCTnIEwwpjuSoM
+MVDkhcVQ1oIBonmuQtSRHJAg49YHAy3er+q0J6jQZBKvzbh0GNuOMzuytrOzk03d
+ZXUzCEnDpu5qV2+F0EbXDXvRdLc7nKJo+y2+n6r0bVn5sLL/dwoBPT4QRsRKig+G
+ZYP9MhJcChWmS2IdHAfNXBMG2uXE5wWlRjLrJVqpfOGAawtKK4XKcs7RUMqcMC4s
+THIBQUgy9s+mDH2aQZBsy0FlulGD6eTRjblkcTY5OT8b/2xy+tTC34/8RiSvlmfu
+Tm6vn7n85ODb918Xb778eGfudbL/6V218ONLdv6FuPX8w/7h47cX6nO/AQ==
+=zFFk
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/vkurup
+
+==================================================================

@@ -32,3 +32,5 @@ His brand new watch, and a 7:30 alarm.
 
 
 (A real-life story, barely embellished)
+
+{% img /images/avik-watch.jpg A kid with a watch %}

@@ -1,0 +1,534 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Another Mac OS X OpenACS Installation Guide - Vinod Kurup</title>
+  <meta name="author" content="Vinod Kurup">
+
+  
+  <meta name="description" content="Another Mac OS X OpenACS Installation Guide by Vinod Kurup I installed OpenACS 5.0 on my PowerBook G4. Everyone should read MarkD&#8217;s
+guide since &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="https://www.kurup.org/blog/2003/09/14/openacs-macosx">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/vkurup" rel="alternate" title="Vinod Kurup" type="application/atom+xml">
+  <!--Fonts from Google's Web font directory at http://google.com/webfonts -->
+<link href='//fonts.googleapis.com/css?family=Quattrocento' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Quattrocento+Sans' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+<meta name="verify-v1" content="7VLvj7jbZMA24/73SZ9uUEq3SeBuiX3+aSIBRtgH4jQ=" />
+<link rel="openid.server" href="http://www.myopenid.com/server" />
+<link rel="openid.delegate" href="http://vkurup.myopenid.com/" />
+<link rel="openid2.local_id" href="http://vkurup.myopenid.com/" />
+<link rel="openid2.provider" href="http://www.myopenid.com/server" />
+<meta http-equiv="X-XRDS-Location" content="http://www.myopenid.com/xrds?username=vkurup.myopenid.com" />
+
+<link href="/favicon.ico" rel="shortcut icon" />
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-79447-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Vinod Kurup</a></h1>
+  
+    <h2>Hospitalist/programmer in search of the meaning of life</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/vkurup" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.kurup.org" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul role=main-navigation>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/about.html">About Me</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/blog/categories">Categories</a></li>
+  <li><a href="/medicine">Medicine</a></li>
+  <li><a href="/running">Running</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Another Mac OS X OpenACS Installation Guide</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-09-14T00:00:00-04:00" pubdate data-updated="true">Sep 14<span>th</span>, 2003</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2>Another Mac OS X OpenACS Installation Guide</h2>
+
+<p><a href="http://kurup.org" title="Vinod Kurup's site">by Vinod Kurup</a></p>
+
+<hr />
+
+<p>I installed OpenACS 5.0 on my PowerBook G4. Everyone should read <a href="http://borkware.com/rants/openacs/" title="MarkD's guide">MarkD&#8217;s
+guide</a> since it&#8217;s more comprehensive and explains a lot of the changes
+that I don&#8217;t explain. I used some different software versions which made my
+experience different enough to document.</p>
+
+<p>This is a quick and dirty document for people who have installed OpenACS
+4. If I haven&#8217;t been clear enough or if I&#8217;ve made mistakes, please let me
+know.</p>
+
+<p>Apparently, these instructions may also help you install OpenACS on FreeBSD
+- look at <a href="http://openacs.org/forums/message-view?message_id=136910" title="Andrei's instructions">Andrei&#8217;s instructions</a> if you&#8217;re doing that.</p>
+
+<h3>Software Versions</h3>
+
+<p>All of the AOLserver modules were obtained from CVS (2003-09-14).</p>
+
+<ul>
+<li>Postgresql 7.3.4</li>
+<li><a href="http://sourceforge.net/cvs/?group_id=3152" title="Aolserver">AOLserver 4.0b14</a>
+
+<ul>
+<li>nscache CVS</li>
+<li>nsrewrite CVS</li>
+<li>nssha1 CVS</li>
+<li>nspostgres CVS</li>
+<li><a href="http://www.tdom.org/#SECTid960" title="tDOM">tDom 0.78</a></li>
+</ul>
+</li>
+<li><a href="http://openacs.org/4/checkout" title="OpenACS CVS">OpenACS CVS</a></li>
+</ul>
+
+
+<h4>Install Postgresql</h4>
+
+<ol>
+<li><code>./configure</code> - fails on readline not being installed</li>
+<li><p>Install readline:</p>
+
+<pre><code> $ fink install readline
+</code></pre></li>
+<li><p>Configure</p>
+
+<pre><code> $ ./configure --with-includes=/sw/include --with-libs=/sw/lib
+</code></pre></li>
+<li><p>Compile</p>
+
+<pre><code> $ make
+ $ sudo make install
+</code></pre></li>
+<li><p>Create the database directory and give yourself permission over it.</p>
+
+<pre><code> $ sudo mkdir /usr/local/pgsql/data
+ $ sudo chown vinod.staff /usr/local/pgsql/data
+</code></pre></li>
+<li>change <code>$PATH</code>. Add <code>/usr/local/pgsql/bin</code> to the PATH variable in your <code>~/.profile</code></li>
+<li><p>I tried doing an initdb next and it worked, but then I got the following error when starting PG.</p>
+
+<pre><code> FATAL:  invalid value for option 'LC_TIME': 'en_US'
+</code></pre></li>
+<li><p>I found <a href="http://archives.postgresql.org/pgsql-novice/2003-01/msg00099.php" title="Tom Lane's answer">Tom Lane&#8217;s answer</a>:</p>
+
+<pre><code> $ /usr/local/pgsql/bin/initdb -D /usr/local/pgsql/data --no-locale
+</code></pre></li>
+<li><p>Start it.</p>
+
+<pre><code> $ pg_ctl -D /usr/local/pgsql/data -l /usr/local/pgsql/server.log start
+ $ createlang plpgsql template1
+ $ createdb openacs
+ $ createuser openacs
+ (Answer 'Y' twice)
+</code></pre></li>
+</ol>
+
+
+<h4>Install AOLserver</h4>
+
+<p>I&#8217;m going to use AOLserver 4. Previous versions of AOLserver came bundled
+with a customized version of TCL, but AOLserver 4 can use the standard TCL
+releases, as long as TCL was built with thread support. Mac OS X 10.2 comes
+with TCL 8.3.x, but without thread support. Fink currently has TCL 8.4.1,
+but also without thread support. So, the right solution is to download TCL
+and build it manually. But I had already downloaded Fink&#8217;s version, so I
+just manually edited the .info file that specifies how to build TCL and
+added <code>--enable-threads</code>. Of course, when the next version of TCL gets
+uploaded to the Fink repository, I&#8217;ll be screwed, but I&#8217;m too lazy to
+compile TCL again right now.</p>
+
+<ol>
+<li><p>Configure and Compile AOLserver</p>
+
+<pre><code> /usr/local/src/aolserver/aolserver$ ./configure --with-tcl=/sw/lib
+ /usr/local/src/aolserver/aolserver$ sudo make install
+</code></pre></li>
+<li><p>Install nscache and nsrewrite</p>
+
+<pre><code> /usr/local/src/aolserver/nscache$ sudo make install
+ /usr/local/src/aolserver/nsrewrite$ sudo make install
+</code></pre></li>
+<li><p>nssha1 doesn&#8217;t compile without editing nssha1.c. Comment out the
+following 2 lines (lines 139-140):</p>
+
+<pre><code>  // typedef unsigned int u_int32_t;
+  // typedef unsigned char u_int8_t;
+</code></pre></li>
+<li><p>Compile nssha1</p>
+
+<pre><code> /usr/local/src/aolserver/nssha1$ sudo make install
+</code></pre></li>
+<li><p>nspostgres doesn&#8217;t link outta the box. Add <code>-lnsdb</code> to the
+MODLIBS var in the Makefile:</p>
+
+<pre><code>  MODLIBS   = -L$(PGLIB) -lpq &lt;b&gt;-lnsdb&lt;/b&gt;
+</code></pre></li>
+<li><p>Compile nspostgres</p>
+
+<pre><code> /usr/local/src/aolserver/nspostgres$ sudo make install POSTGRES=/usr/local/pgsql ACS=1 
+</code></pre></li>
+</ol>
+
+
+<h4>Install tDom 0.78</h4>
+
+<ol>
+<li>Edit <code>/usr/local/src/tDOM-0.7.8/unix/CONFIG</code></li>
+<li><p>Uncomment the instructions meant for AOLserver 4, but edit it to look
+like this:</p>
+
+<pre><code>  ../configure --enable-threads --disable-tdomalloc \
+    --prefix=/usr/local/aolserver --with-tcl=/sw/lib
+</code></pre></li>
+<li>OpenACS 5 will notice that you&#8217;re using AOLserver 4 and will
+automatically call &#8216;package require tdom&#8217;. You shouldn&#8217;t have to do
+anything special to get tDOM working with OpenACS 5.</li>
+</ol>
+
+
+<h4>Get ready to start</h4>
+
+<ol>
+<li>Get OpenACS CVS.</li>
+<li>Edit config.tcl (a.k.a. nsd.tcl).
+
+<ol>
+<li>Change <code>server</code> to <code>openacs</code>.</li>
+<li>Set <code>serverroot</code> to wherever you put your OpenACS CVS</li>
+<li>The config.tcl file that comes with OpenACS 5 will properly load
+nsdb.so (and ignore libtdom.so) if you&#8217;re using AOLserver 4.</li>
+<li><p>Change the <code>stacksize</code> to <code>2048000</code>. If the number you choose is
+not divisible by 4096, then you get:</p>
+
+<pre><code>   \[15/Sep/2003:19:08:02\]\[1997.2684358124\]\[-main-\] Notice: PostgreSQL loaded.
+   nsthreads: pthread_attr_setstacksize failed in NsCreateThread: Invalid argument
+   Abort trap
+</code></pre></li>
+</ol>
+</li>
+<li><p>Set some permissions:</p>
+
+<pre><code> chmod 755 /usr/local/aolserver/log
+</code></pre></li>
+<li><p>Start it!</p>
+
+<pre><code> $ /usr/local/aolserver/bin/nsd -ft /web/openacs/etc/config.tcl
+</code></pre></li>
+</ol>
+
+
+<h4>Changelog</h4>
+
+<ul>
+<li>2004-01-23 - Pointed to Andrei&#8217;s FreeBSD document. Simplified instructions which are automatically taken care of by OpenACS 5</li>
+<li>2004-01-05 - Added fixes from <a href="http://xarg.net/" title="Jeff Davis">Jeff Davis</a>.</li>
+<li>2003-09-14 - Initial Revision</li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Vinod Kurup</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-09-14T00:00:00-04:00" pubdate data-updated="true">Sep 14<span>th</span>, 2003</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/mac-os-x/'>mac-os-x</a>, <a class='category' href='/blog/categories/openacs/'>openacs</a>, <a class='category' href='/blog/categories/programming/'>programming</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="https://www.kurup.org/blog/2003/09/14/openacs-macosx" data-via="vkurup" data-counturl="https://www.kurup.org/blog/2003/09/14/openacs-macosx" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2003/09/11/sco" title="Previous Post: SCO">&laquo; SCO</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2003/09/16/openacs-everywhere" title="Next Post: OpenACS everywhere">OpenACS everywhere &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2019/04/08/avik-730">Avik 7:30</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/12/20/triangle-race-series">Triangle Race Series</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/12/02/nest-journey">My Nest Journey</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/09/23/composting">Composting</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/09/22/starting-a-garden">Starting a garden</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/05/31/indian-civilization">History of Indian Civilization</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/05/30/autovacuum-fail">Autovacuum not running</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/05/29/renaissance-man">Renaissance Man</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/28/cbv-dynamic">Using dynamic queries in a CBV</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/23/some-emacs-posts">Some Emacs Posts</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/22/pygments-py3">Pygments on Arch Linux</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/21/django-test-models">How to create test models in Django</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/21/peanut-allergy-a-personal-clinical-review">Peanut Allergy, a personal clinical review</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/17/priorities-and-gtd">Priorities and GTD</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/16/gtd-again">GTD again?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/15/writing-paralysis">Writing paralysis</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/09/steal-my-web-app-idea">Steal My Web App Idea</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/30/how-to-change-the-rear-tire-on-a-12-inch-bicycle">How to change the rear tire on a 12 inch bicycle</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/05/nsbrief-gets-the-best-guests">NSBrief gets the best guests</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/24/emacs-for-python-programming">Emacs for Python Programming</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("vkurup", 5, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/vkurup" class="twitter-follow-button" data-show-count="true">Follow @vkurup</a>
+  
+</section>
+
+
+<section>
+  <h1>My Pinboard</h1>
+  <ul id="pinboard_linkroll">Fetching linkroll...</ul>
+  <p><a href="http://pinboard.in/u:vkurup">My Pinboard Bookmarks &raquo;</a></p>
+</section>
+<script type="text/javascript">
+  var linkroll = 'pinboard_linkroll'; //id target for pinboard list
+  var pinboard_user = "vkurup"; //id target for pinboard list
+  var pinboard_count = 10; //id target for pinboard list
+  (function(){
+    var pinboardInit = document.createElement('script');
+    pinboardInit.type = 'text/javascript';
+    pinboardInit.async = true;
+    pinboardInit.src = '/javascripts/pinboard.js';
+    document.getElementsByTagName('head')[0].appendChild(pinboardInit);
+  })();
+</script>
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  <a rel="license"
+  href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Some rights
+  reserved</a> by <a rel="author" href="https://profiles.google.com/vvkurup/" title="View my Google Profile">Vinod Kurup</a> -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'vkurup';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'https://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

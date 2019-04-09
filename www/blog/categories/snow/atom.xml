@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: snow | Vinod Kurup]]></title>
+  <link href="https://www.kurup.org/blog/categories/snow/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2019-04-09T07:01:33-04:00</updated>
+  <id>https://www.kurup.org/</id>
+  <author>
+    <name><![CDATA[Vinod Kurup]]></name>
+    <email><![CDATA[vinod@kurup.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Snow!]]></title>
+    <link href="https://www.kurup.org/blog/2003/02/01/snow"/>
+    <updated>2003-02-01T00:00:00-05:00</updated>
+    <id>https://www.kurup.org/blog/2003/02/01/snow</id>
+    <content type="html"><![CDATA[<p>It's <a href="http://kurup.org/photo/album?album_id=5325">snowing in NYC</a>. Really hard.</p>
+]]></content>
+  </entry>
+  
+</feed>

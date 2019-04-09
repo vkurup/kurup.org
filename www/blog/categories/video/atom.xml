@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: video | Vinod Kurup]]></title>
+  <link href="https://www.kurup.org/blog/categories/video/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2019-04-09T07:01:33-04:00</updated>
+  <id>https://www.kurup.org/</id>
+  <author>
+    <name><![CDATA[Vinod Kurup]]></name>
+    <email><![CDATA[vinod@kurup.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Openshot Video Editor]]></title>
+    <link href="https://www.kurup.org/blog/2011/08/10/openshot-video-editor"/>
+    <updated>2011-08-10T15:30:08-04:00</updated>
+    <id>https://www.kurup.org/blog/2011/08/10/openshot-video-editor</id>
+    <content type="html"><![CDATA[<p>Ever since my Dad brought home an Apple IIe back in 1980, I've been a
+huge Apple fan. The design of my website back in the mid 90's was a
+ripoff of the Mac OS 9 System menu. (I found a <a href="http://web.archive.org/web/20011110214204/http://kurup.com/index.phtml">later version on the
+Wayback
+Machine</a>. I
+had swapped out the Apple icon for the icon of the startup I was
+working with at the time.) I loved OS X for a while, especially on my
+12" Aluminum powerbook. But over time, I got more and more frustrated
+by it. I wanted to be able to configure more. When the hard drive on
+that Powerbook died, I decided to move to all linux.</p>
+
+<p><blockquote><p>vkurup: trying to visualize life without a mac</p><footer><strong>February 13th, 2009</strong> <cite><a href='http://twitter.com/#!/vkurup/status/1207289044'>twitter.com/#!/vkurup/status/&hellip;</a></cite></footer></blockquote></p>
+
+<p>I am happy and productive, but I am occasionally jealous of Mac OS X. I set
+up a Mac Airbook for my mother-in-law a few months ago and ... can I
+just drool for a minute about that computer? But, I was able to set it
+up, wipe up my drool, and then return to my Ubuntu machines without
+too many pangs of jealousy. For the stuff that I do, Linux works
+perfectly.</p>
+
+<p>The one pain point that I've been having over the past few years is
+video editing. I take a lot of movies of the kids and I like to do
+some very simple editing of them before uploading them to
+youtube. This was super easy in
+<a href="http://www.apple.com/ilife/imovie/">iMovie</a> back in 2007. I haven't
+found a similar experience on Linux. It's reassured me a little to
+hear that iMovie has gotten weaker and weaker over the years, so I
+didn't feel any need to go back to Mac for this one function.</p>
+
+<p>I had been using <a href="http://www.kinodv.org/">Kino</a>, but the developer
+stopped working on it and it had some minor bugs. It doesn't play well
+with PulseAudio, the overarching audio system in linux. So I had to
+start it with the command <code>padsp kino</code> which allows kino to bypass
+PulseAudio. That then makes all other sound on the computer stop until
+I quit Kino. And with every OS update, there would be minor changes
+that would require me to fiddle with the audio settings
+again. Finally, I didn't really understand the Export settings, so my
+videos were never as optimized as they could be. There were tabs for
+DVD and MPEG output, but there was also one for Other and there were
+MPEG options in there too. I was thoroughly confused and was hoping
+for something to come along that would be better. Mark Pilgrim
+mentioned OpenShot once and I looked at it back then, but I couldn't
+figure it out. I tried valiantly for a day and then returned to
+hacking on Kino.</p>
+
+<p>Fast forward about a year and after a little more frustration with how
+my videos looked on youtube, I gave
+<a href="http://www.openshotvideo.com/">OpenShot</a> another try. Version 1.2 is
+packaged in Ubuntu 10.10, but 1.3 offered some other nice features,
+like exporting directly to Youtube, so I downloaded the
+<a href="http://www.openshot.org/ppa/">PPA</a> and installed 1.3.</p>
+
+<p><img src="/images/openshot.png" title="Openshot Main Window" ></p>
+
+<p>What a breath of fresh air! It was so easy to import clips. It was so
+easy to place clips on the timeline. It was easy to splice and add
+transitions. It was easy to add titles. Most importantly it was easy
+to export to HD video format so now the videos look better on Youtube.</p>
+
+<p>I don't use Linux for its video editing capabilities. I use it because
+I believe in the idea of free software and because for my purposes,
+emacs and a web browser are all that I really need. But I am
+pleasantly surprised when I see something like OpenShot evolve and
+improve to the point that it solves my problem exactly. I will be
+donating some dollars over there.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Rotating videos]]></title>
+    <link href="https://www.kurup.org/blog/2010/09/16/rotate-video"/>
+    <updated>2010-09-16T09:09:00-04:00</updated>
+    <id>https://www.kurup.org/blog/2010/09/16/rotate-video</id>
+    <content type="html"><![CDATA[<p>I found out how to rotate video today. I often take video with my
+Canon SD870, but I mistakenly take it in portrait mode. I don't
+realize this until I'm editing the video and then I have to decide if
+I want to subject my adoring youtube fans to the torture of having to
+turn their heads sideways to see how cute Kavi and Anika are.</p>
+
+<p>I found <a href="http://www.hanselman.com/blog/HowToRotateAnAVIOrMPEGFileTakenInPortrait.aspx">this
+link</a>
+which gives the <code>mencoder</code> command to rotate the video. Unfortunately,
+it didn't work with the AVI files that my Canon SD870 create. I think
+this camera creates slightly corrupt AVI files. I say "slightly"
+because they're still viewable, but mplayer always reports the total
+time as "0:00", even while the elapsed time marches along
+correctly. Well, today, I found a way to fix the AVI files.</p>
+
+<pre><code>mencoder -ovc copy -oac copy input.avi -o output.avi
+</code></pre>
+
+<p>This just creates a new AVI, copying the video and audio from the
+original. Now, mplayer reports the correct total time. Then, to rotate
+the video:</p>
+
+<pre><code>mencoder -ovc lavc -lavcopts vcodec=mjpeg -vf rotate=1 \
+         -oac copy output.avi -o rotated.avi
+</code></pre>
+
+<p>And here's your reward for reading along:</p>
+
+<object width="480" height="385"><param name="movie"
+value="http://www.youtube.com/v/QIC21_XaAJ0?fs=1&amp;hl=en_US"></param><param
+name="allowFullScreen" value="true"></param><param
+name="allowscriptaccess" value="always"></param><embed
+src="http://www.youtube.com/v/QIC21_XaAJ0?fs=1&amp;hl=en_US"
+type="application/x-shockwave-flash" allowscriptaccess="always"
+allowfullscreen="true" width="480" height="385"></embed></object>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[My video editing process]]></title>
+    <link href="https://www.kurup.org/blog/2010/07/20/kino"/>
+    <updated>2010-07-20T20:51:00-04:00</updated>
+    <id>https://www.kurup.org/blog/2010/07/20/kino</id>
+    <content type="html"><![CDATA[<p>I use <a href="http://www.kinodv.org/">kino</a> to edit the
+<a href="http://youtube.com/vkurup1">videos that we take of the kids</a>. I haven't
+found a Linux program which was as nice as iMovie was on the Mac, but kino
+is pretty good. It's easy to splice and reconnect video clips together. It
+has nice special effects, though my needs are pretty simple. It's able to
+export in plenty of formats, possibly too many, for my simple mind. But,
+I've figured it out and have a stable process for getting video from camera
+to youtube.</p>
+
+<p>I have 3 camcorders - a <a href="http://www.theflip.com/">Flip</a>, my Canon digital
+camera, and a Panasonic DVD camcorder. I can just copy the AVI files
+directly off the Flip and the Canon's SD card. The Panasonic records all of
+the video clips into a single file with a .VRO extension. I found a great
+utility called <a href="http://www.pixelbeat.org/programs/dvd-vr/">dvd-vr</a>, which
+reads that file and splits it into individual AVI files. Once I have a
+directory full of AVI files from the various camcorders, I use
+<a href="http://www.gnu.org/software/emacs/">emacs</a> to rename them consistently. I
+open up 2 buffers: an editable dired buffer (<code>wdired-change-to-wdired-mode</code>)
+of the movies directory, and a shell buffer in that same directory. I run a
+macro which takes the first file in the directory, plays it via an mplayer
+command in the shell buffer and then renames the file using the
+date/timestamp of the file. The macro leaves the cursor in a spot where I
+can enter a brief description of the video and then run the macro again to
+do the next video. It works pretty well. I then batch convert them to DV
+format, which is what Kino accepts. Finally, I launch Kino and edit the
+files, add titles, export them to AVI again, and then upload them to
+youtube.</p>
+
+<p>I did this today and ran into a problem with kino. The video played at
+breakneck speed and there was no audio. Google helped me figure out that
+this was a problem between PulseAudio and kino. Kino is no longer actively
+developed. The lead developer considers it stable and finished and he's
+moved on to other endeavors, which is perfectly understandable. He's
+however, taken the time to describe
+<a href="http://www.kinodv.org/article/view/173/1/13/">a workaround</a>. He recommends
+running <code>padsp kino</code> which routes all audio requests from kino to
+pulseaudio. This worked, but the audio had a lot of feedback. I found an
+even better
+<a href="http://ubuntuforums.org/showpost.php?p=8367831&amp;postcount=7">workaround on the ubuntu forums</a>. Use
+<code>pasuspender kino</code>, which suspends all PulseAudio activity, gives kino
+direct access to audio devices, and then resumes PulseAudio once kino has
+quit. This worked with perfect audio quality, though of course, audio from
+any other program gets muted completely.</p>
+
+<p>I am still on the lookout for a better video editing solution on
+Linux. Eventually, I'd like to make DVDs of the hundreds of little clips
+that I have. They don't need to be fancy, but I would like to have some
+basic menus and they need to work on standard DVD players. I've started
+doing a little research on this, so will post once I've tried some things
+out.</p>
+]]></content>
+  </entry>
+  
+</feed>

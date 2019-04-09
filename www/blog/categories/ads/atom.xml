@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: ads | Vinod Kurup]]></title>
+  <link href="https://www.kurup.org/blog/categories/ads/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2019-04-09T07:01:33-04:00</updated>
+  <id>https://www.kurup.org/</id>
+  <author>
+    <name><![CDATA[Vinod Kurup]]></name>
+    <email><![CDATA[vinod@kurup.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Google Ads only for googlers]]></title>
+    <link href="https://www.kurup.org/blog/2005/11/29/google-ads-only-for-googlers"/>
+    <updated>2005-11-29T00:00:00-05:00</updated>
+    <id>https://www.kurup.org/blog/2005/11/29/google-ads-only-for-googlers</id>
+    <content type="html"><![CDATA[<p>I saw this great idea over at this place called Raganwald. <a href="http://www.braithwaite-lee.com/weblog/2005/11/off-topic-raganadvertising.html">Only show ads to visitors who come in from search engines.</a> I really don't want friends and family to see ads, so this effectively shields them since they will probably come here by typing kurup.org in the address bar or using a bookmark.</p>
+
+<p>You're welcome :-)</p>
+]]></content>
+  </entry>
+  
+</feed>

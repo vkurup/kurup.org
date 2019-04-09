@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: hospitalist | Vinod Kurup]]></title>
+  <link href="https://www.kurup.org/blog/categories/hospitalist/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2019-04-09T07:01:33-04:00</updated>
+  <id>https://www.kurup.org/</id>
+  <author>
+    <name><![CDATA[Vinod Kurup]]></name>
+    <email><![CDATA[vinod@kurup.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[SHM 2011]]></title>
+    <link href="https://www.kurup.org/blog/2011/05/13/shm-2011"/>
+    <updated>2011-05-13T05:35:21-04:00</updated>
+    <id>https://www.kurup.org/blog/2011/05/13/shm-2011</id>
+    <content type="html"><![CDATA[<p>Here are some (unorganized) thoughts about my experience at the
+Society of Hospital Medicine (SHM) 2011 conference in Dallas, TX.</p>
+
+<h3>Opening Plenary</h3>
+
+<p>The initial presentation dissected the SHM Annual Compensation survey,
+discussing regional variations in pay and work effort over time. I
+understand the importance of that stuff, but ever since I got my first
+$638.36 paycheck as an intern, money hasn't been an issue for me.</p>
+
+<p>The second talk was by <a href="http://www.whorunsgov.com/Profiles/Robert_Kocher">Bob
+Kocher</a>, an Obama
+insider during the recent healthcare reformd. Gerry would have loved
+this one. He briefly described how a bill becomes a law... it
+apparently doesn't follow the Schoolhouse Rock model anymore. At one
+point, reform looked dead, when the Catholic Nuns came out in favor of
+the legislation allowing multiple congress members to change their
+vote to "Yes". As Kocher put it (paraphrasing), "When the Nuns broke
+with the Bishops, healthcare reform could move forward." Doesn't that
+seem like a statement that should be in a history book about medieval
+times, rather than a statement about 2010 United States politics?
+Maybe it's just me...</p>
+
+<h3>Neurologic emergencies</h3>
+
+<p>The Neurologic emergencies talk was entertaining, though maybe more
+useful to an intensivist. David Likosky is hilarious in a geeky kind
+of way. A few things I learned:</p>
+
+<p>Always maintain a good differential diagnosis and don't jump to a
+conclusion too quickly. He described a case of an alcoholic who
+presented in coma and had dynamic pupils making a brainstem stroke the
+most likely diagnosis. A lot of time was spent to rule that out, and
+then his labs came back with a sugar of 13, indicating that the
+diagnosis of hypoglycemia was missed. He described some of the reasons
+that happened and I can see them happening to me. Never get fixated on
+a diagnosis, especially before you've made the proper initial
+evaluaation. A fingerstick glucose should always be done in a coma
+workup.</p>
+
+<p>A few points on status epilepticus (SE)</p>
+
+<ul>
+<li>Convulsive SE is a seizure that lasts more than 5 minutes, and is a medical
+emergency.</li>
+<li>Lorazepam is probably better than Diazepam and don't be
+afraid to use high doses (Start at 4 IV). We commonly underdose and
+underdosing hurts.</li>
+<li>Nonconvulsive SE is considered as a medical urgency. A lot of
+patients have SE on EEG after convulsions have stopped and many have
+persistent subclinical seizures after SE is controlled. So, repeat the
+EEG, and consider transfer to a center that can do continuous EEG monitoring.</li>
+<li>Absence seizures is really a diagnosis of children. (Not really
+about SE, but interesting)</li>
+</ul>
+
+
+<p>Things to make you think that a CVA may be posterior circulation: Loss
+of consciousness, pupillary abnormalities, superhigh BP. Allow it to
+stay superhigh and keep the patient flat. Because posterior
+circulation strokes have such bad outcomes, it's OK to intervene after
+the normal time window if there doesn't seem to be any other hope.</p>
+
+<h3>Dermatology images (Paul Aronowitz)</h3>
+
+<p>When approaching a rash, ask 3 questions: Did the patient cause this
+rash? Did we do that to the patient? (Ask this twice). Is this rash a
+manifestation of some other disease? We often jump to the third
+question, but should consider the first two.</p>
+
+<p>The snake bite risk factors are pretty interesting:
+- Male
+- Age 17-27
+- Deliberate attempt to handle, harm or kill snake
+- Summer months
+- Alcohol intoxication
+- Tattoos</p>
+
+<p>DRESS (Drug reaction with eosinophilia and systemic symptoms) usually
+occurs 2-6 weeks after the drug is started, but occurs quicker after
+rechallenge with the drug.</p>
+
+<p>Reactive arthritis can be seen after Clostridium difficile infections.</p>
+
+<p>20% of cases of Neisseria meningitidis do not have meningitis.</p>
+
+<h3>Poster presentations</h3>
+
+<p>The poster presentations are always fun to read, though if I see one
+more poster about the readmission problem, I will vomit.</p>
+
+<h3>Research Abstract Awards</h3>
+
+<p>The winning research abstracts were very interesting.</p>
+
+<ul>
+<li>UCSF described changes that they made to meet new ACGME requirements
+while decreasing costs and improving certain quality measures.</li>
+<li><p>Johns Hopkins hospitalists modified their CPOE system to show the
+costs of specific lab tests, hoping to change provider behavior. They
+were able to show that providers ordered less tests when they saw the
+cost. Duh, you say, but there is so little cost information available
+to providers, so this is innovative if only for that reason.</p></li>
+<li><p>Hospitalists (in Colorado, I think?) used the Toyota Production
+System to model problems with current intern work schedules. They then
+reworked the schedule to minimize waste of resident resources, while
+improving continuity and resident satisfaction. They were able to
+basically eliminate moonlighter and jeopardy use. I didn't understand
+the schedule because it was presented quickly, but I like the idea of
+taking a nonmedical thought approach and applying it to medicine. I
+also like that they optimized for continuity of care, so that after
+the intervention there was a huge increase in the amount of patients
+that were seen only by 1 intern during their stay. Very interesting!</p></li>
+</ul>
+
+
+<h3>SHM promotion</h3>
+
+<p>My attention faded during the award presentations and SHM motivational
+speeches, but Joseph Li, the incoming SHM president, did come clean
+and acknowledge that he was born outside the U.S., despite his lack of
+an accent. The birthers were right!</p>
+
+<h3>Geographic rounding</h3>
+
+<p>Emory Hospitalists then presented a talk which was titled 'Utilizing
+Technology to Improve Clinical and Operational Performance of
+Hospitalists' but it should really have been titled "Geographic
+Bedside Rounds: Just Do It!". They did mention the IT improvements
+they've made to support geographic rounding, but the value of the talk
+was in describing how they implemented geographic rounding and how it
+has been received by the involved parties. Moving to geographic
+rounding helps providers the least. It's basically an addition to our
+workload. On the other hand, patients, nurses, and social workers get
+a lot of benefit and obviously, the patients are the most important
+factor here. We will have to see the patient more than once and our
+workflow will have to change, but it seems that the benefits outweigh
+the extra costs to the individual provider. Paraphrased, "Nurses and
+social workers would riot if we stopped this system, but even
+hospitalists wouldn't want to go back to the old way, if put to a
+referendum." Something that only came out in the post-talk questions
+was how this has improved overall teamwork. They used to have a
+complicated system about how new admissions were assigned, taking into
+account census numbers, discharge numbers, and other factors. Now,
+with the new system, there are days that one hospitalist will have
+completely unequal numbers or new patients than another hospitalist,
+but it is understood that things will even out over time. That has
+encouraged hospitalists to stop focusing on numbers and instead to
+focus on making things run better, so hospitalists who were previously
+"anti-teamwork" are now offering to help out when they're done with
+their work. Anecdotal, but I like stories like that.</p>
+
+<p>They also mentioned that they created a video dramatization of their
+bedside rounds. If I can find it, I will link to it.</p>
+
+<h3>Updates in Hospital Medicine</h3>
+
+<ul>
+<li>Oral prednisone 60 mg daily as good as 600 mg IV for COPD
+exacerbation (Presented at DRH Journal club)</li>
+<li>OK to extend peripheral IVs rather than change routinely (Emailed to
+me by DRH Hospitalist)</li>
+<li>Getting appts for COPD exacerbation pts within 30 days may decrease
+rehospitalization (duh!)</li>
+<li>Benefit for tPA in stroke up to 4.5 hours, but earlier is better
+(DRH Journal club)</li>
+<li>Gurgling sounds predict pneumonia and ICU transfer (duh)</li>
+<li>Routine ID consultation in Staph aureus bacteremia significantly
+improves mortality (HR 0.44) (NEW TO ME)</li>
+<li>Coagulopathy in liver disease doesn't protect against VTE (duh)</li>
+<li>Metformin does not cause lactic acidosis (old news, but nice to be
+data-supported now)</li>
+<li>Enteral nutrition better than TPN in pancreatitis (DRH email/conversations)</li>
+<li>In ICU palliative care situations, only 47% of family members based
+their survival estimates on MD's prognosis advice.</li>
+</ul>
+
+
+<p>I skipped the ICU stuff. Only one of these updates was new to me
+(listed as NEW in the list above). I attribute that to my colleagues
+at Durham Regional who have been sharing the knowledge that they've
+been collecting from various meetings and readings this year.</p>
+
+<h3>Careers in Academic Medicine</h3>
+
+<p>This was a workshop on how to pursue your ideal life in academic
+medicine. I loved the energy and enthusiasm of the instructors. This
+probably would've benefited from being a longer course with fewer,
+more involved participants. The basic premise was to document what
+exactly you are doing now, what you're getting paid to do, and what
+you enjoy doing. Reconcile the differences in those 3 lists and try to
+identify how to make them match.</p>
+
+<h3>No wireless</h3>
+
+<p>This would have been posted a lot earlier if I could ever get on the
+SHM wireless network at the Gaylord Convention Center. "Please
+wait. You will be redirected to the authentication page in 5 seconds."
+You lie!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Primary Care Doctors]]></title>
+    <link href="https://www.kurup.org/blog/2010/08/06/primary-care"/>
+    <updated>2010-08-06T11:59:00-04:00</updated>
+    <id>https://www.kurup.org/blog/2010/08/06/primary-care</id>
+    <content type="html"><![CDATA[<p>I used to be a primary care physician, but switched to being a hospitalist
+in 2007. I loved parts about being a PCP, namely the relationship that I
+developed with the patient over many years. I miss that. I think PCPs offer
+huge value in providing low cost, quality care, especially if they can stay
+engaged throughout the hospitalization process. Atul Gawande recently wrote
+<a href="http://www.newyorker.com/reporting/2010/08/02/100802fa_fact_gawande?currentPage=all">a powerful article on the Hospice system</a>. It's
+worth reading to being to understand the complex issues involved in
+end-of-life care, not to mention for the emotional storytelling that is his
+strength. But, to me, the unsung hero in that story was Chuck Morris, the
+primary care physician, who came in at the proper moment and provided
+perspective to the patient that he knew so well, allowing them to make the
+sane, yet horribly difficult decision to pursue a palliative path. Reading
+that made me miss primary care medicine a little. I perform much more
+actual "medical" work as a hospitalist than I ever did as a PCP. But, when
+I think of the concept of a <em>doctor</em>, in my head, I'm thinking of a primary
+care doc.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Hospitalist Notes 1]]></title>
+    <link href="https://www.kurup.org/blog/2010/07/29/hospitalist-notes-1"/>
+    <updated>2010-07-29T13:50:00-04:00</updated>
+    <id>https://www.kurup.org/blog/2010/07/29/hospitalist-notes-1</id>
+    <content type="html"><![CDATA[<p>My last night shift was a little less busy than most, so I forced myself to pick something about each patient I admitted and look it up. I tend to do this anyway, but I never keep notes or write about it. Here's what I wrote about that night:</p>
+
+<h3>Does Buspar (buspirone) need to be tapered?</h3>
+
+<p>Answer: No. The full report on Micromedex was a little conflicting, because it stated that there may be some withdrawal symptoms from Buspar, but this quote in the same profile suggests otherwise:</p>
+
+<blockquote><p>Data suggest that buspirone does not cause physical dependence and as such, no withdrawal effects have been noted (Rickels et al, 1988a; Tyrer et al, 1985; Cole et al, 1982).</p></blockquote>
+
+<h3>Staging COPD</h3>
+
+<p>I always forget the cutoffs for the stages of COPD. There are 2 different guidleines - GOLD and ATS/ARS, but fortunately they are almost identical:</p>
+
+<p>Patients need to have an FEV1/FVC ratio &lt; 0.70. Staging is then based on the FEV1.</p>
+
+<ul>
+<li>Stage I (Mild): FEV1 > 80% predicted</li>
+<li>Stage II (Moderate): FEV1 50-80% predicted</li>
+<li>Stage III (Severe): FEV1 30-50% predicted</li>
+<li>Stage IV: (Very Severe): FEV1 &lt; 30% predicted, or &lt; 50% with signs of chronic respiratory failure</li>
+</ul>
+
+
+<p>Reference: <a href="http://www.annals.org/content/147/9/633/T2.expansion.html">Annals</a></p>
+
+<h3>How to determine calorie level of ADA diet?</h3>
+
+<p>We always put diabetic patients on an ADA diet and I choose the calorie level by gestalt. I figured there must be some formula to calculate the calorie level based on the patient's weight. Looking it up, I found a different answer altogether. The ADA no longer recommends an ADA diet in the hospital. Instead, they recommend a consistent-carbohydrate diet. In long-term care facilities (i.e. nursing homes), they go a step further and recommend a 'Regular' diet with consistency in the amount and timing of carbohydrate. They specifically state that there is no evidence to support the classic 'No concentrated sweets' diet. These guidelines are from 2007, but they obviously have not been widely disseminated yet.</p>
+
+<blockquote><p>It is recommended that the term “ADA diet” no longer be used, since the ADA no longer endorses a single nutrition prescription or percentages of macronutrients.</p></blockquote>
+
+<p>Reference: <a href="http://care.diabetesjournals.org/content/30/suppl_1/S48.full">Diabetes Care</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[I'm alive]]></title>
+    <link href="https://www.kurup.org/blog/2008/08/02/im-alive"/>
+    <updated>2008-08-02T00:00:00-04:00</updated>
+    <id>https://www.kurup.org/blog/2008/08/02/im-alive</id>
+    <content type="html"><![CDATA[<p>OK, I know it's been almost a year since I updated this blog, but rest assured that I'm still alive and kicking. The observant among you will notice that the design of the blog has changed. The even more observant will notice that huge swaths of content are now missing. Things like my photo albums, my running log, old comments, and Kavi's little site are now gone. They may make a reappearance someday, especially if I get prodded sufficiently. I have my old site running locally on my laptop, but I'm too lazy to bring it all back right now.</p>
+
+<p>If you're just interested in pics of Kavi (and I know that's most of you), go visit <a href="http://picasaweb.google.com/vvkurup">my Picasa photo album</a>.</p>
+
+<p>Cathy Sarisky, who had so kindly hosted kurup.org for a few years now, has decided to exit the web hosting business. I took the opportunity to scale down my web operations a bit. This blog is now powered by <a href="http://wordpress.org">WordPress</a> instead of <a href="http://www.openacs.org">OpenACS</a>. I'm hoping that "outsourcing" the tech stuff to WordPress will allow me to focus more on writing stuff, rather than tweaking settings. Hold me to it! I've stolen the design for this blog from <a href="http://diveintomark.org">diveintomark</a>. I've always enjoyed his writing and his design sense. I hope he doesn't mind.</p>
+
+<p>So much has changed since my last post. Kavi has just continued to grow and amaze us. I know for a fact that he is the most adorable little boy in the universe. He's gotten even more adorable now that he sleeps through the night (as of the past month!). We've moved into a house for the first time in our adult lives. We are now residents of Chapel Hill, NC. We're living the American Dream. I'm going to skip right over the whole purchase process which was more nightmarish than it should have been thanks to some very difficult sellers. Since moving in, we've replaced a missing toilet tank, shampooed carpets, changed locks, and hired painters, landscapers, electricians, pest control people, gutter cleaners and house cleaners. Almost makes you want to move back into an apartment. :-)</p>
+
+<p>I started work as a hospitalist last September, and I'm starting to get into a groove now. It was quite a shock to switch from outpatient, academic practice to inpatient, private practice. At times, I still feel like a resident, but for the most part, I find this job to be much more rewarding intellectually and spiritually. It's more exhausting than I thought it would be, though. I can't see myself working this kind of schedule for the rest of my life. So, as always, I'm still trying to figure out exactly what I want to do when I grow up.</p>
+
+<p>Well, enough rambling for my first post back. Hope to speak to y'all soon (That's the southerner in me now!)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Hospitalist Handbook]]></title>
+    <link href="https://www.kurup.org/blog/2005/08/22/hospitalist-handbook"/>
+    <updated>2005-08-22T00:00:00-04:00</updated>
+    <id>https://www.kurup.org/blog/2005/08/22/hospitalist-handbook</id>
+    <content type="html"><![CDATA[<p>If you're looking for a clear, concise handbook for Hospitalist Medicine, check out the <a href="http://medicine.ucsf.edu/education/resed/handbook/index.html">UCSF Hospitalist Handbook</a>, available free online. I'm not sure it's up-to-date (the copyright notice states 2002), but it still seems relevant and useful. And I'm not just saying that because my cousin Deepu Nair wrote the <a href="http://medicine.ucsf.edu/education/resed/handbook/HospH2002_C1.htm">Night Calls</a> section.</p>
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>You read my mind</b></p>
+<p>
+Vin you read my mind I have been waiting for a handbook on hospitalist
+medicine, thank you so much. Oh one more thing, Happy 34th, starting
+to feel older yet?
+</p>
+<address class="signature">
+<span class="author">Andy Drout</span>
+<span class="date">2005-08-22 21:08:12</span>
+</address>
+</div>
+
+<div class="one-comment">
+<p><b>Sandeep</b></p>
+<p>
+this is a cool site!  the wedding was so much fun!!! we can't wait for
+the whole family to get together like that again!
+</p>
+
+<p>
+from sandeep!!! hahaha
+</p>
+<address class="signature">
+<span class="author">Sandeep Nair</span>
+<span class="date">2005-09-08 02:48:43</span>
+</address>
+</div>
+
+</div>
+
+]]></content>
+  </entry>
+  
+</feed>

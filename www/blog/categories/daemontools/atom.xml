@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: daemontools | Vinod Kurup]]></title>
+  <link href="https://www.kurup.org/blog/categories/daemontools/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2019-04-09T07:01:33-04:00</updated>
+  <id>https://www.kurup.org/</id>
+  <author>
+    <name><![CDATA[Vinod Kurup]]></name>
+    <email><![CDATA[vinod@kurup.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[me vs. daemontools]]></title>
+    <link href="https://www.kurup.org/blog/2003/06/29/me-vs-daemontools"/>
+    <updated>2003-06-29T00:00:00-04:00</updated>
+    <id>https://www.kurup.org/blog/2003/06/29/me-vs-daemontools</id>
+    <content type="html"><![CDATA[<p>I have a love/hate relationship with <a href="http://cr.yp.to/daemontools.html">daemontools</a>. It's powerful way to manage services (like web servers and mail servers), but it sometimes doesn't act the way I expect it to.</p>
+
+<p>Today, I tried to set up <a href="http://cr.yp.to/qmail.html">qmail-pop3d</a>. I set up a directory called <code>/var/qmail/supervise/qmail-pop3d</code> and put a file named 'run' inside it. This contained:</p>
+
+<pre><code>#!/bin/sh
+PATH=/var/qmail/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin
+export PATH
+
+tcpserver -H -R 0 pop-3 
+/var/qmail/bin/qmail-popup vkurup.acornhosting.net 
+/home/vpopmail/bin/vchkpw /var/qmail/bin/qmail-pop3d Maildir &amp;
+</code></pre>
+
+<p>Then I connected the run script to my /service directory</p>
+
+<pre><code># ln -s /var/qmail/supervise/qmail-pop3d /service
+</code></pre>
+
+<p>Then I checked to see if it was running:</p>
+
+<pre><code># svstat /service/qmail-pop3d
+/service/qmail-pop3d: up (pid 13524) 0 seconds
+</code></pre>
+
+<p>Hmmm... up 0 seconds. That's not right - it should be at least 5 or 6 seconds (I can't type <strong>that</strong> fast). That usually means that the service is repeatedly failing and restarting itself.</p>
+
+<p>ps shows that qmail-pop3d is running, but trying to connect to port 110 doesn't work:</p>
+
+<pre><code>$ telnet localhost 110
+Trying 127.0.0.1...
+telnet: Unable to connect to remote host: Connection timed out
+</code></pre>
+
+<p>And now I'm stuck. Nothing is getting logged to the qmail-pop3d logs. After some headbanging, I do another <code>ps -ax</code> and this time notice a process called readproctitle:</p>
+
+<pre><code>11919 ?        S      0:05 readproctitle service errors: ...lready used?tcpserve
+r: fatal: unable to bind: address already used?tcpserver: fatal: unable to bind:
+ address already used?tcpserver: fatal: unable to bind: address already used?tcp
+server: fatal: unable to bind: address already used?tcpserver: fatal: unable to 
+bind: address already used?tcpserver: fatal: unable to bind: address already use
+d?tcpserver: fatal: unable to bind: address already used?
+</code></pre>
+
+<p>What's that? I look it up and find that <a href="http://cr.yp.to/daemontools/readproctitle.html">readproctitle</a> is a kind of scrolling-log for daemontools which shows up when you run <code>ps</code>. So, it looks like <code>qmail-pop3d</code> failing because it's trying to bind port 110 even though it's already been bound. So this makes me thing that <code>qmail-pop3d</code> isn't failing, but that it's running over and over again. And then I look back at my run script and look at that pesky little '&amp;' at the end. Doh! That tells the process to detach once it starts. It starts normally, then detaches. Once it detaches, daemontools thinks it's down, so it tries to start it again. (At least that's the way I understand it). Getting rid of the '&amp;' and adding 'exec' to the beginning fixes it and everything works now.</p>
+
+<p>Me: 1 Daemontools: 2123</p>
+]]></content>
+  </entry>
+  
+</feed>

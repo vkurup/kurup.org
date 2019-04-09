@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: survey | Vinod Kurup]]></title>
+  <link href="https://www.kurup.org/blog/categories/survey/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2019-04-09T08:22:17-04:00</updated>
+  <id>https://www.kurup.org/</id>
+  <author>
+    <name><![CDATA[Vinod Kurup]]></name>
+    <email><![CDATA[vinod@kurup.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Take the MIT blog survey]]></title>
+    <link href="https://www.kurup.org/blog/2005/07/05/take-the-mit-blog-survey"/>
+    <updated>2005-07-05T00:00:00-04:00</updated>
+    <id>https://www.kurup.org/blog/2005/07/05/take-the-mit-blog-survey</id>
+    <content type="html"><![CDATA[<p><a href="http://blogsurvey.media.mit.edu/request"><img src="http://blogsurvey.media.mit.edu/images/survey-statistic.gif" alt="Take the MIT Weblog Survey" style="border:none" /></a></p>
+
+<p>found on <a href="http://aufrecht.org/blog/one-entry?entry%5fid=25342">Joel's Blog</a></p>
+]]></content>
+  </entry>
+  
+</feed>

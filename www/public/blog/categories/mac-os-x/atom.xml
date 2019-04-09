@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: mac-os-x | Vinod Kurup]]></title>
+  <link href="https://www.kurup.org/blog/categories/mac-os-x/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2019-04-09T08:22:17-04:00</updated>
+  <id>https://www.kurup.org/</id>
+  <author>
+    <name><![CDATA[Vinod Kurup]]></name>
+    <email><![CDATA[vinod@kurup.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Open PDFs in Preview by default]]></title>
+    <link href="https://www.kurup.org/blog/2005/02/12/open-pdfs-in-preview-by-default"/>
+    <updated>2005-02-12T00:00:00-05:00</updated>
+    <id>https://www.kurup.org/blog/2005/02/12/open-pdfs-in-preview-by-default</id>
+    <content type="html"><![CDATA[<p>Adobe Acrobat takes forever to load (with "forever" being defined as 4-5 seconds), so I wanted all my PDFs to open in Preview, by default. The thread above explains how to do it.</p>
+
+<ol>
+<li>Select a PDF file in the Finder</li>
+<li>Select "Get Info" from the File menu (or hit Cmd-I)</li>
+<li>Set "Open With" to Preview</li>
+<li>Click the "Change All" button to make this the default for all PDFs</li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[iAppleStore]]></title>
+    <link href="https://www.kurup.org/blog/2004/03/28/iapplestore"/>
+    <updated>2004-03-28T00:00:00-05:00</updated>
+    <id>https://www.kurup.org/blog/2004/03/28/iapplestore</id>
+    <content type="html"><![CDATA[<p>I caught the tail-end of a free presentation on <a href="http://www.apple.com/ilife/">iLife</a> at the <a href="http://www.apple.com/retail/soho/">Apple Store in SoHo</a> this afternoon. iMovie has been sitting around unused on my computer for too long. Inspired by how easy the instructor made it seem, I finally got around to launching iMovie and creating this montage of our <a href="http://kurup.org/files/telluride.mov">Telluride trip (5.0 MB)</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Don't use "Archive and Install"]]></title>
+    <link href="https://www.kurup.org/blog/2004/03/08/dont-use-archive-and-install"/>
+    <updated>2004-03-08T00:00:00-05:00</updated>
+    <id>https://www.kurup.org/blog/2004/03/08/dont-use-archive-and-install</id>
+    <content type="html"><![CDATA[<p>Thanks to the fine folks at <a href="http://badgertronics.com/blog">badgertronics</a>, I was able to upgrade my Powerbook to Panther free-of-charge. I initially did an "Archive and Install" upgrade, as recommended by the upgrade guide at <a href="http://www.tidbits.com/takecontrol/#upgrading">TidBITS</a> (easily worth the measly $5, IMHO). But soon after the install, I noticed that my system seemed a lot slower. I couldn't pinpoint a specific problem, but things just seemed sluggish. I definitely noticed that DNS seemed to be broken. I was moved to act when I noticed that my IMAP client (<a href="http://gopher.quux.org:70/devel/offlineimap">offlineimap</a>) took 15 minutes to sync 48 IMAP Maildirs between my Mac and my server. According to the offlineimap docs, syncing 50 Maildir folders should take around 3 seconds. Hmmm.... that seems a little wrong.</p>
+
+<p>I searched the Internet but was unable to find a specific fix for this problem. A few posters intimated that doing a fresh "Erase and Install" of Mac OS X 10.3 was better than using the "Archive and Install" option. So, this weekend, I backed up my HD using <a href="http://www.bombich.com/software/ccc.html">Carbon Copy Cloner</a>, erased my HD, and did a fresh install of Mac OS X Panther.</p>
+
+<p>As expected, everything is quick and zippy again. A sync of my IMAP folders takes 15 seconds now, as opposed to 15 <em>minutes</em>. While I'm happy with the result, I wish I could figure out why the "Archive and Install" option resulted in such a poor outcome.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[darwinports]]></title>
+    <link href="https://www.kurup.org/blog/2004/03/08/darwinports"/>
+    <updated>2004-03-08T00:00:00-05:00</updated>
+    <id>https://www.kurup.org/blog/2004/03/08/darwinports</id>
+    <content type="html"><![CDATA[<p>In the process of installing Panther from scratch, I decided to use <a href="http://darwinports.opendarwin.org/">DarwinPorts</a>. It's a packaging system for the abundant UNIX <a href="http://www.fsf.org/">free software</a> available on Mac OS X. I had previously used <a href="http://fink.sf.net">Fink</a> which, while being an admirable project, seemed a little opaque to me. I never quite knew where data was being installed and which locations were being searched to see if prerequisites were present. Darwinports seems to be a little better at finding programs/libraries that are already installed. I freely admit my ignorance in this matter, though. It may simply be that I understand Darwinports better than I did Fink, but that, in itself is an important criteria.</p>
+
+<p>Here are the ports that I currently have installed:</p>
+
+<pre><code>[02:17:13 vinod]:~ $ port installed The following ports are installed:
+     gettext-0.10.40
+     keychain-2.0.3
+     mutt-1.4.2.1
+     offlineimap-4.0.0
+     readline-4.3
+     urlview-0.9
+     wget-1.9.1
+</code></pre>
+
+<p>All of the above ports are available from darwinports except offlineimap. I built that one myself. Here is the Portfile for offlineimap:</p>
+
+<pre><code>[02:18:42 vinod]:~/dports-dev/mail/offlineimap $ cat Portfile 
+# $Id: $  PortSystem          1.0 
+name                offlineimap 
+version             4.0.0 
+categories          mail 
+maintainers         vinod@kurup.org 
+platforms           darwin 
+homepage            http://gopher.quux.org:70/devel/offlineimap 
+description         IMAP/Maildir synchronization and reader support 
+long_description    OfflineIMAP is a tool to simplify your e-mail reading. With OfflimeIMAP, you can:   
+                    * Read the same mailbox from multiple computers, and have your     
+                      changes (deletions, etc.) be automatically reflected on     
+                      all computers   
+                    * Use various mail clients to read a single mail box   
+                    * Read mail while offline (on a laptop) and have all changes     
+                      synchronized when you get connected again   
+                    * Read IMAP mail with mail readers that do not support IMAP   
+                    * Use SSL (secure connections) to read IMAP mail even if your reader     
+                      doesn't support SSL   
+                    * Synchronize your mail using a completely safe and fault-tolerant     
+                      algorithm.  (At least I think it is!)   
+                    * Customize which mailboxes to synchronize with regular expressions     
+                      or lists.   
+                    * Synchronize your mail two to four times faster than with other tools     
+                      or other mail readers' internal IMAP support.  In short, OfflineIMAP 
+                      is a tool to let you read mail how YOU want to.   
+distname            ${name}_${version} 
+master_sites        http://gopher.quux.org:70/devel/offlineimap/ 
+checksums           md5 13e355c8a957dddfe9b7486821d83370  
+depends_lib         bin:python2.3:python23  
+# tarball extracts as offlineimap, not offlineimap-4.0.0 
+worksrcdir          ${name}  
+use_configure       no  
+build.cmd           python setup.py 
+build.target        build  
+destroot.cmd        python setup.py 
+destroot.destdir    --prefix=${destroot}${prefix}  
+post-destroot {         # remind user to define/add installed path to python path         
+                        ui_msg " be sure the install path is included in your python path:"
+                        # FIXME: hardcoding 2.3 isn't right here         
+                        ui_msg "tcsh: setenv PYTHONPATH $PYTHONPATH:${prefix}/lib/python2.3/site-packages"         
+                        ui_msg "bash: export PYTHONPATH=$PYTHONPATH:${prefix}/lib/python2.3/site-packages"          
+                        xinstall -d -m 755 ${destroot}${prefix}/share/doc/${name}         
+                        xinstall -m 644 -W ${worksrcpath} manual.html manual.pdf manual.ps
+                                 manual.txt ChangeLog COPYING COPYRIGHT UPGRADING
+                                 ${destroot}${prefix}/share/doc/${name}         
+                        xinstall -d -m 755 ${destroot}${prefix}/share/doc/${name}/examples
+                        xinstall -m 644 -W ${worksrcpath} offlineimap.conf offlineimap.conf.minimal                  
+                                 ${destroot}${prefix}/share/doc/${name}/examples
+                        install -m 644 -W ${worksrcpath} offlineimap.1
+                                ${destroot}${prefix}/share/man/man1 }
+</code></pre>
+
+<p>I haven't submitted this to the darwinports project yet because they recommend installing the software on a fresh Mac OS X install to be sure that you've correctly specified any dependencies. I haven't had time to do that yet. I hope to, though, because I find the port system to be very intuitive. Building an OpenACS port on Mac OS X seems doable, but I need to look into how upgrades are handled. <a href="http://without.net/wtem">Walter McGinnis</a> has sent me his instructions for building an OpenACS installation using darwinports, but I think we can make it easier, by building simple Portfiles for each of the required pieces. Here are Walter's detailed instructions:</p>
+
+<pre><code># install darwinports 
+# see instructions on darwinports.com # using openacs-head for server name for convoluted reasons... 
+# i also use ~/Development/web rather than /var/lib/aolserver for my 
+# server source 
+# darwinports working directories under ~/Development/darwinports/ 
+# you need to add /opt/local/bin or something to your path in .bash_profile 
+# for the port command to work 
+# see darwinports install doc for details
+Delphy:~ walter$ sudo port -v -d install postgresql
+Password: ...
+Delphy:~ walter$ pwd
+/Users/walter
+Delphy:~ walter$ cd /opt/local/
+Delphy:/opt/local walter$ mkdir pgsql
+Delphy:/opt/local walter$ mkdir pgsql/data
+Delphy:/opt/local walter$ sudo chown -R walter:staff pgsql
+Delphy:/opt/local walter$ initdb -D pgsql/data
+...
+Delphy:/opt/local walter$ pg_ctl -D pgsql/data -l logfile start
+postmaster successfully started
+Delphy:/opt/local walter$ createlang plpgsql template1
+Delphy:/opt/local walter$ createdb openacs-head
+CREATE DATABASE
+Delphy:/opt/local walter$ createuser openacs-head
+Shall the new user be allowed to create databases? (y/n) y
+Shall the new user be allowed to create more new users? (y/n) y
+CREATE USER
+Delphy:/opt/local walter$ sudo port -v -d install aolserver
+... 
+Delphy:/opt/local walter$ cd ~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0/
+Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0 walter$ sudo port -v -d install wget
+Password: ... 
+Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0 walter$ sudo wget http://twtelecom.dl.sourceforge.net/sourceforge/aolserver/nscache-1.5.tar.gz
+Password: ... 
+Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0 walter$ sudo wget http://twtelecom.dl.sourceforge.net/sourceforge/aolserver/nspostgres-4.0.tar.gz
+...
+Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0 walter$ sudo wget http://twtelecom.dl.sourceforge.net/sourceforge/aolserver/nssha1-0.1.tar.gz
+... 
+Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0 walter$ sudo cvs -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/aolserver login
+Password:  (Logging in to anonymous@cvs.sourceforge.net)
+CVS password: 
+Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0 walter$ sudo cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/aolserver co nsrewrite
+... 
+Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0 walter$ sudo tar xvfz nscache-1.5.tar.gz ; sudo tar xvfz nssha1-0.1.tar.gz ; sudo tar xvfz nspostgres-4.0.tar.gz
+... 
+Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0 walter$ cd nscache-1.5 
+Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0/nscache-1.5 walter$ NSHOME=..; export NSHOME 
+Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0/nscache-1.5 walter$ sudo make install
+... 
+Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0/nscache-1.5 walter$ cd ../nsrewrite/ 
+Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0/nsrewrite walter$ sudo make install
+... 
+Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0/nsrewrite walter$ cd .. 
+Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0 walter$ cd nssha1-0.1 
+Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0/nssha1-0.1 walter$ sudo make install 
+Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0/nssha1-0.1 walter$ cd ../nspostgres-4.0 
+# edit the Makefile from:
+# &lt; MODLIBS   = -L$(PGLIB) -lpq
+# to
+# MODLIBS   = -L$(PGLIB) -lpq -lnsdb 
+Delphy:~/Development/darwinports/dports/www/aolserver/work/aolserver-4.0/nspostgres-4.0 walter$ sudo make install POSTGRES=/opt/local ACS=1
+... 
+Delphy:/opt/local walter$ cd /opt/local 
+Delphy:/opt/local walter$ sudo mkdir src
+Delphy:/opt/local walter$ sudo chmod 775 src  
+Delphy:/opt/local walter$ wget http://www.tdom.org/tDOM-0.7.8.tar.gz
+...
+Delphy:/opt/local walter$ cd src/
+Delphy:/opt/local/src walter$ tar xvfz ../tDOM-0.7.8.tar.gz 
+Delphy:/opt/local/src walter$ rm ../tDOM-0.7.8.tar.gz
+Delphy:/opt/local/src walter$ cd tDOM-0.7.8/ 
+Delphy:/opt/local/src/tDOM-0.7.8 walter$ cd unix/
+Delphy:/opt/local/src/tDOM-0.7.8/unix walter$ ../configure --enable-threads --disable-tdomalloc --prefix=/opt/local/aolserver 
+Delphy:/opt/local/src/tDOM-0.7.8/unix walter$ sudo make install
+... 
+Delphy:/opt/local/src/tDOM-0.7.8/unix walter$ cd
+Delphy:~ walter$ cd Development/
+Delphy:~/Development walter$ mkdir web
+Delphy:~/Development walter$ cd web 
+Delphy:~/Development/web walter$ cvs -z3 -d walterg@openacs.org:/cvsroot co acs-core
+password: ... 
+# i move the openacs code to openacs-head
+# mv openacs-4 openacs-head
+# edit openacs-head/etc/config.tcl to be localhost, etc
+! set hostname                  localhost
+! set address                   127.0.0.1 
+! set server                    "openacs-head"  
+set servername                "New OpenACS Installation - Development" 
+! set serverroot                "/Users/walter/Development/web/${server}" 
+Delphy:~/Development/web/openacs-head walter$ /opt/local/aolserver/bin/nsd -ft ~/Development/web/openacs-head/etc/config.tcl
+</code></pre>
+
+<p>I think Fink and Darwinports can coexist since Fink is installed in <code>/sw</code> and Darwinports in <code>/opt/local</code>, but I'm sticking with Darwinports alone, for now.</p>
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>darwinports distribution</b></p>
+<p>
+I agree that a lot of the build process for an openacs install
+could be handled with things like dependencies on other ports using
+Darwinports.
+</p>
+<p>
+It would be pretty slick to be able to do something like the
+following:
+</p>
+<p>
+<blockquote><code>sudo port install openacs -type personal -name
+myopenacs.com -ip 123.456.78.9 -admin_email
+admin@myopenacs.com</code></blockquote>
+</p>
+<p>I'm not sure that the above passing of install parameters can
+happen yet with the <code>port</code> command.  A scenario like this
+may be necessary:
+</p>
+<blockquote><code>sudo port install openacs-deps-and-src</code></blockquote>
+<blockquote><code>sudo /opt/local/openacs/configure -type personal -name myopenacs.com -ip 123.456.78.9 -admin_email admin@myopenacs.com</code></blockquote>
+<blockquote><code>sudo openacs start # really a wrapper for for checking for db running, if not start it, and starting a server's nsd process</code></blockquote>
+<p>After getting to one or the other scenarios its a simple step to
+creating an Applescript UI for configuring the parameters and calling
+the command.
+</p>
+<p>It is also important to note that Darwinports, at least in theory,
+could be used on other Unix variants like Linux and FreeBSD.  The big
+trouble I see is that it isn't compliant with the standards that the
+OpenACS docs use.  However, I must admit that I'm kind of partial to
+the idea of having a separate <code>/opt</code> branch for stuff.
+</p>
+
+<address class="signature">
+<span class="author">Walter McGinnis</span>
+<span class="date">2004-03-20 14:28:36</span>
+</address>
+</div>
+
+<div class="one-comment">
+<p><b>Update</b></p>
+<p>
+I'm in the process of installing OpenACS for development on a
+different machine than previously.  I've updated to the latest
+versions of software.  As a result, if you follow my previous
+directions, you'll need to add a new flag to the "sudo port -v -d
+install" commands in order to keep the source files around (you need
+these to build other software later), namely "-k" for keep the working
+directories.
+</p>
+<address class="signature">
+<span class="author">Walter McGinnis</span>
+<span class="date">2004-12-03 17:10:46</span>
+</address>
+</div>
+
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Compiling OpenFTS on Mac OS X]]></title>
+    <link href="https://www.kurup.org/blog/2004/01/15/compiling-openfts-on-mac-os-x"/>
+    <updated>2004-01-15T00:00:00-05:00</updated>
+    <id>https://www.kurup.org/blog/2004/01/15/compiling-openfts-on-mac-os-x</id>
+    <content type="html"><![CDATA[<p>It wasn't easy, but I finally got OpenFTS-0.3.2-tcl to compile on Mac OS X (10.2.8). I started by reading the excellent Mac OS X porting guides from <a href="http://fink.sourceforge.net/doc/porting/basics.php">Fink</a> and <a href="http://developer.apple.com/documentation/Porting/Conceptual/PortingUnix/intro/chapter_1_section_1.html">Apple</a>. Unfortunately, the OpenFTS Makefile and configure scripts aren't standard, so I had to muck around with things alot. Here's the diff:</p>
+
+<pre><code>diff -U 2 -rbB Search-OpenFTS-tcl-0.3.2/aolserver/Makefile  Search-OpenFTS-tcl-0.3.2-vk/aolserver/Makefile 
+--- Search-OpenFTS-tcl-0.3.2/aolserver/Makefile Tue Nov 19 14:24:44 2002 
++++ Search-OpenFTS-tcl-0.3.2-vk/aolserver/Makefile  Wed Jan 14 23:23:13 2004 
+@@ -13,6 +13,6 @@  
+OBJ       = $(SOBJ) $(POBJ) $(OOBJ) nsfts.o  NSFTSLIB  = nsfts.so -LDSO      
+= gcc -shared  INC       = -I../include -I$(NS_HOME)/include -I$(NS_HOME)/nsd +MODLIBS += -L/sw/lib -L/usr/local/aolserver/lib -ltcl8.4 -lnsd    .SUFFIXES: .c .h .so .l @@ -26,5 +26,5 @@    $(NSFTSLIB): $(OBJ) - $(LDSO) $(OBJ) $(LIBS) -o $(NSFTSLIB) + $(LDSO) $(OBJ) $(LIBS) -o $(NSFTSLIB) $(MODLIBS)    clean: diff -U 2 -rbB Search-OpenFTS-tcl-0.3.2/configure Search-OpenFTS-tcl-0.3.2-vk/configure --- Search-OpenFTS-tcl-0.3.2/configure   Tue Nov 19 14:24:44 2002 +++ Search-OpenFTS-tcl-0.3.2-vk/configure  Wed Jan 14 22:36:44 2004 @@ -2771,4 +2771,16 @@  fi   +# +# Mac OS X 10.2 +# +# vinodk: not sure if all of this is needed/accurate +if test `uname` = "Darwin"; then +    PLATFORM="osx" +    CC="cc" +    LD="cc" +    CFLAGS="$CFLAGS -no-cpp-precomp" +    LDSO="$LD -flat_namespace -bundle" +fi +  if test $PLATFORM = "unknown"; then          { { echo "$as_me:2774: error: unknown platform" &gt;&amp;amp;5 
+</code></pre>
+
+<p>Then, follow the instructions in AOLSERVER.INSTALL. I'm not too handy with this Makefile/configure stuff, so I'd appreciate any guidance on how to do this properly :-).</p>
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>Doesn't compile on Panther</b></p>
+<p>
+Hi Vinod,
+</p>
+<p>
+Your fix for makefile doesn't seem to be working on Panther. Configure
+script goes through but when compiling I get the following error:
+</p>
+<pre>
+cc -o Parser.so -shared Parser.o deflex.o flexparser.o
+cc: unrecognized option `-shared'
+ld: Undefined symbols:
+_main
+_Tcl_AppendElement
+_Tcl_AppendResult
+_Tcl_CreateObjCommand
+_Tcl_GetIntFromObj
+_Tcl_GetStringFromObj
+_Tcl_NewIntObj
+_Tcl_NewStringObj
+_Tcl_ObjSetVar2
+_Tcl_PkgProvide
+_Tcl_SetObjResult
+make[1]: *** [Parser.so] Error 1
+make: *** [parser] Error 2
+</pre>
+<p>
+I'll keep on searching for what should be changed and will keep you
+posted. Otherwise thanks for spending your time on OS X issues.
+</p>
+
+<address class="signature">
+<span class="author">Jarkko Laine</span>
+<span class="date">2004-02-19 02:31:53</span>
+</address>
+</div>
+
+<div class="one-comment">
+<p><b>-shared option not supported</b></p>
+<p>
+OK, from apple dev docs:
+</p>
+
+<dl>
+<dt><code>-shared</code></dt>
+<dd>In GCC 2, generates shared liibraries. In GCC 3, this
+option is not supported, so you should use libtool (or use ld
+directly) instead. Shared libraries in Mac OS X may be different from
+those you are accustomed to on other platforms. See <a
+href="http://developer.apple.com/documentation/Porting/Conceptual/PortingUnix/compiling/chapter_4_section_7.html#//apple_ref/doc/uid/TP30001003-CH206-TPXREF103">&#8220;Dynamic
+Libraries and Plug-ins&#8221;</a>.</dd>
+</dl>
+<p>Don't know how to fix this in this case, though.</p>
+<address class="signature">
+<span class="author">Jarkko Laine</span>
+<span class="date">2004-02-19 02:57:33</span>
+</address>
+</div>
+
+<div class="my-comment">
+<p><b>untitled</b></p>
+<p>
+Hey Jarkko,
+</p>
+<p>
+I think you're trying to compile all of OpenFTS and that doesn't work
+(at least I haven't tried to get it to work). I just wanted to compile
+the nsfts.so module, which is all that you need for OpenACS. So,
+instead of doing <code>make</code> in the Search-OpenFTS-tcl-0.3.2
+directory, <code>cd aolserver</code> and do the <code>make</code>
+there.
+</p>
+<p>
+I think if you follow the directions in the AOLSERVER.INSTALL file,
+it'll work.
+</p>
+<address class="signature">
+<span class="author">Vinod Kurup</span>
+<span class="date">2004-02-19 23:50:27</span>
+</address>
+</div>
+
+<div class="one-comment">
+<p><b>untitled</b></p>
+<p>
+Thanks, Vinod,
+</p>
+<p>
+You're right. I actually thought I was running the make in aolserver
+dir, but now that I retried it there, it went through smoothly :o)
+</p>
+<address class="signature">
+<span class="author">Jarkko Laine</span>
+<span class="date">2004-02-20 01:42:53</span>
+</address>
+</div>
+
+</div>
+
+]]></content>
+  </entry>
+  
+</feed>

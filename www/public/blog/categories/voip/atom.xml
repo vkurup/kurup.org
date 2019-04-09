@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: voip | Vinod Kurup]]></title>
+  <link href="https://www.kurup.org/blog/categories/voip/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2019-04-09T08:22:17-04:00</updated>
+  <id>https://www.kurup.org/</id>
+  <author>
+    <name><![CDATA[Vinod Kurup]]></name>
+    <email><![CDATA[vinod@kurup.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Free Telephone Service]]></title>
+    <link href="https://www.kurup.org/blog/2005/01/25/free-telephone-service"/>
+    <updated>2005-01-25T00:00:00-05:00</updated>
+    <id>https://www.kurup.org/blog/2005/01/25/free-telephone-service</id>
+    <content type="html"><![CDATA[<p>Has anyone tried any of the Internet phone services? <a href="http://skype.com">Skype</a> looks very interesting. Nice interface, lots of platforms, <a href="http://pinds.com/articles/2005/01/18/skype-with-a-bluetooth-headset-frickin-rocks">high praise from people I trust</a>, and most importantly, it's FREE! Well, as long as the person you're calling also has Skype. If you want to call a <em>real</em> phone, you buy credits (which seem pretty cheap). Lemme know if any of you try it out...</p>
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>Skype is cool</b></p>
+<p>
+call us anytime.
+</p>
+<p>
+birddogdigital
+</p>
+<p>
+andy and nicci.
+</p>
+<p>
+http://www.bdogd.com (look for the veggies)
+</p>
+<address class="signature">
+<span class="author">Unregistered Visitor</span>
+<span class="date">2008-04-08 05:54:36</span>
+</address>
+</div>
+
+</div>
+
+]]></content>
+  </entry>
+  
+</feed>

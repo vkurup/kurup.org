@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: security | Vinod Kurup]]></title>
+  <link href="https://www.kurup.org/blog/categories/security/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2019-04-09T08:22:17-04:00</updated>
+  <id>https://www.kurup.org/</id>
+  <author>
+    <name><![CDATA[Vinod Kurup]]></name>
+    <email><![CDATA[vinod@kurup.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[PhotoDB fixed]]></title>
+    <link href="https://www.kurup.org/blog/2001/06/19/photodb-fixed"/>
+    <updated>2001-06-19T00:00:00-04:00</updated>
+    <id>https://www.kurup.org/blog/2001/06/19/photodb-fixed</id>
+    <content type="html"><![CDATA[<p>I <a href="http://kurup.org/acs/photodb.html">fixed some security issues</a> in
+the OpenACS photodb module.</p>
+]]></content>
+  </entry>
+  
+</feed>

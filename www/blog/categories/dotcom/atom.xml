@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: dotcom | Vinod Kurup]]></title>
+  <link href="https://www.kurup.org/blog/categories/dotcom/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2019-04-09T07:01:33-04:00</updated>
+  <id>https://www.kurup.org/</id>
+  <author>
+    <name><![CDATA[Vinod Kurup]]></name>
+    <email><![CDATA[vinod@kurup.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Bunch of stuff]]></title>
+    <link href="https://www.kurup.org/blog/2001/05/26/bunch-of-stuff"/>
+    <updated>2001-05-26T00:00:00-04:00</updated>
+    <id>https://www.kurup.org/blog/2001/05/26/bunch-of-stuff</id>
+    <content type="html"><![CDATA[<p>Life has been moving too quickly for me to document my menial
+existence. Check back again soon when my existence is not so menial!
+In the meantime, here's a Cliff Note's version (may Cliff rest in
+peace) of the past 5 months (in no particular order).</p>
+
+<ul>
+<li>I left medicalrecords.com</li>
+<li>I began doing freelance web development</li>
+<li>I finished a Palm-based interface for <a href="http://www.theanswerpage.com">The Answer Page</a></li>
+<li>I began moonlighting at MIT's After Hours Medical Center, thus getting in touch with my "medical" side again.</li>
+<li>I've begun helping out with the <a href="http://openacs.org/4">OpenACS 4 project</a> and have so far ported the Notes module, Download module and Ticket-Tracker-Lite module.</li>
+<li>My <a href="/images/Amma.jpg">grandmother</a> passed away at the age of 91 on March 31, 2001. She was a strong vibrant woman and remained that way up until her passing.</li>
+<li>My cousin Deepu matched at UCSF for internal medicine!!! What a stud! Of course, I'm only saying that so he'll let me stay with him when I visit SF :-)</li>
+<li>My cousins and I went sea kayaking in North Carolina and survived! Physical effort, natural beauty and comraderie combined to make it a perfect weekend away from the daily grind.</li>
+<li>We celebrated my roommate Gerry's bachelor party in Miami. Enough said ;-)</li>
+<li>My brother <a href="http://kurup.net">Manu</a> got a sweet job at Harley Davidson!!! He'll be travelling to places like Japan, Brazil and Australia and taking his little brother with him (hint, hint)</li>
+<li>A bunch of other stuff happened, but my fingers are getting tired.</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[medicalrecords.com]]></title>
+    <link href="https://www.kurup.org/blog/1999/12/06/medicalrecordscom"/>
+    <updated>1999-12-06T00:00:00-05:00</updated>
+    <id>https://www.kurup.org/blog/1999/12/06/medicalrecordscom</id>
+    <content type="html"><![CDATA[<p>An opportunity arose that I just couldn't pass up. I've been offered a
+position with an internet startup company. The company is
+<a href="http://medicalrecords.com">medicalrecords.com</a> and is focused on
+providing a place for patients to store their own medical records.</p>
+]]></content>
+  </entry>
+  
+</feed>

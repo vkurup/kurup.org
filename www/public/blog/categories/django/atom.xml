@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: django | Vinod Kurup]]></title>
+  <link href="https://www.kurup.org/blog/categories/django/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2019-04-09T08:22:17-04:00</updated>
+  <id>https://www.kurup.org/</id>
+  <author>
+    <name><![CDATA[Vinod Kurup]]></name>
+    <email><![CDATA[vinod@kurup.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Using dynamic queries in a CBV]]></title>
+    <link href="https://www.kurup.org/blog/2014/07/28/cbv-dynamic"/>
+    <updated>2014-07-28T22:08:00-04:00</updated>
+    <id>https://www.kurup.org/blog/2014/07/28/cbv-dynamic</id>
+    <content type="html"><![CDATA[<p>Let's play 'Spot the bug'. We're building a simple system that shows photos. Each photo has a
+<code>publish_date</code> and we should only show photos that have been published (i.e. their <code>publish_date</code> is
+in the past).</p>
+
+<p>``` python models.py
+class PhotoManager(models.Manager):</p>
+
+<pre><code>def live(self, as_of=None):
+    if as_of is None:
+        as_of = timezone.now()
+    return super().get_query_set().filter(publish_date__lte=as_of)
+</code></pre>
+
+<p>```</p>
+
+<p>And the view to show those photos:</p>
+
+<p>``` python views.py
+class ShowPhotosView(ListView):</p>
+
+<pre><code>queryset = Hero.objects.live()
+</code></pre>
+
+<p>```</p>
+
+<p>Can you spot the bug? I sure didn't... until the client complained that newly published photos never
+showed up on the site. Restarting the server fixed the problem temporarily. The newly published
+photos would show up, but then any photos published after the server restart again failed to
+display.</p>
+
+<p>The problem is that the <code>ShowPhotosView</code> class is instantiated when the server starts.
+<code>ShowPhotosView.queryset</code> gets set to the value returned by <code>Hero.objects.live()</code>. That, in turn, is a
+<code>QuerySet</code>, but it's a <code>QuerySet</code> with <code>as_of</code> set to <code>timezone.now()</code> <em>WHEN THE SERVER STARTS UP</em>. That
+<code>as_of</code> value never gets updated, so newer photos never get captured in the query.</p>
+
+<p>There's probably multiple ways to fix this, but an easy one is:</p>
+
+<p>``` python views.py
+class ShowPhotosView(ListView):</p>
+
+<pre><code>def get_queryset(self):
+    return Hero.objects.live()
+</code></pre>
+
+<p>```</p>
+
+<p>Now, instead of the queryset being instantiated at server start-up, it's instantiated only when
+<code>ShowPhotosView.get_queryset()</code> is called, which is when a request is made.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[How to create test models in Django]]></title>
+    <link href="https://www.kurup.org/blog/2014/07/21/django-test-models"/>
+    <updated>2014-07-21T20:44:00-04:00</updated>
+    <id>https://www.kurup.org/blog/2014/07/21/django-test-models</id>
+    <content type="html"><![CDATA[<p>It's occasionally useful to be able to create a Django model class in your unit test suite. Let's
+say you're building a library which creates an
+<a href="https://docs.djangoproject.com/en/dev/topics/db/models/#abstract-base-classes">abstract model</a>
+which your users will want to subclass. There's no need for your library to subclass it, but your
+library should still test that you can create a subclass and test out its features. If you create
+that model in your <code>models.py</code> file, then Django will think that it is a real part of your library and
+load it whenever you (or your users) call <code>syncdb</code>. That's bad.</p>
+
+<p>The <a href="https://code.djangoproject.com/ticket/7835#comment:24">solution</a> is to create it in a <code>tests.py</code>
+file within your Django app. If it's not in <code>models.py</code>, Django won't load it during <code>syncdb</code>.</p>
+
+<p>``` python tests.py
+from django.db import models
+from django.test import TestCase</p>
+
+<p>from .models import MyAbstractModel</p>
+
+<p>class MyTestModel(MyAbstractModel):</p>
+
+<pre><code>name = models.CharField(max_length=20)
+</code></pre>
+
+<p>class AbstractTest(TestCase):</p>
+
+<pre><code>def test_my_test_model(self):
+    self.assertTrue(MyTestModel.objects.create(name='foo'))
+</code></pre>
+
+<p>```</p>
+
+<p>A problem with this solution is that I rarely use a single <code>tests.py</code> file. Instead we use multiple
+test files collected in a tests package. If you try to create a model in <code>tests/test_foo.py</code>, then
+this approach fails because Django tries to create the model in an application named <code>tests</code>, but
+there is no such app in INSTALLED_APPS. The solution is to set <code>app_label</code> to the name of your app
+in an inner Meta class.</p>
+
+<p>```python tests/test_foo.py
+from django.db import models
+from django.test import TestCase</p>
+
+<p>from ..models import MyAbstractModel</p>
+
+<p>class MyTestModel(MyAbstractModel):</p>
+
+<pre><code>name = models.CharField(max_length=20)
+
+class Meta:
+    app_label = 'myappname'
+</code></pre>
+
+<p>class AbstractTest(TestCase):</p>
+
+<pre><code>def test_my_test_model(self):
+    self.assertTrue(MyTestModel.objects.create(name='foo'))
+</code></pre>
+
+<p>```</p>
+
+<p>Oh, and I almost forgot... if you use <a href="http://south.readthedocs.org/en/latest/index.html">South</a>,
+this might not work, unless you set <code>SOUTH_TESTS_MIGRATE</code> to <code>False</code> in your settings file.</p>
+
+<p>Comments and corrections welcome!</p>
+]]></content>
+  </entry>
+  
+</feed>

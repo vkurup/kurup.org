@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: investing | Vinod Kurup]]></title>
+  <link href="https://www.kurup.org/blog/categories/investing/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2019-04-09T08:22:17-04:00</updated>
+  <id>https://www.kurup.org/</id>
+  <author>
+    <name><![CDATA[Vinod Kurup]]></name>
+    <email><![CDATA[vinod@kurup.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Stock Market Timing]]></title>
+    <link href="https://www.kurup.org/blog/2010/07/19/stock-market-timing"/>
+    <updated>2010-07-19T16:08:00-04:00</updated>
+    <id>https://www.kurup.org/blog/2010/07/19/stock-market-timing</id>
+    <content type="html"><![CDATA[<p>If you asked me a few years ago, I would have said you absolutely can't
+time the stock market. The 2008 crash hurt enough to make me review my
+convictions a little. I still believe that accurate market timing is
+somewhere between difficult and impossible. Trying to analyze stock charts
+to figure out what will happen in the short term is mostly a crap
+shoot. The way to win in the stock market is to buy value stocks,
+especially when everyone else is selling.</p>
+
+<p>I do, however, now believe that there is a place for market timing in
+deciding when to be in the stock market, in the first place. I think there
+are some trends that have repeatedly predicted poor stock
+performance. There are some super smart people that have analyzed these
+trends over at the <a href="http://boards.fool.com">Motley Fool message
+boards</a>. They've come up with many indicators that
+supposedly tell you when to get in and out of the stock market, but my
+favorite is the <a href="http://boards.fool.com/Message.asp?mid=27442724">99 day
+rule</a> <a href="A">^1</a>.</p>
+
+<p>The basic premise of the 99 day rule is that when the
+<a href="http://finance.yahoo.com/q?s=^GSPC">S&amp;P 500 Index</a> stops making new highs,
+investors get pessimistic and stocks fall. When it starts making new highs
+again, optimism takes over and bull markets start. The 99 day rule has 2
+parts and coincidentally uses 99 days as the cut-off for both parts. It
+looks at whether a new high has been made recently. It defines "high" as a
+99-day high. It defines "recently" as 99 days. So, it looks for a new
+99-day high within the last 99 days. The number is arbitrary. Hop over the
+the
+<a href="http://boards.fool.com/mechanical-investing-100093.aspx">Motley Fool boards</a>
+to see how the dates have been tuned and pick different ones, if you like.</p>
+
+<p>I like this rule, because it's simple, easy to calculate and doesn't have
+many "signals", so you're not constantly buying and selling. Of course,
+it's not perfect, but it would have gotten you out of most of the major
+bear markets.</p>
+
+<p>Here is how the rule has done over time:</p>
+
+<pre><code>Period        S&amp;P 500   Switching   Improvement 
+---------     -------   ---------   -----------
+1930-1935     -12.2%       4.3%       16.4% 
+1935-1940      10.3%      16.2%        6.0% 
+1940-1945       7.4%       5.6%       -1.8% 
+1945-1950      10.2%       7.4%       -2.8% 
+1950-1955      23.6%      22.5%       -1.1% 
+1955-1960      15.2%      13.8%       -1.4% 
+1960-1965      10.7%      11.7%        1.0% 
+1965-1970       5.0%       7.1%        2.2% 
+1970-1975      -2.4%       6.8%        9.2% 
+1975-1980      14.8%      12.0%       -2.8% 
+1980-1985      14.8%      20.1%        5.2% 
+1985-1990      20.4%      18.8%       -1.7% 
+1990-1995       8.7%       6.7%       -2.0% 
+1995-2000      28.6%      27.9%       -0.7% 
+2000-2005      -2.3%       4.3%        6.6% 
+2005-early2008  2.0%       4.5%        2.5%
+</code></pre>
+
+<p>You may have gotten to this point and are now wondering why it's worth
+following this rule. In at least 3 of the past 5 periods, this signal would
+have lost money versus staying in the market. That is true. The key is to
+understand that there is no free lunch. Any rule that tries to get you out
+of major bear markets will be imperfect and will often leave you with less
+money than if you had chosen to act on a different date (or not act at
+all). The overall goal is not to increase your returns, but to decrease
+your risk without sacrificing your returns. This signal does that. Overall,
+it does actually increase your returns by about 2% annually since 1930.</p>
+
+<p>The other nice feature is that it doesn't have a "slam-dunk" feel to it. My
+experience is that things that work in the stock market have to have a
+little of a "gut wrenching" feel to them. If it sounds too good to be true,
+it is. This rule feels correct, improves returns over the long run, is
+backtested well, but does so at the risk of some lower performing
+years. That feels a little gut-wrenching to me.</p>
+
+<p>Here is the author's (<a href="http://www.stonewellfunds.com/">mungofitch</a>) description:</p>
+
+<blockquote><p>By using the rule that I described above, you would have had
+a total return of 11.80%, with a total risk of 6.71%. So, you
+would have had 2.3% per year higher returns on average,
+while experiencing only about 56.9% of the risk.
+Higher returns, lower risk. That sounds good, right?</p>
+
+<p>But, is this one of those iffy timing systems that really only works
+because it managed to avoid the crash of 1987 of something?
+No, actually it has you in the market in the 1987 crash: it's
+not perfect. But does it really add value on average through the years?
+Not always, but pretty darned well. Sometimes you do a little worse,
+but never a lot worse. And when you do better, you do a LOT better.
+So, overall, it's worth it.</p></blockquote>
+
+<p>In order to keep track of the signal, I wrote a <a href="http://github.com/vkurup/ninety-nine">little python
+program</a> to calculate whether we are
+in buy mode or sell mode. It uses the excellent <a href="http://www.goldb.org/ystockquote.html">ystockquote
+module</a> written by Corey Goldberg.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Notes to a younger investor]]></title>
+    <link href="https://www.kurup.org/blog/2009/10/04/notes-to-a-younger-investor"/>
+    <updated>2009-10-04T00:00:00-04:00</updated>
+    <id>https://www.kurup.org/blog/2009/10/04/notes-to-a-younger-investor</id>
+    <content type="html"><![CDATA[<p><em>A friend asked for some investing advice a few years ago. Here was my response.</em></p>
+
+<p>I have a feeling this is going to be long... :-)</p>
+
+<p>First thing - I don't know your exact financial situation, but I know
+you're in great shape for the long run. Anyone thinking this seriously
+about their finances this early in life will do fine. Also, since I don't
+know much about your exact situation, this may be a little
+'condescending'. I'm sure you know I don't mean it that way. Just take what
+you need from it and leave the rest. Also feel free to ask questions about
+anything at any time. I love finances and it would be my pleasure to help
+if there's any way that I can. I've read A LOT of books and stuff, so it
+would be nice to be of use to others.</p>
+
+<p>The <strong>ABSOLUTE</strong> most important thing is to get out of debt. Nothing kills
+your financial future more than debt. No matter how good of an investor you
+are, you won't get anywhere if you don't take control of debt. Make that
+your main focus. Until you are completely debt-free (except for a
+mortgage), I wouldn't put too much time into investing. Have you heard of
+<a href="http://www.daveramsey.com/">Dave Ramsey</a>? He has an excellent talk-radio
+show about getting out of debt. It's a bit basic sometimes, and like all
+talk-radio hosts, he's "over-the-top", but he provides really useful
+information. The most valuable thing about it is the repetition. Listeners
+call in with their financial situation and he takes each one of them
+through the same process. He calls them the Baby Steps, and they're really
+just common sense, but listening to him walk listeners through them <em>over
+and over</em> makes it stick in your head. He also advocates developing a
+laser-like focus. Don't try to do a hundred things at once. Focus on <strong>one
+thing</strong> at a time, whether it's paying off one credit card, or building up
+an emergency fund, or whatever. Once that one thing is done, then move to
+the next item. That simplifies life and is a better use of your energy than
+trying to fix everything with little bits of your attention here and little
+bits over there.</p>
+
+<p>A book that everyone should read is <a
+href="http://www.amazon.com/gp/product/0671015206?ie=UTF8&tag=vinodkurupshomep&linkCode=as2&camp=1789&creative=390957&creativeASIN=0671015206">The
+Millionaire Next Door</a><img
+src="http://www.assoc-amazon.com/e/ir?t=vinodkurupshomep&l=as2&o=1&a=0671015206"
+width="1" height="1" border="0" alt="" style="border:none !important;
+margin:0px !important;" />, which discusses the habits that financially
+successful people share. It also focuses on getting out of debt and living
+more simply. The advice seems pretty sound even though the methodology of
+the book isn't. Taking a bunch of millionaires and finding out common
+features among them <strong>is not</strong> good science.</p>
+
+<p>All that said, thinking about investing at any time is a useful
+endeavor. Just as long as you maintain your focus on getting out of debt.</p>
+
+<p>The only people who should be investing in individual stocks are those who
+enjoy it. If you don't relish reading financial statements and analyzing
+stock valuations, then you shouldn't be doing it. Life is too short. Do
+stuff you enjoy and make your financial plan as simple as possible. Your
+overall return will still be in the top 10-20% of all investors.</p>
+
+<p>The most important part of investing is following a strict plan. And that
+plan should be focused on asset allocation. What does that mean? There are
+various classes of assets that you can invest in. The most common ones are
+stocks, bonds, and real estate. Within each class, there are subclasses,
+like small stocks, value stocks, international stocks, etc. It's almost
+impossible to know which class will do well over the short term, even
+though the talking heads on CNBC will tell you they think they
+know. Studies show that it's a toss up. So, the smartest thing to do is to
+look at the long term return of each asset class (past 20-50 years), decide
+what percent of your portfolio you want to place in each class, and then
+<strong>STICK WITH IT THROUGH THICK AND THIN</strong>. That is capitalized because that
+is the most important part. If you constantly adjust your percentages
+because you "think" large tech stocks are going to start doing well, then
+you will kill this approach. Everyone thought tech stocks were going to do
+well in 1999. 2000 killed them. My favorite book describing this strategy
+and the rationale behind it is <a
+href="http://www.amazon.com/gp/product/0393330338?ie=UTF8&tag=vinodkurupshomep&linkCode=as2&camp=1789&creative=390957&creativeASIN=0393330338">A
+Random Walk Down Wall Street</a><img
+src="http://www.assoc-amazon.com/e/ir?t=vinodkurupshomep&l=as2&o=1&a=0393330338"
+width="1" height="1" border="0" alt="" style="border:none !important;
+margin:0px !important;" /> by Burton Malkiel.</p>
+
+<p>Once you decide what your asset classes should be and what percentages you
+want to invest in each (I can help you with suggestions), then you find a
+<strong>LOW COST</strong> index fund (or ETF) that tracks that asset class and buy the
+appropriate amount. Then just leave it alone until next year. Look at the
+results and if one or more asset classes has gotten out of whack with your
+desired percentages, then rebalance. Sell a little of the one which has
+gotten too big and buy a little of the one that has gotten too small.</p>
+
+<p>This way, you are automatically selling an asset class AFTER it has risen
+and buying an asset class when it has been beaten down. You're buying low
+and selling high.</p>
+
+<p>For someone who wanted the simplest possible investment plan, I would
+recommend putting 75% of their portfolio into a broad stock fund (VFINX or
+VTSMX) and 25% into a simple low-cost bond fund (VBMFX). Then just
+rebalance every year. But you can also make this more complex by splitting
+the stock portion into domestic and international, then small and large
+companies, etc. It can be as complex as you want; just be sure to keep it
+consistent from year to year. That is the key which will allow you to buy
+assets when they are at their low point and sell them when they are high.</p>
+
+<p>Now, if you want to invest in individual stocks, I'd recommend keeping it
+to a small portion of your overall portfolio (&lt; 10%). Figuring out how to
+value stocks is an art that takes a lifetime. The one book that I'd
+recommend is <a
+href="http://www.amazon.com/gp/product/0060555661?ie=UTF8&tag=vinodkurupshomep&linkCode=as2&camp=1789&creative=390957&creativeASIN=0060555661">The
+Intelligent Investor</a><img
+src="http://www.assoc-amazon.com/e/ir?t=vinodkurupshomep&l=as2&o=1&a=0060555661"
+width="1" height="1" border="0" alt="" style="border:none !important;
+margin:0px !important;" />, by Benjamin Graham. It was written decades ago,
+but it gives the groundwork necessary to understand how to invest in
+stocks.</p>
+
+<p>In order to really successfully invest in individual stocks, you need to be
+able to identify companies that have a sustainable competitive
+advantage. This is something that I have a lot of trouble with and haven't
+really pursued enough. This is what Warren Buffett does. If you really want
+to understand this process, read everything on <a href="http://www.berkshirehathaway.com/letters/letters.html">this
+page</a>.</p>
+
+<p>This email is getting a bit long. So let me know if what I scribbled is
+understandable and if you have any questions. There's more trivia locked up
+in this brain of mine, if you want more :-)</p>
+
+<p>Must read books:
+ - Millionaire next door
+ - A Random Walk Down Wallstreet
+ - Intelligent Investor</p>
+
+<p>Good intro web site:
+ - <a href="http://www.fool.com/school/basics/basics01.htm">Motley Fool</a></p>
+
+<p>Radio show (can download podcasts to listen whenever you want):
+ - <a href="http://www.daveramsey.com/">Dave Ramsey show</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Belated Investment Update]]></title>
+    <link href="https://www.kurup.org/blog/2007/06/03/belated-investment-update"/>
+    <updated>2007-06-03T00:00:00-04:00</updated>
+    <id>https://www.kurup.org/blog/2007/06/03/belated-investment-update</id>
+    <content type="html"><![CDATA[<p>Let's also get caught up with my investments. I last updated in May 2006 when I bought <a href="http://finance.yahoo.com/q?s=STS">STS</a>, <a href="http://finance.yahoo.com/q?s=JAX">JAX</a>, <a href="http://finance.yahoo.com/q?s=EEI">EEI</a>, <a href="http://finance.yahoo.com/q?s=KEYN">KEYN</a> and <a href="http://finance.yahoo.com/q?s=RSC">RSC</a>.</p>
+
+<p>At my next quarterly evaluation in August 2006, I sold <a href="http://finance.yahoo.com/q?s=DSWL">DSWL</a> at a loss of 16.7% because I had held it for 2 years and it no longer met my criteria for a stock I would want to buy. I bought <a href="http://finance.yahoo.com/q?s=SYPR">SYPR</a> and <a href="http://finance.yahoo.com/q?s=BSET">BSET</a>.</p>
+
+<p>In November 2006, I sold <a href="http://finance.yahoo.com/q?s=SEMI.PK">SEMI</a> because it reported a negative quarter on top of negative trailing 12 month earnings. I sold it at $3.02, for a 42.8% loss, just a few days before <a href="http://finance.yahoo.com/q?s=SEMI.PK">SEMI</a> announced that it was filing for bankruptcy and dropped to $0.28. Sometimes you get lucky. I bought <a href="http://finance.yahoo.com/q?s=SGC">SGC</a>, <a href="http://finance.yahoo.com/q?s=IAL">IAL</a>, <a href="http://finance.yahoo.com/q?s=FLXS">FLXS</a>, <a href="http://finance.yahoo.com/q?s=CULS">CULS</a>, <a href="http://finance.yahoo.com/q?s=PRCP">PRCP</a>, and <a href="http://finance.yahoo.com/q?s=PARL">PARL</a>.</p>
+
+<p>In February of 2007, I sold <a href="http://finance.yahoo.com/q?s=KEYN">KEYN</a> for a 18.9% gain and <a href="http://finance.yahoo.com/q?s=SYPR">SYPR</a> for a 22% loss because both reported a negative quarter on top of 12 month negative earnings. I sold <a href="http://finance.yahoo.com/q?s=SRT">SRT</a> for a 16.2% loss because it was such a small portion of my portfolio and it didn't meet my buy criteria. I sold <a href="http://finance.yahoo.com/q?s=COBR">COBR</a> for a 23.9% gain and <a href="http://finance.yahoo.com/q?s=PATK">PATK</a> for a 16.7% gain because I'd held both for 2 years, but they no longer met my buy criteria. I bought <a href="http://finance.yahoo.com/q?s=AIRT">AIRT</a>, <a href="http://finance.yahoo.com/q?s=HDNG">HDNG</a>, <a href="http://finance.yahoo.com/q?s=AWX">AWX</a>, <a href="http://finance.yahoo.com/q?s=CAV">CAV</a>, and <a href="http://finance.yahoo.com/q?s=JCTCF">JCTCF</a>.</p>
+
+<p>In April/May 2007, <a href="http://finance.yahoo.com/q?s=IAL">IAL</a> got bought out for a 16.8% gain and <a href="http://finance.yahoo.com/q?s=BL">BL</a> got bought out for a 11.0% gain. I sold <a href="http://finance.yahoo.com/q?s=JCS">JCS</a> for a 21.4% gain because they had fallen behind multiple quarters in their filings. I bought <a href="http://finance.yahoo.com/q?s=PMRY">PMRY</a>, <a href="http://finance.yahoo.com/q?s=POP">POP</a> and <a href="http://finance.yahoo.com/q?s=HOOK">HOOK</a>. <a href="http://finance.yahoo.com/q?s=POP">POP</a> dropped about 40% on the day that I bought it. Sometimes you get unlucky.</p>
+
+<p>Here's how the rest of my portfolio is doing as of May 31st, 2007.</p>
+
+<table cellspacing="0" summary="Stocks I currently own."> <tr> <th>Current Holdings</th>  <th>Purchased</th>  <th>Total Return (so far)</th> </tr>  <tr class="list-odd">  <td>Champion Industries ([CHMP](http://finance.yahoo.com/q?s=CHMP))</td>  <td>Nov 2005</td>  <td>76.74%</td> </tr>  <tr class="list-even"> <td>REX Stores ([RSC](http://finance.yahoo.com/q?s=RSC))</td>  <td>May 2006</td> <td>-18.49%</td> </tr>  <tr class="list-odd"> <td>Ecology &amp; Environment ([EEI](http://finance.yahoo.com/q?s=EEI))</td>  <td>May 2006</td> <td>21.97%</td> </tr>  <tr class="list-even"> <td>J. Alexander's ([JAX](http://finance.yahoo.com/q?s=JAX))</td>  <td>May 2006</td>  <td>53.18%</td> </tr>  <tr class="list-odd"> <td>Supreme Industries ([STS](http://finance.yahoo.com/q?s=STS))</td>  <td>May 2006</td>  <td>-8.93%</td> </tr>  <tr class="list-even"> <td>Bassett Furniture Industries ([BSET](http://finance.yahoo.com/q?s=BSET))</td>  <td>Aug 2006</td>  <td>-11.62%</td> </tr>  <tr class="list-odd"> <td>Superior Uniform Group ([SGC](http://finance.yahoo.com/q?s=SGC))</td>  <td>Nov 2006</td>  <td>-2.59%</td> </tr>  <tr class="list-even"> <td>Flexsteel Industries ([FLXS](http://finance.yahoo.com/q?s=FLXS))</td> <td>Nov 2006</td>  <td>13.85%</td> </tr>  <tr class="list-odd"> <td>Cost-U-Less ([CULS](http://finance.yahoo.com/q?s=CULS))</td>  <td>Nov 2006</td>  <td>12.05%</td> </tr>  <tr class="list-even"> <td>Perceptron ([PRCP](http://finance.yahoo.com/q?s=PRCP))</td> <td>Nov 2006</td>  <td>3.04%</td> </tr>  <tr class="list-odd"> <td>Parlux Fragrances ([PARL](http://finance.yahoo.com/q?s=PARL))</td>  <td>Nov 2006</td>  <td>-30.08%</td> </tr>  <tr class="list-even"> <td>Hardinge ([HDNG](http://finance.yahoo.com/q?s=HDNG))</td> <td>Feb 2007</td>  <td>102.01%</td> </tr>  <tr class="list-odd"> <td>Avalon Holdings ([AWX](http://finance.yahoo.com/q?s=AWX))</td>  <td>Feb 2007</td>  <td>32.50%</td> </tr>  <tr class="list-even"> <td>Cavalier Homes ([CAV](http://finance.yahoo.com/q?s=CAV))</td> <td>Feb 2007</td>  <td>21.11%</td> </tr>  <tr class="list-odd"> <td>Jewett-Cameron Trading Co. ([JCTCF](http://finance.yahoo.com/q?s=JCTCF))</td>  <td>Feb 2007</td>  <td>24.82%</td> </tr>  <tr class="list-even"> <td>Air T ([AIRT](http://finance.yahoo.com/q?s=AIRT))</td> <td>Feb 2007</td>  <td>11.97%</td> </tr>  <tr class="list-odd"> <td>Redhook Ale Brewery ([HOOK](http://finance.yahoo.com/q?s=HOOK))</td>  <td>May 2007</td>  <td>4.89%</td> </tr>  <tr class="list-even"> <td>Pope &amp; Talbot ([POP](http://finance.yahoo.com/q?s=POP))</td> <td>May 2007</td>  <td>-46.95%</td> </tr>  <tr class="list-odd"> <td>Pomeroy IT Solutions ([PMRY](http://finance.yahoo.com/q?s=PMRY))</td>  <td>May 2007</td>  <td>6.95%</td> </tr>  </table>
+
+
+
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>Congratulations</b></p>
+<p>
+Vinod!!! I have no idea how you have time for all of this stuff (plus reading books), but I have two things to say:
+</p>
+<p>
+1. CONGRATULATIONS ON THE NEW BABY! You must be so proud and so
+happy. I always knew that sweet Mala, who loves the Gilmore Girls and
+Peanut Butter Cup ice cream, is really a warrior on the inside and
+could tough out a delivery that would send me to the morphine drip.
+</p>
+<p>
+2. On a side note, I think the large caps are back man! In this world
+of private equity money and uber-duber liquidity, go large baby.
+</p>
+<address class="signature">
+<span class="author">Anonymous</span>
+<span class="date">2007-06-06 19:23:44</span>
+</address>
+</div>
+
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Investment Performance 1996-2006]]></title>
+    <link href="https://www.kurup.org/blog/2007/01/07/investment-performance-1996-2006"/>
+    <updated>2007-01-07T00:00:00-05:00</updated>
+    <id>https://www.kurup.org/blog/2007/01/07/investment-performance-1996-2006</id>
+    <content type="html"><![CDATA[<p>Here's my 2006 Investment Performance update. My individual stock picks broke their 4 year winning streak versus the S&amp;P500 and overall (including my 403b), I lagged the market by a couple percentage points. That makes for a pretty lousy year overall. So, is it time to switch tactics? Give in and stick all my money in an index fund? Some would say yes (or more like "YES, you IDIOT!"). I knew when I started this approach that there would be times where I would underperform, even for long periods of time, meaning 1-2 years. But, on the whole, I would come out ahead. Small cheap companies have always outperformed over the long run. I still believe that and will continue with this approach, at least until 2009, at which point I will have a 5 year track record to analyze. In the meantime, I'm not going to cry too much about a 12.8% gain.</p>
+
+<table class="spreadsheet"> <thead> <tr> <th>Date</th>  <th>Me</th> <th>VFINX</th> </tr> </thead> <tfoot> <tr> <td>1996-2006</td> <td>  7.6%</td> <td>  8.6%</td> </tr> </tfoot> <tbody> <tr class="odd"> <td>1996</td> <td> 22.7%</td> <td> 35.7%</td> </tr> <tr class="even"> <td>1997</td> <td> 15.3%</td> <td> 28.6%</td> </tr> <tr class="odd"> <td>1998</td> <td> 15.1%</td> <td> 24.9%</td> </tr> <tr class="even"> <td>1999</td> <td> 66.0%</td> <td> 26.1%</td> </tr> <tr class="odd"> <td>2000</td> <td>-25.8%</td> <td> -7.4%</td> </tr> <tr class="even"> <td>2001</td> <td>-33.1%</td> <td>-12.3%</td> </tr> <tr class="odd"> <td>2002</td> <td>-21.1%</td> <td>-22.1%</td> </tr> <tr class="even"> <td>2003</td> <td> 31.7%</td> <td> 30.1%</td> </tr> <tr class="odd"> <td>[2004](http://kurup.org/blog/one-entry?entry%5fid=17065)</td> <td> 13.5%</td> <td> 11.7%</td> </tr> <tr class="even"> <td>[2005](http://kurup.org/blog/2006/01/04/investment-performance-1996-2005)</td> <td> 13.2%</td> <td>  4.7%</td> </tr> <tr class="odd"> <td>2006</td> <td> 12.8%</td> <td> 16.0%</td> </tr> </tbody> </table>
+
+
+<p>Notes: These are calculated using the XIRR function in
+<a href="http://www.openoffice.org/">OpenOffice</a>. The <a href="http://www.gummy-stuff.org/misc-stuff.htm#XIRR">XIRR
+function</a> takes a
+series of cash flows in or out of an account and returns the internal
+rate of return for that account. It's the best way to compare
+portfolio returns when investments or withdrawals are made on an
+irregular basis. The VFINX column shows how I would have done if I had
+simply invested all my money into
+<a href="http://finance.yahoo.com/q?s=vfinx">VFINX</a>, a low-cost mutual fund
+which tracks the S&amp;P 500. This number will not match numbers you
+see posted for VFINX for a given year because it depends on the timing
+of <strong>my</strong> investments. Note that I include the cost of commissions in
+my performance, but not in VFINX's.</p>
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>Maaaaaaaaannnnnnn!  You STINK</b></p>
+<p>
+What kind of investment performance is that??  (hee hee!)  Keep the
+faith brother!!  In the long run we will make out!!
+</p>
+<p>
+From your fellow underperforming brother!
+</p>
+<address class="signature">
+<span class="author">Gerald Cherayil</span>
+<span class="date">2007-01-20 10:24:46</span>
+</address>
+</div>
+
+<div class="one-comment">
+<p><b>Investor return</b></p>
+<p>
+Hey Dog!
+</p>
+<p>
+Can you help me get this software so I can also calculate my rate of
+return??
+</p>
+<address class="signature">
+<span class="author">Gerald Cherayil</span>
+<span class="date">2007-03-04 18:05:09</span>
+</address>
+</div>
+
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Bizjournal inaccuracy]]></title>
+    <link href="https://www.kurup.org/blog/2006/07/24/bizjournal-inaccuracy"/>
+    <updated>2006-07-24T00:00:00-04:00</updated>
+    <id>https://www.kurup.org/blog/2006/07/24/bizjournal-inaccuracy</id>
+    <content type="html"><![CDATA[<p>Blair Corp, a company in my portfolio, announced second quarter earnings today. They were disappointing, but not as disappointing as reported by <a href="http://www.bizjournals.com">bizjournals</a>.</p>
+
+<p><a href="http://biz.yahoo.com/bizj/060724/1320068.html">"Blair Corp. swings to loss"</a> is the title of the article. While dramatic, it's completely wrong.</p>
+
+<blockquote><p>Blair Corp., a catalog clothing retailer and direct marketer, reported a loss in the second quarter as sales fell nearly 5 percent.</p></blockquote>
+
+<p>False. They reported a profit of $233,000 in the second quarter.</p>
+
+<blockquote><p>Blair said its second-quarter results were negatively impacted by the sale of its credit portfolio and last August's stock buyback of 4.4 million shares.</p></blockquote>
+
+<p>Not true. The buyback doesn't affect the operating results. If anything, they made the reported results look <strong>better</strong> than they really are. The stock buyback reduced the amount of outstanding shares by about one-half, so the reported earnings-per-share (EPS) results are about twice what they would have been without the buyback.</p>
+
+<p>None of this is to deny the fact that Blair's results were terrible and that the stock price has been even worse. I'm a little appeased by the fact that web sales increased by about 18% versus last quarter. Perhaps a few smart minds will start pursing the web angle as the wave of the future!</p>
+]]></content>
+  </entry>
+  
+</feed>

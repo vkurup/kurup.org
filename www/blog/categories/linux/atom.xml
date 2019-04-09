@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: linux | Vinod Kurup]]></title>
+  <link href="https://www.kurup.org/blog/categories/linux/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2019-04-09T07:01:33-04:00</updated>
+  <id>https://www.kurup.org/</id>
+  <author>
+    <name><![CDATA[Vinod Kurup]]></name>
+    <email><![CDATA[vinod@kurup.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Fixing wireless on eeePC]]></title>
+    <link href="https://www.kurup.org/blog/2011/09/08/fixing-wireless-on-eeepc"/>
+    <updated>2011-09-08T21:58:48-04:00</updated>
+    <id>https://www.kurup.org/blog/2011/09/08/fixing-wireless-on-eeepc</id>
+    <content type="html"><![CDATA[<p>I have an ASUS eeePC 1000, running Ubuntu 10.10. Wireless worked
+flawlessly at home, which is where I use it 99% of the time. On our
+most recent trip, however, it wasn't working. It couldn't connect to a
+WPA-secured network. Here are the relevant error messages:</p>
+
+<pre><code>NetworkManager[770]: &lt;warn&gt; Activation (wlan0/wireless): association took too long.
+NetworkManager[770]: &lt;warn&gt; (wlan0): link timed out.
+NetworkManager[770]: &lt;warn&gt; Activation (wlan0) failed for access point (linksys)
+NetworkManager[770]: &lt;warn&gt; Activation (wlan0) failed.
+NetworkManager[770]: &lt;info&gt; (wlan0): deactivating device (reason: 0).
+</code></pre>
+
+<p>After a little googling on my phone, I found out that <a href="http://www.ctbarker.info/2010/05/ubuntu-1004-wireless-chipsets-and-wpa.html">others had this
+problem with the rt2860sta wireless
+driver</a>. Fortunately,
+there is a solution, which involved downloading the source code for
+the latest driver, modifying it a bit and rebuilding the driver. Here
+are the instructions:</p>
+
+<h3>Step 1: Download the driver</h3>
+
+<p>Download the <a href="http://www.ralinktech.com/license_us.php?n=2&amp;p=0&amp;t=U0wyRnpjMlYwY3k4eU1ERXdMekEzTHpFMkwyUnZkMjVzYjJGa05qZ3hPRFUwTmpBd05DNWllakk5UFQweU1ERXdYekEzWHpFMlgxSlVNamcyTUY5TWFXNTFlRjlUVkVGZmRqSXVOQzR3TGpBdWRHRnlD">latest rt2860sta
+driver</a>.</p>
+
+<h3>Step 2: Rename and extract the downloaded file</h3>
+
+<p>Mine was named <code>download.php</code>, but it's really a tar file:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>extract.sh </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>vinod@ike:~ <span class="nv">$ </span>mkdir <span class="nb">test</span>
+</span><span class='line'>vinod@ike:~ <span class="nv">$ </span>mv download.php <span class="nb">test</span>/driver.tar
+</span><span class='line'>vinod@ike:~ <span class="nv">$ </span><span class="nb">cd test</span>/
+</span><span class='line'>vinod@ike:~/test <span class="nv">$ </span>tar xf driver.tar
+</span><span class='line'>vinod@ike:~/test <span class="nv">$ </span>mv 2010_07_16_RT2860_Linux_STA_v2.4.0.0 driver
+</span><span class='line'>vinod@ike:~/test <span class="nv">$ </span><span class="nb">cd </span>driver
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>Step 3: Apply patch</h3>
+
+<p><div><script src='https://gist.github.com/1205291.js?file=driver.patch'></script>
+<noscript><pre><code>diff -urbB old/common/cmm_wpa.c new/common/cmm_wpa.c
+--- old/common/cmm_wpa.c	2010-07-08 07:40:24.000000000 -0400
++++ new/common/cmm_wpa.c	2011-08-30 18:27:46.856572005 -0400
+@@ -2420,7 +2420,7 @@
+ 	UCHAR		PrimaryRsnie;			
+ 	BOOLEAN		bMixCipher = FALSE;	// indicate the pairwise and group cipher are different
+ 	UCHAR		p_offset;		
+-	WPA_MIX_PAIR_CIPHER		FlexibleCipher = MIX_CIPHER_NOTUSE;	// it provide the more flexible cipher combination in WPA-WPA2 and TKIPAES mode
++	WPA_MIX_PAIR_CIPHER		FlexibleCipher = WPA_TKIPAES_WPA2_TKIPAES;
+ 		
+ 	rsnielen_cur_p = NULL;
+ 	rsnielen_ex_cur_p = NULL;
+diff -urbB old/os/linux/config.mk new/os/linux/config.mk
+--- old/os/linux/config.mk	2010-07-09 04:58:09.000000000 -0400
++++ new/os/linux/config.mk	2011-08-30 18:23:52.120572001 -0400
+@@ -8,10 +8,10 @@
+ HAS_XLINK=n
+ 
+ # Support Wpa_Supplicant
+-HAS_WPA_SUPPLICANT=n
++HAS_WPA_SUPPLICANT=y
+ 
+ # Support Native WpaSupplicant for Network Maganger
+-HAS_NATIVE_WPA_SUPPLICANT_SUPPORT=n
++HAS_NATIVE_WPA_SUPPLICANT_SUPPORT=y
+ 
+ #Support Net interface block while Tx-Sw queue full
+ HAS_BLOCK_NET_IF=n
+</code></pre></noscript></div>
+</p>
+
+<h3>Step 4: Backup old driver</h3>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>backup.sh </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>vinod@ike~/test/driver/ <span class="nv">$ </span>sudo ifconfig wlan0 down
+</span><span class='line'>vinod@ike~/test/driver/ <span class="nv">$ </span>sudo rmmod rt2860sta
+</span><span class='line'>vinod@ike~/test/driver/ <span class="nv">$ </span>mkdir backup
+</span><span class='line'>vinod@ike~/test/driver/ <span class="nv">$ </span>sudo mv /etc/Wireless/RT2860STA backup/
+</span><span class='line'>vinod@ike~/test/driver/ <span class="nv">$ </span>sudo mv /lib/modules/2.6.35-30-generic/kernel/drivers/staging/rt2860/rt2860sta.ko backup/
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>Step 5: Install and activate new driver</h3>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>build.sh </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>vinod@ike:~/test/driver <span class="nv">$ </span>sudo make install
+</span><span class='line'>vinod@ike:~/test/driver <span class="nv">$ </span>sudo depmod -a
+</span><span class='line'>vinod@ike:~/test/driver <span class="nv">$ </span>sudo modprobe rt2860sta
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>Step 6: Fix problems with hibernation</h3>
+
+<p>A separate problem is that wireless has been flaky when the computer
+wakes from hibernation, but <a href="http://www.twentyways.com/2010/11/19/fixing-wireless-issues-with-asus-eeepc-1000he-running-ubuntu-10-10/">it's also
+fixable</a>.</p>
+
+<p>Add the following lines to <code>/etc/modprobe.d/blacklist.conf</code>:</p>
+
+<pre><code>blacklist rt2800pci
+blacklist rt2800lib
+blacklist rt2x00usb
+blacklist rt2x00pci
+blacklist rt2x00lib
+</code></pre>
+
+<p>Create a new file called <code>/etc/pm/config.d/unload_wireless</code> with the following line:</p>
+
+<pre><code>SUSPEND_MODULES="rt2860sta"
+</code></pre>
+
+<p>Reboot and you should have WPA-compatible, hibernatable wireless.</p>
+
+<h3>References:</h3>
+
+<ol>
+<li><a href="http://www.ctbarker.info/2010/05/ubuntu-1004-wireless-chipsets-and-wpa.html">rt2860sta driver installation</a></li>
+<li><a href="http://www.twentyways.com/2010/11/19/fixing-wireless-issues-with-asus-eeepc-1000he-running-ubuntu-10-10/">Proper hibernation</a></li>
+<li><a href="http://ubuntuforums.org/showthread.php?t=1476007">Ubuntu Forums thread</a></li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Openshot Video Editor]]></title>
+    <link href="https://www.kurup.org/blog/2011/08/10/openshot-video-editor"/>
+    <updated>2011-08-10T15:30:08-04:00</updated>
+    <id>https://www.kurup.org/blog/2011/08/10/openshot-video-editor</id>
+    <content type="html"><![CDATA[<p>Ever since my Dad brought home an Apple IIe back in 1980, I've been a
+huge Apple fan. The design of my website back in the mid 90's was a
+ripoff of the Mac OS 9 System menu. (I found a <a href="http://web.archive.org/web/20011110214204/http://kurup.com/index.phtml">later version on the
+Wayback
+Machine</a>. I
+had swapped out the Apple icon for the icon of the startup I was
+working with at the time.) I loved OS X for a while, especially on my
+12" Aluminum powerbook. But over time, I got more and more frustrated
+by it. I wanted to be able to configure more. When the hard drive on
+that Powerbook died, I decided to move to all linux.</p>
+
+<p><blockquote><p>vkurup: trying to visualize life without a mac</p><footer><strong>February 13th, 2009</strong> <cite><a href='http://twitter.com/#!/vkurup/status/1207289044'>twitter.com/#!/vkurup/status/&hellip;</a></cite></footer></blockquote></p>
+
+<p>I am happy and productive, but I am occasionally jealous of Mac OS X. I set
+up a Mac Airbook for my mother-in-law a few months ago and ... can I
+just drool for a minute about that computer? But, I was able to set it
+up, wipe up my drool, and then return to my Ubuntu machines without
+too many pangs of jealousy. For the stuff that I do, Linux works
+perfectly.</p>
+
+<p>The one pain point that I've been having over the past few years is
+video editing. I take a lot of movies of the kids and I like to do
+some very simple editing of them before uploading them to
+youtube. This was super easy in
+<a href="http://www.apple.com/ilife/imovie/">iMovie</a> back in 2007. I haven't
+found a similar experience on Linux. It's reassured me a little to
+hear that iMovie has gotten weaker and weaker over the years, so I
+didn't feel any need to go back to Mac for this one function.</p>
+
+<p>I had been using <a href="http://www.kinodv.org/">Kino</a>, but the developer
+stopped working on it and it had some minor bugs. It doesn't play well
+with PulseAudio, the overarching audio system in linux. So I had to
+start it with the command <code>padsp kino</code> which allows kino to bypass
+PulseAudio. That then makes all other sound on the computer stop until
+I quit Kino. And with every OS update, there would be minor changes
+that would require me to fiddle with the audio settings
+again. Finally, I didn't really understand the Export settings, so my
+videos were never as optimized as they could be. There were tabs for
+DVD and MPEG output, but there was also one for Other and there were
+MPEG options in there too. I was thoroughly confused and was hoping
+for something to come along that would be better. Mark Pilgrim
+mentioned OpenShot once and I looked at it back then, but I couldn't
+figure it out. I tried valiantly for a day and then returned to
+hacking on Kino.</p>
+
+<p>Fast forward about a year and after a little more frustration with how
+my videos looked on youtube, I gave
+<a href="http://www.openshotvideo.com/">OpenShot</a> another try. Version 1.2 is
+packaged in Ubuntu 10.10, but 1.3 offered some other nice features,
+like exporting directly to Youtube, so I downloaded the
+<a href="http://www.openshot.org/ppa/">PPA</a> and installed 1.3.</p>
+
+<p><img src="/images/openshot.png" title="Openshot Main Window" ></p>
+
+<p>What a breath of fresh air! It was so easy to import clips. It was so
+easy to place clips on the timeline. It was easy to splice and add
+transitions. It was easy to add titles. Most importantly it was easy
+to export to HD video format so now the videos look better on Youtube.</p>
+
+<p>I don't use Linux for its video editing capabilities. I use it because
+I believe in the idea of free software and because for my purposes,
+emacs and a web browser are all that I really need. But I am
+pleasantly surprised when I see something like OpenShot evolve and
+improve to the point that it solves my problem exactly. I will be
+donating some dollars over there.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Autopoint]]></title>
+    <link href="https://www.kurup.org/blog/2010/11/05/autopoint"/>
+    <updated>2010-11-05T15:09:06-04:00</updated>
+    <id>https://www.kurup.org/blog/2010/11/05/autopoint</id>
+    <content type="html"><![CDATA[<p>If you get this error message:</p>
+
+<pre><code>Can't exec "autopoint": No such file or directory at /usr/share/autoconf/Autom4te/FileUtils.pm
+</code></pre>
+
+<p>Then, you need to install autopoint:</p>
+
+<pre><code>sudo aptitude install autopoint
+</code></pre>
+
+<p>I ran into this while building
+<a href="https://github.com/jwiegley/ledger">ledger</a> today and had never
+needed to do that before. The error that <code>acprep</code> provides is even
+more cryptic:</p>
+
+<pre><code>Automatically preparing build ... Warning: autoreconf failed
+</code></pre>
+
+<p>Then, I ran <code>autogen.sh</code> and the autpoint error showed up.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Rotating videos]]></title>
+    <link href="https://www.kurup.org/blog/2010/09/16/rotate-video"/>
+    <updated>2010-09-16T09:09:00-04:00</updated>
+    <id>https://www.kurup.org/blog/2010/09/16/rotate-video</id>
+    <content type="html"><![CDATA[<p>I found out how to rotate video today. I often take video with my
+Canon SD870, but I mistakenly take it in portrait mode. I don't
+realize this until I'm editing the video and then I have to decide if
+I want to subject my adoring youtube fans to the torture of having to
+turn their heads sideways to see how cute Kavi and Anika are.</p>
+
+<p>I found <a href="http://www.hanselman.com/blog/HowToRotateAnAVIOrMPEGFileTakenInPortrait.aspx">this
+link</a>
+which gives the <code>mencoder</code> command to rotate the video. Unfortunately,
+it didn't work with the AVI files that my Canon SD870 create. I think
+this camera creates slightly corrupt AVI files. I say "slightly"
+because they're still viewable, but mplayer always reports the total
+time as "0:00", even while the elapsed time marches along
+correctly. Well, today, I found a way to fix the AVI files.</p>
+
+<pre><code>mencoder -ovc copy -oac copy input.avi -o output.avi
+</code></pre>
+
+<p>This just creates a new AVI, copying the video and audio from the
+original. Now, mplayer reports the correct total time. Then, to rotate
+the video:</p>
+
+<pre><code>mencoder -ovc lavc -lavcopts vcodec=mjpeg -vf rotate=1 \
+         -oac copy output.avi -o rotated.avi
+</code></pre>
+
+<p>And here's your reward for reading along:</p>
+
+<object width="480" height="385"><param name="movie"
+value="http://www.youtube.com/v/QIC21_XaAJ0?fs=1&amp;hl=en_US"></param><param
+name="allowFullScreen" value="true"></param><param
+name="allowscriptaccess" value="always"></param><embed
+src="http://www.youtube.com/v/QIC21_XaAJ0?fs=1&amp;hl=en_US"
+type="application/x-shockwave-flash" allowscriptaccess="always"
+allowfullscreen="true" width="480" height="385"></embed></object>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ubuntu Bluetooth Workaround]]></title>
+    <link href="https://www.kurup.org/blog/2010/08/02/fixing-bluetooth-on-ubuntu"/>
+    <updated>2010-08-02T21:40:00-04:00</updated>
+    <id>https://www.kurup.org/blog/2010/08/02/fixing-bluetooth-on-ubuntu</id>
+    <content type="html"><![CDATA[<p>I use bluetooth to transfer podcasts from my laptop to my Palm Centro. A
+Palm Centro is like an iPhone or a Droid, except less <strong>smart</strong>-like and
+more <strong>phone</strong>-like. This worked beautifully but broke when I upgraded to
+<a href="http://www.ubuntu.com/desktop/get-ubuntu/download">Ubuntu</a> 10.04 (Lucid
+Lynx). There are 2 bugs involved. First, the bluetooth daemon
+(<code>/usr/sbin/bluetoothd</code>) never gets started. Second, there's no easy way to
+start the file transfer daemon automatically (<code>/usr/bin/dund</code>). This used
+to work automatically, but now it doesn't. I've tried to fiddle with <code>udev</code>
+rules, but have been unsuccessful. I've reported the 2 bugs, but haven't
+had any response
+yet. <a href="https://bugs.launchpad.net/ubuntu/+source/bluez/+bug/589464">(bluetoothd bug)</a>
+<a href="https://bugs.launchpad.net/ubuntu/+source/bluez/+bug/559538">(dund bug)</a></p>
+
+<p>My workaround is a shell script which starts those those daemons if they
+are not running:</p>
+
+<h4>vk-bluetooth-start.sh</h4>
+
+<pre><code>#!/bin/bash
+
+BLUETOOTH='bluetoothd'
+DUN='dund'
+
+# first start bluetoothd
+if ps ax | grep -v grep | grep $BLUETOOTH &gt; /dev/null
+then
+    echo "$BLUETOOTH is running."
+else
+    echo -n "Starting $BLUETOOTH..."
+    /usr/bin/sudo /usr/sbin/bluetoothd -u &amp;&gt; /dev/null
+    echo "done."
+fi
+
+# then start dund
+if ps ax | grep -v grep | grep $DUN &gt; /dev/null
+then
+    echo "$DUN is running."
+else
+    echo -n "Starting $DUN..."
+    /usr/bin/sudo /usr/bin/dund --listen --persist --msdun call centro
+    echo "done."
+fi
+</code></pre>
+
+<p>And here's my script which transfers the files to my phone. It uses
+<a href="http://packages.ubuntu.com/lucid/pilot-link">pilot-link</a>, which I had to
+compile from source due to a
+<a href="https://bugs.launchpad.net/ubuntu/+source/pilot-link/+bug/592916">bug in the way that the Ubuntu version addresses large SD cards</a>. This
+should be fixed in the next version of Ubuntu.</p>
+
+<h4>vk-transfer-podcasts.sh</h4>
+
+<pre><code>#!/bin/bash
+
+output=$(pilot-xfer -p net:any -D /Kingston/AUDIO -i *.mp3 2&gt;&amp;1)
+errors=$(echo $output | grep -c "ERROR:")
+
+if [ $errors -gt 0 ] ; then
+    echo "failure (count: $errors)"
+    echo $output
+else
+    echo -n "success, removing files from laptop..."
+    /bin/rm -I $HOME/*.mp3
+    echo "done."
+fi
+</code></pre>
+
+<p>If you're wondering why I use a slow protocol like bluetooth to transfer
+large files to an SD card, rather than just ejecting the SD card and
+inserting it into the laptop, well... you haven't tried to access the SD
+card on a Palm Centro. #paininthe&amp;<sup>@!</sup></p>
+]]></content>
+  </entry>
+  
+</feed>

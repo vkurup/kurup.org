@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: kino | Vinod Kurup]]></title>
+  <link href="https://www.kurup.org/blog/categories/kino/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2019-04-09T07:01:33-04:00</updated>
+  <id>https://www.kurup.org/</id>
+  <author>
+    <name><![CDATA[Vinod Kurup]]></name>
+    <email><![CDATA[vinod@kurup.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[My video editing process]]></title>
+    <link href="https://www.kurup.org/blog/2010/07/20/kino"/>
+    <updated>2010-07-20T20:51:00-04:00</updated>
+    <id>https://www.kurup.org/blog/2010/07/20/kino</id>
+    <content type="html"><![CDATA[<p>I use <a href="http://www.kinodv.org/">kino</a> to edit the
+<a href="http://youtube.com/vkurup1">videos that we take of the kids</a>. I haven't
+found a Linux program which was as nice as iMovie was on the Mac, but kino
+is pretty good. It's easy to splice and reconnect video clips together. It
+has nice special effects, though my needs are pretty simple. It's able to
+export in plenty of formats, possibly too many, for my simple mind. But,
+I've figured it out and have a stable process for getting video from camera
+to youtube.</p>
+
+<p>I have 3 camcorders - a <a href="http://www.theflip.com/">Flip</a>, my Canon digital
+camera, and a Panasonic DVD camcorder. I can just copy the AVI files
+directly off the Flip and the Canon's SD card. The Panasonic records all of
+the video clips into a single file with a .VRO extension. I found a great
+utility called <a href="http://www.pixelbeat.org/programs/dvd-vr/">dvd-vr</a>, which
+reads that file and splits it into individual AVI files. Once I have a
+directory full of AVI files from the various camcorders, I use
+<a href="http://www.gnu.org/software/emacs/">emacs</a> to rename them consistently. I
+open up 2 buffers: an editable dired buffer (<code>wdired-change-to-wdired-mode</code>)
+of the movies directory, and a shell buffer in that same directory. I run a
+macro which takes the first file in the directory, plays it via an mplayer
+command in the shell buffer and then renames the file using the
+date/timestamp of the file. The macro leaves the cursor in a spot where I
+can enter a brief description of the video and then run the macro again to
+do the next video. It works pretty well. I then batch convert them to DV
+format, which is what Kino accepts. Finally, I launch Kino and edit the
+files, add titles, export them to AVI again, and then upload them to
+youtube.</p>
+
+<p>I did this today and ran into a problem with kino. The video played at
+breakneck speed and there was no audio. Google helped me figure out that
+this was a problem between PulseAudio and kino. Kino is no longer actively
+developed. The lead developer considers it stable and finished and he's
+moved on to other endeavors, which is perfectly understandable. He's
+however, taken the time to describe
+<a href="http://www.kinodv.org/article/view/173/1/13/">a workaround</a>. He recommends
+running <code>padsp kino</code> which routes all audio requests from kino to
+pulseaudio. This worked, but the audio had a lot of feedback. I found an
+even better
+<a href="http://ubuntuforums.org/showpost.php?p=8367831&amp;postcount=7">workaround on the ubuntu forums</a>. Use
+<code>pasuspender kino</code>, which suspends all PulseAudio activity, gives kino
+direct access to audio devices, and then resumes PulseAudio once kino has
+quit. This worked with perfect audio quality, though of course, audio from
+any other program gets muted completely.</p>
+
+<p>I am still on the lookout for a better video editing solution on
+Linux. Eventually, I'd like to make DVDs of the hundreds of little clips
+that I have. They don't need to be fancy, but I would like to have some
+basic menus and they need to work on standard DVD players. I've started
+doing a little research on this, so will post once I've tried some things
+out.</p>
+]]></content>
+  </entry>
+  
+</feed>

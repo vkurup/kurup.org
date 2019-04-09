@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: guidelines | Vinod Kurup]]></title>
+  <link href="https://www.kurup.org/blog/categories/guidelines/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2019-04-09T07:01:33-04:00</updated>
+  <id>https://www.kurup.org/</id>
+  <author>
+    <name><![CDATA[Vinod Kurup]]></name>
+    <email><![CDATA[vinod@kurup.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[National Guideline Clearinghouse]]></title>
+    <link href="https://www.kurup.org/blog/2005/02/07/national-guideline-clearinghouse"/>
+    <updated>2005-02-07T00:00:00-05:00</updated>
+    <id>https://www.kurup.org/blog/2005/02/07/national-guideline-clearinghouse</id>
+    <content type="html"><![CDATA[<p>I subscribe to the National Guideline Clearinghouse's (NGC) email alert service. Sponsored by the <a href="http://www.ahrq.gov/">Agency for Healthcare Research and Quality</a>, the NGC is a database of clinical guidelines from numerous sources. <a href="http://www.guideline.gov/whatsnew/subscription.aspx">Sign up for their alert service</a> to receive email whenever a guideline is added or changed.</p>
+
+<p>It's the first place I look when I want to find an evidence-based approach to a problem. Clinical practice guidelines are helpful, but they have problems, too.</p>
+
+<ul>
+<li>It takes time for evidence based studies to be incorporated into guideline statements, so newer data may not be in the guidelines yet. I go to <a href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi">MEDLINE</a> when I want to find the most up-to-date stuff.</li>
+<li>Guidelines may be written by very diverse groups, so may not necessarily apply to me as a primary care physician.</li>
+<li>Guidelines are usually just summaries, so they don't provide the fine-grained data that I usually like to see. What is the specificity and sensitivity of this test? What is the Absolute Risk Reduction of this treatment? Guidelines gloss over this data to give you the big picture, but I like to know the stats (Sorry, I'm a math geek).</li>
+</ul>
+
+
+<p>Still, they are very useful as a starting point and the alert service helps me in the near-impossible task of keeping up to date.</p>
+]]></content>
+  </entry>
+  
+</feed>

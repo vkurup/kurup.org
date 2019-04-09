@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: clojure | Vinod Kurup]]></title>
+  <link href="https://www.kurup.org/blog/categories/clojure/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2019-04-09T08:22:17-04:00</updated>
+  <id>https://www.kurup.org/</id>
+  <author>
+    <name><![CDATA[Vinod Kurup]]></name>
+    <email><![CDATA[vinod@kurup.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[On Factoring Large Numbers]]></title>
+    <link href="https://www.kurup.org/blog/2011/11/29/factoring-large-numbers"/>
+    <updated>2011-11-29T21:59:20-05:00</updated>
+    <id>https://www.kurup.org/blog/2011/11/29/factoring-large-numbers</id>
+    <content type="html"><![CDATA[<p>I wonder how many of my blog posts are based on stories from <a href="http://www.thisamericanlife.org">This
+American Life</a>. Probably not
+enough. Every time I start to listen to a show, I'm certain that I'm
+not going to be interested and within a minute I'm trapped and can't
+stop listening. It's that good. A <a href="http://www.thisamericanlife.org/radio-archives/episode/450/so-crazy-it-just-might-work">recent show was about people who
+people who pursued crazy
+ideas</a>.
+The first story was about a mathematician named <a href="http://en.wikipedia.org/wiki/Frank_Nelson_Cole">Frank Nelson
+Cole</a>. <a href="http://en.wikipedia.org/wiki/Mersenne_prime#History">Marin
+Mersenne</a> had
+claimed in the 17th century that 2<sup>67</sup>-1 was a prime
+number. He was prominent enough that the claim was felt to be accepted
+wisdom and there was certainly no way to test the claim in the days
+before computers. That's a big honking number:
+147,573,952,589,676,412,927.</p>
+
+<p>In 1903, Frank Nelson Cole walked into a meeting of mathematicians to
+present his talk. The title was boring, something like "On the
+factoring of large numbers". Without speaking a word, he walked up to
+the chalkboard and started to write a large number, followed by
+another large number and then started to multiply them together. It
+took a while, but by the time he started to get towards the solution,
+the crowd of mathematicians understood that he was proving that he had
+found two numbers whose product was the famous "prime" number
+2<sup>67</sup>-1. As he came close to finishing, the anticipation
+peaked and cheering began. He finished the calculation and sat down,
+never speaking a word.</p>
+
+<p>Stories like that give me the chills. Can you imagine how excited he
+must have been when he found those 2 roots? I get that sensation every
+once in a while when I make a programming breakthrough, solving a
+problem which I had been banging my head on for a while. It's nowhere as
+profound as what he did, but I think I can understand the exhilaration
+he must have felt.</p>
+
+<p>I decided to see what those 2 roots are, using my new favorite
+language, Clojure. I'm by no means an expert in anything, let alone
+programming and especially functional programming, but here's how I
+went about it. The REPL is such a fun way to explore things like this:</p>
+
+<ol>
+<li><p>I need a range of numbers which I'll then test one-by-one to see if
+they divide into 2<sup>67</sup>-1 evenly.</p>
+
+<pre><code> user=&gt; (def n 18)
+ #'user/n
+ user=&gt; (range 2 n)
+ (2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17)
+</code></pre></li>
+<li><p>I need a way to take a square root.  (There's no need to check
+numbers higher than the square root of 2<sup>67</sup>-1)</p>
+
+<pre><code> user=&gt; (Math/sqrt n)
+ 4.242640687119285
+</code></pre></li>
+<li><p>So the numbers I need to test are:</p>
+
+<pre><code> user=&gt; (range 2 (inc (int (Math/sqrt n))))
+ (2 3 4)
+</code></pre></li>
+<li><p>I need to find the remainder of a division (Of note, <code>mod</code> also does
+the same thing, but <code>rem</code> is a lot faster)</p>
+
+<pre><code> user=&gt; (rem 9 2)
+ 1
+</code></pre></li>
+<li><p>Can I find all the lower roots of a number? The <code>#(...)</code> syntax is
+syntactic sugar for an anonymous function. The <code>%</code> is a placeholder
+for the value which is being iterated over. So the following
+function takes each value in the list returned by <code>range</code> and
+supplies it to <code>rem</code>. If that <code>rem</code> function is equal to
+zero, then the <code>#(...)</code> anonymous function returns true and <code>filter</code>
+keeps the value.</p>
+
+<pre><code> user=&gt; (def n 100)
+ #'user/n
+ user=&gt; (filter #(= (rem n %) 0) (range 2 (inc (int (Math/sqrt n)))))
+ (2 4 5 10)
+</code></pre></li>
+<li><p>Now let's map over each of those values, finding the corresponding
+higher root for each value. <code>vector</code> creates a vector (think list)
+with the first value being the supplied value and the second value
+being the other root <code>(/ n %)</code>:</p>
+
+<pre><code> user=&gt; (map #(vector % (/ n %)) (filter #(= (rem n %) 0) (range 2 (inc (int (Math/sqrt n))))))
+ ([2 50] [4 25] [5 20] [10 10])
+</code></pre></li>
+<li><p>Based on that experimentation, here's my first stab at the
+function:</p>
+
+<pre><code> user=&gt; (defn roots [n]
+          (let [lower-factors (range 2 (inc (int (Math/sqrt n))))
+                is-factor? (fn [a] (= (rem n a) 0))]
+            (map  #(vector % (/ n %)) (filter is-factor? lower-factors))))
+ #'user/roots
+ user=&gt; (roots 294)
+ ([2 147] [3 98] [6 49] [7 42] [14 21])
+</code></pre></li>
+<li><p>Now let's get our big number (2<sup>67</sup>-1)</p>
+
+<pre><code> user=&gt; (dec (Math/pow 2 67))
+ 1.4757395258967641E20
+</code></pre></li>
+<li><p>Hmmm... that looks like it might not be a precise value. Oh well,
+let's try it:</p>
+
+<pre><code> user=&gt; (roots (dec (Math/pow 2 67)))
+ ([2 7.378697629483821E19] [3 4.9191317529892135E19] [4
+ 3.6893488147419103E19] [5 2.9514790517935284E19] [6
+ 2.4595658764946067E19] [7 2.108199322709663E19] [8
+ 1.8446744073709552E19] [9 1.6397105843297378E19] [10
+ 1.4757395258967642E19] [11 1.3415813871788765E19] [12
+ 1.2297829382473034E19] [13 1.1351842506898186E19] [14
+ 1.0540996613548315E19] [15 9.838263505978427E18] [16
+ 9.223372036854776E18] [17 8.6808207405692006E18] [18
+ 8.1985529216486892E18] [19 7.7670501362987581E18] [20
+ 7.3786976294838211E18.....
+ C-c C-c (ABORT, ABORT!!!)
+</code></pre></li>
+<li><p>OK, that didn't work. It clearly found way too many roots, because
+2<sup>67</sup>-1 was an approximation. We have to use BigIntegers which have
+appropriate precision even with large numbers.</p>
+
+<pre><code> user=&gt; (def two67minus1 (dec (.pow (BigInteger. "2") 67)))
+ #'user/two67minus1
+ user=&gt; two67minus1
+ 147573952589676412927
+</code></pre></li>
+<li><p>Cool, that looks more precise than our previous value. To see the
+difference, check their type.</p>
+
+<pre><code> user=&gt; (type (dec (Math/pow 2 67)))
+ java.lang.Double
+ user=&gt; (type (dec (.pow (BigInteger. "2") 67)))
+ java.math.BigInteger
+</code></pre></li>
+<li><p>OK, Time for the big test:</p>
+
+<pre><code> user=&gt; (roots two67minus1)
+ ([193707721 761838257287])
+</code></pre></li>
+<li><p>Cool!!! It works! Those are the roots of 2<sup>67</sup>-1. How long did that
+take to compute? (We need <code>doall</code> to make the <code>time</code> command wait
+for all of the values to be calculated, otherwise it will return
+after the first value is calculated. This has something to do with
+the laziness of clojure sequences)</p>
+
+<pre><code> user=&gt; (time (doall (roots two67minus1)))
+ "Elapsed time: 2.2697318183297E7 msecs"
+ ([193707721 761838257287])
+</code></pre></li>
+</ol>
+
+
+<p>6 hours 18 minutes. I'm sure there's a quicker way to do this. I do a
+lot of redundant testing. For example, once we know that 2 is not a
+factor, we shouldn't check any more even factors. I'd be interested in
+any advice to make it run faster.</p>
+
+<p>I can't even fathom how you'd go about doing this without a
+computer. Can you imagine how frustrating it must've been any time you
+had a simple error? Just amazing...</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ClojureScript and PhoneGap]]></title>
+    <link href="https://www.kurup.org/blog/2011/11/12/clojurescript-and-phonegap"/>
+    <updated>2011-11-12T21:39:34-05:00</updated>
+    <id>https://www.kurup.org/blog/2011/11/12/clojurescript-and-phonegap</id>
+    <content type="html"><![CDATA[<p><a href="http://phonegap.com">Phonegap</a> is a tool that allows you to develop
+apps in HTML5 + javascript and makes it easy to deploy them to
+multiple mobile platforms, including Android and iOS.</p>
+
+<p><a href="https://github.com/clojure/clojurescript">ClojureScript</a> is a dialect
+of the awesome language, <a href="http://clojure.org">Clojure</a>, that compiles to
+Javascript (after a pass through the <a href="http://code.google.com/closure/">Google
+Closure</a> optimizer). Because Clojure,
+ClojureScript and Google Closure can be confusing terms, I'll use CLJS
+instead of ClojureScript for the remainder of this post.</p>
+
+<p>What I wanted to do: Write a simple CLJS app that runs on my Android
+phone using these tools.</p>
+
+<h3>Get HelloWorld working with PhoneGap</h3>
+
+<p>Following <a href="http://phonegap.com/start#android">these instructions</a> will
+get the Android SDK, Eclipse plugin and PhoneGap working. If you
+already have the Android SDK, you'll be able to skip most of it. I'm
+most comfortable in Emacs, so I'll be using that instead of
+Eclipse. Here is the command-line command for creating your project
+(the <code>-t</code> refers to your android target which you can find by doing
+<code>android list avds</code>):</p>
+
+<pre><code>$ android create project -n HelloPhoneGap -t 2 -p HelloPhoneGap -k com.phonegap.helloworld -a App
+</code></pre>
+
+<p>By the end of these instructions, you should have a copy of an app
+called HelloPhoneGap on your phone which, when clicked, shows a
+'Hello World' screen.</p>
+
+<h3>Setup CLJS</h3>
+
+<p>Follow the <a href="https://github.com/clojure/clojurescript/wiki/Quick-Start">simple
+instructions</a>,
+recreated here because they're just so simple.</p>
+
+<pre><code>$ git clone git://github.com/clojure/clojurescript.git
+$ cd clojurescript
+$ ./script/bootstrap
+</code></pre>
+
+<p>That's it. The CLJS compiler and REPL are ready to work.</p>
+
+<h3>Get HelloWorld working via HTML</h3>
+
+<p>Follow the
+<a href="https://github.com/clojure/clojurescript/wiki/Quick-Start">instructions</a>
+under the heading <em>Using ClojureScript on a Web Page</em> to build a
+Javascript file and associated HTML file for testing.</p>
+
+<h3>Put CLJS and PhoneGap together</h3>
+
+<p>OK, let's make something a little interactive on the phone. I'm going
+to build a BMI calculator that takes a person's height and weight in
+Imperial (i.e. American) units and calculates a Body Mass Index. BMI
+is simply weight divided by the square of height, with units of
+kg/m<super>2</super>.</p>
+
+<p>Here's the CLJS file:</p>
+
+<p>``` clojure</p>
+
+<pre><code>(ns bmi)
+
+(defn height [feet inches]
+  (-&gt; feet (* 12) (+ inches) (* 2.54) (/ 100)))
+
+(defn weight [lbs]
+  (/ lbs 2.2))
+
+(defn bmi [h w]
+  (js/Math.round (/ w (* h h))))
+
+(defn ^:export alertDismissed []
+  nil)
+
+(defn ^:export displaybmi [form]
+  (let [h (height (js/parseInt form.f.value) (js/parseInt form.i.value))
+        w (weight (js/parseInt form.l.value))]
+    (js/navigator.notification.alert (bmi h w) hello.alertDismissed)))
+</code></pre>
+
+<p>```</p>
+
+<p>Basically, we create simple functions to convert Imperial heights and
+weights to metric values, calculate a BMI and then use <code>displaybmi</code> to
+parse form parameters, calculate the BMI and show that result in an
+Android notification popup. <code>alertDismissed</code> is a callback that gets
+called when the user dismisses the notification. (I'm just discarding
+the information here). Those are the only 2 functions that are needed
+by the HTML file, so those are the only 2 that need the <code>:export</code>
+metadata tag. <code>navigator.notification.alert</code> is a PhoneGap API call
+that does the actual notification.</p>
+
+<p>The calls prefixed by <code>js/</code> are understood by the CLJS compiler to
+refer to the global JavaScript namespace. If you didn't include that
+prefix, the compiler would assume you meant a call in the local
+<code>bmi</code> namespace, which would obviously fail.</p>
+
+<p>Here's the HTML file (in <code>HelloPhoneGap/assets/www/</code>):</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="ni">&amp;lt;</span>!DOCTYPE HTML&gt;
+</span><span class='line'><span class="nt">&lt;html&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;head&gt;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;pre&gt;&lt;code&gt;</span><span class="ni">&amp;lt;</span>title<span class="ni">&amp;gt;</span>BMI calculator<span class="ni">&amp;lt;</span>/title<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="ni">&amp;lt;</span>script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot; src=&quot;phonegap-1.0.0.js&quot;<span class="ni">&amp;gt;&amp;lt;</span>/script<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="ni">&amp;lt;</span>script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot; src=&quot;bmi.js&quot;<span class="ni">&amp;gt;&amp;lt;</span>/script<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="nt">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;p&gt;</span>  <span class="nt">&lt;/head&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;body&gt;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;pre&gt;&lt;code&gt;</span><span class="ni">&amp;lt;</span>h1<span class="ni">&amp;gt;</span>BMI calculator<span class="ni">&amp;lt;</span>/h1<span class="ni">&amp;gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="ni">&amp;lt;</span>form<span class="ni">&amp;gt;</span>
+</span><span class='line'>  Height: <span class="ni">&amp;lt;</span>input name=&quot;f&quot; size=&quot;2&quot;<span class="ni">&amp;gt;</span> ft. <span class="ni">&amp;lt;</span>input name=&quot;i&quot; size=&quot;2&quot;<span class="ni">&amp;gt;</span> in. <span class="ni">&amp;lt;</span>br<span class="ni">&amp;gt;</span>
+</span><span class='line'>  Weight: <span class="ni">&amp;lt;</span>input name=&quot;l&quot; size=&quot;2&quot;<span class="ni">&amp;gt;</span> lbs.<span class="ni">&amp;lt;</span>br<span class="ni">&amp;gt;</span>
+</span><span class='line'>  <span class="ni">&amp;lt;</span>input type=&quot;button&quot; value=&quot;Calculate BMI&quot; onclick=&quot;bmi.displaybmi(this.form)&quot;<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="ni">&amp;lt;</span>/form<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="nt">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;p&gt;</span>   <span class="nt">&lt;/body&gt;</span>
+</span><span class='line'><span class="nt">&lt;/html&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Now compile the CLJS and move the compiled JS file to
+<code>HelloPhoneGap/assets/www/</code></p>
+
+<pre><code>$ ./bin/cljsc bmi.cljs '{:optimizations :simple :pretty-print true}' &gt; bmi.js
+$ cp bmi.js ~/dev/HelloPhoneGap/assets/www/
+</code></pre>
+
+<p>The <code>:simple</code> value for optimizations and the <code>true</code> value for
+pretty-print make it so that we can read the resulting JS file, but
+can be changed to <code>:advanced</code> and <code>false</code> respectively when ready for
+production.</p>
+
+<p>Now, go back into the HelloPhoneGap Android project and compile it and
+send it to the emulator (<code>C-c C-c i</code> in emacs). You should now have a
+simple BMI calculator working on Android.</p>
+
+<p><img src="/images/bmi.png" title="BMI Android Screenshot" ></p>
+
+<h3>Next steps</h3>
+
+<p>The promise of PhoneGap is that you could use similar HTML/Javascript
+to create iOS versions as well, but I haven't done that yet. There are
+tons of API calls available on both platforms which are supposed to
+give you the same access that native apps have. Using ClojureScript
+means you get to use a modern functional language to create your app,
+while getting access to the features that only JavaScript APIs
+provide.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Maps are functions, too]]></title>
+    <link href="https://www.kurup.org/blog/2010/08/05/maps-are-functions"/>
+    <updated>2010-08-05T15:16:00-04:00</updated>
+    <id>https://www.kurup.org/blog/2010/08/05/maps-are-functions</id>
+    <content type="html"><![CDATA[<p>Braindump time. Here's what I've read about clojure in the past few days. I don't understand what this means yet, but maybe someday I will:</p>
+
+<blockquote><p>Clojure provides easy access to the Java frameworks, with optional type hints and type inference, to ensure
+that calls to Java can avoid reflection.</p></blockquote>
+
+<p>There are multiple languages that target the JVM (besides Java, of
+course). It seems that there are 2 classes of languages. Ported languages
+such as JRuby and Jython aim to be identical to their base languages
+(Ruby &amp; Python). Native languages such as Clojure and Groovy are meant to
+target the JVM natively without satisfying any desire to be identical to
+another language. Native languages have the advantage that they only have 1
+set of libraries to use, so you don't get stuck between two languages.</p>
+
+<p>I installed clojure 1.0 from the ubuntu repositories, but promptly
+uninstalled it once I found
+<a href="http://github.com/technomancy/leiningen">leiningen</a>. Leiningen is a build
+tool for clojure. You can easily create a new project and specify its
+dependencies and leiningen will download those dependencies, including a
+full version of clojure for each project. You can have 1 project using
+leiningen 1.0 and another using version 1.2 sitting right next to it. That
+seems smart!</p>
+
+<p>I installed <a href="http://www.assembla.com/wiki/show/clojure/Getting_Started_with_Emacs">clojure-mode on
+emacs</a>.</p>
+
+<p>Right now, I'm working my way through the
+<a href="http://github.com/relevance/labrepl">labrepl</a> project. It's an interactive
+tutorial and REPL (read-eval-print-loop) where you can run the examples in
+the tutotial.</p>
+
+<p>It's always important to know how to find help:</p>
+
+<ul>
+<li><code>(doc blah)</code> gives documentation about blah.</li>
+<li><code>(find-doc "blah")</code> searches for documentation.</li>
+<li><code>(javadoc blah)</code> opens Java docs in your browser</li>
+<li><code>(show java.util.Date)</code> shows method signatures</li>
+</ul>
+
+
+<p>Here's something cool: Maps are associative arrays. Here's a simple one:</p>
+
+<pre><code>(def me {:first-name "Vinod", :last-name "Kurup"})
+</code></pre>
+
+<p>To get the data, you use the <code>get</code> function, like you would in other languages:</p>
+
+<pre><code>(get me :first-name) -&gt; "Vinod"
+</code></pre>
+
+<p>But, maps and keywords are functions as well, so you can do:</p>
+
+<pre><code>(me :first-name) -&gt; "Vinod"
+(:last-name me) -&gt; "Kurup"
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[My Anti-Writing Cycle]]></title>
+    <link href="https://www.kurup.org/blog/2010/07/27/my-anti-writing-cycle"/>
+    <updated>2010-07-27T21:30:00-04:00</updated>
+    <id>https://www.kurup.org/blog/2010/07/27/writers-block</id>
+    <content type="html"><![CDATA[<p>I blogged daily for a 6 day stretch a couple weeks ago, which is the
+longest continuous stretch I've ever done. It was stimulating and stressful
+at the same time. I haven't heard from the Pulitzer committee about any of
+the posts yet, but it's not the quality that matters. Writing is more about
+the process than the product, and I know from experience that writing helps
+me think. And while most of the posts were written for my own benefit, I
+really enjoyed the response that I got from family and friends about
+<a href="/blog/2010/07/15/playdoh">Playdoh</a>. I think I've read that post 100 times
+and I still laugh out loud at the end of it. That's the post that started
+the stretch off. As soon as I had put Kavi to bed, I knew that I wanted to
+share that story. I wrote it down quickly, so I wouldn't forget it. That
+writing process stimulated me to want to write more, so I made it an
+internal goal to write a post daily.</p>
+
+<p>Then I had two night shifts and the streak was broken. I've had a few days
+off, but I still haven't written anything. I'm still learning clojure, but
+I fear writing about something that I know nothing about. Even though I've
+heard others say that this is the best time to write about a topic. I've
+also constructed a vicious cycle in my head. I want to learn clojure. I
+want to write about what I learn. I start doing so, but then I skip a day
+or so. Now, when I have free time, I think about learning clojure, but then
+I also think about the fact that I should write about it. And since I'm
+already behind, I don't want to get further behind, so maybe I shouldn't
+read that interesting tutorial until I've caught up on writing about what
+I've learned. Next thing I know, I'm monitoring Twitter streams
+second-by-second for <a href="http://imgur.com">imgur</a> links.</p>
+
+<p>I'm hoping that writing about my mental blocks will help me overcome
+them. I plan to write more frequently, mostly for my own benefit, but I'm
+not going to let it get in the way of learning cool, interesting stuff. If
+my writing is disjointed, so be it. I can fill in the gaps later if anyone
+cares.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[First Steps with Clojure]]></title>
+    <link href="https://www.kurup.org/blog/2010/07/18/first-steps-with-clojure"/>
+    <updated>2010-07-18T16:29:00-04:00</updated>
+    <id>https://www.kurup.org/blog/2010/07/18/first-steps-with-clojure</id>
+    <content type="html"><![CDATA[<p>As mentioned yesterday, I'm teaching myself clojure. I started by trying to
+install it.</p>
+
+<pre><code>vinod@ike$ aptitude install clojure
+</code></pre>
+
+<p>Ubuntu has packaged version 1.0.0 of clojure. I always default to the
+OS-installed version of programs, just for ease of maintenance. The current
+stable version of clojure is 1.1 and it appears that 1.2 is in beta. I have
+no idea what has been changed in 1.1 or 1.2, but I'm going to try to get
+along using 1.0.0 and update only if I need to for a specific reason.</p>
+
+<p>I then read through the
+<a href="http://www.moxleystratton.com/article/clojure/for-non-lisp-programmers">tutorial for non-lisp programmers</a>,
+which succinctly describes the basics of the language.<a href="I">^1</a> Everything in
+lisp is either an atom or a list. Atoms include numbers, booleans, strings,
+symbols, keywords and the nil value. Lists (delimited by parentheses <code>()</code>)
+are the basic data structure, but include representations such as vectors
+(delimited by square brackets <code>[]</code>) and maps (delimited by curly brackets
+<code>{}</code>). Clojure programs are themselves simply lists, which leads to the
+power of lisp-like languages because code and data are interchangeable.</p>
+
+<p>You use <code>def</code> to create variables and <code>defn</code> to create functions. The
+language includes loops and conditional statements, just like any other
+useful language. Only <code>false</code> and <code>nil</code> are <em>false</em> in clojure; zero (0),
+and the empty string ("") are <em>true</em>, unlike a lot of languages.</p>
+
+<p>The interesting part is the integration with Java. To instantiate a java
+object, simply call <code>new</code>:</p>
+
+<pre><code>user=&gt; (new java.util.Date)
+#&lt;Date Sun Jul 18 16:20:54 EDT 2010&gt;
+</code></pre>
+
+<p>To call object methods or get instance/class variables, use the dot "."
+method.</p>
+
+<pre><code>user=&gt; (. (new java.util.Date) (toString))
+"Sun Jul 18 16:24:09 EDT 2010"
+
+user=&gt; (. Integer MAX_VALUE)
+2147483647
+</code></pre>
+
+<p>The article contains this interesting quote:</p>
+
+<blockquote><p>Sequences are in a sense, the core of idiomatic Clojure
+programming. Understand sequences and the forms that work with them, and
+you will have cleared one of the biggest hurdles in writing significant
+Clojure programs.</p></blockquote>
+
+<p>So, add that to my to-do list. Where to go next? A
+<a href="http://stackoverflow.com/questions/599519/which-tutorial-on-clojure-is-best">StackOverflow thread</a>
+has pointed to me to a few options. I'll probably read one of these next:</p>
+
+<ul>
+<li><a href="http://en.wikibooks.org/wiki/Learning_Clojure">http://en.wikibooks.org/wiki/Learning_Clojure</a></li>
+<li><a href="http://github.com/relevance/labrepl">http://github.com/relevance/labrepl</a></li>
+<li><a href="http://java.ociweb.com/mark/clojure/article.html">http://java.ociweb.com/mark/clojure/article.html</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

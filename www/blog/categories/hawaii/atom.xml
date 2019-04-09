@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: hawaii | Vinod Kurup]]></title>
+  <link href="https://www.kurup.org/blog/categories/hawaii/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2019-04-09T07:01:33-04:00</updated>
+  <id>https://www.kurup.org/</id>
+  <author>
+    <name><![CDATA[Vinod Kurup]]></name>
+    <email><![CDATA[vinod@kurup.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Big Island Hawai'i]]></title>
+    <link href="https://www.kurup.org/blog/2006/04/10/big-island-hawaii"/>
+    <updated>2006-04-10T00:00:00-04:00</updated>
+    <id>https://www.kurup.org/blog/2006/04/10/big-island-hawaii</id>
+    <content type="html"><![CDATA[<p>We're back from a week in paradise and have the <a href="http://kurup.org/photo/album?album_id=61014">photos to prove it</a>. Thanks to Peary and Michelle for the warm hospitality in Honolulu. We thoroughly enjoyed every moment. The weather was perfect which was especially nice since it had rained for the 40 days prior to our arrival. Kalua pig is even better than it sounds.</p>
+
+<p><img src="/images/waterfall-sm.jpg" alt="Mala at Akaka Falls" />{: .inset .left height=112 width=150}</p>
+
+<p>Oh yeah, and the <a href="http://www.cme.ucsf.edu/">conference</a> was great too :-)</p>
+]]></content>
+  </entry>
+  
+</feed>

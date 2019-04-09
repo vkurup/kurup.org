@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: finance | Vinod Kurup]]></title>
+  <link href="https://www.kurup.org/blog/categories/finance/atom.xml" rel="self"/>
+  <link href="https://www.kurup.org/"/>
+  <updated>2019-04-09T08:22:17-04:00</updated>
+  <id>https://www.kurup.org/</id>
+  <author>
+    <name><![CDATA[Vinod Kurup]]></name>
+    <email><![CDATA[vinod@kurup.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[finance.google.com]]></title>
+    <link href="https://www.kurup.org/blog/2006/03/21/financegooglecom"/>
+    <updated>2006-03-21T00:00:00-05:00</updated>
+    <id>https://www.kurup.org/blog/2006/03/21/financegooglecom</id>
+    <content type="html"><![CDATA[<p><a href="http://googleblog.blogspot.com/2006/03/spring-is-season-for-love-and-data.html">Google just launched it's new financial website</a>, <a href="http://finance.google.com">finance.google.com</a>. It combines a lot of information in 1 page and the adjustable graph at the top of a stock's page is just WAY cool. You can focus in on any period of time and see news &amp; reports from that period. They've also added blog posts as a news source.</p>
+
+<p>It's the ideal place to get a quick snapshot of a stock. Lots of information in a very quick-loading page. The major missing item is dividend information. Hopefully it will be there soon.</p>
+]]></content>
+  </entry>
+  
+</feed>
