@@ -1,0 +1,46 @@
+---
+title: "Hugo"
+date: 2019-11-17T15:22:24-05:00
+categories:
+- blog
+---
+
+I moved my blog from Octopress to [Hugo](https://gohugo.io/) today. I had been [slightly unhappy
+with Octopress for a while now](https://kurup.org/blog/2014/07/22/pygments-on-arch-linux/), but
+mainly I just wanted something new to play with. Hugo is MUCH faster than Octopress was:
+
+```bash
+vkurup@caktus020:~/dev/kurup.org(master) $ hugo
+
+                   | EN   
++------------------+-----+
+  Pages            | 669  
+  Paginator pages  |  29  
+  Non-page files   |   0  
+  Static files     | 426  
+  Processed images |   0  
+  Aliases          |   1  
+  Sitemaps         |   1  
+  Cleaned          |   0  
+
+Total in 808 ms
+```
+
+It is nice to generate my entire site in less than a second. 
+
+But I still liked the style and theme of my old site, so I was happy to find that [someone had
+already built an Octopress theme for Hugo](https://themes.gohugo.io/hugo-octopress/). I promptly
+stole his work and customized a few things here and there to make it look (nearly) exactly like my
+old site did. Yay! Thanks to [Parsia](https://parsiya.net/) for building that theme. I've also
+subscribed to his RSS feed because his site looks pretty interesting.
+
+Moving my content wasn't easy, but it wasn't hard. I mainly just copied the old markdown posts over,
+changed the front matter, and then fixed a few octopress plugins I was using to work with Hugo. 
+
+Future steps:
+
+- Switch from Disqus to something self-hosted
+- Generate the HTML on the server rather than having the HTML in git
+- Update my About page and Computers page
+- ... oh, maybe write more!
+
