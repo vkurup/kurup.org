@@ -142,9 +142,88 @@
         
 
 <header>
+  <p class="meta">Aug 5, 2010
+     - 2 minute read 
+     - <a href="https://kurup.org/blog/2010/08/05/maps-are-functions-too/#disqus_thread">Comments</a>
+
+    
+    
+      - <a class="label" href="https://kurup.org/categories/programming/">programming </a><a class="label" href="https://kurup.org/categories/clojure/">clojure </a>
+    
+  </p>
+  <h1 class="entry-title">
+    <a href="https://kurup.org/blog/2010/08/05/maps-are-functions-too/">Maps are functions, too</a>
+  </h1>
+</header>
+
+        
+          <p>Braindump time. Here&rsquo;s what I&rsquo;ve read about clojure in the past few days. I don&rsquo;t understand what this means yet, but maybe someday I will:</p>
+
+<blockquote>
+<p>Clojure provides easy access to the Java frameworks, with optional type hints and type inference, to ensure
+that calls to Java can avoid reflection.</p>
+</blockquote>
+
+<p>There are multiple languages that target the JVM (besides Java, of
+course). It seems that there are 2 classes of languages. Ported languages
+such as JRuby and Jython aim to be identical to their base languages
+(Ruby &amp; Python). Native languages such as Clojure and Groovy are meant to
+target the JVM natively without satisfying any desire to be identical to
+another language. Native languages have the advantage that they only have 1
+set of libraries to use, so you don&rsquo;t get stuck between two languages.</p>
+
+<p>I installed clojure 1.0 from the ubuntu repositories, but promptly
+uninstalled it once I found
+<a href="http://github.com/technomancy/leiningen">leiningen</a>. Leiningen is a build
+tool for clojure. You can easily create a new project and specify its
+dependencies and leiningen will download those dependencies, including a
+full version of clojure for each project. You can have 1 project using
+leiningen 1.0 and another using version 1.2 sitting right next to it. That
+seems smart!</p>
+
+<p>I installed <a href="http://www.assembla.com/wiki/show/clojure/Getting_Started_with_Emacs">clojure-mode on emacs</a>.</p>
+
+<p>Right now, I&rsquo;m working my way through the
+<a href="http://github.com/relevance/labrepl">labrepl</a> project. It&rsquo;s an interactive
+tutorial and REPL (read-eval-print-loop) where you can run the examples in
+the tutotial.</p>
+
+<p>It&rsquo;s always important to know how to find help:</p>
+
+<ul>
+<li><code>(doc blah)</code> gives documentation about blah.</li>
+<li><code>(find-doc &quot;blah&quot;)</code> searches for documentation.</li>
+<li><code>(javadoc blah)</code> opens Java docs in your browser</li>
+<li><code>(show java.util.Date)</code> shows method signatures</li>
+</ul>
+
+<p>Here&rsquo;s something cool: Maps are associative arrays. Here&rsquo;s a simple one:</p>
+
+<pre><code>(def me {:first-name &quot;Vinod&quot;, :last-name &quot;Kurup&quot;})
+</code></pre>
+
+<p>To get the data, you use the <code>get</code> function, like you would in other languages:</p>
+
+<pre><code>(get me :first-name) -&gt; &quot;Vinod&quot;
+</code></pre>
+
+<p>But, maps and keywords are functions as well, so you can do:</p>
+
+<pre><code>(me :first-name) -&gt; &quot;Vinod&quot;
+(:last-name me) -&gt; &quot;Kurup&quot;
+</code></pre>
+
+        
+      </article>
+      
+      <article>
+        
+        
+
+<header>
   <p class="meta">Aug 2, 2010
      - 2 minute read 
-    
+     - <a href="https://kurup.org/blog/2010/08/02/ubuntu-bluetooth-workaround/#disqus_thread">Comments</a>
 
     
     
@@ -235,7 +314,7 @@ card on a Palm Centro. #paininthe&amp;^@!</p>
 <header>
   <p class="meta">Jul 29, 2010
      - 2 minute read 
-    
+     - <a href="https://kurup.org/blog/2010/07/29/hospitalist-notes-1/#disqus_thread">Comments</a>
 
     
     
@@ -295,7 +374,7 @@ card on a Palm Centro. #paininthe&amp;^@!</p>
 <header>
   <p class="meta">Jul 27, 2010
      - 2 minute read 
-    
+     - <a href="https://kurup.org/blog/2010/07/27/my-anti-writing-cycle/#disqus_thread">Comments</a>
 
     
     
@@ -351,7 +430,7 @@ cares.</p>
 <header>
   <p class="meta">Jul 20, 2010
      - 3 minute read 
-    
+     - <a href="https://kurup.org/blog/2010/07/20/my-video-editing-process/#disqus_thread">Comments</a>
 
     
     
@@ -425,7 +504,7 @@ out.</p>
 <header>
   <p class="meta">Jul 19, 2010
      - 4 minute read 
-    
+     - <a href="https://kurup.org/blog/2010/07/19/stock-market-timing/#disqus_thread">Comments</a>
 
     
     
@@ -550,7 +629,7 @@ in buy mode or sell mode. It uses the excellent <a href="http://www.goldb.org/ys
 <header>
   <p class="meta">Jul 18, 2010
      - 2 minute read 
-    
+     - <a href="https://kurup.org/blog/2010/07/18/first-steps-with-clojure/#disqus_thread">Comments</a>
 
     
     
@@ -645,7 +724,7 @@ has pointed to me to a few options. I&rsquo;ll probably read one of these next:<
 <header>
   <p class="meta">Jul 17, 2010
      - 2 minute read 
-    
+     - <a href="https://kurup.org/blog/2010/07/17/getting-some-clojure/#disqus_thread">Comments</a>
 
     
     
@@ -696,7 +775,7 @@ notes, ever in my life. But, I clearly <a href="http://sachachua.com/blog/2010/0
 <header>
   <p class="meta">Jul 16, 2010
      - 3 minute read 
-    
+     - <a href="https://kurup.org/blog/2010/07/16/inotify/#disqus_thread">Comments</a>
 
     
     
@@ -783,7 +862,7 @@ GNOME notification using <code>notify-send</code>:</p>
 <header>
   <p class="meta">Jul 15, 2010
      - 2 minute read 
-    
+     - <a href="https://kurup.org/blog/2010/07/15/playdoh/#disqus_thread">Comments</a>
 
     
     
@@ -852,54 +931,6 @@ what I want.</p>
 <p>DADDY: What do you want?</p>
 
 <p>KAVI: Playdoh.</p>
-
-        
-      </article>
-      
-      <article>
-        
-        
-
-<header>
-  <p class="meta">Jan 3, 2010
-     - 2 minute read 
-    
-
-    
-    
-      - <a class="label" href="https://kurup.org/categories/life/">life </a><a class="label" href="https://kurup.org/categories/family/">family </a>
-    
-  </p>
-  <h1 class="entry-title">
-    <a href="https://kurup.org/blog/2010/01/03/happy-new-year/">Happy New Year</a>
-  </h1>
-</header>
-
-        
-          <p>This is going to be a great year. I was working on New Year&rsquo;s Eve. My shift
-was supposed to end at midnight, which meant that I would normally be home
-around 12:30 AM, but my colleague let me out early since the ER was
-unusually light. I got home at 11:55 PM, so I was able to kiss my beautiful
-wife as the new year began. If that&rsquo;s not an auspicious start to a year, I
-don&rsquo;t know what one would be.</p>
-
-<p>I am so lucky. I have a great job, which is getting better all the time. I
-work hard, but I get some pretty good karmic rewards. It&rsquo;s not perfect and
-maybe someday I&rsquo;ll rant about the pitfalls of being a hospitalist, but it&rsquo;s
-certainly better than my life was as a primary care doctor.</p>
-
-<p>I live in a beautiful house where I feel comfortable and &ldquo;at home&rdquo;. I have
-a loving extended family who, thankfully, are all pretty happy and healthy.</p>
-
-<p>Most importantly, I have an amazing wife and 2 darling children who can
-lift my heart into the heavens just by looking at me a certain way. They
-can also make me feel completely unfit to be a father sometimes, but I
-guess that&rsquo;s part of being a father. I have so much to teach them and they
-have so much to teach me.</p>
-
-<p>This is starting to feel like a &ldquo;Thanksgiving&rdquo; post rather than a &ldquo;New
-Year&rsquo;s&rdquo; post. The bottom line is that I have a great feeling that this is
-going to be a great year for me and my family.</p>
 
         
       </article>
@@ -1054,10 +1085,16 @@ going to be a great year for me and my family.</p>
       
       
       <li class="post">
-        <a href="/blog/2019/04/08/avik-730/">Avik 7:30</a>
+        <a href="/blog/2019/11/17/hugo/">Hugo</a>
       </li>
       
       
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2019/04/08/avik-730/">Avik 7:30</a>
+      </li>
       
       
       
@@ -1159,12 +1196,6 @@ going to be a great year for me and my family.</p>
       
       <li class="post">
         <a href="/blog/2012/12/30/how-to-change-the-rear-tire-on-a-12-inch-bicycle/">How to change the rear tire on a 12 inch bicycle</a>
-      </li>
-      
-      
-      
-      <li class="post">
-        <a href="/blog/2012/11/05/nsbrief-gets-the-best-guests/">NSBrief gets the best guests</a>
       </li>
       
       

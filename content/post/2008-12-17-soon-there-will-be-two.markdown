@@ -12,4 +12,4 @@ Kavi has been getting bored being surrounded by adults all the time. He is very 
 
 Pregnancy has been uneventful, unless you count those recurrent waves of nausea and vomiting that Mala's been experiencing. Hopefully that will get better as we move into the second trimester.
 
-<a href="/images/blueberry-12wks-best.jpg"><img title="blueberry-12wks-best" src="/images/blueberry-12wks-best-300x202.jpg" alt="blueberry" width="300" height="202" /></a>
+{{< imgcap src="/images/blueberry-12wks-best.jpg" title="Blueberry 12 wks" >}}
