@@ -29,8 +29,8 @@ Dokku setup
 
 #. tell the apps to build from the `public` directory:
 
-     ssh dokku config:set 0www NGINX_ROOT=/app/www/public
-     ssh dokku config:set kurup-staging NGINX_ROOT=/app/www/public
+     ssh dokku config:set 0www NGINX_ROOT=public
+     ssh dokku config:set kurup-staging NGINX_ROOT=public
 
 #. add the dokku git remote for production:
 
