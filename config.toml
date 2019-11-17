@@ -4,6 +4,7 @@ title = "Vinod Kurup"
 theme = ["vinod", "Hugo-Octopress"]
 pygmentscodefences = true
 pygmentsStyle = "solarized-dark"
+disqusShortname = "vkurup"
 
 [permalinks]
   post = "/blog/:year/:month/:day/:title"
