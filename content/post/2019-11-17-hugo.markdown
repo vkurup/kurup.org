@@ -5,8 +5,7 @@ categories:
 - blog
 ---
 
-I moved my blog from Octopress to [Hugo](https://gohugo.io/) today. I had been [slightly unhappy
-with Octopress for a while now](https://kurup.org/blog/2014/07/22/pygments-on-arch-linux/), but
+I moved my blog from Octopress to [Hugo](https://gohugo.io/) today. I had been [slightly unhappy with Octopress for a while now](https://kurup.org/blog/2014/07/22/pygments-on-arch-linux/), but
 mainly I just wanted something new to play with. Hugo is MUCH faster than Octopress was:
 
 ```bash
@@ -28,8 +27,7 @@ Total in 808 ms
 
 It is nice to generate my entire site in less than a second. 
 
-But I still liked the style and theme of my old site, so I was happy to find that [someone had
-already built an Octopress theme for Hugo](https://themes.gohugo.io/hugo-octopress/). I promptly
+But I still liked the style and theme of my old site, so I was happy to find that [someone had already built an Octopress theme for Hugo](https://themes.gohugo.io/hugo-octopress/). I promptly
 stole his work and customized a few things here and there to make it look (nearly) exactly like my
 old site did. Yay! Thanks to [Parsia](https://parsiya.net/) for building that theme. I've also
 subscribed to his RSS feed because his site looks pretty interesting.
