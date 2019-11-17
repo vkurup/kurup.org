@@ -1,0 +1,13 @@
+---
+categories:
+- openacs
+- programming
+- free-software
+date: '2001-01-02T00:00:00'
+title: Y2K1
+---
+
+
+I found a Y2K1 bug ... well, not really, but I found and
+[fixed](http://kurup.org/acs/watchdog) a minor problem in the [OpenACS toolkit](http://openacs.org) that only occurs on the first of every
+year.

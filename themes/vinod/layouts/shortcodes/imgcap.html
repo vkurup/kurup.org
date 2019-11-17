@@ -1,0 +1,12 @@
+
+<!-- Author: Parsia Hakimian https://github.com/parsiya/Hugo-Shortcodes -->
+
+<!-- Vinod: added 'class' attribute -->
+
+<!-- imitates the imgcap plugin from Octopress
+     see readme or the above repository for usage -->
+
+<span class="caption-wrapper {{ .Get "class" }}">
+  <img class="caption" src="{{ .Get "src" }}" title="{{ .Get "title" }}" alt="{{ .Get "title" }}">
+  <span class="caption-text">{{ .Get "title" }}</span>
+</span>

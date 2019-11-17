@@ -1,0 +1,17 @@
+---
+categories:
+- mac-os-x
+- cocoa
+- programming
+date: '2003-02-20T00:00:00'
+title: BorkDrip!
+---
+
+
+Got Mac OS X? Want a cool screensaver? I stole this from
+[MarkD](http://badgertronics.com/blog) over at
+[BorkWare](http://borkware.com/products/borkware-drip/) and then
+modified it to allow multiple drips and configurable block sizes.
+
+- Get the [ScreenSaver](http://kurup.org/files/Borkware_Drip.saver.sit)  (expand archive and put it in "~/Library/Screen Savers").
+- Get the [source code](http://kurup.org/files/borkware-drip-vkurup-11.tar.gz).

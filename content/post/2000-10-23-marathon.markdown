@@ -1,0 +1,13 @@
+---
+categories:
+- running
+- race
+- marathon
+date: '2000-10-23T00:00:00'
+title: Marathon!
+---
+
+
+My cousin Deepu and I (plus about 30,000 or so other people) ran the
+[Chicago Marathon](http://www.chicagomarathon.com). Cross that off my
+life's to-do list!

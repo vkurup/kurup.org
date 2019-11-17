@@ -1,0 +1,27 @@
+---
+categories:
+- india
+- travel
+- vacation
+- family
+date: '2006-12-08T00:00:00'
+title: India Trip 2006
+---
+
+
+{{< imgcap title="vaishnodevi" src="/images/vaishnodevi.jpg" >}}
+
+I was fortunate to take a [trip with my in-laws to India](http://kurup.org/photo/album?album%5fid=80449) last month. I've finally gotten around to uploading the pics, but as I look at them now, they don't quite capture the amount of amazing stuff that we saw. I took about 400 pictures and uploaded 187 here. You'd think 400 pics would adequately capture a trip, but not for a trip to India.
+
+Here are some interesting ones in case you don't want to wade through 15 pages of pics.
+
+{{< imgcap title="jaipur street" src="/images/jaipur-street.jpg" >}}
+{{< imgcap title="traditional jaipur dance" src="/images/jaipur-dancers.jpg" >}}
+{{< imgcap title="mom and dad" src="/images/golden-temple-1.jpg" >}}
+{{< imgcap title="me at golden temple" src="/images/golden-temple-me.jpg" >}}
+{{< imgcap title="golden temple" src="/images/golden-temple-2.jpg" >}}
+{{< imgcap title="golden temple at night" src="/images/golden-temple-3.jpg" >}}
+{{< imgcap title="jallianwala bagh" src="/images/jallianwala.jpg" >}}
+{{< imgcap title="india pakistan border" src="/images/indopak-border.jpg" >}}
+{{< imgcap title="border ceremony" src="/images/indopak-ceremony.jpg" >}}
+{{< imgcap title="Ethan at Vaishno Devi" src="/images/ethan-vaishnodevi.jpg" >}}

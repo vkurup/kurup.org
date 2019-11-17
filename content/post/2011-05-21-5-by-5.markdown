@@ -1,0 +1,23 @@
+---
+categories:
+- podcasts
+date: '2011-05-21T20:51:37'
+title: 5 by 5
+---
+
+
+My commute to work is 25 minutes each way, so I'm always looking for a
+podcast to listen to. I've been a fan of the
+[43folders](http://43folders.com) website for years and Merlin Mann
+recently started a podcast called [Back To Work](http://5by5.tv/b2w)
+with Dan Benjamin. Dan Benjamin, it turns out, is the founder of a
+network called [5by5](http://5by5.tv/), which he says has been called
+"NPR for geeks". The shows I've listened to have all been sharp and
+entertaining so far. I especially like [Latest in Paleo](http://5by5.tv/paleo/16) (despite the fact that I'm not eating
+anything near a Paleo diet) and the Pipeline (check out the interview
+with [Philip Elmer-DeWitt](http://5by5.tv/pipeline/49)). Looking
+through the list of shows, I can only believe that Dan Benjamin has to
+be the most productive person on the face of the earth.
+
+I'm currently also listening to [All About Android](http://twit.tv/aaa), [This American Life](http://www.thisamericanlife.org/) and some [UC-Berkeley CS lectures](http://webcast.berkeley.edu/course_details.php?seriesid=1906978271). Any
+other great podcasts I'm missing?

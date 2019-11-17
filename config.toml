@@ -1,0 +1,52 @@
+baseURL = "https://kurup.org/"
+languageCode = "en-us"
+title = "Vinod Kurup"
+theme = ["vinod", "Hugo-Octopress"]
+pygmentscodefences = true
+pygmentsStyle = "solarized-dark"
+
+[permalinks]
+  post = "/blog/:year/:month/:day/:title"
+
+[params]
+  author = "Vinod Kurup"
+  truncate = false
+  description = "Inside Vinod Kurup's brain"
+  googleAnalytics = "UA-79447-1"
+  generateTaxonomyList = true
+  searchEngineURL = "https://www.google.com/search"
+  subtitle = "Hospitalist/programmer in search of the meaning of life"
+  rss = true
+  remoteFonts = true
+  sidebarRecentLimit = 20
+  # sidebar links
+  github = "https://github.com/vkurup/"
+  twitter = "https://twitter.com/vkurup/"
+  keybase = "https://keybase.io/vkurup/"
+  stackoverflow = "https://stackoverflow.com/users/347942"
+
+[[menu.main]]
+  Name = "Blog"
+  URL = "/"
+  weight = -6
+
+[[menu.main]]
+  Name = "About Me"
+  URL = "/about"
+  weight = -5
+
+[[menu.main]]
+  Name = "Categories"
+  URL = "/categories"
+
+[[menu.main]]
+  Name = "Archives"
+  URL = "/post"
+
+[[menu.main]]
+  Name = "Medicine"
+  URL = "/medicine"
+
+[[menu.main]]
+  Name = "Running"
+  URL = "/running"

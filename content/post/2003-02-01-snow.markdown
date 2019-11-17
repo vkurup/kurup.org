@@ -1,0 +1,10 @@
+---
+categories:
+- snow
+- new-york-city
+date: '2003-02-01T00:00:00'
+title: Snow!
+---
+
+
+It's [snowing in NYC](http://kurup.org/photo/album?album_id=5325). Really hard.

@@ -1,0 +1,21 @@
+---
+categories:
+- life
+- blog
+- hospitalist
+date: '2008-08-02T00:00:00'
+title: I'm alive
+---
+
+
+OK, I know it's been almost a year since I updated this blog, but rest assured that I'm still alive and kicking. The observant among you will notice that the design of the blog has changed. The even more observant will notice that huge swaths of content are now missing. Things like my photo albums, my running log, old comments, and Kavi's little site are now gone. They may make a reappearance someday, especially if I get prodded sufficiently. I have my old site running locally on my laptop, but I'm too lazy to bring it all back right now.
+
+If you're just interested in pics of Kavi (and I know that's most of you), go visit [my Picasa photo album](http://picasaweb.google.com/vvkurup).
+
+Cathy Sarisky, who had so kindly hosted kurup.org for a few years now, has decided to exit the web hosting business. I took the opportunity to scale down my web operations a bit. This blog is now powered by [WordPress](http://wordpress.org) instead of [OpenACS](http://www.openacs.org). I'm hoping that "outsourcing" the tech stuff to WordPress will allow me to focus more on writing stuff, rather than tweaking settings. Hold me to it! I've stolen the design for this blog from [diveintomark](http://diveintomark.org). I've always enjoyed his writing and his design sense. I hope he doesn't mind.
+
+So much has changed since my last post. Kavi has just continued to grow and amaze us. I know for a fact that he is the most adorable little boy in the universe. He's gotten even more adorable now that he sleeps through the night (as of the past month!). We've moved into a house for the first time in our adult lives. We are now residents of Chapel Hill, NC. We're living the American Dream. I'm going to skip right over the whole purchase process which was more nightmarish than it should have been thanks to some very difficult sellers. Since moving in, we've replaced a missing toilet tank, shampooed carpets, changed locks, and hired painters, landscapers, electricians, pest control people, gutter cleaners and house cleaners. Almost makes you want to move back into an apartment. :-)
+
+I started work as a hospitalist last September, and I'm starting to get into a groove now. It was quite a shock to switch from outpatient, academic practice to inpatient, private practice. At times, I still feel like a resident, but for the most part, I find this job to be much more rewarding intellectually and spiritually. It's more exhausting than I thought it would be, though. I can't see myself working this kind of schedule for the rest of my life. So, as always, I'm still trying to figure out exactly what I want to do when I grow up.
+
+Well, enough rambling for my first post back. Hope to speak to y'all soon (That's the southerner in me now!)
