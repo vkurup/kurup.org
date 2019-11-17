@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mail on Vinod Kurup</title>
+    <link>https://kurup.org/categories/mail/</link>
+    <description>Recent content in mail on Vinod Kurup</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 05 Jul 2003 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://kurup.org/categories/mail/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>More Mail Woes</title>
+      <link>https://kurup.org/blog/2003/07/05/more-mail-woes/</link>
+      <pubDate>Sat, 05 Jul 2003 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2003/07/05/more-mail-woes/</guid>
+      <description>I spent most of this afternoon struggling with a mail issue and I didn&amp;rsquo;t find it documented well anywhere else, so I&amp;rsquo;m going to write about it here in the hopes that it might help someone else.
+What I was trying to do: Setup qmail + vpopmail + courier imap for imap and pop3d
+Problem I was having: For some users, checking POP3 mail would work for a while (about 5 minutes), but then would fail:</description>
+    </item>
+    
+    <item>
+      <title>compiling vpopmail</title>
+      <link>https://kurup.org/blog/2003/06/28/compiling-vpopmail/</link>
+      <pubDate>Sat, 28 Jun 2003 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2003/06/28/compiling-vpopmail/</guid>
+      <description>I&amp;rsquo;m setting up vpopmail 5.2.1 - a POP3 email manager for qmail, but it won&amp;rsquo;t compile out of the box.
+gcc -I. -Icdb -g -O2 -Wall -c vconvert.c In file included from vconvert.c:35: vmysql.h:53:22: missing terminating &amp;quot; character vmysql.h:60:35: missing terminating &amp;quot; character make[2]: *** [vconvert.o] Error 1 make[2]: Leaving directory `/usr/local/src/vpopmail-5.2.1&#39; make[1]: *** [all-recursive] Error 1 make[1]: Leaving directory `/usr/local/src/vpopmail-5.2.1&#39; make: *** [all-recursive-am] Error 2  Whenever make gives you an error, look for the first error you can find.</description>
+    </item>
+    
+  </channel>
+</rss>

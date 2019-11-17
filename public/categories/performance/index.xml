@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>performance on Vinod Kurup</title>
+    <link>https://kurup.org/categories/performance/</link>
+    <description>Recent content in performance on Vinod Kurup</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 07 Jan 2007 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://kurup.org/categories/performance/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Investment Performance 1996-2006</title>
+      <link>https://kurup.org/blog/2007/01/07/investment-performance-1996-2006/</link>
+      <pubDate>Sun, 07 Jan 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2007/01/07/investment-performance-1996-2006/</guid>
+      <description>Here&amp;rsquo;s my 2006 Investment Performance update. My individual stock picks broke their 4 year winning streak versus the S&amp;amp;P500 and overall (including my 403b), I lagged the market by a couple percentage points. That makes for a pretty lousy year overall. So, is it time to switch tactics? Give in and stick all my money in an index fund? Some would say yes (or more like &amp;ldquo;YES, you IDIOT!&amp;rdquo;). I knew when I started this approach that there would be times where I would underperform, even for long periods of time, meaning 1-2 years.</description>
+    </item>
+    
+    <item>
+      <title>Investment Performance 1996-2005</title>
+      <link>https://kurup.org/blog/2006/01/05/investment-performance-1996-2005/</link>
+      <pubDate>Thu, 05 Jan 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2006/01/05/investment-performance-1996-2005/</guid>
+      <description>As promised last year, here&amp;rsquo;s my 2005 Investment Performance update. My 403b account (VFINX, VWNDX, VEXPX and VTRIX) was up 6.7% and my individual stock investments were up 22.0% as compared to the stock market (VFINX) being up 4.7%. That makes 4 years in a row that my overall investments have beat the index and 2 years in a row that my stock picks have. It&amp;rsquo;s that second comparison that is most important to me - my individual stock picks versus the index.</description>
+    </item>
+    
+    <item>
+      <title>Investment Performance 1996 - 2004</title>
+      <link>https://kurup.org/blog/2005/02/04/investment-performance-1996-2004/</link>
+      <pubDate>Fri, 04 Feb 2005 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2005/02/04/investment-performance-1996-2004/</guid>
+      <description>OK, it&amp;rsquo;s well past the end of 2004 and I&amp;rsquo;ve finally calculated how my investments have done for the year. I&amp;rsquo;ve also analyzed my overall investment results since I started investing in 1996.
+These are calculated using the XIRR function in OpenOffice. The XIRR function takes a series of cash flows in or out of an account and returns the internal rate of return for that account. It&amp;rsquo;s the best way to compare portfolio returns when investments or withdrawals are made on an irregular basis.</description>
+    </item>
+    
+  </channel>
+</rss>

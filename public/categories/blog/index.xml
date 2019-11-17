@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blog on Vinod Kurup</title>
+    <link>https://kurup.org/categories/blog/</link>
+    <description>Recent content in blog on Vinod Kurup</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 19 Aug 2012 07:58:31 +0000</lastBuildDate>
+    
+	<atom:link href="https://kurup.org/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Facebook is killing blogging</title>
+      <link>https://kurup.org/blog/2012/08/19/facebook-is-killing-blogging/</link>
+      <pubDate>Sun, 19 Aug 2012 07:58:31 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2012/08/19/facebook-is-killing-blogging/</guid>
+      <description>Looks like August 18th was International-Prominent-Bloggers-Complain-About-Facebook-Killing-Blogging Day. I was just two weeks too early.
+ Tim Bray: Blogodammerung Scott Hanselman: Your words are wasted Jon Udell: Where have all the bloggers gone?  On a side note, I&amp;rsquo;m really enjoying Scott Hanselman&amp;rsquo;s podcast This Developer&amp;rsquo;s Life. It&amp;rsquo;s an homage to the awesome This American Life, but focused on programming issues. They interview interesting programmers, but they carefully edit the interviews to focus on the parts that are the most interesting, interspersing them with music and effects.</description>
+    </item>
+    
+    <item>
+      <title>Blogging Again</title>
+      <link>https://kurup.org/blog/2012/08/03/blogging-again/</link>
+      <pubDate>Fri, 03 Aug 2012 14:50:25 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2012/08/03/blogging-again/</guid>
+      <description>I&amp;rsquo;m going to start blogging more. I know I&amp;rsquo;ve said that before, so take it for what it&amp;rsquo;s worth. I think there is value in blogging. I&amp;rsquo;ve been thinking about my life a lot lately, trying to find what makes me tick. One of those things that gets me excited is programming. I started thinking about that and remembered this meme that had passed around the blog world a few years back.</description>
+    </item>
+    
+    <item>
+      <title>Switching to Octopress</title>
+      <link>https://kurup.org/blog/2011/08/14/switching-to-octopress/</link>
+      <pubDate>Sun, 14 Aug 2011 13:06:04 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2011/08/14/switching-to-octopress/</guid>
+      <description>You may have noticed that I&amp;rsquo;ve rearranged the furniture a little. It&amp;rsquo;s been almost 2 years since I last redesigned my blog, so I&amp;rsquo;m way overdue for a pointless redesign. I&amp;rsquo;m now using Octopress which basically takes Jekyll and adds nice HTML5 templates, cross-browser stylesheets, jekyll plugins, and a few build scripts to automate common tasks.
+Enjoy my new site and let me know if you find any issues. The source code for my site, as always, is at github.</description>
+    </item>
+    
+    <item>
+      <title>My Anti-Writing Cycle</title>
+      <link>https://kurup.org/blog/2010/07/27/my-anti-writing-cycle/</link>
+      <pubDate>Tue, 27 Jul 2010 21:30:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2010/07/27/my-anti-writing-cycle/</guid>
+      <description>I blogged daily for a 6 day stretch a couple weeks ago, which is the longest continuous stretch I&amp;rsquo;ve ever done. It was stimulating and stressful at the same time. I haven&amp;rsquo;t heard from the Pulitzer committee about any of the posts yet, but it&amp;rsquo;s not the quality that matters. Writing is more about the process than the product, and I know from experience that writing helps me think. And while most of the posts were written for my own benefit, I really enjoyed the response that I got from family and friends about Playdoh.</description>
+    </item>
+    
+    <item>
+      <title>Bye Bye Wordpress</title>
+      <link>https://kurup.org/blog/2009/09/19/bye-bye-wordpress/</link>
+      <pubDate>Sat, 19 Sep 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2009/09/19/bye-bye-wordpress/</guid>
+      <description>This site has undergone another transformation. I&amp;rsquo;ve ditched Wordpress and am now using a tool called Jekyll. It&amp;rsquo;s a program that runs on my laptop and generates static files from a bunch of templates. I then upload the static files to my server. Wordpress, like any dynamic software, has security risks. Especially since it&amp;rsquo;s such a popular blog app, it&amp;rsquo;s always under attack. I don&amp;rsquo;t have the time or interest to keep up with updates, especially since my blogging is so low-profile.</description>
+    </item>
+    
+    <item>
+      <title>Starting again</title>
+      <link>https://kurup.org/blog/2008/12/13/starting-again/</link>
+      <pubDate>Sat, 13 Dec 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2008/12/13/starting-again/</guid>
+      <description>For the remaining 2 readers of kurup.org (one of them being me), let me apologize for the lack of posts here over the past couple years. I have always meant to write more, but most of my writing seems to consist of apologies for not writing, short bursts of writing, and then long stretches of inactivity. We are nearing the end of a long stretch of inactivity now, so it&amp;rsquo;s time for the apologies.</description>
+    </item>
+    
+    <item>
+      <title>I&#39;m alive</title>
+      <link>https://kurup.org/blog/2008/08/02/im-alive/</link>
+      <pubDate>Sat, 02 Aug 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2008/08/02/im-alive/</guid>
+      <description>OK, I know it&amp;rsquo;s been almost a year since I updated this blog, but rest assured that I&amp;rsquo;m still alive and kicking. The observant among you will notice that the design of the blog has changed. The even more observant will notice that huge swaths of content are now missing. Things like my photo albums, my running log, old comments, and Kavi&amp;rsquo;s little site are now gone. They may make a reappearance someday, especially if I get prodded sufficiently.</description>
+    </item>
+    
+    <item>
+      <title>Milla Blogs</title>
+      <link>https://kurup.org/blog/2006/08/02/milla-blogs/</link>
+      <pubDate>Wed, 02 Aug 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2006/08/02/milla-blogs/</guid>
+      <description>Milla correctly points out that she is my blogging inspiration. Not just for telling me to blog more, but for providing the inspiration in the form of the most promising blog-start ever! My favorite so far:
+ I turned on 1010 Wins &amp;ldquo;you give us 20 minutes, we&amp;rsquo;ll give you traffic updates from yesterday for roads you don&amp;rsquo;t drive on&amp;rdquo; and heard nothing at all about the mudslide on the Saw Mill River Parkway, which turned my road home into a parking lot.</description>
+    </item>
+    
+    <item>
+      <title>Prettier permalinks</title>
+      <link>https://kurup.org/blog/2006/03/28/prettier-permalinks/</link>
+      <pubDate>Tue, 28 Mar 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2006/03/28/prettier-permalinks/</guid>
+      <description>Permalink stands for &amp;lsquo;permanent link&amp;rsquo;. When you create a blog post, it gets added to the top of your blog, pushing older entries down. Eventually, posts get pushed off the front page, so it&amp;rsquo;s important that you have a way to refer to old blog posts. A permalink is the link that will always point to a specific post.
+OpenACS (lars-blogger) permalinks look like this:
+http://kurup.org/blog/one-entry?entry_id=58950  This works and it&amp;rsquo;s really easy to code, but it doesn&amp;rsquo;t give much information about the content or date of the post.</description>
+    </item>
+    
+    <item>
+      <title>Tag Cloud</title>
+      <link>https://kurup.org/blog/2006/03/01/tag-cloud/</link>
+      <pubDate>Wed, 01 Mar 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2006/03/01/tag-cloud/</guid>
+      <description>And now I have a pretty tag cloud on the side of my blog (that I pretty much stole from del.icio.us)</description>
+    </item>
+    
+    <item>
+      <title>My blog is tagged</title>
+      <link>https://kurup.org/blog/2006/02/27/my-blog-is-tagged/</link>
+      <pubDate>Mon, 27 Feb 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2006/02/27/my-blog-is-tagged/</guid>
+      <description>I&amp;rsquo;m finally getting around to moving my blog into the Web 1.5 world. (2.0 minus javascript). I scrapped the categories system and created a super-simple tags package. So, now I can tag posts and technorati can find them. OpenACS barely lights up on technorati. Compare RubyOnRails (20 mentions per day) with OpenACS (1 mention in the past month!). I know Rails is popular, but is OpenACS completely dead? I don&amp;rsquo;t think so.</description>
+    </item>
+    
+    <item>
+      <title>Creating a Blog Application using the OpenACS Content Repository</title>
+      <link>https://kurup.org/blog/2006/02/16/creating-a-blog-application-using-the-openacs-content-repository/</link>
+      <pubDate>Thu, 16 Feb 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2006/02/16/creating-a-blog-application-using-the-openacs-content-repository/</guid>
+      <description>I created a very simple blog application using the OpenACS Content Repository (CR). When I say simple, I mean simple, probably to the point of being useless. I just wanted to try writing something as quickly as possible using the CR. Here&amp;rsquo;s a quick run-through of the code, in case it might help someone else understand how to use the CR. I&amp;rsquo;m not including much commentary; email me (or comment) if you&amp;rsquo;d like me to expound more.</description>
+    </item>
+    
+    <item>
+      <title>David T is Blogging!</title>
+      <link>https://kurup.org/blog/2006/01/06/david-t-is-blogging/</link>
+      <pubDate>Fri, 06 Jan 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2006/01/06/david-t-is-blogging/</guid>
+      <description>It&amp;rsquo;s taken quite a while, but my friend Dave has finally started blogging. You can read his mini-bio on our Wedding Party page. For more info about him, you&amp;rsquo;ll have to follow his blog. I&amp;rsquo;m hosting his site on my server and I&amp;rsquo;ve been too lazy to change the layout of his blog, so it may look eerily familiar at the moment.</description>
+    </item>
+    
+    <item>
+      <title>Take the MIT blog survey</title>
+      <link>https://kurup.org/blog/2005/07/05/take-the-mit-blog-survey/</link>
+      <pubDate>Tue, 05 Jul 2005 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2005/07/05/take-the-mit-blog-survey/</guid>
+      <description>found on Joel&amp;rsquo;s Blog</description>
+    </item>
+    
+  </channel>
+</rss>

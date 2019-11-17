@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>design on Vinod Kurup</title>
+    <link>https://kurup.org/categories/design/</link>
+    <description>Recent content in design on Vinod Kurup</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 19 Sep 2009 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://kurup.org/categories/design/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bye Bye Wordpress</title>
+      <link>https://kurup.org/blog/2009/09/19/bye-bye-wordpress/</link>
+      <pubDate>Sat, 19 Sep 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2009/09/19/bye-bye-wordpress/</guid>
+      <description>This site has undergone another transformation. I&amp;rsquo;ve ditched Wordpress and am now using a tool called Jekyll. It&amp;rsquo;s a program that runs on my laptop and generates static files from a bunch of templates. I then upload the static files to my server. Wordpress, like any dynamic software, has security risks. Especially since it&amp;rsquo;s such a popular blog app, it&amp;rsquo;s always under attack. I don&amp;rsquo;t have the time or interest to keep up with updates, especially since my blogging is so low-profile.</description>
+    </item>
+    
+    <item>
+      <title>Lists in CSS</title>
+      <link>https://kurup.org/blog/2005/11/14/lists-in-css/</link>
+      <pubDate>Mon, 14 Nov 2005 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2005/11/14/lists-in-css/</guid>
+      <description>A-ha! This article by Eric Meyer explains why &amp;lt;ul&amp;gt; and &amp;lt;ol&amp;gt;&amp;rsquo;s can appear differently in MSIE and Mozilla browsers. Both indent the list items, but MSIE does so by setting the padding to 2.5 em, while Mozilla does so by setting the margin to 2.5 em. These are on the &amp;lt;ul&amp;gt; and &amp;lt;ol&amp;gt; selectors, not the &amp;lt;li&amp;gt;. So, in order to get consistent display on both browsers, you need to set both padding-left and margin-left to whatever you want.</description>
+    </item>
+    
+  </channel>
+</rss>

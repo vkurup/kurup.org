@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>informatics on Vinod Kurup</title>
+    <link>https://kurup.org/categories/informatics/</link>
+    <description>Recent content in informatics on Vinod Kurup</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 13 Dec 2008 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://kurup.org/categories/informatics/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Starting again</title>
+      <link>https://kurup.org/blog/2008/12/13/starting-again/</link>
+      <pubDate>Sat, 13 Dec 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2008/12/13/starting-again/</guid>
+      <description>For the remaining 2 readers of kurup.org (one of them being me), let me apologize for the lack of posts here over the past couple years. I have always meant to write more, but most of my writing seems to consist of apologies for not writing, short bursts of writing, and then long stretches of inactivity. We are nearing the end of a long stretch of inactivity now, so it&amp;rsquo;s time for the apologies.</description>
+    </item>
+    
+    <item>
+      <title>Is Primary Care Dying?</title>
+      <link>https://kurup.org/blog/2006/09/09/is-primary-care-dying/</link>
+      <pubDate>Sat, 09 Sep 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2006/09/09/is-primary-care-dying/</guid>
+      <description>Dave referenced an interesting article in the NEJM titled &amp;ldquo;Primary Care &amp;ndash; Will it Survive?&amp;rdquo; These two quotes summarize the problem:
+ A 2006 report from the Center for Studying Health System Change reveals that from 1995 to 2003, inflation-adjusted income decreased by 7.1 percent for all physicians and by 10.2 percent for primary care physicians.
+ and
+ It has been estimated that it would take 10.6 hours per working day to deliver all recommended care for patients with chronic conditions, plus 7.</description>
+    </item>
+    
+  </channel>
+</rss>

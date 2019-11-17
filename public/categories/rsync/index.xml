@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rsync on Vinod Kurup</title>
+    <link>https://kurup.org/categories/rsync/</link>
+    <description>Recent content in rsync on Vinod Kurup</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 02 Jan 2004 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://kurup.org/categories/rsync/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Backup strategy</title>
+      <link>https://kurup.org/blog/2004/01/02/backup-strategy/</link>
+      <pubDate>Fri, 02 Jan 2004 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2004/01/02/backup-strategy/</guid>
+      <description>Badgertronics.com, borkware.com, and company went through the same ordeal that kurup.org did and MarkD has promptly published his new backup strategy. He uses rsync over SSH which, interestingly enough, is the same strategy that I came up with. Great minds must think alike.
+The canonical standard for doing backups on UNIX systems is tar (short for tape archive). tar converts directories of files into a single tar archive file which you would then spit to an attached tape drive.</description>
+    </item>
+    
+  </channel>
+</rss>

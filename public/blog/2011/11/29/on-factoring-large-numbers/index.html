@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+    
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Quattrocento:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Quattrocento+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+    
+    
+
+    
+    <title>On Factoring Large Numbers</title>
+
+    
+    
+    <link rel="stylesheet" href="/css/hugo-octopress.css">
+
+    
+    
+
+    
+    <link rel="stylesheet" href="/css/fork-awesome.min.css">
+    
+
+    
+    <link href="https://kurup.org/favicon.ico" rel="icon">
+
+    
+    
+
+    <meta name="description" content="" />
+    <meta name="keywords" content="">
+    <meta name="author" content="Vinod Kurup">
+
+    
+    <meta name="generator" content="Hugo 0.59.1" />
+
+    
+    
+
+    
+    
+  </head>
+  <body>
+
+    
+    <header role="banner">
+<hgroup>
+  
+  <h1><a href="https://kurup.org/">Vinod Kurup</a></h1>
+    <h2>Hospitalist/programmer in search of the meaning of life</h2>
+</hgroup></header>
+
+    
+    <nav role="navigation">
+<fieldset class="mobile-nav">
+  
+  <select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+    
+    <option value="https://kurup.org/">» Blog</option>
+    
+    <option value="https://kurup.org/about">» About Me</option>
+    
+    <option value="https://kurup.org/post">» Archives</option>
+    
+    <option value="https://kurup.org/categories">» Categories</option>
+    
+    <option value="https://kurup.org/medicine">» Medicine</option>
+    
+    <option value="https://kurup.org/running">» Running</option>
+    
+  </select>
+</fieldset>
+
+
+<ul class="main-navigation">
+  
+  
+  
+  <li><a href="https://kurup.org/" title="Blog">Blog</a></li>
+  
+  
+  
+  <li><a href="https://kurup.org/about" title="About Me" >About Me</a></li>
+  
+  
+  
+  <li><a href="https://kurup.org/post" title="Archives" >Archives</a></li>
+  
+  
+  
+  <li><a href="https://kurup.org/categories" title="Categories" >Categories</a></li>
+  
+  
+  
+  <li><a href="https://kurup.org/medicine" title="Medicine" >Medicine</a></li>
+  
+  
+  
+  <li><a href="https://kurup.org/running" title="Running" >Running</a></li>
+  
+  
+</ul>
+
+<ul class="subscription">
+  
+  
+  <a href="https://kurup.org/index.xml" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss fa-lg"></i></a>
+  
+  
+</ul>
+
+
+<form action="https://www.google.com/search" method="get" target="_blank">
+  <fieldset role="search">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+    <input type="hidden" name="q" value="site:https://kurup.org/" />
+  </fieldset>
+</form>
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        
+
+<header>
+  <p class="meta">Nov 29, 2011
+     - 5 minute read 
+    
+
+    
+    
+      - <a class="label" href="https://kurup.org/categories/clojure/">clojure </a><a class="label" href="https://kurup.org/categories/math/">math </a><a class="label" href="https://kurup.org/categories/programming/">programming </a>
+    
+  </p>
+  <h1 class="entry-title">
+     On Factoring Large Numbers 
+  </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          
+          
+          <p>I wonder how many of my blog posts are based on stories from <a href="http://www.thisamericanlife.org">This American Life</a>. Probably not
+enough. Every time I start to listen to a show, I&rsquo;m certain that I&rsquo;m
+not going to be interested and within a minute I&rsquo;m trapped and can&rsquo;t
+stop listening. It&rsquo;s that good. A <a href="http://www.thisamericanlife.org/radio-archives/episode/450/so-crazy-it-just-might-work">recent show was about people who people who pursued crazy ideas</a>.
+The first story was about a mathematician named <a href="http://en.wikipedia.org/wiki/Frank_Nelson_Cole">Frank Nelson Cole</a>. <a href="http://en.wikipedia.org/wiki/Mersenne_prime#History">Marin Mersenne</a> had
+claimed in the 17th century that 2<sup>67</sup>-1 was a prime
+number. He was prominent enough that the claim was felt to be accepted
+wisdom and there was certainly no way to test the claim in the days
+before computers. That&rsquo;s a big honking number:
+147,573,952,589,676,412,927.</p>
+
+<p>In 1903, Frank Nelson Cole walked into a meeting of mathematicians to
+present his talk. The title was boring, something like &ldquo;On the
+factoring of large numbers&rdquo;. Without speaking a word, he walked up to
+the chalkboard and started to write a large number, followed by
+another large number and then started to multiply them together. It
+took a while, but by the time he started to get towards the solution,
+the crowd of mathematicians understood that he was proving that he had
+found two numbers whose product was the famous &ldquo;prime&rdquo; number
+2<sup>67</sup>-1. As he came close to finishing, the anticipation
+peaked and cheering began. He finished the calculation and sat down,
+never speaking a word.</p>
+
+<p>Stories like that give me the chills. Can you imagine how excited he
+must have been when he found those 2 roots? I get that sensation every
+once in a while when I make a programming breakthrough, solving a
+problem which I had been banging my head on for a while. It&rsquo;s nowhere as
+profound as what he did, but I think I can understand the exhilaration
+he must have felt.</p>
+
+<p>I decided to see what those 2 roots are, using my new favorite
+language, Clojure. I&rsquo;m by no means an expert in anything, let alone
+programming and especially functional programming, but here&rsquo;s how I
+went about it. The REPL is such a fun way to explore things like this:</p>
+
+<ol>
+<li><p>I need a range of numbers which I&rsquo;ll then test one-by-one to see if
+they divide into 2<sup>67</sup>-1 evenly.</p>
+
+<pre><code>user=&gt; (def n 18)
+#'user/n
+user=&gt; (range 2 n)
+(2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17)
+</code></pre></li>
+
+<li><p>I need a way to take a square root.  (There&rsquo;s no need to check
+numbers higher than the square root of 2<sup>67</sup>-1)</p>
+
+<pre><code>user=&gt; (Math/sqrt n)
+4.242640687119285
+</code></pre></li>
+
+<li><p>So the numbers I need to test are:</p>
+
+<pre><code>user=&gt; (range 2 (inc (int (Math/sqrt n))))
+(2 3 4)
+</code></pre></li>
+
+<li><p>I need to find the remainder of a division (Of note, <code>mod</code> also does
+the same thing, but <code>rem</code> is a lot faster)</p>
+
+<pre><code>user=&gt; (rem 9 2)
+1
+</code></pre></li>
+
+<li><p>Can I find all the lower roots of a number? The <code>#(...)</code> syntax is
+syntactic sugar for an anonymous function. The <code>%</code> is a placeholder
+for the value which is being iterated over. So the following
+function takes each value in the list returned by <code>range</code> and
+supplies it to <code>rem</code>. If that <code>rem</code> function is equal to
+zero, then the <code>#(...)</code> anonymous function returns true and <code>filter</code>
+keeps the value.</p>
+
+<pre><code>user=&gt; (def n 100)
+#'user/n
+user=&gt; (filter #(= (rem n %) 0) (range 2 (inc (int (Math/sqrt n)))))
+(2 4 5 10)
+</code></pre></li>
+
+<li><p>Now let&rsquo;s map over each of those values, finding the corresponding
+higher root for each value. <code>vector</code> creates a vector (think list)
+with the first value being the supplied value and the second value
+being the other root <code>(/ n %)</code>:</p>
+
+<pre><code>user=&gt; (map #(vector % (/ n %)) (filter #(= (rem n %) 0) (range 2 (inc (int (Math/sqrt n))))))
+([2 50] [4 25] [5 20] [10 10])
+</code></pre></li>
+
+<li><p>Based on that experimentation, here&rsquo;s my first stab at the
+function:</p>
+
+<pre><code>user=&gt; (defn roots [n]
+         (let [lower-factors (range 2 (inc (int (Math/sqrt n))))
+               is-factor? (fn [a] (= (rem n a) 0))]
+           (map  #(vector % (/ n %)) (filter is-factor? lower-factors))))
+#'user/roots
+user=&gt; (roots 294)
+([2 147] [3 98] [6 49] [7 42] [14 21])
+</code></pre></li>
+
+<li><p>Now let&rsquo;s get our big number (2<sup>67</sup>-1)</p>
+
+<pre><code>user=&gt; (dec (Math/pow 2 67))
+1.4757395258967641E20
+</code></pre></li>
+
+<li><p>Hmmm&hellip; that looks like it might not be a precise value. Oh well,
+let&rsquo;s try it:</p>
+
+<pre><code>user=&gt; (roots (dec (Math/pow 2 67)))
+([2 7.378697629483821E19] [3 4.9191317529892135E19] [4
+3.6893488147419103E19] [5 2.9514790517935284E19] [6
+2.4595658764946067E19] [7 2.108199322709663E19] [8
+1.8446744073709552E19] [9 1.6397105843297378E19] [10
+1.4757395258967642E19] [11 1.3415813871788765E19] [12
+1.2297829382473034E19] [13 1.1351842506898186E19] [14
+1.0540996613548315E19] [15 9.838263505978427E18] [16
+9.223372036854776E18] [17 8.6808207405692006E18] [18
+8.1985529216486892E18] [19 7.7670501362987581E18] [20
+7.3786976294838211E18.....
+C-c C-c (ABORT, ABORT!!!)
+</code></pre></li>
+
+<li><p>OK, that didn&rsquo;t work. It clearly found way too many roots, because
+2<sup>67</sup>-1 was an approximation. We have to use BigIntegers which have
+appropriate precision even with large numbers.</p>
+
+<pre><code>user=&gt; (def two67minus1 (dec (.pow (BigInteger. &quot;2&quot;) 67)))
+#'user/two67minus1
+user=&gt; two67minus1
+147573952589676412927
+</code></pre></li>
+
+<li><p>Cool, that looks more precise than our previous value. To see the
+difference, check their type.</p>
+
+<pre><code>user=&gt; (type (dec (Math/pow 2 67)))
+java.lang.Double
+user=&gt; (type (dec (.pow (BigInteger. &quot;2&quot;) 67)))
+java.math.BigInteger
+</code></pre></li>
+
+<li><p>OK, Time for the big test:</p>
+
+<pre><code>user=&gt; (roots two67minus1)
+([193707721 761838257287])
+</code></pre></li>
+
+<li><p>Cool!!! It works! Those are the roots of 2<sup>67</sup>-1. How long did that
+take to compute? (We need <code>doall</code> to make the <code>time</code> command wait
+for all of the values to be calculated, otherwise it will return
+after the first value is calculated. This has something to do with
+the laziness of clojure sequences)</p>
+
+<pre><code>user=&gt; (time (doall (roots two67minus1)))
+&quot;Elapsed time: 2.2697318183297E7 msecs&quot;
+([193707721 761838257287])
+</code></pre></li>
+</ol>
+
+<p>6 hours 18 minutes. I&rsquo;m sure there&rsquo;s a quicker way to do this. I do a
+lot of redundant testing. For example, once we know that 2 is not a
+factor, we shouldn&rsquo;t check any more even factors. I&rsquo;d be interested in
+any advice to make it run faster.</p>
+
+<p>I can&rsquo;t even fathom how you&rsquo;d go about doing this without a
+computer. Can you imagine how frustrating it must&rsquo;ve been any time you
+had a simple error? Just amazing&hellip;</p>
+
+        </div>
+        
+
+<footer>
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">Vinod Kurup</span></span>
+    
+    <time>Nov 29, 2011</time>
+    
+    </span>
+  </p>
+
+  
+
+  <p class="meta">
+    
+        <a class="basic-alignment left" href="https://kurup.org/blog/2011/11/12/clojurescript-and-phonegap/" title="ClojureScript and PhoneGap">ClojureScript and PhoneGap</a>
+    
+
+    
+      <a class="basic-alignment right" href="https://kurup.org/blog/2012/08/03/blogging-again/" title="Blogging Again">Blogging Again</a>
+    
+  </p>
+  
+</footer>
+
+      </article>
+    </div>
+    
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+
+    <p>
+      
+    </p>
+  </section>
+
+  
+
+  
+  <ul class="sidebar-nav">
+    <li class="sidebar-nav-item">
+      <a target="_blank" href="https://github.com/vkurup/" title="https://github.com/vkurup/"><i class="fa fa-github fa-3x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/vkurup/" title="https://twitter.com/vkurup/"><i class="fa fa-twitter fa-3x"></i></a>
+      
+      <a target="_blank" href="https://keybase.io/vkurup/" title="https://keybase.io/vkurup/"><i class="fa fa-keybase fa-3x"></i></a> 
+      
+      
+      <a target="_blank" href="https://stackoverflow.com/users/347942" title="https://stackoverflow.com/users/347942"><i class="fa fa-stack-overflow fa-3x"></i></a>
+      
+      
+      
+      
+      
+
+      
+      
+    </li>
+  </ul>
+
+  
+
+  
+
+  
+  
+  
+  
+  <section class="even">
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2019/04/08/avik-730/">Avik 7:30</a>
+      </li>
+      
+      
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2018/12/20/triangle-race-series/">Triangle Race Series</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2018/12/02/my-nest-journey/">My Nest Journey</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2018/09/23/composting/">Composting</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2018/09/22/starting-a-garden/">Starting a garden</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2018/05/31/history-of-indian-civilization/">History of Indian Civilization</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2018/05/30/autovacuum-not-running/">Autovacuum not running</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2018/05/29/renaissance-man/">Renaissance Man</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2014/07/28/using-dynamic-queries-in-a-cbv/">Using dynamic queries in a CBV</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2014/07/23/some-emacs-posts/">Some Emacs Posts</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2014/07/22/pygments-on-arch-linux/">Pygments on Arch Linux</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2014/07/21/how-to-create-test-models-in-django/">How to create test models in Django</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2013/01/21/peanut-allergy-a-personal-clinical-review/">Peanut Allergy, a personal clinical review</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2013/01/17/priorities-and-gtd/">Priorities and GTD</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2013/01/16/gtd-again/">GTD again?</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2013/01/15/writing-paralysis/">Writing paralysis</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2013/01/09/steal-my-web-app-idea/">Steal My Web App Idea</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2012/12/30/how-to-change-the-rear-tire-on-a-12-inch-bicycle/">How to change the rear tire on a 12 inch bicycle</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2012/11/05/nsbrief-gets-the-best-guests/">NSBrief gets the best guests</a>
+      </li>
+      
+      
+    </ul>
+  </section>
+  
+  
+
+  <section class="odd">
+    <h1>My Pinboard</h1>
+    <ul id="pinboard_linkroll">Fetching linkroll...</ul>
+    <p><a href="http://pinboard.in/u:vkurup">My Pinboard Bookmarks &raquo;</a></p>
+  </section>
+  <script type="text/javascript">
+  var linkroll = 'pinboard_linkroll'; 
+  var pinboard_user = "vkurup"; 
+  var pinboard_count = 10; 
+  (function(){
+    var pinboardInit = document.createElement('script');
+    pinboardInit.type = 'text/javascript';
+    pinboardInit.async = true;
+    pinboardInit.src = '/js/pinboard.js';
+    document.getElementsByTagName('head')[0].appendChild(pinboardInit);
+  })();
+  </script>
+
+</aside>
+
+  </div>
+</div>
+
+    <footer role="contentinfo">
+      <p>Copyright &copy; 2019 Vinod Kurup - <a href="https://kurup.org/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
+      </p>
+    </footer>
+
+    
+    
+    
+
+    
+      <script>
+        var _gaq=[['_setAccount','UA-79447-1'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    
+  </body>
+</html>
+

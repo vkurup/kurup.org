@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+    
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Quattrocento:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Quattrocento+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+    
+    
+
+    
+    <title>Another Mac OS X OpenACS Installation Guide</title>
+
+    
+    
+    <link rel="stylesheet" href="/css/hugo-octopress.css">
+
+    
+    
+
+    
+    <link rel="stylesheet" href="/css/fork-awesome.min.css">
+    
+
+    
+    <link href="https://kurup.org/favicon.ico" rel="icon">
+
+    
+    
+
+    <meta name="description" content="" />
+    <meta name="keywords" content="">
+    <meta name="author" content="Vinod Kurup">
+
+    
+    <meta name="generator" content="Hugo 0.59.1" />
+
+    
+    
+
+    
+    
+  </head>
+  <body>
+
+    
+    <header role="banner">
+<hgroup>
+  
+  <h1><a href="https://kurup.org/">Vinod Kurup</a></h1>
+    <h2>Hospitalist/programmer in search of the meaning of life</h2>
+</hgroup></header>
+
+    
+    <nav role="navigation">
+<fieldset class="mobile-nav">
+  
+  <select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+    
+    <option value="https://kurup.org/">» Blog</option>
+    
+    <option value="https://kurup.org/about">» About Me</option>
+    
+    <option value="https://kurup.org/post">» Archives</option>
+    
+    <option value="https://kurup.org/categories">» Categories</option>
+    
+    <option value="https://kurup.org/medicine">» Medicine</option>
+    
+    <option value="https://kurup.org/running">» Running</option>
+    
+  </select>
+</fieldset>
+
+
+<ul class="main-navigation">
+  
+  
+  
+  <li><a href="https://kurup.org/" title="Blog">Blog</a></li>
+  
+  
+  
+  <li><a href="https://kurup.org/about" title="About Me" >About Me</a></li>
+  
+  
+  
+  <li><a href="https://kurup.org/post" title="Archives" >Archives</a></li>
+  
+  
+  
+  <li><a href="https://kurup.org/categories" title="Categories" >Categories</a></li>
+  
+  
+  
+  <li><a href="https://kurup.org/medicine" title="Medicine" >Medicine</a></li>
+  
+  
+  
+  <li><a href="https://kurup.org/running" title="Running" >Running</a></li>
+  
+  
+</ul>
+
+<ul class="subscription">
+  
+  
+  <a href="https://kurup.org/index.xml" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss fa-lg"></i></a>
+  
+  
+</ul>
+
+
+<form action="https://www.google.com/search" method="get" target="_blank">
+  <fieldset role="search">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+    <input type="hidden" name="q" value="site:https://kurup.org/" />
+  </fieldset>
+</form>
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        
+
+<header>
+  <p class="meta">Sep 14, 2003
+     - 3 minute read 
+    
+
+    
+    
+      - <a class="label" href="https://kurup.org/categories/mac-os-x/">mac-os-x </a><a class="label" href="https://kurup.org/categories/openacs/">openacs </a><a class="label" href="https://kurup.org/categories/programming/">programming </a>
+    
+  </p>
+  <h1 class="entry-title">
+     Another Mac OS X OpenACS Installation Guide 
+  </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          
+          
+          
+
+<h2 id="another-mac-os-x-openacs-installation-guide">Another Mac OS X OpenACS Installation Guide</h2>
+
+<p><a href="http://kurup.org" title="Vinod Kurup's site">by Vinod Kurup</a></p>
+
+<hr />
+
+<p>I installed OpenACS 5.0 on my PowerBook G4. Everyone should read <a href="http://borkware.com/rants/openacs/" title="MarkD's guide">MarkD&rsquo;s guide</a> since it&rsquo;s more comprehensive and explains a lot of the changes
+that I don&rsquo;t explain. I used some different software versions which made my
+experience different enough to document.</p>
+
+<p>This is a quick and dirty document for people who have installed OpenACS
+4. If I haven&rsquo;t been clear enough or if I&rsquo;ve made mistakes, please let me
+know.</p>
+
+<p>Apparently, these instructions may also help you install OpenACS on FreeBSD
+- look at <a href="http://openacs.org/forums/message-view?message_id=136910" title="Andrei's instructions">Andrei&rsquo;s instructions</a> if you&rsquo;re doing that.</p>
+
+<h3 id="software-versions">Software Versions</h3>
+
+<p>All of the AOLserver modules were obtained from CVS (2003-09-14).</p>
+
+<ul>
+<li>Postgresql 7.3.4</li>
+<li><a href="http://sourceforge.net/cvs/?group_id=3152" title="Aolserver">AOLserver 4.0b14</a>
+
+<ul>
+<li>nscache CVS</li>
+<li>nsrewrite CVS</li>
+<li>nssha1 CVS</li>
+<li>nspostgres CVS</li>
+<li><a href="http://www.tdom.org/#SECTid960" title="tDOM">tDom 0.78</a></li>
+</ul></li>
+<li><a href="http://openacs.org/4/checkout" title="OpenACS CVS">OpenACS CVS</a></li>
+</ul>
+
+<h4 id="install-postgresql">Install Postgresql</h4>
+
+<ol>
+<li><code>./configure</code> - fails on readline not being installed</li>
+
+<li><p>Install readline:</p>
+
+<pre><code>$ fink install readline
+</code></pre></li>
+
+<li><p>Configure</p>
+
+<pre><code>$ ./configure --with-includes=/sw/include --with-libs=/sw/lib
+</code></pre></li>
+
+<li><p>Compile</p>
+
+<pre><code>$ make
+$ sudo make install
+</code></pre></li>
+
+<li><p>Create the database directory and give yourself permission over it.</p>
+
+<pre><code>$ sudo mkdir /usr/local/pgsql/data
+$ sudo chown vinod.staff /usr/local/pgsql/data
+</code></pre></li>
+
+<li><p>change <code>$PATH</code>. Add <code>/usr/local/pgsql/bin</code> to the PATH variable in your <code>~/.profile</code></p></li>
+
+<li><p>I tried doing an initdb next and it worked, but then I got the following error when starting PG.</p>
+
+<pre><code>FATAL:  invalid value for option 'LC_TIME': 'en_US'
+</code></pre></li>
+
+<li><p>I found <a href="http://archives.postgresql.org/pgsql-novice/2003-01/msg00099.php" title="Tom Lane's answer">Tom Lane&rsquo;s answer</a>:</p>
+
+<pre><code>$ /usr/local/pgsql/bin/initdb -D /usr/local/pgsql/data --no-locale
+</code></pre></li>
+
+<li><p>Start it.</p>
+
+<pre><code>$ pg_ctl -D /usr/local/pgsql/data -l /usr/local/pgsql/server.log start
+$ createlang plpgsql template1
+$ createdb openacs
+$ createuser openacs
+(Answer 'Y' twice)
+</code></pre></li>
+</ol>
+
+<h4 id="install-aolserver">Install AOLserver</h4>
+
+<p>I&rsquo;m going to use AOLserver 4. Previous versions of AOLserver came bundled
+with a customized version of TCL, but AOLserver 4 can use the standard TCL
+releases, as long as TCL was built with thread support. Mac OS X 10.2 comes
+with TCL 8.3.x, but without thread support. Fink currently has TCL 8.4.1,
+but also without thread support. So, the right solution is to download TCL
+and build it manually. But I had already downloaded Fink&rsquo;s version, so I
+just manually edited the .info file that specifies how to build TCL and
+added <code>--enable-threads</code>. Of course, when the next version of TCL gets
+uploaded to the Fink repository, I&rsquo;ll be screwed, but I&rsquo;m too lazy to
+compile TCL again right now.</p>
+
+<ol>
+<li><p>Configure and Compile AOLserver</p>
+
+<pre><code>/usr/local/src/aolserver/aolserver$ ./configure --with-tcl=/sw/lib
+/usr/local/src/aolserver/aolserver$ sudo make install
+</code></pre></li>
+
+<li><p>Install nscache and nsrewrite</p>
+
+<pre><code>/usr/local/src/aolserver/nscache$ sudo make install
+/usr/local/src/aolserver/nsrewrite$ sudo make install
+</code></pre></li>
+
+<li><p>nssha1 doesn&rsquo;t compile without editing nssha1.c. Comment out the
+following 2 lines (lines 139-140):</p>
+
+<pre><code>// typedef unsigned int u_int32_t;
+// typedef unsigned char u_int8_t;
+</code></pre></li>
+
+<li><p>Compile nssha1</p>
+
+<pre><code>/usr/local/src/aolserver/nssha1$ sudo make install
+</code></pre></li>
+
+<li><p>nspostgres doesn&rsquo;t link outta the box. Add <code>-lnsdb</code> to the
+MODLIBS var in the Makefile:</p>
+
+<pre><code>MODLIBS   = -L$(PGLIB) -lpq &lt;b&gt;-lnsdb&lt;/b&gt;
+</code></pre></li>
+
+<li><p>Compile nspostgres</p>
+
+<pre><code>/usr/local/src/aolserver/nspostgres$ sudo make install POSTGRES=/usr/local/pgsql ACS=1 
+</code></pre></li>
+</ol>
+
+<h4 id="install-tdom-0-78">Install tDom 0.78</h4>
+
+<ol>
+<li>Edit <code>/usr/local/src/tDOM-0.7.8/unix/CONFIG</code></li>
+
+<li><p>Uncomment the instructions meant for AOLserver 4, but edit it to look
+like this:</p>
+
+<pre><code>../configure --enable-threads --disable-tdomalloc \
+  --prefix=/usr/local/aolserver --with-tcl=/sw/lib
+</code></pre></li>
+
+<li><p>OpenACS 5 will notice that you&rsquo;re using AOLserver 4 and will
+automatically call &lsquo;package require tdom&rsquo;. You shouldn&rsquo;t have to do
+anything special to get tDOM working with OpenACS 5.</p></li>
+</ol>
+
+<h4 id="get-ready-to-start">Get ready to start</h4>
+
+<ol>
+<li>Get OpenACS CVS.</li>
+
+<li><p>Edit config.tcl (a.k.a. nsd.tcl).</p>
+
+<ol>
+<li>Change <code>server</code> to <code>openacs</code>.</li>
+<li>Set <code>serverroot</code> to wherever you put your OpenACS CVS</li>
+<li>The config.tcl file that comes with OpenACS 5 will properly load
+nsdb.so (and ignore libtdom.so) if you&rsquo;re using AOLserver 4.</li>
+
+<li><p>Change the <code>stacksize</code> to <code>2048000</code>. If the number you choose is
+not divisible by 4096, then you get:</p>
+
+<pre><code>\[15/Sep/2003:19:08:02\]\[1997.2684358124\]\[-main-\] Notice: PostgreSQL loaded.
+nsthreads: pthread_attr_setstacksize failed in NsCreateThread: Invalid argument
+Abort trap
+</code></pre></li>
+</ol></li>
+
+<li><p>Set some permissions:</p>
+
+<pre><code>chmod 755 /usr/local/aolserver/log
+</code></pre></li>
+
+<li><p>Start it!</p>
+
+<pre><code>$ /usr/local/aolserver/bin/nsd -ft /web/openacs/etc/config.tcl
+</code></pre></li>
+</ol>
+
+<h4 id="changelog">Changelog</h4>
+
+<ul>
+<li>2004-01-23 - Pointed to Andrei&rsquo;s FreeBSD document. Simplified instructions which are automatically taken care of by OpenACS 5</li>
+<li>2004-01-05 - Added fixes from <a href="http://xarg.net/" title="Jeff Davis">Jeff Davis</a>.</li>
+<li>2003-09-14 - Initial Revision</li>
+</ul>
+
+        </div>
+        
+
+<footer>
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">Vinod Kurup</span></span>
+    
+    <time>Sep 14, 2003</time>
+    
+    </span>
+  </p>
+
+  
+
+  <p class="meta">
+    
+        <a class="basic-alignment left" href="https://kurup.org/blog/2003/09/11/sco/" title="SCO">SCO</a>
+    
+
+    
+      <a class="basic-alignment right" href="https://kurup.org/blog/2003/09/16/openacs-everywhere/" title="OpenACS everywhere">OpenACS everywhere</a>
+    
+  </p>
+  
+</footer>
+
+      </article>
+    </div>
+    
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+
+    <p>
+      
+    </p>
+  </section>
+
+  
+
+  
+  <ul class="sidebar-nav">
+    <li class="sidebar-nav-item">
+      <a target="_blank" href="https://github.com/vkurup/" title="https://github.com/vkurup/"><i class="fa fa-github fa-3x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/vkurup/" title="https://twitter.com/vkurup/"><i class="fa fa-twitter fa-3x"></i></a>
+      
+      <a target="_blank" href="https://keybase.io/vkurup/" title="https://keybase.io/vkurup/"><i class="fa fa-keybase fa-3x"></i></a> 
+      
+      
+      <a target="_blank" href="https://stackoverflow.com/users/347942" title="https://stackoverflow.com/users/347942"><i class="fa fa-stack-overflow fa-3x"></i></a>
+      
+      
+      
+      
+      
+
+      
+      
+    </li>
+  </ul>
+
+  
+
+  
+
+  
+  
+  
+  
+  <section class="even">
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2019/04/08/avik-730/">Avik 7:30</a>
+      </li>
+      
+      
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2018/12/20/triangle-race-series/">Triangle Race Series</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2018/12/02/my-nest-journey/">My Nest Journey</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2018/09/23/composting/">Composting</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2018/09/22/starting-a-garden/">Starting a garden</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2018/05/31/history-of-indian-civilization/">History of Indian Civilization</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2018/05/30/autovacuum-not-running/">Autovacuum not running</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2018/05/29/renaissance-man/">Renaissance Man</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2014/07/28/using-dynamic-queries-in-a-cbv/">Using dynamic queries in a CBV</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2014/07/23/some-emacs-posts/">Some Emacs Posts</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2014/07/22/pygments-on-arch-linux/">Pygments on Arch Linux</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2014/07/21/how-to-create-test-models-in-django/">How to create test models in Django</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2013/01/21/peanut-allergy-a-personal-clinical-review/">Peanut Allergy, a personal clinical review</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2013/01/17/priorities-and-gtd/">Priorities and GTD</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2013/01/16/gtd-again/">GTD again?</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2013/01/15/writing-paralysis/">Writing paralysis</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2013/01/09/steal-my-web-app-idea/">Steal My Web App Idea</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2012/12/30/how-to-change-the-rear-tire-on-a-12-inch-bicycle/">How to change the rear tire on a 12 inch bicycle</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2012/11/05/nsbrief-gets-the-best-guests/">NSBrief gets the best guests</a>
+      </li>
+      
+      
+    </ul>
+  </section>
+  
+  
+
+  <section class="odd">
+    <h1>My Pinboard</h1>
+    <ul id="pinboard_linkroll">Fetching linkroll...</ul>
+    <p><a href="http://pinboard.in/u:vkurup">My Pinboard Bookmarks &raquo;</a></p>
+  </section>
+  <script type="text/javascript">
+  var linkroll = 'pinboard_linkroll'; 
+  var pinboard_user = "vkurup"; 
+  var pinboard_count = 10; 
+  (function(){
+    var pinboardInit = document.createElement('script');
+    pinboardInit.type = 'text/javascript';
+    pinboardInit.async = true;
+    pinboardInit.src = '/js/pinboard.js';
+    document.getElementsByTagName('head')[0].appendChild(pinboardInit);
+  })();
+  </script>
+
+</aside>
+
+  </div>
+</div>
+
+    <footer role="contentinfo">
+      <p>Copyright &copy; 2019 Vinod Kurup - <a href="https://kurup.org/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
+      </p>
+    </footer>
+
+    
+    
+    
+
+    
+      <script>
+        var _gaq=[['_setAccount','UA-79447-1'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    
+  </body>
+</html>
+

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mac-os-x on Vinod Kurup</title>
+    <link>https://kurup.org/categories/mac-os-x/</link>
+    <description>Recent content in mac-os-x on Vinod Kurup</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 12 Feb 2005 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://kurup.org/categories/mac-os-x/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Open PDFs in Preview by default</title>
+      <link>https://kurup.org/blog/2005/02/12/open-pdfs-in-preview-by-default/</link>
+      <pubDate>Sat, 12 Feb 2005 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2005/02/12/open-pdfs-in-preview-by-default/</guid>
+      <description>Adobe Acrobat takes forever to load (with &amp;ldquo;forever&amp;rdquo; being defined as 4-5 seconds), so I wanted all my PDFs to open in Preview, by default. The thread above explains how to do it.
+ Select a PDF file in the Finder Select &amp;ldquo;Get Info&amp;rdquo; from the File menu (or hit Cmd-I) Set &amp;ldquo;Open With&amp;rdquo; to Preview Click the &amp;ldquo;Change All&amp;rdquo; button to make this the default for all PDFs  </description>
+    </item>
+    
+    <item>
+      <title>iAppleStore</title>
+      <link>https://kurup.org/blog/2004/03/28/iapplestore/</link>
+      <pubDate>Sun, 28 Mar 2004 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2004/03/28/iapplestore/</guid>
+      <description>I caught the tail-end of a free presentation on iLife at the Apple Store in SoHo this afternoon. iMovie has been sitting around unused on my computer for too long. Inspired by how easy the instructor made it seem, I finally got around to launching iMovie and creating this montage of our Telluride trip (5.0 MB).</description>
+    </item>
+    
+    <item>
+      <title>darwinports</title>
+      <link>https://kurup.org/blog/2004/03/08/darwinports/</link>
+      <pubDate>Mon, 08 Mar 2004 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2004/03/08/darwinports/</guid>
+      <description>In the process of installing Panther from scratch, I decided to use DarwinPorts. It&amp;rsquo;s a packaging system for the abundant UNIX free software available on Mac OS X. I had previously used Fink which, while being an admirable project, seemed a little opaque to me. I never quite knew where data was being installed and which locations were being searched to see if prerequisites were present. Darwinports seems to be a little better at finding programs/libraries that are already installed.</description>
+    </item>
+    
+    <item>
+      <title>Don&#39;t use &#34;Archive and Install&#34;</title>
+      <link>https://kurup.org/blog/2004/03/08/dont-use-archive-and-install/</link>
+      <pubDate>Mon, 08 Mar 2004 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2004/03/08/dont-use-archive-and-install/</guid>
+      <description>Thanks to the fine folks at badgertronics, I was able to upgrade my Powerbook to Panther free-of-charge. I initially did an &amp;ldquo;Archive and Install&amp;rdquo; upgrade, as recommended by the upgrade guide at TidBITS (easily worth the measly $5, IMHO). But soon after the install, I noticed that my system seemed a lot slower. I couldn&amp;rsquo;t pinpoint a specific problem, but things just seemed sluggish. I definitely noticed that DNS seemed to be broken.</description>
+    </item>
+    
+    <item>
+      <title>Compiling OpenFTS on Mac OS X</title>
+      <link>https://kurup.org/blog/2004/01/15/compiling-openfts-on-mac-os-x/</link>
+      <pubDate>Thu, 15 Jan 2004 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2004/01/15/compiling-openfts-on-mac-os-x/</guid>
+      <description>It wasn&amp;rsquo;t easy, but I finally got OpenFTS-0.3.2-tcl to compile on Mac OS X (10.2.8). I started by reading the excellent Mac OS X porting guides from Fink and Apple. Unfortunately, the OpenFTS Makefile and configure scripts aren&amp;rsquo;t standard, so I had to muck around with things alot. Here&amp;rsquo;s the diff:
+diff -U 2 -rbB Search-OpenFTS-tcl-0.3.2/aolserver/Makefile Search-OpenFTS-tcl-0.3.2-vk/aolserver/Makefile --- Search-OpenFTS-tcl-0.3.2/aolserver/Makefile Tue Nov 19 14:24:44 2002 +++ Search-OpenFTS-tcl-0.3.2-vk/aolserver/Makefile Wed Jan 14 23:23:13 2004 @@ -13,6 +13,6 @@ OBJ = $(SOBJ) $(POBJ) $(OOBJ) nsfts.</description>
+    </item>
+    
+    <item>
+      <title>Installing OpenACS via Darwinports</title>
+      <link>https://kurup.org/blog/2004/01/10/installing-openacs-via-darwinports/</link>
+      <pubDate>Sat, 10 Jan 2004 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2004/01/10/installing-openacs-via-darwinports/</guid>
+      <description>Installing OpenACS via Darwinports by Vinod Kurup
+I&amp;rsquo;ve created a Darwinports installation for OpenACS. (What is Darwinports?). This will allow you to set up a quick test installation to try out OpenACS. I wouldn&amp;rsquo;t recommend it for a production (or even a development) server. For those purposes, I&amp;rsquo;d strictly follow the OpenACS documentation.
+Download my OpenACS portfiles and stick them in your local darwinports repository. If you don&amp;rsquo;t already have a local darwinports repository, create one and add its location to /opt/local/etc/ports/sources.</description>
+    </item>
+    
+    <item>
+      <title>Open Source saved my photos!</title>
+      <link>https://kurup.org/blog/2004/01/05/open-source-saved-my-photos/</link>
+      <pubDate>Mon, 05 Jan 2004 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2004/01/05/open-source-saved-my-photos/</guid>
+      <description>Loyal readers of my blog will remember that my Powerbook Wallstreet G3 died on September 21st, 2002. Since I&amp;rsquo;m probably the only one that remembers, I&amp;rsquo;ll point you to that blog entry. The good news was that the hard drive was intact, the bad news was that I didn&amp;rsquo;t have an easy way of accessing it. I have a Firewire enclosure, and my old Powerbook was running Linux, so I figured it wouldn&amp;rsquo;t be too difficult to get my new Powerbook to read the data off the old HD.</description>
+    </item>
+    
+    <item>
+      <title>Another Mac OS X OpenACS Installation Guide</title>
+      <link>https://kurup.org/blog/2003/09/14/another-mac-os-x-openacs-installation-guide/</link>
+      <pubDate>Sun, 14 Sep 2003 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2003/09/14/another-mac-os-x-openacs-installation-guide/</guid>
+      <description>Another Mac OS X OpenACS Installation Guide by Vinod Kurup
+I installed OpenACS 5.0 on my PowerBook G4. Everyone should read MarkD&amp;rsquo;s guide since it&amp;rsquo;s more comprehensive and explains a lot of the changes that I don&amp;rsquo;t explain. I used some different software versions which made my experience different enough to document.
+This is a quick and dirty document for people who have installed OpenACS 4. If I haven&amp;rsquo;t been clear enough or if I&amp;rsquo;ve made mistakes, please let me know.</description>
+    </item>
+    
+    <item>
+      <title>Core Mac OS X and UNIX Programming</title>
+      <link>https://kurup.org/blog/2003/07/02/core-mac-os-x-and-unix-programming/</link>
+      <pubDate>Wed, 02 Jul 2003 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2003/07/02/core-mac-os-x-and-unix-programming/</guid>
+      <description>Not only has MarkD produced a book, but he&amp;rsquo;s made SlashDot as well. Guess it&amp;rsquo;s about time to retire now&amp;hellip;
+I&amp;rsquo;m going to get it eventually, but I&amp;rsquo;m still working my way through Cocoa Programming for Mac OS X</description>
+    </item>
+    
+    <item>
+      <title>BorkDrip!</title>
+      <link>https://kurup.org/blog/2003/02/20/borkdrip/</link>
+      <pubDate>Thu, 20 Feb 2003 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2003/02/20/borkdrip/</guid>
+      <description>Got Mac OS X? Want a cool screensaver? I stole this from MarkD over at BorkWare and then modified it to allow multiple drips and configurable block sizes.
+ Get the ScreenSaver (expand archive and put it in &amp;ldquo;~/Library/Screen Savers&amp;rdquo;). Get the source code.  </description>
+    </item>
+    
+  </channel>
+</rss>

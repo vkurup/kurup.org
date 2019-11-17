@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>testing on Vinod Kurup</title>
+    <link>https://kurup.org/categories/testing/</link>
+    <description>Recent content in testing on Vinod Kurup</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 16 May 2006 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://kurup.org/categories/testing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Automated Testing Rules</title>
+      <link>https://kurup.org/blog/2006/05/16/automated-testing-rules/</link>
+      <pubDate>Tue, 16 May 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2006/05/16/automated-testing-rules/</guid>
+      <description>Automated testing is a good thing. For my running log application, I have a proc that creates a new log for a user, called rl::runner::new. If you happen to call it for a user who already has a log, it returns the already created log. When I created the proc way back when, I also created an automated test to make sure that creation worked and that redundant calls returned the orignal log.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bad on Vinod Kurup</title>
+    <link>https://kurup.org/categories/bad/</link>
+    <description>Recent content in bad on Vinod Kurup</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 29 Nov 2005 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://kurup.org/categories/bad/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MTA sucks</title>
+      <link>https://kurup.org/blog/2005/11/29/mta-sucks/</link>
+      <pubDate>Tue, 29 Nov 2005 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2005/11/29/mta-sucks/</guid>
+      <description>I had the commute from hell this morning. The 4 train went &amp;ldquo;Out of service&amp;rdquo; at 149th street, so we all got off and crowded onto the other nearly-full 4 train going downtown. They closed the doors for a minute, then opened the doors and said &amp;lsquo;This 4 is out of service&amp;rsquo;. So now there are 2 train-fulls of people trying to get to the 5 train downstairs. It was chaos.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>programming on Vinod Kurup</title>
+    <link>https://kurup.org/categories/programming/</link>
+    <description>Recent content in programming on Vinod Kurup</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 30 May 2018 21:26:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://kurup.org/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Autovacuum not running</title>
+      <link>https://kurup.org/blog/2018/05/30/autovacuum-not-running/</link>
+      <pubDate>Wed, 30 May 2018 21:26:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2018/05/30/autovacuum-not-running/</guid>
+      <description>OK, this is a debug session in progress, so don&amp;rsquo;t expect a nice solution at the end. We&amp;rsquo;re working on a project that does analysis of some public voter registration data. The DB is hosted on Amazon RDS and I&amp;rsquo;ve been perplexed by how poorly queries are performing there, despite the tables only have about 10 million rows. Simple queries are taking many minutes, which is orders of magnitude slower than my laptop.</description>
+    </item>
+    
+    <item>
+      <title>Using dynamic queries in a CBV</title>
+      <link>https://kurup.org/blog/2014/07/28/using-dynamic-queries-in-a-cbv/</link>
+      <pubDate>Mon, 28 Jul 2014 22:08:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2014/07/28/using-dynamic-queries-in-a-cbv/</guid>
+      <description>Let&amp;rsquo;s play &amp;lsquo;Spot the bug&amp;rsquo;. We&amp;rsquo;re building a simple system that shows photos. Each photo has a publish_date and we should only show photos that have been published (i.e. their publish_date is in the past).
+class PhotoManager(models.Manager): def live(self, as_of=None): if as_of is None: as_of = timezone.now() return super().get_query_set().filter(publish_date__lte=as_of) And the view to show those photos:
+class ShowPhotosView(ListView): queryset = Hero.objects.live() Can you spot the bug? I sure didn&amp;rsquo;t&amp;hellip; until the client complained that newly published photos never showed up on the site.</description>
+    </item>
+    
+    <item>
+      <title>Some Emacs Posts</title>
+      <link>https://kurup.org/blog/2014/07/23/some-emacs-posts/</link>
+      <pubDate>Wed, 23 Jul 2014 21:38:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2014/07/23/some-emacs-posts/</guid>
+      <description>A few cool Emacs posts have flown across my radar, so I&amp;rsquo;m noting them here for that time in the future when I have time to play with them.
+ Get unicode glyphs to show properly. (╯°□°）╯︵ ┻━┻ Creating slides with org-mode and Reveal.js. Finally, a sane way to create a presentation :) Anzu: Improves incremental search. Anzu shows the number of matches found, and how many matches remain in the document.</description>
+    </item>
+    
+    <item>
+      <title>Pygments on Arch Linux</title>
+      <link>https://kurup.org/blog/2014/07/22/pygments-on-arch-linux/</link>
+      <pubDate>Tue, 22 Jul 2014 21:16:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2014/07/22/pygments-on-arch-linux/</guid>
+      <description>I wrote my first blog post in a little while (ok, ok&amp;hellip; 18 months) yesterday and when I tried to generate the post, it failed. Silently failed, which is the worst kind of failure. I&amp;rsquo;m still not sure why it was silent, but I eventually was able to force it to show me an error message:
+/home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/pygments.rb-0.3.4/lib/pygments/popen.rb:354:in `rescue in get_header&amp;#39;: Failed to get header. (MentosError) from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/pygments.rb-0.3.4/lib/pygments/popen.rb:335:in `get_header&amp;#39; from /home/vinod/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/pygments.rb-0.3.4/lib/pygments/popen.rb:232:in `block in mentos&amp;#39; from /home/vinod/.</description>
+    </item>
+    
+    <item>
+      <title>How to create test models in Django</title>
+      <link>https://kurup.org/blog/2014/07/21/how-to-create-test-models-in-django/</link>
+      <pubDate>Mon, 21 Jul 2014 20:44:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2014/07/21/how-to-create-test-models-in-django/</guid>
+      <description>It&amp;rsquo;s occasionally useful to be able to create a Django model class in your unit test suite. Let&amp;rsquo;s say you&amp;rsquo;re building a library which creates an abstract model which your users will want to subclass. There&amp;rsquo;s no need for your library to subclass it, but your library should still test that you can create a subclass and test out its features. If you create that model in your models.py file, then Django will think that it is a real part of your library and load it whenever you (or your users) call syncdb.</description>
+    </item>
+    
+    <item>
+      <title>NSBrief gets the best guests</title>
+      <link>https://kurup.org/blog/2012/11/05/nsbrief-gets-the-best-guests/</link>
+      <pubDate>Mon, 05 Nov 2012 10:38:09 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2012/11/05/nsbrief-gets-the-best-guests/</guid>
+      <description>I&amp;rsquo;m not an OS X programmer, but I&amp;rsquo;ve really enjoyed 2 recent episodes of the NSBrief podcast. First was Mark Dalrymple&amp;rsquo;s interview. Here was my 140 character description:
+So much geeky fun in @borkware&amp;rsquo;s interview. AOLserver, dtrace, OpenDoc, MPW, need I go on? nsbrief.com/59-mark-dalrym…
+&amp;mdash; Vinod Kurup (@vkurup) August 16, 2012 
+Today, I listened to Mark Aufflick&amp;rsquo;s interview where he talks eloquently about starting your own business. I love the perspective he had on his first business and how shutting it down gave him the necessary (though painful) experience to make his current business work.</description>
+    </item>
+    
+    <item>
+      <title>Emacs for Python Programming</title>
+      <link>https://kurup.org/blog/2012/10/24/emacs-for-python-programming/</link>
+      <pubDate>Wed, 24 Oct 2012 16:45:49 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2012/10/24/emacs-for-python-programming/</guid>
+      <description>(Note: See the bottom of this post for updates)
+I was honored to to give my &amp;ldquo;Emacs for Python Programming&amp;rdquo; talk at the inaugural PyCarolinas conference. The conference was a huge success in every way, thanks to the efforts of Calvin Spealman, et. al. I promised that I would post my Emacs setup, so here it is.
+Step 0: Prerequisites This may work with other setups, but here&amp;rsquo;s what I tested:</description>
+    </item>
+    
+    <item>
+      <title>Emacs Autocomplete stumbles on yasnippet</title>
+      <link>https://kurup.org/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet/</link>
+      <pubDate>Mon, 15 Oct 2012 13:02:18 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet/</guid>
+      <description>Autocomplete Mode is an Emacs mode that tries to guess what word you&amp;rsquo;re typing and provide auto-completion. Recently, it started failing in simple scenarios.
+It can use various &amp;lsquo;sources&amp;rsquo; to try to figure out what you&amp;rsquo;re about to type. The simplest source is ac-source-dictionary which is a simple list of words. If you start typing any of those words, it will try to autocomplete them for you. Normally, you&amp;rsquo;d put those words in a file, with each word on a separate line, but for testing purposes, you can also add them manually using an elisp function.</description>
+    </item>
+    
+    <item>
+      <title>On Factoring Large Numbers</title>
+      <link>https://kurup.org/blog/2011/11/29/on-factoring-large-numbers/</link>
+      <pubDate>Tue, 29 Nov 2011 21:59:20 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2011/11/29/on-factoring-large-numbers/</guid>
+      <description>I wonder how many of my blog posts are based on stories from This American Life. Probably not enough. Every time I start to listen to a show, I&amp;rsquo;m certain that I&amp;rsquo;m not going to be interested and within a minute I&amp;rsquo;m trapped and can&amp;rsquo;t stop listening. It&amp;rsquo;s that good. A recent show was about people who people who pursued crazy ideas. The first story was about a mathematician named Frank Nelson Cole.</description>
+    </item>
+    
+    <item>
+      <title>ClojureScript and PhoneGap</title>
+      <link>https://kurup.org/blog/2011/11/12/clojurescript-and-phonegap/</link>
+      <pubDate>Sat, 12 Nov 2011 21:39:34 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2011/11/12/clojurescript-and-phonegap/</guid>
+      <description>Phonegap is a tool that allows you to develop apps in HTML5 + javascript and makes it easy to deploy them to multiple mobile platforms, including Android and iOS.
+ClojureScript is a dialect of the awesome language, Clojure, that compiles to Javascript (after a pass through the Google Closure optimizer). Because Clojure, ClojureScript and Google Closure can be confusing terms, I&amp;rsquo;ll use CLJS instead of ClojureScript for the remainder of this post.</description>
+    </item>
+    
+    <item>
+      <title>gitignore</title>
+      <link>https://kurup.org/blog/2011/05/20/gitignore/</link>
+      <pubDate>Fri, 20 May 2011 20:58:06 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2011/05/20/gitignore/</guid>
+      <description>I found this great github project. It&amp;rsquo;s just a list of .gitignore files for various languages and platforms, but it&amp;rsquo;s nice to have them all in one place. The .gitignore file is, like it sounds, a list of files or directories that you don&amp;rsquo;t want to be included in version control. For Android, for example, the bin/ and gen/ directories are generated each time you compile, so you don&amp;rsquo;t want to include that.</description>
+    </item>
+    
+    <item>
+      <title>Android ResourcesNotFoundException</title>
+      <link>https://kurup.org/blog/2011/05/16/android-resourcesnotfoundexception/</link>
+      <pubDate>Mon, 16 May 2011 20:44:12 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2011/05/16/android-resourcesnotfoundexception/</guid>
+      <description>If you see this error:
+E/AndroidRuntime( 457): android.content.res.Resources$NotFoundException: File Yamba1 from xml type layout resource ID #0x7f060000  &amp;hellip; try deleting the bin/ and gen/ directories in your app. It should clear the error.
+Reference: http://code.google.com/p/android/issues/detail?id=2726#c6</description>
+    </item>
+    
+    <item>
+      <title>Learning Android Review</title>
+      <link>https://kurup.org/blog/2011/05/08/learning-android-review/</link>
+      <pubDate>Sun, 08 May 2011 22:10:19 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2011/05/08/learning-android-review/</guid>
+      <description>I recently finished reading Learning Android. I have a Droid X, Mala has a Droid Eris, and I just bought a Viewsonic g-tablet, so I have plenty of Android devices. While I still have trouble with the idea of typing on a touchscreen, I know that we are moving towards a future where mobile devices are our primary computers. This is not earth shattering. Philip Greenspun mentioned it 5 years ago.</description>
+    </item>
+    
+    <item>
+      <title>Autopoint</title>
+      <link>https://kurup.org/blog/2010/11/05/autopoint/</link>
+      <pubDate>Fri, 05 Nov 2010 15:09:06 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2010/11/05/autopoint/</guid>
+      <description>If you get this error message:
+Can&#39;t exec &amp;quot;autopoint&amp;quot;: No such file or directory at /usr/share/autoconf/Autom4te/FileUtils.pm  Then, you need to install autopoint:
+sudo aptitude install autopoint  I ran into this while building ledger today and had never needed to do that before. The error that acprep provides is even more cryptic:
+Automatically preparing build ... Warning: autoreconf failed  Then, I ran autogen.sh and the autpoint error showed up.</description>
+    </item>
+    
+    <item>
+      <title>Making blog posting easier</title>
+      <link>https://kurup.org/blog/2010/11/05/making-blog-posting-easier/</link>
+      <pubDate>Fri, 05 Nov 2010 07:15:32 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2010/11/05/making-blog-posting-easier/</guid>
+      <description>Another piece of advice that I&amp;rsquo;ve heard over and over again is to make things easier. Automate! In that vein, I learned a little elisp in order to make it easier to create a new blog post. I create my posts in emacs, but I often cut and paste the YAML header from a previous post, which is tedious and time-consuming. Here is my new posting function:
+(defun vk-blogpost (title) &amp;quot;Create a new blog post.</description>
+    </item>
+    
+    <item>
+      <title>HTML5 Up and Running</title>
+      <link>https://kurup.org/blog/2010/08/25/html5-up-and-running/</link>
+      <pubDate>Wed, 25 Aug 2010 14:53:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2010/08/25/html5-up-and-running/</guid>
+      <description>I preordered Mark Pilgrim&amp;rsquo;s HTML5, Up and Running from Amazon back in March. It&amp;rsquo;s available for free as Dive into HTML5. I&amp;rsquo;ve been a fan of Mark&amp;rsquo;s writing for a while, so buying the book was a way to thank him &amp;ldquo;with a buck&amp;rdquo;. Interestingly, the online book and paper book are not identical. For starters, the titles are different. In addition, the beautiful fonts and cutesy images of the online version are gone.</description>
+    </item>
+    
+    <item>
+      <title>Maps are functions, too</title>
+      <link>https://kurup.org/blog/2010/08/05/maps-are-functions-too/</link>
+      <pubDate>Thu, 05 Aug 2010 15:16:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2010/08/05/maps-are-functions-too/</guid>
+      <description>Braindump time. Here&amp;rsquo;s what I&amp;rsquo;ve read about clojure in the past few days. I don&amp;rsquo;t understand what this means yet, but maybe someday I will:
+ Clojure provides easy access to the Java frameworks, with optional type hints and type inference, to ensure that calls to Java can avoid reflection.
+ There are multiple languages that target the JVM (besides Java, of course). It seems that there are 2 classes of languages.</description>
+    </item>
+    
+    <item>
+      <title>Stock Market Timing</title>
+      <link>https://kurup.org/blog/2010/07/19/stock-market-timing/</link>
+      <pubDate>Mon, 19 Jul 2010 16:08:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2010/07/19/stock-market-timing/</guid>
+      <description>If you asked me a few years ago, I would have said you absolutely can&amp;rsquo;t time the stock market. The 2008 crash hurt enough to make me review my convictions a little. I still believe that accurate market timing is somewhere between difficult and impossible. Trying to analyze stock charts to figure out what will happen in the short term is mostly a crap shoot. The way to win in the stock market is to buy value stocks, especially when everyone else is selling.</description>
+    </item>
+    
+    <item>
+      <title>First Steps with Clojure</title>
+      <link>https://kurup.org/blog/2010/07/18/first-steps-with-clojure/</link>
+      <pubDate>Sun, 18 Jul 2010 16:29:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2010/07/18/first-steps-with-clojure/</guid>
+      <description>As mentioned yesterday, I&amp;rsquo;m teaching myself clojure. I started by trying to install it.
+vinod@ike$ aptitude install clojure  Ubuntu has packaged version 1.0.0 of clojure. I always default to the OS-installed version of programs, just for ease of maintenance. The current stable version of clojure is 1.1 and it appears that 1.2 is in beta. I have no idea what has been changed in 1.1 or 1.2, but I&amp;rsquo;m going to try to get along using 1.</description>
+    </item>
+    
+    <item>
+      <title>Getting some clojure</title>
+      <link>https://kurup.org/blog/2010/07/17/getting-some-clojure/</link>
+      <pubDate>Sat, 17 Jul 2010 19:55:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2010/07/17/getting-some-clojure/</guid>
+      <description>Steve Yegge is one of my favorite bloggers. I read &amp;ldquo;You Should Write Blogs&amp;rdquo; a long time ago and it is one of the main reasons that I still try to keep this blog going at all. He recently took a blogging hiatus and in his return post, he left a little hint that he was interested in a programming language called clojure.
+My programming skills have been rusting away (Darn those patients, always getting sick and stuff!</description>
+    </item>
+    
+    <item>
+      <title>Bye Bye Wordpress</title>
+      <link>https://kurup.org/blog/2009/09/19/bye-bye-wordpress/</link>
+      <pubDate>Sat, 19 Sep 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2009/09/19/bye-bye-wordpress/</guid>
+      <description>This site has undergone another transformation. I&amp;rsquo;ve ditched Wordpress and am now using a tool called Jekyll. It&amp;rsquo;s a program that runs on my laptop and generates static files from a bunch of templates. I then upload the static files to my server. Wordpress, like any dynamic software, has security risks. Especially since it&amp;rsquo;s such a popular blog app, it&amp;rsquo;s always under attack. I don&amp;rsquo;t have the time or interest to keep up with updates, especially since my blogging is so low-profile.</description>
+    </item>
+    
+    <item>
+      <title>Working with collections</title>
+      <link>https://kurup.org/blog/2006/09/25/working-with-collections/</link>
+      <pubDate>Mon, 25 Sep 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2006/09/25/working-with-collections/</guid>
+      <description>Steve Yegge wrote about the expressiveness of Ruby as compared to Java. He used this simple problem as an example:
+ How about if we write a program that will print out all the words in the dictionary starting with the letter &amp;lsquo;Q&amp;rsquo; (case-insensitive), grouped by increasing length, and sorted alphabetically within each group.
+ The Ruby version was about 12 lines of code and Java version about 43. Of course, the point of the exercise wasn&amp;rsquo;t simply the difference in LOCs, but in the overall simplicity of dealing with collections of data.</description>
+    </item>
+    
+    <item>
+      <title>Automated Testing Rules</title>
+      <link>https://kurup.org/blog/2006/05/16/automated-testing-rules/</link>
+      <pubDate>Tue, 16 May 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2006/05/16/automated-testing-rules/</guid>
+      <description>Automated testing is a good thing. For my running log application, I have a proc that creates a new log for a user, called rl::runner::new. If you happen to call it for a user who already has a log, it returns the already created log. When I created the proc way back when, I also created an automated test to make sure that creation worked and that redundant calls returned the orignal log.</description>
+    </item>
+    
+    <item>
+      <title>New Features coming in Tcl 8.5</title>
+      <link>https://kurup.org/blog/2006/05/14/new-features-coming-in-tcl-8.5/</link>
+      <pubDate>Sun, 14 May 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2006/05/14/new-features-coming-in-tcl-8.5/</guid>
+      <description>I was looking at the Tcl 8.4 man page for &amp;lsquo;split&amp;rsquo; and saw this example code:
+## Split into fields on colons set fields [split $rec &amp;#34;:&amp;#34;] ## Assign fields to variables and print some out... lassign $fields userName password uid grp longName homeDir shell It shows how to split a string using &amp;lsquo;:&amp;rsquo; as the delimiter. The interesting part is the &amp;lsquo;lassign&amp;rsquo; statement. I&amp;rsquo;d never seen that before. I&amp;rsquo;ve always done something annoying like this:</description>
+    </item>
+    
+    <item>
+      <title>Hit The Wall (a running log)</title>
+      <link>https://kurup.org/blog/2006/04/21/hit-the-wall-a-running-log/</link>
+      <pubDate>Fri, 21 Apr 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2006/04/21/hit-the-wall-a-running-log/</guid>
+      <description>I built a web application to keep track of my running a couple years ago. I really began using it in earnest during my training for the New York Marathon last year. I&amp;rsquo;ve been meaning to make it available for others to use for a long time, but it always seemed like there was a little more work I needed to do on it. While working on it the other day, I noticed the original timestamp on one of the source files: September 21, 2003 Yikes!</description>
+    </item>
+    
+    <item>
+      <title>Prettier permalinks</title>
+      <link>https://kurup.org/blog/2006/03/28/prettier-permalinks/</link>
+      <pubDate>Tue, 28 Mar 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2006/03/28/prettier-permalinks/</guid>
+      <description>Permalink stands for &amp;lsquo;permanent link&amp;rsquo;. When you create a blog post, it gets added to the top of your blog, pushing older entries down. Eventually, posts get pushed off the front page, so it&amp;rsquo;s important that you have a way to refer to old blog posts. A permalink is the link that will always point to a specific post.
+OpenACS (lars-blogger) permalinks look like this:
+http://kurup.org/blog/one-entry?entry_id=58950  This works and it&amp;rsquo;s really easy to code, but it doesn&amp;rsquo;t give much information about the content or date of the post.</description>
+    </item>
+    
+    <item>
+      <title>Tcl, a short introduction</title>
+      <link>https://kurup.org/blog/2006/03/09/tcl-a-short-introduction/</link>
+      <pubDate>Thu, 09 Mar 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2006/03/09/tcl-a-short-introduction/</guid>
+      <description>The scripting language used in most of OpenACS is Tcl. It doesn&amp;rsquo;t receive a lot of press. When people talk about scripting languages, they mean Perl or Python (and now Ruby). Tcl is not considered in the same category, but it should be. I&amp;rsquo;m not smart enough to explain why, but Salvatore Sanfilippo is and has written a gentle introduction to both the basic and powerful features of Tcl.</description>
+    </item>
+    
+    <item>
+      <title>Tag Cloud</title>
+      <link>https://kurup.org/blog/2006/03/01/tag-cloud/</link>
+      <pubDate>Wed, 01 Mar 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2006/03/01/tag-cloud/</guid>
+      <description>And now I have a pretty tag cloud on the side of my blog (that I pretty much stole from del.icio.us)</description>
+    </item>
+    
+    <item>
+      <title>My blog is tagged</title>
+      <link>https://kurup.org/blog/2006/02/27/my-blog-is-tagged/</link>
+      <pubDate>Mon, 27 Feb 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2006/02/27/my-blog-is-tagged/</guid>
+      <description>I&amp;rsquo;m finally getting around to moving my blog into the Web 1.5 world. (2.0 minus javascript). I scrapped the categories system and created a super-simple tags package. So, now I can tag posts and technorati can find them. OpenACS barely lights up on technorati. Compare RubyOnRails (20 mentions per day) with OpenACS (1 mention in the past month!). I know Rails is popular, but is OpenACS completely dead? I don&amp;rsquo;t think so.</description>
+    </item>
+    
+    <item>
+      <title>Creating a Blog Application using the OpenACS Content Repository</title>
+      <link>https://kurup.org/blog/2006/02/16/creating-a-blog-application-using-the-openacs-content-repository/</link>
+      <pubDate>Thu, 16 Feb 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2006/02/16/creating-a-blog-application-using-the-openacs-content-repository/</guid>
+      <description>I created a very simple blog application using the OpenACS Content Repository (CR). When I say simple, I mean simple, probably to the point of being useless. I just wanted to try writing something as quickly as possible using the CR. Here&amp;rsquo;s a quick run-through of the code, in case it might help someone else understand how to use the CR. I&amp;rsquo;m not including much commentary; email me (or comment) if you&amp;rsquo;d like me to expound more.</description>
+    </item>
+    
+    <item>
+      <title>Editing as root in emacs</title>
+      <link>https://kurup.org/blog/2005/12/20/editing-as-root-in-emacs/</link>
+      <pubDate>Tue, 20 Dec 2005 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2005/12/20/editing-as-root-in-emacs/</guid>
+      <description>I&amp;rsquo;ve been using emacs for 7 years and I just learned today that you can edit files as root while you&amp;rsquo;re logged into emacs as an unprivileged user. Using sudo, of course. The details are here.</description>
+    </item>
+    
+    <item>
+      <title>Lists in CSS</title>
+      <link>https://kurup.org/blog/2005/11/14/lists-in-css/</link>
+      <pubDate>Mon, 14 Nov 2005 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2005/11/14/lists-in-css/</guid>
+      <description>A-ha! This article by Eric Meyer explains why &amp;lt;ul&amp;gt; and &amp;lt;ol&amp;gt;&amp;rsquo;s can appear differently in MSIE and Mozilla browsers. Both indent the list items, but MSIE does so by setting the padding to 2.5 em, while Mozilla does so by setting the margin to 2.5 em. These are on the &amp;lt;ul&amp;gt; and &amp;lt;ol&amp;gt; selectors, not the &amp;lt;li&amp;gt;. So, in order to get consistent display on both browsers, you need to set both padding-left and margin-left to whatever you want.</description>
+    </item>
+    
+    <item>
+      <title>SCRIPT Tag on MSIE</title>
+      <link>https://kurup.org/blog/2005/01/04/script-tag-on-msie/</link>
+      <pubDate>Tue, 04 Jan 2005 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2005/01/04/script-tag-on-msie/</guid>
+      <description>Word to the wise. MSIE5 (Mac) doesn&amp;rsquo;t like:
+ &amp;amp;lt;script type=&amp;quot;blah&amp;quot; src=&amp;quot;blah&amp;quot; /&amp;amp;gt;  It only likes:
+ &amp;amp;lt;script type=&amp;quot;blah&amp;quot; src=&amp;quot;blah&amp;amp;gt;&amp;amp;lt;/script&amp;amp;gt;  It&amp;rsquo;s quite stubborn. If you try the first example, it will refuse to show any of your page.</description>
+    </item>
+    
+    <item>
+      <title>Now running OpenACS 5</title>
+      <link>https://kurup.org/blog/2004/01/09/now-running-openacs-5/</link>
+      <pubDate>Fri, 09 Jan 2004 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2004/01/09/now-running-openacs-5/</guid>
+      <description>I upgraded to OpenACS 5 thanks to instructions from DaveB, et. al. I had a few hitches with that process, but the system seems to be working OK and is certainly zippier. I haven&amp;rsquo;t tested everything out yet, so please holler if anything breaks.</description>
+    </item>
+    
+    <item>
+      <title>Comments fixed</title>
+      <link>https://kurup.org/blog/2003/10/08/comments-fixed/</link>
+      <pubDate>Wed, 08 Oct 2003 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2003/10/08/comments-fixed/</guid>
+      <description>MarkD informed me that unregistered users couldn&amp;rsquo;t add comments. Turns out it was due to some extra quoting of query variables that has been fixed in more recent versions of OpenACS, but I&amp;rsquo;ve been too lazy to update. The good news is that all of you who&amp;rsquo;ve been dying to tell me off can finally do so!
+Comments from old site Maybe they should register
+ You shouldn&#39;t have fixed the problem these people should take the time to register with your site and become part of one the coolest communities on the web.</description>
+    </item>
+    
+    <item>
+      <title>Why OpenACS?</title>
+      <link>https://kurup.org/blog/2003/09/29/why-openacs/</link>
+      <pubDate>Mon, 29 Sep 2003 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2003/09/29/why-openacs/</guid>
+      <description>Bhavesh responded to my seemingly irrational exuberance about OpenACS asking, &amp;ldquo;What&amp;rsquo;s the excitement about OpenACS?&amp;rdquo;
+There are much better answers to this question, starting with Why OpenACS?, by my web host Cathy Sarisky, but here&amp;rsquo;s my super brief answer.
+OpenACS is a toolkit to build online communities, that is, sites which value users and their contributions. OpenACS provides applications which allow users to create and manage content - applications like forums, photo albums, blogs, calendars, wikis, and file storage areas.</description>
+    </item>
+    
+    <item>
+      <title>OpenACS everywhere</title>
+      <link>https://kurup.org/blog/2003/09/16/openacs-everywhere/</link>
+      <pubDate>Tue, 16 Sep 2003 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2003/09/16/openacs-everywhere/</guid>
+      <description>Forget MTV. I want my OpenACS! So, I finally got around to install OpenACS on my Powerbook. Mostly, I just followed MarkD&amp;rsquo;s excellent directions, but I used tDom and AOLserver 4, so there were a few differences.
+Comments from old site OpenACS
+ Vinod...what is the excitment about OpenACS? I went to the website, but couldn&#39;t get a clear idea of what it&#39;s differentiating features are. Are you running OpenACS for this website?</description>
+    </item>
+    
+    <item>
+      <title>Another Mac OS X OpenACS Installation Guide</title>
+      <link>https://kurup.org/blog/2003/09/14/another-mac-os-x-openacs-installation-guide/</link>
+      <pubDate>Sun, 14 Sep 2003 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2003/09/14/another-mac-os-x-openacs-installation-guide/</guid>
+      <description>Another Mac OS X OpenACS Installation Guide by Vinod Kurup
+I installed OpenACS 5.0 on my PowerBook G4. Everyone should read MarkD&amp;rsquo;s guide since it&amp;rsquo;s more comprehensive and explains a lot of the changes that I don&amp;rsquo;t explain. I used some different software versions which made my experience different enough to document.
+This is a quick and dirty document for people who have installed OpenACS 4. If I haven&amp;rsquo;t been clear enough or if I&amp;rsquo;ve made mistakes, please let me know.</description>
+    </item>
+    
+    <item>
+      <title>AOLserver CGI errors</title>
+      <link>https://kurup.org/blog/2003/07/20/aolserver-cgi-errors/</link>
+      <pubDate>Sun, 20 Jul 2003 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2003/07/20/aolserver-cgi-errors/</guid>
+      <description>Scenario: You&amp;rsquo;re trying to run a CGI program under AOLserver and you see this in your error log:
+19/Jul/2003:00:00:23 Error: exec /home/vinod/cgi-bin/mt: execve() failed: Permission denied 19/Jul/2003:00:00:23 Error: waitpid(-3) failed: No child processes 19/Jul/2003:00:00:23 Error: nscgi: wait for /home/vinod/cgi-bin/mt failed: No child processes  I&amp;rsquo;m trying to run /home/vinod/cgi-bin/mt/mt.cgi. Why isn&amp;rsquo;t this working? Because I need to tell AOLserver about each and every directory which might contain CGI programs.
+So I need to change my nsd.</description>
+    </item>
+    
+    <item>
+      <title>Updating from CVS</title>
+      <link>https://kurup.org/blog/2003/07/20/updating-from-cvs/</link>
+      <pubDate>Sun, 20 Jul 2003 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2003/07/20/updating-from-cvs/</guid>
+      <description>Here&amp;rsquo;s the steps I take in order to update my site from the latest OpenACS CVS. All of this info comes from Andrew Piskorski&amp;rsquo;s great CVS page or from pages listed in his document.
+ Make sure that I&amp;rsquo;ve committed all the local changes that I&amp;rsquo;ve made.
+vinod:~$ cd web/kurup vinod:~/web/kurup$ cvs commit -m &amp;ldquo;Fixed foo, bar and blah&amp;rdquo;
+ Go into the directory containing my OpenACS CVS checkout and grab the latest sources.</description>
+    </item>
+    
+    <item>
+      <title>Core Mac OS X and UNIX Programming</title>
+      <link>https://kurup.org/blog/2003/07/02/core-mac-os-x-and-unix-programming/</link>
+      <pubDate>Wed, 02 Jul 2003 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2003/07/02/core-mac-os-x-and-unix-programming/</guid>
+      <description>Not only has MarkD produced a book, but he&amp;rsquo;s made SlashDot as well. Guess it&amp;rsquo;s about time to retire now&amp;hellip;
+I&amp;rsquo;m going to get it eventually, but I&amp;rsquo;m still working my way through Cocoa Programming for Mac OS X</description>
+    </item>
+    
+    <item>
+      <title>PG 7.2 to 7.3</title>
+      <link>https://kurup.org/blog/2003/06/24/pg-7.2-to-7.3/</link>
+      <pubDate>Tue, 24 Jun 2003 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2003/06/24/pg-7.2-to-7.3/</guid>
+      <description>Not all of OpenACS is Postgres 7.3 compliant yet. OpenACS 5 is compliant and the core packages in OpenACS 4.6 are compliant, but some non-core packages haven&amp;rsquo;t been fixed yet. Noncompliant packages will complain:
+[24/Jun/2003:15:21:36][26623.196621][-conn:kurup::4] Error: Ns_PgExec: result status: 7 message: ERROR: Function pa_collection__new(&amp;quot;unknown&amp;quot;, &amp;quot;unknown&amp;quot;, &amp;quot;unknown&amp;quot;, timestamp with time zone, &amp;quot;unknown&amp;quot;, &amp;quot;unknown&amp;quot;, &amp;quot;unknown&amp;quot;) does not exist Unable to identify a function that satisfies the given argument types You may need to add explicit typecasts  It is looking for a function with timestamp with time zone as one of its parameters, but most OpenACS pl/pgsql functions were defined as accepting timestamp.</description>
+    </item>
+    
+    <item>
+      <title>psql doesn&#39;t like tabs</title>
+      <link>https://kurup.org/blog/2003/06/24/psql-doesnt-like-tabs/</link>
+      <pubDate>Tue, 24 Jun 2003 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2003/06/24/psql-doesnt-like-tabs/</guid>
+      <description>psql doesn&amp;rsquo;t deal well with tabs. If you feed it a function that has tabs in it, and then call that function, you&amp;rsquo;ll often get this: ERROR: parser: parse error at or near &amp;quot;for&amp;quot; at character 15. Thus, if you ever see this in your error log, it&amp;rsquo;s time to M-x untabify.</description>
+    </item>
+    
+    <item>
+      <title>BorkDrip!</title>
+      <link>https://kurup.org/blog/2003/02/20/borkdrip/</link>
+      <pubDate>Thu, 20 Feb 2003 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2003/02/20/borkdrip/</guid>
+      <description>Got Mac OS X? Want a cool screensaver? I stole this from MarkD over at BorkWare and then modified it to allow multiple drips and configurable block sizes.
+ Get the ScreenSaver (expand archive and put it in &amp;ldquo;~/Library/Screen Savers&amp;rdquo;). Get the source code.  </description>
+    </item>
+    
+    <item>
+      <title>Gerry and Kim - the website</title>
+      <link>https://kurup.org/blog/2003/01/07/gerry-and-kim-the-website/</link>
+      <pubDate>Tue, 07 Jan 2003 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2003/01/07/gerry-and-kim-the-website/</guid>
+      <description>I finally finished Gerry and Kim&amp;rsquo;s wedding site. The HTTP address is temporary. I had made a promise to Kim back in September that I would finish it, but that I needed a deadline. My brain seems to refuse to work without a deadline. Anyway, she said, &amp;ldquo;end of the year&amp;rdquo; and sure enough, it went live on 12/31/2002. It&amp;rsquo;s running on OpenACS 4 (CVS HEAD 12/25/2002), using an Open Source CSS stylesheet from http://w3.</description>
+    </item>
+    
+    <item>
+      <title>PhotoDB fixed</title>
+      <link>https://kurup.org/blog/2001/06/19/photodb-fixed/</link>
+      <pubDate>Tue, 19 Jun 2001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2001/06/19/photodb-fixed/</guid>
+      <description>I fixed some security issues in the OpenACS photodb module.</description>
+    </item>
+    
+    <item>
+      <title>My first OpenACS port</title>
+      <link>https://kurup.org/blog/2001/01/04/my-first-openacs-port/</link>
+      <pubDate>Thu, 04 Jan 2001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2001/01/04/my-first-openacs-port/</guid>
+      <description>I finished porting the homepage module from ACS to OpenACS. Actually, it had already been ported, but the ACS version changed substantially, so I guess I merged the new ACS version with the old OpenACS version. Anyway, it works! Here&amp;rsquo;s the file -&amp;gt; homepage.tar.gz</description>
+    </item>
+    
+    <item>
+      <title>Y2K1</title>
+      <link>https://kurup.org/blog/2001/01/02/y2k1/</link>
+      <pubDate>Tue, 02 Jan 2001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2001/01/02/y2k1/</guid>
+      <description>I found a Y2K1 bug &amp;hellip; well, not really, but I found and fixed a minor problem in the OpenACS toolkit that only occurs on the first of every year.</description>
+    </item>
+    
+  </channel>
+</rss>

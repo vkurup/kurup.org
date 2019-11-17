@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>video on Vinod Kurup</title>
+    <link>https://kurup.org/categories/video/</link>
+    <description>Recent content in video on Vinod Kurup</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 Aug 2011 15:30:08 +0000</lastBuildDate>
+    
+	<atom:link href="https://kurup.org/categories/video/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Openshot Video Editor</title>
+      <link>https://kurup.org/blog/2011/08/10/openshot-video-editor/</link>
+      <pubDate>Wed, 10 Aug 2011 15:30:08 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2011/08/10/openshot-video-editor/</guid>
+      <description>Ever since my Dad brought home an Apple IIe back in 1980, I&amp;rsquo;ve been a huge Apple fan. The design of my website back in the mid 90&amp;rsquo;s was a ripoff of the Mac OS 9 System menu. (I found a later version on the Wayback Machine. I had swapped out the Apple icon for the icon of the startup I was working with at the time.) I loved OS X for a while, especially on my 12&amp;rdquo; Aluminum powerbook.</description>
+    </item>
+    
+    <item>
+      <title>Rotating videos</title>
+      <link>https://kurup.org/blog/2010/09/16/rotating-videos/</link>
+      <pubDate>Thu, 16 Sep 2010 09:09:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2010/09/16/rotating-videos/</guid>
+      <description>I found out how to rotate video today. I often take video with my Canon SD870, but I mistakenly take it in portrait mode. I don&amp;rsquo;t realize this until I&amp;rsquo;m editing the video and then I have to decide if I want to subject my adoring youtube fans to the torture of having to turn their heads sideways to see how cute Kavi and Anika are.
+I found this link which gives the mencoder command to rotate the video.</description>
+    </item>
+    
+    <item>
+      <title>My video editing process</title>
+      <link>https://kurup.org/blog/2010/07/20/my-video-editing-process/</link>
+      <pubDate>Tue, 20 Jul 2010 20:51:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2010/07/20/my-video-editing-process/</guid>
+      <description>I use kino to edit the videos that we take of the kids. I haven&amp;rsquo;t found a Linux program which was as nice as iMovie was on the Mac, but kino is pretty good. It&amp;rsquo;s easy to splice and reconnect video clips together. It has nice special effects, though my needs are pretty simple. It&amp;rsquo;s able to export in plenty of formats, possibly too many, for my simple mind. But, I&amp;rsquo;ve figured it out and have a stable process for getting video from camera to youtube.</description>
+    </item>
+    
+  </channel>
+</rss>

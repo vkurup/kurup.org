@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+    
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Quattrocento:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Quattrocento+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+    
+    
+
+    
+    <title>Emacs for Python Programming</title>
+
+    
+    
+    <link rel="stylesheet" href="/css/hugo-octopress.css">
+
+    
+    
+
+    
+    <link rel="stylesheet" href="/css/fork-awesome.min.css">
+    
+
+    
+    <link href="https://kurup.org/favicon.ico" rel="icon">
+
+    
+    
+
+    <meta name="description" content="" />
+    <meta name="keywords" content="">
+    <meta name="author" content="Vinod Kurup">
+
+    
+    <meta name="generator" content="Hugo 0.59.1" />
+
+    
+    
+
+    
+    
+  </head>
+  <body>
+
+    
+    <header role="banner">
+<hgroup>
+  
+  <h1><a href="https://kurup.org/">Vinod Kurup</a></h1>
+    <h2>Hospitalist/programmer in search of the meaning of life</h2>
+</hgroup></header>
+
+    
+    <nav role="navigation">
+<fieldset class="mobile-nav">
+  
+  <select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+    
+    <option value="https://kurup.org/">» Blog</option>
+    
+    <option value="https://kurup.org/about">» About Me</option>
+    
+    <option value="https://kurup.org/post">» Archives</option>
+    
+    <option value="https://kurup.org/categories">» Categories</option>
+    
+    <option value="https://kurup.org/medicine">» Medicine</option>
+    
+    <option value="https://kurup.org/running">» Running</option>
+    
+  </select>
+</fieldset>
+
+
+<ul class="main-navigation">
+  
+  
+  
+  <li><a href="https://kurup.org/" title="Blog">Blog</a></li>
+  
+  
+  
+  <li><a href="https://kurup.org/about" title="About Me" >About Me</a></li>
+  
+  
+  
+  <li><a href="https://kurup.org/post" title="Archives" >Archives</a></li>
+  
+  
+  
+  <li><a href="https://kurup.org/categories" title="Categories" >Categories</a></li>
+  
+  
+  
+  <li><a href="https://kurup.org/medicine" title="Medicine" >Medicine</a></li>
+  
+  
+  
+  <li><a href="https://kurup.org/running" title="Running" >Running</a></li>
+  
+  
+</ul>
+
+<ul class="subscription">
+  
+  
+  <a href="https://kurup.org/index.xml" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss fa-lg"></i></a>
+  
+  
+</ul>
+
+
+<form action="https://www.google.com/search" method="get" target="_blank">
+  <fieldset role="search">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+    <input type="hidden" name="q" value="site:https://kurup.org/" />
+  </fieldset>
+</form>
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        
+
+<header>
+  <p class="meta">Oct 24, 2012
+     - 7 minute read 
+    
+
+    
+    
+      - <a class="label" href="https://kurup.org/categories/programming/">programming </a><a class="label" href="https://kurup.org/categories/emacs/">emacs </a><a class="label" href="https://kurup.org/categories/python/">python </a>
+    
+  </p>
+  <h1 class="entry-title">
+     Emacs for Python Programming 
+  </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          
+          
+          
+
+<p>(Note: See the bottom of this post for updates)</p>
+
+<p>I was honored to to give my
+<a href="https://speakerdeck.com/vkurup/emacs-for-python-programming">&ldquo;Emacs for Python Programming&rdquo;</a>
+talk at the inaugural <a href="http://pycarolinas.org">PyCarolinas</a>
+conference. The conference was a huge success in every way, thanks to
+the efforts of <a href="http://www.ironfroggy.com/">Calvin Spealman</a>, et. al.
+I promised that I would post my Emacs setup, so here it is.</p>
+
+<h2 id="step-0-prerequisites">Step 0: Prerequisites</h2>
+
+<p>This may work with other setups, but here&rsquo;s what I tested:</p>
+
+<ul>
+<li>Linux</li>
+<li>Emacs version 24</li>
+<li>python 2.7 or 3.3</li>
+<li><a href="http://pypi.python.org/pypi/pip">pip</a></li>
+<li><a href="http://www.virtualenv.org/">virtualenv</a></li>
+<li><a href="http://virtualenvwrapper.readthedocs.org/">virtualenvwrapper</a></li>
+<li>git</li>
+</ul>
+
+<h2 id="step-1-clear-out-any-previous-customization">Step 1: Clear out any previous customization</h2>
+
+<p>As evidenced by the numerous blog posts documenting how to set this
+up, it&rsquo;s not straightforward. I recommend starting from scratch to
+make sure everything is set up properly. Once you have it working,
+then you can customize it. Make sure to start these commands in your
+home directory.</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vinod:~$ mkdir old-emacs
+vinod:~$ mv .emacs .emacs.d old-emacs/</code></pre></div>
+<h2 id="step-2-set-up-initial-emacs-configuration">Step 2: Set up initial Emacs configuration</h2>
+
+<p>Create an empty <code>.emacs.d</code> directory and a subdirectory named with your
+username. My username is <code>vinod</code>, so we&rsquo;ll create a directory
+structure called <code>.emacs.d/vinod/</code>. The emacs-starter-kit tells emacs
+to automatically load any elisp files from that special directory, so
+you&rsquo;ll always have a place to drop custom elisp files.</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vinod:~$ mkdir -p ~/.emacs.d/<span style="color:#268bd2">$USER</span></code></pre></div>
+<p>Create a file named <code>.emacs.d/init.el</code> with the following contents:</p>
+
+<script type="application/javascript" src="https://gist.github.com/vkurup/3948955.js"></script>
+
+
+<h2 id="step-3-create-a-python-virtualenv">Step 3: Create a python virtualenv</h2>
+
+<p>We&rsquo;ll keep all the python-side customization in a virtualenv named
+<code>default</code>. It&rsquo;s important that the name you choose is the same as the
+name in the <code>(virtualenv-workon)</code> command in line 45 of Step 2.</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vinod:~$ mkvirtualenv -p python2 default</code></pre></div>
+<p>After it does its thing, your shell prompt should change, indicating
+that your new virtualenv is activated</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#719e07">(</span>default<span style="color:#719e07">)</span>vinod:~$</code></pre></div>
+<h2 id="step-4-install-pymacs">Step 4: Install Pymacs</h2>
+
+<p><a href="http://pymacs.progiciels-bpi.ca/index.html">Pymacs</a> is a really cool
+piece of software that sets up a 2 way communication between Emacs and
+Python, allowing you to control Emacs with python commands rather than
+elisp commands. It requires a python piece (<code>Pymacs.py</code>) and an Emacs
+piece (<code>pymacs.el</code>). Unfortunately, they&rsquo;re not installable via <code>pip</code>
+or <code>package.el</code>, but installation is easy enough.</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#719e07">(</span>default<span style="color:#719e07">)</span>vinod:~$ mkdir src
+<span style="color:#719e07">(</span>default<span style="color:#719e07">)</span>vinod:~/src$ <span style="color:#b58900">cd</span> src
+<span style="color:#719e07">(</span>default<span style="color:#719e07">)</span>vinod:~/src$ git clone git://github.com/pinard/Pymacs.git
+<span style="color:#719e07">(</span>default<span style="color:#719e07">)</span>vinod:~/src$ <span style="color:#b58900">cd</span> Pymacs
+
+<span style="color:#586e75"># check to make sure tests pass</span>
+<span style="color:#719e07">(</span>default<span style="color:#719e07">)</span>vinod:~/src/Pymacs$ make check
+
+<span style="color:#586e75"># install it (Be sure you&#39;re inside your virtualenv!)</span>
+<span style="color:#719e07">(</span>default<span style="color:#719e07">)</span>vinod:~/src/Pymacs$ make install
+
+<span style="color:#586e75"># install the emacs extension</span>
+<span style="color:#719e07">(</span>default<span style="color:#719e07">)</span>vinod:~/src/Pymacs$ cp pymacs.el ~/.emacs.d/<span style="color:#268bd2">$USER</span>/</code></pre></div>
+<h2 id="step-5-install-other-python-packages">Step 5: Install other python packages</h2>
+
+<p>These helper packages are easier to install:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#719e07">(</span>default<span style="color:#719e07">)</span>vinod:~$ pip install pyflakes pep8</code></pre></div>
+<p>The pyflakes and pep8 packages check your code as you type using
+Emacs&rsquo; flymake mode. Now, deactivate your virtualenv.</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#719e07">(</span>default<span style="color:#719e07">)</span>vinod:~$ deactivate
+vinod:~$</code></pre></div>
+<h2 id="step-6-install-pycheckers">Step 6: Install pycheckers</h2>
+
+<p>Flymake is the part of Emacs that checks your code for errors on the
+fly. It calls a shell script called <code>pycheckers</code>, so you need to have
+a script by that name in your shell&rsquo;s <code>PATH</code>. Here&rsquo;s mine
+(<code>~/bin/pycheckers</code>):</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh pycheckers.sh https://gist.github.com/3948973" data-lang="sh pycheckers.sh https://gist.github.com/3948973"><span style="color:#719e07">#!/bin/bash
+</span><span style="color:#719e07"></span>
+pyflakes <span style="color:#2aa198">&#34;</span><span style="color:#268bd2">$1</span><span style="color:#2aa198">&#34;</span>
+pep8 --repeat <span style="color:#2aa198">&#34;</span><span style="color:#268bd2">$1</span><span style="color:#2aa198">&#34;</span>
+true</code></pre></div>
+<h2 id="step-7-install-python-mode-el">Step 7: Install python-mode.el</h2>
+
+<p>As I mentioned in my talk, there are multiple Python modes available,
+but I recommend using the one named python-mode.el, which is developed
+at
+<a href="http://launchpad.net/python-mode">http://launchpad.net/python-mode</a>.
+It does periodically get uploaded to
+<a href="http://marmalade-repo.org/packages/python-mode">Marmalade</a>, but the
+auto-completion using pycomplete doesn&rsquo;t work well on the version that
+is there now (6.0.10), so I recommend that you manually download and
+install the latest stable version (6.0.12). I&rsquo;ll update this post once
+a stable working version gets uploaded to
+<a href="http://marmalade-repo.org/">Marmalade</a> or
+<a href="http://melpa.milkbox.net/">Melpa</a>.</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vinod:~$ <span style="color:#b58900">cd</span> ~/.emacs.d/<span style="color:#268bd2">$USER</span>
+vinod:~/.emacs.d/vinod$ curl -L https://launchpad.net/python-mode/trunk/6.0.12/+download/python-mode.el-6.0.12.tar.gz | tar xz</code></pre></div>
+<h2 id="step-8-test-it-all-out">Step 8: Test it all out</h2>
+
+<p>Launch emacs and open a python file named <code>test.py</code>. Type the following:</p>
+
+<pre><code>import os
+os.path.jo
+</code></pre>
+
+<p>Wait at this point. You should see auto-completion of <code>os.path.join</code>
+followed shortly by a yellow popup showing documentation of that method.
+Hitting return should accept the completion. Then type <code>(</code> and you
+should see the method signature in the minibuffer.</p>
+
+<p>Move the cursor over any letter in <code>join</code>. Hit &lsquo;F1&rsquo;. A window should
+popup with the docstring for <code>os.path.join</code>. Hit &lsquo;F2&rsquo;. A new window
+should be opened with the code for <code>os.path.join</code>. Hit &lsquo;F3&rsquo;. You&rsquo;ll be
+prompted to enter the name of any python command, and Emacs will show
+you the docstring.</p>
+
+<p>Type the string &lsquo;blah&rsquo; and hit return. The string should be
+highlighted in pink and if you mouseover it, the minibuffer will say
+<code>undefined name 'blah'</code>. That&rsquo;s flymake working for you.</p>
+
+<p>Hit <code>C-c C-c</code> and the buffer should be sent to a Python interpreter and
+you&rsquo;ll be dropped in the REPL after the code has been loaded. Any
+errors in the code will be reported.</p>
+
+<p>If all of this works, then CONGRATULATIONS!!! If not, let me know and
+I&rsquo;ll see if I can help debug.</p>
+
+<h2 id="step-9-customize">Step 9: Customize</h2>
+
+<p>All of this is customizable in hundreds of ways. Try <code>M-x
+customize-group RET python-mode RET</code> to see how.</p>
+
+<h2 id="step-10-how-to-create-a-new-python-project">Step 10: How to create a new python project</h2>
+
+<p>Whenever you want to create a new Python project, you have do the
+following:</p>
+
+<h3 id="create-a-new-virtualenv">Create a new virtualenv</h3>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vinod:~$ mkvirtualenv newproject</code></pre></div>
+<h3 id="install-pymacs-into-that-virtualenv">Install pymacs into that virtualenv</h3>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#719e07">(</span>newproject<span style="color:#719e07">)</span>vinod:~$ <span style="color:#b58900">cd</span> ~/src/Pymacs
+<span style="color:#719e07">(</span>newproject<span style="color:#719e07">)</span>vinod:~/src/Pymacs$ make install</code></pre></div>
+<h3 id="install-the-other-pip-modules">Install the other pip modules</h3>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#719e07">(</span>newproject<span style="color:#719e07">)</span>vinod:~/src/Pymacs$ pip install pyflakes pep8</code></pre></div>
+<h3 id="switch-to-that-virtualenv-in-emacs">Switch to that virtualenv in emacs</h3>
+
+<pre><code>M-x virtualenv-workon RET newproject/ RET
+</code></pre>
+
+<h2 id="issues">Issues</h2>
+
+<h3 id="changing-virtualenvs-doesn-t-restart-pymacs">Changing virtualenvs doesn&rsquo;t restart Pymacs</h3>
+
+<p>For the most part, this won&rsquo;t affect much, but if you move from a
+Python2 project to a Python3 project, you may have problems. The
+workaround is to call <code>M-x pymacs-terminate-services</code>, then <code>M-x
+virtualenv-workon</code> to change your virtualenv, and then finally
+<code>M-x load-pycomplete</code> to restart pymacs and pycomplete.</p>
+
+<h3 id="latest-stable-version-of-python-mode-el-isn-t-on-melpa">Latest stable version of python-mode.el isn&rsquo;t on Melpa</h3>
+
+<p>I&rsquo;d much prefer to just load python-mode using the built-in Emacs
+package manager.</p>
+
+<h3 id="pymacs-installation-is-harder-than-it-needs-to-be">Pymacs installation is harder than it needs to be</h3>
+
+<p>I wish Pymacs could be installed by a 2 step process</p>
+
+<ol>
+<li>pip install Pymacs</li>
+<li>M-x package-install RET pymacs RET</li>
+</ol>
+
+<h3 id="which-pycheckers-to-use">Which pycheckers to use?</h3>
+
+<p>My script uses pep8 and pyflakes. There are a lot of other options out
+there and I do not know which is best. See
+<a href="http://stackoverflow.com/questions/1428872/pylint-pychecker-or-pyflakes">this post</a>
+for more details.</p>
+
+<h3 id="not-using-ropemacs-any-more">Not using ropemacs any more</h3>
+
+<p>In my talk, I used ropemacs. In this setup, I have decided against it.
+I was mostly using it for code-completion and documentation lookup,
+but I like pycomplete.el better for those purposes. It&rsquo;s included in
+python-mode and it shows method signatures as you type. Ropemacs does
+have other features such as project management (easily jumping to
+files in the same project), and refactoring (changing variable names
+throughout project). I haven&rsquo;t used those, so I decided not to install
+ropemacs.</p>
+
+<h3 id="project-management-not-included">Project management not included</h3>
+
+<p>I haven&rsquo;t yet decided which package to use for this. I&rsquo;ll probably try
+projectile, but there are many other options, some lightweight
+(ropemacs, eproject, pony-mode) and some heavyweight (ecb, CEDET).</p>
+
+<h2 id="references">References</h2>
+
+<p>I gleaned knowledge from all of the following, in no particular order.</p>
+
+<ul>
+<li><a href="http://slacy.com/blog/2011/03/pymacs-ropemacs-and-virtualenv-all-at-the-same-time/">Using Pymacs and virtualenv together (slacy.com)</a></li>
+<li><a href="http://www.yilmazhuseyin.com/blog/dev/emacs-setup-python-development/">Using Ropemacs for autocompletion (yilmazhuseyin.com)</a></li>
+<li><a href="http://stackoverflow.com/questions/2855378/ropemacs-usage-tutorial/2858148#2858148">How to use Rope to automatically change virtualenv for you</a></li>
+<li><a href="http://almostobsolete.net/rope-and-virtualenv.html">Ropemacs and virtualenv (almostobsolete.net)</a></li>
+<li><a href="http://www.rwdev.eu/articles/emacspyeng">The post that turned me on to pycomplete.el (rwdev.eu)</a></li>
+<li><a href="http://hide1713.wordpress.com/2009/01/30/setup-perfect-python-environment-in-emacs/">Perfect Python Environment (2009)</a></li>
+<li><a href="http://www.masteringemacs.org/articles/2010/10/04/beginners-guide-to-emacs/">Lot&rsquo;s of great &lsquo;advanced-beginner&rsquo; emacs tips</a></li>
+<li><a href="http://blog.cou929.nu/setting-up-python-environment-on-emacs">Using python.el rather than python-mode.el</a></li>
+<li><a href="http://pedrokroger.net/2010/07/configuring-emacs-as-a-python-ide-2/">Using IPython, pylookup and more (pedrokroger.net)</a> - I need to look into this post some more.</li>
+<li><a href="http://emacswiki.org/emacs/PythonProgrammingInEmacs">EmacsWiki Python Page</a></li>
+<li><a href="http://www.saltycrane.com/blog/2010/05/my-emacs-python-environment/">Python.el, ropemacs, and a little django tip at the end</a></li>
+<li><a href="https://github.com/aculich/virtualenv.el">Virtualenv.el (something similar is included in python-mode.el</a></li>
+<li><a href="https://github.com/pdee/pdee">Python Development Environment</a> -
+Looks promising, just wish there was some documentation on how to
+use it.</li>
+<li><a href="http://borkware.com/rants/emacs-dev/">Emacs for Cocoa Development</a> - OK, not at all related to python, but some great insight from an Emacs (and all-around) wizard. Don&rsquo;t miss the ranting at the end of the page.</li>
+<li><a href="http://jesselegg.com/archives/2010/02/25/emacs-python-programmers-part-1/">Python.el basics</a></li>
+<li><a href="http://sunnyeves.blogspot.com/2011/04/debugging-python-on-emacs-ide.html">Using PDB in Emacs</a></li>
+<li><a href="https://github.com/EnigmaCurry/emacs">Ryan McGuire&rsquo;s .emacs.d</a></li>
+<li><a href="http://www.enigmacurry.com/2009/01/21/autocompleteel-python-code-completion-in-emacs/">AutoComplete for Python (enigmacurry.com)</a></li>
+<li><a href="http://www.enigmacurry.com/2008/05/09/emacs-as-a-powerful-python-ide/">The original Python IDE post (enigmacurry.com)</a></li>
+</ul>
+
+<h2 id="updates">Updates</h2>
+
+<h4 id="2012-10-27">2012-10-27</h4>
+
+<p>Thanks to <a href="https://twitter.com/danpoirier">@danpoirier</a> and
+<a href="http://twitter.com/gregnewman">@gregnewman</a> for testing. I initially
+recommended using the master branch of python-mode.el, but now I
+recommend using the latest stable release (as of now) which is version
+6.0.12 to avoid problems loading Pymacs. There&rsquo;s a bug on 6.0.12 with
+<code>virtualenv-workon</code> that requires you to put a trailing slash after
+the name of your virtualenv, so I&rsquo;ve updated the <code>init.el</code> file above
+to account for those changes.</p>
+
+        </div>
+        
+
+<footer>
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">Vinod Kurup</span></span>
+    
+    <time>Oct 24, 2012</time>
+    
+    </span>
+  </p>
+
+  
+
+  <p class="meta">
+    
+        <a class="basic-alignment left" href="https://kurup.org/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet/" title="Emacs Autocomplete stumbles on yasnippet">Emacs Autocomplete stumbles on yasnippet</a>
+    
+
+    
+      <a class="basic-alignment right" href="https://kurup.org/blog/2012/11/05/nsbrief-gets-the-best-guests/" title="NSBrief gets the best guests">NSBrief gets the best guests</a>
+    
+  </p>
+  
+</footer>
+
+      </article>
+    </div>
+    
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+
+    <p>
+      
+    </p>
+  </section>
+
+  
+
+  
+  <ul class="sidebar-nav">
+    <li class="sidebar-nav-item">
+      <a target="_blank" href="https://github.com/vkurup/" title="https://github.com/vkurup/"><i class="fa fa-github fa-3x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/vkurup/" title="https://twitter.com/vkurup/"><i class="fa fa-twitter fa-3x"></i></a>
+      
+      <a target="_blank" href="https://keybase.io/vkurup/" title="https://keybase.io/vkurup/"><i class="fa fa-keybase fa-3x"></i></a> 
+      
+      
+      <a target="_blank" href="https://stackoverflow.com/users/347942" title="https://stackoverflow.com/users/347942"><i class="fa fa-stack-overflow fa-3x"></i></a>
+      
+      
+      
+      
+      
+
+      
+      
+    </li>
+  </ul>
+
+  
+
+  
+
+  
+  
+  
+  
+  <section class="even">
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2019/04/08/avik-730/">Avik 7:30</a>
+      </li>
+      
+      
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2018/12/20/triangle-race-series/">Triangle Race Series</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2018/12/02/my-nest-journey/">My Nest Journey</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2018/09/23/composting/">Composting</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2018/09/22/starting-a-garden/">Starting a garden</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2018/05/31/history-of-indian-civilization/">History of Indian Civilization</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2018/05/30/autovacuum-not-running/">Autovacuum not running</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2018/05/29/renaissance-man/">Renaissance Man</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2014/07/28/using-dynamic-queries-in-a-cbv/">Using dynamic queries in a CBV</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2014/07/23/some-emacs-posts/">Some Emacs Posts</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2014/07/22/pygments-on-arch-linux/">Pygments on Arch Linux</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2014/07/21/how-to-create-test-models-in-django/">How to create test models in Django</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2013/01/21/peanut-allergy-a-personal-clinical-review/">Peanut Allergy, a personal clinical review</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2013/01/17/priorities-and-gtd/">Priorities and GTD</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2013/01/16/gtd-again/">GTD again?</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2013/01/15/writing-paralysis/">Writing paralysis</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2013/01/09/steal-my-web-app-idea/">Steal My Web App Idea</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2012/12/30/how-to-change-the-rear-tire-on-a-12-inch-bicycle/">How to change the rear tire on a 12 inch bicycle</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2012/11/05/nsbrief-gets-the-best-guests/">NSBrief gets the best guests</a>
+      </li>
+      
+      
+    </ul>
+  </section>
+  
+  
+
+  <section class="odd">
+    <h1>My Pinboard</h1>
+    <ul id="pinboard_linkroll">Fetching linkroll...</ul>
+    <p><a href="http://pinboard.in/u:vkurup">My Pinboard Bookmarks &raquo;</a></p>
+  </section>
+  <script type="text/javascript">
+  var linkroll = 'pinboard_linkroll'; 
+  var pinboard_user = "vkurup"; 
+  var pinboard_count = 10; 
+  (function(){
+    var pinboardInit = document.createElement('script');
+    pinboardInit.type = 'text/javascript';
+    pinboardInit.async = true;
+    pinboardInit.src = '/js/pinboard.js';
+    document.getElementsByTagName('head')[0].appendChild(pinboardInit);
+  })();
+  </script>
+
+</aside>
+
+  </div>
+</div>
+
+    <footer role="contentinfo">
+      <p>Copyright &copy; 2019 Vinod Kurup - <a href="https://kurup.org/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
+      </p>
+    </footer>
+
+    
+    
+    
+
+    
+      <script>
+        var _gaq=[['_setAccount','UA-79447-1'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    
+  </body>
+</html>
+

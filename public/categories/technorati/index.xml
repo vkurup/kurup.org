@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>technorati on Vinod Kurup</title>
+    <link>https://kurup.org/categories/technorati/</link>
+    <description>Recent content in technorati on Vinod Kurup</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 27 Feb 2006 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://kurup.org/categories/technorati/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>My blog is tagged</title>
+      <link>https://kurup.org/blog/2006/02/27/my-blog-is-tagged/</link>
+      <pubDate>Mon, 27 Feb 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2006/02/27/my-blog-is-tagged/</guid>
+      <description>I&amp;rsquo;m finally getting around to moving my blog into the Web 1.5 world. (2.0 minus javascript). I scrapped the categories system and created a super-simple tags package. So, now I can tag posts and technorati can find them. OpenACS barely lights up on technorati. Compare RubyOnRails (20 mentions per day) with OpenACS (1 mention in the past month!). I know Rails is popular, but is OpenACS completely dead? I don&amp;rsquo;t think so.</description>
+    </item>
+    
+  </channel>
+</rss>

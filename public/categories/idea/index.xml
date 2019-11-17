@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>idea on Vinod Kurup</title>
+    <link>https://kurup.org/categories/idea/</link>
+    <description>Recent content in idea on Vinod Kurup</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 09 Jan 2013 22:00:01 +0000</lastBuildDate>
+    
+	<atom:link href="https://kurup.org/categories/idea/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Steal My Web App Idea</title>
+      <link>https://kurup.org/blog/2013/01/09/steal-my-web-app-idea/</link>
+      <pubDate>Wed, 09 Jan 2013 22:00:01 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2013/01/09/steal-my-web-app-idea/</guid>
+      <description>Now that we have 3 kids, I&amp;rsquo;m always internally comparing one to the other. Sure that&amp;rsquo;s not healthy and will probably breed resentment in them during their teenage years, but what&amp;rsquo;s a bad parent to do?
+I need an app that takes 2 kids&amp;rsquo; birthdays and then shows me what day it was when the older kid was the age that the younger kid is now. Wow, that&amp;rsquo;s a confusing sentence.</description>
+    </item>
+    
+  </channel>
+</rss>

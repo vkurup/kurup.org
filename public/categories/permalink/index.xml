@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>permalink on Vinod Kurup</title>
+    <link>https://kurup.org/categories/permalink/</link>
+    <description>Recent content in permalink on Vinod Kurup</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 28 Mar 2006 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://kurup.org/categories/permalink/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Prettier permalinks</title>
+      <link>https://kurup.org/blog/2006/03/28/prettier-permalinks/</link>
+      <pubDate>Tue, 28 Mar 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2006/03/28/prettier-permalinks/</guid>
+      <description>Permalink stands for &amp;lsquo;permanent link&amp;rsquo;. When you create a blog post, it gets added to the top of your blog, pushing older entries down. Eventually, posts get pushed off the front page, so it&amp;rsquo;s important that you have a way to refer to old blog posts. A permalink is the link that will always point to a specific post.
+OpenACS (lars-blogger) permalinks look like this:
+http://kurup.org/blog/one-entry?entry_id=58950  This works and it&amp;rsquo;s really easy to code, but it doesn&amp;rsquo;t give much information about the content or date of the post.</description>
+    </item>
+    
+  </channel>
+</rss>

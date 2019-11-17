@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>author on Vinod Kurup</title>
+    <link>https://kurup.org/categories/author/</link>
+    <description>Recent content in author on Vinod Kurup</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 21 Sep 2004 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://kurup.org/categories/author/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Harinamakirtanam</title>
+      <link>https://kurup.org/blog/2004/09/21/harinamakirtanam/</link>
+      <pubDate>Tue, 21 Sep 2004 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2004/09/21/harinamakirtanam/</guid>
+      <description>My Dad&amp;rsquo;s book got reviewed in the Hindu (one of India&amp;rsquo;s national newspapers).</description>
+    </item>
+    
+  </channel>
+</rss>

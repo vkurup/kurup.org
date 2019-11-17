@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>openacs on Vinod Kurup</title>
+    <link>https://kurup.org/categories/openacs/</link>
+    <description>Recent content in openacs on Vinod Kurup</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 05 Nov 2012 10:38:09 +0000</lastBuildDate>
+    
+	<atom:link href="https://kurup.org/categories/openacs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>NSBrief gets the best guests</title>
+      <link>https://kurup.org/blog/2012/11/05/nsbrief-gets-the-best-guests/</link>
+      <pubDate>Mon, 05 Nov 2012 10:38:09 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2012/11/05/nsbrief-gets-the-best-guests/</guid>
+      <description>I&amp;rsquo;m not an OS X programmer, but I&amp;rsquo;ve really enjoyed 2 recent episodes of the NSBrief podcast. First was Mark Dalrymple&amp;rsquo;s interview. Here was my 140 character description:
+So much geeky fun in @borkware&amp;rsquo;s interview. AOLserver, dtrace, OpenDoc, MPW, need I go on? nsbrief.com/59-mark-dalrym…
+&amp;mdash; Vinod Kurup (@vkurup) August 16, 2012 
+Today, I listened to Mark Aufflick&amp;rsquo;s interview where he talks eloquently about starting your own business. I love the perspective he had on his first business and how shutting it down gave him the necessary (though painful) experience to make his current business work.</description>
+    </item>
+    
+    <item>
+      <title>Automated Testing Rules</title>
+      <link>https://kurup.org/blog/2006/05/16/automated-testing-rules/</link>
+      <pubDate>Tue, 16 May 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2006/05/16/automated-testing-rules/</guid>
+      <description>Automated testing is a good thing. For my running log application, I have a proc that creates a new log for a user, called rl::runner::new. If you happen to call it for a user who already has a log, it returns the already created log. When I created the proc way back when, I also created an automated test to make sure that creation worked and that redundant calls returned the orignal log.</description>
+    </item>
+    
+    <item>
+      <title>OpenACS in Linux Journal</title>
+      <link>https://kurup.org/blog/2006/04/26/openacs-in-linux-journal/</link>
+      <pubDate>Wed, 26 Apr 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2006/04/26/openacs-in-linux-journal/</guid>
+      <description>Linux Journal featured an article about a web application written in OpenACS. It&amp;rsquo;s called Fungoes and it tabulates and formats baseball statistics. If I had access to this app when I was a kid, I would&amp;rsquo;ve been in heaven. I remember spending hours and hours memorizing stats from the back of baseball cards. I&amp;rsquo;ve forgotten most of what I memorized, but I can still rattle off HR stats for most of the 1982 Brewers.</description>
+    </item>
+    
+    <item>
+      <title>Hit The Wall (a running log)</title>
+      <link>https://kurup.org/blog/2006/04/21/hit-the-wall-a-running-log/</link>
+      <pubDate>Fri, 21 Apr 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2006/04/21/hit-the-wall-a-running-log/</guid>
+      <description>I built a web application to keep track of my running a couple years ago. I really began using it in earnest during my training for the New York Marathon last year. I&amp;rsquo;ve been meaning to make it available for others to use for a long time, but it always seemed like there was a little more work I needed to do on it. While working on it the other day, I noticed the original timestamp on one of the source files: September 21, 2003 Yikes!</description>
+    </item>
+    
+    <item>
+      <title>Prettier permalinks</title>
+      <link>https://kurup.org/blog/2006/03/28/prettier-permalinks/</link>
+      <pubDate>Tue, 28 Mar 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2006/03/28/prettier-permalinks/</guid>
+      <description>Permalink stands for &amp;lsquo;permanent link&amp;rsquo;. When you create a blog post, it gets added to the top of your blog, pushing older entries down. Eventually, posts get pushed off the front page, so it&amp;rsquo;s important that you have a way to refer to old blog posts. A permalink is the link that will always point to a specific post.
+OpenACS (lars-blogger) permalinks look like this:
+http://kurup.org/blog/one-entry?entry_id=58950  This works and it&amp;rsquo;s really easy to code, but it doesn&amp;rsquo;t give much information about the content or date of the post.</description>
+    </item>
+    
+    <item>
+      <title>Tcl, a short introduction</title>
+      <link>https://kurup.org/blog/2006/03/09/tcl-a-short-introduction/</link>
+      <pubDate>Thu, 09 Mar 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2006/03/09/tcl-a-short-introduction/</guid>
+      <description>The scripting language used in most of OpenACS is Tcl. It doesn&amp;rsquo;t receive a lot of press. When people talk about scripting languages, they mean Perl or Python (and now Ruby). Tcl is not considered in the same category, but it should be. I&amp;rsquo;m not smart enough to explain why, but Salvatore Sanfilippo is and has written a gentle introduction to both the basic and powerful features of Tcl.</description>
+    </item>
+    
+    <item>
+      <title>My blog is tagged</title>
+      <link>https://kurup.org/blog/2006/02/27/my-blog-is-tagged/</link>
+      <pubDate>Mon, 27 Feb 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2006/02/27/my-blog-is-tagged/</guid>
+      <description>I&amp;rsquo;m finally getting around to moving my blog into the Web 1.5 world. (2.0 minus javascript). I scrapped the categories system and created a super-simple tags package. So, now I can tag posts and technorati can find them. OpenACS barely lights up on technorati. Compare RubyOnRails (20 mentions per day) with OpenACS (1 mention in the past month!). I know Rails is popular, but is OpenACS completely dead? I don&amp;rsquo;t think so.</description>
+    </item>
+    
+    <item>
+      <title>Creating a Blog Application using the OpenACS Content Repository</title>
+      <link>https://kurup.org/blog/2006/02/16/creating-a-blog-application-using-the-openacs-content-repository/</link>
+      <pubDate>Thu, 16 Feb 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2006/02/16/creating-a-blog-application-using-the-openacs-content-repository/</guid>
+      <description>I created a very simple blog application using the OpenACS Content Repository (CR). When I say simple, I mean simple, probably to the point of being useless. I just wanted to try writing something as quickly as possible using the CR. Here&amp;rsquo;s a quick run-through of the code, in case it might help someone else understand how to use the CR. I&amp;rsquo;m not including much commentary; email me (or comment) if you&amp;rsquo;d like me to expound more.</description>
+    </item>
+    
+    <item>
+      <title>OpenACS via Darwinports</title>
+      <link>https://kurup.org/blog/2005/08/03/openacs-via-darwinports/</link>
+      <pubDate>Wed, 03 Aug 2005 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2005/08/03/openacs-via-darwinports/</guid>
+      <description>I&amp;rsquo;ve mentioned Darwinports before. I&amp;rsquo;ve finally gotten around to (minimally) documenting my Darwinports OpenACS installation. It&amp;rsquo;s not quite 1-click installation, but it&amp;rsquo;s getting closer.</description>
+    </item>
+    
+    <item>
+      <title>darwinports</title>
+      <link>https://kurup.org/blog/2004/03/08/darwinports/</link>
+      <pubDate>Mon, 08 Mar 2004 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2004/03/08/darwinports/</guid>
+      <description>In the process of installing Panther from scratch, I decided to use DarwinPorts. It&amp;rsquo;s a packaging system for the abundant UNIX free software available on Mac OS X. I had previously used Fink which, while being an admirable project, seemed a little opaque to me. I never quite knew where data was being installed and which locations were being searched to see if prerequisites were present. Darwinports seems to be a little better at finding programs/libraries that are already installed.</description>
+    </item>
+    
+    <item>
+      <title>Compiling OpenFTS on Mac OS X</title>
+      <link>https://kurup.org/blog/2004/01/15/compiling-openfts-on-mac-os-x/</link>
+      <pubDate>Thu, 15 Jan 2004 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2004/01/15/compiling-openfts-on-mac-os-x/</guid>
+      <description>It wasn&amp;rsquo;t easy, but I finally got OpenFTS-0.3.2-tcl to compile on Mac OS X (10.2.8). I started by reading the excellent Mac OS X porting guides from Fink and Apple. Unfortunately, the OpenFTS Makefile and configure scripts aren&amp;rsquo;t standard, so I had to muck around with things alot. Here&amp;rsquo;s the diff:
+diff -U 2 -rbB Search-OpenFTS-tcl-0.3.2/aolserver/Makefile Search-OpenFTS-tcl-0.3.2-vk/aolserver/Makefile --- Search-OpenFTS-tcl-0.3.2/aolserver/Makefile Tue Nov 19 14:24:44 2002 +++ Search-OpenFTS-tcl-0.3.2-vk/aolserver/Makefile Wed Jan 14 23:23:13 2004 @@ -13,6 +13,6 @@ OBJ = $(SOBJ) $(POBJ) $(OOBJ) nsfts.</description>
+    </item>
+    
+    <item>
+      <title>Installing OpenACS via Darwinports</title>
+      <link>https://kurup.org/blog/2004/01/10/installing-openacs-via-darwinports/</link>
+      <pubDate>Sat, 10 Jan 2004 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2004/01/10/installing-openacs-via-darwinports/</guid>
+      <description>Installing OpenACS via Darwinports by Vinod Kurup
+I&amp;rsquo;ve created a Darwinports installation for OpenACS. (What is Darwinports?). This will allow you to set up a quick test installation to try out OpenACS. I wouldn&amp;rsquo;t recommend it for a production (or even a development) server. For those purposes, I&amp;rsquo;d strictly follow the OpenACS documentation.
+Download my OpenACS portfiles and stick them in your local darwinports repository. If you don&amp;rsquo;t already have a local darwinports repository, create one and add its location to /opt/local/etc/ports/sources.</description>
+    </item>
+    
+    <item>
+      <title>Now running OpenACS 5</title>
+      <link>https://kurup.org/blog/2004/01/09/now-running-openacs-5/</link>
+      <pubDate>Fri, 09 Jan 2004 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2004/01/09/now-running-openacs-5/</guid>
+      <description>I upgraded to OpenACS 5 thanks to instructions from DaveB, et. al. I had a few hitches with that process, but the system seems to be working OK and is certainly zippier. I haven&amp;rsquo;t tested everything out yet, so please holler if anything breaks.</description>
+    </item>
+    
+    <item>
+      <title>I&#39;m back!</title>
+      <link>https://kurup.org/blog/2003/12/17/im-back/</link>
+      <pubDate>Wed, 17 Dec 2003 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2003/12/17/im-back/</guid>
+      <description>This site was down for the past few days due to a SNAFU with acornhosting&amp;rsquo;s upstream provider. You&amp;rsquo;d think I&amp;rsquo;d have learned to have a backup strategy in place by now, but you&amp;rsquo;d be overestimating my intelligence. Luckily, Cathy was somehow able to negotiate with her failed upstream provider to get my (and other acornhosting customers&amp;rsquo;) data back. After this episode, I promise to backup religiously and I&amp;rsquo;m even more sold on acornhosting as a solid web hosting provider.</description>
+    </item>
+    
+    <item>
+      <title>Comments fixed</title>
+      <link>https://kurup.org/blog/2003/10/08/comments-fixed/</link>
+      <pubDate>Wed, 08 Oct 2003 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2003/10/08/comments-fixed/</guid>
+      <description>MarkD informed me that unregistered users couldn&amp;rsquo;t add comments. Turns out it was due to some extra quoting of query variables that has been fixed in more recent versions of OpenACS, but I&amp;rsquo;ve been too lazy to update. The good news is that all of you who&amp;rsquo;ve been dying to tell me off can finally do so!
+Comments from old site Maybe they should register
+ You shouldn&#39;t have fixed the problem these people should take the time to register with your site and become part of one the coolest communities on the web.</description>
+    </item>
+    
+    <item>
+      <title>Why OpenACS?</title>
+      <link>https://kurup.org/blog/2003/09/29/why-openacs/</link>
+      <pubDate>Mon, 29 Sep 2003 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2003/09/29/why-openacs/</guid>
+      <description>Bhavesh responded to my seemingly irrational exuberance about OpenACS asking, &amp;ldquo;What&amp;rsquo;s the excitement about OpenACS?&amp;rdquo;
+There are much better answers to this question, starting with Why OpenACS?, by my web host Cathy Sarisky, but here&amp;rsquo;s my super brief answer.
+OpenACS is a toolkit to build online communities, that is, sites which value users and their contributions. OpenACS provides applications which allow users to create and manage content - applications like forums, photo albums, blogs, calendars, wikis, and file storage areas.</description>
+    </item>
+    
+    <item>
+      <title>OpenACS everywhere</title>
+      <link>https://kurup.org/blog/2003/09/16/openacs-everywhere/</link>
+      <pubDate>Tue, 16 Sep 2003 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2003/09/16/openacs-everywhere/</guid>
+      <description>Forget MTV. I want my OpenACS! So, I finally got around to install OpenACS on my Powerbook. Mostly, I just followed MarkD&amp;rsquo;s excellent directions, but I used tDom and AOLserver 4, so there were a few differences.
+Comments from old site OpenACS
+ Vinod...what is the excitment about OpenACS? I went to the website, but couldn&#39;t get a clear idea of what it&#39;s differentiating features are. Are you running OpenACS for this website?</description>
+    </item>
+    
+    <item>
+      <title>Another Mac OS X OpenACS Installation Guide</title>
+      <link>https://kurup.org/blog/2003/09/14/another-mac-os-x-openacs-installation-guide/</link>
+      <pubDate>Sun, 14 Sep 2003 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2003/09/14/another-mac-os-x-openacs-installation-guide/</guid>
+      <description>Another Mac OS X OpenACS Installation Guide by Vinod Kurup
+I installed OpenACS 5.0 on my PowerBook G4. Everyone should read MarkD&amp;rsquo;s guide since it&amp;rsquo;s more comprehensive and explains a lot of the changes that I don&amp;rsquo;t explain. I used some different software versions which made my experience different enough to document.
+This is a quick and dirty document for people who have installed OpenACS 4. If I haven&amp;rsquo;t been clear enough or if I&amp;rsquo;ve made mistakes, please let me know.</description>
+    </item>
+    
+    <item>
+      <title>Updating from CVS</title>
+      <link>https://kurup.org/blog/2003/07/20/updating-from-cvs/</link>
+      <pubDate>Sun, 20 Jul 2003 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2003/07/20/updating-from-cvs/</guid>
+      <description>Here&amp;rsquo;s the steps I take in order to update my site from the latest OpenACS CVS. All of this info comes from Andrew Piskorski&amp;rsquo;s great CVS page or from pages listed in his document.
+ Make sure that I&amp;rsquo;ve committed all the local changes that I&amp;rsquo;ve made.
+vinod:~$ cd web/kurup vinod:~/web/kurup$ cvs commit -m &amp;ldquo;Fixed foo, bar and blah&amp;rdquo;
+ Go into the directory containing my OpenACS CVS checkout and grab the latest sources.</description>
+    </item>
+    
+    <item>
+      <title>PG 7.2 to 7.3</title>
+      <link>https://kurup.org/blog/2003/06/24/pg-7.2-to-7.3/</link>
+      <pubDate>Tue, 24 Jun 2003 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2003/06/24/pg-7.2-to-7.3/</guid>
+      <description>Not all of OpenACS is Postgres 7.3 compliant yet. OpenACS 5 is compliant and the core packages in OpenACS 4.6 are compliant, but some non-core packages haven&amp;rsquo;t been fixed yet. Noncompliant packages will complain:
+[24/Jun/2003:15:21:36][26623.196621][-conn:kurup::4] Error: Ns_PgExec: result status: 7 message: ERROR: Function pa_collection__new(&amp;quot;unknown&amp;quot;, &amp;quot;unknown&amp;quot;, &amp;quot;unknown&amp;quot;, timestamp with time zone, &amp;quot;unknown&amp;quot;, &amp;quot;unknown&amp;quot;, &amp;quot;unknown&amp;quot;) does not exist Unable to identify a function that satisfies the given argument types You may need to add explicit typecasts  It is looking for a function with timestamp with time zone as one of its parameters, but most OpenACS pl/pgsql functions were defined as accepting timestamp.</description>
+    </item>
+    
+    <item>
+      <title>Moving to OpenACS</title>
+      <link>https://kurup.org/blog/2003/06/22/moving-to-openacs/</link>
+      <pubDate>Sun, 22 Jun 2003 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2003/06/22/moving-to-openacs/</guid>
+      <description>I&amp;rsquo;m slowly in the process of moving my site from PHP/MySQL to OpenACS. Things are broken in the meantime. Specifically, I need to import all my old photos, steal MarkD&amp;rsquo;s book module, and implement my family-tree module. If you find something that&amp;rsquo;s broken, feel free to let me know.
+I&amp;rsquo;m currently using an open-source stylesheet from The NYPL, but I need to edit it at some point. But for now, at least, it looks better than anything I could drum up by myself.</description>
+    </item>
+    
+    <item>
+      <title>PhotoDB fixed</title>
+      <link>https://kurup.org/blog/2001/06/19/photodb-fixed/</link>
+      <pubDate>Tue, 19 Jun 2001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2001/06/19/photodb-fixed/</guid>
+      <description>I fixed some security issues in the OpenACS photodb module.</description>
+    </item>
+    
+    <item>
+      <title>My first OpenACS port</title>
+      <link>https://kurup.org/blog/2001/01/04/my-first-openacs-port/</link>
+      <pubDate>Thu, 04 Jan 2001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2001/01/04/my-first-openacs-port/</guid>
+      <description>I finished porting the homepage module from ACS to OpenACS. Actually, it had already been ported, but the ACS version changed substantially, so I guess I merged the new ACS version with the old OpenACS version. Anyway, it works! Here&amp;rsquo;s the file -&amp;gt; homepage.tar.gz</description>
+    </item>
+    
+    <item>
+      <title>Y2K1</title>
+      <link>https://kurup.org/blog/2001/01/02/y2k1/</link>
+      <pubDate>Tue, 02 Jan 2001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2001/01/02/y2k1/</guid>
+      <description>I found a Y2K1 bug &amp;hellip; well, not really, but I found and fixed a minor problem in the OpenACS toolkit that only occurs on the first of every year.</description>
+    </item>
+    
+  </channel>
+</rss>

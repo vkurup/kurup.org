@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kino on Vinod Kurup</title>
+    <link>https://kurup.org/categories/kino/</link>
+    <description>Recent content in kino on Vinod Kurup</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 20 Jul 2010 20:51:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://kurup.org/categories/kino/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>My video editing process</title>
+      <link>https://kurup.org/blog/2010/07/20/my-video-editing-process/</link>
+      <pubDate>Tue, 20 Jul 2010 20:51:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2010/07/20/my-video-editing-process/</guid>
+      <description>I use kino to edit the videos that we take of the kids. I haven&amp;rsquo;t found a Linux program which was as nice as iMovie was on the Mac, but kino is pretty good. It&amp;rsquo;s easy to splice and reconnect video clips together. It has nice special effects, though my needs are pretty simple. It&amp;rsquo;s able to export in plenty of formats, possibly too many, for my simple mind. But, I&amp;rsquo;ve figured it out and have a stable process for getting video from camera to youtube.</description>
+    </item>
+    
+  </channel>
+</rss>

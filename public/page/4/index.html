@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+    
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Quattrocento:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Quattrocento+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+    
+    
+
+    
+    <title>Vinod Kurup</title>
+
+    
+    
+    <link rel="stylesheet" href="/css/hugo-octopress.css">
+
+    
+    
+
+    
+    <link rel="stylesheet" href="/css/fork-awesome.min.css">
+    
+
+    
+    <link href="https://kurup.org/favicon.ico" rel="icon">
+
+    
+    <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Vinod Kurup" />
+
+    <meta name="description" content="Inside Vinod Kurup&#39;s brain" />
+    <meta name="keywords" content="">
+    <meta name="author" content="Vinod Kurup">
+
+    
+    <meta name="generator" content="Hugo 0.59.1" />
+
+    
+    
+
+    
+    
+  </head>
+  <body>
+
+    
+    <header role="banner">
+<hgroup>
+  
+  <h1><a href="https://kurup.org/">Vinod Kurup</a></h1>
+    <h2>Hospitalist/programmer in search of the meaning of life</h2>
+</hgroup></header>
+
+    
+    <nav role="navigation">
+<fieldset class="mobile-nav">
+  
+  <select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+    
+    <option value="https://kurup.org/">» Blog</option>
+    
+    <option value="https://kurup.org/about">» About Me</option>
+    
+    <option value="https://kurup.org/post">» Archives</option>
+    
+    <option value="https://kurup.org/categories">» Categories</option>
+    
+    <option value="https://kurup.org/medicine">» Medicine</option>
+    
+    <option value="https://kurup.org/running">» Running</option>
+    
+  </select>
+</fieldset>
+
+
+<ul class="main-navigation">
+  
+  
+  
+  <li><a href="https://kurup.org/" title="Blog">Blog</a></li>
+  
+  
+  
+  <li><a href="https://kurup.org/about" title="About Me" >About Me</a></li>
+  
+  
+  
+  <li><a href="https://kurup.org/post" title="Archives" >Archives</a></li>
+  
+  
+  
+  <li><a href="https://kurup.org/categories" title="Categories" >Categories</a></li>
+  
+  
+  
+  <li><a href="https://kurup.org/medicine" title="Medicine" >Medicine</a></li>
+  
+  
+  
+  <li><a href="https://kurup.org/running" title="Running" >Running</a></li>
+  
+  
+</ul>
+
+<ul class="subscription">
+  
+  
+  <a href="https://kurup.org/index.xml" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss fa-lg"></i></a>
+  
+  
+</ul>
+
+
+<form action="https://www.google.com/search" method="get" target="_blank">
+  <fieldset role="search">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+    <input type="hidden" name="q" value="site:https://kurup.org/" />
+  </fieldset>
+</form>
+
+</nav>
+
+
+
+
+  
+
+<div id="main">
+  <div id="content">
+    <div class="blog-index">
+      
+      
+      <article>
+        
+        
+
+<header>
+  <p class="meta">Sep 8, 2011
+     - 2 minute read 
+    
+
+    
+    
+      - <a class="label" href="https://kurup.org/categories/linux/">linux </a><a class="label" href="https://kurup.org/categories/sysadmin/">sysadmin </a>
+    
+  </p>
+  <h1 class="entry-title">
+    <a href="https://kurup.org/blog/2011/09/08/fixing-wireless-on-eeepc/">Fixing wireless on eeePC</a>
+  </h1>
+</header>
+
+        
+          
+
+<p>I have an ASUS eeePC 1000, running Ubuntu 10.10. Wireless worked
+flawlessly at home, which is where I use it 99% of the time. On our
+most recent trip, however, it wasn&rsquo;t working. It couldn&rsquo;t connect to a
+WPA-secured network. Here are the relevant error messages:</p>
+
+<pre><code>NetworkManager[770]: &lt;warn&gt; Activation (wlan0/wireless): association took too long.
+NetworkManager[770]: &lt;warn&gt; (wlan0): link timed out.
+NetworkManager[770]: &lt;warn&gt; Activation (wlan0) failed for access point (linksys)
+NetworkManager[770]: &lt;warn&gt; Activation (wlan0) failed.
+NetworkManager[770]: &lt;info&gt; (wlan0): deactivating device (reason: 0).
+</code></pre>
+
+<p>After a little googling on my phone, I found out that <a href="http://www.ctbarker.info/2010/05/ubuntu-1004-wireless-chipsets-and-wpa.html">others had this problem with the rt2860sta wireless driver</a>. Fortunately,
+there is a solution, which involved downloading the source code for
+the latest driver, modifying it a bit and rebuilding the driver. Here
+are the instructions:</p>
+
+<h3 id="step-1-download-the-driver">Step 1: Download the driver</h3>
+
+<p>Download the <a href="http://www.ralinktech.com/license_us.php?n=2&amp;p=0&amp;t=U0wyRnpjMlYwY3k4eU1ERXdMekEzTHpFMkwyUnZkMjVzYjJGa05qZ3hPRFUwTmpBd05DNWllakk5UFQweU1ERXdYekEzWHpFMlgxSlVNamcyTUY5TWFXNTFlRjlUVkVGZmRqSXVOQzR3TGpBdWRHRnlD">latest rt2860sta driver</a>.</p>
+
+<h3 id="step-2-rename-and-extract-the-downloaded-file">Step 2: Rename and extract the downloaded file</h3>
+
+<p>Mine was named <code>download.php</code>, but it&rsquo;s really a tar file:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">vinod@ike:~ $ mkdir <span style="color:#b58900">test</span>
+vinod@ike:~ $ mv download.php test/driver.tar
+vinod@ike:~ $ <span style="color:#b58900">cd</span> test/
+vinod@ike:~/test $ tar xf driver.tar 
+vinod@ike:~/test $ mv 2010_07_16_RT2860_Linux_STA_v2.4.0.0 driver
+vinod@ike:~/test $ <span style="color:#b58900">cd</span> driver</code></pre></div>
+<h3 id="step-3-apply-patch">Step 3: Apply patch</h3>
+
+<script type="application/javascript" src="https://gist.github.com/vkurup/1205291.js"></script>
+
+
+<h3 id="step-4-backup-old-driver">Step 4: Backup old driver</h3>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">vinod@ike~/test/driver/ $ sudo ifconfig wlan0 down
+vinod@ike~/test/driver/ $ sudo rmmod rt2860sta
+vinod@ike~/test/driver/ $ mkdir backup
+vinod@ike~/test/driver/ $ sudo mv /etc/Wireless/RT2860STA backup/
+vinod@ike~/test/driver/ $ sudo mv /lib/modules/2.6.35-30-generic/kernel/drivers/staging/rt2860/rt2860sta.ko backup/</code></pre></div>
+<h3 id="step-5-install-and-activate-new-driver">Step 5: Install and activate new driver</h3>
+
+<p>`<code>sh
+vinod@ike:~/test/driver $ sudo make install
+vinod@ike:~/test/driver $ sudo depmod -a
+vinod@ike:~/test/driver $ sudo modprobe rt2860sta
+</code></p>
+
+<h3 id="step-6-fix-problems-with-hibernation">Step 6: Fix problems with hibernation</h3>
+
+<p>A separate problem is that wireless has been flaky when the computer
+wakes from hibernation, but <a href="http://www.twentyways.com/2010/11/19/fixing-wireless-issues-with-asus-eeepc-1000he-running-ubuntu-10-10/">it&rsquo;s also fixable</a>.</p>
+
+<p>Add the following lines to <code>/etc/modprobe.d/blacklist.conf</code>:</p>
+
+<pre><code>blacklist rt2800pci
+blacklist rt2800lib
+blacklist rt2x00usb
+blacklist rt2x00pci
+blacklist rt2x00lib
+</code></pre>
+
+<p>Create a new file called <code>/etc/pm/config.d/unload_wireless</code> with the following line:</p>
+
+<pre><code>SUSPEND_MODULES=&quot;rt2860sta&quot;
+</code></pre>
+
+<p>Reboot and you should have WPA-compatible, hibernatable wireless.</p>
+
+<h3 id="references">References:</h3>
+
+<ol>
+<li><a href="http://www.ctbarker.info/2010/05/ubuntu-1004-wireless-chipsets-and-wpa.html">rt2860sta driver installation</a></li>
+<li><a href="http://www.twentyways.com/2010/11/19/fixing-wireless-issues-with-asus-eeepc-1000he-running-ubuntu-10-10/">Proper hibernation</a></li>
+<li><a href="http://ubuntuforums.org/showthread.php?t=1476007">Ubuntu Forums thread</a></li>
+</ol>
+
+        
+      </article>
+      
+      <article>
+        
+        
+
+<header>
+  <p class="meta">Sep 6, 2011
+     - 2 minute read 
+    
+
+    
+    
+      - <a class="label" href="https://kurup.org/categories/family/">family </a><a class="label" href="https://kurup.org/categories/friends/">friends </a>
+    
+  </p>
+  <h1 class="entry-title">
+    <a href="https://kurup.org/blog/2011/09/06/surprise-im-40/">Surprise, I&#39;m 40!</a>
+  </h1>
+</header>
+
+        
+          
+
+
+
+
+
+
+<span class="caption-wrapper ">
+  <img class="caption" src="/images/vinod40-1.jpg" title="Vinod is surprised" alt="Vinod is surprised">
+  <span class="caption-text">Vinod is surprised</span>
+</span>
+
+
+<p>Have you ever been in one of those dreams where everything seems
+normal and then a flying car (or something equally crazy) comes out of
+nowhere? I&rsquo;m used to having experiences like that when I&rsquo;m dreaming,
+but it was quite surreal to have it during waking hours.</p>
+
+<p>Mala and Kavi had gone ahead (surreptiously to plan a surprise party
+for someone else!). We were to meet at the ferris wheel at the Navy
+Pier. I found her and she took my hand. She started leading me through
+the crowds of tourists. I could sense excitement in her demeanor, but
+didn&rsquo;t think anything of it. She led me towards a group of people and
+I caught a glimpse of someone who looked like my Dad. That&rsquo;s
+weird&hellip; why would he be here? It&rsquo;s at that point that neurons started
+to malfunction and I began to feel like I was in a dream. Then I saw
+Mala&rsquo;s mom and got even more confused. Slowly the group of strangers
+came into focus and revealed themselves as my friends and family from
+around the country. It was, without a doubt, the best birthday present
+that I have ever received, or expect to receive. Thanks to Mala for
+months of planning, and for wanting to make me feel special even
+though I feel this way every day when I wake up next to her. Thanks to
+all my friends and family who could make it and to the ones who
+couldn&rsquo;t. If this is the culmination of 40 years on this earth, I
+can&rsquo;t wait for the next 40!</p>
+
+
+
+
+
+
+
+
+<span class="caption-wrapper ">
+  <img class="caption" src="/images/vinod40-2.jpg" title="Vinod is 40" alt="Vinod is 40">
+  <span class="caption-text">Vinod is 40</span>
+</span>
+
+
+        
+      </article>
+      
+      <article>
+        
+        
+
+<header>
+  <p class="meta">Aug 16, 2011
+     - 1 minute read 
+    
+
+    
+    
+      - <a class="label" href="https://kurup.org/categories/food/">food </a>
+    
+  </p>
+  <h1 class="entry-title">
+    <a href="https://kurup.org/blog/2011/08/16/malas-bolognese/">Mala&#39;s Bolognese</a>
+  </h1>
+</header>
+
+        
+          
+
+
+
+
+
+
+<span class="caption-wrapper ">
+  <img class="caption" src="/images/pasta.jpg" title="Mala&#39;s Bolognese" alt="Mala&#39;s Bolognese">
+  <span class="caption-text">Mala&#39;s Bolognese</span>
+</span>
+
+
+<p>I have just had the most amazing Italian meal that I&rsquo;ve had outside of
+Roberto&rsquo;s in the Bronx. Mala made fresh homemade Pappardelle and a
+Bolognese sauce that she just learned at
+<a href="http://www.revolutionrestaurant.com">Revolution&rsquo;s</a> cooking class. The
+thing is, she made this yesterday, and I just tried it today as
+leftovers and it was still amazing. This sure is going to make going
+lo-carb impossible.</p>
+
+        
+      </article>
+      
+      <article>
+        
+        
+
+<header>
+  <p class="meta">Aug 15, 2011
+     - 2 minute read 
+    
+
+    
+    
+      - <a class="label" href="https://kurup.org/categories/parenting/">parenting </a>
+    
+  </p>
+  <h1 class="entry-title">
+    <a href="https://kurup.org/blog/2011/08/15/kids-and-computers/">Kids and Computers</a>
+  </h1>
+</header>
+
+        
+          <p>I&rsquo;m sure it&rsquo;s probably too early to worry about this, but I often
+wonder about the best way to introduce Kavi and Anika to
+computers. &lsquo;Introduce&rsquo; isn&rsquo;t the right word because even Anika has
+more experience with computers than I did at that age. So far, though,
+computers are something that Daddy and Mommy use to do work, not
+things that are for them. We&rsquo;ll show them a Sesame Street video on
+YouTube or family pictures on Facebook, but they don&rsquo;t spend any
+significant amount of time on it. They&rsquo;re easily entertained without
+computers. I know that will change as they get older, but for now at
+least, they prefer their toys and their imagination to TV or
+computers. Even at their young age, that is rare.</p>
+
+<p>The dilemma is that I <strong>do</strong> want them to learn about technology and learn
+how to use it in their lives without being controlled by it. I don&rsquo;t
+see anything wrong with exposing them to things like computers, iPads,
+YouTube, etc., as long as it is monitored. I just want it to be a
+healthy portion of their leisure time, not all of it. So many
+children&rsquo;s entertainment options are spoon-fed propaganda. They are
+meant to be passively enjoyed, and the child just sits and absorbs
+it. The source of the content is often questionable. Advertisers for
+big corporations or government trying to get their message to kids
+either overtly or subtly.</p>
+
+<p>I like my childhood experience. My first major exposure to computers
+was an Apple IIe. There was nothing organized about it. I spent a
+large majority of my time playing games, but those were just the
+gateway drugs to get me to realize that there was much more power in
+those machines. The entire experience was about tinkering. Trying
+to figure out how it worked, how to make it work for me, how I could
+make it do things. The most exciting days in my childhood were the
+days that the inCider magazine arrived with pages of DOS code listings
+in the back. Retyping those code listings, making alterations, trying
+to figure out how things worked&hellip; that is much more healthy than just
+watching a video over and over again. I, of course, was much older
+than Kavi is now, so I&rsquo;m not too worried. I just don&rsquo;t want them to
+get addicted to a certain concept of what technology is for, before
+they have the skills to really take advantage of it.</p>
+
+        
+      </article>
+      
+      <article>
+        
+        
+
+<header>
+  <p class="meta">Aug 14, 2011
+     - 1 minute read 
+    
+
+    
+    
+      - <a class="label" href="https://kurup.org/categories/blog/">blog </a>
+    
+  </p>
+  <h1 class="entry-title">
+    <a href="https://kurup.org/blog/2011/08/14/switching-to-octopress/">Switching to Octopress</a>
+  </h1>
+</header>
+
+        
+          <p>You may have noticed that I&rsquo;ve rearranged the furniture a little. It&rsquo;s
+been almost 2 years since I last redesigned my blog, so I&rsquo;m way
+overdue for a pointless redesign. I&rsquo;m now using
+<a href="http://octopress.org">Octopress</a> which basically takes
+<a href="https://github.com/mojombo/jekyll">Jekyll</a> and adds nice HTML5
+templates, cross-browser stylesheets, jekyll plugins, and a few build
+scripts to automate common tasks.</p>
+
+<p>Enjoy my new site and let me know if you find any issues. The <a href="https://github.com/vkurup/kurup.org">source code for my site</a>, as always, is
+at github. Please let me know if you have questions about it. I&rsquo;m also
+taking bets on how long this design lasts.</p>
+
+        
+      </article>
+      
+      <article>
+        
+        
+
+<header>
+  <p class="meta">Aug 13, 2011
+     - 1 minute read 
+    
+
+    
+    
+      - <a class="label" href="https://kurup.org/categories/health/">health </a><a class="label" href="https://kurup.org/categories/food/">food </a>
+    
+  </p>
+  <h1 class="entry-title">
+    <a href="https://kurup.org/blog/2011/08/13/our-weight-loss-regimen/">Our weight loss regimen</a>
+  </h1>
+</header>
+
+        
+          <p>After writing <a href="/blog/2011/08/12/why-we-get-fat-review/">yesterday&rsquo;s post</a> about how Mala and I
+have been losing so much weight over the past 8 months, I thought I
+should post a small sampling of the food that Mala has made for us in
+that time. Yes, I am a lucky, lucky man.</p>
+
+<table>
+
+<tr>
+  <th>
+    Red Wine Pot Roast
+  </th>
+  <th>
+    Brisket Sandwich
+  </th>
+</tr>
+<tr>
+  <td>
+    <a href="https://picasaweb.google.com/lh/photo/f0Tk5CTmfX9MZsns-gllsg?feat=embedwebsite"><img src="https://lh4.googleusercontent.com/-o_jZTZ_e9ds/TTCNbPYTayI/AAAAAAAAQkk/QVBhXyW7-1I/s400/IMG_2988.JPG"
+    height="300" width="400" /></a>
+  </td>
+  <td>
+    <a
+href="https://picasaweb.google.com/lh/photo/DOPhMehGwAjP7tZrmiYSWA?feat=embedwebsite"><img
+src="https://lh6.googleusercontent.com/-fzWWQQqX_jo/TTCOOWw0NmI/AAAAAAAAQpI/QaCCvlFC_Go/s400/2011-01-11_17-11-18_138.jpg"
+height="226" width="400" /></a>
+  </td>
+</tr>
+
+<tr>
+<th>
+Salad
+</th>
+<th>
+Steak
+</th>
+</tr>
+<tr>
+<td>
+<a
+href="https://picasaweb.google.com/lh/photo/ZOcO99mgL2jxTqByxUea4A?feat=embedwebsite"><img
+src="https://lh5.googleusercontent.com/-e7R5JMOcESc/TXKSvzs_biI/AAAAAAAAQ5Q/Vvw022CAYOM/s400/IMG_3089.JPG"
+height="300" width="400" /></a>
+</td>
+
+<td>
+<a
+href="https://picasaweb.google.com/lh/photo/Z4bn4cpziE0zLDLGPiHcnQ?feat=embedwebsite"><img
+src="https://lh6.googleusercontent.com/-xT-55zS2PAk/TXKcvdGCelI/AAAAAAAAQ9Q/ph1gJXwtLzM/s400/2011-02-02-16-56-47-2011-02-02_16-56-46_827.jpg"
+height="226" width="400" /></a>
+</td>
+</tr>
+
+<tr>
+<th>
+Valentine's Brownies
+</th>
+<th>
+Beer Can Chicken
+</th>
+</tr>
+<tr>
+<td>
+<a
+href="https://picasaweb.google.com/lh/photo/P895F_R6vsp9kMbf6GCjuA?feat=embedwebsite"><img
+src="https://lh3.googleusercontent.com/-FQJU8y-lylE/TXKdH1QJ72I/AAAAAAAAQ_s/iexIkHMm5pU/s400/IMG_3280.JPG"
+height="300" width="400" /></a>
+</td>
+
+<td>
+<a
+href="https://picasaweb.google.com/lh/photo/ASBR8xRTKlkIa1i2vm8egg?feat=embedwebsite"><img
+src="https://lh4.googleusercontent.com/-21xiWke_rsg/TXKdZoZbJgI/AAAAAAAARBM/o6rEi610Zvs/s400/2011-02-20-17-05-30-2011-02-20_17-05-29_959.jpg"
+height="400" width="226" /></a>
+</td>
+</tr>
+
+<tr>
+<th>
+Homemade Pizza
+</th>
+<th>
+Homemade Pizza
+</th>
+</tr>
+<tr>
+<td>
+<a
+href="https://picasaweb.google.com/lh/photo/6MOtOzfdBZ5dMdT8LMTWUA?feat=embedwebsite"><img
+src="https://lh5.googleusercontent.com/-1HhYLY-zMAE/TXKdpeAVHrI/AAAAAAAARCw/1JopU0jD2IQ/s400/image63-1.jpg"
+height="300" width="400" /></a>
+</td>
+
+<td>
+<a
+href="https://picasaweb.google.com/lh/photo/EUmVY21fJYjCnwEFUffJzA?feat=embedwebsite"><img
+src="https://lh5.googleusercontent.com/-Qu_bavtpL-4/TXKdq-bfviI/AAAAAAAARC4/GdlM_eVg1iI/s400/image64-1.jpg"
+height="300" width="400" /></a>
+</td>
+</tr>
+
+<tr>
+<th>
+Dulce de leche cupcakes
+</th>
+<th>
+Flank Steak
+</th>
+</tr>
+<tr>
+<td>
+<a
+href="https://picasaweb.google.com/lh/photo/OftoMfK3l8DsH4TVsu08ow?feat=embedwebsite"><img
+src="https://lh6.googleusercontent.com/-A8Kq2O_OhtU/TXy5GL41s6I/AAAAAAAARGg/K2sdgRHye2o/s400/IMG_3398.JPG"
+height="300" width="400" /></a>
+</td>
+
+<td>
+<a
+href="https://picasaweb.google.com/lh/photo/0bopJrmj6Iwk4up4-4pNHQ?feat=embedwebsite"><img
+src="https://lh6.googleusercontent.com/-xSKXAKGNUt4/Ta8WoVSVIqI/AAAAAAAAR2Q/W7ktHGMzQkU/s400/IMG_0613.JPG"
+height="300" width="400" /></a>
+</td>
+</tr>
+
+<tr>
+<th>
+Steak, aligot, broccoli and red wine
+</th>
+<th>
+Homemade fried chicken
+</th>
+</tr>
+<tr>
+<td>
+<a
+href="https://picasaweb.google.com/lh/photo/NyWDCfbcXTPHVi0Jc1z9ww?feat=embedwebsite"><img
+src="https://lh3.googleusercontent.com/-v3Eg7LbnTBc/Ta8Wp2BAo-I/AAAAAAAAR2Y/jJLBzVMgLoQ/s400/IMG_0621.JPG"
+height="300" width="400" /></a>
+</td>
+
+<td>
+<a
+href="https://picasaweb.google.com/lh/photo/b8J9VEMBX25y30nY8lnRCw?feat=embedwebsite"><img
+src="https://lh5.googleusercontent.com/-HoezOiFwd9E/Ta8ZQ7TyegI/AAAAAAAAR9Y/CpuGZgXZJSg/s400/IMG_0954.JPG"
+height="300" width="400" /></a>
+</td>
+</tr>
+
+<tr>
+<th>
+Beatty's chocolate cake
+</th>
+<th>
+Peanut butter pie
+</th>
+</tr>
+<tr>
+<td>
+<a
+href="https://picasaweb.google.com/lh/photo/qfscAROgVs3CL4tRvPbIQg?feat=embedwebsite"><img
+src="https://lh4.googleusercontent.com/-L3AJMJ1A5Xg/TdGKB_5TgPI/AAAAAAAASJ0/H8bijfUf4E4/s400/IMG_0968.JPG"
+height="300" width="400" /></a>
+</td>
+
+<td>
+<a
+href="https://picasaweb.google.com/lh/photo/fL47hH8qTb3icVus43V6Mg?feat=embedwebsite"><img
+src="https://lh3.googleusercontent.com/-cW4sPLgNdQ4/TdGLBHUxGFI/AAAAAAAASNY/_IE3zjs4UOc/s400/2011-04-26_19-27-08_144.jpg"
+height="400" width="226" /></a>
+</td>
+</tr>
+
+<tr>
+<th>
+Aligot (mashed potatoes with cheese)
+</th>
+<th>
+Fried chicken
+</th>
+</tr>
+<tr>
+<td>
+<a
+href="https://picasaweb.google.com/lh/photo/fzk6XKJAxRr489T7n6SPSg?feat=embedwebsite"><img
+src="https://lh5.googleusercontent.com/-PoxXQxEJL2I/TdGLSyJ4mdI/AAAAAAAASO4/vP1v8W9PuNw/s400/IMG_1080.JPG"
+height="300" width="400" /></a>
+</td>
+
+<td>
+<a
+href="https://picasaweb.google.com/lh/photo/Z-UXHAv4BuOrFkqKkrRMug?feat=embedwebsite"><img
+src="https://lh3.googleusercontent.com/-VFzg97RB6Gs/TdGLVM_9HlI/AAAAAAAASPA/Y0_fZ4ECvfE/s400/IMG_1083.JPG"
+height="300" width="400" /></a>
+</td>
+</tr>
+
+<tr>
+<th>
+Triple Chocolate Mousse Cake
+</th>
+<th>
+Triple Chocolate Mousse Cake
+</th>
+</tr>
+<tr>
+<td>
+<a
+href="https://picasaweb.google.com/lh/photo/Mx3hCLxt8ze29-o3jlWRHg?feat=embedwebsite"><img
+src="https://lh5.googleusercontent.com/-VmnvcQT-hB8/TdGLYMHrrYI/AAAAAAAASPQ/-Tm_4pt-UN8/s400/IMG_1091.JPG"
+height="300" width="400" /></a>
+</td>
+
+<td>
+<a
+href="https://picasaweb.google.com/lh/photo/VIrNReppurcArqjGqg2SXg?feat=embedwebsite"><img
+src="https://lh6.googleusercontent.com/-NT4zQY4igM4/TdGLWjDyfCI/AAAAAAAASPI/ry-Z27S6uDY/s400/IMG_1090.JPG"
+height="300" width="400" /></a>
+</td>
+</tr>
+
+<tr>
+<th>
+Strawberry Shortcake
+</th>
+<th>
+Curious George Cake
+</th>
+</tr>
+<tr>
+<td>
+<a
+href="https://picasaweb.google.com/lh/photo/YJvuLKSGyaUx9i_QpZEuUw?feat=embedwebsite"><img
+src="https://lh4.googleusercontent.com/-CkNfrdcS5Eo/Tf-yUk_ueZI/AAAAAAAASjU/5ycEhied0NQ/s400/IMG_1368.JPG"
+height="300" width="400" /></a>
+</td>
+
+<td>
+<a
+href="https://picasaweb.google.com/lh/photo/ue5D6Km4P7QbuzYCd3WuNQ?feat=embedwebsite"><img
+src="https://lh4.googleusercontent.com/-UV5oorSbUZQ/Tf_C7xDJ4oI/AAAAAAAASv0/FCR2VRZDv3w/s400/IMG_1984.JPG"
+height="300" width="400" /></a>
+</td>
+</tr>
+
+<tr>
+<th>
+Elmo Cupcakes
+</th>
+<th>
+French Silk Pie
+</th>
+</tr>
+<tr>
+<td>
+<a
+href="https://picasaweb.google.com/lh/photo/sYMeLtjxmEYSo6hZEp1jAg?feat=embedwebsite"><img
+src="https://lh5.googleusercontent.com/-_S9WF6ZjMTU/Tf_C9JnpXdI/AAAAAAAASv8/UlECg0hmWkw/s400/IMG_1985.JPG"
+height="301" width="400" /></a>
+</td>
+
+<td>
+<a
+href="https://picasaweb.google.com/lh/photo/kIQGHlCxnW8hiV__2b2wew?feat=embedwebsite"><img
+src="https://lh6.googleusercontent.com/-Ih6FOChOQNo/TihfyMWVB8I/AAAAAAAAVG0/jQR36z6CjJo/s400/IMG_2133.JPG"
+height="300" width="400" /></a>
+</td>
+</tr>
+
+<tr>
+<th>
+French Silk Pie
+</th>
+<th>
+Hot Dogs and Flank Steak (my only contribution to this page)
+</th>
+</tr>
+<tr>
+<td>
+<a
+href="https://picasaweb.google.com/lh/photo/M8bGPoXUhKGWsIo26uwObw?feat=embedwebsite"><img
+src="https://lh6.googleusercontent.com/-xC9OhD2lng0/Tihf3ZuIxTI/AAAAAAAAVHY/5nD0dGxGAu0/s400/IMG_2154.JPG"
+height="300" width="400" /></a>
+</td>
+
+<td>
+<a
+href="https://picasaweb.google.com/lh/photo/w_aacduQh05sStPFT8YcEg?feat=embedwebsite"><img
+src="https://lh4.googleusercontent.com/-n2dy2ihhA7U/Tihf9KufFbI/AAAAAAAAVIE/UR7gLQNvA08/s400/IMG_2205.JPG"
+height="300" width="400" /></a>
+</td>
+</tr>
+</table>
+
+<p>Hungry yet?</p>
+
+        
+      </article>
+      
+      <article>
+        
+        
+
+<header>
+  <p class="meta">Aug 12, 2011
+     - 6 minute read 
+    
+
+    
+    
+      - <a class="label" href="https://kurup.org/categories/book-review/">book-review </a><a class="label" href="https://kurup.org/categories/health/">health </a>
+    
+  </p>
+  <h1 class="entry-title">
+    <a href="https://kurup.org/blog/2011/08/12/why-we-get-fat-review/">Why We Get Fat Review</a>
+  </h1>
+</header>
+
+        
+          
+
+<p>Dear patients,</p>
+
+<p>
+
+
+
+
+
+
+<span class="caption-wrapper right">
+  <img class="caption" src="/images/whywegetfat.jpg" title="Why We Get Fat" alt="Why We Get Fat">
+  <span class="caption-text">Why We Get Fat</span>
+</span>
+
+I am sorry. I have been giving you bad dietary advice. In medical
+school we learned that fat in your diet causes fat to accumulate in
+your arteries, causing heart attacks and strokes, so I told you to eat
+a low fat diet. Of course, looking back, we had no evidence to support
+that conclusion, but it just seemed rather obvious. Obvious ideas are
+often the most dangerous ideas of all. When you see a study that
+<strong>might</strong> confirm your obvious idea, you give it extra weight. When
+you see a study that <strong>might</strong> refute your obvious idea, you find
+problems with the study. When the idea is less certain, then you tend
+to give the empirical evidence more weight. This is what we&rsquo;ve done
+with the hypothesis that dietary fat causes heart disease.</p>
+
+<p>I just finished Gary Taubes&rsquo; &ldquo;<a href="http://www.amazon.com/gp/product/0307272702/ref=as_li_ss_tl?ie=UTF8&amp;tag=vinodkurupshomep&amp;linkCode=as2&amp;camp=217145&amp;creative=399369&amp;creativeASIN=0307272702">Why We Get Fat</a>. It&rsquo;s
+not a perfect book, but I do recommend it. He dispels myths about why
+obesity occurs, explains what really causes it, and discusses why our
+current medical and public health approaches to obesity are hurting
+rather than helping. He starts out by dispelling the myth that obesity
+is caused by an imbalance of &ldquo;Calories In&rdquo; versus &ldquo;Calories Out&rdquo;, and
+more specifically, that obesity can be fixed by reversing that
+imbalance. This is something I certainly believed. I&rsquo;ve always told
+patients to eat less and exercise more. <a href="/blog/2006/10/23/health-at-every-size/">It doesn&rsquo;t work.</a> Instead of calorie
+imbalance causing obesity, he states that obesity (and growth in
+general) <strong>causes</strong> a calorie imbalance. The increased amount of fat
+cells require more energy for sustenance, and therefore our bodies
+find a way to increase the amount of calories that we take in,
+compared to what we expend. So, while it is true that taking in more
+calories than you expend causes your weight to go up, it is not true
+that you have much control over your calorie intake or
+expenditure. That&rsquo;s determined by hormones. This is the part that is
+counter-intuitive. It would seem that I could control the amount of
+calories that I eat or that I spend. You might have some control over
+what foods you put in your mouth, buy you have no control over how the
+calories are extracted or absorbed. You also have no control over the
+lower level hormonal signals that make you hungry. Those signals have
+evolved over millions of years to be very powerful because in
+prehistoric periods, if they didn&rsquo;t work, you died. It&rsquo;s hard to
+overcome that kind of evolutionary power with &ldquo;willpower&rdquo;. Even if you
+are successful in decreasing the calories that you eat, your body will
+naturally decrease the calories that you burn. The variables are
+dependent on each other.</p>
+
+<h2 id="the-villain-is-carbs">The villain is carbs</h2>
+
+<p>This leads to the next question: Why do we get obese? If it&rsquo;s not a
+simple matter of eating more calories than we expend, then why do we
+get fat? The culprit is insulin. Insulin causes the cells of our body
+to deposit fat. Insulin, in turn, is released whenever there is
+glucose in our system, which is preferentially caused by carbohydrate
+intake. Taubes goes into great detail about
+the workings of the endocrine system, explaining why insulin is such a
+powerful factor in causing fat deposition. It also explains the
+phenomenon of why people who have plenty of fat still get so
+ravenously hungry. Insulin prevents fat from being turned into energy
+so muscle cells have to use carbohydrates, a much smaller pool of
+energy. Once it runs out, intense hunger sets in and the eating cycle
+starts again. Reading these chapters took me back to my med school
+physiology courses. I learned all of this in med school, but we were
+never taught to connect these well accepted facts with the things that
+we were being taught in our dietary lectures.</p>
+
+<p>Eliminating carbs from our diet without restricting any other nutrient
+will stop the fat deposition process, which in turn will decrease our
+calorie requirements, which will cause us to lose weight. There is
+quite a bit of genetic variation from person to person, so some
+individuals will be able to tolerate more carbs than others, and not
+everyone will be completely lean even without any carbs.</p>
+
+<p>He spends a lot of time going over the history of dietary research
+dating back centuries. The danger of carbs was well understood and
+accepted in all scientific and nonscientific circles until the last 50
+years or so, when there was a change that attributed obesity to
+behavioral weakness. This was started by the acceptance of the calorie
+imbalance hypothesis. Once people accepted the thinking that taking in
+more calories than you expend causes obesity, it was a short step to
+blaming obesity on the individual for not controlling their diet or
+exercising more. The focus of scientific research was taken off of fat
+deposition and on to behavioral changes.</p>
+
+<p>I had been coming around to this conclusion slowly over the past few
+years (and am embarrassed that it has taken me this long). I remember
+reading about the Atkins Diet about 10 years ago and thinking how
+reckless Dr. Atkins was being by suggesting something which was so
+obviously wrong. My thinking started to change a few years back when I
+saw Mala struggle to lose weight despite strictly following an 800
+calorie diet. I didn&rsquo;t think that kind of calorie restriction was
+possible, but I watched with my own eyes as she did it and still
+barely saw results. That opened my eyes, and over the past few years,
+I&rsquo;ve seen more and more results with low carb diets. Results which
+include weight loss, better cholesterol profiles, and overall better
+health. Interestingly, the diet recommendations that are provided in
+the book are from <a href="http://www.dukehealth.org/physicians/eric_c_westman">Eric Westman, MD</a>, a UW trained
+physician who works just down the street from me.</p>
+
+<p>Mala and I have been trying to get healthier over the past 8
+months. My brother started a Biggest Loser competition amongst a bunch
+of us, and Mala won the first season. We&rsquo;ve been exercising with more
+regularity and eating better. Together, we&rsquo;ve lost over 80 lbs. To
+complicate the points that I&rsquo;ve been making in this post, we have
+<strong>NOT</strong> been following a strict low carb diet, and we <strong>have</strong> been
+counting calories. On the other hand, I&rsquo;m certain we&rsquo;re eating less
+carbs than we did before. But Mala&rsquo;s focus has been on making
+delicious (gourmet!) fresh food using &ldquo;real food&rdquo; ingredients. She&rsquo;s
+tried to cut processed food completely out of our diet. I think that
+makes a huge difference. We&rsquo;re not meant to eat chemicals and we have
+no idea what these chemicals are doing to us. Optimizing food for
+specific criteria, whether that&rsquo;s low-fat, low-carb, or whatever, is
+bound to have unintended consequences. In that vein, I agree with
+Michael Pollan&rsquo;s recommendation to &ldquo;Eat Real Food&rdquo;.</p>
+
+<p>At some point, I&rsquo;d like to review all the science behind the
+conclusions in Taubes&rsquo; book, just so I can have a better understanding
+for myself. I recommend that anyone treating patients (nurses,
+doctors, nutritionists, trainers) or anyone trying to get healthier
+read this book.</p>
+
+<p>Some other much more entertaining and useful links:</p>
+
+<ul>
+<li><a href="http://www.latestinpaleo.com/">Latest in Paleo podcast</a></li>
+<li><a href="http://www.westonaprice.org/">Weston A. Price Foundation</a></li>
+<li><a href="http://hivelogic.com/articles/the-paleo-diet-a-link-primer/">Paleo Diet: Link Primer</a></li>
+<li><a href="http://radio.theheart.org/bob-harrington-show/2010/12/10/31-atkins-diet-obesity-and-cardiovascular-disease-risk-with-dr-eric-westman">Great podcast episode by 2 Duke docs</a> - theheart.org</li>
+</ul>
+
+        
+      </article>
+      
+      <article>
+        
+        
+
+<header>
+  <p class="meta">Aug 11, 2011
+     - 3 minute read 
+    
+
+    
+    
+      - <a class="label" href="https://kurup.org/categories/running/">running </a>
+    
+  </p>
+  <h1 class="entry-title">
+    <a href="https://kurup.org/blog/2011/08/11/getting-through-the-start-of-a-run/">Getting through the start of a run</a>
+  </h1>
+</header>
+
+        
+          <p>I love running. Wait, that&rsquo;s a lie. I love running after I&rsquo;ve finished
+my run. I also love it during those periods where I get my runner&rsquo;s
+high, usually around the 30 minute mark, but often it happens multiple
+times after that point. I <strong>don&rsquo;t</strong> love running when I&rsquo;m
+contemplating going for a run. There are rare occasions where I&rsquo;m just
+itching to go for a run, but usually I&rsquo;m only able start a run by
+forcibly suppressing the compelling rationalizations that my brain
+develops. My brain is really good at finding reasons not to run. One
+trick that seems to work is to tell my brain that I have the right to
+turn around when I get to the mailbox at the end of the driveway. Of
+course, once I&rsquo;ve done the mechanics of getting my shoes and starting,
+I never turn around. My brain is so gullible.</p>
+
+<p>I also don&rsquo;t love my run during the first 10 to 15 minutes. Those are
+always a struggle. Always. Stretching beforehand makes it less of a
+struggle, but I hate stretching, so I rarely do that. I have a few
+techniques to get myself through the beginnings of my runs.</p>
+
+<ol>
+<li><strong>Count</strong>: Just count from 1 to 100. Once you get to a hundred, start
+over. This one works the best. That&rsquo;s why it&rsquo;s first!</li>
+<li><strong>Mantra</strong>: Repeat a mantra to yourself. My favorites are: <em>Keep
+covering ground</em> (inspired by my favorite running book, <a href="http://www.amazon.com/gp/product/0915297019/ref=as_li_ss_tl?ie=UTF8&amp;tag=vinodkurupshomep&amp;linkCode=as2&amp;camp=217145&amp;creative=399369&amp;creativeASIN=0915297019">Once a Runner</a>) and <em>Just keep swimming</em>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/0Hkn-LSh7es" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+</li>
+<li><strong>Food</strong>: Start thinking about what I&rsquo;m going to eat after the
+run. OK, this rarely helps, but I can&rsquo;t stop thinking about it.</li>
+<li><strong>Slow</strong>: If I&rsquo;m really feeling sluggish, then I force myself to slow
+down. As I&rsquo;ve mentioned before, <a href="/blog/2009/09/22/running-slow/">running slow</a> is probably the most important
+running technique I have. It&rsquo;s counter-intuitive, but it always
+work. Running slower than I think I should always makes the run go
+faster than I thought it would.</li>
+<li><strong>Shorten</strong>: Shorten your stride. I aim to get 3 strides per
+second, which seems really quick to me. In order to do that I shorten
+my stride. I think most runners would benefit from a shorter
+stride. It automatically improves your form.</li>
+</ol>
+
+<p>Basically, all of these are tricks to get your mind to focus on
+something else besides the pain of the run. One thing that also helps
+is to listen to music or podcasts. It works by the same principle of
+getting your mind off the pain, but I found that my best runs were
+always the ones where I left the iPod at home. It certainly makes the
+beginning of the run harder, but it frees my brain up to really listen
+to my body. I would otherwise find myself adjusting my pace to the
+beat of the music, rather than to the pace that my body naturally
+wanted to go. I also tend to have my deepest thoughts (don&rsquo;t laugh!)
+when I&rsquo;m running and having music pumped in would drown those out. I
+consider it my meditation practice, since I suck at real
+meditation. Finally, it&rsquo;s a safety issue. When running in the woods,
+you never know what kind of creature will attack:</p>
+
+<p>
+
+
+
+
+
+
+<span class="caption-wrapper ">
+  <img class="caption" src="/images/deer.jpg" title="Deer" alt="Deer">
+  <span class="caption-text">Deer</span>
+</span>
+
+
+
+
+
+
+
+
+<span class="caption-wrapper ">
+  <img class="caption" src="/images/turtle.jpg" title="Turtle" alt="Turtle">
+  <span class="caption-text">Turtle</span>
+</span>
+</p>
+
+<p>Take my advice for what it&rsquo;s worth&hellip; running advice from a part-time
+runner who is slower than molasses. I&rsquo;d love to hear any other running
+tricks you have!</p>
+
+        
+      </article>
+      
+      <article>
+        
+        
+
+<header>
+  <p class="meta">Aug 10, 2011
+     - 3 minute read 
+    
+
+    
+    
+      - <a class="label" href="https://kurup.org/categories/linux/">linux </a><a class="label" href="https://kurup.org/categories/video/">video </a><a class="label" href="https://kurup.org/categories/mac/">mac </a>
+    
+  </p>
+  <h1 class="entry-title">
+    <a href="https://kurup.org/blog/2011/08/10/openshot-video-editor/">Openshot Video Editor</a>
+  </h1>
+</header>
+
+        
+          <p>Ever since my Dad brought home an Apple IIe back in 1980, I&rsquo;ve been a
+huge Apple fan. The design of my website back in the mid 90&rsquo;s was a
+ripoff of the Mac OS 9 System menu. (I found a <a href="http://web.archive.org/web/20011110214204/http://kurup.com/index.phtml">later version on the Wayback Machine</a>. I
+had swapped out the Apple icon for the icon of the startup I was
+working with at the time.) I loved OS X for a while, especially on my
+12&rdquo; Aluminum powerbook. But over time, I got more and more frustrated
+by it. I wanted to be able to configure more. When the hard drive on
+that Powerbook died, I decided to move to all linux.</p>
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">trying to visualize life without a mac</p>&mdash; Vinod Kurup (@vkurup) <a href="https://twitter.com/vkurup/status/1207289044?ref_src=twsrc%5Etfw">February 13, 2009</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+<p>I am happy and productive, but I am occasionally jealous of Mac OS X. I set
+up a Mac Airbook for my mother-in-law a few months ago and &hellip; can I
+just drool for a minute about that computer? But, I was able to set it
+up, wipe up my drool, and then return to my Ubuntu machines without
+too many pangs of jealousy. For the stuff that I do, Linux works
+perfectly.</p>
+
+<p>The one pain point that I&rsquo;ve been having over the past few years is
+video editing. I take a lot of movies of the kids and I like to do
+some very simple editing of them before uploading them to
+youtube. This was super easy in
+<a href="http://www.apple.com/ilife/imovie/">iMovie</a> back in 2007. I haven&rsquo;t
+found a similar experience on Linux. It&rsquo;s reassured me a little to
+hear that iMovie has gotten weaker and weaker over the years, so I
+didn&rsquo;t feel any need to go back to Mac for this one function.</p>
+
+<p>I had been using <a href="http://www.kinodv.org/">Kino</a>, but the developer
+stopped working on it and it had some minor bugs. It doesn&rsquo;t play well
+with PulseAudio, the overarching audio system in linux. So I had to
+start it with the command <code>padsp kino</code> which allows kino to bypass
+PulseAudio. That then makes all other sound on the computer stop until
+I quit Kino. And with every OS update, there would be minor changes
+that would require me to fiddle with the audio settings
+again. Finally, I didn&rsquo;t really understand the Export settings, so my
+videos were never as optimized as they could be. There were tabs for
+DVD and MPEG output, but there was also one for Other and there were
+MPEG options in there too. I was thoroughly confused and was hoping
+for something to come along that would be better. Mark Pilgrim
+mentioned OpenShot once and I looked at it back then, but I couldn&rsquo;t
+figure it out. I tried valiantly for a day and then returned to
+hacking on Kino.</p>
+
+<p>Fast forward about a year and after a little more frustration with how
+my videos looked on youtube, I gave
+<a href="http://www.openshotvideo.com/">OpenShot</a> another try. Version 1.2 is
+packaged in Ubuntu 10.10, but 1.3 offered some other nice features,
+like exporting directly to Youtube, so I downloaded the
+<a href="http://www.openshot.org/ppa/">PPA</a> and installed 1.3.</p>
+
+
+
+
+
+
+
+
+<span class="caption-wrapper ">
+  <img class="caption" src="/images/openshot.png" title="Openshot Main Window" alt="Openshot Main Window">
+  <span class="caption-text">Openshot Main Window</span>
+</span>
+
+
+<p>What a breath of fresh air! It was so easy to import clips. It was so
+easy to place clips on the timeline. It was easy to splice and add
+transitions. It was easy to add titles. Most importantly it was easy
+to export to HD video format so now the videos look better on Youtube.</p>
+
+<p>I don&rsquo;t use Linux for its video editing capabilities. I use it because
+I believe in the idea of free software and because for my purposes,
+emacs and a web browser are all that I really need. But I am
+pleasantly surprised when I see something like OpenShot evolve and
+improve to the point that it solves my problem exactly. I will be
+donating some dollars over there.</p>
+
+        
+      </article>
+      
+      <article>
+        
+        
+
+<header>
+  <p class="meta">Aug 9, 2011
+     - 3 minute read 
+    
+
+    
+    
+      - <a class="label" href="https://kurup.org/categories/running/">running </a><a class="label" href="https://kurup.org/categories/writing/">writing </a>
+    
+  </p>
+  <h1 class="entry-title">
+    <a href="https://kurup.org/blog/2011/08/09/running-as-a-metaphor-for-life/">Running as a metaphor for life</a>
+  </h1>
+</header>
+
+        
+          <p>I was thinking the other day, on a run, of course, about the many ways
+that running is a metaphor for life. I&rsquo;ve <a href="/blog/2003/10/28/the-wall-is-not-a-myth/">discussed some of this before with my cousins Dilu and Harish</a> before.</p>
+
+<blockquote>
+<p>&hellip; two roads diverged in a wood, and I &ndash;<br />
+I took the one less traveled by,<br />
+And that has made all the difference.</p>
+</blockquote>
+
+<p>While trail running, I have come to the realization that you never
+have to worry about the fork in the road, nor the decision associated
+with it. During my first trail run in the forest near our home, I was
+amazed by the number of single track trailheads that I saw. I didn&rsquo;t
+take any of them that first day, content to just take the wide dirt
+path along the creek. After a few runs though, I started to take some
+of the single track trails and found myself amongst even more
+beautiful nature. I found more forks in the trails and I agonized a
+bit about taking the right one, mainly so I wouldn&rsquo;t get lost. Now
+that I&rsquo;ve run in the woods dozens of times, I don&rsquo;t worry about the
+fork in the road. I know that I can take one fork today and the other
+fork tomorrow.</p>
+
+<p>Life is like that too. Every decision point seems so important. Making
+the wrong decision seems like it will doom me forever. But, I&rsquo;ve found
+so far that there are very few decisions that are not
+reversible. Certainly some are, but even the important ones like
+career and family don&rsquo;t have to be set in stone. I wish I had come to
+this realization earlier. Every decision seems so final at the time
+that I&rsquo;m making it, but when you look back it seems obvious that there
+are plenty of options available, no matter which path you chose. Even
+knowing that bias, it&rsquo;s hard to remember that when a new decision has
+to be made.</p>
+
+<p>Some of the single track trails have pathmarkers to help keep you on
+the right trail. They are little numbered plastic circles nailed to a
+tree. They are few and far between. Occasionally, you&rsquo;ll come to a
+fork in the trail and there won&rsquo;t be an obvious pathmarker around, so
+you have to make a decision. That can be somewhat stressful, so you
+keep your eyes peeled for pathmarkers as you&rsquo;re running to see if you
+made the right decision. At some point, you&rsquo;ve gone so far without
+seeing a marker that you&rsquo;re almost certain that you&rsquo;ve gone the wrong
+way. Either you keep the faith and keep going, or you turn around and
+try the other fork. There is no right answer.</p>
+
+<p>Life is sometimes like that. We have signposts and decision trees that
+are easy to follow in many cases. But inevitably, there will be a
+point where we have to make a decision without all of the evidence or
+without all of the data or without a clear idea of where we&rsquo;re
+going. Not until you take that leap of faith will you get the signal
+that you&rsquo;ve made the right decision. And sometimes that signal won&rsquo;t
+come for a long time. I&rsquo;m not sure what the point of this is, but it
+seemed very profound at the time while I was running in the woods,
+about to give up, thinking that I had gone down the wrong path, when I
+suddenly saw the elusive pathmarker that confirmed that I was not
+lost. Trail running is like that&hellip; everything is not set in stone and
+predefined. You have to develop your faith and intuition, and if that
+fails, accept that maybe you&rsquo;ll do better next time.</p>
+
+        
+      </article>
+      
+      
+      
+
+
+
+
+
+
+<div class="pagination">
+
+  
+  
+  
+  
+  <a href="/" aria-label="First" class="label-pagination"><i class="fa fa-angle-double-left fa-lg"></i></a>
+  
+
+  
+  
+  <a href="/page/3/" aria-label="Previous" class="label-pagination"><i class="fa fa-angle-left fa-lg"></i></a>
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <a href="/page/5/" aria-label="Next" class="label-pagination"><i class="fa fa-angle-right fa-lg"></i></a>
+  
+
+  
+  
+  <a href="/page/30/" aria-label="Last"><i class="fa fa-angle-double-right fa-lg"></i></a>
+  
+
+</div>
+
+  
+    </div>
+    
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+
+    <p>
+      
+    </p>
+  </section>
+
+  
+
+  
+  <ul class="sidebar-nav">
+    <li class="sidebar-nav-item">
+      <a target="_blank" href="https://github.com/vkurup/" title="https://github.com/vkurup/"><i class="fa fa-github fa-3x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/vkurup/" title="https://twitter.com/vkurup/"><i class="fa fa-twitter fa-3x"></i></a>
+      
+      <a target="_blank" href="https://keybase.io/vkurup/" title="https://keybase.io/vkurup/"><i class="fa fa-keybase fa-3x"></i></a> 
+      
+      
+      <a target="_blank" href="https://stackoverflow.com/users/347942" title="https://stackoverflow.com/users/347942"><i class="fa fa-stack-overflow fa-3x"></i></a>
+      
+      
+      
+      
+      
+
+      
+      
+    </li>
+  </ul>
+
+  
+
+  
+
+  
+  
+  
+  
+  <section class="even">
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2019/04/08/avik-730/">Avik 7:30</a>
+      </li>
+      
+      
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2018/12/20/triangle-race-series/">Triangle Race Series</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2018/12/02/my-nest-journey/">My Nest Journey</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2018/09/23/composting/">Composting</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2018/09/22/starting-a-garden/">Starting a garden</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2018/05/31/history-of-indian-civilization/">History of Indian Civilization</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2018/05/30/autovacuum-not-running/">Autovacuum not running</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2018/05/29/renaissance-man/">Renaissance Man</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2014/07/28/using-dynamic-queries-in-a-cbv/">Using dynamic queries in a CBV</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2014/07/23/some-emacs-posts/">Some Emacs Posts</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2014/07/22/pygments-on-arch-linux/">Pygments on Arch Linux</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2014/07/21/how-to-create-test-models-in-django/">How to create test models in Django</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2013/01/21/peanut-allergy-a-personal-clinical-review/">Peanut Allergy, a personal clinical review</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2013/01/17/priorities-and-gtd/">Priorities and GTD</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2013/01/16/gtd-again/">GTD again?</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2013/01/15/writing-paralysis/">Writing paralysis</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2013/01/09/steal-my-web-app-idea/">Steal My Web App Idea</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2012/12/30/how-to-change-the-rear-tire-on-a-12-inch-bicycle/">How to change the rear tire on a 12 inch bicycle</a>
+      </li>
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2012/11/05/nsbrief-gets-the-best-guests/">NSBrief gets the best guests</a>
+      </li>
+      
+      
+    </ul>
+  </section>
+  
+  
+
+  <section class="odd">
+    <h1>My Pinboard</h1>
+    <ul id="pinboard_linkroll">Fetching linkroll...</ul>
+    <p><a href="http://pinboard.in/u:vkurup">My Pinboard Bookmarks &raquo;</a></p>
+  </section>
+  <script type="text/javascript">
+  var linkroll = 'pinboard_linkroll'; 
+  var pinboard_user = "vkurup"; 
+  var pinboard_count = 10; 
+  (function(){
+    var pinboardInit = document.createElement('script');
+    pinboardInit.type = 'text/javascript';
+    pinboardInit.async = true;
+    pinboardInit.src = '/js/pinboard.js';
+    document.getElementsByTagName('head')[0].appendChild(pinboardInit);
+  })();
+  </script>
+
+</aside>
+    
+  </div>
+</div>
+    <footer role="contentinfo">
+      <p>Copyright &copy; 2019 Vinod Kurup - <a href="https://kurup.org/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
+      </p>
+    </footer>
+
+    
+    
+    
+
+    
+      <script>
+        var _gaq=[['_setAccount','UA-79447-1'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    
+  </body>
+</html>
+   
+

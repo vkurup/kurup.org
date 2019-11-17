@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>open-source on Vinod Kurup</title>
+    <link>https://kurup.org/categories/open-source/</link>
+    <description>Recent content in open-source on Vinod Kurup</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 24 Nov 2002 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://kurup.org/categories/open-source/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Open Source Medicine</title>
+      <link>https://kurup.org/blog/2002/11/24/open-source-medicine/</link>
+      <pubDate>Sun, 24 Nov 2002 00:00:00 +0000</pubDate>
+      
+      <guid>https://kurup.org/blog/2002/11/24/open-source-medicine/</guid>
+      <description>I wrote up a little intro piece on the use of open source software in medical applications (PDF). HTML below&amp;hellip;
+Improving the communication of patient information is the key to improving healthcare quality and efficiency. In most health care organizations, written records are the main conduit of this information, yet they are notoriously illegible and difficult to browse. Reviewing past problems and past interventions is time-consuming, if not impossible. The record is used mostly as a one-way device for the clinician to record data.</description>
+    </item>
+    
+  </channel>
+</rss>
