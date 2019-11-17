@@ -142,6 +142,66 @@
         
 
 <header>
+  <p class="meta">Nov 17, 2019
+     - 2 minute read 
+     - <a href="https://kurup.org/blog/2019/11/17/hugo/#disqus_thread">Comments</a>
+
+    
+    
+      - <a class="label" href="https://kurup.org/categories/blog/">blog </a>
+    
+  </p>
+  <h1 class="entry-title">
+    <a href="https://kurup.org/blog/2019/11/17/hugo/">Hugo</a>
+  </h1>
+</header>
+
+        
+          <p>I moved my blog from Octopress to <a href="https://gohugo.io/">Hugo</a> today. I had been <a href="https://kurup.org/blog/2014/07/22/pygments-on-arch-linux/">slightly unhappy
+with Octopress for a while now</a>, but
+mainly I just wanted something new to play with. Hugo is MUCH faster than Octopress was:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vkurup@caktus020:~/dev/kurup.org<span style="color:#719e07">(</span>master<span style="color:#719e07">)</span> $ hugo
+
+                   | EN   
++------------------+-----+
+  Pages            | <span style="color:#2aa198">669</span>  
+  Paginator pages  |  <span style="color:#2aa198">29</span>  
+  Non-page files   |   <span style="color:#2aa198">0</span>  
+  Static files     | <span style="color:#2aa198">426</span>  
+  Processed images |   <span style="color:#2aa198">0</span>  
+  Aliases          |   <span style="color:#2aa198">1</span>  
+  Sitemaps         |   <span style="color:#2aa198">1</span>  
+  Cleaned          |   <span style="color:#2aa198">0</span>  
+
+Total in <span style="color:#2aa198">808</span> ms</code></pre></div>
+<p>It is nice to generate my entire site in less than a second.</p>
+
+<p>But I still liked the style and theme of my old site, so I was happy to find that <a href="https://themes.gohugo.io/hugo-octopress/">someone had
+already built an Octopress theme for Hugo</a>. I promptly
+stole his work and customized a few things here and there to make it look (nearly) exactly like my
+old site did. Yay! Thanks to <a href="https://parsiya.net/">Parsia</a> for building that theme. I&rsquo;ve also
+subscribed to his RSS feed because his site looks pretty interesting.</p>
+
+<p>Moving my content wasn&rsquo;t easy, but it wasn&rsquo;t hard. I mainly just copied the old markdown posts over,
+changed the front matter, and then fixed a few octopress plugins I was using to work with Hugo.</p>
+
+<p>Future steps:</p>
+
+<ul>
+<li>Switch from Disqus to something self-hosted</li>
+<li>Generate the HTML on the server rather than having the HTML in git</li>
+<li>Update my About page and Computers page</li>
+<li>&hellip; oh, maybe write more!</li>
+</ul>
+
+        
+      </article>
+      
+      <article>
+        
+        
+
+<header>
   <p class="meta">Apr 8, 2019
      - 1 minute read 
      - <a href="https://kurup.org/blog/2019/04/08/avik-730/#disqus_thread">Comments</a>
@@ -152,7 +212,7 @@
     
   </p>
   <h1 class="entry-title">
-    <a href="https://kurup.org/blog/2019/04/08/avik-730/">Avik 7:30</a>
+     Avik 7:30 
   </h1>
 </header>
 
@@ -214,7 +274,7 @@ His brand new watch, and a 7:30 alarm.</p>
     
   </p>
   <h1 class="entry-title">
-     Triangle Race Series 
+    <a href="https://kurup.org/blog/2018/12/20/triangle-race-series/">Triangle Race Series</a>
   </h1>
 </header>
 
@@ -657,67 +717,6 @@ display.</p>
         
       </article>
       
-      <article>
-        
-        
-
-<header>
-  <p class="meta">Jul 23, 2014
-     - 2 minute read 
-     - <a href="https://kurup.org/blog/2014/07/23/some-emacs-posts/#disqus_thread">Comments</a>
-
-    
-    
-      - <a class="label" href="https://kurup.org/categories/programming/">programming </a><a class="label" href="https://kurup.org/categories/emacs/">emacs </a>
-    
-  </p>
-  <h1 class="entry-title">
-    <a href="https://kurup.org/blog/2014/07/23/some-emacs-posts/">Some Emacs Posts</a>
-  </h1>
-</header>
-
-        
-          <p>A few cool Emacs posts have flown across my radar, so I&rsquo;m noting them here for that time in the
-future when I have time to play with them.</p>
-
-<ul>
-<li><a href="http://endlessparentheses.com/manually-choose-a-fallback-font-for-unicode.html">Get unicode glyphs to show properly</a>. (╯°□°）╯︵ ┻━┻</li>
-<li><a href="http://jr0cket.co.uk/2013/10/create-cool-slides--Org-mode-Revealjs.html/">Creating slides with org-mode and Reveal.js</a>.
-Finally, a sane way to create a presentation :)</li>
-<li><a href="https://github.com/syohex/emacs-anzu">Anzu</a>: Improves incremental search. Anzu shows the number
-of matches found, and how many matches remain in the document.
-
-
-
-
-
-
-
-<span class="caption-wrapper ">
-  <img class="caption" src="https://github.com/syohex/emacs-anzu/raw/master/image/anzu.gif" title="Anzu in action" alt="Anzu in action">
-  <span class="caption-text">Anzu in action</span>
-</span>
-</li>
-<li><a href="http://from-the-cloud.com/en/emacs/2013/01/28_emacs-as-a-django-ide-with-python-djangoel.html">Emacs as a Django IDE</a>:
-I tried this out briefly, but didn&rsquo;t end up sticking with it. It seemed too heavyweight.
-I&rsquo;m probably just too used to my own workflow. I still think it&rsquo;s an interesting idea and would
-like to try it again sometime.</li>
-<li><a href="http://emacsredux.com/blog/2014/07/22/travel-back-and-forward-in-git-history/">Travel back and forth in git history</a>:
-I&rsquo;m addicted to <a href="http://www.emacswiki.org/emacs/Magit">magit mode</a>, to the point that the
-only git command I use manually nowadays is <code>git clone</code>. I do everything else in magit. Magit has
-a <code>magit-blame-mode</code> which shows when each line in a file was changed and by whom.
-<code>git-timemachine</code> seems to take that a step further by visiting each revision, one by
-one. I can think of a few times where that would have been useful.</li>
-<li><a href="https://github.com/omouse/emacs-sos">Search StackOverflow from inside Emacs</a>: Enough said.</li>
-<li><a href="https://github.com/skeeto/elfeed">Emacs RSS client</a>: Still using NewsBlur, but totally miss
-Google Reader. Maybe I need to try this one out.</li>
-<li><a href="http://sachachua.com/blog/series/read-lisp-tweak-emacs/">Sacha Chua&rsquo;s minicourse on Elisp</a>: Have
-to read through this someday!</li>
-</ul>
-
-        
-      </article>
-      
       
       
 
@@ -865,10 +864,16 @@ to read through this someday!</li>
       
       
       <li class="post">
-        <a href="/blog/2019/04/08/avik-730/">Avik 7:30</a>
+        <a href="/blog/2019/11/17/hugo/">Hugo</a>
       </li>
       
       
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2019/04/08/avik-730/">Avik 7:30</a>
+      </li>
       
       
       
@@ -970,12 +975,6 @@ to read through this someday!</li>
       
       <li class="post">
         <a href="/blog/2012/12/30/how-to-change-the-rear-tire-on-a-12-inch-bicycle/">How to change the rear tire on a 12 inch bicycle</a>
-      </li>
-      
-      
-      
-      <li class="post">
-        <a href="/blog/2012/11/05/nsbrief-gets-the-best-guests/">NSBrief gets the best guests</a>
       </li>
       
       

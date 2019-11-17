@@ -142,6 +142,31 @@
         
 
 <header>
+  <p class="meta">May 13, 2004
+     - 1 minute read 
+     - <a href="https://kurup.org/blog/2004/05/13/indian-elections/#disqus_thread">Comments</a>
+
+    
+    
+      - <a class="label" href="https://kurup.org/categories/india/">india </a>
+    
+  </p>
+  <h1 class="entry-title">
+    <a href="https://kurup.org/blog/2004/05/13/indian-elections/">Indian Elections</a>
+  </h1>
+</header>
+
+        
+          <p>India offshores the prime ministership (link broken).</p>
+
+        
+      </article>
+      
+      <article>
+        
+        
+
+<header>
   <p class="meta">Mar 29, 2004
      - 1 minute read 
      - <a href="https://kurup.org/blog/2004/03/29/dan-bern/#disqus_thread">Comments</a>
@@ -756,250 +781,6 @@ dir, but now that I retried it there, it went through smoothly :o)
         
       </article>
       
-      <article>
-        
-        
-
-<header>
-  <p class="meta">Jan 10, 2004
-     - 5 minute read 
-     - <a href="https://kurup.org/blog/2004/01/10/installing-openacs-via-darwinports/#disqus_thread">Comments</a>
-
-    
-    
-      - <a class="label" href="https://kurup.org/categories/openacs/">openacs </a><a class="label" href="https://kurup.org/categories/mac-os-x/">mac-os-x </a>
-    
-  </p>
-  <h1 class="entry-title">
-    <a href="https://kurup.org/blog/2004/01/10/installing-openacs-via-darwinports/">Installing OpenACS via Darwinports</a>
-  </h1>
-</header>
-
-        
-          
-
-<h2 id="installing-openacs-via-darwinports">Installing OpenACS via Darwinports</h2>
-
-<p><a href="/">by Vinod Kurup</a></p>
-
-<hr />
-
-<p>I&rsquo;ve created a Darwinports installation for OpenACS. (<a href="http://en.wikipedia.org/wiki/DarwinPorts" title="Darwinports on Wikipedia">What is Darwinports?</a>). This will allow you to set up a quick test installation
-to try out OpenACS. I wouldn&rsquo;t recommend it for a production (or even a
-development) server. For those purposes, I&rsquo;d strictly follow <a href="http://openacs.org/doc/openacs-5-1/complete-install.html" title="OpenACS Documentation">the OpenACS documentation</a>.</p>
-
-<p>Download my <a href="/files/openacs-dports.tgz" title="OpenACS dport">OpenACS portfiles</a> and stick them in your local darwinports
-repository. If you don&rsquo;t already have a local darwinports repository,
-create one and add its location to <code>/opt/local/etc/ports/sources.conf</code> (I
-use <code>file:///Users/vinod/dports-dev</code>). Here&rsquo;s the steps I took to get
-everything to work (on Mac OS X Panther).</p>
-
-<pre><code>:~$ wget http://www.kurup.org/files/openacs-dports.tgz
-:~$ tar xvzf openacs-dports.tgz
-dports-dev/www/
-dports-dev/www/aolserver-nscache/
-dports-dev/www/aolserver-nscache/Portfile
-dports-dev/www/aolserver-nspostgres/
-dports-dev/www/aolserver-nspostgres/files/
-dports-dev/www/aolserver-nspostgres/files/patch-Makefile.diff
-dports-dev/www/aolserver-nspostgres/Portfile
-dports-dev/www/aolserver-nssha1/
-dports-dev/www/aolserver-nssha1/Portfile
-dports-dev/www/openacs/
-dports-dev/www/openacs/files/
-dports-dev/www/openacs/files/patch-config.diff
-dports-dev/www/openacs/files/patch-functions.diff
-dports-dev/www/openacs/files/patch-install-sh.diff
-dports-dev/www/openacs/files/patch-install-tcl.diff
-dports-dev/www/openacs/files/patch-nsd-postgres.diff
-dports-dev/www/openacs/Portfile
-dports-dev/www/tclwebtest/
-dports-dev/www/tclwebtest/Portfile
-dports-dev/textproc/
-dports-dev/textproc/tdom/
-dports-dev/textproc/tdom/Portfile
---&gt;:~$ cd dports-dev/
-:~/dports-dev$ portindex
-Creating software index in /Users/vinod/dports-dev
-Adding port textproc/tdom
-Adding port www/aolserver-nscache
-Adding port www/aolserver-nspostgres
-Adding port www/aolserver-nssha1
-Adding port www/openacs
-Adding port www/tclwebtest
-
-Total number of ports parsed:   6 
-Ports successfully parsed:  6    
-Ports failed:           0
-
-:~/dports-dev$ cd
-:~$ sudo port install postgresql +server
----&gt;  Fetching postgresql
----&gt;  Attempting to fetch postgresql-7.4.8.tar.bz2 from ftp://ftp2.ch.postgresql.org/mirror/postgresql/source/v7.4.8
----&gt;  Verifying checksum(s) for postgresql
----&gt;  Extracting postgresql
----&gt;  Applying patches to postgresql
----&gt;  Configuring postgresql
----&gt;  Building postgresql with target all
----&gt;  Staging postgresql into destroot
----&gt;  Packaging tgz archive for postgresql 7.4.8_0+darwin_7+server
----&gt;  Installing postgresql 7.4.8_0+darwin_7+server
-
-:~$ sudo su postgres -c '/opt/local/bin/initdb -D /opt/local/var/db/pgsql/defaultdb'
-
-The files belonging to this database system will be owned by user &quot;postgres&quot;.
-This user must also own the server process.
-
-The database cluster will be initialized with locale C.
-
-creating directory /opt/local/var/db/pgsql/defaultdb... ok
-creating directory /opt/local/var/db/pgsql/defaultdb/base... ok
-creating directory /opt/local/var/db/pgsql/defaultdb/global... ok
-creating directory /opt/local/var/db/pgsql/defaultdb/pg_xlog... ok
-creating directory /opt/local/var/db/pgsql/defaultdb/pg_clog... ok
-selecting default max_connections... 50
-selecting default shared_buffers... 300
-creating configuration files... ok
-creating template1 database in /opt/local/var/db/pgsql/defaultdb/base/1... ok
-initializing pg_shadow... ok
-enabling unlimited row size for system tables... ok
-initializing pg_depend... ok
-creating system views... ok
-loading pg_description... ok
-creating conversions... ok
-setting privileges on built-in objects... ok
-creating information schema... ok
-vacuuming database template1... ok
-copying template1 to template0... ok
-
-Success. You can now start the database server using:
-
-    /opt/local/bin/postmaster -D /opt/local/var/db/pgsql/defaultdb
-            or
-    /opt/local/bin/pg_ctl -D /opt/local/var/db/pgsql/defaultdb -l logfile start
-
-    :~$ sudo su postgres -c '/opt/local/bin/pg_ctl -D /opt/local/var/db/pgsql/defaultdb -l /opt/local/var/log/pgsql/defaultdb.log start'
-    postmaster successfully started
-
-    :~$ sudo port install openacs
-
-    ---&gt;  Fetching aolserver
-    ---&gt;  Attempting to fetch aolserver-4.0.10-src.tar.gz from http://kent.dl.sourceforge.net/aolserver
-    ---&gt;  Verifying checksum(s) for aolserver
-    ---&gt;  Extracting aolserver
-    ---&gt;  Configuring aolserver
-    ---&gt;  Building aolserver with target all
-    ---&gt;  Staging aolserver into destroot
-    ---&gt;  Packaging tgz archive for aolserver 4.0.10_0
-    ---&gt;  Installing aolserver 4.0.10_0
-
-    AOLserver installed into /opt/local/aolserver
-
-    You now need to configure the server to your needs. You 
-    might want to create another user (e.g. aolserver) to run 
-    the server.
-    ---&gt;  Activating aolserver 4.0.10_0
-    ---&gt;  Cleaning aolserver
-    ---&gt;  Fetching aolserver-nscache
-    ---&gt;  Attempting to fetch nscache-1.5.tar.gz from http://kent.dl.sourceforge.net/aolserver
-    ---&gt;  Verifying checksum(s) for aolserver-nscache
-    ---&gt;  Extracting aolserver-nscache
-    ---&gt;  Configuring aolserver-nscache
-    ---&gt;  Building aolserver-nscache with target all
-    ---&gt;  Staging aolserver-nscache into destroot
-    ---&gt;  Packaging tgz archive for aolserver-nscache 1.5_0
-    ---&gt;  Installing aolserver-nscache 1.5_0
-    ---&gt;  Activating aolserver-nscache 1.5_0
-    ---&gt;  Cleaning aolserver-nscache
-    ---&gt;  Fetching aolserver-nspostgres
-    ---&gt;  Attempting to fetch nspostgres-4.0.tar.gz from http://kent.dl.sourceforge.net/aolserver
-    ---&gt;  Verifying checksum(s) for aolserver-nspostgres
-    ---&gt;  Extracting aolserver-nspostgres
-    ---&gt;  Applying patches to aolserver-nspostgres
-    ---&gt;  Configuring aolserver-nspostgres
-    ---&gt;  Building aolserver-nspostgres with target all
-    ---&gt;  Staging aolserver-nspostgres into destroot
-    ---&gt;  Packaging tgz archive for aolserver-nspostgres 4.0_0
-    ---&gt;  Installing aolserver-nspostgres 4.0_0
-    ---&gt;  Activating aolserver-nspostgres 4.0_0
-    ---&gt;  Cleaning aolserver-nspostgres
-    ---&gt;  Fetching aolserver-nssha1
-    ---&gt;  Attempting to fetch nssha1-0.1.tar.gz from http://kent.dl.sourceforge.net/aolserver
-    ---&gt;  Verifying checksum(s) for aolserver-nssha1
-    ---&gt;  Extracting aolserver-nssha1
-    ---&gt;  Configuring aolserver-nssha1
-    ---&gt;  Building aolserver-nssha1 with target all
-    ---&gt;  Staging aolserver-nssha1 into destroot
-    ---&gt;  Packaging tgz archive for aolserver-nssha1 0.1_0
-    ---&gt;  Installing aolserver-nssha1 0.1_0
-    ---&gt;  Activating aolserver-nssha1 0.1_0
-    ---&gt;  Cleaning aolserver-nssha1
-    ---&gt;  Fetching tclwebtest
-    ---&gt;  Verifying checksum(s) for tclwebtest
-    ---&gt;  Extracting tclwebtest
-    ---&gt;  Configuring tclwebtest
-    ---&gt;  Building tclwebtest with target all
-    ---&gt;  Staging tclwebtest into destroot
-
-    be sure that /opt/local/lib is included in your TCL path:
-    tcsh: setenv TCLLIBPATH &quot;$TCLLIBPATH /opt/local/lib&quot;
-    bash: export TCLLIBPATH &quot;$TCLLIBPATH /opt/local/lib&quot;
-    ---&gt;  Packaging tgz archive for tclwebtest 0.9_0
-    ---&gt;  Installing tclwebtest 0.9_0
-    ---&gt;  Activating tclwebtest 0.9_0
-    ---&gt;  Cleaning tclwebtest
-    ---&gt;  Fetching tdom
-    ---&gt;  Attempting to fetch tDOM-0.8.0.tar.gz from http://www.tdom.org/files/
-    ---&gt;  Verifying checksum(s) for tdom
-    ---&gt;  Extracting tdom
-    ---&gt;  Configuring tdom
-    ---&gt;  Building tdom with target all
-    ---&gt;  Staging tdom into destroot
-
-    be sure that /opt/local/lib is included in your TCL path:
-    tcsh: setenv TCLLIBPATH &quot;$TCLLIBPATH /opt/local/lib&quot;
-    bash: export TCLLIBPATH=&quot;$TCLLIBPATH /opt/local/lib&quot;
-    ---&gt;  Packaging tgz archive for tdom 0.8.0_0
-    ---&gt;  Installing tdom 0.8.0_0
-    ---&gt;  Activating tdom 0.8.0_0
-    ---&gt;  Cleaning tdom
-    ---&gt;  Fetching openacs
-    ---&gt;  Attempting to fetch openacs-5.1.5.tar.gz from http://openacs.org/projects/openacs/download/download/
-    ---&gt;  Verifying checksum(s) for openacs
-    ---&gt;  Extracting openacs
-    ---&gt;  Applying patches to openacs
-    ---&gt;  Configuring openacs
-    ---&gt;  Building openacs with target all
-    ---&gt;  Staging openacs into destroot
-    ---&gt;  Packaging tgz archive for openacs 5.1.5_0
-    ---&gt;  Installing openacs 5.1.5_0
-    ---&gt;  Activating openacs 5.1.5_0
-    Running the OpenACS install script. (could take 10-15 minutes)
-    OpenACS should now be running with the following settings:
-    url:          http://127.0.0.1
-    serverroot:   /opt/local/openacs/service0
-    logs:         /opt/local/openacs/service0/log
-    PID files:    /opt/local/aolserver/log
-    admin user:   admin@localhost
-    admin passwd: 1
-    UNIX uid:     service0
-    UNIX gid:     web
-
-    Adjust AOLserver settings in /opt/local/openacs/service0/etc/config.tcl
-    Adjust OpenACS settings through the web interface.
-    ---&gt;  Cleaning openacs
-    :~$ 
-</code></pre>
-
-<p>Be patient once the install script starts running. It takes a <strong>long</strong>
-time. Again, this is just a quick and dirty way of trying out OpenACS. I&rsquo;d
-be happy to hear any comments or questions.</p>
-
-<hr />
-
-        
-      </article>
-      
       
       
 
@@ -1150,10 +931,16 @@ be happy to hear any comments or questions.</p>
       
       
       <li class="post">
-        <a href="/blog/2019/04/08/avik-730/">Avik 7:30</a>
+        <a href="/blog/2019/11/17/hugo/">Hugo</a>
       </li>
       
       
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2019/04/08/avik-730/">Avik 7:30</a>
+      </li>
       
       
       
@@ -1255,12 +1042,6 @@ be happy to hear any comments or questions.</p>
       
       <li class="post">
         <a href="/blog/2012/12/30/how-to-change-the-rear-tire-on-a-12-inch-bicycle/">How to change the rear tire on a 12 inch bicycle</a>
-      </li>
-      
-      
-      
-      <li class="post">
-        <a href="/blog/2012/11/05/nsbrief-gets-the-best-guests/">NSBrief gets the best guests</a>
       </li>
       
       

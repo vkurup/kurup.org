@@ -3,8 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://kurup.org/categories/blog/</loc>
+    <lastmod>2019-11-17T15:22:24-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://kurup.org/categories/</loc>
-    <lastmod>2019-11-17T00:00:00+00:00</lastmod>
+    <lastmod>2019-11-17T15:22:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kurup.org/blog/2019/11/17/hugo/</loc>
+    <lastmod>2019-11-17T15:22:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kurup.org/post/</loc>
+    <lastmod>2019-11-17T15:22:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kurup.org/</loc>
+    <lastmod>2019-11-17T15:22:24-05:00</lastmod>
   </url>
   
   <url>
@@ -23,11 +43,6 @@
   </url>
   
   <url>
-    <loc>https://kurup.org/</loc>
-    <lastmod>2019-11-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://kurup.org/blog/2019/04/08/avik-730/</loc>
     <lastmod>2019-04-08T21:19:53+00:00</lastmod>
   </url>
@@ -39,11 +54,6 @@
   
   <url>
     <loc>https://kurup.org/categories/poetry/</loc>
-    <lastmod>2019-04-08T21:19:53+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kurup.org/post/</loc>
     <lastmod>2019-04-08T21:19:53+00:00</lastmod>
   </url>
   
@@ -270,11 +280,6 @@
   <url>
     <loc>https://kurup.org/blog/2012/08/21/thoughts-on-free-will/</loc>
     <lastmod>2012-08-21T12:01:25+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kurup.org/categories/blog/</loc>
-    <lastmod>2012-08-19T07:58:31+00:00</lastmod>
   </url>
   
   <url>

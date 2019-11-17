@@ -6,10 +6,20 @@
     <description>Recent content on Vinod Kurup</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 17 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 17 Nov 2019 15:22:24 -0500</lastBuildDate>
     
 	<atom:link href="https://kurup.org/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://kurup.org/blog/2019/11/17/hugo/</link>
+      <pubDate>Sun, 17 Nov 2019 15:22:24 -0500</pubDate>
+      
+      <guid>https://kurup.org/blog/2019/11/17/hugo/</guid>
+      <description>I moved my blog from Octopress to Hugo today. I had been slightly unhappy with Octopress for a while now, but mainly I just wanted something new to play with. Hugo is MUCH faster than Octopress was:
+vkurup@caktus020:~/dev/kurup.org(master) $ hugo | EN +------------------+-----+ Pages | 669 Paginator pages | 29 Non-page files | 0 Static files | 426 Processed images | 0 Aliases | 1 Sitemaps | 1 Cleaned | 0 Total in 808 ms It is nice to generate my entire site in less than a second.</description>
+    </item>
     
     <item>
       <title>Running</title>

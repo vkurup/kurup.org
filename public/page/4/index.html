@@ -142,6 +142,179 @@
         
 
 <header>
+  <p class="meta">Nov 12, 2011
+     - 4 minute read 
+     - <a href="https://kurup.org/blog/2011/11/12/clojurescript-and-phonegap/#disqus_thread">Comments</a>
+
+    
+    
+      - <a class="label" href="https://kurup.org/categories/clojure/">clojure </a><a class="label" href="https://kurup.org/categories/programming/">programming </a><a class="label" href="https://kurup.org/categories/android/">android </a>
+    
+  </p>
+  <h1 class="entry-title">
+    <a href="https://kurup.org/blog/2011/11/12/clojurescript-and-phonegap/">ClojureScript and PhoneGap</a>
+  </h1>
+</header>
+
+        
+          
+
+<p><a href="http://phonegap.com">Phonegap</a> is a tool that allows you to develop
+apps in HTML5 + javascript and makes it easy to deploy them to
+multiple mobile platforms, including Android and iOS.</p>
+
+<p><a href="https://github.com/clojure/clojurescript">ClojureScript</a> is a dialect
+of the awesome language, <a href="http://clojure.org">Clojure</a>, that compiles to
+Javascript (after a pass through the <a href="http://code.google.com/closure/">Google Closure</a> optimizer). Because Clojure,
+ClojureScript and Google Closure can be confusing terms, I&rsquo;ll use CLJS
+instead of ClojureScript for the remainder of this post.</p>
+
+<p>What I wanted to do: Write a simple CLJS app that runs on my Android
+phone using these tools.</p>
+
+<h3 id="get-helloworld-working-with-phonegap">Get HelloWorld working with PhoneGap</h3>
+
+<p>Following <a href="http://phonegap.com/start#android">these instructions</a> will
+get the Android SDK, Eclipse plugin and PhoneGap working. If you
+already have the Android SDK, you&rsquo;ll be able to skip most of it. I&rsquo;m
+most comfortable in Emacs, so I&rsquo;ll be using that instead of
+Eclipse. Here is the command-line command for creating your project
+(the <code>-t</code> refers to your android target which you can find by doing
+<code>android list avds</code>):</p>
+
+<pre><code>$ android create project -n HelloPhoneGap -t 2 -p HelloPhoneGap -k com.phonegap.helloworld -a App
+</code></pre>
+
+<p>By the end of these instructions, you should have a copy of an app
+called HelloPhoneGap on your phone which, when clicked, shows a
+&lsquo;Hello World&rsquo; screen.</p>
+
+<h3 id="setup-cljs">Setup CLJS</h3>
+
+<p>Follow the <a href="https://github.com/clojure/clojurescript/wiki/Quick-Start">simple instructions</a>,
+recreated here because they&rsquo;re just so simple.</p>
+
+<pre><code>$ git clone git://github.com/clojure/clojurescript.git
+$ cd clojurescript
+$ ./script/bootstrap
+</code></pre>
+
+<p>That&rsquo;s it. The CLJS compiler and REPL are ready to work.</p>
+
+<h3 id="get-helloworld-working-via-html">Get HelloWorld working via HTML</h3>
+
+<p>Follow the
+<a href="https://github.com/clojure/clojurescript/wiki/Quick-Start">instructions</a>
+under the heading <em>Using ClojureScript on a Web Page</em> to build a
+Javascript file and associated HTML file for testing.</p>
+
+<h3 id="put-cljs-and-phonegap-together">Put CLJS and PhoneGap together</h3>
+
+<p>OK, let&rsquo;s make something a little interactive on the phone. I&rsquo;m going
+to build a BMI calculator that takes a person&rsquo;s height and weight in
+Imperial (i.e. American) units and calculates a Body Mass Index. BMI
+is simply weight divided by the square of height, with units of
+kg/m<super>2</super>.</p>
+
+<p>Here&rsquo;s the CLJS file:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-clojure" data-lang="clojure">    (<span style="color:#268bd2">ns </span><span style="color:#268bd2">bmi</span>)
+    
+    (<span style="color:#268bd2">defn </span><span style="color:#268bd2">height</span> [<span style="color:#268bd2">feet</span> <span style="color:#268bd2">inches</span>]
+      (<span style="color:#b58900">-&gt; </span><span style="color:#268bd2">feet</span> (<span style="color:#b58900">* </span><span style="color:#2aa198">12</span>) (<span style="color:#b58900">+ </span><span style="color:#268bd2">inches</span>) (<span style="color:#b58900">* </span><span style="color:#2aa198">2.54</span>) (<span style="color:#b58900">/ </span><span style="color:#2aa198">100</span>)))
+    
+    (<span style="color:#268bd2">defn </span><span style="color:#268bd2">weight</span> [<span style="color:#268bd2">lbs</span>]
+      (<span style="color:#b58900">/ </span><span style="color:#268bd2">lbs</span> <span style="color:#2aa198">2.2</span>))
+    
+    (<span style="color:#268bd2">defn </span><span style="color:#268bd2">bmi</span> [<span style="color:#268bd2">h</span> <span style="color:#268bd2">w</span>]
+      (<span style="color:#268bd2">js/Math.round</span> (<span style="color:#b58900">/ </span><span style="color:#268bd2">w</span> (<span style="color:#b58900">* </span><span style="color:#268bd2">h</span> <span style="color:#268bd2">h</span>))))
+    
+    (<span style="color:#268bd2">defn </span><span style="color:#719e07">^</span><span style="color:#2aa198">:export</span> <span style="color:#268bd2">alertDismissed</span> []
+      <span style="color:#268bd2">nil</span>)
+    
+    (<span style="color:#268bd2">defn </span><span style="color:#719e07">^</span><span style="color:#2aa198">:export</span> <span style="color:#268bd2">displaybmi</span> [<span style="color:#268bd2">form</span>]
+      (<span style="color:#719e07">let </span>[<span style="color:#268bd2">h</span> (<span style="color:#268bd2">height</span> (<span style="color:#268bd2">js/parseInt</span> <span style="color:#268bd2">form.f.value</span>) (<span style="color:#268bd2">js/parseInt</span> <span style="color:#268bd2">form.i.value</span>))
+            <span style="color:#268bd2">w</span> (<span style="color:#268bd2">weight</span> (<span style="color:#268bd2">js/parseInt</span> <span style="color:#268bd2">form.l.value</span>))]
+        (<span style="color:#268bd2">js/navigator.notification.alert</span> (<span style="color:#268bd2">bmi</span> <span style="color:#268bd2">h</span> <span style="color:#268bd2">w</span>) <span style="color:#268bd2">hello.alertDismissed</span>)))</code></pre></div>
+<p>Basically, we create simple functions to convert Imperial heights and
+weights to metric values, calculate a BMI and then use <code>displaybmi</code> to
+parse form parameters, calculate the BMI and show that result in an
+Android notification popup. <code>alertDismissed</code> is a callback that gets
+called when the user dismisses the notification. (I&rsquo;m just discarding
+the information here). Those are the only 2 functions that are needed
+by the HTML file, so those are the only 2 that need the <code>:export</code>
+metadata tag. <code>navigator.notification.alert</code> is a PhoneGap API call
+that does the actual notification.</p>
+
+<p>The calls prefixed by <code>js/</code> are understood by the CLJS compiler to
+refer to the global JavaScript namespace. If you didn&rsquo;t include that
+prefix, the compiler would assume you meant a call in the local
+<code>bmi</code> namespace, which would obviously fail.</p>
+
+<p>Here&rsquo;s the HTML file (in <code>HelloPhoneGap/assets/www/</code>):</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#719e07">&lt;!DOCTYPE HTML&gt;</span>
+&lt;<span style="color:#268bd2">html</span>&gt;
+  &lt;<span style="color:#268bd2">head</span>&gt;
+    &lt;<span style="color:#268bd2">title</span>&gt;BMI calculator&lt;/<span style="color:#268bd2">title</span>&gt;
+    &lt;<span style="color:#268bd2">script</span> type<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;text/javascript&#34;</span> charset<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;utf-8&#34;</span> src<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;phonegap-1.0.0.js&#34;</span>&gt;&lt;/<span style="color:#268bd2">script</span>&gt;
+    &lt;<span style="color:#268bd2">script</span> type<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;text/javascript&#34;</span> charset<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;utf-8&#34;</span> src<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;bmi.js&#34;</span>&gt;&lt;/<span style="color:#268bd2">script</span>&gt;
+  &lt;/<span style="color:#268bd2">head</span>&gt;
+  &lt;<span style="color:#268bd2">body</span>&gt;
+    &lt;<span style="color:#268bd2">h1</span>&gt;BMI calculator&lt;/<span style="color:#268bd2">h1</span>&gt;
+
+    &lt;<span style="color:#268bd2">form</span>&gt;
+      Height: &lt;<span style="color:#268bd2">input</span> name<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;f&#34;</span> size<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;2&#34;</span>&gt; ft. &lt;<span style="color:#268bd2">input</span> name<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;i&#34;</span> size<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;2&#34;</span>&gt; in. &lt;<span style="color:#268bd2">br</span>&gt;
+      Weight: &lt;<span style="color:#268bd2">input</span> name<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;l&#34;</span> size<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;2&#34;</span>&gt; lbs.&lt;<span style="color:#268bd2">br</span>&gt;
+      &lt;<span style="color:#268bd2">input</span> type<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;button&#34;</span> value<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;Calculate BMI&#34;</span> onclick<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;bmi.displaybmi(this.form)&#34;</span>&gt;
+    &lt;/<span style="color:#268bd2">form</span>&gt;
+   &lt;/<span style="color:#268bd2">body</span>&gt;
+&lt;/<span style="color:#268bd2">html</span>&gt;</code></pre></div>
+<p>Now compile the CLJS and move the compiled JS file to
+<code>HelloPhoneGap/assets/www/</code></p>
+
+<pre><code>$ ./bin/cljsc bmi.cljs '{:optimizations :simple :pretty-print true}' &gt; bmi.js
+$ cp bmi.js ~/dev/HelloPhoneGap/assets/www/
+</code></pre>
+
+<p>The <code>:simple</code> value for optimizations and the <code>true</code> value for
+pretty-print make it so that we can read the resulting JS file, but
+can be changed to <code>:advanced</code> and <code>false</code> respectively when ready for
+production.</p>
+
+<p>Now, go back into the HelloPhoneGap Android project and compile it and
+send it to the emulator (<code>C-c C-c i</code> in emacs). You should now have a
+simple BMI calculator working on Android.</p>
+
+
+
+
+
+
+
+
+<span class="caption-wrapper ">
+  <img class="caption" src="/images/bmi.png" title="BMI Android Screenshot" alt="BMI Android Screenshot">
+  <span class="caption-text">BMI Android Screenshot</span>
+</span>
+
+
+<h3 id="next-steps">Next steps</h3>
+
+<p>The promise of PhoneGap is that you could use similar HTML/Javascript
+to create iOS versions as well, but I haven&rsquo;t done that yet. There are
+tons of API calls available on both platforms which are supposed to
+give you the same access that native apps have. Using ClojureScript
+means you get to use a modern functional language to create your app,
+while getting access to the features that only JavaScript APIs
+provide.</p>
+
+        
+      </article>
+      
+      <article>
+        
+        
+
+<header>
   <p class="meta">Sep 8, 2011
      - 2 minute read 
      - <a href="https://kurup.org/blog/2011/09/08/fixing-wireless-on-eeepc/#disqus_thread">Comments</a>
@@ -152,7 +325,7 @@
     
   </p>
   <h1 class="entry-title">
-    <a href="https://kurup.org/blog/2011/09/08/fixing-wireless-on-eeepc/">Fixing wireless on eeePC</a>
+     Fixing wireless on eeePC 
   </h1>
 </header>
 
@@ -1140,87 +1313,6 @@ donating some dollars over there.</p>
         
       </article>
       
-      <article>
-        
-        
-
-<header>
-  <p class="meta">Aug 9, 2011
-     - 3 minute read 
-     - <a href="https://kurup.org/blog/2011/08/09/running-as-a-metaphor-for-life/#disqus_thread">Comments</a>
-
-    
-    
-      - <a class="label" href="https://kurup.org/categories/running/">running </a><a class="label" href="https://kurup.org/categories/writing/">writing </a>
-    
-  </p>
-  <h1 class="entry-title">
-    <a href="https://kurup.org/blog/2011/08/09/running-as-a-metaphor-for-life/">Running as a metaphor for life</a>
-  </h1>
-</header>
-
-        
-          <p>I was thinking the other day, on a run, of course, about the many ways
-that running is a metaphor for life. I&rsquo;ve <a href="/blog/2003/10/28/the-wall-is-not-a-myth/">discussed some of this before with my cousins Dilu and Harish</a> before.</p>
-
-<blockquote>
-<p>&hellip; two roads diverged in a wood, and I &ndash;<br />
-I took the one less traveled by,<br />
-And that has made all the difference.</p>
-</blockquote>
-
-<p>While trail running, I have come to the realization that you never
-have to worry about the fork in the road, nor the decision associated
-with it. During my first trail run in the forest near our home, I was
-amazed by the number of single track trailheads that I saw. I didn&rsquo;t
-take any of them that first day, content to just take the wide dirt
-path along the creek. After a few runs though, I started to take some
-of the single track trails and found myself amongst even more
-beautiful nature. I found more forks in the trails and I agonized a
-bit about taking the right one, mainly so I wouldn&rsquo;t get lost. Now
-that I&rsquo;ve run in the woods dozens of times, I don&rsquo;t worry about the
-fork in the road. I know that I can take one fork today and the other
-fork tomorrow.</p>
-
-<p>Life is like that too. Every decision point seems so important. Making
-the wrong decision seems like it will doom me forever. But, I&rsquo;ve found
-so far that there are very few decisions that are not
-reversible. Certainly some are, but even the important ones like
-career and family don&rsquo;t have to be set in stone. I wish I had come to
-this realization earlier. Every decision seems so final at the time
-that I&rsquo;m making it, but when you look back it seems obvious that there
-are plenty of options available, no matter which path you chose. Even
-knowing that bias, it&rsquo;s hard to remember that when a new decision has
-to be made.</p>
-
-<p>Some of the single track trails have pathmarkers to help keep you on
-the right trail. They are little numbered plastic circles nailed to a
-tree. They are few and far between. Occasionally, you&rsquo;ll come to a
-fork in the trail and there won&rsquo;t be an obvious pathmarker around, so
-you have to make a decision. That can be somewhat stressful, so you
-keep your eyes peeled for pathmarkers as you&rsquo;re running to see if you
-made the right decision. At some point, you&rsquo;ve gone so far without
-seeing a marker that you&rsquo;re almost certain that you&rsquo;ve gone the wrong
-way. Either you keep the faith and keep going, or you turn around and
-try the other fork. There is no right answer.</p>
-
-<p>Life is sometimes like that. We have signposts and decision trees that
-are easy to follow in many cases. But inevitably, there will be a
-point where we have to make a decision without all of the evidence or
-without all of the data or without a clear idea of where we&rsquo;re
-going. Not until you take that leap of faith will you get the signal
-that you&rsquo;ve made the right decision. And sometimes that signal won&rsquo;t
-come for a long time. I&rsquo;m not sure what the point of this is, but it
-seemed very profound at the time while I was running in the woods,
-about to give up, thinking that I had gone down the wrong path, when I
-suddenly saw the elusive pathmarker that confirmed that I was not
-lost. Trail running is like that&hellip; everything is not set in stone and
-predefined. You have to develop your faith and intuition, and if that
-fails, accept that maybe you&rsquo;ll do better next time.</p>
-
-        
-      </article>
-      
       
       
 
@@ -1371,10 +1463,16 @@ fails, accept that maybe you&rsquo;ll do better next time.</p>
       
       
       <li class="post">
-        <a href="/blog/2019/04/08/avik-730/">Avik 7:30</a>
+        <a href="/blog/2019/11/17/hugo/">Hugo</a>
       </li>
       
       
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2019/04/08/avik-730/">Avik 7:30</a>
+      </li>
       
       
       
@@ -1476,12 +1574,6 @@ fails, accept that maybe you&rsquo;ll do better next time.</p>
       
       <li class="post">
         <a href="/blog/2012/12/30/how-to-change-the-rear-tire-on-a-12-inch-bicycle/">How to change the rear tire on a 12 inch bicycle</a>
-      </li>
-      
-      
-      
-      <li class="post">
-        <a href="/blog/2012/11/05/nsbrief-gets-the-best-guests/">NSBrief gets the best guests</a>
       </li>
       
       
