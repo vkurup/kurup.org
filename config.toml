@@ -51,3 +51,6 @@ disqusShortname = "vkurup"
 [[menu.main]]
   Name = "Running"
   URL = "/running"
+
+[blackfriday]
+  fractions = false
