@@ -20,5 +20,5 @@ USER appuser
 
 EXPOSE 5000
 
-CMD ["hugo", "server", "--bind", "0.0.0.0", "--port", "5000", "--watch", "false", "--disableLiveReload"]
+CMD ["hugo", "server", "-b", "https://kurup.org", "--appendPort=false", "--bind", "0.0.0.0", "--port", "5000", "--watch=false"]
 
