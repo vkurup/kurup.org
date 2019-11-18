@@ -6,19 +6,23 @@ pygmentscodefences = true
 pygmentsStyle = "solarized-dark"
 disqusShortname = "vkurup"
 
+[author]
+  name = "Vinod Kurup, MD"
+  email = "vinod@kurup.com"
+
 [permalinks]
   post = "/blog/:year/:month/:day/:title"
 
 [params]
-  author = "Vinod Kurup"
+  author = "Vinod Kurup, MD"
   truncate = false
   description = "Inside Vinod Kurup's brain"
   googleAnalytics = "UA-79447-1"
-  generateTaxonomyList = true
   searchEngineURL = "https://www.google.com/search"
   subtitle = "Hospitalist/programmer in search of the meaning of life"
   rss = true
   remoteFonts = true
+  customCSS = ["css/vinod.css"]
   sidebarRecentLimit = 20
   # sidebar links
   github = "https://github.com/vkurup/"
