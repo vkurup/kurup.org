@@ -6,10 +6,28 @@
     <description>Recent content in Categories on Vinod Kurup</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 17 Nov 2019 15:22:24 -0500</lastBuildDate>
+    <lastBuildDate>Sun, 17 Nov 2019 18:48:24 -0500</lastBuildDate>
     
 	<atom:link href="https://kurup.org/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>family</title>
+      <link>https://kurup.org/categories/family/</link>
+      <pubDate>Sun, 17 Nov 2019 18:48:24 -0500</pubDate>
+      
+      <guid>https://kurup.org/categories/family/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programming</title>
+      <link>https://kurup.org/categories/programming/</link>
+      <pubDate>Sun, 17 Nov 2019 18:48:24 -0500</pubDate>
+      
+      <guid>https://kurup.org/categories/programming/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>blog</title>
@@ -26,15 +44,6 @@
       <pubDate>Sun, 17 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://kurup.org/categories/running/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>family</title>
-      <link>https://kurup.org/categories/family/</link>
-      <pubDate>Mon, 08 Apr 2019 21:19:53 +0000</pubDate>
-      
-      <guid>https://kurup.org/categories/family/</guid>
       <description></description>
     </item>
     
@@ -89,15 +98,6 @@
       <pubDate>Wed, 30 May 2018 21:26:00 +0000</pubDate>
       
       <guid>https://kurup.org/categories/postgresql/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>programming</title>
-      <link>https://kurup.org/categories/programming/</link>
-      <pubDate>Wed, 30 May 2018 21:26:00 +0000</pubDate>
-      
-      <guid>https://kurup.org/categories/programming/</guid>
       <description></description>
     </item>
     

@@ -142,6 +142,144 @@
         
 
 <header>
+  <p class="meta">Jan 15, 2004
+     - 3 minute read 
+     - <a href="https://kurup.org/blog/2004/01/15/compiling-openfts-on-mac-os-x/#disqus_thread">Comments</a>
+
+    
+    
+      - <a class="label" href="https://kurup.org/categories/mac-os-x/">mac-os-x </a><a class="label" href="https://kurup.org/categories/openacs/">openacs </a><a class="label" href="https://kurup.org/categories/software/">software </a>
+    
+  </p>
+  <h1 class="entry-title">
+    <a href="https://kurup.org/blog/2004/01/15/compiling-openfts-on-mac-os-x/">Compiling OpenFTS on Mac OS X</a>
+  </h1>
+</header>
+
+        
+          <p>It wasn&rsquo;t easy, but I finally got OpenFTS-0.3.2-tcl to compile on Mac OS X (10.2.8). I started by reading the excellent Mac OS X porting guides from <a href="http://fink.sourceforge.net/doc/porting/basics.php">Fink</a> and <a href="http://developer.apple.com/documentation/Porting/Conceptual/PortingUnix/intro/chapter_1_section_1.html">Apple</a>. Unfortunately, the OpenFTS Makefile and configure scripts aren&rsquo;t standard, so I had to muck around with things alot. Here&rsquo;s the diff:</p>
+
+<pre><code>diff -U 2 -rbB Search-OpenFTS-tcl-0.3.2/aolserver/Makefile  Search-OpenFTS-tcl-0.3.2-vk/aolserver/Makefile 
+--- Search-OpenFTS-tcl-0.3.2/aolserver/Makefile Tue Nov 19 14:24:44 2002 
++++ Search-OpenFTS-tcl-0.3.2-vk/aolserver/Makefile  Wed Jan 14 23:23:13 2004 
+@@ -13,6 +13,6 @@  
+OBJ       = $(SOBJ) $(POBJ) $(OOBJ) nsfts.o  NSFTSLIB  = nsfts.so -LDSO      
+= gcc -shared  INC       = -I../include -I$(NS_HOME)/include -I$(NS_HOME)/nsd +MODLIBS += -L/sw/lib -L/usr/local/aolserver/lib -ltcl8.4 -lnsd    .SUFFIXES: .c .h .so .l @@ -26,5 +26,5 @@    $(NSFTSLIB): $(OBJ) - $(LDSO) $(OBJ) $(LIBS) -o $(NSFTSLIB) + $(LDSO) $(OBJ) $(LIBS) -o $(NSFTSLIB) $(MODLIBS)    clean: diff -U 2 -rbB Search-OpenFTS-tcl-0.3.2/configure Search-OpenFTS-tcl-0.3.2-vk/configure --- Search-OpenFTS-tcl-0.3.2/configure   Tue Nov 19 14:24:44 2002 +++ Search-OpenFTS-tcl-0.3.2-vk/configure  Wed Jan 14 22:36:44 2004 @@ -2771,4 +2771,16 @@  fi   +# +# Mac OS X 10.2 +# +# vinodk: not sure if all of this is needed/accurate +if test `uname` = &quot;Darwin&quot;; then +    PLATFORM=&quot;osx&quot; +    CC=&quot;cc&quot; +    LD=&quot;cc&quot; +    CFLAGS=&quot;$CFLAGS -no-cpp-precomp&quot; +    LDSO=&quot;$LD -flat_namespace -bundle&quot; +fi +  if test $PLATFORM = &quot;unknown&quot;; then          { { echo &quot;$as_me:2774: error: unknown platform&quot; &gt;&amp;amp;5 
+</code></pre>
+
+<p>Then, follow the instructions in AOLSERVER.INSTALL. I&rsquo;m not too handy with this Makefile/configure stuff, so I&rsquo;d appreciate any guidance on how to do this properly :-).</p>
+
+<div id="comment-box">
+<h2>Comments from old site</h2>
+
+<div class="one-comment">
+<p><b>Doesn't compile on Panther</b></p>
+<p>
+Hi Vinod,
+</p>
+<p>
+Your fix for makefile doesn't seem to be working on Panther. Configure
+script goes through but when compiling I get the following error:
+</p>
+<pre>
+cc -o Parser.so -shared Parser.o deflex.o flexparser.o
+cc: unrecognized option `-shared'
+ld: Undefined symbols:
+_main
+_Tcl_AppendElement
+_Tcl_AppendResult
+_Tcl_CreateObjCommand
+_Tcl_GetIntFromObj
+_Tcl_GetStringFromObj
+_Tcl_NewIntObj
+_Tcl_NewStringObj
+_Tcl_ObjSetVar2
+_Tcl_PkgProvide
+_Tcl_SetObjResult
+make[1]: *** [Parser.so] Error 1
+make: *** [parser] Error 2
+</pre>
+<p>
+I'll keep on searching for what should be changed and will keep you
+posted. Otherwise thanks for spending your time on OS X issues.
+</p>
+
+<address class="signature">
+<span class="author">Jarkko Laine</span>
+<span class="date">2004-02-19 02:31:53</span>
+</address>
+</div>
+
+<div class="one-comment">
+<p><b>-shared option not supported</b></p>
+<p>
+OK, from apple dev docs:
+</p>
+
+<dl>
+<dt><code>-shared</code></dt>
+<dd>In GCC 2, generates shared liibraries. In GCC 3, this
+option is not supported, so you should use libtool (or use ld
+directly) instead. Shared libraries in Mac OS X may be different from
+those you are accustomed to on other platforms. See <a
+href="http://developer.apple.com/documentation/Porting/Conceptual/PortingUnix/compiling/chapter_4_section_7.html#//apple_ref/doc/uid/TP30001003-CH206-TPXREF103">&#8220;Dynamic
+Libraries and Plug-ins&#8221;</a>.</dd>
+</dl>
+<p>Don't know how to fix this in this case, though.</p>
+<address class="signature">
+<span class="author">Jarkko Laine</span>
+<span class="date">2004-02-19 02:57:33</span>
+</address>
+</div>
+
+<div class="my-comment">
+<p><b>untitled</b></p>
+<p>
+Hey Jarkko,
+</p>
+<p>
+I think you're trying to compile all of OpenFTS and that doesn't work
+(at least I haven't tried to get it to work). I just wanted to compile
+the nsfts.so module, which is all that you need for OpenACS. So,
+instead of doing <code>make</code> in the Search-OpenFTS-tcl-0.3.2
+directory, <code>cd aolserver</code> and do the <code>make</code>
+there.
+</p>
+<p>
+I think if you follow the directions in the AOLSERVER.INSTALL file,
+it'll work.
+</p>
+<address class="signature">
+<span class="author">Vinod Kurup</span>
+<span class="date">2004-02-19 23:50:27</span>
+</address>
+</div>
+
+<div class="one-comment">
+<p><b>untitled</b></p>
+<p>
+Thanks, Vinod,
+</p>
+<p>
+You're right. I actually thought I was running the make in aolserver
+dir, but now that I retried it there, it went through smoothly :o)
+</p>
+<address class="signature">
+<span class="author">Jarkko Laine</span>
+<span class="date">2004-02-20 01:42:53</span>
+</address>
+</div>
+
+<p></div></p>
+
+        
+      </article>
+      
+      <article>
+        
+        
+
+<header>
   <p class="meta">Jan 10, 2004
      - 5 minute read 
      - <a href="https://kurup.org/blog/2004/01/10/installing-openacs-via-darwinports/#disqus_thread">Comments</a>
@@ -884,33 +1022,6 @@ big rat race!!!!
         
       </article>
       
-      <article>
-        
-        
-
-<header>
-  <p class="meta">Nov 29, 2003
-     - 1 minute read 
-     - <a href="https://kurup.org/blog/2003/11/29/turkey-trot/#disqus_thread">Comments</a>
-
-    
-    
-      - <a class="label" href="https://kurup.org/categories/running/">running </a><a class="label" href="https://kurup.org/categories/race/">race </a>
-    
-  </p>
-  <h1 class="entry-title">
-    <a href="https://kurup.org/blog/2003/11/29/turkey-trot/">Turkey Trot</a>
-  </h1>
-</header>
-
-        
-          <p>I ran two more races this past week - the <a href="http://web2.nyrrc.org/cgi-bin/start.cgi/aes-programs/results/startup.html?result.id=a31123&amp;amp;result.year=2003">Race to Deliver 4 mile</a> in Central Park on Sunday and the <a href="http://pptc.org/gallery/2003_pptc_turkey_trot/2003_turkey_trot_gallery_01.php">Turkey Trot 5 mile</a> in <a href="http://www.prospectpark.org/index.cfm">Prospect Park</a> yesterday. The Race to Deliver was crowded with 6000 or so other runners and I spent most of the first half of the race just swerving around everyone else. I never quite got into a groove, but I was still able to finish in 32:34.</p>
-
-<p>The Turkey Trot was much more fun. The first half mile was crowded, but the rest of the race was smooth sailing. I&rsquo;d never been to Prospect Park before and I was pleasantly surprised by its beauty. New York City is certainly blessed with great public parks. Anyway, I ran the last 2 miles in 15 minutes to finish in 40:12. I hope to break the 8 minute barrier soon&hellip;</p>
-
-        
-      </article>
-      
       
       
 
@@ -1061,10 +1172,16 @@ big rat race!!!!
       
       
       <li class="post">
-        <a href="/blog/2019/11/17/hugo/">Hugo</a>
+        <a href="/blog/2019/11/17/ports-and-networks/">Ports and networks</a>
       </li>
       
       
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2019/11/17/hugo/">Hugo</a>
+      </li>
       
       
       
@@ -1166,12 +1283,6 @@ big rat race!!!!
       
       <li class="post">
         <a href="/blog/2013/01/09/steal-my-web-app-idea/">Steal My Web App Idea</a>
-      </li>
-      
-      
-      
-      <li class="post">
-        <a href="/blog/2012/12/30/how-to-change-the-rear-tire-on-a-12-inch-bicycle/">How to change the rear tire on a 12 inch bicycle</a>
       </li>
       
       

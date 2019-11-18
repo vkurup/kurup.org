@@ -3,27 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://kurup.org/categories/</loc>
+    <lastmod>2019-11-17T18:48:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kurup.org/categories/family/</loc>
+    <lastmod>2019-11-17T18:48:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kurup.org/blog/2019/11/17/ports-and-networks/</loc>
+    <lastmod>2019-11-17T18:48:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kurup.org/post/</loc>
+    <lastmod>2019-11-17T18:48:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kurup.org/categories/programming/</loc>
+    <lastmod>2019-11-17T18:48:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kurup.org/</loc>
+    <lastmod>2019-11-17T18:48:24-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://kurup.org/categories/blog/</loc>
     <lastmod>2019-11-17T15:22:24-05:00</lastmod>
   </url>
   
   <url>
-    <loc>https://kurup.org/categories/</loc>
-    <lastmod>2019-11-17T15:22:24-05:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://kurup.org/blog/2019/11/17/hugo/</loc>
-    <lastmod>2019-11-17T15:22:24-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kurup.org/post/</loc>
-    <lastmod>2019-11-17T15:22:24-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kurup.org/</loc>
     <lastmod>2019-11-17T15:22:24-05:00</lastmod>
   </url>
   
@@ -44,11 +59,6 @@
   
   <url>
     <loc>https://kurup.org/blog/2019/04/08/avik-730/</loc>
-    <lastmod>2019-04-08T21:19:53+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kurup.org/categories/family/</loc>
     <lastmod>2019-04-08T21:19:53+00:00</lastmod>
   </url>
   
@@ -109,11 +119,6 @@
   
   <url>
     <loc>https://kurup.org/categories/postgresql/</loc>
-    <lastmod>2018-05-30T21:26:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kurup.org/categories/programming/</loc>
     <lastmod>2018-05-30T21:26:00+00:00</lastmod>
   </url>
   

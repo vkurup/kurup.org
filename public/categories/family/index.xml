@@ -6,10 +6,19 @@
     <description>Recent content in family on Vinod Kurup</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Apr 2019 21:19:53 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 17 Nov 2019 18:48:24 -0500</lastBuildDate>
     
 	<atom:link href="https://kurup.org/categories/family/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Ports and networks</title>
+      <link>https://kurup.org/blog/2019/11/17/ports-and-networks/</link>
+      <pubDate>Sun, 17 Nov 2019 18:48:24 -0500</pubDate>
+      
+      <guid>https://kurup.org/blog/2019/11/17/ports-and-networks/</guid>
+      <description>Kavi was looking over my shoulder as I tried to get my blog working in a local Docker container. I&amp;rsquo;ve gotten to the point that the site seems to be up and running in the container, but I can&amp;rsquo;t seem to get to it from my laptop. So, he wondered why I was putting port 1313 in my URL bar (&amp;ldquo;localhost:1313&amp;rdquo;) and then I showed the results of netstat -ant to prove that something should be listening on that port.</description>
+    </item>
     
     <item>
       <title>Avik 7:30</title>

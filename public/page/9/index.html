@@ -142,6 +142,86 @@
         
 
 <header>
+  <p class="meta">Jul 15, 2010
+     - 2 minute read 
+     - <a href="https://kurup.org/blog/2010/07/15/playdoh/#disqus_thread">Comments</a>
+
+    
+    
+      - <a class="label" href="https://kurup.org/categories/family/">family </a><a class="label" href="https://kurup.org/categories/parenting/">parenting </a>
+    
+  </p>
+  <h1 class="entry-title">
+    <a href="https://kurup.org/blog/2010/07/15/playdoh/">PlayDoh</a>
+  </h1>
+</header>
+
+        
+          
+
+<h4 id="kavi-s-bedroom-8pm">Kavi&rsquo;s bedroom - 8PM</h4>
+
+<p>DADDY and KAVI are lying next to each other in KAVI&rsquo;s bed doing their
+bedtime ritual. They have finished singing a song and are recapping the
+day.</p>
+
+<p>DADDY: Did you play with playdoh today?</p>
+
+<p>KAVI: No.</p>
+
+<p>DADDY: Are you sure? Did you play with playdoh this morning before going to
+the Puffin room?</p>
+
+<p>(KAVI thinks)</p>
+
+<p>KAVI: Yes. I did. Why did I play with playdoh?</p>
+
+<p>DADDY: Because you wanted to. You asked me if you could play with it.</p>
+
+<p>KAVI: Why did I want to play with the playdoh?</p>
+
+<p>DADDY: I don&rsquo;t know.</p>
+
+<p>KAVI: Why you don&rsquo;t know?</p>
+
+<p>DADDY: Because. I can&rsquo;t answer that question.</p>
+
+<p>KAVI: Why you can&rsquo;t answer that question?</p>
+
+<p>DADDY: It&rsquo;s a question of your motivation, KAVI. I can speculate about why
+you wanted to play with the playdoh, but I can&rsquo;t tell you why you wanted
+to.</p>
+
+<p>(pause)</p>
+
+<p>KAVI: Why?</p>
+
+<p>DADDY: I can tell you what I want, but I can&rsquo;t tell you what you want.</p>
+
+<p>KAVI: What do you want DADDY?</p>
+
+<p>(DADDY takes a deep breath)</p>
+
+<p>DADDY: A lot of things. I want you to grow up to be a strong, intelligent,
+loving, happy boy. I want Anika to grow up to be a strong, intelligent,
+loving, happy girl. I want Mommy to be able to do what she wants in life. I
+want all of us to travel, spend time with family, and enjoy the world. That&rsquo;s
+what I want.</p>
+
+<p>KAVI: oh.</p>
+
+<p>DADDY: What do you want?</p>
+
+<p>KAVI: Playdoh.</p>
+
+        
+      </article>
+      
+      <article>
+        
+        
+
+<header>
   <p class="meta">Jan 3, 2010
      - 2 minute read 
      - <a href="https://kurup.org/blog/2010/01/03/happy-new-year/#disqus_thread">Comments</a>
@@ -775,52 +855,6 @@ aware of themselves as separate from the actions they are performing.&rdquo;
         
       </article>
       
-      <article>
-        
-        
-
-<header>
-  <p class="meta">Jul 4, 2009
-     - 2 minute read 
-     - <a href="https://kurup.org/blog/2009/07/04/clamz-to-the-rescue/#disqus_thread">Comments</a>
-
-    
-    
-      - <a class="label" href="https://kurup.org/categories/free-software/">free-software </a><a class="label" href="https://kurup.org/categories/linux/">linux </a><a class="label" href="https://kurup.org/categories/music/">music </a>
-    
-  </p>
-  <h1 class="entry-title">
-    <a href="https://kurup.org/blog/2009/07/04/clamz-to-the-rescue/">clamz to the rescue</a>
-  </h1>
-</header>
-
-        
-          <p><a href="http://kottke.org/09/05/99-classical-mp3s-for-8">Kottke</a> linked to some great deals on <a href="http://www.amazon.com/gp/product/B001U1J2S4?ie=UTF8&amp;tag=vinodkurupshomep&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=B001U1J2S4">classical music at amazon</a><img src="http://www.assoc-amazon.com/e/ir?t=vinodkurupshomep&l=as2&o=1&a=B001U1J2S4" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />. In order to download them, you need to have the amazon mp3 downloader installed. They now offer a Debian (linux) version, but I couldn&rsquo;t get it working. It&rsquo;s meant for an older version of Debian, but it doesn&rsquo;t recognize the newer versions of the libraries installed on my system. I thought about doing some fancy apt-getting to try to get the right versions, but just thinking about that made my head throb. Then I heard about <a href="http://code.google.com/p/clamz/">clamz</a>, an open source project to replicate the amazon mp3 downloader. I installed the library packages they recommended (libgcrypt11-dev, libcurl4-openssl-dev, and libexpat1-dev) and then installed it.</p>
-
-<p>I&rsquo;m always a little leary to install packages from source, because then they&rsquo;re not managed by the package manager (apt-get). It becomes more of a tedious process to keep them updated or to uninstall them. To partially workaround that problem, I use a program called <a href="http://www.asic-linux.com.mx/~izto/checkinstall/">checkinstall</a>. It basically creates a package for any program that you want to install from source. So, instead of :</p>
-
-<pre><code>./configure
-make
-sudo make install
-</code></pre>
-
-<p>you do:</p>
-
-<pre><code>./configure
-make
-sudo checkinstall
-</code></pre>
-
-<p>It then creates a .deb and installs it. It asks you for some basic info about the program, but guesses as much as it can and does a decent job. I haven&rsquo;t delved into anything more involved than that, but there are ways to document dependencies which would allow it to be even more integrated into the package management system.</p>
-
-<p>Anyway, it installed perfectly and within seconds I was downloading the music that I had purchased.</p>
-
-<pre><code>vinod@ike:~/Music $ clamz &quot;Desktop/The 99 Most Essential Mozart Masterpieces.amz&quot;
-</code></pre>
-
-        
-      </article>
-      
       
       
 
@@ -971,10 +1005,16 @@ sudo checkinstall
       
       
       <li class="post">
-        <a href="/blog/2019/11/17/hugo/">Hugo</a>
+        <a href="/blog/2019/11/17/ports-and-networks/">Ports and networks</a>
       </li>
       
       
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2019/11/17/hugo/">Hugo</a>
+      </li>
       
       
       
@@ -1076,12 +1116,6 @@ sudo checkinstall
       
       <li class="post">
         <a href="/blog/2013/01/09/steal-my-web-app-idea/">Steal My Web App Idea</a>
-      </li>
-      
-      
-      
-      <li class="post">
-        <a href="/blog/2012/12/30/how-to-change-the-rear-tire-on-a-12-inch-bicycle/">How to change the rear tire on a 12 inch bicycle</a>
       </li>
       
       

@@ -142,6 +142,57 @@
         
 
 <header>
+  <p class="meta">Jul 28, 2014
+     - 1 minute read 
+     - <a href="https://kurup.org/blog/2014/07/28/using-dynamic-queries-in-a-cbv/#disqus_thread">Comments</a>
+
+    
+    
+      - <a class="label" href="https://kurup.org/categories/django/">django </a><a class="label" href="https://kurup.org/categories/programming/">programming </a>
+    
+  </p>
+  <h1 class="entry-title">
+    <a href="https://kurup.org/blog/2014/07/28/using-dynamic-queries-in-a-cbv/">Using dynamic queries in a CBV</a>
+  </h1>
+</header>
+
+        
+          <p>Let&rsquo;s play &lsquo;Spot the bug&rsquo;. We&rsquo;re building a simple system that shows photos. Each photo has a
+<code>publish_date</code> and we should only show photos that have been published (i.e. their <code>publish_date</code> is
+in the past).</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python models.py" data-lang="python models.py"><span style="color:#719e07">class</span> <span style="color:#268bd2">PhotoManager</span>(models<span style="color:#719e07">.</span>Manager):
+    <span style="color:#719e07">def</span> <span style="color:#268bd2">live</span>(<span style="color:#268bd2">self</span>, as_of<span style="color:#719e07">=</span><span style="color:#268bd2">None</span>):
+        <span style="color:#719e07">if</span> as_of <span style="color:#719e07">is</span> <span style="color:#268bd2">None</span>:
+            as_of <span style="color:#719e07">=</span> timezone<span style="color:#719e07">.</span>now()
+        <span style="color:#719e07">return</span> <span style="color:#b58900">super</span>()<span style="color:#719e07">.</span>get_query_set()<span style="color:#719e07">.</span>filter(publish_date__lte<span style="color:#719e07">=</span>as_of)</code></pre></div>
+<p>And the view to show those photos:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python views.py" data-lang="python views.py"><span style="color:#719e07">class</span> <span style="color:#268bd2">ShowPhotosView</span>(ListView):
+    queryset <span style="color:#719e07">=</span> Hero<span style="color:#719e07">.</span>objects<span style="color:#719e07">.</span>live()</code></pre></div>
+<p>Can you spot the bug? I sure didn&rsquo;t&hellip; until the client complained that newly published photos never
+showed up on the site. Restarting the server fixed the problem temporarily. The newly published
+photos would show up, but then any photos published after the server restart again failed to
+display.</p>
+
+<p>The problem is that the <code>ShowPhotosView</code> class is instantiated when the server starts.
+<code>ShowPhotosView.queryset</code> gets set to the value returned by <code>Hero.objects.live()</code>. That, in turn, is a
+<code>QuerySet</code>, but it&rsquo;s a <code>QuerySet</code> with <code>as_of</code> set to <code>timezone.now()</code> <em>WHEN THE SERVER STARTS UP</em>. That
+<code>as_of</code> value never gets updated, so newer photos never get captured in the query.</p>
+
+<p>There&rsquo;s probably multiple ways to fix this, but an easy one is:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python views.py" data-lang="python views.py"><span style="color:#719e07">class</span> <span style="color:#268bd2">ShowPhotosView</span>(ListView):
+    <span style="color:#719e07">def</span> <span style="color:#268bd2">get_queryset</span>(<span style="color:#268bd2">self</span>):
+        <span style="color:#719e07">return</span> Hero<span style="color:#719e07">.</span>objects<span style="color:#719e07">.</span>live()</code></pre></div>
+<p>Now, instead of the queryset being instantiated at server start-up, it&rsquo;s instantiated only when
+<code>ShowPhotosView.get_queryset()</code> is called, which is when a request is made.</p>
+
+        
+      </article>
+      
+      <article>
+        
+        
+
+<header>
   <p class="meta">Jul 23, 2014
      - 2 minute read 
      - <a href="https://kurup.org/blog/2014/07/23/some-emacs-posts/#disqus_thread">Comments</a>
@@ -812,61 +863,6 @@ than I was. Everytime he fell, he got right back on.</p>
         
       </article>
       
-      <article>
-        
-        
-
-<header>
-  <p class="meta">Nov 5, 2012
-     - 2 minute read 
-     - <a href="https://kurup.org/blog/2012/11/05/nsbrief-gets-the-best-guests/#disqus_thread">Comments</a>
-
-    
-    
-      - <a class="label" href="https://kurup.org/categories/programming/">programming </a><a class="label" href="https://kurup.org/categories/openacs/">openacs </a>
-    
-  </p>
-  <h1 class="entry-title">
-    <a href="https://kurup.org/blog/2012/11/05/nsbrief-gets-the-best-guests/">NSBrief gets the best guests</a>
-  </h1>
-</header>
-
-        
-          <p>I&rsquo;m not an OS X programmer, but I&rsquo;ve really enjoyed 2 recent episodes
-of the <a href="http://nsbrief.com/">NSBrief</a> podcast. First was <a href="http://nsbrief.com/59-mark-dalrymple">Mark Dalrymple&rsquo;s interview</a>. Here was
-my 140 character description:</p>
-
-<p><blockquote class="twitter-tweet"><p>So much geeky fun in @<a href="https://twitter.com/borkware">borkware</a>&rsquo;s interview. AOLserver, dtrace, OpenDoc, MPW, need I go on? <a href="http://t.co/JWPPvfaa" title="http://nsbrief.com/59-mark-dalrymple">nsbrief.com/59-mark-dalrym…</a></p>&mdash; Vinod Kurup (@vkurup) <a href="https://twitter.com/vkurup/status/235907385997262848" data-datetime="2012-08-16T01:14:38+00:00">August 16, 2012</a></blockquote>
-<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
-
-<p>Today, I listened to
-<a href="http://nsbrief.com/62-mark-aufflick">Mark Aufflick&rsquo;s interview</a> where
-he talks eloquently about starting your own business. I love the
-perspective he had on his first business and how shutting it down gave
-him the necessary (though painful) experience to make his current
-business work. He also talked about the importance of computing
-history especially given the availability of interesting subjects. He
-ended with great advice on the importance of professionalism.
-Paraphrased: &ldquo;Make sure your team is the most professional side of any
-relationship.&rdquo;</p>
-
-<p>I know <a href="http://borkware.com">Mark</a> and
-<a href="http://mark.aufflick.com/">Mark</a> from the
-<a href="http://openacs.org">OpenACS</a> glory days and it&rsquo;s great to hear how
-well they&rsquo;re doing. Computing history was a prominent part of both
-talks. I think this is important. Old ideas are always new again. Some
-of the ideas that these pioneers had were only limited by the
-horsepower we had to work with at the time. Now thanks to Moore&rsquo;s law,
-those limitations are gone, so we should re-investigate those ideas.
-Or maybe we&rsquo;re all just getting old and like to talk about the
-good-old-days. :-) It&rsquo;s nice to see that they both mentioned the
-OpenACS period of their programming lives as important. It certainly
-was for me. It was also great to hear Mark Aufflick&rsquo;s voice for the
-first time, even though I feel like he&rsquo;s been a friend for many years.</p>
-
-        
-      </article>
-      
       
       
 
@@ -1017,10 +1013,16 @@ first time, even though I feel like he&rsquo;s been a friend for many years.</p>
       
       
       <li class="post">
-        <a href="/blog/2019/11/17/hugo/">Hugo</a>
+        <a href="/blog/2019/11/17/ports-and-networks/">Ports and networks</a>
       </li>
       
       
+      
+      
+      
+      <li class="post">
+        <a href="/blog/2019/11/17/hugo/">Hugo</a>
+      </li>
       
       
       
@@ -1122,12 +1124,6 @@ first time, even though I feel like he&rsquo;s been a friend for many years.</p>
       
       <li class="post">
         <a href="/blog/2013/01/09/steal-my-web-app-idea/">Steal My Web App Idea</a>
-      </li>
-      
-      
-      
-      <li class="post">
-        <a href="/blog/2012/12/30/how-to-change-the-rear-tire-on-a-12-inch-bicycle/">How to change the rear tire on a 12 inch bicycle</a>
       </li>
       
       
