@@ -21,14 +21,14 @@ Here are my [blog posts about running](/categories/running/).
      2 mile    |     11:06 |      N/A |
      5K        |     18:36 |    23:02 |
      13.1 mile |       N/A |  1:41:56 |
-     26.2 mile |       N/A |  4:28:09 |
+     26.2 mile |   5:13:30 |  4:28:09 |
      ----------+-----------+----------+
 
 ### Marathons:
 
 - 2005 NYC: 4:28
 - 2003 Marine Corps: 5:07
-- 2000 Chicago: 5:13
+- [2000 Chicago](http://www.marathonguide.com/results/browse.cfm?MIDD=67001022&Gen=B&Begin=24183&End=24282&Max=27870): 5:13
 
 ### Most miles in a:
 
