@@ -20,3 +20,6 @@ issues for me... soon enough)
 
 <img src="https://media.giphy.com/media/YcVwQaBOtGGAw/giphy.gif">
 
+UPDATE: I figured it out. Hugo's server was listening on localhost inside the container, when it
+needed to be listening on 0.0.0.0. Adding that as a `--bind` parameter fixed the issue (though I had
+to also add `--baseURL` and `--appendPort=false` params, which saddened me.)

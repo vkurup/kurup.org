@@ -33,24 +33,24 @@ disqusShortname = "vkurup"
 
 [[menu.main]]
   Name = "About Me"
-  URL = "/about"
+  URL = "/about/"
   weight = -5
 
 [[menu.main]]
   Name = "Categories"
-  URL = "/categories"
+  URL = "/categories/"
 
 [[menu.main]]
   Name = "Archives"
-  URL = "/post"
+  URL = "/post/"
 
 [[menu.main]]
   Name = "Medicine"
-  URL = "/medicine"
+  URL = "/medicine/"
 
 [[menu.main]]
   Name = "Running"
-  URL = "/running"
+  URL = "/running/"
 
 [blackfriday]
   fractions = false
