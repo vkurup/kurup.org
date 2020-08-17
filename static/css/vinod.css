@@ -1,0 +1,176 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    font-family: "Quattrocento",Georgia,Times,"Times New Roman",serif;
+}
+body>div {
+    background: #fff6d9 top left;
+    border-bottom: 1px solid #bfbfbf
+}
+.sans,
+body>header h2,
+article header p.meta,
+article>footer,
+#content .blog-index footer,
+/*html .gist .gist-file .gist-meta,*/
+#blog-archives a.category,
+#blog-archives time,
+aside.sidebar section,
+body>footer {
+    font-family: "Quattrocento Sans", "Helvetica Neue", Arial, sans-serif
+}
+body>header h1 {
+    font-family: "Quattrocento", "Georgia", "Helvetica Neue", Arial, sans-serif;
+}
+body>header h2 {
+    font-family: "Quattrocento", "Georgia", "Helvetica Neue", Arial, sans-serif
+}
+aside.sidebar {
+    font-size: 90%;
+}
+body>header {
+    background: #570026;
+}
+body>header h2 {
+    color: #ff80b7;
+}
+body>nav {
+    background-color: #e8d9ac;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f1e8cc), color-stop(50%, #e8d9ac), color-stop(100%, #dcc580));
+    background: -webkit-linear-gradient(#f1e8cc, #e8d9ac, #dcc580);
+    background: -moz-linear-gradient(#f1e8cc, #e8d9ac, #dcc580);
+    background: -o-linear-gradient(#f1e8cc, #e8d9ac, #dcc580);
+    background: linear-gradient(#f1e8cc, #e8d9ac, #dcc580);
+    border-top: 1px solid #f9f4e8;
+    border-bottom: 1px solid #ccab48;
+}
+body>nav form .search {
+    font-family: "Quattrocento Sans", "Helvetica Neue", Arial, sans-serif;
+}
+@media only screen and (min-width: 550px) {
+    body>nav a {
+        color: #a5872e;
+        font-family: "Quattrocento Sans", "Helvetica Neue", Arial, sans-serif;
+    }
+    body>nav a:visited {
+        color: #a5872e;
+    }
+}
+#content .blog-index article {
+    font-family: "Quattrocento",Georgia,Times,"Times New Roman",serif;
+}
+@media only screen and (min-width: 550px) {
+    #blog-archives time {
+        font-family: "Quattrocento Sans","Helvetica Neue",Arial,sans-serif;
+    }
+}
+aside.sidebar {
+    color: #6f5d25;
+}
+a.label {
+  text-decoration: none;
+}
+a.label:hover,
+a.label:focus {
+  text-decoration: underline;
+}
+.label {
+  background-color: #570026;
+}
+/* pinboard */
+#pinboard_linkroll .pin-title, #pinboard_linkroll .pin-description {
+  display: block;
+  margin-bottom: .5em;
+}
+#pinboard_linkroll .pin-tag {
+  color: #bc9e3e;
+  text-decoration: none;
+}
+#pinboard_linkroll .pin-tag:hover {
+  text-decoration: underline;
+}
+#pinboard_linkroll .pin-tag:after {
+  content: ',';
+}
+#pinboard_linkroll .pin-tag:last-child:after {
+  content: '';
+}
+/* pinboard - end */
