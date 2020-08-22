@@ -26,15 +26,18 @@ to a cheaper VOIP service. I chose [voip.ms](https://voip.ms) which has been gre
 far.
 
 One Time Costs:
+
 * [OBi110](https://amzn.to/2EivFuP) ATA device: $19.90
 * voip.ms setup fee: $0.40
 * voip.ms e911 setup fee: $1.50
 
 Monthly Costs:
+
 * voip.ms fee for an incoming phone number: $0.85
 * voip.ms e911 monthly fee: $1.50
 
 Per-Minute Costs:
+
 * voip.ms incoming: $0.009 per minute
 
 I'll have to keep an eye on my monthly per-minute costs because there is an unlimited
