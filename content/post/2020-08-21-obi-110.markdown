@@ -1,0 +1,55 @@
+---
+date: 2020-08-21T19:45:00
+title: Using an OBi110 for VOIP service
+categories:
+- homelab
+- phone
+---
+
+<a href="https://www.amazon.com/Obihai-OBi110-Service-Telephone-Adapter/dp/B0045RMEPI/ref=as_li_ss_il?cv_ct_cx=obi110&dchild=1&keywords=obi110&pd_rd_i=B0045RMEPI&pd_rd_r=a3b6c935-3201-4201-bbc6-7d29bbd1c366&pd_rd_w=Ef8IC&pd_rd_wg=nizgM&pf_rd_p=13bf9bc7-d68d-44c3-9d2e-647020f56802&pf_rd_r=A41ZB6SM3B7MVPHCSCCT&psc=1&qid=1598054979&sr=1-1-791c2399-d602-4248-afbb-8a79de2d236f&linkCode=li3&tag=vinodkurupshomep&linkId=235aa511a32550f5368ef9f5910b2806&language=en_US" target="_blank"><img border="0" src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B0045RMEPI&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=vinodkurupshomep&language=en_US" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=vinodkurupshomep&language=en_US&l=li3&o=1&a=B0045RMEPI" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+
+I set up an OBi110 device to provide a landline at home. OK, it's not a land line, it's
+a VOIP (Voice Over Internet Protocol) line, but it performs a similar function. We've
+always had a landline. Our cell phone coverage is spotty at times and ever since Mala
+started working from home, she needs to have a reliable phone line for her global
+conference calls.
+
+The problem is that Spectrum was charging us $44.95 per month plus taxes, which took it
+near $50 every month. I considered a few options including:
+
+* MagicJack
+* Ooma
+* I looked at a few others... can't remember them all
+
+In the end, I settled on buying an [ATA device](https://en.wikipedia.org/wiki/Analog_telephone_adapter) and then connecting it
+to a cheaper VOIP service. I chose [voip.ms](https://voip.ms) which has been great so
+far.
+
+One Time Costs:
+* [OBi110](https://amzn.to/2EivFuP) ATA device: $19.90
+* voip.ms setup fee: $0.40
+* voip.ms e911 setup fee: $1.50
+
+Monthly Costs:
+* voip.ms fee for an incoming phone number: $0.85
+* voip.ms e911 monthly fee: $1.50
+
+Per-Minute Costs:
+* voip.ms incoming: $0.009 per minute
+
+I'll have to keep an eye on my monthly per-minute costs because there is an unlimited
+plan that is $4.25 per month, which I'll switch to if I use more than that per month. In
+any case, this is MUCH cheaper than Spectrum.
+
+Now, if you do any research about the OBi110 device, you'll see everyone telling you not
+to buy it because it is out of service and doesn't support Google Voice. This is true,
+ObiTalk doesn't support the device anymore. When it was supported by the company, you
+could just dial a special code on your phone and it would do all the set up for you.
+Since it's not supported, that procedure doesn't work anymore. But you can [manually configure the device](https://wiki.voip.ms/article/OBi_100/110_%26_OBi_200) with the
+excellent docs from voip.ms, and for a geek like me that was not bad. And yes, you can't
+link a Google Voice number to the device, but I didn't want to do that anyway. I think
+if you wanted to keep using a google voice number, you could probably get pretty close
+by putting a different number on your device (through voip.ms) and then pointing Google
+Voice at that number. Incoming calls would work fine in that way, but I'm not sure about
+outgoing calls. If you want to seamlessly use Google Voice on an ATA device, then OBi110
+isn't for you. You'll need the OBI202 (which was out of stock when I was looking).
