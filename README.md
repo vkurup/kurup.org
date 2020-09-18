@@ -11,37 +11,12 @@ Local Setup
 #. [Install hugo](https://gohugo.io/getting-started/installing/)
 
 
-Dokku setup
-===========
+Github pages setup
+==================
 
-#. Make sure that your SSH config for dokku is set up:
+Followed this: https://gohugo.io/hosting-and-deployment/hosting-on-github/
 
-     Host dokku
-       Hostname git.drkurup.com
-       User dokku
-       RequestTTY yes
-
-#. create the app:
-
-     ssh dokku apps:create 0www  # named this way so it is alpha first, therefore default for dokku
-     ssh dokku apps:create kurup-staging
-     ssh dokku git:set kurup-staging deploy-branch develop
-
-#. add the dokku git remote for production:
-
-     git remote add prod dokku@git.drkurup.com:0www
-     git push prod master
-
-#. add the dokku git remote for staging:
-
-     git remote add staging dokku@git.drkurup.com:kurup-staging
-     git push staging develop
-
-#. add domains:
-
-     ssh dokku domains:add 0www www.kurup.org
-     ssh dokku domains:add 0www kurup.org
-
+TODO: remove git remotes that I am not using
 
 Site changes
 ============
@@ -54,10 +29,8 @@ Site changes
 
      hugo
 
-#. When you're satisfied, commit to develop and push develop to staging:
+#. When you're satisfied, push to github pages:
 
-     git push staging develop
+     ./deploy.sh
 
-#. When you're satisfied with staging, merge develop to master and push master to prod:
-
-     git push prod master
+#. Commit and push the source chnages
