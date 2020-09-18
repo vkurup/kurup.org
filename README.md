@@ -34,3 +34,11 @@ Site changes
      ./deploy.sh
 
 #. Commit and push the source chnages
+
+Domains
+=======
+
+Github pages points kurup.com using the CNAME file in the static directory, and a CNAME
+record at cloudflare for www.kurup.com
+
+Cloudflare points kurup.org here viat https://community.cloudflare.com/t/redirecting-one-domain-to-another/81960
