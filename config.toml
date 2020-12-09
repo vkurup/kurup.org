@@ -22,7 +22,7 @@ disqusShortname = "vkurup"
   subtitle = "Hospitalist/programmer in search of the meaning of life"
   rss = true
   remoteFonts = true
-  customCSS = ["css/vinod.css"]
+  customCSS = ["/css/vinod.css"]
   sidebarRecentLimit = 20
   # sidebar links
   github = "https://github.com/vkurup/"
