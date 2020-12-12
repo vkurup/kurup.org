@@ -8,8 +8,7 @@ categories:
 
 There's this cool thing called Advent of Code, described best
 [here](https://adventofcode.com/2020/about). I found out about it while reading my
-[favorite weekly
-weblog](https://cpbotha.net/2020/12/12/weekly-head-voices-211-table-mountain-run-ish/)
+[favorite weekly weblog](https://cpbotha.net/2020/12/12/weekly-head-voices-211-table-mountain-run-ish/)
 and so I've decided to try my fledgling (maybe flailing is a better word?) Elixir skills
 on it. There are 2 puzzles each day (`day_1_0` and `day_1_1` are my solutions). Here's
 my code for Day 1:
@@ -68,10 +67,9 @@ my code for Day 1:
 ```
 
 The code is also available in Github, which I'll update if I do find time to keep going:
-https://github.com/vkurup/aoc-elixir/
-
-I feel like this could have been done more efficiently with recursion, but I am not
-comfortable enough with recursion to know how...
+https://github.com/vkurup/aoc-elixir/ I feel like this could have been done more
+efficiently with recursion, but I am not comfortable enough with recursion to know
+how...
 
 A sincere thanks to [Eric Wastl](http://was.tl/) for spending the enormous time and energy
 to create cool puzzles like this.
