@@ -1,0 +1,32 @@
+---
+date: 2021-05-09T19:14:52
+title: First Post of 2021
+categories:
+- life
+---
+
+Hi loyal reader(s)! It is nearly halfway through 2021 and this is my first post of the
+year. And writing on this here blog was one of my 2021 resolutions, so I guess that was
+a complete failure. Although, maybe I can make up for it by actually writing more
+regularly over the next few months. It has been a whirlwind of a year for just about
+everyone, right? When the pandemic started, I remember making a list of the things that
+I might want to blog about and the only thing I remember from that list was that I
+wanted to blog about "not wanting to blog about the pandemic". It was just too
+exhausting to think about. And I think I still feel that way. I have written some
+private thoughts about things, but I'll leave them under wraps.
+
+The biggest change in my life is that I am starting a new job tomorrow. I'll be a
+Software Engineer at Kevel, programming in Clojure (among other languages). I've been
+infatuated with Clojure (and functional programming in general) for a long time, so I am
+beyond excited to be able to use it professionally. This is also the first job that I'll
+be starting as a "remote-only" worker. Normally, I'd walk into the office and introduce
+myself to someone and then start to get oriented. It will be weird to do that via an
+online chat of some sort. Am I showing my age?
+
+What else is going on? Well I'm not going to talk about the pandemic, but I do encourage
+people to go [help out people in India](https://aif.org/donate/covid-19-response/) (or
+wherever else people need help.) We are luckily healthy and vaccinated. The kids have
+survived remote schooling and two of them have returned to school partly in-person. I've
+been running and meditating and gardening, all with minimal success.
+
+So, what is up with you all? Hope to write again before the end of the year.
