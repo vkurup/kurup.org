@@ -16,8 +16,6 @@ Github pages setup
 
 Followed this: https://gohugo.io/hosting-and-deployment/hosting-on-github/
 
-TODO: remove git remotes that I am not using
-
 Site changes
 ============
 
@@ -33,7 +31,7 @@ Site changes
 
      ./deploy.sh
 
-#. Commit and push the source chnages
+#. Commit and push the source changes
 
 Domains
 =======
@@ -41,4 +39,4 @@ Domains
 Github pages points kurup.com using the CNAME file in the static directory, and a CNAME
 record at cloudflare for www.kurup.com
 
-Cloudflare points kurup.org here viat https://community.cloudflare.com/t/redirecting-one-domain-to-another/81960
+Cloudflare points kurup.org here via https://community.cloudflare.com/t/redirecting-one-domain-to-another/81960
