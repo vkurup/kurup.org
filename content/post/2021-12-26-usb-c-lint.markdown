@@ -1,0 +1,53 @@
+---
+date: 2021-12-26T08:36:00
+title: USB-C lint
+categories:
+- tech support
+---
+
+## The problem
+
+The USB-C cord kept falling out of my Android phone. It started happening in the car. A
+little bump while driving would make the cord fall out. Then it started happening even
+when I just had it plugged in on a table. I'd come down in the morning and the charge
+would be drained because it hadn't been fully plugged in. Finally, I couldn't even get
+it to charge unless I plugged it in forcefully, and put a book under the cord at a
+certain angle to keep it plugged in.
+
+## The googling
+
+Googling for this problem didn't find anything specific to my phone, but I did find
+people complaining of this issue and other people telling them that this was because of
+lint in the USB-C port.
+[[1]](https://www.reddit.com/r/nexus5x/comments/4morbk/comment/d3xaqew/)
+[[2]](https://www.youtube.com/watch?v=bNlM0i9PUTQ)
+[[3]](https://www.ifixit.com/Answers/View/382427/Whats+the+best+way+to+clean+and+maintain+the+USB-C+port)
+
+I just needed to get that lint out somehow.
+
+## What didn't work
+
+1. Compressed air
+1. A toothpick (it was too thick)
+1. A plastic zip tie (It was too flimsy)
+
+## What did work
+
+A SIM card removal tool. You know, one of those things that they send you with a new
+phone to poke into the SIM card housing to get it to eject? It was the perfect size and
+depth to be able to get all the way around the SIM card and get copious amounts of lint
+(ewww!) out of the port. Now my USB-C cord plugs in with a satisfying click and stays
+connected.
+
+## Philosophical musings
+
+It's weird that this three year old phone now feels new to me. For a while now, I would
+have a little dread every time I went to plug in this phone, knowing that it would be
+fiddly and that I might come down to a dead phone in the morning. Now, with this little
+improvement, I feel a weird warmth towards the phone again, similar to that feeling I
+had when it was a new phone. I cleaned out the lint a few weeks ago, and I still have
+this warm sensation towards it. Every time I plug it in, I get a little burst of
+happiness when it clicks in satisfyingly. It's almost as if seeing a problem with the
+phone that I didn't think would exist, and then seeing a solution to that problem, makes
+me appreciate the phone more than if it had never had that problem. That just feels
+weird and revelatory to me.
