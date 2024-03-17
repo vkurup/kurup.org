@@ -1,0 +1,8 @@
+---
+date: 2024-03-16T20:59:00
+title: Cory Doctorow Rabbit Hole
+categories:
+- writing
+---
+
+I just went down a Cory Doctorow rabbit hole. It started from a link in [Austin Kleon's newsletter](https://austinkleon.com/newsletter/) to [Doctorow's post about his blog being his version of a commonplace book or a Memex](https://pluralistic.net/2021/05/09/the-memex-method/). I remember Doctorow as being one of the early famous bloggers and an early crusader against unending copyright, but I haven't really paid much attention to him since those early days. I distinctly remember when his first book, "Down and Out in the Magic Kingdom" was released for free on the internet. I remember it being surprising because he was "just a blogger" and now he was writing a real book. I was intrigued by some of the ideas in it. Like the concept of Whuffie, which was a social status indicator that everyone could see floating above your head, so that you knew who was important and who was a loser. With augmented reality, this might come true sooner than we think. I actually couldn't initially remember the name of the book so I had to look through his [book list](https://craphound.com/shop/) to find it, and then saw that he's written like 20 books now, many which look really interesting, so my to-read list just grew a bit. I also found his article about [enshittification](https://pluralistic.net/2023/01/21/potemkin-ai/), which I think is one of the best essays I've seen in recent years. I've heard the term a lot, but didn't realize that he had coined it. That article is another reason that I've started to write again, here on a page that I own.
