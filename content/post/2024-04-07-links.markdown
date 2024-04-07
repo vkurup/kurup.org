@@ -1,0 +1,15 @@
+---
+date: 2024-04-07T08:00:00
+title: Links 2024-04-07
+categories:
+- links
+---
+
+* [Old people can build muscle](https://peterattiamd.com/muscle-fiber-shape-and-resistance-training/). Sorry,
+this one is behind a paywall, but it basically describes a study that showed that muscle
+SFI decreased in old people (ages 60-79) with resistance training. Muscle SFI (shape
+factor index) represents how close the cross-sectional shape of your muscle is to the
+shape of a circle, where 1.00 is a circle and the lower the number, the better it is.
+I'd never heard of that metric before. But the good news is that in this study, both
+young and old people were able to decrease their SFI by the same amount over the study
+period.
