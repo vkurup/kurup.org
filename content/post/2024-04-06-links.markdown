@@ -1,0 +1,25 @@
+---
+date: 2024-04-06T19:17:00
+title: Links 2024-04-06
+categories:
+- links
+---
+
+I can't seem to find things on the web as well as I used to. I blame [Google being
+enshittified](https://pluralistic.net/2024/04/04/teach-me-how-to-shruggie/#kagi), but
+whatever the reason, I'm going to post links here. Not sure of the tempo or format but I
+guess I'll figure that out.
+
+* [Lydiard Lacing](https://www.nike.com/a/running-shoe-lacing-techniques). I've been having trouble with my toes and someone mentioned that
+  changing my lacing might help. I've tried Lydiard Lacing for a few weeks and it gives
+  my toes a lot more room. I fear that Nike link will
+  eventually rot, so here's [another explanation](https://www.fieggen.com/shoelace/straightbarlacing.htm).
+
+* [Big Three](https://www.chirocentre.com.au/stuart-mcgills-big-three-low-back-exercises/). Three exercises I've been doing for my back
+
+* [RockAuto](https://www.rockauto.com/) -  An alternative to Amazon for car parts. I
+  needed wiper blades, so checked where [reddit recommended to buy them](https://www.reddit.com/r/cars/comments/m85oc8/whats_your_favorite_website_to_buy_parts_from_and/)
+  and also [which brand to buy](https://www.reddit.com/r/BuyItForLife/comments/120synn/any_good_wiper_blades/).
+
+* [MediaCMS](https://www.reddit.com/r/selfhosted/comments/pagkh8/mediacms_a_modern_fully_featured_open_source/) -
+  Someday I'd like to try this out for all the family photos and videos we have.
