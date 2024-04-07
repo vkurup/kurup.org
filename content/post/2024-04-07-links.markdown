@@ -13,3 +13,8 @@ shape of a circle, where 1.00 is a circle and the lower the number, the better i
 I'd never heard of that metric before. But the good news is that in this study, both
 young and old people were able to decrease their SFI by the same amount over the study
 period.
+
+* Not a link, but a nice quote:
+
+> Wrong decisions are part of life. Being able to make them work anyway is one of the abilities of those who are successful.
+> — Warren Buffett
