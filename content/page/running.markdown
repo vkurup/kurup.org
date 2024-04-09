@@ -6,7 +6,7 @@ categories:
 - running
 ---
 
-Hi, I'm a runner and have been for almost 30 years now. I suppose I'm
+Hi, I'm a runner and have been for more than 30 years now. I suppose I'm
 only going to get slower from here on in, so I thought I should list
 all my PR's so that I can brag while I can.
 
@@ -26,8 +26,8 @@ Here are my [blog posts about running](/categories/running/).
 
 ### Marathons:
 
-- 2005 NYC: 4:28
-- 2003 Marine Corps: 5:07
+- [2005 NYC](https://results.nyrr.org/event/a51106/finishers#search=Vinod%2520Kurup): 4:28
+- [2003 Marine Corps](https://www.marathonguide.com/results/browse.cfm?MIDD=41031026): 5:07
 - [2000 Chicago](http://www.marathonguide.com/results/browse.cfm?MIDD=67001022&Gen=B&Begin=24183&End=24282&Max=27870): 5:13
 
 ### Most miles in a:
