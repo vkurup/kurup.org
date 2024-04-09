@@ -1,4 +1,4 @@
-baseURL = "https://vkurup.github.io/"
+baseURL = "https://kurup.com/"
 languageCode = "en-us"
 title = "Vinod Kurup"
 theme = ["vinod", "Hugo-Octopress"]
@@ -58,3 +58,8 @@ disqusShortname = "vkurup"
 
 [blackfriday]
   fractions = false
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
