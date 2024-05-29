@@ -1,0 +1,10 @@
+---
+date: 2024-04-15T08:00:00
+title: Links 2024-04-15
+categories:
+- links
+---
+
+* [Building a home server rack](https://mtlynch.io/building-first-homelab-rack/). I'll probably never do this, but if I do, I'll re-read this guide.  He explains things from a true beginner point of view, [documenting his honest mistakes so that others don't make them](https://mtlynch.io/building-first-homelab-rack/#cage-nuts-arent-supposed-to-hurt).
+
+* [Manning has free software engineering books](https://www.manning.com/corporate-splash)
