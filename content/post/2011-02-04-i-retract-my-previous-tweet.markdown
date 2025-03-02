@@ -16,7 +16,7 @@ Last week, my 1996 Altima died. The starter seemed to be firing, but the engine 
 We tried jumping it, but that didn't work. I called a tow truck and then tweeted about how upset I
 was with the universe.
 
-{{< tweet 31553126746038272 >}}
+{{< tweet user="vkurup" id="31553126746038272" >}}
 
 Snarky, huh? Even stuck the childish #kthxbye in there. Blaming the
 universe is kinda like getting upset with God, in a scientist's mind.
@@ -59,7 +59,7 @@ steady and reliable throughout that time. How lucky can a guy get?
 The Nissan is pushing 140,000 miles and it's not the most convenient
 car with the 2 carseats taking up the whole back seat, so I think it's
 time for a new car, but how lucky that I have the luxury of taking my
-time to find one? 
+time to find one?
 
 So, Thank you Universe! I look forward to the next lesson that you've
 got in store for me.

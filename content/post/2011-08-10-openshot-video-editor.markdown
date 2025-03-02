@@ -18,7 +18,7 @@ working with at the time.) I loved OS X for a while, especially on my
 by it. I wanted to be able to configure more. When the hard drive on
 that Powerbook died, I decided to move to all linux.
 
-{{< tweet 1207289044 >}}
+{{< tweet user="vkurup" id="1207289044" >}}
 
 I am happy and productive, but I am occasionally jealous of Mac OS X. I set
 up a Mac Airbook for my mother-in-law a few months ago and ... can I
